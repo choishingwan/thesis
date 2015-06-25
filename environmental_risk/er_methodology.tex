@@ -1,0 +1,91 @@
+\externaldocument{environmental_risk/er_rtPCR_primer.tex}
+
+Can more or less copy from the paper. 
+Need to actually give rationale behind all the analysis instead of the short version of that in the paper.
+\subsection{Mouse model}
+\subsubsection{Sample Collection}
+Two pregnant female C57BL/6N mice were obtained from the University of Hong Kong Laboratory Animal Unit (HKU-LAU).
+Both animals were housed at standard temperature (21$\pm$1\degree C ) and humidity (55$\pm$5$\%$ ) under normal light-dark conditions (12hr light/12hr dark with lights on between 7:00 and 19:00).
+Food and water were available \textit{ad lib}.
+All experimental protocols were approved by the Committee on the Use of Live Animals in Teaching and Research at HKU (CULATAR 3070-13) and also from the Department of Health, HKSAR (12-731) and were carried out in accordance with the approved guidelines. 
+
+The day on which the vaginal plug was found was designated as GD 0.
+On GD 9, one pregnant mouse was randomly assigned as case and received a single dose of PolyI:C (5mg/kg) via the tail vein under mild physical restraint, whereas the control mouse received a single dose of 0.9$\%$ saline (5ml/kg)\cite{Li2009c}.
+The pregnant dams were sacrificed by cervical dislocation, 6 hours after the injection and fetuses were extracted individually.
+
+The reason of the 6 hour time point was
+%Need to explain why we select the 6 hour time point here
+A cut was made posterior to the fourth ventricles under the dissecting microscope to separate the head of each fetus\cite{Mason1993a}, which was then frozen immediately in liquid nitrogen until RNA extraction. 
+
+
+\subsubsection{DNA extraction and foetal sexing}
+Genomic DNA was extracted from the bodies of the fetuses, which were kept separately, using the TIANamp Genomic DNA kit (Tiangen, Cat. no. DP304) following the manufacturer's instructions.
+The fetuses were then sexed by polymerize chain reaction (PCR) using primers as described in \citet{Clapcote2005}.
+ 7 out of 10 fetuses from the PolyI:C dam and 5 out of 8 fetuses from the Saline dam were male.
+
+
+\subsection{RNA Sequencing}
+\subsubsection{RNA extraction, library construction and sequencing}
+Total RNA was extracted from each fetal brain using RNeasx10-Micro-Kit (Qiagen, Cat. No. 74004) following the manufacturer’s instructions. 
+RNA quality was assayed using the Agilent 2100 Bioanalyzer and RNA was quantified using the Qubit 1.0 Fluorometer. 
+Samples with an RNA integrity number (RIN) $\ge$ 9.5 were selected for sequencing (5 cases, 5 controls). 
+The RNA-Seq library was performed at the Centre for Genomic Sciences, HKU, using the TruSeq Stranded mRNA Sample Prep Kit. 
+The External RNA Controls Consortium (ERCC) spike-in control\cite{Jiang2011} was included as an internal control. 
+All samples were sequenced using Illumina Hiseq at two lanes (2 $\times$ 101 bp paired-end reads) at Macrogen.
+
+\subsubsection{Analyses of differential gene expression, gene ontology and gene set enrichment}
+%Should I also compare the performance of different alignment tools and DE analysis tools?
+
+The sequence reads were subject to quality control (QC) using FastQC \cite{SimonAndrews} and mapped to the \organism{Mus musculus} reference genome (mm10, Ensembl GRCm38.74) and ERCC reference using the STAR aligner (version 2.3.1v)\cite{Dobin2013}.
+The read count per gene for each sample was calculated with HTseq (version 0.5.4p5)\cite{Anders.2011}.
+Differential gene expression analysis was performed using the DESeq2 package (version 2.1.4.5)\cite{Anders2010}.
+In order to reduce noise associated with low expression, genes with base mean count $<$ 10 were removed from all analyses.
+Outliers were replaced using the \textit{replaceOutliersWithTrimmedMean} function in DESeq2\cite{Anders2010}. Genes with p-value passing the Bonferroni corrected p-value $<$ 0.05 were defined as differentially expressed genes (DEGs). 
+
+Gene Ontology (GO) based enrichment analysis of DEGs was performed using GOrilla\cite{Eden2009}, which takes a list of DEGs as input and tests whether a particular GO term is overrepresented in the input list when compared to the background gene list.
+Up-regulated and down-regulated gene lists were input separately.
+%Explain why we perform the GO using the REViGO
+GO enrichment results were then sent to REViGO\cite{Supek2011} to summarize the GO results and obtain the significant representative GO terms.
+Gene set enrichment analysis was conducted using the \function{userListEnrichment}\cite{Miller2011} function in R to identify known brain-related gene sets enriched in DEGs.
+A description of these brain-related gene sets can be found in http://www.inside-r.org/packages/cran/WGCNA/docs/userListEnrichment.
+Only gene sets with a Bonferroni corrected p-value $<$ 0.05 were considered as significant. 
+
+\subsection{Combining with external microarray controls}
+%Need to explain why we perform this analysis
+We repeated all analyses mentioned above using control microarrays GD9 C57BL/6 mouse fetal brain expression data (N=5) from GEO (GSE8091\cite{Hartl2008}) obtained using GEOquery (version 2.30.0)\cite{Davis2007}.
+In order to remove effects due to platform differences, our RNA-Seq data was first variance stabilized (\function{varianceStabilizingTransformation} function in DESeq2\cite{Anders2010}) and then combined with the normalized microarray data using the Combat algorithm\cite{Johnson2007} under the sva package (version 3.10.0) in R.
+Scripts used in all analyses are available online at https://github.com/choishingwan/RNA-Seq-Analysis. 
+
+\subsection{Test for burden of genetic risk variants in the enriched brain-related gene sets in schizophrenia and autism patients }
+To establish the Proof of Concept that the enriched brain-related gene sets discovered are relevant to schizophrenia and other neuropsychiatric diseases in humans, we tested for 
+\begin{enumerate*}[label=\roman*)]
+	\item whether there was an excess of reported \textbf{rare} \textit{de novo} genetic mutations in these gene sets in previous studies of autism and schizophrenia patients\cite{Fromer2014,ORoak2012,Sanders2012,Neale2012} using a hyper geometric test; and
+	\item whether there was greater evidence of association of \textbf{common} genetic variants with schizophrenia\cite{Ripke2013} and autism\cite{Anney2010a} in these gene sets then in the genome as a whole using a set analysis algorithm\cite{Ideker2002}. 
+\end{enumerate*}
+Briefly, p-values of genes were first converted into a z-score $z_i$. 
+To produce the z-score for each individual gene sets, we sum the z-score within each individual gene sets $z_{gene\ set} = \sum_i^kz_i$ where $k$ is the number of genes within the specific gene set. 
+To obtain the background distribution, we construct 10,000 random gene sets of size $k$ using permutation. 
+We can then calculate the mean $z_\mu$ and standard deviation $z_\sigma$ of z-score for gene sets of size $k$.
+Therefore, we can calculate the significance of enrichment of the gene set as
+$$
+S_{gene\ set}=\frac{z_{gene\ set}-z_\mu}{z_\sigma}
+$$
+Which allow us to obtain the p-value using $S_{gene\ set}$. 
+The script for this analysis can be also be found at https://github.com/choishingwan/RNA-Seq-Analysis. 
+
+
+\subsection{Real time PCR (RT-PCR) validation of RNA-Seq data}
+We validated the RNA-Seq results using real time-PCR on the same samples plus six additional samples from two independent dams (Saline = 8, PolyI:C = 8).
+Unfortunately, due to the small tissue size, there were only enough materials for 5 genes for rt-PCR. 
+Therefore, 4 DEGs (\gene{Akt3}, \gene{Eomes}, \gene{Lama5} and \gene{Robo3}), together with the reference $\beta$-Actin(\gene{Actb}) were selected. 
+Primers (designed by Invitrogen) are listed in \ref{suppleTab:rtPCR}. 
+cDNA was synthesized using SuperScript III reverse transcriptase (Invitrogen). 
+RT- PCR was performed by using 2μl of cDNA product in each reaction on the ABI prism 7900HT Sequence Detection System.
+All reactions were run in triplicate and cycle threshold (CT) values for the four genes were normalized with $\beta$-Actin (\gene{Actb}) as the reference. 
+A Student’s T-test was performed to compare the normalized CT values between the PolyI:C fetuses and the saline fetuses for each of the four genes\cite{Yuan2006}.
+
+
+\subsection{Alternative splicing}
+Uncertain whether if we should do this or not
+\subsection{De-novo Assembly} 
+Same as above

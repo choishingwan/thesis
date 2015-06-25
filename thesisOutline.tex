@@ -1,0 +1,81 @@
+\documentclass{report}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{gensymb}
+\usepackage{xr}
+\usepackage[inline]{enumitem}
+\usepackage[natbib=true, style=numeric-comp,subentry,backend=biber,sorting=none]{biblatex}
+\bibliography{citation/Thesis}
+\usepackage[hidelinks]{hyperref}
+
+\title{Thesis outline \\
+\large Genetic and Environmental risk factors of Neurodevelopmental disorders}
+\date{\today}
+\author{Choi Shing Wan}
+\renewcommand*\contentsname{Table of Content}
+
+\newcommand{\gene}[1]{\textit{#1}}
+\newcommand{\organism}[1]{\textit{#1}}
+\newcommand{\function}[1]{\textit{#1}}
+\begin{document}
+\maketitle
+\chapter*{Declaration}
+\chapter*{Acknowledgements}
+\tableofcontents
+
+\input{general_introduction/gi_main.tex}
+
+
+\chapter{Environmental risk factors of Neurodevelopmental disorders}
+\section{Introduction}
+\input{environmental_risk/er_introduction.tex}
+\section{Material and Methods}
+\input{environmental_risk/er_methodology.tex}
+\section{Result}
+\input{environmental_risk/er_result.tex}
+\section{Discussion}
+\section{Conclusion}
+\section{Supplementary Materials}
+\input{environmental_risk/er_rtPCR_primer}
+
+\chapter{Genetic risk factors of Neurodevelopmental disorders}
+\section{Introduction}
+\subsection{Heritability estimate}
+\subsubsection{Heritability explained by Common SNPs}
+\subsubsection{Missing Heritability}
+\subsubsection{Risk Prediction}
+\subsection{Challenge of heritability estimation}
+\section{Methodology}
+\subsection{Estimation of heritability using test-statistic}
+\subsection{Simulation}
+\subsubsection{Quantitative Traits}
+\paragraph{Genome Wide Association Studies}
+\paragraph{Exome Sequencing / Targeted Sequencing}
+\subsubsection{Case Control Studies}
+\subsection{Comparing with existing software}
+\subsubsection{Quantitative Traits}
+\paragraph{Genome Wide Association Studies}
+\paragraph{Exome Sequencing / Targeted Sequencing}
+\subsubsection{Case Control Studies}
+
+\subsection{Estimate the heritability of neurodevelopmental disorders}
+\section{Result}
+\section{Discussion}
+
+
+
+\section{Conclusion}
+
+
+\chapter{Summary and Conclusion}
+
+
+\printbibliography
+
+\chapter*{Appendix}
+\end{document}
