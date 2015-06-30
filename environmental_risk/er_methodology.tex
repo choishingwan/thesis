@@ -12,13 +12,17 @@ All experimental protocols were approved by the Committee on the Use of Live Ani
 The day on which the vaginal plug was found was designated as GD 0.
 On GD 9, one pregnant mouse was randomly assigned as case and received a single dose of PolyI:C (5mg/kg) via the tail vein under mild physical restraint, whereas the control mouse received a single dose of 0.9$\%$ saline (5ml/kg)\cite{Li2009c}.
 The pregnant dams were sacrificed by cervical dislocation, 6 hours after the injection and fetuses were extracted individually.
-
-The reason of the 6 hour time point was
-%Need to explain why we select the 6 hour time point here
 A cut was made posterior to the fourth ventricles under the dissecting microscope to separate the head of each fetus\cite{Mason1993a}, which was then frozen immediately in liquid nitrogen until RNA extraction. 
-
+The reason of the 6 hours time point extraction were based on observation of \citet{Meyer2006}.
+\citet{Meyer2006} demonstrated PolyI:C administration leads to a marked increase in maternal serum cytokine levels of IL-1$\beta$, IL-6, IL-10 and TNF-$\alpha$.
+More importantly, an significant increase in IL-1$\beta$ and IL-6 level can be observed in the fetal brain 6 hours after the injection. 
+Although the significant increase of IL-6 level can also be observed in the fetal brain 3 hours after treatment, we decided that the 6 hour time point might allow slightly more time for the perturbation of cytokine affects the fetal brain gene expression level. 
+Thus, we selected the 6 hour time point for the fetal brain extraction in the hope to observe the immediate effect of PolyI:C insult to the fetal brain expression pattern.
 
 \subsubsection{DNA extraction and foetal sexing}
+As a pilot study, we would like to focus our analysis only on the male fetus.
+However, due to the early gestation day, where the genital system of the mouse has yet developed, it becomes impossible to determine the sex of the fetus through physical features. 
+To identify the sex of the fetus, Polymerase Chain Reaction(PCR) were performed to determine the sex of the fetus based on genes presented on the sex chromosomes (XY) based on the protocol suggested by \citet{Clapcote2005}. 
 Genomic DNA was extracted from the bodies of the fetuses, which were kept separately, using the TIANamp Genomic DNA kit (Tiangen, Cat. no. DP304) following the manufacturer's instructions.
 The fetuses were then sexed by polymerize chain reaction (PCR) using primers as described in \citet{Clapcote2005}.
  7 out of 10 fetuses from the PolyI:C dam and 5 out of 8 fetuses from the Saline dam were male.
@@ -43,9 +47,9 @@ In order to reduce noise associated with low expression, genes with base mean co
 Outliers were replaced using the \textit{replaceOutliersWithTrimmedMean} function in DESeq2\cite{Anders2010}. Genes with p-value passing the Bonferroni corrected p-value $<$ 0.05 were defined as differentially expressed genes (DEGs). 
 
 Gene Ontology (GO) based enrichment analysis of DEGs was performed using GOrilla\cite{Eden2009}, which takes a list of DEGs as input and tests whether a particular GO term is overrepresented in the input list when compared to the background gene list.
-Up-regulated and down-regulated gene lists were input separately.
-%Explain why we perform the GO using the REViGO
-GO enrichment results were then sent to REViGO\cite{Supek2011} to summarize the GO results and obtain the significant representative GO terms.
+Up-regulated and down-regulated gene lists were input separately such that we may identify GO terms corresponding to the up- and down-regulated gene lists.
+As GO terms tends to be redundant and overlaps with each other, it will aid the interpretation of GO results based by clustering and reducing the GO terms based on their similarity. 
+As a result of that, GO enrichment results were then sent to REViGO\cite{Supek2011} to summarize the GO results and obtain the significant representative GO terms.
 Gene set enrichment analysis was conducted using the \function{userListEnrichment}\cite{Miller2011} function in R to identify known brain-related gene sets enriched in DEGs.
 A description of these brain-related gene sets can be found in http://www.inside-r.org/packages/cran/WGCNA/docs/userListEnrichment.
 Only gene sets with a Bonferroni corrected p-value $<$ 0.05 were considered as significant. 

@@ -5,13 +5,22 @@
 \usepackage{graphicx}
 \usepackage{fullpage}
 \usepackage{multirow}
+\usepackage{setspace}
 \usepackage{booktabs}
 \usepackage{gensymb}
 \usepackage{xr}
 \usepackage[inline]{enumitem}
 \usepackage[natbib=true, style=numeric-comp,subentry,backend=biber,sorting=none]{biblatex}
-\bibliography{citation/Thesis}
+\addbibresource{citation/Thesis.bib}
 \usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\itshape \nouppercase \rightmark}
+\fancyhead[LO,RE]{\itshape \nouppercase Chapter \arabic{chapter}}
+\setlength{\headheight}{40.0pt}
+\setlength{\headsep}{0.2in}
+\addtolength{\topmargin}{-4\baselineskip}
+
 
 \title{Thesis outline \\
 \large Genetic and Environmental risk factors of Neurodevelopmental disorders}
@@ -28,6 +37,7 @@
 \chapter*{Acknowledgements}
 \tableofcontents
 
+ \onehalfspacing
 \input{general_introduction/gi_main.tex}
 
 
