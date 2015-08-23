@@ -1,8 +1,116 @@
-\subsection{Quality of the reads}
+\subsection{Quality Control and Alignment}
+Figure \ref{fig:schematicMIA} summarizes the overall study design and results obtained.
+On average, 39 million reads were generated for each sample. 
+Over 90$\%$ of reads were uniquely mapped to the \organism{Mus musculus} reference genome (mm10, Ensembl GRCm38.74) and the ERCC spike-in control reference using STAR\cite{Dobin2013}. 
+Read counts of the External RNA Controls Consortium (ERCC) spike-in control were highly correlated with their true concentration (Pearson’s R $\le$ 0.956)(Table \ref{tab:ercc_correlation}), indicating that the RNA Seq read counts were representative of the true mRNA concentration.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.9\textwidth]{environmental_risk/image/er_flowchart.png}
+	\caption{Schematic of the experimental flow. 
+		Fetal mouse brains were extracted and used for RNA Sequencing. 
+		DESeq2 were used to generate the differential expressed gene (DEG) list and also stabilize the variance of the gene expression counts. 
+		Functional enrichment analysis were then performed on the DEG list using GOrilla, REViGO and the userListEnrichment function. 
+		Stabilzed gene counts were then merged with the external microarray control using ComBat where the differential expression analysis and functional enrichment were again performed}\label{fig:schematicMIA}
+\end{figure}
+\begin{table}[h]
+	\centering
+	\caption{Correlation between the true concentration and the normalized RNA Seq read counts.
+		The high correlation indicates that the RNA Seq read counts are representative of the true concentration.}
+	\label{tab:ercc_correlation}
+	\begin{tabular}{rr}
+		\toprule
+		& \textbf{True Concentration} \\
+		\midrule
+		\textbf{Case 1} & 0.964 \\
+		\textbf{Case 2} & 0.969 \\
+		\textbf{Case 3} & 0.968 \\
+		\textbf{Case 4} & 0.960 \\
+		\textbf{Case 5} & 0.963 \\
+		\textbf{Control 1} & 0.967 \\
+		\textbf{Control 2} & 0.964 \\
+		\textbf{Control 3} & 0.960 \\
+		\textbf{Control 4} & 0.959 \\
+		\textbf{Control 5} & 0.966 \\
+		\bottomrule
+	\end{tabular}%
+\end{table}
+\\
+\\
+
+
 
 \subsection{Differential gene expression analysis}
-\subsubsection{Functional enrichment}
+A total of 16,015 genes passed QC, of which 3,430 genes were differentially expressed (1,775 up-regulated and 1,655 down-regulated) with a Bonferroni-corrected p-value $<$ 0.05. 
+A volcano plot of PolyI:C versus Saline for all genes is presented in Figure \ref{subfig1:deseqVoc}, with the significantly up- and down-regulated genes colored in red and blue, respectively. 
+Many of our differentially expressed genes (DEGs) were within the list of schizophrenia-related candidate genes identified by the Psychiatric Genomics Consortium (PGC)\cite{Greenwood2011} previously (hyper geometric p-value $= 1.12\times 10^{-11}$) (Table \ref{tab:candidateGeneTable}), including \gene{Dlg4}\cite{Balan2013} and \gene{Disc1}\cite{Morris2003}.
+Some DEGs were also known to be associated with autism (like \gene{Gabrb3}\cite{Fatemi2009}) or other brain diseases (like \gene{Chrnb2} in epilepsy\cite{Conti2015}).
+\begin{figure}[!h]
+	\centering     
+	\subfloat[Using only RNA Seq data\label{subfig1:deseqVoc}]{%
+		\includegraphics[width=0.45\textwidth]{environmental_risk/image/er_deseq_volcano.png}
+	}
+	\subfloat[Combining RNA Seq and microarray data\label{subfig2:combatVoc}]{%
+		\includegraphics[width=0.45\textwidth]{environmental_risk/image/er_combat_volcano.png}
+	}
+	\caption{Volcano plot of Case (PolyI:C) vs Control (Saline). 
+		Genes that were significantly down-regulated are colored in blue whereas genes that were significantly up-regulated are colored in red. 
+		a) Using only RNA-Seq data; 
+		b) Using combination of RNA-Seq and microarray data.
+	}
+\end{figure}
+
+
+\subsubsection{Gene Ontology(GO) enrichment}
+A total of 28 GO terms were significantly overrepresented in the list of DEGs, with 10 and 18 GO terms represented by up- and down-regulated genes respectively, at a Bonferroni corrected p-value $<$ 0.05 (Table \ref{tab:geneOntologyFull}). 
+Among the significant GO terms, a number of them, such as ``Developmental process'' (p-value $= 9.75\times 10^{-6}$), ``Regulation of neurogenesis'' (p-value $= 7.08\times 10^{-17}$) and ``Regulation of neurotransmitter levels'' (p-value $= 1.05\times 10^{-9}$) are related to brain function and development.
+
+\subsubsection{Gene set enrichment}
+Of the 149 gene sets tested, 27 were significantly enriched by the DEGs at a Bonferroni corrected p-value $<$ 0.05, including post-synaptic density protein and gene sets related to neurodevelopmental disorders, such as schizophrenia probable and autism associated modules (Table \ref{tab:fullGeneSetEnrichment}).
+
 \subsection{Differential gene expression analysis with external controls}
-\subsubsection{Functional enrichment}
+We incorporated the external micro-array data as additional controls.
+After quality control (QC), there are a total of 13,112 genes that can be found in both our RNA Seq data and the microarray chips.
+Among the 13,112 genes, 868 were found to be differentially expressed (398 up-regulated and 470 down-regulated) with a Bonferroni-corrected p-value $<$ 0.05.
+A volcano plot of PolyI:C versus Saline for all genes passing QC is presented in Figure \ref{subfig2:combatVoc}. 851 of the DEGs (98.0$\%$) overlapped with those discovered in our previous analysis without these external control data. 
+Seven of the candidate schizophrenia genes previously identified by the PGC remained in our DEG list, including the GABA enzyme, \gene{Gad1} and \gene{Gad2}; \gene{Gabra3}, \gene{Ctnna2} and the dopamine-related gene, \gene{Th} (Table \ref{tab:candidateGeneTable}). 
+
+\subsubsection{Gene Ontology enrichment}
+The GO enrichment analysis found a total of 24 significantly enriched GO terms, of which 8 were enriched by the up-regulated genes and 16 were enriched by those down-regulated.
+21 of them (87.5$\%$) overlapped with those found in the previous analysis without these external control data. ``Regulation of neurogenesis'' (enrichment p-value $= 4.94\times10^{-5}$) and ``Regulation of neurotransmitter levels'' (enrichment p-value $= 1.4\times10^{-7}$) were still among the enriched GO terms. 
+\subsubsection{Gene set enrichment}
+The gene-set enrichment analysis identified 5 enriched brain-related gene sets in the DEGs (Table \ref{tab:targetGeneSetEnrichment}), which were all identified in the previous analysis without these external control data. 
+\input{environmental_risk/er_candidateGeneTable}
+\input{environmental_risk/er_geneOntologyTable}
+\input{environmental_risk/er_targetGeneSetEnrichment}
+
+
+\begin{figure}
+	\caption{real time PCR validation of RNA Seq results.
+		The delta CT values are highly correlated with the RNA-Seq counts (case: pearson correlation = -0.968, control: pearson correlation = 0.952), suggesting that the RNA-Seq count is a true representation of the RNA concentration.
+		The difference in detla CT between the cases and controls also support the differential gene expression results of the RNA Sequencing analysis.}\label{fig:rtResult}
+		\vspace{-20pt}
+	\begin{center}
+		\includegraphics[trim=0cm 2cm 0cm 1cm, clip=true, width=0.7\textwidth]{environmental_risk/image/er_rtPCR.png}
+	\end{center}
+\end{figure}
+
+\subsection{Test for burden of genetic risk variants in enriched brain-related gene sets in schizophrenia and autism cohorts }
+Among the 27 enriched brain-related gene sets identified in the analysis without external control (Table \ref{tab:fullGeneSetEnrichment}), three (``Post-synaptic Density Proteins'', ``Neuron Probable'' and ``Down with Alzheimer's'') were enriched with rare \textit{de-novo} mutations in more than one study. 
+In addition, the ``Oligodendrocyte Marker'' gene set was enriched with both rare \textit{de-novo} mutations and common genetic variants in schizophrenia studies. 
+
+When combined with external control, only 5 gene sets remained \ref{tab:targetGeneSetEnrichment}. 
+Of the 5 remaining gene sets, only the microglia gene set from \citet{Miller2010} was found to contain significantly more common genetic variations associated with schizophrenia in the PGC genome wide association study (GWAS).
+Whereas the significant ``Neuron Probable'' and ``Post-synaptic Density Proteins'' were among the 5 remaining gene sets.
+
+\subsection{RT-PCR validation of RNA-Seq data}
+The CT value is the unit used during rtPCR to indicates the mRNA concentration.
+A high CT value means more PCR cycle is required to detect the mRNA, therefore indicating a low mRNA concentration.
+Thus, a high CT value represent a low mRNA concentration and a low CT value represent a high mRNA concentration, as oppose to the RNA Seq count value.
+
+In the rtPCR, the CT values were highly negatively correlated with the RNA-Seq (Case: r  = -0.968, p = $2.98\times10^{-15}$; Control: r  = -0.952, p= $2.834\times10^{-13}$), suggesting that the RNA-Seq counts truly reflected the true mRNA concentration (Figure \ref{fig:rtResult}). 
+Simple T-test performed on the relative CT values confirmed that all genes tested were significantly differentially expressed (Figure \ref{fig:rtResult}).
+
+
+	
 \subsection{Alternative splicing}
 \subsection{De-novo Assembly}

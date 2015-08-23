@@ -1,7 +1,5 @@
-\externaldocument{environmental_risk/er_rtPCR_primer.tex}
+%\externaldocument{environmental_risk/er_rtPCR_primer.tex}
 
-Can more or less copy from the paper. 
-Need to actually give rationale behind all the analysis instead of the short version of that in the paper.
 \subsection{Mouse model}
 \subsubsection{Sample Collection}
 Two pregnant female C57BL/6N mice were obtained from the University of Hong Kong Laboratory Animal Unit (HKU-LAU).
@@ -13,16 +11,19 @@ The day on which the vaginal plug was found was designated as GD 0.
 On GD 9, one pregnant mouse was randomly assigned as case and received a single dose of PolyI:C (5mg/kg) via the tail vein under mild physical restraint, whereas the control mouse received a single dose of 0.9$\%$ saline (5ml/kg)\cite{Li2009c}.
 The pregnant dams were sacrificed by cervical dislocation, 6 hours after the injection and fetuses were extracted individually.
 A cut was made posterior to the fourth ventricles under the dissecting microscope to separate the head of each fetus\cite{Mason1993a}, which was then frozen immediately in liquid nitrogen until RNA extraction. 
-The reason of the 6 hours time point extraction were based on observation of \citet{Meyer2006}.
-\citet{Meyer2006} demonstrated PolyI:C administration leads to a marked increase in maternal serum cytokine levels of IL-1$\beta$, IL-6, IL-10 and TNF-$\alpha$.
-More importantly, an significant increase in IL-1$\beta$ and IL-6 level can be observed in the fetal brain 6 hours after the injection. 
-Although the significant increase of IL-6 level can also be observed in the fetal brain 3 hours after treatment, we decided that the 6 hour time point might allow slightly more time for the perturbation of cytokine affects the fetal brain gene expression level. 
+
+
+\citet{Meyer2006} demonstrated that PolyI:C administration will leads to a marked increase in maternal serum cytokine levels of IL-1$\beta$, IL-6, IL-10 and TNF-$\alpha$.
+Starting from 3 hours after the injection, it was observed that there is a marked increase in fetal brain IL-6 level and a marked decrease in IL-1$\beta$ level. 
+It was found that 6 hours after the injection, the level of IL-6 remains elevated yet the IL-1$\beta$ changed significantly.
+The concentration of IL-1$\beta$ become significantly elevated when compare to that of the control samples.
+Interestingly, this change is only observed in the GD9 samples but not the GD17 samples, suggesting that to be a specific change relevant to GD9.
 Thus, we selected the 6 hour time point for the fetal brain extraction in the hope to observe the immediate effect of PolyI:C insult to the fetal brain expression pattern.
 
 \subsubsection{DNA extraction and foetal sexing}
 As a pilot study, we would like to focus our analysis only on the male fetus.
-However, due to the early gestation day, where the genital system of the mouse has yet developed, it becomes impossible to determine the sex of the fetus through physical features. 
-To identify the sex of the fetus, Polymerase Chain Reaction(PCR) were performed to determine the sex of the fetus based on genes presented on the sex chromosomes (XY) based on the protocol suggested by \citet{Clapcote2005}. 
+However, due to the early gestation day, where the genital system of the mouse has yet developed, sexing becomes almost impossible using the genital method.
+To identify the sex of the fetus, Polymerase Chain Reaction(PCR) were performed on genes presented on the sex chromosomes (XY) based on the protocol suggested by \citet{Clapcote2005} to determine the sex of the fetus. 
 Genomic DNA was extracted from the bodies of the fetuses, which were kept separately, using the TIANamp Genomic DNA kit (Tiangen, Cat. no. DP304) following the manufacturer's instructions.
 The fetuses were then sexed by polymerize chain reaction (PCR) using primers as described in \citet{Clapcote2005}.
  7 out of 10 fetuses from the PolyI:C dam and 5 out of 8 fetuses from the Saline dam were male.
@@ -44,21 +45,23 @@ The sequence reads were subject to quality control (QC) using FastQC \cite{Simon
 The read count per gene for each sample was calculated with HTseq (version 0.5.4p5)\cite{Anders.2011}.
 Differential gene expression analysis was performed using the DESeq2 package (version 2.1.4.5)\cite{Anders2010}.
 In order to reduce noise associated with low expression, genes with base mean count $<$ 10 were removed from all analyses.
-Outliers were replaced using the \textit{replaceOutliersWithTrimmedMean} function in DESeq2\cite{Anders2010}. Genes with p-value passing the Bonferroni corrected p-value $<$ 0.05 were defined as differentially expressed genes (DEGs). 
+Outliers were replaced using the \textit{replaceOutliersWithTrimmedMean} function in DESeq2\cite{Anders2010}. 
+%should I also mention the number of genes? The number of genes = number of genes after filtering
+Genes with p-value passing the Bonferroni corrected p-value $<$ 0.05 were defined as differentially expressed genes (DEGs). 
 
 Gene Ontology (GO) based enrichment analysis of DEGs was performed using GOrilla\cite{Eden2009}, which takes a list of DEGs as input and tests whether a particular GO term is overrepresented in the input list when compared to the background gene list.
 Up-regulated and down-regulated gene lists were input separately such that we may identify GO terms corresponding to the up- and down-regulated gene lists.
 As GO terms tends to be redundant and overlaps with each other, it will aid the interpretation of GO results based by clustering and reducing the GO terms based on their similarity. 
-As a result of that, GO enrichment results were then sent to REViGO\cite{Supek2011} to summarize the GO results and obtain the significant representative GO terms.
-Gene set enrichment analysis was conducted using the \function{userListEnrichment}\cite{Miller2011} function in R to identify known brain-related gene sets enriched in DEGs.
-A description of these brain-related gene sets can be found in http://www.inside-r.org/packages/cran/WGCNA/docs/userListEnrichment.
+Thus, GO enrichment results were summerized by REViGO\cite{Supek2011} and significant representative GO terms were obtained.
+Gene set enrichment analysis was conducted using the \function{userListEnrichment}\cite{Miller2011} function in R to identify known brain-related gene sets enriched by the DEGs.
+A description of these brain-related gene sets can be found in \url{http://www.inside-r.org/packages/cran/WGCNA/docs/userListEnrichment}.
 Only gene sets with a Bonferroni corrected p-value $<$ 0.05 were considered as significant. 
 
 \subsection{Combining with external microarray controls}
 %Need to explain why we perform this analysis
 We repeated all analyses mentioned above using control microarrays GD9 C57BL/6 mouse fetal brain expression data (N=5) from GEO (GSE8091\cite{Hartl2008}) obtained using GEOquery (version 2.30.0)\cite{Davis2007}.
-In order to remove effects due to platform differences, our RNA-Seq data was first variance stabilized (\function{varianceStabilizingTransformation} function in DESeq2\cite{Anders2010}) and then combined with the normalized microarray data using the Combat algorithm\cite{Johnson2007} under the sva package (version 3.10.0) in R.
-Scripts used in all analyses are available online at https://github.com/choishingwan/RNA-Seq-Analysis. 
+In order to remove effects due to platform differences, our RNA-Seq data was first variance stabilized (\function{varianceStabilizingTransformation} function in DESeq2\cite{Anders2010}) and then combined with the \function{rma} normalized microarray data using the Combat algorithm\cite{Johnson2007} under the sva package (version 3.10.0) in R.
+Scripts used in all analyses are available online at \url{https://github.com/choishingwan/RNA-Seq-Analysis}. 
 
 \subsection{Test for burden of genetic risk variants in the enriched brain-related gene sets in schizophrenia and autism patients }
 To establish the Proof of Concept that the enriched brain-related gene sets discovered are relevant to schizophrenia and other neuropsychiatric diseases in humans, we tested for 
@@ -75,14 +78,14 @@ $$
 S_{gene\ set}=\frac{z_{gene\ set}-z_\mu}{z_\sigma}
 $$
 Which allow us to obtain the p-value using $S_{gene\ set}$. 
-The script for this analysis can be also be found at https://github.com/choishingwan/RNA-Seq-Analysis. 
+The script for this analysis can be also be found at \url{https://github.com/choishingwan/RNA-Seq-Analysis}. 
 
 
 \subsection{Real time PCR (RT-PCR) validation of RNA-Seq data}
 We validated the RNA-Seq results using real time-PCR on the same samples plus six additional samples from two independent dams (Saline = 8, PolyI:C = 8).
 Unfortunately, due to the small tissue size, there were only enough materials for 5 genes for rt-PCR. 
 Therefore, 4 DEGs (\gene{Akt3}, \gene{Eomes}, \gene{Lama5} and \gene{Robo3}), together with the reference $\beta$-Actin(\gene{Actb}) were selected. 
-Primers (designed by Invitrogen) are listed in \ref{suppleTab:rtPCR}. 
+Primers (designed by Invitrogen) are listed in Table \ref{suppleTab:rtPCR}. 
 cDNA was synthesized using SuperScript III reverse transcriptase (Invitrogen). 
 RT- PCR was performed by using 2μl of cDNA product in each reaction on the ABI prism 7900HT Sequence Detection System.
 All reactions were run in triplicate and cycle threshold (CT) values for the four genes were normalized with $\beta$-Actin (\gene{Actb}) as the reference. 

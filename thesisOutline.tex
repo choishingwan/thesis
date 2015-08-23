@@ -1,91 +1,290 @@
-\documentclass{report}
+\documentclass{book}
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{colortbl}
 \usepackage{graphicx}
+\usepackage{caption}
 \usepackage{fullpage}
+\usepackage{afterpage}
 \usepackage{multirow}
 \usepackage{setspace}
 \usepackage{booktabs}
 \usepackage{gensymb}
+\usepackage{parskip}
 \usepackage{xr}
+\usepackage{pdflscape}
 \usepackage[inline]{enumitem}
+\usepackage{wrapfig}
+\usepackage{longtable}
+\usepackage{subfig}
 \usepackage[natbib=true, style=numeric-comp,subentry,backend=biber,sorting=none]{biblatex}
 \addbibresource{citation/Thesis.bib}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
+\usepackage{fixltx2e}
+\usepackage{nomencl}
+
+
+
+
 \pagestyle{fancy}
 \fancyhead[LE,RO]{\itshape \nouppercase \rightmark}
 \fancyhead[LO,RE]{\itshape \nouppercase Chapter \arabic{chapter}}
 \setlength{\headheight}{40.0pt}
 \setlength{\headsep}{0.2in}
 \addtolength{\topmargin}{-4\baselineskip}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\newcommand{\beginsupplement}{%
+	\setcounter{table}{0}
+	\renewcommand{\thetable}{S\arabic{table}}%
+	\setcounter{figure}{0}
+	\renewcommand{\thefigure}{S\arabic{figure}}%
+}
 
-
-\title{Thesis outline \\
-\large Genetic and Environmental risk factors of Neurodevelopmental disorders}
+\title{Genetic and Environmental risk factors of Schizophrenia and Autism}
 \date{\today}
-\author{Choi Shing Wan}
-\renewcommand*\contentsname{Table of Content}
+\author{\href{mailto:choishingwan@gmail.com}{Choi Shing Wan}\\
+	\includegraphics[width=0.5\textwidth]{hkuLogo.jpg}}
+\singlespacing
+\renewcommand*\contentsname{Contents}
+\onehalfspacing
+%\doublespacing
 
 \newcommand{\gene}[1]{\textit{#1}}
 \newcommand{\organism}[1]{\textit{#1}}
 \newcommand{\function}[1]{\textit{#1}}
-\begin{document}
-\maketitle
-\chapter*{Declaration}
-\chapter*{Acknowledgements}
-\tableofcontents
 
- \onehalfspacing
-\input{general_introduction/gi_main.tex}
+%\includeonly{environmental_risk/er_chapter,supplementary_materials}
 
+\makenomenclature
+\makeindex
+\begin{document}\thispagestyle{empty}
+\pagestyle{empty}
 
-\chapter{Environmental risk factors of Neurodevelopmental disorders}
-\section{Introduction}
-\input{environmental_risk/er_introduction.tex}
-\section{Material and Methods}
-\input{environmental_risk/er_methodology.tex}
-\section{Result}
-\input{environmental_risk/er_result.tex}
-\section{Discussion}
-\section{Conclusion}
-\section{Supplementary Materials}
-\input{environmental_risk/er_rtPCR_primer}
-
-\chapter{Genetic risk factors of Neurodevelopmental disorders}
-\section{Introduction}
-\subsection{Heritability estimate}
-\subsubsection{Heritability explained by Common SNPs}
-\subsubsection{Missing Heritability}
-\subsubsection{Risk Prediction}
-\subsection{Challenge of heritability estimation}
-\section{Methodology}
-\subsection{Estimation of heritability using test-statistic}
-\subsection{Simulation}
-\subsubsection{Quantitative Traits}
-\paragraph{Genome Wide Association Studies}
-\paragraph{Exome Sequencing / Targeted Sequencing}
-\subsubsection{Case Control Studies}
-\subsection{Comparing with existing software}
-\subsubsection{Quantitative Traits}
-\paragraph{Genome Wide Association Studies}
-\paragraph{Exome Sequencing / Targeted Sequencing}
-\subsubsection{Case Control Studies}
-
-\subsection{Estimate the heritability of neurodevelopmental disorders}
-\section{Result}
-\section{Discussion}
+%\maketitle
+\begin{titlepage}
+	\begin{center}
+		\vspace*{1cm}
+		
+		\Huge
+		\textbf{Genetic and Environmental risk factors of Schizophrenia and Autism}
+		
+		\vspace{0.5cm}
+		\LARGE
+		
+		\vspace{1.5cm}
+		
+		\textbf{\href{mailto:choishingwan@gmail.com}{Choi Shing Wan}}
+		
+		\vfill
+		
+		A thesis submitted in partial fulfillment of the requirements for \\
+		the Degree of Doctor of Philosophy
+		
+		\vspace{0.8cm}
+		
+		\includegraphics[width=0.4\textwidth]{hkuLogo.jpg}
+		
+		\Large
+		Department of Psychiatry\\
+		University of Hong Kong\\
+		Hong Kong\\
+		\today
+		
+	\end{center}
+\end{titlepage}
 
 
+\frontmatter 
 
-\section{Conclusion}
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Declaration}
+	\chapter*{Declaration}
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Acknowledgments}
+	\chapter*{Acknowledgements}
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Abbreviations}
+	\renewcommand{\nomname}{Abbreviations}
+	%To generate the correct abbreviations, use alt+shift+F1 twice before using F1
+	\printnomenclature
+	
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Contents}
+	\begin{singlespace}
+		\tableofcontents
+	\end{singlespace}
+\mainmatter
+	\chapter*{Introduction}\pagestyle{fancy}
+		\addcontentsline{toc}{chapter}{Introduction}
+	\chapter[Literature Review I: Schizophrenia and Autism]{Literature Review I:\\ Schizophrenia and Autism}
+		\section{Schizophrenia}
+			Schizophrenia (SCZ)\nomenclature{SCZ}{Schizophrenia} is a %Description fo the disease%
+			Affecting  roughly 1$\%$ of the human population.
+			Detrimental to the quality of life.
+			Limited treatment.
+			No cure.
+			\textbf{Detail description of the disease here}
+		\section{Autism Spectrum Disorder}
+			On the other hand, Autism Spectrum Disorder\nomenclature{ASD}{Autism Spectrum Disorder}
+			Affecting XXX of the population.
+			Associated with mental retardation.
+			Most are unable to take care of themselves.
+			No cure.
+			\textbf{Detail description of the disease here}
+		\section{The Environmental Risk Factors of SCZ and ASD}
+			Despite the difference in their phenotype, epidemiological studies suggest that they share a lot of common environment factors.
+			\subsection{Prenatal Infection}
+			Arguably one of the most important environmental risk factor for SCZ and AD. 
+			Affect $\frac{1}{3}$ of all SCZ patient.
+			Epidemiological study of Brown.
+			The Involvement of IL-6.
+			No protein found in the fetus.
+			Talk about the finding of Oskvig and Smith.
+			Imbalance caused by trying to counter the infection
+			\subsection{Parental Age}
+			\subsection{Prenatal Stress}
+			\subsection{Maternal Vitamin D Deficiency During Pregnancy}
+		\section{The Genetic Etiology of SCZ and ASD}
+			Talk about the PGC studies.
+			Previous line of evidence?
+			What they have found with the genetic studies?
+			(SCZ)
+			Involvement of the PSD95. (Shaun)
+			Most enriched area is the MHC.
+			Other associated SNPs are also highly enriched by immune genes.
+			(ASD)
+			Need to read more paper on this
+		\section{Summary}
+	
+	\chapter[Literature Review II: Approaches to Reveal Genetic Causes]{Literature Review II:\\ Approaches to Reveal Genetic Causes}
+		\section{Twin Studies - Delineating Genetic and Environmental Contribution}
+			Should briefly talk about how Twin modeling was used for finding the GE contribution.
+			Should also mention the ACE model.
+			At the end, we can talk about the heritability estimates of SCZ and AD
+		\section{Searching for Genetic Variants}
+			\subsection{Role of Common Variants}
+				\subsubsection{Genome Wide Association Study}
+					Should talk about what is GWAS and how it is used.
+					Should also talk about the current GWAS studies in SCZ and AD
+			\subsection{Role of Rare Variants}
+				\subsubsection{Exome Sequencing}
+					Similar to the GWAS.
+					Talk about the Pros and Cons.
+					Need to briefly mention the Denovo paper and Shaun's paper.					
+				\subsubsection{Whole Genome Sequencing}
+					Very very brief description of WGS and the current status.
+				
+		\section{Searching for Gene-Environmental interaction}
+			\subsection{Gene Expression}
+				\subsubsection{Micro-array}
+				\subsubsection{RNA Sequencing}
+				
+			\subsection{Epigenetics}
+				\subsubsection{Methylation Chip}
+				\subsubsection{Bisulfite Sequencing}
+		\section{Summary}
+	
 
 
-\chapter{Summary and Conclusion}
+	\include{environmental_risk/er_chapter}
+
+	\chapter[Genetic Risk Factor - Heritability Estimation]{Genetic Risk Factor:\\Heritability Estimation}
+		\section{Estimation of Heritability}
+			\subsection{Estimating the Mean}
+			\subsection{Estimating the Variance}
+			To calculate the variance of the estimation, we will need to obtain the variance covariance matrix of $h$. 
+			Because $\boldsymbol{h}=\boldsymbol{(\rho^2)^{-1}f}$, we can obtain the variance covariance matrix of $h$ as
+			$$
+			\boldsymbol{\mathrm{Cov}(h)} = \boldsymbol{(\rho^2)^{-1}\mathrm{Cov}(f)(\rho^2)^{-1}}
+			$$
+			As $f$ is a function of $\chi^2$, we can obtain the variance covariance matrix of $f$ by first calculating the variance covariance matrix of the $\chi^2$ variables.
+			
+			First, let that $\chi_i$ be the standardized genotype with standard normal mean $z_i$ and non-centrality parameter $\mu_i$, we have
+			\begin{align*}
+			\mathrm{E}[\chi_i]&=\mathrm{E}[z_i+\mu_i]\\
+			&=\mu_i\\
+			\mathrm{Var}(\chi_i) &=\mathrm{E}[(z_i+\mu_i)^2]+\mathrm{E}[(z_i+\mu_i)]^2\\
+			&=\mathrm{E}[z_i^2+\mu_i^2+2z_i\mu_i]+\mu_i^2\\
+			&=1
+			\end{align*}
+			Given the LD between two genotype $\chi_i$ and $\chi_j$ are $\rho_{ij}$, then
+			\begin{align*}
+			\mathrm{Cov}(\chi_i,\chi_j)&=\mathrm{E}[(z_i+\mu_i)(z_j+\mu_j)]-\mathrm{E}[z_i+\mu_i]\mathrm{E}[z_j+\mu_j]\\
+			&=\mathrm{E}[z_iz_j+z_i\mu_j+\mu_iz_j+\mu_i\mu_j]-\mu_i\mu_j\\
+			&=\mathrm{E}[z_iz_j]+\mathrm{E}[z_i\mu_j]+\mathrm{E}[z_j\mu_i]+\mathrm{E}[\mu_i\mu_j]-\mu_i\mu_j\\
+			&=\mathrm{E}[z_iz_j]
+			\end{align*}
+			As the genotypes are standardized, therefore $\mathrm{Cov}(\chi_i,\chi_j)==\mathrm{Cor}(\chi_i,\chi_j)$ and we can obtain
+			$$
+				\mathrm{Cov}(\chi_i,\chi_j)=\mathrm{E}[z_iz_j]=\rho_{ij}
+			$$
+			Given these information, we can then calculate $\mathrm{Cov}(\chi_i^2,\chi_j^2)$ as:
+			\begin{align*}
+				\mathrm{Cov}(\chi_i^2,\chi_j^2)&=\mathrm{E}[(z_i+\mu_i)^2(z_j+\mu_j)^2]-\mathrm{E}[z_i+\mu_i]\mathrm{E}[z_j+\mu_j]\\
+				&=\mathrm{E}[(z_i^2+\mu_i^2+2z_i\mu_i)(z_j^2+\mu_j^2+2z_j\mu_j)]-\mathrm{E}[z_i^2+\mu_i^2+2z_i\mu_i]\mathrm{E}[z_j^2+\mu_j^2+2z_j\mu_j]\\
+				&=\mathrm{E}[(z_i^2+\mu_i^2+2z_i\mu_i)(z_j^2+\mu_j^2+2z_j\mu_j)]-(\mathrm{E}[z_i^2]+\mathrm{E}[\mu_i^2]+2\mathrm{E}[z_i\mu_i])(\mathrm{E}[z_j^2]+\mathrm{E}[\mu_j^2]+2\mathrm{E}[z_j\mu_j])\\
+				&=\mathrm{E}[z_i^2(z_j^2+\mu_j^2+2z_j\mu_j)+\mu_i^2(z_j^2+\mu_j^2+2z_j\mu_j)+2z_i\mu_i(z_j^2+\mu_j^2+2z_j\mu_j)]-(1+\mu_i^2)(1+\mu_j^2)\\
+				&=\mathrm{E}[z_i^2(z_j^2+\mu_j^2+2z_j\mu_j)]+\mu_i^2\mathrm{E}[z_j^2+\mu_j^2+2z_j\mu_j]+2\mu_i\mathrm{E}[z_i(z_j^2+\mu_j^2+2z_j\mu_j)]-(1+\mu_i^2)(1+\mu_j^2)\\
+				&=\mathrm{E}[z_i^2z_j^2+z_i^2\mu_j^2+2z_i^2z_j\mu_j]+\mu_i^2+\mu_i^2\mu_j^2+2\mu_i\mathrm{E}[z_iz_j^2+z_i\mu_j^2+2z_iz_j\mu_j]-(1+\mu_i^2)(1+\mu_j^2)\\
+				&=\mathrm{E}[z_i^2z_j^2]+\mu_j^2+\mu_i^2+\mu_i^2\mu_j^2+4\mu_i\mu_j\mathrm{E}[z_iz_j]-(1+\mu_i^2+\mu_j^2+\mu_i\mu_j)\\
+				&=\mathrm{E}[z_i^2z_j^2]+4\mu_i\mu_j\mathrm{E}[z_iz_j]-1
+			\end{align*}
+			Remember that $\mathrm{E}[z_iz_j] = \rho_{ij}$, we then have
+			$$
+			\mathrm{Cov}(\chi_i^2, \chi_j^2)=\mathrm{E}[z_i^2z_j^2]+4\mu_i\mu_j\rho_{ij}-1
+			$$
+			By definition, 
+			$$
+				z_i|z_j\sim N(\mu_i+\rho_{ij}(z_j-\mu_j),1-\rho_{ij}^2)
+			$$
+			We can then calculate $\mathrm{E}[z_i^2z_j^2]$ as
+			\begin{align*}
+				\mathrm{E}[z_i^2z_j^2]&=\mathrm{Var}[z_iz_j]+\mathrm{E}[z_iz_j]^2\\
+				&=\mathrm{E}[\mathrm{Var}(z_iz_j|z_i)]+\mathrm{Var}[\mathrm{E}[z_iz_j|z_i]]+\rho_{ij}^2\\
+				&=\mathrm{E}[z_j^2\mathrm{Var}(z_i|z_j)]+\mathrm{Var}[z_j\mathrm{E}[z_i|z_j]]+\rho_{ij}^2\\
+				&=(1-\rho_{ij}^2)\mathrm{E}[z_j^2]+\mathrm{Var}(z_j(\mu_i+\rho_{ij}(z_j-\mu_j)))+\rho_{ij}^2\\
+				&=(1-\rho_{ij}^2)+\mathrm{Var}(z_j\mu_i+\rho_{ij}z_j^2-\mu_jz_j\rho_{ij})+\rho_{ij}^2\\
+				&=1+\mu_i^2\mathrm{Var}(z_j)+\rho_{ij}^2\mathrm{Var}(z_j^2)-\mu_j^2\rho_{ij}^2\mathrm{Var}(z_j)\\
+				&=1+2\rho_{ij}^2
+			\end{align*}
+			As a result, the variance covariance matrix of the $\chi^2$ variances can be calculated as
+			$$
+				\mathrm{Cov}(\chi_i^2,\chi_j^2) = 2\rho_{ij}^2+4\rho_{ij}\mu_i\mu_j
+			$$
+
+			Now that we have calculated the variance covariance matrix of $\chi^2$, we can get the variance covariance matrix of $f$ as
+			\begin{align*}
+			Cov(f_i,f_j) &= \frac{d}{d(\chi_i^2)}\frac{\chi_i^2-1}{n-2+\chi_i^2}\frac{d}{d(\chi_j^2)}\frac{\chi_j^2-1}{n-2+\chi_j^2}Cov(\chi_i^2,\chi_j^2) \\
+			&= \frac{(n-1)^2}{(n-2+\chi_i^2)^2(n-2+\chi_j^2)^2}Cov(\chi_i^2,\chi_j^2)
+			\end{align*}
+		\section{Simulation Study}
+		\nomenclature{CEU}{Utah residents with Northern and Western European ancestry from the CEPH collection} 
+			\subsection{Quantitative Trait}
+			\subsection{Case-Control Study design}
+		\section{Result}
+		\section{Discussion}
+		\section{Conclusion}
+
+	\chapter[Genetic Risk Factor - Risk Prediction]{Genetic Risk Factor:\\ Risk Prediction}
+		\section{Risk Estimation}
+		\section{Simulation Study}
+		\section{Result}
+		\section{Conclusion}
+
+%\include{general_introduction/gi_chapter}
+%\include{genetic_risk/gr_chapter}
 
 
-\printbibliography
+	\chapter{Summary and Conclusion}
 
-\chapter*{Appendix}
+\backmatter
+	\include{supplementary_materials}
+	\printbibliography
+	\chapter*{Appendix}
 \end{document}

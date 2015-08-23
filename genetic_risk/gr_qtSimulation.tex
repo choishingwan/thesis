@@ -1,0 +1,69 @@
+\paragraph{Genome Wide Association Studies / Whole Genome Sequencing}
+%Need to explain why we perform simulation with assumption of GWAS and WGS
+To model a polygenic quantitative trait in a genome wide association studies (GWAS) and whole genome sequencing(WGS) studies, we assigned per-SNP effect sizes drawn from the exponential distribution with $\lambda = 1$ to varying number of causal variants $k$ and for varying heritabilities $h$ where $h\in[0,1)$. 
+An exponential distribution was chose based on work of \citet{Orr1998} which suggested the exponential distribution provides a heuristic expectation about the genetic architecture of adaptation.
+
+To simulate samples with genetic architecture comparable to true human population, \textit{HAPGEN2}\cite{Su2011} was used.
+$n$ samples were simulated based on the genome structure of the Northern and Western Europeans with $m$ SNPs where $k$ of those are causal.
+
+In order to simulate a quantitative trait with target heritability of $h$, the per SNPs effect were calculated as
+\begin{align}
+\beta_i &\sim exp(1)\notag\\
+\boldsymbol{\beta}&=(\beta_1,\beta_2,...,\beta_k)^T\notag\\
+\boldsymbol{\gamma} &= \frac{h}{k}\boldsymbol{\beta}\notag\\
+H&=\boldsymbol{1}^T\boldsymbol{\gamma}
+\label{eq:perSnpEffect}
+\end{align}
+where $\boldsymbol{\gamma}$ is the vector of per SNP effect size and $H$ is the simulated heritability.
+The only exception is when $k=1$ where $\beta = h$ such that we can simulate SNPs with large effect size.
+
+Assuming $\boldsymbol{x}$ to be the standardized genotype of $k$ causal SNPs in $n$ samples, one can get the phenotype of the simulated samples using
+\begin{align}
+\epsilon_i&\sim N(0,\sqrt{var(\boldsymbol{x\gamma})\frac{1-H}{H}} )\notag\\
+\boldsymbol{\epsilon} &= (\epsilon_1,\epsilon_2,...,\epsilon_n)^T\notag\\
+\boldsymbol{y} &= \boldsymbol{x\gamma}+\boldsymbol{\epsilon}
+\label{eq:phenotypeSimulation}
+\end{align}
+
+For each batch of simulated samples, we calculate the estimated heritability using \textit{SHREK}, \textit{GCTA}, \textit{LDSC} without intercept estimation and \textit{LDSC} with intercept estimate (\textit{\texorpdfstring{LDSC\textsubscript{In}}}) for each $h$.
+In each iteration, the sample genotype was provided to \textit{GCTA} for the calculation of genetic relationship matrix (GRM) whereas for \textit{SHREK} and \textit{LDSC} the Hapmap 3 (release 2)\cite{Consortium2005} European samples (n=165) were used to construct the LD matrix and calculate the LD score respectively. 
+As the default window size of \textit{SHREK} is defined as the maximum number of SNPs within a given 2,000,000nt window, therefore, -{}-ld-wind-kb 2000 were used with \textit{LDSC} such that the window size of \textit{LDSC} is comparable with the one used in \textit{SHREK}.
+
+The reason why we used the Hapmap 3 samples instead of the simulated sample for the construction of LD score and LD matrix is because both tools were designed to use when genotype of the samples are not available.
+Therefore the use of population samples will allow for a more realistic simulation environment.
+
+To obtain the empirical variance of the estimates, we iterate the whole process 100 times, where the SNPs and the SNPs effect size keep unchanged for each $h$.
+Sample size, number of SNPs and the number of causal SNPs are all important factors that might affect the performance of different methods.
+ 
+
+In order to determine a realistic and reasonable sample size for all simulation condition, we manually curated the sample size of all the studies presented on the GWAS Catalog\cite{Welter2014} (version 2015-07-17).
+It was observed that the mean sample size of all published GWAS is $\sim$ 7,200 samples. 
+Thus, we consider a simulation sample size of 7,200 should be comparable to general GWAS studies, allow for a realistic simulation.
+Although a large sample size are generally required for GWAS, it might also worthwhile for one to test the tools' performance when only small sample size is available.
+If the tools perform well with only a small sample size is available, it will benefit researchers studying rare complex traits where it is often difficult to collect a large amount of samples.
+As a result of that, we also perform simulation with 1,000 samples.
+
+Another consideration is the number of causal SNPs as it determine the complexity of the trait.
+The complexity of a trait is usually directly proportional with the number of causal SNPs. 
+To capture the full spectrum of trait complexity (e.g. Mendelian to Complex Traits), we selected number of causal SNP to be $k\in(1,10,500)$ such that effect size$\in(0,\frac{1}{k})$.
+
+An important factor in GWAS is whether if the causal SNPs are tagged by the SNPs on the array chip. 
+To simplify the simulation procedure, we only simulate the case where all the causal SNPs were detected in the study.
+Finally, we simulated the situation where there are 1,000 or 3,000 SNPs in the study.
+1,000 SNPs will allow for a fast simulation whereas 3,000 SNPs should allow us to simulate the common scenario where there are more SNPs than samples.
+
+
+
+\paragraph{Exome Sequencing / Targeted Sequencing}
+For the simulation of Exome sequencing / targeted sequencing studies, we only select SNPs within the exomic regions. 
+The number of SNPs, number of causal SNPs and the sample size of simulation all follows that of the previous section.
+
+\paragraph{Extreme Phenotype selection}
+On the other hand, in order to simulate extreme phenotype, we simulate $10n$ samples using \textit{HAPGEN2}.
+We then select the top and botton $n$ samples for the simulation using the same procedure as that in the GWAS simulation.
+
+One problem with the extreme phenotype simulation is that it was not natively supported by \textit{GCTA} and \textit{LDSC}. 
+To account for extreme phenotype selection, we multiply the estimation of \textit{LDSC} and \textit{GCTA} by 
+$$
+\frac{variance\ of\ phenotype\ after\ selection}{variance\ of\ phenotype\ before\ selection}
+$$

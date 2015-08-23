@@ -1,0 +1,44 @@
+\chapter{Genetic risk factors of Neurodevelopmental disorders}
+\section{Introduction}
+\subsection{Heritability estimate}
+\subsubsection{Heritability explained by Common SNPs}
+\subsubsection{Missing Heritability}
+\subsubsection{Risk Prediction}
+\subsection{Challenge of heritability estimation}
+Mainly focus on the lack of genotype.
+Problem involved in privacy
+\section{Methodology}
+\subsection{Estimation of heritability using test-statistic}
+\subsubsection{Heritability Estimation}
+\subsubsection{Standard Error of the Estimate}
+\subsubsection{Attenuation of non-centrality parameter in case-control studies}
+\subsubsection{Extreme Phenotype Selection}
+\subsubsection{Implementation of the programme}
+%Not sure if I should write this section. It account for the largest chunk of my work, yet it seems rather irrelevant to the theme
+\subsection{Simulation}
+To assess how well \textit{SHREK} performs for heritability estimation in comparison to other current methods, we performed a series of systematic simulations.
+In these simulations, we compared the performance of \textit{SHREK} with \textit{GCTA}\cite{Yang2011} and the \textit{LDSC}\cite{Bulik-Sullivan2015} with and without the intercept estimation function (-{}-no-intercept). 
+
+By performing the simulation, we can obtain the sample distribution of the heritability estimate under different study designs (e.g. Quantitativat traits, Case-Control studies or extreme phenotype selection). 
+We can also evaluate the performance of different methods under varying genetic architecture (e.g. different number of Snps, different LD structures) or even with different disease models (e.g. different number of causal Snps, different heritability).
+
+\subsubsection{Quantitative Traits}
+\input{genetic_risk/gr_qtSimulation.tex}
+\subsubsection{Case-Control Study Design}
+The simulation of Case-Control study follows that of the quantitative trait simulation.
+However, we will also need to consider the observed and population prevalence of the trait.
+By including the additional parameter of prevalence, it drastically increases the computational burden of the simulation.
+For example, in order to simulate a trait with population prevalence of 0.1, and a Case-control study with 1,000 cases, one will have to simulate at least 10,000 samples. 
+Now if we consider complex diseases such as schizophrenia and autism where the prevalence is around 0.01, we will have to simulate 100,000 samples in order to obtain 1,000 cases. 
+We therefore restrict our simulation to only 1,000 cases with prevalence of either 0.1 or 0.01. 
+At the same time, we maintain an observed prevalence of 0.5 to reduce the number of simulation conditions.
+
+\subsection{Estimate the heritability of neurodevelopmental disorders}
+\subsection{Risk Prediction}
+\section{Results}
+\input{genetic_risk/gr_simulationResults.tex}
+\section{Discussion}
+
+
+
+\section{Conclusion}
