@@ -1,0 +1,179 @@
+\documentclass{book}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{fullpage}
+\usepackage{afterpage}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{gensymb}
+\usepackage{parskip}
+\usepackage{xr}
+\usepackage{pdflscape}
+\usepackage[inline]{enumitem}
+\usepackage{wrapfig}
+\usepackage{longtable}
+\usepackage{subfig}
+\usepackage[natbib=true, style=numeric-comp,subentry,backend=biber,sorting=none]{biblatex}
+\addbibresource{citation/Thesis.bib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fixltx2e}
+\usepackage{nomencl}
+
+
+
+
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\itshape \nouppercase \rightmark}
+\fancyhead[LO,RE]{\itshape \nouppercase Chapter \arabic{chapter}}
+\setlength{\headheight}{40.0pt}
+\setlength{\headsep}{0.2in}
+\addtolength{\topmargin}{-4\baselineskip}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\newcommand{\beginsupplement}{%
+	\setcounter{table}{0}
+	\renewcommand{\thetable}{S\arabic{table}}%
+	\setcounter{figure}{0}
+	\renewcommand{\thefigure}{S\arabic{figure}}%
+}
+
+\title{Genetic and Environmental risk factors of Schizophrenia and Autism}
+\date{\today}
+\author{\href{mailto:choishingwan@gmail.com}{Choi Shing Wan}\\
+	\includegraphics[width=0.5\textwidth]{hkuLogo.jpg}}
+\singlespacing
+\renewcommand*\contentsname{Contents}
+\onehalfspacing
+%\doublespacing
+
+\newcommand{\gene}[1]{\textit{#1}}
+\newcommand{\organism}[1]{\textit{#1}}
+\newcommand{\function}[1]{\textit{#1}}
+
+%\includeonly{environmental_risk/er_chapter,supplementary_materials}
+
+\makenomenclature
+\makeindex
+\begin{document}\thispagestyle{empty}
+\pagestyle{empty}
+
+%\maketitle
+\begin{titlepage}
+	\begin{center}
+		\vspace*{1cm}
+		
+		\Huge
+		\textbf{Genetic and Environmental risk factors of Schizophrenia and Autism}
+		
+		\vspace{0.5cm}
+		\LARGE
+		
+		\vspace{1.5cm}
+		
+		\textbf{\href{mailto:choishingwan@gmail.com}{Choi Shing Wan}}
+		
+		\vfill
+		
+		A thesis submitted in partial fulfillment of the requirements for \\
+		the Degree of Doctor of Philosophy
+		
+		\vspace{0.8cm}
+		
+		\includegraphics[width=0.4\textwidth]{hkuLogo.jpg}
+		
+		\Large
+		Department of Psychiatry\\
+		University of Hong Kong\\
+		Hong Kong\\
+		\today
+		
+	\end{center}
+\end{titlepage}
+
+
+\frontmatter 
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Abstract}
+	\chapter*{Abstract}
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Declaration}
+	\chapter*{Declaration}
+	
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Acknowledgments}
+	\chapter*{Acknowledgements}
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Abbreviations}
+	\renewcommand{\nomname}{Abbreviations}
+	%To generate the correct abbreviations, use alt+shift+F1 twice before using F1
+	\printnomenclature
+	
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Contents}
+	\begin{singlespace}
+		\tableofcontents
+	\end{singlespace}
+\mainmatter
+\chapter*{Introduction}\pagestyle{fancy}
+\addcontentsline{toc}{chapter}{Introduction}
+\chapter{Literature Review}
+Heritability and Risk Prediction in Schizophrenia and Autism
+\begin{table}[h]
+	\begin{tabular}{|r|r|}
+		\hline
+		\textbf{Topic} & \textbf{Content} \\
+		\hline
+		Heritability Estimation & Quantitative Trait \\
+		& Polygenic Traits\\
+		& Oligogenic Traits\\
+		& Mendelian Traits?\\
+		& Rare Variants \\
+		& Extreme Phenotype Selection \\
+		\hline
+		Heritability estimation & Case Control Studies \\
+		& WTCCC \\
+		& PGC Schizophrenia \\
+		& Autism \\
+		\hline
+		Developmental network & Schizophrenia \\
+		& Autism \\
+		& Combine WGCNA + SHREK \\
+		& Compare and contrast schizophrenia and autism\\
+		\hline
+		Risk Prediction & Linkage disequilibrium \\
+		& Things that I have proposed \\
+		& Shrinkage \\
+		& Tweetie \\
+		\hline
+	\end{tabular}
+\end{table}
+\chapter{Heritability Estimation - Quantitative Trait}
+%Not sure if I should include tag or none tag situation
+\section{Polygenic Traits}
+\section{Oligogenic traits}
+\section{Rare Variants}
+\section{Extreme Phenotype Selection}
+
+\chapter{Case Control Studies}
+\section{Polygenic Traits}
+\section{Oligogenic traits}
+\section{Rare Variants}
+
+\chapter{Risk Prediction}
+\section{Correcting for Linkage Disequilibrium}
+
+
+\backmatter
+\printbibliography
+\chapter*{Appendix}
+\end{document}
