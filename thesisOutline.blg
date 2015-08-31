@@ -1,17 +1,17 @@
 [0] Config.pm:324> INFO - This is Biber 2.1
 [0] Config.pm:327> INFO - Logfile is 'thesisOutline.blg'
-[64] biber-MSWIN:273> INFO - === %a %b %e, %Y, %H:%M:%S
-[64] Biber.pm:333> INFO - Reading 'thesisOutline.bcf'
-[317] Biber.pm:645> INFO - Found 6 citekeys in bib section 0
-[348] Biber.pm:2977> INFO - Processing section 0
-[377] Biber.pm:3115> INFO - Looking for bibtex format file 'citation/Thesis.bib' for section 0
-[1600] bibtex.pm:1021> INFO - Decoding LaTeX character macros into UTF-8
-[2624] bibtex.pm:895> INFO - Found BibTeX data source 'citation/Thesis.bib'
-[2950] Utils.pm:146> WARN - BibTeX subsystem: C:\Users\swchoi\AppData\Local\Temp\IGPK51aQ5f\Thesis.bib_3596.utf8, line 6, warning: 170 characters of junk seen at toplevel
-[3075] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[3075] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[3075] Biber.pm:2854> INFO - Sorting list 'none' of type 'entry' with scheme 'none' and locale 'en-US'
-[3075] Biber.pm:2858> INFO - No sort tailoring available for locale 'en-US'
-[3092] bbl.pm:505> INFO - Writing 'thesisOutline.bbl' with encoding 'ascii'
-[3841] bbl.pm:596> INFO - Output to thesisOutline.bbl
-[3841] Biber.pm:106> INFO - WARNINGS: 1
+[124] biber-MSWIN:273> INFO - === %a %b %e, %Y, %H:%M:%S
+[124] Biber.pm:333> INFO - Reading 'thesisOutline.bcf'
+[362] Biber.pm:645> INFO - Found 6 citekeys in bib section 0
+[439] Biber.pm:2977> INFO - Processing section 0
+[579] Biber.pm:3115> INFO - Looking for bibtex format file 'citation/Thesis.bib' for section 0
+[1723] bibtex.pm:1021> INFO - Decoding LaTeX character macros into UTF-8
+[2673] bibtex.pm:895> INFO - Found BibTeX data source 'citation/Thesis.bib'
+[3100] Utils.pm:146> WARN - BibTeX subsystem: C:\Users\swchoi\AppData\Local\Temp\qg6WQC3ZGR\Thesis.bib_18728.utf8, line 6, warning: 170 characters of junk seen at toplevel
+[3266] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[3266] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[3267] Biber.pm:2854> INFO - Sorting list 'none' of type 'entry' with scheme 'none' and locale 'en-US'
+[3267] Biber.pm:2858> INFO - No sort tailoring available for locale 'en-US'
+[3283] bbl.pm:505> INFO - Writing 'thesisOutline.bbl' with encoding 'ascii'
+[3948] bbl.pm:596> INFO - Output to thesisOutline.bbl
+[3949] Biber.pm:106> INFO - WARNINGS: 1
