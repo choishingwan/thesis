@@ -1,0 +1,209 @@
+\documentclass{book}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{fullpage}
+\usepackage{afterpage}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{gensymb}
+\usepackage{parskip}
+\usepackage{xr}
+\usepackage{pdflscape}
+\usepackage[inline]{enumitem}
+\usepackage{wrapfig}
+\usepackage{longtable}
+\usepackage{subfig}
+\usepackage[natbib=true, style=numeric-comp,subentry,backend=biber,sorting=none]{biblatex}
+\addbibresource{citation/Thesis.bib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fixltx2e}
+\usepackage{nomencl}
+
+
+
+
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\itshape \nouppercase \rightmark}
+\fancyhead[LO,RE]{\itshape \nouppercase Chapter \arabic{chapter}}
+\setlength{\headheight}{40.0pt}
+\setlength{\headsep}{0.2in}
+\addtolength{\topmargin}{-4\baselineskip}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\newcommand{\beginsupplement}{%
+	\setcounter{table}{0}
+	\renewcommand{\thetable}{S\arabic{table}}%
+	\setcounter{figure}{0}
+	\renewcommand{\thefigure}{S\arabic{figure}}%
+}
+
+\title{Genetic and Environmental risk factors of Schizophrenia and Autism}
+\date{\today}
+\author{\href{mailto:choishingwan@gmail.com}{Choi Shing Wan}\\
+	\includegraphics[width=0.5\textwidth]{hkuLogo.jpg}}
+\singlespacing
+\renewcommand*\contentsname{Contents}
+\onehalfspacing
+%\doublespacing
+
+\newcommand{\gene}[1]{\textit{#1}}
+\newcommand{\organism}[1]{\textit{#1}}
+\newcommand{\function}[1]{\textit{#1}}
+
+%\includeonly{environmental_risk/er_chapter,supplementary_materials}
+
+\makenomenclature
+\makeindex
+\begin{document}\thispagestyle{empty}
+\pagestyle{empty}
+
+%\maketitle
+\begin{titlepage}
+	\begin{center}
+		\vspace*{1cm}
+		
+		\Huge
+		\textbf{Heritability Estimation and Risk Prediction in Schizophrenia}
+		
+		\vspace{0.5cm}
+		\LARGE
+		
+		\vspace{1.5cm}
+		
+		\textbf{\href{mailto:choishingwan@gmail.com}{Choi Shing Wan}}
+		
+		\vfill
+		
+		A thesis submitted in partial fulfillment of the requirements for \\
+		the Degree of Doctor of Philosophy
+		
+		\vspace{0.8cm}
+		
+		\includegraphics[width=0.4\textwidth]{hkuLogo.jpg}
+		
+		\Large
+		Department of Psychiatry\\
+		University of Hong Kong\\
+		Hong Kong\\
+		\today
+		
+	\end{center}
+\end{titlepage}
+
+
+\frontmatter 
+
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Declaration}
+	\chapter*{Declaration}
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Acknowledgments}
+	\chapter*{Acknowledgements}
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Abbreviations}
+	\renewcommand{\nomname}{Abbreviations}
+	%To generate the correct abbreviations, use alt+shift+F1 twice before using F1
+	\printnomenclature
+	
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Contents}
+	\begin{singlespace}
+		\tableofcontents
+	\end{singlespace}
+\mainmatter
+	\chapter*{Introduction}
+		\addcontentsline{toc}{chapter}{Introduction}
+	\chapter*{Some considerations}
+	\begin{enumerate}
+		\item PRSice requires the phenotype to aid its selection (More information= stronger)
+		\item It seems like LDSC doesn't necessary perform badly in oligogenic situation.
+		Rather, it is that when the trait is oligogenic, it is more likely for LDSC to behaviour in a strange way.
+		\item For each condition: extreme phenotype, quantitative trait, case control, we can have a separated review. 
+		Discuss on the benefits and challenges of each condition and the method we deal with them.
+		So we can have two chapters (case control, quantitative trait) where extreme phenotype can be a big subsection within quantitative trait.
+		\item For each chapter, there will be this introduction (review on the method), our methodology (Calculation, implementation and also simulation), result (the simulation result). 
+		Then we can have the application (PGC, network)
+	\end{enumerate}
+	\chapter{Literature Review}
+	\section{Twin Studies - Delineating Genetic and Environmental Contribution}
+	Should briefly talk about how Twin modeling was used for finding the GE contribution.
+	Should also mention the ACE model.
+	At the end, we can talk about the heritability estimates of SCZ and AD
+	\section{Searching for Genetic Variants}
+	\subsection{Role of Common Variants}
+	\subsubsection{Genome Wide Association Study}
+	Should talk about what is GWAS and how it is used.
+	Should also talk about the current GWAS studies in SCZ and AD
+	\subsection{Role of Rare Variants}
+	\subsubsection{Exome Sequencing}
+	Similar to the GWAS.
+	Talk about the Pros and Cons.
+	Need to briefly mention the Denovo paper and Shaun's paper.					
+	\subsubsection{Whole Genome Sequencing}
+	Very very brief description of WGS and the current status.
+	
+	\section{Summary}
+	
+	\chapter{Heritability Estimation}
+	This chapter should be used in similar way as the general method section in Clara's thesis. Considering that the subsequent chapters all rely on this implementation.
+	\section{Introduction}
+	\section{Methodology}
+	\section{Implementation}
+	This, I am not sure whether if I should include this section. 
+	The sliding window is definitely a challenge that we solved.
+	So is the tSVD which we can some how put that in the calculation part.
+	
+	\chapter{Quantitative Trait}
+	\section{Introduction}
+	\section{Methodology}
+	\subsection{Simulation}
+	\section{Result}
+	
+	\section{Extreme Phenotype Selection}
+	\subsection{Methodology}
+	\subsubsection{Simulation}
+	\subsection{Result}
+	
+	\chapter{Case Control}
+	\section{Introduction}
+	\section{Methodology}
+	Considering that the implementation of case control is the same as that in quantitative trait, maybe there is no need to repeat it?
+	\subsection{Simulation}
+	\section{Result}
+
+	\chapter{Heritability of Schizophrenia}
+	\section{Introduction}
+	\section{Heritability Estimation}
+	This will be a very simple section, focused on how to perform the heritability estimation on Schizophrenia(SCZ)\nomenclature{SCZ}{Schizophrenia}.
+	Should also tokenize the heritability into subcategories (e.g. immune, neuron, etc)
+	\section{Brain development and Schizophrenia}
+	Here we will perform the WGCNA and brain development network.
+	Seeing how the whether if any brain development network were enriched with SNPs that explain the variance of phenotype
+	\subsection{Methodology}
+	\subsection{Result}
+	\section{Heritability of Schziophrenia drug response}
+	Here we try to use Beatrice's data and estimate the heritability explained in drug response.
+	Should also repeat the region-wise heritability
+	\subsection{Methodology}
+	\subsection{Result}
+	
+	\chapter{Risk Prediction}
+	\section{Methodology}
+	\subsection{Simulation}
+	\section{Result}
+	\chapter{Conclusion}
+	\backmatter
+	\printbibliography
+	\chapter*{Appendix}
+\end{document}
+
+
