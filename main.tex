@@ -56,6 +56,8 @@
 \makeglossary
 \newacronym{SCZ}{SCZ}{Schizophrenia}
 \newacronym{ASD}{ASD}{Autism Spectrum Disorder}
+\newacronym[longplural={Genome Wide Association Studies}]{GWAS}{GWAS}{Genome Wide Association Study}
+\newacronym{SNP}{SNP}{Single Nucleotide Polymorphism}
 
 \makeindex
 \begin{document}\thispagestyle{empty}
@@ -150,13 +152,67 @@
 	Need to briefly mention the Denovo paper and Shaun's paper.					
 	\subsubsection{Whole Genome Sequencing}
 	Very very brief description of WGS and the current status.
-	
+	\section{Narrow Sense Heritability}
+	\section{Risk Prediction}
 	\section{Summary}
 	
 	\chapter{Heritability Estimation}
 	This chapter should be used in similar way as the general method section in Clara's thesis. Considering that the subsequent chapters all rely on this implementation.
 	\section{Introduction}
 	\section{Methodology}
+		The narrow-sense heritability is defined as 
+		$$
+			h^2 = \frac{var(X)}{var(Y)}
+		$$
+		where $var(X)$ is the variance of the genotype and $var(Y)$ is the variance of the phenotype.
+		In a \acrfull{GWAS}, regression were performed between the \acrshort{SNP}s and the phenotypes, giving
+		\begin{equation}
+			Y=\beta X+\epsilon
+			\label{standardRegress}
+		\end{equation}
+		where $Y$ and $X$ are the standardized phenotype and genotype respectively. 
+		$\epsilon$ is then the error term, accounting for the non-genetic elements contributing to the phenotype (e.g. Environment factors).
+		Based on equation \ref{standardRegress}, one can then have
+		\begin{align}
+			var(Y) = var(\beta X)+ var(\epsilon) \nonumber\\
+			var(Y) = \beta^2var(X) \nonumber\\
+			\beta^2\frac{var(X)}{var(Y)}= 1
+			\label{betaHeri}
+		\end{align}
+		$\beta^2$ is then considered as the portion of phenotype variance explained by the variance of genotype. 
+		Which can also be considered as the narrow-sense heritability of the phenotype.
+		
+		It is noted that as both $X$ and $Y$ are standardized, $\beta^2$ will be equal to the coefficient of determination ($r^2$). 
+		
+		A challenge in calculating the heritability from \acrshort{GWAS} data is that usually only the test-statistic or p-value were provided and one will not be able to directly calculate the heritability based on equation \ref{betaHeri}. In order to estimation the heritability of a trait from the \acrshort{GWAS} test-statistic, we rely on the properties of the Pearson product-moment correlation coefficient:
+		\begin{equation}
+			r = \frac{t}{\sqrt{n-2+t^2}}
+			\label{pearsonProduct}
+		\end{equation}
+		where $t$ follows the student-t distribution and $n$ is the number of samples.
+		One can then obtain the $r^2$ by taking the square of \ref{pearsonProduct}
+		\begin{equation}
+			r^2 = \frac{t^2}{n-2+t^2}
+			\label{oriRSquared}
+		\end{equation}
+		It is observed that $t^2$ will follow the F-distribution and when $n$ is big, $t^2$ will converge into $\chi^2$ distribution.
+		
+		As under the null distribution, $t^2$ should have mean approximately equal to 1, we then define the \acrshort{SNP} contribution ($f$) as:
+		\begin{equation}
+		f = \frac{t^2-1}{n-2+t^2}
+		\label{snpContribution}
+		\end{equation} 
+		
+		When all the \acrshort{SNP}s were independent, the heritability of the phenotype can be simply defined as
+		\begin{equation}
+			h^2 = \sum^m_1{f}
+			\label{simpleHeritability}
+		\end{equation}
+		where $m$ is the number of \acrshort{SNP}.
+		
+		Considering that one of the main concept in \acrshort{GWAS} is to be be able to ``tag'' the true causal variants using common \acrshort{SNP}s based on the linkage disequilibrium between the \acrshort{SNP}, it is impractical to assume the \acrshort{SNP}s to be independent from each other. 
+		When linkage disequilibrium exists between the \acrshort{SNP}s, equation \ref{simpleHeritability} will provide an over-estimation of the heritability. 
+		In order to obtain an unbiased estimation of the heritability of the phenotype, one must take into account of the linkage structure between the \acrshort{SNP}s.
 	\subsection{Quantitative Trait}
 	\subsection{Case Control Studies}
 	\subsection{Extreme Phenotype Selections}
