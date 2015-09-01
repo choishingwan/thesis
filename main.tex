@@ -7,7 +7,7 @@
 \usepackage{fullpage}
 \usepackage{afterpage}
 \usepackage{multirow}
-\usepackage{setspace}
+\usepackage[nodisplayskipstretch]{setspace}
 \usepackage{booktabs}
 \usepackage{gensymb}
 \usepackage{parskip}
@@ -47,9 +47,15 @@
 	\includegraphics[width=0.5\textwidth]{hkuLogo.jpg}}
 \singlespacing
 \renewcommand*\contentsname{Contents}
-\onehalfspacing
+%\onehalfspacing
 %\doublespacing
-
+\expandafter\def\expandafter\normalsize\expandafter{%
+	\normalsize
+	\setlength\abovedisplayskip{10pt}
+	\setlength\belowdisplayskip{10pt}
+	\setlength\abovedisplayshortskip{10pt}
+	\setlength\belowdisplayshortskip{10pt}
+}
 
 %\includeonly{environmental_risk/er_chapter,supplementary_materials}
 
@@ -58,6 +64,7 @@
 \newacronym{ASD}{ASD}{Autism Spectrum Disorder}
 \newacronym[longplural={Genome Wide Association Studies}]{GWAS}{GWAS}{Genome Wide Association Study}
 \newacronym{SNP}{SNP}{Single Nucleotide Polymorphism}
+\newacronym{LD}{LD}{Linkage Disequilibrium}
 
 \makeindex
 \begin{document}\thispagestyle{empty}
@@ -179,12 +186,9 @@
 			\beta^2\frac{var(X)}{var(Y)}= 1
 			\label{betaHeri}
 		\end{align}
-		$\beta^2$ is then considered as the portion of phenotype variance explained by the variance of genotype. 
-		Which can also be considered as the narrow-sense heritability of the phenotype.
-		
-		It is noted that as both $X$ and $Y$ are standardized, $\beta^2$ will be equal to the coefficient of determination ($r^2$). 
-		
-		A challenge in calculating the heritability from \acrshort{GWAS} data is that usually only the test-statistic or p-value were provided and one will not be able to directly calculate the heritability based on equation \ref{betaHeri}. In order to estimation the heritability of a trait from the \acrshort{GWAS} test-statistic, we rely on the properties of the Pearson product-moment correlation coefficient:
+		$\beta^2$ is then considered as the portion of phenotype variance explained by the variance of genotype, which can also be considered as the narrow-sense heritability of the phenotype.
+				
+		A challenge in calculating the heritability from \acrshort{GWAS} data is that usually only the test-statistic or p-value were provided and one will not be able to directly calculate the heritability based on equation \ref{betaHeri}. In order to estimation the heritability of a trait from the \acrshort{GWAS} test-statistic, we first observed that when both $X$ and $Y$ are standardized, $\beta^2$ will be equal to the coefficient of determination ($r^2$). Then, based on properties of the Pearson product-moment correlation coefficient:
 		\begin{equation}
 			r = \frac{t}{\sqrt{n-2+t^2}}
 			\label{pearsonProduct}
@@ -197,22 +201,80 @@
 		\end{equation}
 		It is observed that $t^2$ will follow the F-distribution and when $n$ is big, $t^2$ will converge into $\chi^2$ distribution.
 		
-		As under the null distribution, $t^2$ should have mean approximately equal to 1, we then define the \acrshort{SNP} contribution ($f$) as:
+		When under the null distribution, $t^2$ should have mean approximately equal to 1,\acrshort{SNP} contribution ($f$) is then defined as:
 		\begin{equation}
 		f = \frac{t^2-1}{n-2+t^2}
 		\label{snpContribution}
 		\end{equation} 
 		
-		When all the \acrshort{SNP}s were independent, the heritability of the phenotype can be simply defined as
+		Under the condition where all \acrshort{SNP}s were independent, the heritability of the phenotype can be simply defined as 
 		\begin{equation}
 			h^2 = \sum^m_1{f}
 			\label{simpleHeritability}
 		\end{equation}
 		where $m$ is the number of \acrshort{SNP}.
 		
-		Considering that one of the main concept in \acrshort{GWAS} is to be be able to ``tag'' the true causal variants using common \acrshort{SNP}s based on the linkage disequilibrium between the \acrshort{SNP}, it is impractical to assume the \acrshort{SNP}s to be independent from each other. 
-		When linkage disequilibrium exists between the \acrshort{SNP}s, equation \ref{simpleHeritability} will provide an over-estimation of the heritability. 
+		Considering that one of the main concept in \acrshort{GWAS} is to be be able to ``tag'' the true causal variants using common \acrshort{SNP}s based on the \acrfull{LD} between the \acrshort{SNP}, it is impractical to assume the \acrshort{SNP}s to be independent from each other. 
+		When \acrshort{LD} exists between the \acrshort{SNP}s, equation \ref{simpleHeritability} will provide an over-estimation of the heritability. 
 		In order to obtain an unbiased estimation of the heritability of the phenotype, one must take into account of the linkage structure between the \acrshort{SNP}s.
+		To account for the \acrshort{LD}, one can consider that the \acrshort{SNP} contribution as a combination of the true \acrshort{SNP} contributions and the effect from other \acrshort{SNP}s through \acrshort{LD}.
+		This will require the knowledge of the correlation matrix between the $f$ variables.
+		
+		As $f$ is a function of $\chi^2$ following the F-distribution, we can obtain the variance covariance matrix of $f$ by first calculating the variance covariance matrix of the $\chi^2$ variables.
+		
+		First, let that $X_i$ be the standardized genotype with standard normal mean $z_i$ and non-centrality parameter $\mu_i$, we have
+		\begin{align*}
+		\mathrm{E}[X_i]&=\mathrm{E}[z_i+\mu_i]\\
+		&=\mu_i\\
+		\mathrm{var}(X_i) &=\mathrm{E}[(z_i+\mu_i)^2]+\mathrm{E}[(z_i+\mu_i)]^2\\
+		&=\mathrm{E}[z_i^2+\mu_i^2+2z_i\mu_i]+\mu_i^2\\
+		&=1
+		\end{align*}
+		Given the \acrshort{LD} between two genotype $X_i$ and $X_j$ are $\rho_{ij}$, then
+		\begin{align*}
+		\mathrm{Cov}(X_i,X_j)&=\mathrm{E}[(z_i+\mu_i)(z_j+\mu_j)]-\mathrm{E}[z_i+\mu_i]\mathrm{E}[z_j+\mu_j]\\
+		&=\mathrm{E}[z_iz_j+z_i\mu_j+\mu_iz_j+\mu_i\mu_j]-\mu_i\mu_j\\
+		&=\mathrm{E}[z_iz_j]+\mathrm{E}[z_i\mu_j]+\mathrm{E}[z_j\mu_i]+\mathrm{E}[\mu_i\mu_j]-\mu_i\mu_j\\
+		&=\mathrm{E}[z_iz_j]
+		\end{align*}
+		As the genotypes are standardized, therefore $\mathrm{cov}(X_i,X_j)==\mathrm{cor}(X_i,X_j)$ and we can obtain
+		$$
+		\mathrm{cov}(X_i,X_j)=\mathrm{E}[z_iz_j]=\rho_{ij}
+		$$
+		Given these information, we can then calculate $\mathrm{Cov}(\chi_i^2,\chi_j^2)$ as:
+		\begin{align*}
+		\mathrm{cov}(X_i^2,X_j^2)&=\mathrm{E}[(z_i+\mu_i)^2(z_j+\mu_j)^2]-\mathrm{E}[z_i+\mu_i]\mathrm{E}[z_j+\mu_j]\\
+		&=\mathrm{E}[(z_i^2+\mu_i^2+2z_i\mu_i)(z_j^2+\mu_j^2+2z_j\mu_j)]-\mathrm{E}[z_i^2+\mu_i^2+2z_i\mu_i]\mathrm{E}[z_j^2+\mu_j^2+2z_j\mu_j]\\
+		&=\mathrm{E}[(z_i^2+\mu_i^2+2z_i\mu_i)(z_j^2+\mu_j^2+2z_j\mu_j)]-(\mathrm{E}[z_i^2]+\mathrm{E}[\mu_i^2]+2\mathrm{E}[z_i\mu_i])(\mathrm{E}[z_j^2]+\mathrm{E}[\mu_j^2]+2\mathrm{E}[z_j\mu_j])\\
+		&=\mathrm{E}[z_i^2(z_j^2+\mu_j^2+2z_j\mu_j)+\mu_i^2(z_j^2+\mu_j^2+2z_j\mu_j)+2z_i\mu_i(z_j^2+\mu_j^2+2z_j\mu_j)]-(1+\mu_i^2)(1+\mu_j^2)\\
+		&=\mathrm{E}[z_i^2(z_j^2+\mu_j^2+2z_j\mu_j)]+\mu_i^2\mathrm{E}[z_j^2+\mu_j^2+2z_j\mu_j]+2\mu_i\mathrm{E}[z_i(z_j^2+\mu_j^2+2z_j\mu_j)]-(1+\mu_i^2)(1+\mu_j^2)\\
+		&=\mathrm{E}[z_i^2z_j^2+z_i^2\mu_j^2+2z_i^2z_j\mu_j]+\mu_i^2+\mu_i^2\mu_j^2+2\mu_i\mathrm{E}[z_iz_j^2+z_i\mu_j^2+2z_iz_j\mu_j]-(1+\mu_i^2)(1+\mu_j^2)\\
+		&=\mathrm{E}[z_i^2z_j^2]+\mu_j^2+\mu_i^2+\mu_i^2\mu_j^2+4\mu_i\mu_j\mathrm{E}[z_iz_j]-(1+\mu_i^2+\mu_j^2+\mu_i\mu_j)\\
+		&=\mathrm{E}[z_i^2z_j^2]+4\mu_i\mu_j\mathrm{E}[z_iz_j]-1
+		\end{align*}
+		Remember that $\mathrm{E}[z_iz_j] = \rho_{ij}$, we then have
+		$$
+		\mathrm{cov}(X_i^2, X_j^2)=\mathrm{E}[z_i^2z_j^2]+4\mu_i\mu_j\rho_{ij}-1
+		$$
+		By definition, 
+		$$
+		z_i|z_j\sim N(\mu_i+\rho_{ij}(z_j-\mu_j),1-\rho_{ij}^2)
+		$$
+		We can then calculate $\mathrm{E}[z_i^2z_j^2]$ as
+		\begin{align*}
+		\mathrm{E}[z_i^2z_j^2]&=\mathrm{var}[z_iz_j]+\mathrm{E}[z_iz_j]^2\\
+		&=\mathrm{E}[\mathrm{var}(z_iz_j|z_i)]+\mathrm{var}[\mathrm{E}[z_iz_j|z_i]]+\rho_{ij}^2\\
+		&=\mathrm{E}[z_j^2\mathrm{var}(z_i|z_j)]+\mathrm{var}[z_j\mathrm{E}[z_i|z_j]]+\rho_{ij}^2\\
+		&=(1-\rho_{ij}^2)\mathrm{E}[z_j^2]+\mathrm{var}(z_j(\mu_i+\rho_{ij}(z_j-\mu_j)))+\rho_{ij}^2\\
+		&=(1-\rho_{ij}^2)+\mathrm{var}(z_j\mu_i+\rho_{ij}z_j^2-\mu_jz_j\rho_{ij})+\rho_{ij}^2\\
+		&=1+\mu_i^2\mathrm{var}(z_j)+\rho_{ij}^2\mathrm{var}(z_j^2)-\mu_j^2\rho_{ij}^2\mathrm{var}(z_j)\\
+		&=1+2\rho_{ij}^2
+		\end{align*}
+		As a result, the variance covariance matrix of the $X^2$ can be calculated as
+		$$
+		\mathrm{cov}(X_i^2,X_j^2) = 2\rho_{ij}^2+4\rho_{ij}\mu_i\mu_j
+		$$
+			
 	\subsection{Quantitative Trait}
 	\subsection{Case Control Studies}
 	\subsection{Extreme Phenotype Selections}
