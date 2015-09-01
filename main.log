@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.8.24)  1 SEP 2015 00:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.8.24)  1 SEP 2015 16:11
 entering extended mode
 **main.tex
 (C:\Users\shingwan\Desktop\thesis\main.tex
@@ -879,7 +879,7 @@ LaTeX Info: Redefining \nameref on input line 61.
 (C:\Users\shingwan\Desktop\thesis\main.out)
 \@outlinefile=\write7
 
-<hkuLogo.jpg, id=172, 283.0575pt x 318.2289pt>
+<hkuLogo.jpg, id=176, 283.0575pt x 318.2289pt>
 File: hkuLogo.jpg Graphic file (type jpg)
  <use hkuLogo.jpg>
 Package pdftex.def Info: hkuLogo.jpg used on input line 86.
@@ -952,31 +952,27 @@ Chapter 6.
 [15] [16
 
 ]
-Chapter 7.
-[17] [18
+
+LaTeX Warning: Empty bibliography on input line 196.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
+[17
 
 ]
-
-LaTeX Warning: Empty bibliography on input line 204.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 206.
-[19
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 206.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
  (C:\Users\shingwan\Desktop\thesis\main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 206.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 206.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B71298FE0B397305B9C34B3C9CE39CC2;2620.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 206.
+(rerunfilecheck)             Checksum: B0CEDCB66C92BA84C66E809FA6E2156D;2751.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 198.
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 16436 strings out of 493921
- 264278 string characters out of 3144867
+ 16435 strings out of 493921
+ 264301 string characters out of 3144867
  755425 words of memory out of 3000000
- 19360 multiletter control sequences out of 15000+200000
+ 19361 multiletter control sequences out of 15000+200000
  9879 words of font info for 35 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  46i,6n,43p,1963b,710s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -985,9 +981,9 @@ Here is how much of TeX's memory you used:
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/P
 rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on main.pdf (29 pages, 735816 bytes).
+Output written on main.pdf (27 pages, 734503 bytes).
 PDF statistics:
- 397 PDF objects out of 1000 (max. 8388607)
- 87 named destinations out of 1000 (max. 500000)
- 342 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 393 PDF objects out of 1000 (max. 8388607)
+ 85 named destinations out of 1000 (max. 500000)
+ 350 words of extra memory for PDF output out of 10000 (max. 10000000)
 
