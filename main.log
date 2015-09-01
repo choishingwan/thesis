@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.8.24)  1 SEP 2015 00:18
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.8.24)  1 SEP 2015 00:23
 entering extended mode
-**thesis.tex
-(C:\Users\shingwan\Desktop\thesis\thesis.tex
+**main.tex
+(C:\Users\shingwan\Desktop\thesis\main.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -785,12 +785,12 @@ ty"
 Package: glossary-tree 2015/07/17 v4.17 (NLCT)
 \glstreeindent=\skip92
 ))
-\@indexfile=\write4
+\glswrite=\write4
+\glo@acronym@file=\write5
+Package glossaries Info: Writing glossary file main.acn on input line 56.
+\@indexfile=\write6
 
-Writing index file thesis.idx
-\glswrite=\write5
-\glo@acronym@file=\write6
-Package glossaries Info: Writing glossary file thesis.acn on input line 65.
+Writing index file main.idx
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex\lbx\english.lbx"
@@ -799,21 +799,21 @@ File: english.lbx 2015/04/19 v3.0 biblatex localization (PK/JW/AB)
 \@quotelevel=\count316
 \@quotereset=\count317
 
-(C:\Users\shingwan\Desktop\thesis\thesis.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
+(C:\Users\shingwan\Desktop\thesis\main.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -839,15 +839,15 @@ Package: ltcaption 2013/02/03 v1.3-62 longtable captions (AR)
 Package caption Info: supertabular package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \celsius on input line 67.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 67.
+LaTeX Info: Redefining \celsius on input line 61.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 61.
 
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 67.
-Package gensymb Info: Using \Omega for \ohm on input line 67.
+LaTeX Info: Redefining \ohm on input line 61.
+Package gensymb Info: Using \Omega for \ohm on input line 61.
 
 Package gensymb Warning: Not defining \micro.
 
@@ -856,12 +856,13 @@ Package biblatex Info: No input encoding detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'ascii'.
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'thesis.bbl' not found.
-No file thesis.bbl.
-Package biblatex Info: Reference section=0 on input line 67.
-Package biblatex Info: Reference segment=0 on input line 67.
+Package biblatex Info: ... file 'main.bbl' found.
+(C:\Users\shingwan\Desktop\thesis\main.bbl)
+Package biblatex Info: Reference section=0 on input line 61.
+Package biblatex Info: Reference segment=0 on input line 61.
 \AtBeginShipoutBox=\box38
-Package hyperref Info: Link coloring OFF on input line 67.
+Package hyperref Info: Link coloring OFF on input line 61.
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -870,18 +871,18 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count324
 )
-LaTeX Info: Redefining \ref on input line 67.
-LaTeX Info: Redefining \pageref on input line 67.
-LaTeX Info: Redefining \nameref on input line 67.
+LaTeX Info: Redefining \ref on input line 61.
+LaTeX Info: Redefining \pageref on input line 61.
+LaTeX Info: Redefining \nameref on input line 61.
 
-(C:\Users\shingwan\Desktop\thesis\thesis.out)
-(C:\Users\shingwan\Desktop\thesis\thesis.out)
+(C:\Users\shingwan\Desktop\thesis\main.out)
+(C:\Users\shingwan\Desktop\thesis\main.out)
 \@outlinefile=\write7
 
-<hkuLogo.jpg, id=76, 283.0575pt x 318.2289pt>
+<hkuLogo.jpg, id=172, 283.0575pt x 318.2289pt>
 File: hkuLogo.jpg Graphic file (type jpg)
  <use hkuLogo.jpg>
-Package pdftex.def Info: hkuLogo.jpg used on input line 92.
+Package pdftex.def Info: hkuLogo.jpg used on input line 86.
 (pdftex.def)             Requested size: 187.89914pt x 211.2505pt.
  [1
 
@@ -898,88 +899,95 @@ Package pdftex.def Info: hkuLogo.jpg used on input line 92.
 
 ] [4
 
-] [5
+] (C:\Users\shingwan\Desktop\thesis\main.acr)
+[5
+
 
 ] [6
 
-]
-(C:\Users\shingwan\Desktop\thesis\thesis.acr) [7
+] (C:\Users\shingwan\Desktop\thesis\main.toc [7
 
 
-] [8
-
-]
-(C:\Users\shingwan\Desktop\thesis\thesis.toc)
+])
 \tf@toc=\write8
- [9
-
-
-] [10
-
-]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
- been already used, duplicate ignored
+ [8]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) 
+has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.137 \chapter
-              {Literature Review} [1
+l.124 	\chapter
+               *{Some considerations} [1
+
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.137 \chapter
-              {Literature Review} [2
+l.124 	\chapter
+               *{Some considerations} [2
+
+] [3] [4
 
 ]
 Chapter 1.
-[3] [4
-
-]
+[5] [6]
 Chapter 2.
-[5] [6
+[7
+
+] [8
 
 ]
 Chapter 3.
-[7] [8
-
-]
-Chapter 4.
 [9] [10
 
 ]
-
-LaTeX Warning: Empty bibliography on input line 188.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 190.
-[11
+Chapter 4.
+[11] [12
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
- (C:\Users\shingwan\Desktop\thesis\thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 190.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 190.
-Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 2662F24BA2B4EF92CA266D67A25EBA54;1072.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 190.
-Package logreq Info: Writing requests to 'thesis.run.xml'.
+Chapter 5.
+[13] [14
+
+]
+Chapter 6.
+[15] [16
+
+]
+Chapter 7.
+[17] [18
+
+]
+
+LaTeX Warning: Empty bibliography on input line 204.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 206.
+[19
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 206.
+ (C:\Users\shingwan\Desktop\thesis\main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 206.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 206.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: B71298FE0B397305B9C34B3C9CE39CC2;2620.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 206.
+Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 16374 strings out of 493921
- 263446 string characters out of 3144867
- 752449 words of memory out of 3000000
- 19335 multiletter control sequences out of 15000+200000
- 9620 words of font info for 34 fonts, out of 3000000 for 9000
+ 16436 strings out of 493921
+ 264278 string characters out of 3144867
+ 755425 words of memory out of 3000000
+ 19360 multiletter control sequences out of 15000+200000
+ 9879 words of font info for 35 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 46i,11n,43p,1965b,710s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,6n,43p,1963b,710s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/P
 rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on thesis.pdf (23 pages, 731949 bytes).
+ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on main.pdf (29 pages, 735816 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 500000)
- 150 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 397 PDF objects out of 1000 (max. 8388607)
+ 87 named destinations out of 1000 (max. 500000)
+ 342 words of extra memory for PDF output out of 10000 (max. 10000000)
 

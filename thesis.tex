@@ -22,7 +22,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage{fixltx2e}
-\usepackage{nomencl}
+\usepackage[acronym,nomain,toc,makeindex ]{glossaries}
 
 
 
@@ -57,8 +57,13 @@
 
 %\includeonly{environmental_risk/er_chapter,supplementary_materials}
 
-\makenomenclature
+
+\newacronym{SCZ}{SCZ}{Schizophrenia}
+\newacronym{ASD}{ASD}{Autism Spectrum Disorder}
+
 \makeindex
+\makeglossaries
+
 \begin{document}\thispagestyle{empty}
 \pagestyle{empty}
 
@@ -112,10 +117,13 @@
 	\chapter*{Acknowledgements}
 	\cleardoublepage
 	\phantomsection
-	\addcontentsline{toc}{chapter}{Abbreviations}
-	\renewcommand{\nomname}{Abbreviations}
+	
+	\printglossary[title=Abbreviations,toctitle=Abbreviations]
+	\cleardoublepage
+	\phantomsection
+	%\renewcommand{\nomname}{Abbreviations}
 	%To generate the correct abbreviations, use alt+shift+F1 twice before using F1
-	\printnomenclature
+	%\printnomenclature
 	
 	\cleardoublepage
 	\phantomsection
@@ -157,6 +165,9 @@ Heritability and Risk Prediction in Schizophrenia and Autism
 		\hline
 	\end{tabular}
 \end{table}
+\acrfull{SCZ} is a terrible psychiatric disorders, so is \acrfull{ASD}
+
+
 \chapter{Heritability Estimation - Quantitative Trait}
 %Not sure if I should include tag or none tag situation
 \section{Polygenic Traits}

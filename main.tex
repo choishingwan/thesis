@@ -22,8 +22,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage{fixltx2e}
-\usepackage{nomencl}
-
+\usepackage[acronym,nomain,toc,makeindex ]{glossaries}
 
 
 
@@ -51,13 +50,13 @@
 \onehalfspacing
 %\doublespacing
 
-\newcommand{\gene}[1]{\textit{#1}}
-\newcommand{\organism}[1]{\textit{#1}}
-\newcommand{\function}[1]{\textit{#1}}
 
 %\includeonly{environmental_risk/er_chapter,supplementary_materials}
 
-\makenomenclature
+\makeglossary
+\newacronym{SCZ}{SCZ}{Schizophrenia}
+\newacronym{ASD}{ASD}{Autism Spectrum Disorder}
+
 \makeindex
 \begin{document}\thispagestyle{empty}
 \pagestyle{empty}
@@ -108,10 +107,10 @@
 	\chapter*{Acknowledgements}
 	\cleardoublepage
 	\phantomsection
-	\addcontentsline{toc}{chapter}{Abbreviations}
-	\renewcommand{\nomname}{Abbreviations}
+	\printglossary[title=Abbreviations,toctitle=Abbreviations]
+	\cleardoublepage
+	\phantomsection
 	%To generate the correct abbreviations, use alt+shift+F1 twice before using F1
-	\printnomenclature
 	
 	\cleardoublepage
 	\phantomsection
@@ -183,7 +182,7 @@
 	\chapter{Heritability of Schizophrenia}
 	\section{Introduction}
 	\section{Heritability Estimation}
-	This will be a very simple section, focused on how to perform the heritability estimation on Schizophrenia(SCZ)\nomenclature{SCZ}{Schizophrenia}.
+	This will be a very simple section, focused on how to perform the heritability estimation on \acrfull{SCZ}.
 	Should also tokenize the heritability into subcategories (e.g. immune, neuron, etc)
 	\section{Brain development and Schizophrenia}
 	Here we will perform the WGCNA and brain development network.
