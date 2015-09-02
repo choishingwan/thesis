@@ -19,22 +19,6 @@
 
 \refsection{0}
   \sortlist{none}{none}
-    \entry{Anders.2011}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=8ba8ce5694aef7ac2f97bb2da3648992}{Anders.}{A\bibinitperiod}{Simon}{S\bibinitperiod}{}{}{}{}}%
-      }
-      \strng{namehash}{8ba8ce5694aef7ac2f97bb2da3648992}
-      \strng{fullhash}{8ba8ce5694aef7ac2f97bb2da3648992}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{{HTSeq: Analysing high-throughput sequencing data with Python}}
-      \field{year}{2011}
-      \verb{url}
-      \verb http:%20//www-huber.embl.de/users/anders/HTSeq/
-      \endverb
-    \endentry
     \entry{Fromer2014}{article}{}
       \name{author}{32}{}{%
         {{hash=6507a85efe73cda35a7964918cf7452f}{Fromer}{F\bibinitperiod}{M}{M\bibinitperiod}{}{}{}{}}%

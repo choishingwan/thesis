@@ -20,6 +20,16 @@
 \usepackage[natbib=true, style=numeric-comp,subentry,backend=biber,sorting=none]{biblatex}
 \addbibresource{citation/Thesis.bib}
 \usepackage[hidelinks]{hyperref}
+
+\usepackage{geometry}
+\geometry{
+	top=1in,            % <-- you want to adjust this
+	inner=1in,
+	outer=1in,
+	bottom=1in,
+	headheight=3ex,       % <-- and this
+	headsep=2ex,          % <-- and this
+}
 \usepackage{fancyhdr}
 \usepackage{fixltx2e}
 \usepackage[acronym,nomain,toc,makeindex ]{glossaries}
@@ -27,19 +37,6 @@
 
 
 \pagestyle{fancy}
-\fancyhead[LE,RO]{\itshape \nouppercase \rightmark}
-\fancyhead[LO,RE]{\itshape \nouppercase Chapter \arabic{chapter}}
-\setlength{\headheight}{40.0pt}
-\setlength{\headsep}{0.2in}
-\addtolength{\topmargin}{-4\baselineskip}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
-\newcommand{\beginsupplement}{%
-	\setcounter{table}{0}
-	\renewcommand{\thetable}{S\arabic{table}}%
-	\setcounter{figure}{0}
-	\renewcommand{\thefigure}{S\arabic{figure}}%
-}
 
 \title{Genetic and Environmental risk factors of Schizophrenia and Autism}
 \date{\today}
@@ -49,13 +46,6 @@
 \renewcommand*\contentsname{Contents}
 %\onehalfspacing
 %\doublespacing
-\expandafter\def\expandafter\normalsize\expandafter{%
-	\normalsize
-	\setlength\abovedisplayskip{10pt}
-	\setlength\belowdisplayskip{10pt}
-	\setlength\abovedisplayshortskip{10pt}
-	\setlength\belowdisplayshortskip{10pt}
-}
 
 %\includeonly{environmental_risk/er_chapter,supplementary_materials}
 
@@ -130,6 +120,7 @@
 \mainmatter
 	\chapter*{Introduction}
 		\addcontentsline{toc}{chapter}{Introduction}
+	\pagestyle{fancy}
 	\chapter*{Some considerations}
 	\begin{enumerate}
 		\item PRSice requires the phenotype to aid its selection (More information= stronger)
@@ -167,113 +158,174 @@
 	This chapter should be used in similar way as the general method section in Clara's thesis. Considering that the subsequent chapters all rely on this implementation.
 	\section{Introduction}
 	\section{Methodology}
-		The narrow-sense heritability is defined as 
-		$$
-			h^2 = \frac{var(X)}{var(Y)}
-		$$
-		where $var(X)$ is the variance of the genotype and $var(Y)$ is the variance of the phenotype.
-		In a \acrfull{GWAS}, regression were performed between the \acrshort{SNP}s and the phenotypes, giving
-		\begin{equation}
-			Y=\beta X+\epsilon
-			\label{standardRegress}
-		\end{equation}
-		where $Y$ and $X$ are the standardized phenotype and genotype respectively. 
-		$\epsilon$ is then the error term, accounting for the non-genetic elements contributing to the phenotype (e.g. Environment factors).
-		Based on equation \ref{standardRegress}, one can then have
-		\begin{align}
-			var(Y) = var(\beta X)+ var(\epsilon) \nonumber\\
-			var(Y) = \beta^2var(X) \nonumber\\
-			\beta^2\frac{var(X)}{var(Y)}= 1
-			\label{betaHeri}
-		\end{align}
-		$\beta^2$ is then considered as the portion of phenotype variance explained by the variance of genotype, which can also be considered as the narrow-sense heritability of the phenotype.
-				
-		A challenge in calculating the heritability from \acrshort{GWAS} data is that usually only the test-statistic or p-value were provided and one will not be able to directly calculate the heritability based on equation \ref{betaHeri}. In order to estimation the heritability of a trait from the \acrshort{GWAS} test-statistic, we first observed that when both $X$ and $Y$ are standardized, $\beta^2$ will be equal to the coefficient of determination ($r^2$). Then, based on properties of the Pearson product-moment correlation coefficient:
-		\begin{equation}
-			r = \frac{t}{\sqrt{n-2+t^2}}
-			\label{pearsonProduct}
-		\end{equation}
-		where $t$ follows the student-t distribution and $n$ is the number of samples.
-		One can then obtain the $r^2$ by taking the square of \ref{pearsonProduct}
-		\begin{equation}
-			r^2 = \frac{t^2}{n-2+t^2}
-			\label{oriRSquared}
-		\end{equation}
-		It is observed that $t^2$ will follow the F-distribution and when $n$ is big, $t^2$ will converge into $\chi^2$ distribution.
+		The work in this chapter were done in collaboration with my colleagues who have kindly provide their support and knowledges to make this piece of work possible.
 		
-		When under the null distribution, $t^2$ should have mean approximately equal to 1,\acrshort{SNP} contribution ($f$) is then defined as:
-		\begin{equation}
-		f = \frac{t^2-1}{n-2+t^2}
-		\label{snpContribution}
-		\end{equation} 
-		
-		Under the condition where all \acrshort{SNP}s were independent, the heritability of the phenotype can be simply defined as 
-		\begin{equation}
-			h^2 = \sum^m_1{f}
-			\label{simpleHeritability}
-		\end{equation}
-		where $m$ is the number of \acrshort{SNP}.
-		
-		Considering that one of the main concept in \acrshort{GWAS} is to be be able to ``tag'' the true causal variants using common \acrshort{SNP}s based on the \acrfull{LD} between the \acrshort{SNP}, it is impractical to assume the \acrshort{SNP}s to be independent from each other. 
-		When \acrshort{LD} exists between the \acrshort{SNP}s, equation \ref{simpleHeritability} will provide an over-estimation of the heritability. 
-		In order to obtain an unbiased estimation of the heritability of the phenotype, one must take into account of the linkage structure between the \acrshort{SNP}s.
-		To account for the \acrshort{LD}, one can consider that the \acrshort{SNP} contribution as a combination of the true \acrshort{SNP} contributions and the effect from other \acrshort{SNP}s through \acrshort{LD}.
-		This will require the knowledge of the correlation matrix between the $f$ variables.
-		
-		As $f$ is a function of $\chi^2$ following the F-distribution, we can obtain the variance covariance matrix of $f$ by first calculating the variance covariance matrix of the $\chi^2$ variables.
-		
-		First, let that $X_i$ be the standardized genotype with standard normal mean $z_i$ and non-centrality parameter $\mu_i$, we have
-		\begin{align*}
-		\mathrm{E}[X_i]&=\mathrm{E}[z_i+\mu_i]\\
-		&=\mu_i\\
-		\mathrm{var}(X_i) &=\mathrm{E}[(z_i+\mu_i)^2]+\mathrm{E}[(z_i+\mu_i)]^2\\
-		&=\mathrm{E}[z_i^2+\mu_i^2+2z_i\mu_i]+\mu_i^2\\
-		&=1
-		\end{align*}
-		Given the \acrshort{LD} between two genotype $X_i$ and $X_j$ are $\rho_{ij}$, then
-		\begin{align*}
-		\mathrm{Cov}(X_i,X_j)&=\mathrm{E}[(z_i+\mu_i)(z_j+\mu_j)]-\mathrm{E}[z_i+\mu_i]\mathrm{E}[z_j+\mu_j]\\
-		&=\mathrm{E}[z_iz_j+z_i\mu_j+\mu_iz_j+\mu_i\mu_j]-\mu_i\mu_j\\
-		&=\mathrm{E}[z_iz_j]+\mathrm{E}[z_i\mu_j]+\mathrm{E}[z_j\mu_i]+\mathrm{E}[\mu_i\mu_j]-\mu_i\mu_j\\
-		&=\mathrm{E}[z_iz_j]
-		\end{align*}
-		As the genotypes are standardized, therefore $\mathrm{cov}(X_i,X_j)==\mathrm{cor}(X_i,X_j)$ and we can obtain
-		$$
-		\mathrm{cov}(X_i,X_j)=\mathrm{E}[z_iz_j]=\rho_{ij}
-		$$
-		Given these information, we can then calculate $\mathrm{Cov}(\chi_i^2,\chi_j^2)$ as:
-		\begin{align*}
-		\mathrm{cov}(X_i^2,X_j^2)&=\mathrm{E}[(z_i+\mu_i)^2(z_j+\mu_j)^2]-\mathrm{E}[z_i+\mu_i]\mathrm{E}[z_j+\mu_j]\\
-		&=\mathrm{E}[(z_i^2+\mu_i^2+2z_i\mu_i)(z_j^2+\mu_j^2+2z_j\mu_j)]-\mathrm{E}[z_i^2+\mu_i^2+2z_i\mu_i]\mathrm{E}[z_j^2+\mu_j^2+2z_j\mu_j]\\
-		&=\mathrm{E}[(z_i^2+\mu_i^2+2z_i\mu_i)(z_j^2+\mu_j^2+2z_j\mu_j)]-(\mathrm{E}[z_i^2]+\mathrm{E}[\mu_i^2]+2\mathrm{E}[z_i\mu_i])(\mathrm{E}[z_j^2]+\mathrm{E}[\mu_j^2]+2\mathrm{E}[z_j\mu_j])\\
-		&=\mathrm{E}[z_i^2(z_j^2+\mu_j^2+2z_j\mu_j)+\mu_i^2(z_j^2+\mu_j^2+2z_j\mu_j)+2z_i\mu_i(z_j^2+\mu_j^2+2z_j\mu_j)]-(1+\mu_i^2)(1+\mu_j^2)\\
-		&=\mathrm{E}[z_i^2(z_j^2+\mu_j^2+2z_j\mu_j)]+\mu_i^2\mathrm{E}[z_j^2+\mu_j^2+2z_j\mu_j]+2\mu_i\mathrm{E}[z_i(z_j^2+\mu_j^2+2z_j\mu_j)]-(1+\mu_i^2)(1+\mu_j^2)\\
-		&=\mathrm{E}[z_i^2z_j^2+z_i^2\mu_j^2+2z_i^2z_j\mu_j]+\mu_i^2+\mu_i^2\mu_j^2+2\mu_i\mathrm{E}[z_iz_j^2+z_i\mu_j^2+2z_iz_j\mu_j]-(1+\mu_i^2)(1+\mu_j^2)\\
-		&=\mathrm{E}[z_i^2z_j^2]+\mu_j^2+\mu_i^2+\mu_i^2\mu_j^2+4\mu_i\mu_j\mathrm{E}[z_iz_j]-(1+\mu_i^2+\mu_j^2+\mu_i\mu_j)\\
-		&=\mathrm{E}[z_i^2z_j^2]+4\mu_i\mu_j\mathrm{E}[z_iz_j]-1
-		\end{align*}
-		Remember that $\mathrm{E}[z_iz_j] = \rho_{ij}$, we then have
-		$$
-		\mathrm{cov}(X_i^2, X_j^2)=\mathrm{E}[z_i^2z_j^2]+4\mu_i\mu_j\rho_{ij}-1
-		$$
-		By definition, 
-		$$
-		z_i|z_j\sim N(\mu_i+\rho_{ij}(z_j-\mu_j),1-\rho_{ij}^2)
-		$$
-		We can then calculate $\mathrm{E}[z_i^2z_j^2]$ as
-		\begin{align*}
-		\mathrm{E}[z_i^2z_j^2]&=\mathrm{var}[z_iz_j]+\mathrm{E}[z_iz_j]^2\\
-		&=\mathrm{E}[\mathrm{var}(z_iz_j|z_i)]+\mathrm{var}[\mathrm{E}[z_iz_j|z_i]]+\rho_{ij}^2\\
-		&=\mathrm{E}[z_j^2\mathrm{var}(z_i|z_j)]+\mathrm{var}[z_j\mathrm{E}[z_i|z_j]]+\rho_{ij}^2\\
-		&=(1-\rho_{ij}^2)\mathrm{E}[z_j^2]+\mathrm{var}(z_j(\mu_i+\rho_{ij}(z_j-\mu_j)))+\rho_{ij}^2\\
-		&=(1-\rho_{ij}^2)+\mathrm{var}(z_j\mu_i+\rho_{ij}z_j^2-\mu_jz_j\rho_{ij})+\rho_{ij}^2\\
-		&=1+\mu_i^2\mathrm{var}(z_j)+\rho_{ij}^2\mathrm{var}(z_j^2)-\mu_j^2\rho_{ij}^2\mathrm{var}(z_j)\\
-		&=1+2\rho_{ij}^2
-		\end{align*}
-		As a result, the variance covariance matrix of the $X^2$ can be calculated as
-		$$
-		\mathrm{cov}(X_i^2,X_j^2) = 2\rho_{ij}^2+4\rho_{ij}\mu_i\mu_j
-		$$
+		\subsection{Heritability Estimation}
+			The narrow-sense heritability is defined as 
+			$$
+				h^2 = \frac{\mathrm{Var}(X)}{\mathrm{Var}(Y)}
+			$$
+			where $\mathrm{Var}(X)$ is the variance of the genotype and $\mathrm{Var}r(Y)$ is the variance of the phenotype.
+			In a \gls{GWAS}, regression were performed between the \glspl{SNP} and the phenotypes, giving
+			\begin{equation}
+				Y=\beta X+\epsilon
+				\label{standardRegress}
+			\end{equation}
+			where $Y$ and $X$ are the standardized phenotype and genotype respectively. 
+			$\epsilon$ is then the error term, accounting for the non-genetic elements contributing to the phenotype (e.g. Environment factors).
+			Based on equation \ref{standardRegress}, one can then have
+			\begin{align}
+				\mathrm{Var}(Y) = \mathrm{Var}(\beta X)+ \mathrm{Var}(\epsilon) \nonumber\\
+				\mathrm{Var}(Y) = \beta^\mathrm{Var}(X) \nonumber\\
+				\beta^2\frac{\mathrm{Var}(X)}{\mathrm{Var}(Y)}= 1
+				\label{betaHeri}
+			\end{align}
+			$\beta^2$ is then considered as the portion of phenotype variance explained by the variance of genotype, which can also be considered as the narrow-sense heritability of the phenotype.
+					
+			A challenge in calculating the heritability from \gls{GWAS} data is that usually only the test-statistic or p-value were provided and one will not be able to directly calculate the heritability based on equation \ref{betaHeri}. In order to estimation the heritability of a trait from the \gls{GWAS} test-statistic, we first observed that when both $X$ and $Y$ are standardized, $\beta^2$ will be equal to the coefficient of determination ($r^2$). Then, based on properties of the Pearson product-moment correlation coefficient:
+			\begin{equation}
+				r = \frac{t}{\sqrt{n-2+t^2}}
+				\label{pearsonProduct}
+			\end{equation}
+			where $t$ follows the student-t distribution and $n$ is the number of samples.
+			One can then obtain the $r^2$ by taking the square of \ref{pearsonProduct}
+			\begin{equation}
+				r^2 = \frac{t^2}{n-2+t^2}
+				\label{oriRSquared}
+			\end{equation}
+			It is observed that $t^2$ will follow the F-distribution and when $n$ is big, $t^2$ will converge into $\chi^2$ distribution.
+			
+			When the effect size is small and $n$ is big, $r^2$ will be approximately $\chi^2$ distributed with mean $\sim 1$. 
+			We can then approximate equation \ref{oriRSquared} as
+			\begin{equation}
+				r^2= \frac{\chi^2}{n}
+				\label{approxChi}
+			\end{equation}
+			and define the \emph{observed} effect size of each \gls{SNP} to be
+			\begin{equation}
+			f=\frac{\chi^2-1}{n}
+			\label{observedEffect}
+			\end{equation}
+			
+			When there are \gls{LD} between each individual \glspl{SNP}, the situation will become more complicated as each \glspl{SNP}' observed effect will contains effect coming from other \glspl{SNP} in \gls{LD} with it. 
+			\begin{equation}
+			f_{observed} = f_{true}+f_{LD}
+			\end{equation}
+			
+			To account for the \gls{LD} structure, we first assume our phenotype $\boldsymbol{Y}$ and genotype $\boldsymbol{X}=(X_1,X_2,\dots,X_m)^t$ are standardized and that
+			\begin{align*}
+				\boldsymbol{Y}\sim f(0,1) \\
+				\boldsymbol{X}\sim f(0,\boldsymbol{R})
+			\end{align*}
+			Where $\boldsymbol{R}$ is the \gls{LD} matrix between \glspl{SNP}.
+			
+			We can then express equation \ref{standardRegress} in matrix form:
+			\begin{align}
+				\boldsymbol{Y}=\boldsymbol{\beta}^t\boldsymbol{X}+\epsilon
+				\label{matrixRegress}
+			\end{align}
+			Definition of heritability will then become
+			\begin{align}
+				Heritability& = \frac{\mathrm{Var}(\boldsymbol{\beta}^t\boldsymbol{X})}{\mathrm{Var}(\boldsymbol{Y})} \nonumber\\
+				&=\mathrm{Var}(\boldsymbol{\beta}^t\boldsymbol{X})
+			\end{align}
+			If we then assume now that $\boldsymbol{\beta} = (\beta_1, \beta_2,\dots,\beta_m)^t$ has distribution
+			\begin{align*}
+				\boldsymbol{\beta}&\sim f(0,\boldmath{H})\\
+				\boldsymbol{H}&=diag(\boldsymbol{h})\\
+				\boldsymbol{h}&=(h_1^2,h_2^2,\dots,h_m^2)^t
+			\end{align*}
+			where $\boldsymbol{H}$ is the variance of the true effect. 
+			It is shown that heritability can be expressed as %The later part was gone because that will contains E(\beta) which = 0
+			\begin{align}
+			\mathrm{Var}(\boldsymbol{\beta}^t\boldsymbol{X}) &= \mathrm{E}_X\mathrm{Var}_{\beta|X}(\boldsymbol{X}^t\boldsymbol{\beta})+\mathrm{Var}_X\mathrm{E}_{(\beta|X)}(\boldsymbol{\beta}^2\boldsymbol{X}) \nonumber\\
+			&=\mathrm{E}_X(\boldsymbol{X}^t\boldsymbol{\beta\beta}^T\boldsymbol{X}) \nonumber\\ 
+			&= \mathrm{E}_X(\boldsymbol{X}^t\boldsymbol{HX}) \nonumber\\
+			&= \mathrm{E}(\boldsymbol{X})^t\boldsymbol{H}\mathrm{E}(\boldsymbol{X})+\mathrm{Tr}(\mathrm{Var}(\boldsymbol{X}\boldsymbol{H})) \nonumber\\
+			&=\mathrm{Tr}(\mathrm{Var}(\boldsymbol{X}\boldsymbol{H})) \nonumber\\
+			&=\sum_ih_i^2
+			\label{proveHerit}
+			\end{align}
+			
+			Now if we consider the covariance between \gls{SNP} i ($X_i$) and $Y$, we have
+			\begin{align}
+			 \mathrm{Cov}(\boldsymbol{X}_i,\boldsymbol{Y}) &= \mathrm{Cov}(\boldsymbol{X}_i,\boldsymbol{\beta}^t\boldsymbol{X}+\epsilon) \nonumber\\
+			 &=\mathrm{Cov}(\boldsymbol{X}_i,\boldsymbol{\beta}^t\boldsymbol{X}) \nonumber\\
+			 &=\sum_j{\mathrm{Cov}(\boldsymbol{X}_i,\boldsymbol{X}_j)\boldsymbol{\beta}_j} \nonumber\\
+			 &=\boldsymbol{R}_i\boldsymbol{\beta}_j
+			 \label{covPhenoTrue}
+			\end{align}
+			As both $X$ and $Y$ are standardized, the covariance will equal to the correlation and we can define the correlation between \gls{SNP} i and $Y$ as
+			\begin{equation}
+				\rho_i = \boldsymbol{R}_i\boldsymbol{\beta}_j
+				\label{corPhenoTrue}
+			\end{equation}
+			In reality, the \emph{observed} correlation usually contains error. 
+			Therefore we define the \emph{observed} correlation to be
+			\begin{equation}
+			\hat{\rho_i} = \rho_i+\frac{\epsilon_i}{\sqrt{n}}
+			\label{obsPheno}
+			\end{equation}
+			for some error $\epsilon_i$. 
+			The distribution of the correlation coefficient about the true correlation $\rho$ is approximately
+			$$
+				\hat{\rho_i}\sim f(\rho_i, \frac{(1-\rho^2)^2}{n})
+			$$
+			By making the assumption that $\rho_i$ is close to 0 for all $i$, we have 
+			\begin{align*}
+				\mathrm{E}(\epsilon_i|\rho_i)&\sim 0\\
+				\mathrm{Var}(\epsilon_i|\rho_i)&\sim 1
+			\end{align*}
+			We then define our $z$-statistic and $\chi^2$-statistic as
+			\begin{align*}
+				z_i &= \hat{\rho_i}\sqrt{n} \\
+				\chi^2 &= z_i^2\\
+				&=\hat{\rho_i}^2n
+			\end{align*}
+			From equation \ref{obsPheno} and equation \ref{corPhenoTrue}, $\chi^2$ can then be expressed as
+			\begin{align*}
+			\chi^2&=\hat{\rho}^2n\\
+			&=n(\boldsymbol{R}_i\boldsymbol{\beta}_j+\frac{\epsilon_i}{\sqrt{n}})^2
+			\end{align*}
+			The expectation of $\chi^2$ is then
+			\begin{align*}
+			\mathrm{E}(\chi^2) &= n(\boldsymbol{R}_i\boldsymbol{\beta\beta}^t\boldsymbol{R}_i+2\boldsymbol{R}_i\boldsymbol{\beta}\frac{\epsilon_i}{\sqrt{n}}+\frac{\epsilon_i^2}{n}) \\
+			&= n\boldsymbol{R}_i\boldsymbol{H}\boldsymbol{R}_i+1
+			\end{align*}
+			To derive least square estimates of $h_i^2$, we need to find $\hat{h_i^2}$ which minimizes
+			\begin{align*}
+				\sum_i(\chi_i^2-\mathrm{E}(\chi_i^2))^2&=\sum_i(\chi_i^2-(n\boldsymbol{R}_i\boldsymbol{H}\boldsymbol{R}_i+1))^2 \\
+				&=\sum_i(\chi_i^2-1-n\boldsymbol{R}_i\boldsymbol{H}\boldsymbol{R}_i)^2 
+			\end{align*}
+			If we define 
+			\begin{equation}
+			f_i= \frac{\chi_i^2-1}{n}
+			\label{defineF}
+			\end{equation}
+			we got
+			\begin{align}
+			\sum_i(\chi_i^2-\mathrm{E}(\chi_i^2))^2&=\sum_i(f_i-\boldsymbol{R}_i\boldsymbol{H}\boldsymbol{R}_i)^2 \nonumber\\
+			&=\boldsymbol{ff}^t-2\boldsymbol{f}^t\boldsymbol{R_{sq}\hat{h}}+\boldsymbol{\hat{h}}^t\boldsymbol{R_{sq}}^t\boldsymbol{R_{sq}\hat{h}}
+			\label{leastSquareH}
+			\end{align}
+			where $\boldsymbol{R_{sq}} = \boldsymbol{R}\circ\boldsymbol{R}$.
+			By differentiating equation \ref{leastSquareH} w.r.t $\hat{h}$ and set to 0, we get
+			\begin{align}
+				2\boldsymbol{R_{sq}}^t\boldsymbol{R_{sq}}\boldsymbol{\hat{h^2}}-2\boldsymbol{R_{sq}f}&=0 \nonumber\\
+				\boldsymbol{R_{sq}}\boldsymbol{\hat{h^2}} &=\boldsymbol{f}
+				\label{shrekEq}
+			\end{align}
+			And the heritability is then defined as 
+			\begin{equation}
+			\hat{Heritability} = \boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}
+			\label{fullShrek}
+			\end{equation}
+		\subsection{Inverse of the \glsentrylong {LD} matrix}
+			In order to obtain the heritability estimation, we will require to solve equation \ref{fullShrek}. 
+			If $\boldsymbol{R_{sq}}$ is of full rank and positive semi-definite, it will be straight-forward to solve the matrix equation.
+			However, more often than not, the \gls{LD} matrix are rank-deficient and suffer from multicollinearity, making it ill-conditioned and more sensitive to changes or errors in the input.
+			
+			
 			
 	\subsection{Quantitative Trait}
 	\subsection{Case Control Studies}

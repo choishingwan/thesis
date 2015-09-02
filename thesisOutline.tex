@@ -259,7 +259,7 @@
 				\mathrm{Cov}(\chi_i^2,\chi_j^2) = 2\rho_{ij}^2+4\rho_{ij}\mu_i\mu_j
 			$$
 
-			Now that we have calculated the variance covariance matrix of $\chi^2$, we can get the variance covariance matrix of $f$ as
+			Now that we have calculated the variance covariance matrix of $\chi^2$, we can get the variance covariance matrix of $f$ using the delta method
 			\begin{align*}
 			Cov(f_i,f_j) &= \frac{d}{d(\chi_i^2)}\frac{\chi_i^2-1}{n-2+\chi_i^2}\frac{d}{d(\chi_j^2)}\frac{\chi_j^2-1}{n-2+\chi_j^2}Cov(\chi_i^2,\chi_j^2) \\
 			&= \frac{(n-1)^2}{(n-2+\chi_i^2)^2(n-2+\chi_j^2)^2}Cov(\chi_i^2,\chi_j^2)
