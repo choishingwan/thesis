@@ -16,5 +16,38 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \sortlist{none}{none}
+    \entry{Neumaier1998}{article}{}
+      \name{author}{1}{}{%
+        {{hash=7867d5416dc180390796983c8e58a590}{Neumaier}{N\bibinitperiod}{Arnold}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{7867d5416dc180390796983c8e58a590}
+      \strng{fullhash}{7867d5416dc180390796983c8e58a590}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{It is shown that the basic regularization procedures for nding meaningful approximate solutions of ill-conditioned or singular linear systems can be phrased and analyzed in terms of classical linear algebra that can be taught in any numerical analysis course. Apart from rewriting many known results in a more elementary form, we also derive a new two-parameter family of merit functions for the determination of the regularization parameter. The traditional merit functions from generalized cross validation (GCV) and generalized maximum likelihood (GML) are recovered as special cases.}
+      \field{isbn}{00361445}
+      \field{issn}{0036-1445}
+      \field{journaltitle}{SIAM Review}
+      \field{number}{3}
+      \field{title}{{Solving Ill-Conditioned and Singular Linear Systems: A Tutorial on Regularization}}
+      \field{volume}{40}
+      \field{year}{1998}
+      \field{pages}{636\bibrangedash 666}
+      \range{pages}{31}
+      \verb{doi}
+      \verb 10.1137/S0036144597321909
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/SOLVING ILL-CONDITIONED AND SINGULAR LINEAR SYSTEMS A TUTORIAL ON REGULARIZATION.pdf:pdf
+      \endverb
+      \keyw{1,ams subject classifications,error bounds,find,generalized,generalized cross validation,ill-conditioned,ill-posed,in many applications of,introduction,linear algebra,maximum likelihood,primary 65f05,regularization,secondary 65j20,the need arises to,tikhonov regularization}
+    \endentry
+  \endsortlist
+\endrefsection
 \endinput
 

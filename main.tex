@@ -20,7 +20,6 @@
 \usepackage[natbib=true, style=numeric-comp,subentry,backend=biber,sorting=none]{biblatex}
 \addbibresource{citation/Thesis.bib}
 \usepackage[hidelinks]{hyperref}
-
 \usepackage{geometry}
 \geometry{
 	top=1in,            % <-- you want to adjust this
@@ -55,7 +54,9 @@
 \newacronym[longplural={Genome Wide Association Studies}]{GWAS}{GWAS}{Genome Wide Association Study}
 \newacronym{SNP}{SNP}{Single Nucleotide Polymorphism}
 \newacronym{LD}{LD}{Linkage Disequilibrium}
-
+\newacronym{PGS}{PGS}{Polygenic Risk Score}
+\newacronym{tSVD}{tSVD}{Truncated Singular Value Decomposition}
+\raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 \makeindex
 \begin{document}\thispagestyle{empty}
 \pagestyle{empty}
@@ -324,7 +325,10 @@
 			In order to obtain the heritability estimation, we will require to solve equation \ref{fullShrek}. 
 			If $\boldsymbol{R_{sq}}$ is of full rank and positive semi-definite, it will be straight-forward to solve the matrix equation.
 			However, more often than not, the \gls{LD} matrix are rank-deficient and suffer from multicollinearity, making it ill-conditioned and more sensitive to changes or errors in the input.
+			The usual technique to deal with ill-condition matrix is to perform regularizations such as the Tikhonov Regularization and the \gls{tSVD} method \cite{Neumaier1998}. 
 			
+			In this study, \gls{tSVD} were used as the method of regularization as the singular value were also used in calculating the standard error. 
+			\gls{tSVD}
 			
 			
 	\subsection{Quantitative Trait}
@@ -359,6 +363,13 @@
 	\section{Discussion}
 	\chapter{Risk Prediction}
 	\section{Methodology}
+	We can define the traditional \gls{PGS} as
+	\begin{equation}
+	\hat{Y} = diag(\beta)X
+	\end{equation}
+	where $X$ is the standardized genotype, $\beta$ is the test-statistic calculated from other studies. 
+	
+	
 	\subsection{Simulation}
 	\section{Result}
 	\section{Discussion}
