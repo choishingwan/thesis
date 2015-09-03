@@ -1,17 +1,18 @@
 [0] Config.pm:324> INFO - This is Biber 2.1
 [0] Config.pm:327> INFO - Logfile is 'main.blg'
-[85] biber-MSWIN:273> INFO - === %a %b %e, %Y, %H:%M:%S
-[86] Biber.pm:333> INFO - Reading 'main.bcf'
-[485] Biber.pm:645> INFO - Found 1 citekeys in bib section 0
-[529] Biber.pm:2977> INFO - Processing section 0
-[561] Biber.pm:3115> INFO - Looking for bibtex format file 'citation/Thesis.bib' for section 0
-[2048] bibtex.pm:1021> INFO - Decoding LaTeX character macros into UTF-8
-[3235] bibtex.pm:895> INFO - Found BibTeX data source 'citation/Thesis.bib'
-[3272] Utils.pm:146> WARN - BibTeX subsystem: C:\Users\shingwan\AppData\Local\Temp\rg6pep8hYJ\Thesis.bib_5124.utf8, line 6, warning: 170 characters of junk seen at toplevel
-[3309] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[3309] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[3309] Biber.pm:2854> INFO - Sorting list 'none' of type 'entry' with scheme 'none' and locale 'en-US'
-[3309] Biber.pm:2858> INFO - No sort tailoring available for locale 'en-US'
-[3312] bbl.pm:505> INFO - Writing 'main.bbl' with encoding 'ascii'
-[3344] bbl.pm:596> INFO - Output to main.bbl
-[3345] Biber.pm:106> INFO - WARNINGS: 1
+[57] biber-MSWIN:273> INFO - === %a %b %e, %Y, %H:%M:%S
+[58] Biber.pm:333> INFO - Reading 'main.bcf'
+[298] Biber.pm:645> INFO - Found 2 citekeys in bib section 0
+[321] Biber.pm:2977> INFO - Processing section 0
+[344] Biber.pm:3115> INFO - Looking for bibtex format file 'citation/Thesis.bib' for section 0
+[1492] bibtex.pm:1021> INFO - Decoding LaTeX character macros into UTF-8
+[2451] bibtex.pm:895> INFO - Found BibTeX data source 'citation/Thesis.bib'
+[2481] Utils.pm:146> WARN - BibTeX subsystem: C:\Users\swchoi\AppData\Local\Temp\yplqiElrZW\Thesis.bib_92464.utf8, line 5, warning: 170 characters of junk seen at toplevel
+[2514] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[2514] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[2514] Biber.pm:2854> INFO - Sorting list 'none' of type 'entry' with scheme 'none' and locale 'en-US'
+[2514] Biber.pm:2858> INFO - No sort tailoring available for locale 'en-US'
+[2517] bbl.pm:505> INFO - Writing 'main.bbl' with encoding 'ascii'
+[2541] Utils.pm:146> WARN - The entry 'eigenweb' has characters which cannot be encoded in 'ascii'. Recoding problematic characters into macros.
+[2544] bbl.pm:596> INFO - Output to main.bbl
+[2545] Biber.pm:106> INFO - WARNINGS: 2

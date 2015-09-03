@@ -47,6 +47,22 @@
       \endverb
       \keyw{1,ams subject classifications,error bounds,find,generalized,generalized cross validation,ill-conditioned,ill-posed,in many applications of,introduction,linear algebra,maximum likelihood,primary 65f05,regularization,secondary 65j20,the need arises to,tikhonov regularization}
     \endentry
+    \entry{eigenweb}{misc}{}
+      \true{moreauthor}
+      \name{author}{2}{}{%
+        {{hash=32670d1e660cd3381144af1ebb08d86e}{Guennebaud}{G\bibinitperiod}{Ga\"{e}l}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=21b11180bc565677569d5478e31829b2}{Jacob}{J\bibinitperiod}{Beno\^\i{}t}{B\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{d073c1a4976b71a713a96d8f43b1f9f6}
+      \strng{fullhash}{eafc0993b32136cfe757ebc2478ea140}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{http://eigen.tuxfamily.org}
+      \field{title}{Eigen v3}
+      \field{year}{2010}
+    \endentry
   \endsortlist
 \endrefsection
 \endinput

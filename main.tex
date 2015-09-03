@@ -32,7 +32,7 @@
 \usepackage{fancyhdr}
 \usepackage{fixltx2e}
 \usepackage[acronym,nomain,toc,makeindex ]{glossaries}
-
+\usepackage{cleveref} %This need to be the last package for it to work properly 
 
 
 \pagestyle{fancy}
@@ -43,7 +43,7 @@
 	\includegraphics[width=0.5\textwidth]{hkuLogo.jpg}}
 \singlespacing
 \renewcommand*\contentsname{Contents}
-%\onehalfspacing
+\onehalfspacing
 %\doublespacing
 
 %\includeonly{environmental_risk/er_chapter,supplementary_materials}
@@ -56,6 +56,10 @@
 \newacronym{LD}{LD}{Linkage Disequilibrium}
 \newacronym{PGS}{PGS}{Polygenic Risk Score}
 \newacronym{tSVD}{tSVD}{Truncated Singular Value Decomposition}
+\newacronym{SVD}{SVD}{Singular Value Decomposition}
+
+
+
 \raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 \makeindex
 \begin{document}\thispagestyle{empty}
@@ -170,47 +174,48 @@
 			In a \gls{GWAS}, regression were performed between the \glspl{SNP} and the phenotypes, giving
 			\begin{equation}
 				Y=\beta X+\epsilon
-				\label{standardRegress}
+				\label{eq:standardRegress}
 			\end{equation}
 			where $Y$ and $X$ are the standardized phenotype and genotype respectively. 
 			$\epsilon$ is then the error term, accounting for the non-genetic elements contributing to the phenotype (e.g. Environment factors).
-			Based on equation \ref{standardRegress}, one can then have
+			Based on \cref{eq:standardRegress}, one can then have
 			\begin{align}
 				\mathrm{Var}(Y) = \mathrm{Var}(\beta X)+ \mathrm{Var}(\epsilon) \nonumber\\
 				\mathrm{Var}(Y) = \beta^\mathrm{Var}(X) \nonumber\\
 				\beta^2\frac{\mathrm{Var}(X)}{\mathrm{Var}(Y)}= 1
-				\label{betaHeri}
+				\label{eq:betaHeri}
 			\end{align}
 			$\beta^2$ is then considered as the portion of phenotype variance explained by the variance of genotype, which can also be considered as the narrow-sense heritability of the phenotype.
 					
-			A challenge in calculating the heritability from \gls{GWAS} data is that usually only the test-statistic or p-value were provided and one will not be able to directly calculate the heritability based on equation \ref{betaHeri}. In order to estimation the heritability of a trait from the \gls{GWAS} test-statistic, we first observed that when both $X$ and $Y$ are standardized, $\beta^2$ will be equal to the coefficient of determination ($r^2$). Then, based on properties of the Pearson product-moment correlation coefficient:
+			A challenge in calculating the heritability from \gls{GWAS} data is that usually only the test-statistic or p-value were provided and one will not be able to directly calculate the heritability based on \cref{eq:betaHeri}. In order to estimation the heritability of a trait from the \gls{GWAS} test-statistic, we first observed that when both $X$ and $Y$ are standardized, $\beta^2$ will be equal to the coefficient of determination ($r^2$). Then, based on properties of the Pearson product-moment correlation coefficient:
 			\begin{equation}
 				r = \frac{t}{\sqrt{n-2+t^2}}
-				\label{pearsonProduct}
+				\label{eq:pearsonProduct}
 			\end{equation}
 			where $t$ follows the student-t distribution and $n$ is the number of samples.
-			One can then obtain the $r^2$ by taking the square of \ref{pearsonProduct}
+			One can then obtain the $r^2$ by taking the square of \cref{eq:pearsonProduct}
 			\begin{equation}
 				r^2 = \frac{t^2}{n-2+t^2}
-				\label{oriRSquared}
+				\label{eq:oriRSquared}
 			\end{equation}
 			It is observed that $t^2$ will follow the F-distribution and when $n$ is big, $t^2$ will converge into $\chi^2$ distribution.
 			
 			When the effect size is small and $n$ is big, $r^2$ will be approximately $\chi^2$ distributed with mean $\sim 1$. 
-			We can then approximate equation \ref{oriRSquared} as
+			We can then approximate \cref{eq:oriRSquared} as
 			\begin{equation}
 				r^2= \frac{\chi^2}{n}
-				\label{approxChi}
+				\label{eq:approxChi}
 			\end{equation}
 			and define the \emph{observed} effect size of each \gls{SNP} to be
 			\begin{equation}
 			f=\frac{\chi^2-1}{n}
-			\label{observedEffect}
+			\label{eq:observedEffect}
 			\end{equation}
 			
 			When there are \gls{LD} between each individual \glspl{SNP}, the situation will become more complicated as each \glspl{SNP}' observed effect will contains effect coming from other \glspl{SNP} in \gls{LD} with it. 
 			\begin{equation}
 			f_{observed} = f_{true}+f_{LD}
+			\label{eq:conceptF}
 			\end{equation}
 			
 			To account for the \gls{LD} structure, we first assume our phenotype $\boldsymbol{Y}$ and genotype $\boldsymbol{X}=(X_1,X_2,\dots,X_m)^t$ are standardized and that
@@ -220,10 +225,10 @@
 			\end{align*}
 			Where $\boldsymbol{R}$ is the \gls{LD} matrix between \glspl{SNP}.
 			
-			We can then express equation \ref{standardRegress} in matrix form:
+			We can then express \cref{eq:standardRegress} in matrix form:
 			\begin{align}
 				\boldsymbol{Y}=\boldsymbol{\beta}^t\boldsymbol{X}+\epsilon
-				\label{matrixRegress}
+				\label{eq:matrixRegress}
 			\end{align}
 			Definition of heritability will then become
 			\begin{align}
@@ -245,7 +250,7 @@
 			&= \mathrm{E}(\boldsymbol{X})^t\boldsymbol{H}\mathrm{E}(\boldsymbol{X})+\mathrm{Tr}(\mathrm{Var}(\boldsymbol{X}\boldsymbol{H})) \nonumber\\
 			&=\mathrm{Tr}(\mathrm{Var}(\boldsymbol{X}\boldsymbol{H})) \nonumber\\
 			&=\sum_ih_i^2
-			\label{proveHerit}
+			\label{eq:proveHerit}
 			\end{align}
 			
 			Now if we consider the covariance between \gls{SNP} i ($X_i$) and $Y$, we have
@@ -254,18 +259,18 @@
 			 &=\mathrm{Cov}(\boldsymbol{X}_i,\boldsymbol{\beta}^t\boldsymbol{X}) \nonumber\\
 			 &=\sum_j{\mathrm{Cov}(\boldsymbol{X}_i,\boldsymbol{X}_j)\boldsymbol{\beta}_j} \nonumber\\
 			 &=\boldsymbol{R}_i\boldsymbol{\beta}_j
-			 \label{covPhenoTrue}
+			 \label{eq:covPhenoTrue}
 			\end{align}
 			As both $X$ and $Y$ are standardized, the covariance will equal to the correlation and we can define the correlation between \gls{SNP} i and $Y$ as
 			\begin{equation}
 				\rho_i = \boldsymbol{R}_i\boldsymbol{\beta}_j
-				\label{corPhenoTrue}
+				\label{eq:corPhenoTrue}
 			\end{equation}
 			In reality, the \emph{observed} correlation usually contains error. 
 			Therefore we define the \emph{observed} correlation to be
 			\begin{equation}
 			\hat{\rho_i} = \rho_i+\frac{\epsilon_i}{\sqrt{n}}
-			\label{obsPheno}
+			\label{eq:obsPheno}
 			\end{equation}
 			for some error $\epsilon_i$. 
 			The distribution of the correlation coefficient about the true correlation $\rho$ is approximately
@@ -283,7 +288,7 @@
 				\chi^2 &= z_i^2\\
 				&=\hat{\rho_i}^2n
 			\end{align*}
-			From equation \ref{obsPheno} and equation \ref{corPhenoTrue}, $\chi^2$ can then be expressed as
+			From \cref{eq:obsPheno} and \cref{eq:corPhenoTrue}, $\chi^2$ can then be expressed as
 			\begin{align*}
 			\chi^2&=\hat{\rho}^2n\\
 			&=n(\boldsymbol{R}_i\boldsymbol{\beta}_j+\frac{\epsilon_i}{\sqrt{n}})^2
@@ -301,34 +306,53 @@
 			If we define 
 			\begin{equation}
 			f_i= \frac{\chi_i^2-1}{n}
-			\label{defineF}
+			\label{eq:defineF}
 			\end{equation}
 			we got
 			\begin{align}
 			\sum_i(\chi_i^2-\mathrm{E}(\chi_i^2))^2&=\sum_i(f_i-\boldsymbol{R}_i\boldsymbol{H}\boldsymbol{R}_i)^2 \nonumber\\
 			&=\boldsymbol{ff}^t-2\boldsymbol{f}^t\boldsymbol{R_{sq}\hat{h}}+\boldsymbol{\hat{h}}^t\boldsymbol{R_{sq}}^t\boldsymbol{R_{sq}\hat{h}}
-			\label{leastSquareH}
+			\label{eq:leastSquareH}
 			\end{align}
 			where $\boldsymbol{R_{sq}} = \boldsymbol{R}\circ\boldsymbol{R}$.
-			By differentiating equation \ref{leastSquareH} w.r.t $\hat{h}$ and set to 0, we get
+			By differentiating \cref{eq:leastSquareH} w.r.t $\hat{h}$ and set to 0, we get
 			\begin{align}
 				2\boldsymbol{R_{sq}}^t\boldsymbol{R_{sq}}\boldsymbol{\hat{h^2}}-2\boldsymbol{R_{sq}f}&=0 \nonumber\\
 				\boldsymbol{R_{sq}}\boldsymbol{\hat{h^2}} &=\boldsymbol{f}
-				\label{shrekEq}
+				\label{eq:shrekEq}
 			\end{align}
 			And the heritability is then defined as 
 			\begin{equation}
 			\hat{Heritability} = \boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}
-			\label{fullShrek}
+			\label{eq:fullShrek}
 			\end{equation}
 		\subsection{Inverse of the \glsentrylong {LD} matrix}
-			In order to obtain the heritability estimation, we will require to solve equation \ref{fullShrek}. 
+			In order to obtain the heritability estimation, we will require to solve \cref{eq:fullShrek}. 
 			If $\boldsymbol{R_{sq}}$ is of full rank and positive semi-definite, it will be straight-forward to solve the matrix equation.
-			However, more often than not, the \gls{LD} matrix are rank-deficient and suffer from multicollinearity, making it ill-conditioned and more sensitive to changes or errors in the input.
-			The usual technique to deal with ill-condition matrix is to perform regularizations such as the Tikhonov Regularization and the \gls{tSVD} method \cite{Neumaier1998}. 
+			However, more often than not, the \gls{LD} matrix are rank-deficient and suffer from multicollinearity, making it ill-conditioned, therefore highly sensitive to changes or errors in the input.
+			To be exact, we can view \cref{eq:fullShrek} as calculating the sum of $\boldsymbol{\hat{h^2}}$ from  \cref{eq:shrekEq}.
+			This will involve solving for
+			\begin{equation}
+			\boldsymbol{\hat{h^2}} = \boldsymbol{R_{sq}}^{-1}\boldsymbol{f}
+			\label{eq:shrekInverse}
+			\end{equation}
+			where an inverse of $\boldsymbol{R_{sq}}$ is observed. 
 			
-			In this study, \gls{tSVD} were used as the method of regularization as the singular value were also used in calculating the standard error. 
-			\gls{tSVD}
+			In normal circumstances (e.g. when $\boldsymbol{R_{sq}}$ is full rank and positive semi-definite), one can easily solve \cref{eq:shrekInverse} using the QR decomposition or LU decomposition.
+			However, when $\boldsymbol{R_{sq}}$ is ill-conditioned, the traditional decomposition method will fail.
+			Even if the decomposition is successfully performed, the result tends to be a meaningless approximation to the true $\boldsymbol{\hat{h^2}}$. 
+			
+			Therefore, to obtain a meaningful solution, regularization techniques such as the Tikhonov Regularization (also known as Ridge Regression) and \gls{tSVD} has to be performed\cite{Neumaier1998}. 
+			Arguably, there are a large variety of regularization techniques, yet the discussion of which is beyond the scope of this study. 
+			In this study, we will focus on the use of \gls{tSVD} in the regularization of the \gls{LD} matrix.
+			This is because the \gls{SVD} routine has been implemented in the EIGEN C++ library \cite{eigenweb}, allowing us to implement the \gls{tSVD} method without much concern with regard to the algorithm. 
+			
+			To understand the regularization method, we first assume
+			
+			
+			In this study, \gls{tSVD} were used as the \gls{SVD} was implemented in the EIGEN C++ library\cite{eigenweb}, allow for a quick and simple implementation of the method.
+			%Start explaining what is SVD and how to perform the tSVD. This will be complicated and slightly too difficult for me ><
+			
 			
 			
 	\subsection{Quantitative Trait}
