@@ -19,6 +19,192 @@
 
 \refsection{0}
   \sortlist{none}{none}
+    \entry{Project2012}{article}{}
+      \name{author}{6}{}{%
+        {{hash=f06f9f547912a3d0d5b5da6db3e9c01f}{Project}{P\bibinitperiod}{Genomes}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=f06f9f547912a3d0d5b5da6db3e9c01f}{Project}{P\bibinitperiod}{Genomes}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=fd10847e4a5ae7ba22741f76000c4cc3}{Asia}{A\bibinitperiod}{East}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=4c63f081d1be06ae35e9bd526026deff}{Africa}{A\bibinitperiod}{Saharan}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=6f1e098eb7390e08f8b5daf1f092363b}{Figs}{F\bibinitperiod}{Supplementary}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=060ffa92cb9e0bceb7592c01f8de4f43}{Tables}{T\bibinitperiod}{Supplementary}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{db3dce071d197d5ef0c6761821361848}
+      \strng{fullhash}{87411dac6dacdeeac4e1c84eef9f2c3a}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{By characterizing the geographic and functional spectrum of human genetic variation, the 1000 Genomes Project aims to build a resource to help to understand the genetic contribution to disease. Here we describe the genomes of 1,092 individuals from 14 populations, constructed using a combination of low-coverage whole-genome and exome sequencing. By developing methods to integrate information across several algorithms and diverse data sources, we provide a validated haplotype map of 38\x{fffd}\x{fffd}\x{fffd}million single nucleotide polymorphisms, 1.4\x{fffd}\x{fffd}\x{fffd}million short insertions and deletions, and more than 14,000 larger deletions. We show that individuals from different populations carry different profiles of rare and common variants, and that low-frequency variants show substantial geographic differentiation, which is further increased by the action of purifying selection. We show that evolutionary conservation and coding consequence are key determinants of the strength of purifying selection, that rare-variant load varies substantially across biological pathways, and that each individual contains hundreds of rare non-coding variants at conserved sites, such as motif-disrupting changes in transcription-factor-binding sites. This resource, which captures up to 98\% of accessible single nucleotide polymorphisms at a frequency of 1\% in related populations, enables analysis of common and low-frequency variants in individuals from diverse, including admixed, populations.}
+      \field{eprintclass}{Sherry, S. T., Ward, M. H., Kholodov, M., Baker, J., Phan, L., Smigielski, E. M., \& Sirotkin, K. (2001). dbSNP: the NCBI database of genetic variation. Nucleic acids research, 29(1), 308-11. Retrieved from http:}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{1476-4687 (Electronic)$\backslash$r0028-0836 (Linking)}
+      \field{issn}{00280836}
+      \field{journaltitle}{Nature}
+      \field{number}{V}
+      \field{title}{{An integrated map of genetic variation from 1,092 human genomes}}
+      \field{volume}{135}
+      \field{year}{2012}
+      \field{pages}{\bibrangedash 9}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1038/nature11632
+      \endverb
+      \verb{eprint}
+      \verb /www.pubmedcentral.nih.gov/articlerender.fc
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/An integrated map of genetic variation from 1,092 human genomes.pdf:pdf
+      \endverb
+      \warn{\item Range field 'pages' in entry 'Project2012' is malformed, skipping}
+    \endentry
+    \entry{Altshuler2010}{article}{}
+      \name{author}{88}{}{%
+        {{hash=695d3f49c440799091efb055955817a4}{Altshuler}{A\bibinitperiod}{David\bibnamedelima M}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{hash=3ef53d39dd4c45771e607cc7a1594a26}{Peltonen}{P\bibinitperiod}{Leena}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=695d3f49c440799091efb055955817a4}{Altshuler}{A\bibinitperiod}{David\bibnamedelima M}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{hash=3ef53d39dd4c45771e607cc7a1594a26}{Peltonen}{P\bibinitperiod}{Leena}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=a016ef2b2f246c71ede1fe4bcd41c780}{Dermitzakis}{D\bibinitperiod}{Emmanouil}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=7ff0d3797aa4c8fef510179575dd75b6}{Schaffner}{S\bibinitperiod}{Stephen\bibnamedelima F}{S\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{hash=2a67551bcabd2af166f23c10ae372ece}{Yu}{Y\bibinitperiod}{Fuli}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=3ef53d39dd4c45771e607cc7a1594a26}{Peltonen}{P\bibinitperiod}{Leena}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=a016ef2b2f246c71ede1fe4bcd41c780}{Dermitzakis}{D\bibinitperiod}{Emmanouil}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=5afa4e005c5bd0ab8bd5bdb6003cef82}{Bonnen}{B\bibinitperiod}{Penelope\bibnamedelima E}{P\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{hash=695d3f49c440799091efb055955817a4}{Altshuler}{A\bibinitperiod}{David\bibnamedelima M}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{hash=42948fcfb73edda029f3092327d021d6}{Bakker}{B\bibinitperiod}{Paul\bibnamedelimb I\bibnamedelima W}{P\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim W\bibinitperiod}{de}{d\bibinitperiod}{}{}}%
+        {{hash=8239536b81bf3749f1f0fdc7c1b4cafc}{Deloukas}{D\bibinitperiod}{Panos}{P\bibinitperiod}{}{}{}{}}%
+        {{hash=8c4a58581a24be7312c4d5fb61c803a5}{Gabriel}{G\bibinitperiod}{Stacey\bibnamedelima B}{S\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{hash=adc720b836aa97f9bbc53fd53cfb90aa}{Gwilliam}{G\bibinitperiod}{Rhian}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=6ba97fd02694577f090e82019232c17c}{Hunt}{H\bibinitperiod}{Sarah}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=ae06c1fe21497bfda08fcf626ad51404}{Inouye}{I\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=f349bee37f5e90c341ae0eccab4cf567}{Jia}{J\bibinitperiod}{Xiaoming}{X\bibinitperiod}{}{}{}{}}%
+        {{hash=17ea5643a78162d18ae61260b3166431}{Palotie}{P\bibinitperiod}{Aarno}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=b5a3473ce8d64cf252baa11e144309bd}{Parkin}{P\bibinitperiod}{Melissa}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=1cb7fd440d730ab096098a863901ac35}{Whittaker}{W\bibinitperiod}{Pamela}{P\bibinitperiod}{}{}{}{}}%
+        {{hash=2a67551bcabd2af166f23c10ae372ece}{Yu}{Y\bibinitperiod}{Fuli}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=01fe8b56a550432adbc9767a9bb72814}{Chang}{C\bibinitperiod}{Kyle}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=7fd6bf850a49976853555bb14d76bad1}{Hawes}{H\bibinitperiod}{Alicia}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=2908a91e8058ec947ca4faf62b4eb2f9}{Lewis}{L\bibinitperiod}{Lora\bibnamedelima R}{L\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{hash=939e78ea3baef334bc0daf37bc34ba4f}{Ren}{R\bibinitperiod}{Yanru}{Y\bibinitperiod}{}{}{}{}}%
+        {{hash=ec5c678342b5e821055bb4dc4c99b174}{Wheeler}{W\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+        {{hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{hash=649695b5c81c594f0451eb4d115dc0c8}{Muzny}{M\bibinitperiod}{Donna\bibnamedelima Marie}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=8cd67c4ce2dd72313140792ab5bac85f}{Barnes}{B\bibinitperiod}{Chris}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=644c06fa41d703b3e58f88fc9fb91ec5}{Darvishi}{D\bibinitperiod}{Katayoon}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=16342cb4547016459bfd31eff76e56ae}{Hurles}{H\bibinitperiod}{Matthew}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=2853859d944ec671ac719bf108038876}{Korn}{K\bibinitperiod}{Joshua\bibnamedelima M}{J\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=c8ccab34d2adb7255a362ceec6a1d754}{Kristiansson}{K\bibinitperiod}{Kati}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=fce2e852c2fc9176994aae24ded04ebd}{Lee}{L\bibinitperiod}{Charles}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=a760ed645f004b68aeef9b8a14b05633}{McCarrol}{M\bibinitperiod}{Steven\bibnamedelima a}{S\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{hash=b1221e9e59330320ac5d1684c9c03ca2}{Nemesh}{N\bibinitperiod}{James}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=a016ef2b2f246c71ede1fe4bcd41c780}{Dermitzakis}{D\bibinitperiod}{Emmanouil}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=13d200fb1e4320515f90304c6560fb0b}{Keinan}{K\bibinitperiod}{Alon}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=55a0f12db7271be018f2482602ee6c5c}{Montgomery}{M\bibinitperiod}{Stephen\bibnamedelima B}{S\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{hash=c0c012e7e8c8e8d20f0255f325a46398}{Pollack}{P\bibinitperiod}{Samuela}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=71216c144346b1a7eb65cde89f9f1d0d}{Price}{P\bibinitperiod}{Alkes\bibnamedelima L}{A\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{hash=517ed11eaedd234b3011feba25ed2df0}{Soranzo}{S\bibinitperiod}{Nicole}{N\bibinitperiod}{}{}{}{}}%
+        {{hash=5afa4e005c5bd0ab8bd5bdb6003cef82}{Bonnen}{B\bibinitperiod}{Penelope\bibnamedelima E}{P\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{hash=10f0a916c9ad76262a877faffc29c2fd}{Gonzaga-Jauregui}{G\bibinithyphendelim J\bibinitperiod}{Claudia}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=13d200fb1e4320515f90304c6560fb0b}{Keinan}{K\bibinitperiod}{Alon}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=71216c144346b1a7eb65cde89f9f1d0d}{Price}{P\bibinitperiod}{Alkes\bibnamedelima L}{A\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{hash=2a67551bcabd2af166f23c10ae372ece}{Yu}{Y\bibinitperiod}{Fuli}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=e2b317202365f340ecb42c36b832b35a}{Anttila}{A\bibinitperiod}{Verneri}{V\bibinitperiod}{}{}{}{}}%
+        {{hash=04d33706958eeb4817e0b29183951d79}{Brodeur}{B\bibinitperiod}{Wendy}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=34c587f3ad77945b8c49c3a69080721b}{Daly}{D\bibinitperiod}{Mark\bibnamedelima J}{M\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{hash=d10e42548478ac6a72da649afaca7bf9}{Leslie}{L\bibinitperiod}{Stephen}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=ee867f7b9dad34099817c34d2a3b4a0e}{McVean}{M\bibinitperiod}{Gil}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=2446b4aed868295348597ed4c6ea4ddf}{Moutsianas}{M\bibinitperiod}{Loukas}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=9b3bc3d30d933e14db13c2f6538a4058}{Nguyen}{N\bibinitperiod}{Huy}{H\bibinitperiod}{}{}{}{}}%
+        {{hash=7ff0d3797aa4c8fef510179575dd75b6}{Schaffner}{S\bibinitperiod}{Stephen\bibnamedelima F}{S\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{hash=347a688bf13ff63504641f608305b194}{Zhang}{Z\bibinitperiod}{Qingrun}{Q\bibinitperiod}{}{}{}{}}%
+        {{hash=8a38d02b3a47125f392811678a3195f5}{Ghori}{G\bibinitperiod}{Mohammed\bibnamedelimb J\bibnamedelima R}{M\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{hash=e75af3d3b3d14c9d79701c825f53b34a}{McGinnis}{M\bibinitperiod}{Ralph}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=0f9439897b84f9e6cb0986885aedeac0}{McLaren}{M\bibinitperiod}{William}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=c0c012e7e8c8e8d20f0255f325a46398}{Pollack}{P\bibinitperiod}{Samuela}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=71216c144346b1a7eb65cde89f9f1d0d}{Price}{P\bibinitperiod}{Alkes\bibnamedelima L}{A\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{hash=7ff0d3797aa4c8fef510179575dd75b6}{Schaffner}{S\bibinitperiod}{Stephen\bibnamedelima F}{S\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{hash=2455ec5deb4ee4350b379ef13ed77e53}{Takeuchi}{T\bibinitperiod}{Fumihiko}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=9ee97a1f5904d8c8ba91a5fa7b3651d3}{Grossman}{G\bibinitperiod}{Sharon\bibnamedelima R}{S\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{hash=c9112411ef87ed8b33acf6731c5c4a6d}{Shlyakhter}{S\bibinitperiod}{Ilya}{I\bibinitperiod}{}{}{}{}}%
+        {{hash=0e76eb8193927472080b0fba09ec93ad}{Hostetter}{H\bibinitperiod}{Elizabeth\bibnamedelima B}{E\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{hash=b876ac2d527b788f65419d92d970298c}{Sabeti}{S\bibinitperiod}{Pardis\bibnamedelima C}{P\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{hash=11466607e39fee94161eeca01352f6b0}{Adebamowo}{A\bibinitperiod}{Clement\bibnamedelima a}{C\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{hash=58ba83786be508dd3b37d2bf5be3b504}{Foster}{F\bibinitperiod}{Morris\bibnamedelima W}{M\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{hash=cea7630a6b39d6ae9fad251e438e9721}{Gordon}{G\bibinitperiod}{Deborah\bibnamedelima R}{D\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{hash=24c698165237eaed8b9280331d45c4ed}{Licinio}{L\bibinitperiod}{Julio}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=3120c3c610ee67d8740ac5ed6ce14e14}{Manca}{M\bibinitperiod}{Maria\bibnamedelima Cristina}{M\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{hash=20f9157c5db916147ee4fd420455fb09}{Marshall}{M\bibinitperiod}{Patricia\bibnamedelima a}{P\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{hash=6923c6917de6a85b37eb4d22654ed7c7}{Matsuda}{M\bibinitperiod}{Ichiro}{I\bibinitperiod}{}{}{}{}}%
+        {{hash=eca74e9f43d2392cb543d2d506093900}{Ngare}{N\bibinitperiod}{Duncan}{D\bibinitperiod}{}{}{}{}}%
+        {{hash=2c2382126928c1ece2245a8e799298df}{Wang}{W\bibinitperiod}{Vivian\bibnamedelima Ota}{V\bibinitperiod\bibinitdelim O\bibinitperiod}{}{}{}{}}%
+        {{hash=848a08ee811e5f773daef34e56037e18}{Reddy}{R\bibinitperiod}{Deepa}{D\bibinitperiod}{}{}{}{}}%
+        {{hash=06f665ccb840ed46cf5c7d936ca1d9b4}{Rotimi}{R\bibinitperiod}{Charles\bibnamedelima N}{C\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+        {{hash=f74df18b7c78d01e44ebefa3f2132f35}{Royal}{R\bibinitperiod}{Charmaine\bibnamedelima D}{C\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=b6f05ff7668e9eb27282578a15eb559b}{Sharp}{S\bibinitperiod}{Richard\bibnamedelima R}{R\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{hash=04a1d2283865fc2402f79a3716ba15dc}{Zeng}{Z\bibinitperiod}{Changqing}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=ed75acf29458abde577e09aade941db3}{Brooks}{B\bibinitperiod}{Lisa\bibnamedelima D}{L\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=027c5e128ff5c7407ff24e439cb51fd8}{McEwen}{M\bibinitperiod}{Jean\bibnamedelima E}{J\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{437841f3d674d9b7405d23112eefde2c}
+      \strng{fullhash}{a31314f5d69e438e2a45621c06b4647b}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Despite great progress in identifying genetic variants that influence human disease, most inherited risk remains unexplained. A more complete understanding requires genome-wide studies that fully examine less common alleles in populations with a wide range of ancestry. To inform the design and interpretation of such studies, we genotyped 1.6 million common single nucleotide polymorphisms (SNPs) in 1,184 reference individuals from 11 global populations, and sequenced ten 100-kilobase regions in 692 of these individuals. This integrated data set of common and rare alleles, called 'HapMap 3', includes both SNPs and copy number polymorphisms (CNPs). We characterized population-specific differences among low-frequency variants, measured the improvement in imputation accuracy afforded by the larger reference panel, especially in imputing SNPs with a minor allele frequency of <or=5\%, and demonstrated the feasibility of imputing newly discovered CNPs and SNPs. This expanded public resource of genome variants in global populations supports deeper interrogation of genomic variation and its role in human disease, and serves as a step towards a high-resolution map of the landscape of human genetic variation.}
+      \field{isbn}{1476-4687 (Electronic)$\backslash$n0028-0836 (Linking)}
+      \field{issn}{0028-0836}
+      \field{journaltitle}{Nature}
+      \field{number}{7311}
+      \field{title}{{Integrating common and rare genetic variation in diverse human populations.}}
+      \field{volume}{467}
+      \field{year}{2010}
+      \field{pages}{52\bibrangedash 58}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1038/nature09298
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/Integrating common and rare genetic variation in diverse human populations.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Shieh2010}{article}{}
+      \name{author}{1}{}{%
+        {{hash=fa2542e7bef0eec5965652fb190221d1}{Shieh}{S\bibinitperiod}{G}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{fa2542e7bef0eec5965652fb190221d1}
+      \strng{fullhash}{fa2542e7bef0eec5965652fb190221d1}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This article investigates some unfamiliar properties of the Pearson product-moment correlation coefficient for the estimation of simple correlation coefficient. Although Pearson's r is biased, except for limited situations, and the minimum variance unbiased estimator has been proposed in the literature, researchers routinely employ the sample correlation coefficient in their practical applications, because of its simplicity and popularity. In order to support such practice, this study examines the mean squared errors of r and several prominent formulas. The results reveal specific situations in which the sample correlation coefficient performs better than the unbiased and nearly unbiased estimators, facilitating recommendation of r as an effect size index for the strength of linear association between two variables. In addition, related issues of estimating the squared simple correlation coefficient are also considered.}
+      \field{edition}{2010/12/09}
+      \field{isbn}{1554-3528 (Electronic) 1554-351X (Linking)}
+      \field{journaltitle}{Behav Res Methods}
+      \field{number}{4}
+      \field{title}{{Estimation of the simple correlation coefficient}}
+      \field{volume}{42}
+      \field{year}{2010}
+      \field{pages}{906\bibrangedash 917}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.3758/BRM.42.4.906 42/4/906 [pii]
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Estimation of the simple correlation coefficient.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/21139158
+      \endverb
+      \keyw{*Statistics as Topic,Regression Analysis}
+    \endentry
     \entry{Neumaier1998}{article}{}
       \name{author}{1}{}{%
         {{hash=7867d5416dc180390796983c8e58a590}{Neumaier}{N\bibinitperiod}{Arnold}{A\bibinitperiod}{}{}{}{}}%
@@ -47,23 +233,42 @@
       \endverb
       \keyw{1,ams subject classifications,error bounds,find,generalized,generalized cross validation,ill-conditioned,ill-posed,in many applications of,introduction,linear algebra,maximum likelihood,primary 65f05,regularization,secondary 65j20,the need arises to,tikhonov regularization}
     \endentry
-    \entry{eigenweb}{misc}{}
-      \true{moreauthor}
-      \name{author}{2}{}{%
-        {{hash=32670d1e660cd3381144af1ebb08d86e}{Guennebaud}{G\bibinitperiod}{Ga\"{e}l}{G\bibinitperiod}{}{}{}{}}%
-        {{hash=21b11180bc565677569d5478e31829b2}{Jacob}{J\bibinitperiod}{Beno\^\i{}t}{B\bibinitperiod}{}{}{}{}}%
+    \entry{Hansen1987}{article}{}
+      \name{author}{1}{}{%
+        {{hash=599d9af867e411a6d3061220e140253b}{Hansen}{H\bibinitperiod}{Per\bibnamedelima Christian}{P\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
       }
-      \strng{namehash}{d073c1a4976b71a713a96d8f43b1f9f6}
-      \strng{fullhash}{eafc0993b32136cfe757ebc2478ea140}
+      \list{location}{1}{%
+        {Stanford, CA, USA}%
+      }
+      \strng{namehash}{599d9af867e411a6d3061220e140253b}
+      \strng{fullhash}{599d9af867e411a6d3061220e140253b}
       \field{sortinit}{0}
       \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{http://eigen.tuxfamily.org}
-      \field{title}{Eigen v3}
-      \field{year}{2010}
+      \field{abstract}{The truncated singular value decomposition (SVD) is considered as a method for regularization of ill-posed linear least squares problems. In particular, the truncated SVD solution is compared with the usual regularized solution. Necessary conditions are defined in which the two methods will yield similar results. This investigation suggests the truncated SVD as a favorable alternative to standard-form regularization in cases of ill-conditioned matrices with well-determined numerical rank.}
+      \field{isbn}{0006-3835}
+      \field{issn}{00063835}
+      \field{journaltitle}{Bit}
+      \field{number}{4}
+      \field{title}{{The truncated SVD as a method for regularization}}
+      \field{volume}{27}
+      \field{year}{1987}
+      \field{pages}{534\bibrangedash 553}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/BF01937276
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/The truncated SVD as a method for regularization.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://portal.acm.org/citation.cfm?id=891601
+      \endverb
+      \keyw{65F30,891601,AMS subject classification: 65F20,numerical rank,perturbation theory for truncated SVD,regularization in standard form,svd,truncated,truncated SVD}
     \endentry
   \endsortlist
+  \missing{eigenweb}
 \endrefsection
 \endinput
 

@@ -57,9 +57,9 @@
 \newacronym{PGS}{PGS}{Polygenic Risk Score}
 \newacronym{tSVD}{tSVD}{Truncated Singular Value Decomposition}
 \newacronym{SVD}{SVD}{Singular Value Decomposition}
-
-
-
+\newacronym{shrek}{SHREK}{SNP Heritability and Risk Estimation Kit}
+\newacronym{gcta}{GCTA}{Genome-wide Complex Trait Analysis}
+\newacronym{ldsc}{LDSC}{LD SCore}
 \raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 \makeindex
 \begin{document}\thispagestyle{empty}
@@ -160,11 +160,10 @@
 	\section{Summary}
 	
 	\chapter{Heritability Estimation}
-	This chapter should be used in similar way as the general method section in Clara's thesis. Considering that the subsequent chapters all rely on this implementation.
 	\section{Introduction}
-	\section{Methodology}
-		The work in this chapter were done in collaboration with my colleagues who have kindly provide their support and knowledges to make this piece of work possible.
-		
+	\section{Methodology}	
+		The overall aims of this study is to develop a robust algorithm for the estimation of the narrow sense heritability using only the summary statistic from a \gls{GWAS} study. The work in this chapter were done in collaboration with my colleagues who have kindly provide their support and knowledges to make this piece of work possible.
+		Dr Johnny Kwan, Dr Miaxin Li and Professor Sham have helped to laid the framework of this study. Dr Timothy Mak has derived the mathematical proof for our heritability estimation method. Miss Yiming Li, Dr Johnny Kwan, Dr Miaxin Li, Dr Timothy Mak and Professor Sham have helped with the derivation of the standard error of the heritability estimation. Dr Henry Leung has provided critical suggestions on the implementation of the algorithm.
 		\subsection{Heritability Estimation}
 			The narrow-sense heritability is defined as 
 			$$
@@ -326,6 +325,27 @@
 			\hat{Heritability} = \boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}
 			\label{eq:fullShrek}
 			\end{equation}
+		
+		\subsection{Calculating the \glsentrylong{LD} matrix}
+			To estimate the heritability, the population \gls{LD} matrix is required.
+			In reality, one can only obtain the \gls{LD} matrix based on a subset of the population (e.g. the 1000 genome project\cite{Project2012} or the HapMap project\cite{Altshuler2010}).
+			There are therefore sampling errors among the \gls{LD} elements. 
+			
+			Now if we consider \cref{eq:fullShrek}, the $\boldsymbol{R_{sq}}$ matrix is required.
+			As the squared \gls{LD} is used, a positive bias is induced into our $\boldsymbol{R_{sq}}$ matrix. 
+			
+			Based on \citet{Shieh2010}, one can correct for bias in the Pearson correlation $\rho$ using
+			\begin{equation}
+			\rho = \rho\{1+\frac{1-\rho^2}{2(N-4)}\}
+			\label{eq:rhoCorrect}
+			\end{equation}
+			where $N$ is the number of sample used in the calculation of $\rho$. 
+			Similarly, there exists a bias correction equation for $\rho^2$:
+			\begin{equation}
+				\rho^2=1-\frac{N-3}{N-2}(1-\rho^2)\{1+\frac{2(1-\rho^2)}{N-3.3}\}
+				\label{eq:rho2Correct}
+			\end{equation}
+			Therefore, we corrected the $\boldsymbol{R_{sq}}$ based on \cref{eq:rho2Correct} such that the bias in estimation can be minimized. 
 		\subsection{Inverse of the \glsentrylong {LD} matrix}
 			In order to obtain the heritability estimation, we will require to solve \cref{eq:fullShrek}. 
 			If $\boldsymbol{R_{sq}}$ is of full rank and positive semi-definite, it will be straight-forward to solve the matrix equation.
@@ -343,26 +363,86 @@
 			Even if the decomposition is successfully performed, the result tends to be a meaningless approximation to the true $\boldsymbol{\hat{h^2}}$. 
 			
 			Therefore, to obtain a meaningful solution, regularization techniques such as the Tikhonov Regularization (also known as Ridge Regression) and \gls{tSVD} has to be performed\cite{Neumaier1998}. 
-			Arguably, there are a large variety of regularization techniques, yet the discussion of which is beyond the scope of this study. 
+			There are a large variety of regularization techniques, yet the discussion of which is beyond the scope of this study. 
 			In this study, we will focus on the use of \gls{tSVD} in the regularization of the \gls{LD} matrix.
-			This is because the \gls{SVD} routine has been implemented in the EIGEN C++ library \cite{eigenweb}, allowing us to implement the \gls{tSVD} method without much concern with regard to the algorithm. 
+			This is because the \gls{SVD} routine has been implemented in the EIGEN C++ library \cite{eigenweb}, allowing us to implement the \gls{tSVD} method without much concern with regard to the detail of the algorithm. 
 			
-			To understand the regularization method, we first assume
+			To understand the problem of the ill-conditioned matrix and regularization method, we consider the matrix equation $\boldsymbol{Ax}=\boldsymbol{B}$ where $\boldsymbol{A}$ is ill-conditioned or singular with $n\times n$ dimension.
+			The \gls{SVD} of $\boldsymbol{A}$ can be expressed as 
+			\begin{align}
+				\boldsymbol{A} = \boldsymbol{U\Sigma V}^t
+				\label{eq:svd}
+			\end{align}
+			where $\boldsymbol{U}$ and $\boldsymbol{V}$ are both orthogonal matrix and $\boldsymbol{\Sigma}=\mathrm{diag}(\sigma_1,\sigma_2,\dots,\sigma_n)$ is the diagonal matrix of the \emph{singular values}($\sigma_i$) of matrix $\boldsymbol{A}$.
+			Based on \cref{eq:svd}, we can get the inverse of $\boldsymbol{A}$ as 
+			\begin{align}
+				\boldsymbol{A}^{-1}= \boldsymbol{V\Sigma}^{-1}\boldsymbol{U}^t
+				\label{eq:svdInverse}
+			\end{align}
+			Where $
+			\boldsymbol{\Sigma}^{-1} = \mathrm{diag}(\frac{1}{\sigma_1},\frac{1}{\sigma_2},\dots,\frac{1}{\sigma_n})$.
+			Now if we consider there to be error within $\boldsymbol{B}$ such that
+			\begin{equation}
+				\boldsymbol{\hat{B_i}} = \boldsymbol{B_i}+\epsilon_i
+				\label{eq:errorB}
+			\end{equation}
+			we can then represent $\boldsymbol{Ax}=\boldsymbol{B}$ as
+			\begin{align}
+				\boldsymbol{Ax}&=\boldsymbol{\hat{B}} \nonumber\\
+				\boldsymbol{U\Sigma V}^t\boldsymbol{x}&=\boldsymbol{\hat{B}} \nonumber\\
+				\boldsymbol{x}&=\boldsymbol{V\Sigma}^{-1}\boldsymbol{U}^t\boldsymbol{\hat{B}}
+				\label{eq:solveBwithError}
+			\end{align}
+			A matrix $\boldsymbol{A}$ is considered as ill-condition when its condition number $\kappa(\boldsymbol{A})$ is large or singular when its condition number is infinite. 
+			One can represent the condition number as $\kappa(\boldsymbol{A})=\frac{\sigma_1}{\sigma_n}$.
+			Therefore it can be observed that when $\sigma_n$ is tiny, $\boldsymbol{A}$ is likely to be ill-conditioned and when $\sigma_n=0$, $\boldsymbol{A}$ will be singular. 
 			
+			One can also observe from \cref{eq:solveBwithError} that when the singular value $\sigma_i$ is small, the error $\epsilon_i$ in \cref{eq:errorB} will be drastically magnified by a factor of $\frac{1}{\sigma_i}$. 
+			Making the system of equation highly sensitive to errors in the input.
 			
-			In this study, \gls{tSVD} were used as the \gls{SVD} was implemented in the EIGEN C++ library\cite{eigenweb}, allow for a quick and simple implementation of the method.
-			%Start explaining what is SVD and how to perform the tSVD. This will be complicated and slightly too difficult for me ><
+			To obtain a meaningful solution from this ill-conditioned/singular matrix $\boldsymbol{A}$, we may perform the \gls{tSVD} method to obtain a pseudo inverse of $\boldsymbol{A}$.
+			Similar to \cref{eq:svd}, the \gls{tSVD} of $\boldsymbol{A}$ can be represented as 
+			\begin{alignat}{2}
+				&\boldsymbol{A}^+ = \boldsymbol{U\Sigma}_k\boldsymbol{V}^t  &\qquad\text{and}\qquad  &\boldsymbol{\Sigma}_k=\mathrm{diag}(\sigma_1,\dots,\sigma_k,0,\dots,0)
+				\label{eq:tsvd}				
+			\end{alignat}
+			where $\boldsymbol{\Sigma}_k$ equals to replacing the smallest $n-k$ singular value replaced by 0\cite{Hansen1987}. 
+			Alternatively, we can define
+			\begin{equation}
+			\sigma_i=\begin{cases}
+			\sigma_i\qquad\text{for}\qquad\sigma_i\ge t\\
+			0\qquad\text{for}\qquad\sigma_i<t
+			\end{cases}
+			\end{equation}
+			where $t$ is the tolerance threshold. 
+			Any singular value $\sigma_i$ less than the threshold will be replaced by 0. 
 			
+			By selecting an appropriate $t$, \gls{tSVD} can effectively regularize the ill-conditioned matrix and help to find a reasonable approximation to $x$. 
+			A problem with \gls{tSVD} however is that it only work when matrix $\boldsymbol{A}$ has a well determined numeric rank\cite{Hansen1987}.
+			That is, \gls{tSVD} work best when there is a large gap between $\sigma_k$ and $\sigma_{k+1}$.
 			
+			\citeauthor{Hansen1987}(\citeyear{Hansen1987})\cite{Hansen1987} stated that for a matrix to have a well-determined numeric rank, the concept of rank usually make sense in the data. 
 			
-	\subsection{Quantitative Trait}
-	\subsection{Case Control Studies}
+			In MATLAB, NumPy and GNU Octave, this threshold is taken to be $t=\epsilon\times\mathrm{max}(m,n)\times\mathrm{max}(\boldsymbol{\Sigma})$ where $\epsilon$ is the machine epsilon (the smallest number a machine can define as non-zero). 
+			Using this tolerance threshold, we were able to solve the ill-posed \cref{eq:shrekEq}, therefore solving for $\boldsymbol{\hat{h^2}}$.
+			
+		
+			
+	
 	\subsection{Extreme Phenotype Selections}
+		%Explain why we perform extreme phenotype selections
+		\cref{eq:fullShrek} can naturally be applied to the quantitative trait scenario. 
+		%Explain how to apply the heritability estimation in the extreme phenotype situation
+	\subsection{Case Control Studies}
 	\section{Simulation}
+		In order to assess the performance of the method under different scenarios, we performed a number of simulation to compare the performance of our algorithm with other existing softwares including \gls{gcta} and \gls{ldsc} 
 	\subsection{Quantitative Trait}
+		
 	\subsection{Case Control Studies}
 	\subsection{Exreme Phenotype Selections}
 	\section{Result}
+		The heritability estimation were implemented in \gls{shrek} and is available on \url{https://github.com/choishingwan/shrek}.
+		
 	\section{Discussion}
 	
 	\chapter{Heritability of Schizophrenia}
