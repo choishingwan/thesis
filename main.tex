@@ -91,7 +91,7 @@
 		
 		\vspace{0.8cm}
 		
-		\includegraphics[width=0.4\textwidth]{hkuLogo.jpg}
+		\includegraphics[width=0.4\textwidth]{figure/hkuLogo.jpg}
 		
 		\Large
 		Department of Psychiatry\\
@@ -534,12 +534,12 @@
 			1,000 \glspl{SNP} randomly select from chromosome 22. 
 			The \gls{LD} matrix and its corresponding singular value were calculated. 
 			The whole process were repeated 20 times and the smallest singular values were plotted\cref{fig:singularValueDist}. 
-			It is clearly show that the \gls{LD} matrix has a well-defined rank with a mean ``gap'' of 508,997,786,189.
+			It is clearly show that the \gls{LD} matrix has a well-defined rank with a mean of maximum ``gap'' of 466,198,939,298.
 			Therefore the choice of \gls{tSVD} for the regularization is appropriate.
 			\begin{figure}
-				\caption[Distribution of singular value of the LD matrix]{Distribution of singular value of the LD matrix, it can be observed that there is a sudden drop of the singular value, and the mean ``gap'' in the singular value were 508,997,786,189, suggesting that the LD matrix is well defined}
+				\caption[Distribution of singular value of the LD matrix]{Distribution of singular value of the LD matrix, it can be observed that there is a sudden drop of the singular value, and the mean of maximum ``gap'' in the singular value were 466,198,939,298, suggesting that the rank of the LD matrix is well defined}
 				\centering
-				\includegraphics[width=0.5\textwidth]{pic/singular_value_distribution.png}
+				\includegraphics[width=0.5\textwidth]{figure/singular_value_distribution.png}
 				\label{fig:singularValueDist}
 			\end{figure}
 			
