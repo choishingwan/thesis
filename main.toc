@@ -8,7 +8,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Contents}{vii}{section*.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Introduction}{1}{chapter*.11}
+\contentsline {chapter}{Introduction}{1}{chapter*.12}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Literature Review}{5}{chapter.1}
 \defcounter {refsection}{0}\relax 
@@ -18,13 +18,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.1}Role of Common Variants}{5}{subsection.1.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Genome Wide Association Study}{5}{section*.13}
+\contentsline {subsubsection}{Genome Wide Association Study}{5}{section*.14}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.2}Role of Rare Variants}{5}{subsection.1.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Exome Sequencing}{5}{section*.14}
+\contentsline {subsubsection}{Exome Sequencing}{5}{section*.15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Whole Genome Sequencing}{5}{section*.15}
+\contentsline {subsubsection}{Whole Genome Sequencing}{5}{section*.16}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.3}Narrow Sense Heritability}{6}{section.1.3}
 \defcounter {refsection}{0}\relax 
@@ -40,62 +40,64 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.1}Heritability Estimation}{7}{subsection.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.2}Calculating the Linkage Disequilibrium matrix}{10}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.2}Calculating the Standard Error}{11}{subsection.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.3}Inverse of the Linkage Disequilibrium matrix}{11}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.3}Calculating the Linkage Disequilibrium matrix}{12}{subsection.2.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.4}Extreme Phenotype Selections}{12}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.4}Inverse of the Linkage Disequilibrium matrix}{13}{subsection.2.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.5}Case Control Studies}{13}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.5}Extreme Phenotype Selections}{15}{subsection.2.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Simulation}{13}{section.2.3}
+\contentsline {subsection}{\numberline {2.2.6}Case Control Studies}{16}{subsection.2.2.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.1}Quantitative Trait}{13}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.3}Simulation}{16}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.2}Case Control Studies}{13}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.1}Quantitative Trait}{16}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.3}Exreme Phenotype Selections}{13}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.2}Case Control Studies}{17}{subsection.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Result}{13}{section.2.4}
+\contentsline {subsection}{\numberline {2.3.3}Exreme Phenotype Selections}{17}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Discussion}{13}{section.2.5}
+\contentsline {section}{\numberline {2.4}Result}{17}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Heritability of Schizophrenia}{15}{chapter.3}
+\contentsline {section}{\numberline {2.5}Discussion}{17}{section.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Introduction}{15}{section.3.1}
+\contentsline {chapter}{\numberline {3}Heritability of Schizophrenia}{19}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Heritability Estimation}{15}{section.3.2}
+\contentsline {section}{\numberline {3.1}Introduction}{19}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.1}Methodology}{15}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.2}Heritability Estimation}{19}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.2}Result}{15}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.1}Methodology}{19}{subsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Brain development and Schizophrenia}{15}{section.3.3}
+\contentsline {subsection}{\numberline {3.2.2}Result}{19}{subsection.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.1}Methodology}{15}{subsection.3.3.1}
+\contentsline {section}{\numberline {3.3}Brain development and Schizophrenia}{19}{section.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Result}{15}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.1}Methodology}{19}{subsection.3.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Discussion}{15}{section.3.4}
+\contentsline {subsection}{\numberline {3.3.2}Result}{19}{subsection.3.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Heritability of Response to antipsychotic treatment}{17}{chapter.4}
+\contentsline {section}{\numberline {3.4}Discussion}{19}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Introduction}{17}{section.4.1}
+\contentsline {chapter}{\numberline {4}Heritability of Response to antipsychotic treatment}{21}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Methodology}{17}{section.4.2}
+\contentsline {section}{\numberline {4.1}Introduction}{21}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Result}{17}{section.4.3}
+\contentsline {section}{\numberline {4.2}Methodology}{21}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Discussion}{17}{section.4.4}
+\contentsline {section}{\numberline {4.3}Result}{21}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Risk Prediction}{19}{chapter.5}
+\contentsline {section}{\numberline {4.4}Discussion}{21}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Methodology}{19}{section.5.1}
+\contentsline {chapter}{\numberline {5}Risk Prediction}{23}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.1}Simulation}{19}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.1}Methodology}{23}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Result}{19}{section.5.2}
+\contentsline {subsection}{\numberline {5.1.1}Simulation}{23}{subsection.5.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Discussion}{19}{section.5.3}
+\contentsline {section}{\numberline {5.2}Result}{23}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Conclusion}{21}{chapter.6}
+\contentsline {section}{\numberline {5.3}Discussion}{23}{section.5.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Conclusion}{25}{chapter.6}

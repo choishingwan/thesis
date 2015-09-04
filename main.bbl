@@ -19,19 +19,47 @@
 
 \refsection{0}
   \sortlist{none}{none}
+    \entry{Li2011b}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=f62f549f43c2a6a773391fef98cbf750}{Li}{L\bibinitperiod}{Miao-Xin}{M\bibinithyphendelim X\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d34d4f7e4b45468d52db231d41382cba}{Yeung}{Y\bibinitperiod}{Juilian\bibnamedelimb M\bibnamedelima Y}{J\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim Y\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=46676619cabe9d4a31d6c7399bf886e6}{Cherny}{C\bibinitperiod}{Stacey\bibnamedelima S}{S\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7c7b6e384160e2ea994772d9947272e9}{Sham}{S\bibinitperiod}{Pak\bibnamedelima C}{P\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{e0e32a82d2b1391acc6ab43a51b4f9f2}
+      \strng{fullhash}{d8e9548083800d33d7670954b0879fd2}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0340-6717, 1432-1203}
+      \field{journaltitle}{Human Genetics}
+      \field{title}{{Evaluating the effective numbers of independent tests and significant p-value thresholds in commercial genotyping arrays and public imputation reference datasets}}
+      \field{volume}{131}
+      \field{year}{2011}
+      \field{pages}{747\bibrangedash 756}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1007/s00439-011-1118-2
+      \endverb
+    \endentry
     \entry{Project2012}{article}{}
       \name{author}{6}{}{%
-        {{hash=f06f9f547912a3d0d5b5da6db3e9c01f}{Project}{P\bibinitperiod}{Genomes}{G\bibinitperiod}{}{}{}{}}%
-        {{hash=f06f9f547912a3d0d5b5da6db3e9c01f}{Project}{P\bibinitperiod}{Genomes}{G\bibinitperiod}{}{}{}{}}%
-        {{hash=fd10847e4a5ae7ba22741f76000c4cc3}{Asia}{A\bibinitperiod}{East}{E\bibinitperiod}{}{}{}{}}%
-        {{hash=4c63f081d1be06ae35e9bd526026deff}{Africa}{A\bibinitperiod}{Saharan}{S\bibinitperiod}{}{}{}{}}%
-        {{hash=6f1e098eb7390e08f8b5daf1f092363b}{Figs}{F\bibinitperiod}{Supplementary}{S\bibinitperiod}{}{}{}{}}%
-        {{hash=060ffa92cb9e0bceb7592c01f8de4f43}{Tables}{T\bibinitperiod}{Supplementary}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f06f9f547912a3d0d5b5da6db3e9c01f}{Project}{P\bibinitperiod}{Genomes}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f06f9f547912a3d0d5b5da6db3e9c01f}{Project}{P\bibinitperiod}{Genomes}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fd10847e4a5ae7ba22741f76000c4cc3}{Asia}{A\bibinitperiod}{East}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4c63f081d1be06ae35e9bd526026deff}{Africa}{A\bibinitperiod}{Saharan}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6f1e098eb7390e08f8b5daf1f092363b}{Figs}{F\bibinitperiod}{Supplementary}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=060ffa92cb9e0bceb7592c01f8de4f43}{Tables}{T\bibinitperiod}{Supplementary}{S\bibinitperiod}{}{}{}{}}%
       }
       \strng{namehash}{db3dce071d197d5ef0c6761821361848}
       \strng{fullhash}{87411dac6dacdeeac4e1c84eef9f2c3a}
       \field{sortinit}{0}
       \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2012}
+      \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{By characterizing the geographic and functional spectrum of human genetic variation, the 1000 Genomes Project aims to build a resource to help to understand the genetic contribution to disease. Here we describe the genomes of 1,092 individuals from 14 populations, constructed using a combination of low-coverage whole-genome and exome sequencing. By developing methods to integrate information across several algorithms and diverse data sources, we provide a validated haplotype map of 38\x{fffd}\x{fffd}\x{fffd}million single nucleotide polymorphisms, 1.4\x{fffd}\x{fffd}\x{fffd}million short insertions and deletions, and more than 14,000 larger deletions. We show that individuals from different populations carry different profiles of rare and common variants, and that low-frequency variants show substantial geographic differentiation, which is further increased by the action of purifying selection. We show that evolutionary conservation and coding consequence are key determinants of the strength of purifying selection, that rare-variant load varies substantially across biological pathways, and that each individual contains hundreds of rare non-coding variants at conserved sites, such as motif-disrupting changes in transcription-factor-binding sites. This resource, which captures up to 98\% of accessible single nucleotide polymorphisms at a frequency of 1\% in related populations, enables analysis of common and low-frequency variants in individuals from diverse, including admixed, populations.}
@@ -59,99 +87,101 @@
     \endentry
     \entry{Altshuler2010}{article}{}
       \name{author}{88}{}{%
-        {{hash=695d3f49c440799091efb055955817a4}{Altshuler}{A\bibinitperiod}{David\bibnamedelima M}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
-        {{hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
-        {{hash=3ef53d39dd4c45771e607cc7a1594a26}{Peltonen}{P\bibinitperiod}{Leena}{L\bibinitperiod}{}{}{}{}}%
-        {{hash=695d3f49c440799091efb055955817a4}{Altshuler}{A\bibinitperiod}{David\bibnamedelima M}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
-        {{hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
-        {{hash=3ef53d39dd4c45771e607cc7a1594a26}{Peltonen}{P\bibinitperiod}{Leena}{L\bibinitperiod}{}{}{}{}}%
-        {{hash=a016ef2b2f246c71ede1fe4bcd41c780}{Dermitzakis}{D\bibinitperiod}{Emmanouil}{E\bibinitperiod}{}{}{}{}}%
-        {{hash=7ff0d3797aa4c8fef510179575dd75b6}{Schaffner}{S\bibinitperiod}{Stephen\bibnamedelima F}{S\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
-        {{hash=2a67551bcabd2af166f23c10ae372ece}{Yu}{Y\bibinitperiod}{Fuli}{F\bibinitperiod}{}{}{}{}}%
-        {{hash=3ef53d39dd4c45771e607cc7a1594a26}{Peltonen}{P\bibinitperiod}{Leena}{L\bibinitperiod}{}{}{}{}}%
-        {{hash=a016ef2b2f246c71ede1fe4bcd41c780}{Dermitzakis}{D\bibinitperiod}{Emmanouil}{E\bibinitperiod}{}{}{}{}}%
-        {{hash=5afa4e005c5bd0ab8bd5bdb6003cef82}{Bonnen}{B\bibinitperiod}{Penelope\bibnamedelima E}{P\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
-        {{hash=695d3f49c440799091efb055955817a4}{Altshuler}{A\bibinitperiod}{David\bibnamedelima M}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
-        {{hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
-        {{hash=42948fcfb73edda029f3092327d021d6}{Bakker}{B\bibinitperiod}{Paul\bibnamedelimb I\bibnamedelima W}{P\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim W\bibinitperiod}{de}{d\bibinitperiod}{}{}}%
-        {{hash=8239536b81bf3749f1f0fdc7c1b4cafc}{Deloukas}{D\bibinitperiod}{Panos}{P\bibinitperiod}{}{}{}{}}%
-        {{hash=8c4a58581a24be7312c4d5fb61c803a5}{Gabriel}{G\bibinitperiod}{Stacey\bibnamedelima B}{S\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
-        {{hash=adc720b836aa97f9bbc53fd53cfb90aa}{Gwilliam}{G\bibinitperiod}{Rhian}{R\bibinitperiod}{}{}{}{}}%
-        {{hash=6ba97fd02694577f090e82019232c17c}{Hunt}{H\bibinitperiod}{Sarah}{S\bibinitperiod}{}{}{}{}}%
-        {{hash=ae06c1fe21497bfda08fcf626ad51404}{Inouye}{I\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
-        {{hash=f349bee37f5e90c341ae0eccab4cf567}{Jia}{J\bibinitperiod}{Xiaoming}{X\bibinitperiod}{}{}{}{}}%
-        {{hash=17ea5643a78162d18ae61260b3166431}{Palotie}{P\bibinitperiod}{Aarno}{A\bibinitperiod}{}{}{}{}}%
-        {{hash=b5a3473ce8d64cf252baa11e144309bd}{Parkin}{P\bibinitperiod}{Melissa}{M\bibinitperiod}{}{}{}{}}%
-        {{hash=1cb7fd440d730ab096098a863901ac35}{Whittaker}{W\bibinitperiod}{Pamela}{P\bibinitperiod}{}{}{}{}}%
-        {{hash=2a67551bcabd2af166f23c10ae372ece}{Yu}{Y\bibinitperiod}{Fuli}{F\bibinitperiod}{}{}{}{}}%
-        {{hash=01fe8b56a550432adbc9767a9bb72814}{Chang}{C\bibinitperiod}{Kyle}{K\bibinitperiod}{}{}{}{}}%
-        {{hash=7fd6bf850a49976853555bb14d76bad1}{Hawes}{H\bibinitperiod}{Alicia}{A\bibinitperiod}{}{}{}{}}%
-        {{hash=2908a91e8058ec947ca4faf62b4eb2f9}{Lewis}{L\bibinitperiod}{Lora\bibnamedelima R}{L\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
-        {{hash=939e78ea3baef334bc0daf37bc34ba4f}{Ren}{R\bibinitperiod}{Yanru}{Y\bibinitperiod}{}{}{}{}}%
-        {{hash=ec5c678342b5e821055bb4dc4c99b174}{Wheeler}{W\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
-        {{hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
-        {{hash=649695b5c81c594f0451eb4d115dc0c8}{Muzny}{M\bibinitperiod}{Donna\bibnamedelima Marie}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
-        {{hash=8cd67c4ce2dd72313140792ab5bac85f}{Barnes}{B\bibinitperiod}{Chris}{C\bibinitperiod}{}{}{}{}}%
-        {{hash=644c06fa41d703b3e58f88fc9fb91ec5}{Darvishi}{D\bibinitperiod}{Katayoon}{K\bibinitperiod}{}{}{}{}}%
-        {{hash=16342cb4547016459bfd31eff76e56ae}{Hurles}{H\bibinitperiod}{Matthew}{M\bibinitperiod}{}{}{}{}}%
-        {{hash=2853859d944ec671ac719bf108038876}{Korn}{K\bibinitperiod}{Joshua\bibnamedelima M}{J\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
-        {{hash=c8ccab34d2adb7255a362ceec6a1d754}{Kristiansson}{K\bibinitperiod}{Kati}{K\bibinitperiod}{}{}{}{}}%
-        {{hash=fce2e852c2fc9176994aae24ded04ebd}{Lee}{L\bibinitperiod}{Charles}{C\bibinitperiod}{}{}{}{}}%
-        {{hash=a760ed645f004b68aeef9b8a14b05633}{McCarrol}{M\bibinitperiod}{Steven\bibnamedelima a}{S\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
-        {{hash=b1221e9e59330320ac5d1684c9c03ca2}{Nemesh}{N\bibinitperiod}{James}{J\bibinitperiod}{}{}{}{}}%
-        {{hash=a016ef2b2f246c71ede1fe4bcd41c780}{Dermitzakis}{D\bibinitperiod}{Emmanouil}{E\bibinitperiod}{}{}{}{}}%
-        {{hash=13d200fb1e4320515f90304c6560fb0b}{Keinan}{K\bibinitperiod}{Alon}{A\bibinitperiod}{}{}{}{}}%
-        {{hash=55a0f12db7271be018f2482602ee6c5c}{Montgomery}{M\bibinitperiod}{Stephen\bibnamedelima B}{S\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
-        {{hash=c0c012e7e8c8e8d20f0255f325a46398}{Pollack}{P\bibinitperiod}{Samuela}{S\bibinitperiod}{}{}{}{}}%
-        {{hash=71216c144346b1a7eb65cde89f9f1d0d}{Price}{P\bibinitperiod}{Alkes\bibnamedelima L}{A\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
-        {{hash=517ed11eaedd234b3011feba25ed2df0}{Soranzo}{S\bibinitperiod}{Nicole}{N\bibinitperiod}{}{}{}{}}%
-        {{hash=5afa4e005c5bd0ab8bd5bdb6003cef82}{Bonnen}{B\bibinitperiod}{Penelope\bibnamedelima E}{P\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
-        {{hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
-        {{hash=10f0a916c9ad76262a877faffc29c2fd}{Gonzaga-Jauregui}{G\bibinithyphendelim J\bibinitperiod}{Claudia}{C\bibinitperiod}{}{}{}{}}%
-        {{hash=13d200fb1e4320515f90304c6560fb0b}{Keinan}{K\bibinitperiod}{Alon}{A\bibinitperiod}{}{}{}{}}%
-        {{hash=71216c144346b1a7eb65cde89f9f1d0d}{Price}{P\bibinitperiod}{Alkes\bibnamedelima L}{A\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
-        {{hash=2a67551bcabd2af166f23c10ae372ece}{Yu}{Y\bibinitperiod}{Fuli}{F\bibinitperiod}{}{}{}{}}%
-        {{hash=e2b317202365f340ecb42c36b832b35a}{Anttila}{A\bibinitperiod}{Verneri}{V\bibinitperiod}{}{}{}{}}%
-        {{hash=04d33706958eeb4817e0b29183951d79}{Brodeur}{B\bibinitperiod}{Wendy}{W\bibinitperiod}{}{}{}{}}%
-        {{hash=34c587f3ad77945b8c49c3a69080721b}{Daly}{D\bibinitperiod}{Mark\bibnamedelima J}{M\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
-        {{hash=d10e42548478ac6a72da649afaca7bf9}{Leslie}{L\bibinitperiod}{Stephen}{S\bibinitperiod}{}{}{}{}}%
-        {{hash=ee867f7b9dad34099817c34d2a3b4a0e}{McVean}{M\bibinitperiod}{Gil}{G\bibinitperiod}{}{}{}{}}%
-        {{hash=2446b4aed868295348597ed4c6ea4ddf}{Moutsianas}{M\bibinitperiod}{Loukas}{L\bibinitperiod}{}{}{}{}}%
-        {{hash=9b3bc3d30d933e14db13c2f6538a4058}{Nguyen}{N\bibinitperiod}{Huy}{H\bibinitperiod}{}{}{}{}}%
-        {{hash=7ff0d3797aa4c8fef510179575dd75b6}{Schaffner}{S\bibinitperiod}{Stephen\bibnamedelima F}{S\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
-        {{hash=347a688bf13ff63504641f608305b194}{Zhang}{Z\bibinitperiod}{Qingrun}{Q\bibinitperiod}{}{}{}{}}%
-        {{hash=8a38d02b3a47125f392811678a3195f5}{Ghori}{G\bibinitperiod}{Mohammed\bibnamedelimb J\bibnamedelima R}{M\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
-        {{hash=e75af3d3b3d14c9d79701c825f53b34a}{McGinnis}{M\bibinitperiod}{Ralph}{R\bibinitperiod}{}{}{}{}}%
-        {{hash=0f9439897b84f9e6cb0986885aedeac0}{McLaren}{M\bibinitperiod}{William}{W\bibinitperiod}{}{}{}{}}%
-        {{hash=c0c012e7e8c8e8d20f0255f325a46398}{Pollack}{P\bibinitperiod}{Samuela}{S\bibinitperiod}{}{}{}{}}%
-        {{hash=71216c144346b1a7eb65cde89f9f1d0d}{Price}{P\bibinitperiod}{Alkes\bibnamedelima L}{A\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
-        {{hash=7ff0d3797aa4c8fef510179575dd75b6}{Schaffner}{S\bibinitperiod}{Stephen\bibnamedelima F}{S\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
-        {{hash=2455ec5deb4ee4350b379ef13ed77e53}{Takeuchi}{T\bibinitperiod}{Fumihiko}{F\bibinitperiod}{}{}{}{}}%
-        {{hash=9ee97a1f5904d8c8ba91a5fa7b3651d3}{Grossman}{G\bibinitperiod}{Sharon\bibnamedelima R}{S\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
-        {{hash=c9112411ef87ed8b33acf6731c5c4a6d}{Shlyakhter}{S\bibinitperiod}{Ilya}{I\bibinitperiod}{}{}{}{}}%
-        {{hash=0e76eb8193927472080b0fba09ec93ad}{Hostetter}{H\bibinitperiod}{Elizabeth\bibnamedelima B}{E\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
-        {{hash=b876ac2d527b788f65419d92d970298c}{Sabeti}{S\bibinitperiod}{Pardis\bibnamedelima C}{P\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
-        {{hash=11466607e39fee94161eeca01352f6b0}{Adebamowo}{A\bibinitperiod}{Clement\bibnamedelima a}{C\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
-        {{hash=58ba83786be508dd3b37d2bf5be3b504}{Foster}{F\bibinitperiod}{Morris\bibnamedelima W}{M\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
-        {{hash=cea7630a6b39d6ae9fad251e438e9721}{Gordon}{G\bibinitperiod}{Deborah\bibnamedelima R}{D\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
-        {{hash=24c698165237eaed8b9280331d45c4ed}{Licinio}{L\bibinitperiod}{Julio}{J\bibinitperiod}{}{}{}{}}%
-        {{hash=3120c3c610ee67d8740ac5ed6ce14e14}{Manca}{M\bibinitperiod}{Maria\bibnamedelima Cristina}{M\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
-        {{hash=20f9157c5db916147ee4fd420455fb09}{Marshall}{M\bibinitperiod}{Patricia\bibnamedelima a}{P\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
-        {{hash=6923c6917de6a85b37eb4d22654ed7c7}{Matsuda}{M\bibinitperiod}{Ichiro}{I\bibinitperiod}{}{}{}{}}%
-        {{hash=eca74e9f43d2392cb543d2d506093900}{Ngare}{N\bibinitperiod}{Duncan}{D\bibinitperiod}{}{}{}{}}%
-        {{hash=2c2382126928c1ece2245a8e799298df}{Wang}{W\bibinitperiod}{Vivian\bibnamedelima Ota}{V\bibinitperiod\bibinitdelim O\bibinitperiod}{}{}{}{}}%
-        {{hash=848a08ee811e5f773daef34e56037e18}{Reddy}{R\bibinitperiod}{Deepa}{D\bibinitperiod}{}{}{}{}}%
-        {{hash=06f665ccb840ed46cf5c7d936ca1d9b4}{Rotimi}{R\bibinitperiod}{Charles\bibnamedelima N}{C\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
-        {{hash=f74df18b7c78d01e44ebefa3f2132f35}{Royal}{R\bibinitperiod}{Charmaine\bibnamedelima D}{C\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
-        {{hash=b6f05ff7668e9eb27282578a15eb559b}{Sharp}{S\bibinitperiod}{Richard\bibnamedelima R}{R\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
-        {{hash=04a1d2283865fc2402f79a3716ba15dc}{Zeng}{Z\bibinitperiod}{Changqing}{C\bibinitperiod}{}{}{}{}}%
-        {{hash=ed75acf29458abde577e09aade941db3}{Brooks}{B\bibinitperiod}{Lisa\bibnamedelima D}{L\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
-        {{hash=027c5e128ff5c7407ff24e439cb51fd8}{McEwen}{M\bibinitperiod}{Jean\bibnamedelima E}{J\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=695d3f49c440799091efb055955817a4}{Altshuler}{A\bibinitperiod}{David\bibnamedelima M}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3ef53d39dd4c45771e607cc7a1594a26}{Peltonen}{P\bibinitperiod}{Leena}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=695d3f49c440799091efb055955817a4}{Altshuler}{A\bibinitperiod}{David\bibnamedelima M}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3ef53d39dd4c45771e607cc7a1594a26}{Peltonen}{P\bibinitperiod}{Leena}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a016ef2b2f246c71ede1fe4bcd41c780}{Dermitzakis}{D\bibinitperiod}{Emmanouil}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7ff0d3797aa4c8fef510179575dd75b6}{Schaffner}{S\bibinitperiod}{Stephen\bibnamedelima F}{S\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2a67551bcabd2af166f23c10ae372ece}{Yu}{Y\bibinitperiod}{Fuli}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3ef53d39dd4c45771e607cc7a1594a26}{Peltonen}{P\bibinitperiod}{Leena}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a016ef2b2f246c71ede1fe4bcd41c780}{Dermitzakis}{D\bibinitperiod}{Emmanouil}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5afa4e005c5bd0ab8bd5bdb6003cef82}{Bonnen}{B\bibinitperiod}{Penelope\bibnamedelima E}{P\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=695d3f49c440799091efb055955817a4}{Altshuler}{A\bibinitperiod}{David\bibnamedelima M}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=42948fcfb73edda029f3092327d021d6}{Bakker}{B\bibinitperiod}{Paul\bibnamedelimb I\bibnamedelima W}{P\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim W\bibinitperiod}{de}{d\bibinitperiod}{}{}}%
+        {{uniquename=0,hash=8239536b81bf3749f1f0fdc7c1b4cafc}{Deloukas}{D\bibinitperiod}{Panos}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8c4a58581a24be7312c4d5fb61c803a5}{Gabriel}{G\bibinitperiod}{Stacey\bibnamedelima B}{S\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=adc720b836aa97f9bbc53fd53cfb90aa}{Gwilliam}{G\bibinitperiod}{Rhian}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6ba97fd02694577f090e82019232c17c}{Hunt}{H\bibinitperiod}{Sarah}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ae06c1fe21497bfda08fcf626ad51404}{Inouye}{I\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f349bee37f5e90c341ae0eccab4cf567}{Jia}{J\bibinitperiod}{Xiaoming}{X\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=17ea5643a78162d18ae61260b3166431}{Palotie}{P\bibinitperiod}{Aarno}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b5a3473ce8d64cf252baa11e144309bd}{Parkin}{P\bibinitperiod}{Melissa}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=1cb7fd440d730ab096098a863901ac35}{Whittaker}{W\bibinitperiod}{Pamela}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2a67551bcabd2af166f23c10ae372ece}{Yu}{Y\bibinitperiod}{Fuli}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=01fe8b56a550432adbc9767a9bb72814}{Chang}{C\bibinitperiod}{Kyle}{K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7fd6bf850a49976853555bb14d76bad1}{Hawes}{H\bibinitperiod}{Alicia}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2908a91e8058ec947ca4faf62b4eb2f9}{Lewis}{L\bibinitperiod}{Lora\bibnamedelima R}{L\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=939e78ea3baef334bc0daf37bc34ba4f}{Ren}{R\bibinitperiod}{Yanru}{Y\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ec5c678342b5e821055bb4dc4c99b174}{Wheeler}{W\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=649695b5c81c594f0451eb4d115dc0c8}{Muzny}{M\bibinitperiod}{Donna\bibnamedelima Marie}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8cd67c4ce2dd72313140792ab5bac85f}{Barnes}{B\bibinitperiod}{Chris}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=644c06fa41d703b3e58f88fc9fb91ec5}{Darvishi}{D\bibinitperiod}{Katayoon}{K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=16342cb4547016459bfd31eff76e56ae}{Hurles}{H\bibinitperiod}{Matthew}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2853859d944ec671ac719bf108038876}{Korn}{K\bibinitperiod}{Joshua\bibnamedelima M}{J\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c8ccab34d2adb7255a362ceec6a1d754}{Kristiansson}{K\bibinitperiod}{Kati}{K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fce2e852c2fc9176994aae24ded04ebd}{Lee}{L\bibinitperiod}{Charles}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a760ed645f004b68aeef9b8a14b05633}{McCarrol}{M\bibinitperiod}{Steven\bibnamedelima a}{S\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b1221e9e59330320ac5d1684c9c03ca2}{Nemesh}{N\bibinitperiod}{James}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a016ef2b2f246c71ede1fe4bcd41c780}{Dermitzakis}{D\bibinitperiod}{Emmanouil}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=13d200fb1e4320515f90304c6560fb0b}{Keinan}{K\bibinitperiod}{Alon}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=55a0f12db7271be018f2482602ee6c5c}{Montgomery}{M\bibinitperiod}{Stephen\bibnamedelima B}{S\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c0c012e7e8c8e8d20f0255f325a46398}{Pollack}{P\bibinitperiod}{Samuela}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=71216c144346b1a7eb65cde89f9f1d0d}{Price}{P\bibinitperiod}{Alkes\bibnamedelima L}{A\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=517ed11eaedd234b3011feba25ed2df0}{Soranzo}{S\bibinitperiod}{Nicole}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5afa4e005c5bd0ab8bd5bdb6003cef82}{Bonnen}{B\bibinitperiod}{Penelope\bibnamedelima E}{P\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9fe2375d9c7802d0e4bf5cb5d9837009}{Gibbs}{G\bibinitperiod}{Richard\bibnamedelima a}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=10f0a916c9ad76262a877faffc29c2fd}{Gonzaga-Jauregui}{G\bibinithyphendelim J\bibinitperiod}{Claudia}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=13d200fb1e4320515f90304c6560fb0b}{Keinan}{K\bibinitperiod}{Alon}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=71216c144346b1a7eb65cde89f9f1d0d}{Price}{P\bibinitperiod}{Alkes\bibnamedelima L}{A\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2a67551bcabd2af166f23c10ae372ece}{Yu}{Y\bibinitperiod}{Fuli}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e2b317202365f340ecb42c36b832b35a}{Anttila}{A\bibinitperiod}{Verneri}{V\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=04d33706958eeb4817e0b29183951d79}{Brodeur}{B\bibinitperiod}{Wendy}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=34c587f3ad77945b8c49c3a69080721b}{Daly}{D\bibinitperiod}{Mark\bibnamedelima J}{M\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d10e42548478ac6a72da649afaca7bf9}{Leslie}{L\bibinitperiod}{Stephen}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ee867f7b9dad34099817c34d2a3b4a0e}{McVean}{M\bibinitperiod}{Gil}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2446b4aed868295348597ed4c6ea4ddf}{Moutsianas}{M\bibinitperiod}{Loukas}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9b3bc3d30d933e14db13c2f6538a4058}{Nguyen}{N\bibinitperiod}{Huy}{H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7ff0d3797aa4c8fef510179575dd75b6}{Schaffner}{S\bibinitperiod}{Stephen\bibnamedelima F}{S\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=347a688bf13ff63504641f608305b194}{Zhang}{Z\bibinitperiod}{Qingrun}{Q\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8a38d02b3a47125f392811678a3195f5}{Ghori}{G\bibinitperiod}{Mohammed\bibnamedelimb J\bibnamedelima R}{M\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e75af3d3b3d14c9d79701c825f53b34a}{McGinnis}{M\bibinitperiod}{Ralph}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0f9439897b84f9e6cb0986885aedeac0}{McLaren}{M\bibinitperiod}{William}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c0c012e7e8c8e8d20f0255f325a46398}{Pollack}{P\bibinitperiod}{Samuela}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=71216c144346b1a7eb65cde89f9f1d0d}{Price}{P\bibinitperiod}{Alkes\bibnamedelima L}{A\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7ff0d3797aa4c8fef510179575dd75b6}{Schaffner}{S\bibinitperiod}{Stephen\bibnamedelima F}{S\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2455ec5deb4ee4350b379ef13ed77e53}{Takeuchi}{T\bibinitperiod}{Fumihiko}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9ee97a1f5904d8c8ba91a5fa7b3651d3}{Grossman}{G\bibinitperiod}{Sharon\bibnamedelima R}{S\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c9112411ef87ed8b33acf6731c5c4a6d}{Shlyakhter}{S\bibinitperiod}{Ilya}{I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0e76eb8193927472080b0fba09ec93ad}{Hostetter}{H\bibinitperiod}{Elizabeth\bibnamedelima B}{E\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b876ac2d527b788f65419d92d970298c}{Sabeti}{S\bibinitperiod}{Pardis\bibnamedelima C}{P\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=11466607e39fee94161eeca01352f6b0}{Adebamowo}{A\bibinitperiod}{Clement\bibnamedelima a}{C\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=58ba83786be508dd3b37d2bf5be3b504}{Foster}{F\bibinitperiod}{Morris\bibnamedelima W}{M\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=cea7630a6b39d6ae9fad251e438e9721}{Gordon}{G\bibinitperiod}{Deborah\bibnamedelima R}{D\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=24c698165237eaed8b9280331d45c4ed}{Licinio}{L\bibinitperiod}{Julio}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3120c3c610ee67d8740ac5ed6ce14e14}{Manca}{M\bibinitperiod}{Maria\bibnamedelima Cristina}{M\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=20f9157c5db916147ee4fd420455fb09}{Marshall}{M\bibinitperiod}{Patricia\bibnamedelima a}{P\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6923c6917de6a85b37eb4d22654ed7c7}{Matsuda}{M\bibinitperiod}{Ichiro}{I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=eca74e9f43d2392cb543d2d506093900}{Ngare}{N\bibinitperiod}{Duncan}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2c2382126928c1ece2245a8e799298df}{Wang}{W\bibinitperiod}{Vivian\bibnamedelima Ota}{V\bibinitperiod\bibinitdelim O\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=848a08ee811e5f773daef34e56037e18}{Reddy}{R\bibinitperiod}{Deepa}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=06f665ccb840ed46cf5c7d936ca1d9b4}{Rotimi}{R\bibinitperiod}{Charles\bibnamedelima N}{C\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f74df18b7c78d01e44ebefa3f2132f35}{Royal}{R\bibinitperiod}{Charmaine\bibnamedelima D}{C\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b6f05ff7668e9eb27282578a15eb559b}{Sharp}{S\bibinitperiod}{Richard\bibnamedelima R}{R\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=04a1d2283865fc2402f79a3716ba15dc}{Zeng}{Z\bibinitperiod}{Changqing}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ed75acf29458abde577e09aade941db3}{Brooks}{B\bibinitperiod}{Lisa\bibnamedelima D}{L\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=027c5e128ff5c7407ff24e439cb51fd8}{McEwen}{M\bibinitperiod}{Jean\bibnamedelima E}{J\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
       }
       \strng{namehash}{437841f3d674d9b7405d23112eefde2c}
       \strng{fullhash}{a31314f5d69e438e2a45621c06b4647b}
       \field{sortinit}{0}
       \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2010}
+      \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Despite great progress in identifying genetic variants that influence human disease, most inherited risk remains unexplained. A more complete understanding requires genome-wide studies that fully examine less common alleles in populations with a wide range of ancestry. To inform the design and interpretation of such studies, we genotyped 1.6 million common single nucleotide polymorphisms (SNPs) in 1,184 reference individuals from 11 global populations, and sequenced ten 100-kilobase regions in 692 of these individuals. This integrated data set of common and rare alleles, called 'HapMap 3', includes both SNPs and copy number polymorphisms (CNPs). We characterized population-specific differences among low-frequency variants, measured the improvement in imputation accuracy afforded by the larger reference panel, especially in imputing SNPs with a minor allele frequency of <or=5\%, and demonstrated the feasibility of imputing newly discovered CNPs and SNPs. This expanded public resource of genome variants in global populations supports deeper interrogation of genomic variation and its role in human disease, and serves as a step towards a high-resolution map of the landscape of human genetic variation.}
@@ -173,7 +203,7 @@
     \endentry
     \entry{Shieh2010}{article}{}
       \name{author}{1}{}{%
-        {{hash=fa2542e7bef0eec5965652fb190221d1}{Shieh}{S\bibinitperiod}{G}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fa2542e7bef0eec5965652fb190221d1}{Shieh}{S\bibinitperiod}{G}{G\bibinitperiod}{}{}{}{}}%
       }
       \list{language}{1}{%
         {eng}%
@@ -182,6 +212,8 @@
       \strng{fullhash}{fa2542e7bef0eec5965652fb190221d1}
       \field{sortinit}{0}
       \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2010}
+      \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This article investigates some unfamiliar properties of the Pearson product-moment correlation coefficient for the estimation of simple correlation coefficient. Although Pearson's r is biased, except for limited situations, and the minimum variance unbiased estimator has been proposed in the literature, researchers routinely employ the sample correlation coefficient in their practical applications, because of its simplicity and popularity. In order to support such practice, this study examines the mean squared errors of r and several prominent formulas. The results reveal specific situations in which the sample correlation coefficient performs better than the unbiased and nearly unbiased estimators, facilitating recommendation of r as an effect size index for the strength of linear association between two variables. In addition, related issues of estimating the squared simple correlation coefficient are also considered.}
@@ -207,12 +239,14 @@
     \endentry
     \entry{Neumaier1998}{article}{}
       \name{author}{1}{}{%
-        {{hash=7867d5416dc180390796983c8e58a590}{Neumaier}{N\bibinitperiod}{Arnold}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7867d5416dc180390796983c8e58a590}{Neumaier}{N\bibinitperiod}{Arnold}{A\bibinitperiod}{}{}{}{}}%
       }
       \strng{namehash}{7867d5416dc180390796983c8e58a590}
       \strng{fullhash}{7867d5416dc180390796983c8e58a590}
       \field{sortinit}{0}
       \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{1998}
+      \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{It is shown that the basic regularization procedures for nding meaningful approximate solutions of ill-conditioned or singular linear systems can be phrased and analyzed in terms of classical linear algebra that can be taught in any numerical analysis course. Apart from rewriting many known results in a more elementary form, we also derive a new two-parameter family of merit functions for the determination of the regularization parameter. The traditional merit functions from generalized cross validation (GCV) and generalized maximum likelihood (GML) are recovered as special cases.}
@@ -233,9 +267,27 @@
       \endverb
       \keyw{1,ams subject classifications,error bounds,find,generalized,generalized cross validation,ill-conditioned,ill-posed,in many applications of,introduction,linear algebra,maximum likelihood,primary 65f05,regularization,secondary 65j20,the need arises to,tikhonov regularization}
     \endentry
+    \entry{eigenweb}{misc}{}
+      \true{moreauthor}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=32670d1e660cd3381144af1ebb08d86e}{Guennebaud}{G\bibinitperiod}{Ga\"{e}l}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=1b6dac62924fd53d4f500b04996d58d9}{Jacob}{J\bibinitperiod}{Beno$\backslash$\^{}it}{B\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{d073c1a4976b71a713a96d8f43b1f9f6}
+      \strng{fullhash}{88ad3a5fe64fc84dea3926ff118c0b09}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2010}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{http://eigen.tuxfamily.org}
+      \field{title}{{Eigen v3}}
+      \field{year}{2010}
+    \endentry
     \entry{Hansen1987}{article}{}
       \name{author}{1}{}{%
-        {{hash=599d9af867e411a6d3061220e140253b}{Hansen}{H\bibinitperiod}{Per\bibnamedelima Christian}{P\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=599d9af867e411a6d3061220e140253b}{Hansen}{H\bibinitperiod}{Per\bibnamedelima Christian}{P\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
       }
       \list{location}{1}{%
         {Stanford, CA, USA}%
@@ -244,6 +296,8 @@
       \strng{fullhash}{599d9af867e411a6d3061220e140253b}
       \field{sortinit}{0}
       \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{1987}
+      \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The truncated singular value decomposition (SVD) is considered as a method for regularization of ill-posed linear least squares problems. In particular, the truncated SVD solution is compared with the usual regularized solution. Necessary conditions are defined in which the two methods will yield similar results. This investigation suggests the truncated SVD as a favorable alternative to standard-form regularization in cases of ill-conditioned matrices with well-determined numerical rank.}
@@ -267,8 +321,246 @@
       \endverb
       \keyw{65F30,891601,AMS subject classification: 65F20,numerical rank,perturbation theory for truncated SVD,regularization in standard form,svd,truncated,truncated SVD}
     \endentry
+    \entry{Yang2011}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=51e5fb9f55c5b5d1edb17aea3861c908}{Yang}{Y\bibinitperiod}{J}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=20964edb25ff5c1ab0389e2abf150e92}{Lee}{L\bibinitperiod}{S\bibnamedelima H}{S\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d6c6504b2cc5ca1332094b9f4a07076d}{Goddard}{G\bibinitperiod}{M\bibnamedelima E}{M\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=791841f4a3816b307edebd7907ba7fa4}{Visscher}{V\bibinitperiod}{P\bibnamedelima M}{P\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{e2a55d0b1c12c5c5d4797a727172bf22}
+      \strng{fullhash}{bff3cb4ca12eec589b489ccf4b340c11}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{For most human complex diseases and traits, SNPs identified by genome-wide association studies (GWAS) explain only a small fraction of the heritability. Here we report a user-friendly software tool called genome-wide complex trait analysis (GCTA), which was developed based on a method we recently developed to address the "missing heritability" problem. GCTA estimates the variance explained by all the SNPs on a chromosome or on the whole genome for a complex trait rather than testing the association of any particular SNP to the trait. We introduce GCTA's five main functions: data management, estimation of the genetic relationships from SNPs, mixed linear model analysis of variance explained by the SNPs, estimation of the linkage disequilibrium structure, and GWAS simulation. We focus on the function of estimating the variance explained by all the SNPs on the X chromosome and testing the hypotheses of dosage compensation. The GCTA software is a versatile tool to estimate and partition complex trait variation with large GWAS data sets.}
+      \field{edition}{2010/12/21}
+      \field{isbn}{1537-6605 (Electronic)0002-9297 (Linking)}
+      \field{journaltitle}{Am J Hum Genet}
+      \field{number}{1}
+      \field{title}{{GCTA: a tool for genome-wide complex trait analysis}}
+      \field{volume}{88}
+      \field{year}{2011}
+      \field{pages}{76\bibrangedash 82}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1016/j.ajhg.2010.11.011S0002-9297(10)00598-7 [pii]
+      \endverb
+      \verb{url}
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/21167468
+      \endverb
+      \keyw{*Polymorphism,Single Nucleotide,*Quantitative Trait Loci,*Software,Chromosomes,Human,X/*genetics,Computer Simulation,Dosage Compensation,Genetic,Female,Genetic Linkage,Genome-Wide Association Study/*methods,Humans,Male,Models,Genetic}
+    \endentry
+    \entry{Bulik-Sullivan2015}{article}{}
+      \name{author}{9}{}{%
+        {{uniquename=0,hash=c191d90648c8f064d024a7a01198f385}{Bulik-Sullivan}{B\bibinithyphendelim S\bibinitperiod}{Brendan\bibnamedelima K}{B\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=85655b6efb44e9d8f9269be91131a81c}{Loh}{L\bibinitperiod}{Po-Ru}{P\bibinithyphendelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=037a0209a7c376b0b341fa8a6b81b2e1}{Finucane}{F\bibinitperiod}{Hilary\bibnamedelima K}{H\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4d2b8662db812dc578bbba8249049322}{Ripke}{R\bibinitperiod}{Stephan}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5a1cb92dc789e714fb5aaf67809119a6}{Yang}{Y\bibinitperiod}{Jian}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=88c3ebd7390fa0517feb43783fbc46b2}{Patterson}{P\bibinitperiod}{Nick}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=34c587f3ad77945b8c49c3a69080721b}{Daly}{D\bibinitperiod}{Mark\bibnamedelima J}{M\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=71216c144346b1a7eb65cde89f9f1d0d}{Price}{P\bibinitperiod}{Alkes\bibnamedelima L}{A\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=84ff25e578ded598331e6aebd39651c0}{Neale}{N\bibinitperiod}{Benjamin\bibnamedelima M}{B\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{8c2fbaffc9c27679fce260b5a79d46a8}
+      \strng{fullhash}{68243dca3901eddfaf9ea0fd9b905eb1}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2015}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1061-4036}
+      \field{journaltitle}{Nature Genetics}
+      \field{number}{3}
+      \field{title}{{LD Score regression distinguishes confounding from polygenicity in genome-wide association studies}}
+      \field{volume}{47}
+      \field{year}{2015}
+      \field{pages}{291\bibrangedash 295}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1038/ng.3211
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Bulik-Sullivan et al. - 2015 - LD Score regression distinguishes confounding from polygenicity in genome-wide association studies.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Bulik-Sullivan et al. - 2015 - LD Score regression distinguishes confounding from polygenicity in genome-wide association studies(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/LD Score regression distinguishes confounding from polygenicity in genome-wide association studies.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.nature.com/doifinder/10.1038/ng.3211
+      \endverb
+    \endentry
+    \entry{Orr1998}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=21e39188461c0210a3d1eb80a7171fb0}{Orr}{O\bibinitperiod}{H\bibnamedelima Allen}{H\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Society for the Study of Evolution}%
+      }
+      \strng{namehash}{21e39188461c0210a3d1eb80a7171fb0}
+      \strng{fullhash}{21e39188461c0210a3d1eb80a7171fb0}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{1998}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We know very little about the genetic basis of adaptation. Indeed, we can make no theoretical predictions, however heuristic, about the distribution of phenotypic effects among factors fixed during adaptation nor about the expected 'size' of the largest factor fixed. Study of this problem requires taking into account that populations gradually approach a phenotypic optimum during adaptation via the stepwise substitution of favorable mutations. Using Fisher's geometric model of adaptation, I analyze this approach to the optimum, and derive an approximate solution to the size distribution of factors fixed during adaptation. I further generalize these results to allow the input of any distribution of mutational effects. The distribution of factors fixed during adaptation assumes a pleasingly simple, exponential form. This result is remarkably insensitive to changes in the fitness function and in the distribution of mutational effects. An exponential trend among factors fixed appears to be a general property of adaptation toward a fixed optimum.}
+      \field{issn}{00143820}
+      \field{journaltitle}{Evolution}
+      \field{number}{4}
+      \field{title}{{The Population Genetics of Adaptation: The Distribution of Factors Fixed during Adaptive Evolution}}
+      \field{volume}{52}
+      \field{year}{1998}
+      \field{pages}{pp. 935\bibrangedash 949}
+      \range{pages}{-1}
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/the population genetics of adaptation the distribution of cators fixed during adaptive evolution.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/2411226
+      \endverb
+    \endentry
+    \entry{Su2011}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=f168422ce4850696dc051ebbc328a3a5}{Su}{S\bibinitperiod}{Zhan}{Z\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=483d6539602b223f8eeed2e6169d0538}{Marchini}{M\bibinitperiod}{Jonathan}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ffc72dcaaa64555b3bb01df342b2fc53}{Donnelly}{D\bibinitperiod}{Peter}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{0a0e34cd91008467fff5f746f290b05c}
+      \strng{fullhash}{0a0e34cd91008467fff5f746f290b05c}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Performing experiments with simulated data is an inexpensive approach to evaluating competing experimental designs and analysis methods in genome-wide association studies. Simulation based on resampling known haplotypes is fast and efficient and can produce samples with patterns of linkage disequilibrium (LD), which mimic those in real data. However, the inability of current methods to simulate multiple nearby disease SNPs on the same chromosome can limit their application.}
+      \field{isbn}{1367-4811 (Electronic)$\backslash$r1367-4803 (Linking)}
+      \field{issn}{13674803}
+      \field{journaltitle}{Bioinformatics}
+      \field{number}{16}
+      \field{title}{{HAPGEN2: Simulation of multiple disease SNPs}}
+      \field{volume}{27}
+      \field{year}{2011}
+      \field{pages}{2304\bibrangedash 2305}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btr341
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/HAPGEN2 simulation of multiple disease SNPs.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Manolio2009}{article}{}
+      \name{author}{27}{}{%
+        {{uniquename=0,hash=bb7591e431e799e63861fe0ebc8c985c}{Manolio}{M\bibinitperiod}{Teri\bibnamedelima a}{T\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=54a574f30468f776253cd7bc8fff2e08}{Collins}{C\bibinitperiod}{Francis\bibnamedelima S}{F\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f2b37f927c861cfbd01911ffc4539919}{Cox}{C\bibinitperiod}{Nancy\bibnamedelima J}{N\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=477ce2b9e7b239b1f3baf699156d3fed}{Goldstein}{G\bibinitperiod}{David\bibnamedelima B}{D\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f0fb4913a0f2de339a84facae637f8b0}{Hindorff}{H\bibinitperiod}{Lucia\bibnamedelima a}{L\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9fd788a907cceafec383389a5709d5c2}{Hunter}{H\bibinitperiod}{David\bibnamedelima J}{D\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=20ad865540b3d03d30254b8bb8655e76}{McCarthy}{M\bibinitperiod}{Mark\bibnamedelima I}{M\bibinitperiod\bibinitdelim I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a9373af4d70c0aac1eb2f71a39670dfd}{Ramos}{R\bibinitperiod}{Erin\bibnamedelima M}{E\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f45d1087c36273fc1bc20770207c83d8}{Cardon}{C\bibinitperiod}{Lon\bibnamedelima R}{L\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=075e9ce87352583945651ba9e07b2ef9}{Chakravarti}{C\bibinitperiod}{Aravinda}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9054ba95309172330e19aba9b9835a02}{Cho}{C\bibinitperiod}{Judy\bibnamedelima H}{J\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=335a2f64ebf8bd10decc4dda16fd5c52}{Guttmacher}{G\bibinitperiod}{Alan\bibnamedelima E}{A\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6e2e0c71197c5d1f7b517ec44693a0af}{Kong}{K\bibinitperiod}{Augustine}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a848375ebed6ac40fbb84a75b6c4b64b}{Kruglyak}{K\bibinitperiod}{Leonid}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3a82797e15e3d7b62208b821d72cce2f}{Mardis}{M\bibinitperiod}{Elaine}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=06f665ccb840ed46cf5c7d936ca1d9b4}{Rotimi}{R\bibinitperiod}{Charles\bibnamedelima N}{C\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a2e6f3f014cb8aca7e954bf74ff1ac86}{Slatkin}{S\bibinitperiod}{Montgomery}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=649e527f6092e5ecd18bc094cce59925}{Valle}{V\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d2d6955169a90c45b13743ff140f15e2}{Whittemore}{W\bibinitperiod}{Alice\bibnamedelima S}{A\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=af0e094575cc6cb8a4a322a3defb9e73}{Boehnke}{B\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0e9199b4951d35bc8cae73f97cb02ea3}{Clark}{C\bibinitperiod}{Andrew\bibnamedelima G}{A\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0b9756431fea4e267911a215b4240a25}{Eichler}{E\bibinitperiod}{Evan\bibnamedelima E}{E\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b535e8d88fc82df5e060b827080a0426}{Gibson}{G\bibinitperiod}{Greg}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=909ed84dd7bd16de3a6439726f804848}{Haines}{H\bibinitperiod}{Jonathan\bibnamedelima L}{J\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=56806efb774f841eb11bb1fdef8b8bee}{Mackay}{M\bibinitperiod}{Trudy\bibnamedelimb F\bibnamedelima C}{T\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e14a7ca4abe6372d32380ae04c7fa3d1}{McCarroll}{M\bibinitperiod}{Steven\bibnamedelima a}{S\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fe976d0cafc54e6f13f31d3da7a84e6e}{Visscher}{V\bibinitperiod}{Peter\bibnamedelima M}{P\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{a9c6eb1d29d3a966e1967b14e731609f}
+      \strng{fullhash}{42a7d3e4393009afba01b095a10f39ea}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2009}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Genome-wide association studies have identified hundreds of genetic variants associated with complex human diseases and traits, and have provided valuable insights into their genetic architecture. Most variants identified so far confer relatively small increments in risk, and explain only a small proportion of familial clustering, leading many to question how the remaining, 'missing' heritability can be explained. Here we examine potential sources of missing heritability and propose research strategies, including and extending beyond current genome-wide association approaches, to illuminate the genetics of complex diseases and enhance its potential to enable effective disease prevention or treatment.}
+      \field{isbn}{1476-4687 (Electronic)$\backslash$r0028-0836 (Linking)}
+      \field{issn}{0028-0836}
+      \field{journaltitle}{Nature}
+      \field{number}{7265}
+      \field{title}{{Finding the missing heritability of complex diseases.}}
+      \field{volume}{461}
+      \field{year}{2009}
+      \field{pages}{747\bibrangedash 753}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1038/nature08494
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Manolio et al. - 2009 - Finding the missing heritability of complex diseases.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Manolio et al. - 2009 - Finding the missing heritability of complex diseases(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/Finding the missing heritability of complex diseases.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/nature08494
+      \endverb
+    \endentry
+    \entry{Welter2014}{article}{}
+      \name{author}{11}{}{%
+        {{uniquename=0,hash=307c1059c167e908d211ffdbf3e0c891}{Welter}{W\bibinitperiod}{Danielle}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=db08ecd9360962f8914c334301865ba2}{MacArthur}{M\bibinitperiod}{Jacqueline}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ac165162d3970161757dd3d1fad08c98}{Morales}{M\bibinitperiod}{Joannella}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b43b57cc7bdfb3879a0c7ccc0419b5a3}{Burdett}{B\bibinitperiod}{Tony}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b013ca3ad6e9ef3d1374692179887353}{Hall}{H\bibinitperiod}{Peggy}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e275f54ad9e0960f79f4239c39ed3128}{Junkins}{J\bibinitperiod}{Heather}{H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e72889268d9101c88abf84ecad7641ed}{Klemm}{K\bibinitperiod}{Alan}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=91c5fcd648e30cd5b187eac97d23aa03}{Flicek}{F\bibinitperiod}{Paul}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9ed625ebec38ed6a305285959606d460}{Manolio}{M\bibinitperiod}{Teri}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fac21ca214235add86c47d40635ccfe5}{Hindorff}{H\bibinitperiod}{Lucia}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=dce64332e021c75c9258faed23827c44}{Parkinson}{P\bibinitperiod}{Helen}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{b255eb8416123a137d9d57014818624e}
+      \strng{fullhash}{827c7954a4b463cc984e82ca0335cc64}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2014}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The National Human Genome Research Institute (NHGRI) Catalog of Published Genome-Wide Association Studies (GWAS) Catalog provides a publicly available manually curated collection of published GWAS assaying at least 100,000 single-nucleotide polymorphisms (SNPs) and all SNP-trait associations with P <1 \x{fffd}\x{fffd} 10(-5). The Catalog includes 1751 curated publications of 11 912 SNPs. In addition to the SNP-trait association data, the Catalog also publishes a quarterly diagram of all SNP-trait associations mapped to the SNPs' chromosomal locations. The Catalog can be accessed via a tabular web interface, via a dynamic visualization on the human karyotype, as a downloadable tab-delimited file and as an OWL knowledge base. This article presents a number of recent improvements to the Catalog, including novel ways for users to interact with the Catalog and changes to the curation infrastructure.}
+      \field{isbn}{1362-4962 (Electronic)$\backslash$r0305-1048 (Linking)}
+      \field{issn}{03051048}
+      \field{journaltitle}{Nucleic Acids Research}
+      \field{number}{D1}
+      \field{title}{{The NHGRI GWAS Catalog, a curated resource of SNP-trait associations}}
+      \field{volume}{42}
+      \field{year}{2014}
+      \field{pages}{1001\bibrangedash 1006}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1093/nar/gkt1229
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf
+      \endverb
+    \endentry
   \endsortlist
-  \missing{eigenweb}
 \endrefsection
 \endinput
 

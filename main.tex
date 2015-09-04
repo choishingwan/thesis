@@ -17,7 +17,7 @@
 \usepackage{wrapfig}
 \usepackage{longtable}
 \usepackage{subfig}
-\usepackage[natbib=true, style=numeric-comp,subentry,backend=biber,sorting=none]{biblatex}
+\usepackage[natbib=true,subentry,backend=biber,sorting=none,citestyle=authoryear-comp]{biblatex}
 \addbibresource{citation/Thesis.bib}
 \usepackage[hidelinks]{hyperref}
 \usepackage{geometry}
@@ -52,14 +52,18 @@
 \newacronym{SCZ}{SCZ}{Schizophrenia}
 \newacronym{ASD}{ASD}{Autism Spectrum Disorder}
 \newacronym[longplural={Genome Wide Association Studies}]{GWAS}{GWAS}{Genome Wide Association Study}
+\newacronym{wgs}{WGS}{Whole Genome Sequencing}
 \newacronym{SNP}{SNP}{Single Nucleotide Polymorphism}
 \newacronym{LD}{LD}{Linkage Disequilibrium}
 \newacronym{PGS}{PGS}{Polygenic Risk Score}
 \newacronym{tSVD}{tSVD}{Truncated Singular Value Decomposition}
 \newacronym{SVD}{SVD}{Singular Value Decomposition}
-\newacronym{shrek}{SHREK}{SNP Heritability and Risk Estimation Kit}
-\newacronym{gcta}{GCTA}{Genome-wide Complex Trait Analysis}
-\newacronym{ldsc}{LDSC}{LD SCore}
+\newacronym{shrek}{\textit{SHREK}}{SNP Heritability and Risk Estimation Kit}
+\newacronym{gcta}{\textit{GCTA}}{Genome-wide Complex Trait Analysis}
+\newacronym{ldsc}{\textit{LDSC}}{LD SCore}
+\newacronym{CEU}{CEU}{Northern Europeans from Utah}
+\newacronym{se}{SE}{Standard Error}
+\newacronym{maf}{maf}{Minor Allele Frequency}
 \raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 \makeindex
 \begin{document}\thispagestyle{empty}
@@ -111,6 +115,7 @@
 	\chapter*{Acknowledgements}
 	\cleardoublepage
 	\phantomsection
+	\begin{singlespace}
 	\printglossary[title=Abbreviations,toctitle=Abbreviations]
 	\cleardoublepage
 	\phantomsection
@@ -119,8 +124,8 @@
 	\cleardoublepage
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Contents}
-	\begin{singlespace}
 		\tableofcontents
+		\listoffigures
 	\end{singlespace}
 \mainmatter
 	\chapter*{Introduction}
@@ -325,10 +330,98 @@
 			\hat{Heritability} = \boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}
 			\label{eq:fullShrek}
 			\end{equation}
-		
+		\subsection{Calculating the \glsentrylong{se}}
+			From \cref{eq:fullShrek}, we can derive the variance of heritability $H$ as 
+			\begin{align}
+				\mathrm{Var}(H) &= \mathrm{E}[H^2]-\mathrm{E}[H]^2\nonumber\\
+				&=\mathrm{E}[(\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f})^2]-\mathrm{E}[\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}](\mathrm{E}[\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}])^t \nonumber \\
+				&=\mathrm{E}[\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{ff}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{1}]-\mathrm{E}[\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}](\mathrm{E}[\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}])^t \nonumber \\
+				&=\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\mathrm{E}[\boldsymbol{ff}^t]\boldsymbol{R_{sq}}^{-1}\boldsymbol{1}-\mathrm{E}[\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}](\mathrm{E}[\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}])^t \nonumber \\
+				&=\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\mathrm{Var}(\boldsymbol{f})\boldsymbol{R_{sq}}^{-1}\boldsymbol{1}+\mathrm{E}[\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}](\mathrm{E}[\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}])^t-\mathrm{E}[\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}](\mathrm{E}[\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}])^t \nonumber\\
+				&=\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\mathrm{Var}(\boldsymbol{f})\boldsymbol{R_{sq}}^{-1}\boldsymbol{1}
+				\label{eq:varHvarf}
+			\end{align}
+			Therefore, to obtain the variance of $H$, we first need to calculate the variance covariance matrix of $\boldsymbol{f}$.
+			
+			We first consider the standardized genotype $X_i$ with standard normal mean $z_i$ and non-centrality parameter
+			$\mu_i$, we have
+			\begin{align*}
+				\mathrm{E}[X_i]&=\mathrm{E}[z_i+\mu_i]\\
+				&=\mu_i\\
+				\mathrm{Var}(X_i) &=\mathrm{E}[(z_i+\mu_i)^2]+\mathrm{E}[(z_i+\mu_i)]^2\\
+				&=\mathrm{E}[z_i^2+\mu_i^2+2z_i\mu_i]+\mu_i^2\\
+				&=1 \\
+				\mathrm{Cov}(X_i,X_j)&=\mathrm{E}[(z_i+\mu_i)(z_j+\mu_j)]-\mathrm{E}[z_i+\mu_i]\mathrm{E}[z_j+\mu_j]\\
+				&=\mathrm{E}[z_iz_j+z_i\mu_j+\mu_iz_j+\mu_i\mu_j]-\mu_i\mu_j\\
+				&=\mathrm{E}[z_iz_j]+\mathrm{E}[z_i\mu_j]+\mathrm{E}[z_j\mu_i]+\mathrm{E}[\mu_i\mu_j]-\mu_i\mu_j\\
+				&=\mathrm{E}[z_iz_j]
+			\end{align*}
+			As the genotypes are standardized, therefore $\mathrm{Cov}(X_i,X_j)==\mathrm{Cor}(X_i,X_j)$, we can obtain
+			$$
+				\mathrm{Cov}(X_i,X_j)=\mathrm{E}[z_iz_j]=R_{ij}
+			$$
+			where $R_{ij}$ is the \gls{LD} between \gls{SNP}$_i$ and \gls{SNP}$_j$.
+			Given these information, we can then calculate $\mathrm{Cov}(\chi_i^2,\chi_j^2)$ as:
+			\begin{align*}
+				\mathrm{Cov}(X_i^2,X_j^2)&=\mathrm{E}[(z_i+\mu_i)^2(z_j+\mu_j)^2]-\mathrm{E}[z_i+\mu_i]\mathrm{E}[z_j+\mu_j]\\
+				&=\mathrm{E}[(z_i^2+\mu_i^2+2z_i\mu_i)(z_j^2+\mu_j^2+2z_j\mu_j)]-\mathrm{E}[z_i^2+\mu_i^2+2z_i\mu_i]\mathrm{E}[z_j^2+\mu_j^2+2z_j\mu_j]\\
+				&=\mathrm{E}[(z_i^2+\mu_i^2+2z_i\mu_i)(z_j^2+\mu_j^2+2z_j\mu_j)]-(\mathrm{E}[z_i^2]+\mathrm{E}[\mu_i^2]+2\mathrm{E}[z_i\mu_i])(\mathrm{E}[z_j^2]+\mathrm{E}[\mu_j^2]+2\mathrm{E}[z_j\mu_j])\\
+				&=\mathrm{E}[z_i^2(z_j^2+\mu_j^2+2z_j\mu_j)+\mu_i^2(z_j^2+\mu_j^2+2z_j\mu_j)+2z_i\mu_i(z_j^2+\mu_j^2+2z_j\mu_j)]-(1+\mu_i^2)(1+\mu_j^2)\\
+				&=\mathrm{E}[z_i^2(z_j^2+\mu_j^2+2z_j\mu_j)]+\mu_i^2\mathrm{E}[z_j^2+\mu_j^2+2z_j\mu_j]+2\mu_i\mathrm{E}[z_i(z_j^2+\mu_j^2+2z_j\mu_j)]-(1+\mu_i^2)(1+\mu_j^2)\\
+				&=\mathrm{E}[z_i^2z_j^2+z_i^2\mu_j^2+2z_i^2z_j\mu_j]+\mu_i^2+\mu_i^2\mu_j^2+2\mu_i\mathrm{E}[z_iz_j^2+z_i\mu_j^2+2z_iz_j\mu_j]-(1+\mu_i^2)(1+\mu_j^2)\\
+				&=\mathrm{E}[z_i^2z_j^2]+\mu_j^2+\mu_i^2+\mu_i^2\mu_j^2+4\mu_i\mu_j\mathrm{E}[z_iz_j]-(1+\mu_i^2+\mu_j^2+\mu_i\mu_j)\\
+				&=\mathrm{E}[z_i^2z_j^2]+4\mu_i\mu_j\mathrm{E}[z_iz_j]-1
+			\end{align*}
+			Remember that $\mathrm{E}[z_iz_j] = R_{ij}$, we then have
+			$$
+				\mathrm{Cov}(X_i^2, X_j^2)=\mathrm{E}[z_i^2z_j^2]+4\mu_i\mu_jR_{ij}-1
+			$$
+			By definition, 
+			$$
+				z_i|z_j\sim N(\mu_i+R_{ij}(z_j-\mu_j),1-R_{ij}^2)
+			$$
+			We can then calculate $\mathrm{E}[z_i^2z_j^2]$ as
+			\begin{align*}
+				\mathrm{E}[z_i^2z_j^2]&=\mathrm{Var}[z_iz_j]+\mathrm{E}[z_iz_j]^2\\
+				&=\mathrm{E}[\mathrm{Var}(z_iz_j|z_i)]+\mathrm{Var}[\mathrm{E}[z_iz_j|z_i]]+R_{ij}^2\\
+				&=\mathrm{E}[z_j^2\mathrm{Var}(z_i|z_j)]+\mathrm{Var}[z_j\mathrm{E}[z_i|z_j]]+R_{ij}^2\\
+				&=(1-R_{ij}^2)\mathrm{E}[z_j^2]+\mathrm{Var}(z_j(\mu_i+R_{ij}(z_j-\mu_j)))+R_{ij}^2\\
+				&=(1-R_{ij}^2)+\mathrm{Var}(z_j\mu_i+R_{ij}z_j^2-\mu_jz_jR_{ij})+R_{ij}^2\\
+				&=1+\mu_i^2\mathrm{Var}(z_j)+R_{ij}^2\mathrm{Var}(z_j^2)-\mu_j^2R_{ij}^2\mathrm{Var}(z_j)\\
+				&=1+2R_{ij}^2
+			\end{align*}
+			As a result, the variance covariance matrix of the $\chi^2$ variances represented as
+			\begin{equation}
+				\mathrm{Cov}(X_i^2,X_j^2) = 2R_{ij}^2+4R_{ij}\mu_i\mu_j
+				\label{eq:finalChi}
+			\end{equation}
+			Considering that we only have the \emph{observed} expectation, we should re-define \cref{eq:finalChi} as
+			\begin{equation}
+				\mathrm{Cov}(X_i^2,X_j^2) = \frac{2R_{ij}^2+4R_{ij}\mu_i\mu_j}{n^2}
+				\label{eq:finalChiCov}
+			\end{equation}
+			where $n$ is the sample size.
+			
+			By substituting \cref{eq:finalChiCov} into \cref{eq:varHvarf}, we will get
+			\begin{align}
+				\mathrm{Var}(H) &=\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\frac{2\boldsymbol{R_{sq}}+4\boldsymbol{R}\circ \boldsymbol{zz}^t}{n^2}\boldsymbol{R_{sq}}^{-1}\boldsymbol{1}
+				\label{eq:covH}
+			\end{align}
+			where $\boldsymbol{z} = \sqrt{\boldsymbol{\chi^2}}$ from \cref{eq:defineF}, with the direction of effect as its sign and $\circ$ is the element-wise product (Hadamard product).
+			 
+			Problem with \cref{eq:covH} were that not only does it requires the direction of effect, the error in the \gls{LD} matrix also tends to amplify due to its predominant role in the equation, leading to un-stable estimation of the \gls{se}.
+			 
+			Another way to get the \gls{se} is based on the fact that $\boldsymbol{f}$ is approximately $\chi^2$ distributed. 
+			Therefore \cref{eq:shrekEq} can be viewed as a decomposition of a vector of $\chi^2$ distributions with degree of freedom of 1. 
+			Replacing the vector $\boldsymbol{f}$ with a vector of 1, we can perform the decomposition of the degree of freedom, getting the ``effective number''($e$) of the association\citep{Li2011b}. 
+			Substituting $e$ into the variance equation of non-central $\chi^2$ distribution will yield
+			\begin{equation}
+			\mathrm{Var}(H) = \frac{2(e+2H)}{n^2}
+			\end{equation}
+			 
 		\subsection{Calculating the \glsentrylong{LD} matrix}
 			To estimate the heritability, the population \gls{LD} matrix is required.
-			In reality, one can only obtain the \gls{LD} matrix based on a subset of the population (e.g. the 1000 genome project\cite{Project2012} or the HapMap project\cite{Altshuler2010}).
+			In reality, one can only obtain the \gls{LD} matrix based on a subset of the population (e.g. the 1000 genome project\parencite{Project2012} or the HapMap project\parencite{Altshuler2010}).
 			There are therefore sampling errors among the \gls{LD} elements. 
 			
 			Now if we consider \cref{eq:fullShrek}, the $\boldsymbol{R_{sq}}$ matrix is required.
@@ -362,10 +455,10 @@
 			However, when $\boldsymbol{R_{sq}}$ is ill-conditioned, the traditional decomposition method will fail.
 			Even if the decomposition is successfully performed, the result tends to be a meaningless approximation to the true $\boldsymbol{\hat{h^2}}$. 
 			
-			Therefore, to obtain a meaningful solution, regularization techniques such as the Tikhonov Regularization (also known as Ridge Regression) and \gls{tSVD} has to be performed\cite{Neumaier1998}. 
+			Therefore, to obtain a meaningful solution, regularization techniques such as the Tikhonov Regularization (also known as Ridge Regression) and \gls{tSVD} has to be performed\parencite{Neumaier1998}. 
 			There are a large variety of regularization techniques, yet the discussion of which is beyond the scope of this study. 
 			In this study, we will focus on the use of \gls{tSVD} in the regularization of the \gls{LD} matrix.
-			This is because the \gls{SVD} routine has been implemented in the EIGEN C++ library \cite{eigenweb}, allowing us to implement the \gls{tSVD} method without much concern with regard to the detail of the algorithm. 
+			This is because the \gls{SVD} routine has been implemented in the EIGEN C++ library \parencite{eigenweb}, allowing us to implement the \gls{tSVD} method without much concern with regard to the detail of the algorithm. 
 			
 			To understand the problem of the ill-conditioned matrix and regularization method, we consider the matrix equation $\boldsymbol{Ax}=\boldsymbol{B}$ where $\boldsymbol{A}$ is ill-conditioned or singular with $n\times n$ dimension.
 			The \gls{SVD} of $\boldsymbol{A}$ can be expressed as 
@@ -406,7 +499,7 @@
 				&\boldsymbol{A}^+ = \boldsymbol{U\Sigma}_k\boldsymbol{V}^t  &\qquad\text{and}\qquad  &\boldsymbol{\Sigma}_k=\mathrm{diag}(\sigma_1,\dots,\sigma_k,0,\dots,0)
 				\label{eq:tsvd}				
 			\end{alignat}
-			where $\boldsymbol{\Sigma}_k$ equals to replacing the smallest $n-k$ singular value replaced by 0\cite{Hansen1987}. 
+			where $\boldsymbol{\Sigma}_k$ equals to replacing the smallest $n-k$ singular value replaced by 0 \parencite{Hansen1987}. 
 			Alternatively, we can define
 			\begin{equation}
 			\sigma_i=\begin{cases}
@@ -418,30 +511,102 @@
 			Any singular value $\sigma_i$ less than the threshold will be replaced by 0. 
 			
 			By selecting an appropriate $t$, \gls{tSVD} can effectively regularize the ill-conditioned matrix and help to find a reasonable approximation to $x$. 
-			A problem with \gls{tSVD} however is that it only work when matrix $\boldsymbol{A}$ has a well determined numeric rank\cite{Hansen1987}.
+			A problem with \gls{tSVD} however is that it only work when matrix $\boldsymbol{A}$ has a well determined numeric rank\parencite{Hansen1987}.
 			That is, \gls{tSVD} work best when there is a large gap between $\sigma_k$ and $\sigma_{k+1}$.
+			If a matrix has ill-conditioned rank, then $sigma_k-sigma_{k+1}$ will be small.
+			For any threshold $t$, a small error can change whether if $sigma_{k+1}$ and subsequent singular values should be truncated, leading to unstable results. 
 			
-			\citeauthor{Hansen1987}(\citeyear{Hansen1987})\cite{Hansen1987} stated that for a matrix to have a well-determined numeric rank, the concept of rank usually make sense in the data. 
+			According to \citet{Hansen1987}, matrix where its rank has meaning will have well defined rank. 
+			As \gls{LD} matrix is the correlation matrix between each individual \glspl{SNP}, the rank of the \gls{LD} matrix is the maximum number of linear independent \glspl{SNP} in the region, therefore likely to have a well-defined rank. 
+			The easiest way to test whether if the threshold $t$ and whether if the matrix $\boldsymbol{A}$ has well-defined rank is to calculate the ``gap'' in the singular value:
+			\begin{equation}
+			gap = \sigma_k/\sigma_{k+1}
+			\label{eq:gapSingular}
+			\end{equation}
+			a large gap usually indicate a well-defined gap. 
 			
-			In MATLAB, NumPy and GNU Octave, this threshold is taken to be $t=\epsilon\times\mathrm{max}(m,n)\times\mathrm{max}(\boldsymbol{\Sigma})$ where $\epsilon$ is the machine epsilon (the smallest number a machine can define as non-zero). 
-			Using this tolerance threshold, we were able to solve the ill-posed \cref{eq:shrekEq}, therefore solving for $\boldsymbol{\hat{h^2}}$.
+			In this study, we adopt the threshold as defined in MATLAB, NumPy and GNU Octave: $t=\epsilon\times\mathrm{max}(m,n)\times\mathrm{max}(\boldsymbol{\Sigma})$ where $\epsilon$ is the machine epsilon (the smallest number a machine can define as non-zero). 
+			And we perfomed a simulation study to investigate the performance of \gls{tSVD} under the selected threshold.
+			Ideally, if the ``gap'' is large under the selected threshold, then \gls{tSVD} will provide a good regularization to the equation. 
 			
-		
+			1,000 samples were randomly simulated from the HapMap\citep{Altshuler2010} \acrshort{CEU} population with
+			1,000 \glspl{SNP} randomly select from chromosome 22. 
+			The \gls{LD} matrix and its corresponding singular value were calculated. 
+			The whole process were repeated 20 times and the smallest singular values were plotted\cref{fig:singularValueDist}. 
+			It is clearly show that the \gls{LD} matrix has a well-defined rank with a mean ``gap'' of 508,997,786,189.
+			Therefore the choice of \gls{tSVD} for the regularization is appropriate.
+			\begin{figure}
+				\caption[Distribution of singular value of the LD matrix]{Distribution of singular value of the LD matrix, it can be observed that there is a sudden drop of the singular value, and the mean ``gap'' in the singular value were 508,997,786,189, suggesting that the LD matrix is well defined}
+				\centering
+				\includegraphics[width=0.5\textwidth]{pic/singular_value_distribution.png}
+				\label{fig:singularValueDist}
+			\end{figure}
+			
+			By employing the \gls{tSVD} as a method for regularization, we were able to solve the ill-posed \cref{eq:shrekEq}, and obtain the estimated heritability.
+			
 			
 	
-	\subsection{Extreme Phenotype Selections}
+		\subsection{Extreme Phenotype Selections}
 		%Explain why we perform extreme phenotype selections
 		\cref{eq:fullShrek} can naturally be applied to the quantitative trait scenario. 
 		%Explain how to apply the heritability estimation in the extreme phenotype situation
-	\subsection{Case Control Studies}
+		\subsection{Case Control Studies}
 	\section{Simulation}
-		In order to assess the performance of the method under different scenarios, we performed a number of simulation to compare the performance of our algorithm with other existing softwares including \gls{gcta} and \gls{ldsc} 
-	\subsection{Quantitative Trait}
+		We implemented the heritability estimation in \gls{shrek} and in order to assess how well \gls{shrek} performs for heritability estimation in comparison to other current methods, we performed a series of systematic simulations.
+		In these simulations, we compared the performance of \gls{shrek} with \gls{gcta}\citep{Yang2011} and the \gls{ldsc}\citep{Bulik-Sullivan2015} with and without the intercept estimation function (-{}-no-intercept). 
 		
-	\subsection{Case Control Studies}
-	\subsection{Exreme Phenotype Selections}
+		Through simulation, we can obtain the sample distribution of the heritability estimate under different study designs (e.g. Quantitativat traits, Case-Control studies or extreme phenotype selection). 
+		We can also evaluate the performance of different methods under varying genetic architecture (e.g. different number of Snps, different LD structures) or even with different disease models (e.g. different number of causal Snps, different heritability).
+		
+		\subsection{Quantitative Trait}
+			To model a polygenic quantitative trait in \gls{GWAS} and \gls{wgs} studies, we assigned per-\gls{SNP} effect sizes drawn from the exponential distribution with $\lambda = 1$ to varying number of causal variants $k$ and heritabilities $H$ where $H\in[0,1)$. 
+			An exponential distribution was chose based on work of \citet{Orr1998} which suggested the exponential distribution provides a heuristic expectation about the genetic architecture of adaptation.
+			
+			To simulate samples with genetic architecture comparable to true human population, \textit{HAPGEN2}\citep{Su2011} was used.
+			$n$ samples were simulated based on the genome structure of the \gls{CEU} with 20,000 SNPs where $k$ of those are causal.
+			In order to simulate a quantitative trait with target heritability of $h$, the per SNPs effect were calculated as
+			\begin{align}
+			\beta_i &\sim exp(1)\notag\\
+			\boldsymbol{\beta}&=(\beta_1,\beta_2,...,\beta_k)^t\notag\\
+			\boldsymbol{\gamma} &= \frac{h}{k}\boldsymbol{\beta}\notag\\
+			H&=\boldsymbol{1}^T\boldsymbol{\gamma}
+			\label{eq:snpEffect}
+			\end{align}
+			where $\boldsymbol{\gamma}$ is the vector of per SNP effect size and $H$ is the simulated heritability.
+			The only exception is when $k=1$ where $\beta = H$ such that we can simulate SNPs with large effect size.
+			
+			After the per \gls{SNP} effect were simulated, we distribute the effect size to $k$ randomly selected \gls{SNP}(s) according to their \gls{maf}.
+			Therefore for \glspl{SNP} with a small effect, a larger effect size is given such that the effect size distribution in our simulation will follow that observed in the real life scenario\citep{Manolio2009}.
+			
+			
+			Assuming $\boldsymbol{X}$ to be the standardized genotype of $k$ causal SNPs in $n$ samples, one can get the phenotype of the simulated samples using
+			\begin{align}
+			\epsilon_i&\sim N(0,\sqrt{\mathrm{Var}(\boldsymbol{X\gamma})\frac{1-H}{H}} )\notag\\
+			\boldsymbol{\epsilon} &= (\epsilon_1,\epsilon_2,...,\epsilon_n)^t\notag\\
+			\boldsymbol{y} &= \boldsymbol{X\gamma}+\boldsymbol{\epsilon}
+			\label{eq:simulationOfPhenotype}
+			\end{align}
+			
+			For each batch of simulated samples, we calculate the estimated heritability using \gls{shrek}, \gls{gcta}, \gls{ldsc} without intercept estimation and \gls{ldsc} with intercept estimate (\textit{\texorpdfstring{LDSC\textsubscript{In}}}) for each $H$.
+			In each iteration, the sample genotype was provided to \gls{gcta} for the calculation of genetic relationship matrix (GRM) whereas for \gls{shrek} and \gls{ldsc} the Hapmap 3 (release 2)\citep{Altshuler2010} European samples (n=165) were used to construct the \gls{LD} matrix and calculate the \gls{LD} score respectively.   
+			The whole process were repeated 100 times to obtain the empirical variance of the estimates,.
+			In each iteration, new set of samples were simulated with the \glspl{SNP} set, the causal \glspl{SNP} and the per \gls{SNP} effect size remain unchanged for each $H$.
+			
+			In order to determine a realistic and reasonable sample size for all simulation condition, we manually curated the sample size of all the studies presented on the \gls{GWAS} Catalog\cite{Welter2014} (version 2015-07-17).
+			It was observed that the mean sample size of all published \gls{GWAS} is $\sim$ 7,200 samples. 
+			Thus, we consider a simulation sample size of 7,200 should be comparable to general \gls{GWAS} studies, allow for a realistic simulation.
+			Although a large sample size are generally required for GWAS, it might also worthwhile for one to test the performance when only small sample size is available.
+			If the tools perform well with a small sample size, it will be beneficial to studies of rare complex traits where it is often difficult to collect a large amount of samples.
+			As a result of that, we also perform simulation with 1,000 samples.
+			
+			Another consideration is the number of causal \glspl{SNP} as it determine the complexity of the trait which usually directly proportional with the number of causal \glspl{SNP}. 
+			To capture the full spectrum of trait complexity (e.g. Mendelian to Oligogenic to Complex Traits), we selected number of causal \glspl{SNP} to be $k\in(1,10,100)$ such that effect size$ \in(0,\frac{1}{k})$.To simplify the simulation procedure, all causal \glspl{SNP} were included within the data.
+			
+			
+		\subsection{Case Control Studies}
+		\subsection{Exreme Phenotype Selections}
 	\section{Result}
-		The heritability estimation were implemented in \gls{shrek} and is available on \url{https://github.com/choishingwan/shrek}.
+		The heritabilibty estimation were implemented in \gls{shrek} and is available on \url{https://github.com/choishingwan/shrek}.
 		
 	\section{Discussion}
 	

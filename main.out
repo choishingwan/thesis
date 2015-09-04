@@ -2,7 +2,7 @@
 \BOOKMARK [0][-]{section*.3}{Acknowledgments}{}% 2
 \BOOKMARK [0][-]{section*.6}{Abbreviations}{}% 3
 \BOOKMARK [0][-]{section*.9}{Contents}{}% 4
-\BOOKMARK [0][-]{chapter*.11}{Introduction}{}% 5
+\BOOKMARK [0][-]{chapter*.12}{Introduction}{}% 5
 \BOOKMARK [0][-]{chapter.1}{Literature Review}{}% 6
 \BOOKMARK [1][-]{section.1.1}{Twin Studies}{chapter.1}% 7
 \BOOKMARK [1][-]{section.1.2}{Searching for Genetic Variants}{chapter.1}% 8
@@ -15,33 +15,34 @@
 \BOOKMARK [1][-]{section.2.1}{Introduction}{chapter.2}% 15
 \BOOKMARK [1][-]{section.2.2}{Methodology}{chapter.2}% 16
 \BOOKMARK [2][-]{subsection.2.2.1}{Heritability Estimation}{section.2.2}% 17
-\BOOKMARK [2][-]{subsection.2.2.2}{Calculating the Linkage Disequilibrium matrix}{section.2.2}% 18
-\BOOKMARK [2][-]{subsection.2.2.3}{Inverse of the Linkage Disequilibrium matrix}{section.2.2}% 19
-\BOOKMARK [2][-]{subsection.2.2.4}{Extreme Phenotype Selections}{section.2.2}% 20
-\BOOKMARK [2][-]{subsection.2.2.5}{Case Control Studies}{section.2.2}% 21
-\BOOKMARK [1][-]{section.2.3}{Simulation}{chapter.2}% 22
-\BOOKMARK [2][-]{subsection.2.3.1}{Quantitative Trait}{section.2.3}% 23
-\BOOKMARK [2][-]{subsection.2.3.2}{Case Control Studies}{section.2.3}% 24
-\BOOKMARK [2][-]{subsection.2.3.3}{Exreme Phenotype Selections}{section.2.3}% 25
-\BOOKMARK [1][-]{section.2.4}{Result}{chapter.2}% 26
-\BOOKMARK [1][-]{section.2.5}{Discussion}{chapter.2}% 27
-\BOOKMARK [0][-]{chapter.3}{Heritability of Schizophrenia}{}% 28
-\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 29
-\BOOKMARK [1][-]{section.3.2}{Heritability Estimation}{chapter.3}% 30
-\BOOKMARK [2][-]{subsection.3.2.1}{Methodology}{section.3.2}% 31
-\BOOKMARK [2][-]{subsection.3.2.2}{Result}{section.3.2}% 32
-\BOOKMARK [1][-]{section.3.3}{Brain development and Schizophrenia}{chapter.3}% 33
-\BOOKMARK [2][-]{subsection.3.3.1}{Methodology}{section.3.3}% 34
-\BOOKMARK [2][-]{subsection.3.3.2}{Result}{section.3.3}% 35
-\BOOKMARK [1][-]{section.3.4}{Discussion}{chapter.3}% 36
-\BOOKMARK [0][-]{chapter.4}{Heritability of Response to antipsychotic treatment}{}% 37
-\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 38
-\BOOKMARK [1][-]{section.4.2}{Methodology}{chapter.4}% 39
-\BOOKMARK [1][-]{section.4.3}{Result}{chapter.4}% 40
-\BOOKMARK [1][-]{section.4.4}{Discussion}{chapter.4}% 41
-\BOOKMARK [0][-]{chapter.5}{Risk Prediction}{}% 42
-\BOOKMARK [1][-]{section.5.1}{Methodology}{chapter.5}% 43
-\BOOKMARK [2][-]{subsection.5.1.1}{Simulation}{section.5.1}% 44
-\BOOKMARK [1][-]{section.5.2}{Result}{chapter.5}% 45
-\BOOKMARK [1][-]{section.5.3}{Discussion}{chapter.5}% 46
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 47
+\BOOKMARK [2][-]{subsection.2.2.2}{Calculating the Standard Error}{section.2.2}% 18
+\BOOKMARK [2][-]{subsection.2.2.3}{Calculating the Linkage Disequilibrium matrix}{section.2.2}% 19
+\BOOKMARK [2][-]{subsection.2.2.4}{Inverse of the Linkage Disequilibrium matrix}{section.2.2}% 20
+\BOOKMARK [2][-]{subsection.2.2.5}{Extreme Phenotype Selections}{section.2.2}% 21
+\BOOKMARK [2][-]{subsection.2.2.6}{Case Control Studies}{section.2.2}% 22
+\BOOKMARK [1][-]{section.2.3}{Simulation}{chapter.2}% 23
+\BOOKMARK [2][-]{subsection.2.3.1}{Quantitative Trait}{section.2.3}% 24
+\BOOKMARK [2][-]{subsection.2.3.2}{Case Control Studies}{section.2.3}% 25
+\BOOKMARK [2][-]{subsection.2.3.3}{Exreme Phenotype Selections}{section.2.3}% 26
+\BOOKMARK [1][-]{section.2.4}{Result}{chapter.2}% 27
+\BOOKMARK [1][-]{section.2.5}{Discussion}{chapter.2}% 28
+\BOOKMARK [0][-]{chapter.3}{Heritability of Schizophrenia}{}% 29
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 30
+\BOOKMARK [1][-]{section.3.2}{Heritability Estimation}{chapter.3}% 31
+\BOOKMARK [2][-]{subsection.3.2.1}{Methodology}{section.3.2}% 32
+\BOOKMARK [2][-]{subsection.3.2.2}{Result}{section.3.2}% 33
+\BOOKMARK [1][-]{section.3.3}{Brain development and Schizophrenia}{chapter.3}% 34
+\BOOKMARK [2][-]{subsection.3.3.1}{Methodology}{section.3.3}% 35
+\BOOKMARK [2][-]{subsection.3.3.2}{Result}{section.3.3}% 36
+\BOOKMARK [1][-]{section.3.4}{Discussion}{chapter.3}% 37
+\BOOKMARK [0][-]{chapter.4}{Heritability of Response to antipsychotic treatment}{}% 38
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.2}{Methodology}{chapter.4}% 40
+\BOOKMARK [1][-]{section.4.3}{Result}{chapter.4}% 41
+\BOOKMARK [1][-]{section.4.4}{Discussion}{chapter.4}% 42
+\BOOKMARK [0][-]{chapter.5}{Risk Prediction}{}% 43
+\BOOKMARK [1][-]{section.5.1}{Methodology}{chapter.5}% 44
+\BOOKMARK [2][-]{subsection.5.1.1}{Simulation}{section.5.1}% 45
+\BOOKMARK [1][-]{section.5.2}{Result}{chapter.5}% 46
+\BOOKMARK [1][-]{section.5.3}{Discussion}{chapter.5}% 47
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 48
