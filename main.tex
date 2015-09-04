@@ -417,8 +417,9 @@
 			Substituting $e$ into the variance equation of non-central $\chi^2$ distribution will yield
 			\begin{equation}
 			\mathrm{Var}(H) = \frac{2(e+2H)}{n^2}
+			\label{eq:effectiveChi}
 			\end{equation}
-			 
+			 \cref{eq:effectiveChi} will gives us an heuristic estimation of the \gls{se}. 
 		\subsection{Calculating the \glsentrylong{LD} matrix}
 			To estimate the heritability, the population \gls{LD} matrix is required.
 			In reality, one can only obtain the \gls{LD} matrix based on a subset of the population (e.g. the 1000 genome project\parencite{Project2012} or the HapMap project\parencite{Altshuler2010}).
@@ -576,7 +577,7 @@
 			The only exception is when $k=1$ where $\beta = H$ such that we can simulate SNPs with large effect size.
 			
 			After the per \gls{SNP} effect were simulated, we distribute the effect size to $k$ randomly selected \gls{SNP}(s) according to their \gls{maf}.
-			Therefore for \glspl{SNP} with a small effect, a larger effect size is given such that the effect size distribution in our simulation will follow that observed in the real life scenario\citep{Manolio2009}.
+			Therefore for \glspl{SNP} with a small \gls{maf}, a larger effect size is given such that the effect size distribution in our simulation will follow that observed in the real life scenario\citep{Manolio2009}.
 			
 			
 			Assuming $\boldsymbol{X}$ to be the standardized genotype of $k$ causal SNPs in $n$ samples, one can get the phenotype of the simulated samples using
@@ -588,22 +589,32 @@
 			\end{align}
 			
 			For each batch of simulated samples, we calculate the estimated heritability using \gls{shrek}, \gls{gcta}, \gls{ldsc} without intercept estimation and \gls{ldsc} with intercept estimate (\textit{\texorpdfstring{LDSC\textsubscript{In}}}) for each $H$.
-			In each iteration, the sample genotype was provided to \gls{gcta} for the calculation of genetic relationship matrix (GRM) whereas for \gls{shrek} and \gls{ldsc} the Hapmap 3 (release 2)\citep{Altshuler2010} European samples (n=165) were used to construct the \gls{LD} matrix and calculate the \gls{LD} score respectively.   
+			In each iteration, the sample genotype was provided to \gls{gcta} for the calculation of genetic relationship matrix (GRM) whereas for \gls{shrek} and \gls{ldsc} 500 additional samples were simulated based on the 1000 genome project \gls{CEU}\parencite{Project2012} to construct the \gls{LD} matrix and calculate the \gls{LD} score respectively.   
 			The whole process were repeated 100 times to obtain the empirical variance of the estimates,.
 			In each iteration, new set of samples were simulated with the \glspl{SNP} set, the causal \glspl{SNP} and the per \gls{SNP} effect size remain unchanged for each $H$.
 			
-			In order to determine a realistic and reasonable sample size for all simulation condition, we manually curated the sample size of all the studies presented on the \gls{GWAS} Catalog\cite{Welter2014} (version 2015-07-17).
+			In order to determine a realistic and reasonable sample size for all simulation condition, we manually curated the sample size of all the studies presented on the \gls{GWAS} Catalog\cite{Welter2014} (version 2015-07-17) to get the distribution of sample size in existing studies.
 			It was observed that the mean sample size of all published \gls{GWAS} is $\sim$ 7,200 samples. 
-			Thus, we consider a simulation sample size of 7,200 should be comparable to general \gls{GWAS} studies, allow for a realistic simulation.
-			Although a large sample size are generally required for GWAS, it might also worthwhile for one to test the performance when only small sample size is available.
+			Thus, we consider a simulation sample size of 7,200 should be comparable to general \gls{GWAS} studies.
+			Although a large sample size are generally required for \gls{GWAS}, it might also worthwhile for one to test the performance when only small sample size is available.
 			If the tools perform well with a small sample size, it will be beneficial to studies of rare complex traits where it is often difficult to collect a large amount of samples.
 			As a result of that, we also perform simulation with 1,000 samples.
 			
 			Another consideration is the number of causal \glspl{SNP} as it determine the complexity of the trait which usually directly proportional with the number of causal \glspl{SNP}. 
-			To capture the full spectrum of trait complexity (e.g. Mendelian to Oligogenic to Complex Traits), we selected number of causal \glspl{SNP} to be $k\in(1,10,100)$ such that effect size$ \in(0,\frac{1}{k})$.To simplify the simulation procedure, all causal \glspl{SNP} were included within the data.
+			To capture the full spectrum of trait complexity (e.g. Mendelian to Oligogenic to Complex Traits), we selected number of causal \glspl{SNP} to be $k\in\{1,10,50,100,1000\}$ such that effect size$ \in(0,\frac{1}{k})$.To simplify the simulation procedure, all causal \glspl{SNP} were included within the data.
 			
-			
+			To summarize, 
+			\begin{enumerate}
+				\item Randomly select 200,000 \glspl{SNP} from chromosome 1
+				\item Randomly generate $k$ effect size following \cref{eq:snpEffect} where $k \in \{1,10,50,100,1000\}$
+				\item Randomly assign the effect size to $k$ \glspl{SNP} where \glspl{SNP} with small \gls{maf} will get a large effect size.
+				\item Simulate $n$ samples using \textit{HAPGEN2} with $n \in \{1000,7200\}$
+				\item Repeat step 4 100 times
+				\item Repeat step 1-5 50 times
+			\end{enumerate}
 		\subsection{Case Control Studies}
+		Simulate of the case control studies are very much like that in the quantitative trait settings. 
+		
 		\subsection{Exreme Phenotype Selections}
 	\section{Result}
 		The heritabilibty estimation were implemented in \gls{shrek} and is available on \url{https://github.com/choishingwan/shrek}.
@@ -615,11 +626,13 @@
 	\section{Heritability Estimation}
 	This will be a very simple section, focused on how to perform the heritability estimation on \acrfull{SCZ}.
 	Should also tokenize the heritability into subcategories (e.g. immune, neuron, etc)
+	%Should not put too much weight into it, otherwise it will be a direct copy of LDSC. Won't really add much power. 
 	\subsection{Methodology}
 	\subsection{Result}
 	\section{Brain development and Schizophrenia}
 	Here we will perform the WGCNA and brain development network.
 	Seeing how the whether if any brain development network were enriched with SNPs that explain the variance of phenotype
+	%Instead, we should put most focus here as no one has done it before
 	\subsection{Methodology}
 	\subsection{Result}
 	\section{Discussion}

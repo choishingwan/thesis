@@ -42,7 +42,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.2}Calculating the Standard Error}{11}{subsection.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.3}Calculating the Linkage Disequilibrium matrix}{12}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.3}Calculating the Linkage Disequilibrium matrix}{13}{subsection.2.2.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.4}Inverse of the Linkage Disequilibrium matrix}{13}{subsection.2.2.4}
 \defcounter {refsection}{0}\relax 
@@ -54,13 +54,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.1}Quantitative Trait}{16}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.2}Case Control Studies}{17}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.2}Case Control Studies}{18}{subsection.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.3}Exreme Phenotype Selections}{17}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.3}Exreme Phenotype Selections}{18}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Result}{17}{section.2.4}
+\contentsline {section}{\numberline {2.4}Result}{18}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Discussion}{17}{section.2.5}
+\contentsline {section}{\numberline {2.5}Discussion}{18}{section.2.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Heritability of Schizophrenia}{19}{chapter.3}
 \defcounter {refsection}{0}\relax 

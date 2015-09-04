@@ -20,8 +20,9 @@
 \glossaryentry{LD?\glossentry{LD}|setentrycounter[]{page}\glsnumberformat}{12}
 \glossaryentry{SE?\glossentry{se}|setentrycounter[]{page}\glsnumberformat}{12}
 \glossaryentry{SE?\glossentry{se}|setentrycounter[]{page}\glsnumberformat}{12}
-\glossaryentry{LD?\glossentry{LD}|setentrycounter[]{page}\glsnumberformat}{12}
-\glossaryentry{LD?\glossentry{LD}|setentrycounter[]{page}\glsnumberformat}{12}
+\glossaryentry{SE?\glossentry{se}|setentrycounter[]{page}\glsnumberformat}{12}
+\glossaryentry{LD?\glossentry{LD}|setentrycounter[]{page}\glsnumberformat}{13}
+\glossaryentry{LD?\glossentry{LD}|setentrycounter[]{page}\glsnumberformat}{13}
 \glossaryentry{LD?\glossentry{LD}|setentrycounter[]{page}\glsnumberformat}{13}
 \glossaryentry{LD?\glossentry{LD}|setentrycounter[]{page}\glsnumberformat}{13}
 \glossaryentry{LD?\glossentry{LD}|setentrycounter[]{page}\glsnumberformat}{13}
@@ -61,6 +62,7 @@
 \glossaryentry{SNP?\glossentry{SNP}|setentrycounter[]{page}\glsnumberformat}{16}
 \glossaryentry{maf?\glossentry{maf}|setentrycounter[]{page}\glsnumberformat}{16}
 \glossaryentry{SNP?\glossentry{SNP}|setentrycounter[]{page}\glsnumberformat}{16}
+\glossaryentry{maf?\glossentry{maf}|setentrycounter[]{page}\glsnumberformat}{16}
 \glossaryentry{\textit {SHREK}?\glossentry{shrek}|setentrycounter[]{page}\glsnumberformat}{17}
 \glossaryentry{\textit {GCTA}?\glossentry{gcta}|setentrycounter[]{page}\glsnumberformat}{17}
 \glossaryentry{\textit {LDSC}?\glossentry{ldsc}|setentrycounter[]{page}\glsnumberformat}{17}
@@ -68,6 +70,7 @@
 \glossaryentry{\textit {GCTA}?\glossentry{gcta}|setentrycounter[]{page}\glsnumberformat}{17}
 \glossaryentry{\textit {SHREK}?\glossentry{shrek}|setentrycounter[]{page}\glsnumberformat}{17}
 \glossaryentry{\textit {LDSC}?\glossentry{ldsc}|setentrycounter[]{page}\glsnumberformat}{17}
+\glossaryentry{CEU?\glossentry{CEU}|setentrycounter[]{page}\glsnumberformat}{17}
 \glossaryentry{LD?\glossentry{LD}|setentrycounter[]{page}\glsnumberformat}{17}
 \glossaryentry{LD?\glossentry{LD}|setentrycounter[]{page}\glsnumberformat}{17}
 \glossaryentry{SNP?\glossentry{SNP}|setentrycounter[]{page}\glsnumberformat}{17}
@@ -80,7 +83,11 @@
 \glossaryentry{SNP?\glossentry{SNP}|setentrycounter[]{page}\glsnumberformat}{17}
 \glossaryentry{SNP?\glossentry{SNP}|setentrycounter[]{page}\glsnumberformat}{17}
 \glossaryentry{SNP?\glossentry{SNP}|setentrycounter[]{page}\glsnumberformat}{17}
-\glossaryentry{\textit {SHREK}?\glossentry{shrek}|setentrycounter[]{page}\glsnumberformat}{17}
+\glossaryentry{SNP?\glossentry{SNP}|setentrycounter[]{page}\glsnumberformat}{17}
+\glossaryentry{SNP?\glossentry{SNP}|setentrycounter[]{page}\glsnumberformat}{17}
+\glossaryentry{SNP?\glossentry{SNP}|setentrycounter[]{page}\glsnumberformat}{17}
+\glossaryentry{maf?\glossentry{maf}|setentrycounter[]{page}\glsnumberformat}{17}
+\glossaryentry{\textit {SHREK}?\glossentry{shrek}|setentrycounter[]{page}\glsnumberformat}{18}
 \glossaryentry{SCZ?\glossentry{SCZ}|setentrycounter[]{page}\glsnumberformat}{19}
 \glossaryentry{SCZ?\glossentry{SCZ}|setentrycounter[]{page}\glsnumberformat}{19}
 \glossaryentry{PGS?\glossentry{PGS}|setentrycounter[]{page}\glsnumberformat}{23}
