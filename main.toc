@@ -12,25 +12,23 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Literature Review}{5}{chapter.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.1}Twin Studies}{5}{section.1.1}
+\contentsline {section}{\numberline {1.1}Schizophrenia}{5}{section.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Searching for Genetic Variants}{5}{section.1.2}
+\contentsline {subsection}{\numberline {1.1.1}}{5}{subsection.1.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.1}Role of Common Variants}{5}{subsection.1.2.1}
+\contentsline {section}{\numberline {1.2}Heritability Estimates}{5}{section.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Genome Wide Association Study}{5}{section*.14}
+\contentsline {subsection}{\numberline {1.2.1}Family Studies}{5}{subsection.1.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.2}Role of Rare Variants}{5}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.2}Twin and Adoption Studies}{5}{subsection.1.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Exome Sequencing}{5}{section*.15}
+\contentsline {subsection}{\numberline {1.2.3}Narrow Sense Heritability Estimates}{5}{subsection.1.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Whole Genome Sequencing}{5}{section*.16}
+\contentsline {subsubsection}{Genome-wide Complex Trait Analysis}{5}{section*.14}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.3}Narrow Sense Heritability}{6}{section.1.3}
+\contentsline {section}{\numberline {1.3}Risk Prediction}{5}{section.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.4}Risk Prediction}{6}{section.1.4}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.5}Summary}{6}{section.1.5}
+\contentsline {section}{\numberline {1.4}Summary}{5}{section.1.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Heritability Estimation}{7}{chapter.2}
 \defcounter {refsection}{0}\relax 
@@ -54,7 +52,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.1}Quantitative Trait}{16}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.2}Case Control Studies}{17}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.2}Case Control Studies}{18}{subsection.2.3.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.3}Exreme Phenotype Selections}{18}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 

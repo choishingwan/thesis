@@ -36,7 +36,11 @@
 
 
 \pagestyle{fancy}
-
+\fancyhf{}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\footrulewidth}{1pt}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\rightmark}
 \title{Genetic and Environmental risk factors of Schizophrenia and Autism}
 \date{\today}
 \author{\href{mailto:choishingwan@gmail.com}{Choi Shing Wan}\\
@@ -108,11 +112,18 @@
 	\cleardoublepage
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Declaration}
-	\chapter*{Declaration}
+	\newgeometry{inner=2in, outer=2in}
+	\chapter*{\centerline{Declaration}}
+	\vspace{1cm}
+	I declare that this thesis represents my own work, except where due acknowledgments	is made, and that it has not been previously included in a thesis, dissertation or report submitted to this University or to any other institution for a degree,	diploma or other qualification.
+	\vspace{1.5cm}
+	
+	\centerline{Signed....................................................................}
+	\restoregeometry
 	\cleardoublepage
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Acknowledgments}
-	\chapter*{Acknowledgements}
+	\chapter*{\centerline{Acknowledgements}}
 	\cleardoublepage
 	\phantomsection
 	\begin{singlespace}
@@ -144,24 +155,19 @@
 	\end{enumerate}
 	
 	\chapter{Literature Review}
-	\section{Twin Studies}
+	\section{Schizophrenia}
+	\subsection{}
+	\section{Heritability Estimates}
+	\subsection{Family Studies}
+	\subsection{Twin and Adoption Studies}
+	%remember, our focus is in the heritability, not trying to separate the genetics and the environment. 
 	Should briefly talk about how Twin modeling was used for finding the GE contribution.
 	Should also mention the ACE model.
 	At the end, we can talk about the heritability estimates of SCZ and AD
-	\section{Searching for Genetic Variants}
-	\subsection{Role of Common Variants}
-	\subsubsection{Genome Wide Association Study}
-	Should talk about what is GWAS and how it is used.
-	Should also talk about the current GWAS studies in SCZ and AD
-	\subsection{Role of Rare Variants}
-	\subsubsection{Exome Sequencing}
-	Similar to the GWAS.
-	Talk about the Pros and Cons.
-	Need to briefly mention the Denovo paper and Shaun's paper.					
-	\subsubsection{Whole Genome Sequencing}
-	Very very brief description of WGS and the current status.
-	\section{Narrow Sense Heritability}
+	\subsection{Narrow Sense Heritability Estimates}
+	\subsubsection{\glsentrylong{gcta}}
 	\section{Risk Prediction}
+	%This part I am uncertain. Focus on finishing the previous sections first. 
 	\section{Summary}
 	
 	\chapter{Heritability Estimation}
@@ -414,6 +420,8 @@
 			Another way to get the \gls{se} is based on the fact that $\boldsymbol{f}$ is approximately $\chi^2$ distributed. 
 			Therefore \cref{eq:shrekEq} can be viewed as a decomposition of a vector of $\chi^2$ distributions with degree of freedom of 1. 
 			Replacing the vector $\boldsymbol{f}$ with a vector of 1, we can perform the decomposition of the degree of freedom, getting the ``effective number''($e$) of the association\citep{Li2011b}. 
+			%The problem of this effective number is that they uses the eigenvalue instead of this multiplication.
+			%So either we have to explain why we don't follow it (therefore explaining the slidding windows) or we should just avoid mentioning the effective number
 			Substituting $e$ into the variance equation of non-central $\chi^2$ distribution will yield
 			\begin{equation}
 			\mathrm{Var}(H) = \frac{2(e+2H)}{n^2}
@@ -533,7 +541,7 @@
 			1,000 samples were randomly simulated from the HapMap\citep{Altshuler2010} \acrshort{CEU} population with
 			1,000 \glspl{SNP} randomly select from chromosome 22. 
 			The \gls{LD} matrix and its corresponding singular value were calculated. 
-			The whole process were repeated 20 times and the smallest singular values were plotted\cref{fig:singularValueDist}. 
+			The whole process were repeated 50 times and the smallest singular values were plotted\cref{fig:singularValueDist}. 
 			It is clearly show that the \gls{LD} matrix has a well-defined rank with a mean of maximum ``gap'' of 466,198,939,298.
 			Therefore the choice of \gls{tSVD} for the regularization is appropriate.
 			\begin{figure}
@@ -613,7 +621,7 @@
 				\item Repeat step 1-5 50 times
 			\end{enumerate}
 		\subsection{Case Control Studies}
-		Simulate of the case control studies are very much like that in the quantitative trait settings. 
+		Simulate of the case control studies are very much like that in the quantitative trait settings except that we will have to generate the phenotype according to a liability threshold.
 		
 		\subsection{Exreme Phenotype Selections}
 	\section{Result}
