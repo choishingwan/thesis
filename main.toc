@@ -42,13 +42,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.2}Calculating the Standard Error}{11}{subsection.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.3}Calculating the Linkage Disequilibrium matrix}{13}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.3}Case Control Studies}{13}{subsection.2.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.4}Inverse of the Linkage Disequilibrium matrix}{13}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.4}Extreme Phenotype Selections}{13}{subsection.2.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.5}Extreme Phenotype Selections}{15}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.5}Calculating the Linkage Disequilibrium matrix}{13}{subsection.2.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.6}Case Control Studies}{16}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.6}Inverse of the Linkage Disequilibrium matrix}{13}{subsection.2.2.6}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.3}Simulation}{16}{section.2.3}
 \defcounter {refsection}{0}\relax 
@@ -76,28 +76,36 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.1}Methodology}{19}{subsection.3.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Result}{19}{subsection.3.3.2}
+\contentsline {subsubsection}{Sample Quality Controls}{19}{section*.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Discussion}{19}{section.3.4}
+\contentsline {subsubsection}{Normalization of data}{20}{section*.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Heritability of Response to antipsychotic treatment}{21}{chapter.4}
+\contentsline {subsubsection}{Network Construction}{20}{section*.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Introduction}{21}{section.4.1}
+\contentsline {subsection}{\numberline {3.3.2}Result}{20}{subsection.3.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Methodology}{21}{section.4.2}
+\contentsline {subsubsection}{Sample Quality Controls and Normalization of data}{20}{section*.20}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Result}{21}{section.4.3}
+\contentsline {section}{\numberline {3.4}Discussion}{20}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Discussion}{21}{section.4.4}
+\contentsline {chapter}{\numberline {4}Heritability of Response to antipsychotic treatment}{23}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Risk Prediction}{23}{chapter.5}
+\contentsline {section}{\numberline {4.1}Introduction}{23}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Methodology}{23}{section.5.1}
+\contentsline {section}{\numberline {4.2}Methodology}{23}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.1}Simulation}{23}{subsection.5.1.1}
+\contentsline {section}{\numberline {4.3}Result}{23}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Result}{23}{section.5.2}
+\contentsline {section}{\numberline {4.4}Discussion}{23}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Discussion}{23}{section.5.3}
+\contentsline {chapter}{\numberline {5}Risk Prediction}{25}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Conclusion}{25}{chapter.6}
+\contentsline {section}{\numberline {5.1}Methodology}{25}{section.5.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1.1}Simulation}{25}{subsection.5.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Result}{25}{section.5.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Discussion}{25}{section.5.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Conclusion}{27}{chapter.6}

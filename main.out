@@ -18,10 +18,10 @@
 \BOOKMARK [1][-]{section.2.2}{Methodology}{chapter.2}% 18
 \BOOKMARK [2][-]{subsection.2.2.1}{Heritability Estimation}{section.2.2}% 19
 \BOOKMARK [2][-]{subsection.2.2.2}{Calculating the Standard Error}{section.2.2}% 20
-\BOOKMARK [2][-]{subsection.2.2.3}{Calculating the Linkage Disequilibrium matrix}{section.2.2}% 21
-\BOOKMARK [2][-]{subsection.2.2.4}{Inverse of the Linkage Disequilibrium matrix}{section.2.2}% 22
-\BOOKMARK [2][-]{subsection.2.2.5}{Extreme Phenotype Selections}{section.2.2}% 23
-\BOOKMARK [2][-]{subsection.2.2.6}{Case Control Studies}{section.2.2}% 24
+\BOOKMARK [2][-]{subsection.2.2.3}{Case Control Studies}{section.2.2}% 21
+\BOOKMARK [2][-]{subsection.2.2.4}{Extreme Phenotype Selections}{section.2.2}% 22
+\BOOKMARK [2][-]{subsection.2.2.5}{Calculating the Linkage Disequilibrium matrix}{section.2.2}% 23
+\BOOKMARK [2][-]{subsection.2.2.6}{Inverse of the Linkage Disequilibrium matrix}{section.2.2}% 24
 \BOOKMARK [1][-]{section.2.3}{Simulation}{chapter.2}% 25
 \BOOKMARK [2][-]{subsection.2.3.1}{Quantitative Trait}{section.2.3}% 26
 \BOOKMARK [2][-]{subsection.2.3.2}{Case Control Studies}{section.2.3}% 27

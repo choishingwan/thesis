@@ -1,21 +1,21 @@
 [0] Config.pm:324> INFO - This is Biber 2.1
 [0] Config.pm:327> INFO - Logfile is 'main.blg'
-[57] biber-MSWIN:273> INFO - === %a %b %e, %Y, %H:%M:%S
+[58] biber-MSWIN:273> INFO - === %a %b %e, %Y, %H:%M:%S
 [58] Biber.pm:333> INFO - Reading 'main.bcf'
-[300] Biber.pm:645> INFO - Found 13 citekeys in bib section 0
-[324] Biber.pm:2977> INFO - Processing section 0
-[347] Biber.pm:3115> INFO - Looking for bibtex format file 'citation/Thesis.bib' for section 0
-[1597] bibtex.pm:1021> INFO - Decoding LaTeX character macros into UTF-8
-[2638] bibtex.pm:895> INFO - Found BibTeX data source 'citation/Thesis.bib'
-[2672] Utils.pm:146> WARN - Range field 'pages' in entry 'Project2012' is malformed, skipping
-[2803] Utils.pm:146> WARN - BibTeX subsystem: C:\Users\swchoi\AppData\Local\Temp\8d3MwLcfeH\Thesis.bib_53460.utf8, line 6, warning: 170 characters of junk seen at toplevel
-[3065] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[3066] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[3066] Biber.pm:2854> INFO - Sorting list 'none' of type 'entry' with scheme 'none' and locale 'en-US'
-[3066] Biber.pm:2858> INFO - No sort tailoring available for locale 'en-US'
-[3085] bbl.pm:505> INFO - Writing 'main.bbl' with encoding 'ascii'
-[3120] Utils.pm:146> WARN - The entry 'Project2012' has characters which cannot be encoded in 'ascii'. Recoding problematic characters into macros.
-[3309] Utils.pm:146> WARN - The entry 'eigenweb' has characters which cannot be encoded in 'ascii'. Recoding problematic characters into macros.
-[3492] Utils.pm:146> WARN - The entry 'Welter2014' has characters which cannot be encoded in 'ascii'. Recoding problematic characters into macros.
-[3508] bbl.pm:596> INFO - Output to main.bbl
-[3510] Biber.pm:106> INFO - WARNINGS: 5
+[308] Biber.pm:645> INFO - Found 18 citekeys in bib section 0
+[330] Biber.pm:2977> INFO - Processing section 0
+[353] Biber.pm:3115> INFO - Looking for bibtex format file 'citation/Thesis.bib' for section 0
+[1724] bibtex.pm:1021> INFO - Decoding LaTeX character macros into UTF-8
+[2831] bibtex.pm:895> INFO - Found BibTeX data source 'citation/Thesis.bib'
+[2866] Utils.pm:146> WARN - Range field 'pages' in entry 'Project2012' is malformed, skipping
+[3044] Utils.pm:146> WARN - BibTeX subsystem: C:\Users\swchoi\AppData\Local\Temp\SI0K4TZrFM\Thesis.bib_70868.utf8, line 6, warning: 170 characters of junk seen at toplevel
+[3378] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[3379] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[3379] Biber.pm:2854> INFO - Sorting list 'none' of type 'entry' with scheme 'none' and locale 'en-US'
+[3379] Biber.pm:2858> INFO - No sort tailoring available for locale 'en-US'
+[3401] bbl.pm:505> INFO - Writing 'main.bbl' with encoding 'ascii'
+[3437] Utils.pm:146> WARN - The entry 'Project2012' has characters which cannot be encoded in 'ascii'. Recoding problematic characters into macros.
+[3622] Utils.pm:146> WARN - The entry 'eigenweb' has characters which cannot be encoded in 'ascii'. Recoding problematic characters into macros.
+[3804] Utils.pm:146> WARN - The entry 'Welter2014' has characters which cannot be encoded in 'ascii'. Recoding problematic characters into macros.
+[3969] bbl.pm:596> INFO - Output to main.bbl
+[3971] Biber.pm:106> INFO - WARNINGS: 5

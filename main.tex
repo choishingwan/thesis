@@ -62,13 +62,17 @@
 \newacronym{PGS}{PGS}{Polygenic Risk Score}
 \newacronym{tSVD}{tSVD}{Truncated Singular Value Decomposition}
 \newacronym{SVD}{SVD}{Singular Value Decomposition}
-\newacronym{shrek}{\textit{SHREK}}{SNP Heritability and Risk Estimation Kit}
-\newacronym{gcta}{\textit{GCTA}}{Genome-wide Complex Trait Analysis}
-\newacronym{ldsc}{\textit{LDSC}}{LD SCore}
+\newacronym{shrek}{SHREK}{SNP Heritability and Risk Estimation Kit}
+\newacronym{gcta}{GCTA}{Genome-wide Complex Trait Analysis}
+\newacronym{ldsc}{LDSC}{LD SCore}
 \newacronym{CEU}{CEU}{Northern Europeans from Utah}
 \newacronym{se}{SE}{Standard Error}
 \newacronym{maf}{maf}{Minor Allele Frequency}
 \newacronym{pgc}{PGC}{Psychiatric Genomics Consortium}
+\newacronym{rin}{RIN}{RNA integrity number}
+\newacronym{gd}{GD}{Gestation Day}
+\newacronym{rpkm}{RPKM}{Reads Per Kilobase per Million mapped reads}
+\newacronym{wgcna}{WGCNA}{Weighted Gene Co-expression Network Analysis}
 \raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 \makeindex
 \begin{document}\thispagestyle{empty}
@@ -154,7 +158,21 @@
 		\item For each chapter, there will be this introduction (review on the method), our methodology (Calculation, implementation and also simulation), result (the simulation result). 
 		Then we can have the application (PGC, network)
 	\end{enumerate}
-	
+	Things that I have to include
+	\begin{enumerate}
+		\item Schizophrenia
+		\begin{enumerate}
+			\item Case Control (PGC) \\ LDSC has basically did everything related to partitioning and genetic correlation, so we should focus on the brain network instead
+			\item Drug Response \\ No one has done it before, should have a brief section here. 
+			Focus should be with the \emph{heritability} of response, not to identify the variants.
+			However, we can try to partition the heritability of drug response too.\\
+			Is it really related to genetics? 
+			Or is it something related to environmental?
+			e.g. Discouraging family members leads to not adhere to medicine
+		\end{enumerate}
+		\item Heritability Estimation \\ This part should be straightforward, just the algorithm and the simulation results
+		
+	\end{enumerate}
 	\chapter{Literature Review}
 	\section{Schizophrenia}
 	\subsection{Epidemiology}
@@ -431,6 +449,12 @@
 			\label{eq:effectiveChi}
 			\end{equation}
 			 \cref{eq:effectiveChi} will gives us an heuristic estimation of the \gls{se}. 
+		\subsection{Case Control Studies}	 
+		%Discuss on the liability threshold model. Then the apply orange paper. Then explain how to get the results. 
+		\subsection{Extreme Phenotype Selections}
+			%Explain why we perform extreme phenotype selections. Explain how that affect the variance of the estimation. Finally, explain how to perform heritability estimation on extreme phenotype. 
+		\cref{eq:fullShrek} can naturally be applied to the quantitative trait scenario. 
+			%Explain how to apply the heritability estimation in the extreme phenotype situation
 		\subsection{Calculating the \glsentrylong{LD} matrix}
 			To estimate the heritability, the population \gls{LD} matrix is required.
 			In reality, one can only obtain the \gls{LD} matrix based on a subset of the population (e.g. the 1000 genome project\parencite{Project2012} or the HapMap project\parencite{Altshuler2010}).
@@ -544,7 +568,7 @@
 			1,000 samples were randomly simulated from the HapMap\citep{Altshuler2010} \acrshort{CEU} population with
 			1,000 \glspl{SNP} randomly select from chromosome 22. 
 			The \gls{LD} matrix and its corresponding singular value were calculated. 
-			The whole process were repeated 50 times and the cumulative distribution of the ``gap'' of singular values were plotted\cref{fig:singularValueDist}. 
+			The whole process were repeated 50 times and the cumulative distribution of the ``gap'' of singular values were plotted (\cref{fig:singularValueDist}). 
 			It is clearly show that the \gls{LD} matrix has a well-defined rank with a mean of maximum ``gap'' of 466,198,939,298.
 			Therefore the choice of \gls{tSVD} for the regularization is appropriate.
 			\begin{figure}
@@ -557,11 +581,7 @@
 			By employing the \gls{tSVD} as a method for regularization, we were able to solve the ill-posed \cref{eq:shrekEq}, and obtain the estimated heritability.
 						
 	
-		\subsection{Extreme Phenotype Selections}
-		%Explain why we perform extreme phenotype selections
-		\cref{eq:fullShrek} can naturally be applied to the quantitative trait scenario. 
-		%Explain how to apply the heritability estimation in the extreme phenotype situation
-		\subsection{Case Control Studies}
+	
 		
 	\section{Simulation}
 		We implemented the heritability estimation in \gls{shrek} and in order to assess how well \gls{shrek} performs for heritability estimation in comparison to other current methods, we performed a series of systematic simulations.
@@ -635,6 +655,11 @@
 	\chapter{Heritability of Schizophrenia}
 	\section{Introduction}
 	% talk about the current research on schizophrenia?
+	% the overall heritablity estimation
+	% The genetic correlation done by the LDSC. 
+	% The theory of brain development 
+	% How the co-expression network works
+	% Drug response?
 	\section{Heritability Estimation}
 	This will be a very simple section, focused on how to perform the heritability estimation on \acrfull{SCZ}.
 	Should also tokenize the heritability into subcategories (e.g. immune, neuron, etc)
@@ -645,10 +670,50 @@
 	Here we will perform the WGCNA and brain development network.
 	Seeing how the whether if any brain development network were enriched with SNPs that explain the variance of phenotype
 	%Instead, we should put most focus here as no one has done it before
+	%Also descript brainspan here
 	\subsection{Methodology}
+	\subsubsection{Sample Quality Controls}
+	We obtain the developmental transcriptome data from BrainSpan (\url{http://www.brainspan.org/}). 
+	A total of 56 samples from different developmental stages were provided by BrainSpan with an average of 2.2 samples per developmental stage.
+	
+	Previous studies suggested that the Hippocampus is one of the brain region that are most affected in schizophrenia samples\citep{Velakoulis2006,Nugent2007}. 
+	Therefore, we focus on building the gene co-expression network of hippocampus development in this study
+	RNA Sequencing data of the Hippocampus region were obtained from BrainSpan and undergo a series of quality control before the construction of the network. 
+	 
+	For each developmental stage, we select the sample with a dissection score $\ge3$ and an \gls{rin} $\ge8$. 
+	As some developmental stage only got 1 sample passing the quality check, we limit each developmental stage to have a maximum of 1 sample such that the final network will not be driven by a particular developmental stage. 
+	If multiple samples passed through the quality check threshold, we will prefer sample with higher dissection score. 
+	Shall multiple samples have the same dissection score, we will select the one with the highest \gls{rin}.
+	
+	A total of 33 samples passed the quality control with age ranged from \gls{gd}8 to 23 years old. 
+	\subsubsection{Normalization of data}
+	The RNA Sequencing data were represented as \gls{rpkm} values. 
+	Genes with a low \gls{rpkm} can usually be a result from technical or biological noise\citep{Hart2013}.
+	To reduce noise in the final model, genes with a mean \gls{rpkm} $< 1$ in all samples were discarded. 
+	The \gls{rpkm} were then log transformed as instructed by the manual of \gls{wgcna}\citep{Langfelder2008}.
+	
+	As there are insufficient samples for the construction of gene co-expression network for individual developmental stage, we try to construct a co-expression network for genes across all developmental stage. 
+	The transformed \gls{rpkm} values were standardized across developmental stages such that it is mean centered with standard deviation of 1. 
+	
+	Finally, there were 17,266 genes passing through the quality threshold and were used for the construction of co-expression network. 
+	 
+	\subsubsection{Network Construction}
+	\gls{wgcna} (ver 1.47) were used for the construction of gene co-expression network\citep{Langfelder2008}. 
+	The \emph{blockwiseModules} function, using Biweight Midcorrelation for the construction of correlation matrix and a restriction of minimum model size of 30. 
+	Soft-power threshold were set to 13 where it is the first threshold value which has $R^2 \approx 0.8$ (0.795) and the $R^2$ is saturated\citep{Zhang2005}(\cref{fig:softpowerThreshold}).
+	
+	\begin{figure}
+		\caption[Soft-power threshold selection]{Soft-power threshold selection. A soft-power of 13 were selected as it is the first threshold value having $R^2\approx0.8$ (0.795) and where the $R^2$ is saturated.}
+		\centering
+		\scalebox{.8}{\includegraphics{figure/SoftpowerThreshold.png}}
+		\label{fig:softpowerThreshold}
+	\end{figure}
 	\subsection{Result}
+	\subsubsection{Sample Quality Controls and Normalization of data}
 	\section{Discussion}
 	\chapter{Heritability of Response to antipsychotic treatment}
+	\chaptermark{Response to antipsychotic treatment}
+	%Maybe a section instead of a chapter?
 	\section{Introduction}
 	Here we try to use Beatrice's data and estimate the heritability explained in drug response.
 	Should also repeat the region-wise heritability

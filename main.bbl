@@ -560,6 +560,186 @@
       \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf
       \endverb
     \endentry
+    \entry{Velakoulis2006}{article}{}
+      \name{author}{11}{}{%
+        {{uniquename=0,hash=07303b77ad594847d5476a58369770e6}{Velakoulis}{V\bibinitperiod}{Dennis}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=933c951e8d22d4fcc6b766b6695d5f53}{Wood}{W\bibinitperiod}{Stephen\bibnamedelima J}{S\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5315038581f0d0a88f754960e9c2453f}{Wong}{W\bibinitperiod}{Michael\bibnamedelima Th}{M\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9772e29aac6b54b840aa4b04c73547e6}{McGorry}{M\bibinitperiod}{Patrick\bibnamedelima D}{P\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=45c23fa4a4d95539073f48a246169d61}{Yung}{Y\bibinitperiod}{Alison}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=76b19f0bb928005d227a29f1da068953}{Phillips}{P\bibinitperiod}{Lisa}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f0dabef3eeab62619902bce140d0074a}{Smith}{S\bibinitperiod}{De}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=41c6ce2fdf8bdc283a9d8149fb667323}{Brewer}{B\bibinitperiod}{Warrick}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=edf5c8b7f0f0fa78216d36583473047d}{Proffitt}{P\bibinitperiod}{Tina}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e1706bad6183bae7ee185d6333e10063}{Desmond}{D\bibinitperiod}{Patricia}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3fbb14ac65cd8f6914d4c6ecb713950b}{Pantelis}{P\bibinitperiod}{Christos}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{a51ef20277fd022448734cce334dae9f}
+      \strng{fullhash}{ce7d5c21e1a73a380467601091de8348}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2006}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Archives of general psychiatry}
+      \field{title}{{Hippocampal and amygdala volumes according to psychosis stage and diagnosis}}
+      \field{volume}{63}
+      \field{year}{2006}
+      \field{pages}{139\bibrangedash 149}
+      \range{pages}{11}
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/Hippocampal and Amygdala Volumes According to Psychosis Stage and Diagnosis.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Nugent2007}{article}{}
+      \name{author}{13}{}{%
+        {{uniquename=0,hash=bb9bd8f5e78d7a36cfb53bbc0d95df2b}{Nugent}{N\bibinitperiod}{Tom\bibnamedelima F.}{T\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0b9b41acc7b3ac812bbeb93a936db35b}{Herman}{H\bibinitperiod}{David\bibnamedelima H.}{D\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=399e9e5997ab445951f3b3262f71f1cc}{Ordonez}{O\bibinitperiod}{Anna}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=44b11eec01ce8b273352fea6fd3fe05f}{Greenstein}{G\bibinitperiod}{Deanna}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=002717620603da18944fdd6ac68a9c9c}{Hayashi}{H\bibinitperiod}{Kiralee\bibnamedelima M.}{K\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e3d7a458e7dbec3c8e8b3bde440934be}{Lenane}{L\bibinitperiod}{Marge}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bd07495eacccbdf5478f5e02cd25da60}{Clasen}{C\bibinitperiod}{Liv}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a17a51e76ae006715a2aeb393f41b22e}{Jung}{J\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5b44600fd077681ef64b808f3e6b9348}{Toga}{T\bibinitperiod}{Arthur\bibnamedelima W.}{A\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e746032d5c6a5b0e4d195667db0b52f4}{Giedd}{G\bibinitperiod}{Jay\bibnamedelima N.}{J\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8238efdeae62fb564ac20b0620f71ef3}{Rapoport}{R\bibinitperiod}{Judith\bibnamedelima L.}{J\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2b51a68d5f9adfa5eee69a654a401da1}{Thompson}{T\bibinitperiod}{Paul\bibnamedelima M.}{P\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d81eb622025c3af7304aa81d58637770}{Gogtay}{G\bibinitperiod}{Nitin}{N\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{ff97018ee743db3d11ad886dc9bb99c6}
+      \strng{fullhash}{4e5fbde92d4d3ade09fed363838bd73e}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2007}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Prior cross-sectional anatomic brain imaging studies of the hippocampus in schizophrenia have generally shown loss in total hippocampal volume although the progressive course of these changes remains unknown. We report the first prospective sub-regional maps of hippocampal development in childhood onset schizophrenia (COS), reconstructed from serial brain MRI scans of 29 children with COS scanned every 2??years (87 scans) and compared to 31 controls matched for age, sex, and scan interval (94 scans). As expected, the COS subjects showed significant bilateral deficits (9-10\%) in total hippocampal volume which remained consistent between age 9 and 26. However sub-regional maps showed heterogeneous changes with loss of hippocampal volume in both anterior as well as posterior ends while the body of the hippocampus gained in volume suggesting that hippocampal subunits are differentially affected in schizophrenia.}
+      \field{isbn}{0920-9964}
+      \field{issn}{09209964}
+      \field{journaltitle}{Schizophrenia Research}
+      \field{number}{1-3}
+      \field{title}{{Dynamic mapping of hippocampal development in childhood onset schizophrenia}}
+      \field{volume}{90}
+      \field{year}{2007}
+      \field{pages}{62\bibrangedash 70}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1016/j.schres.2006.10.014
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/Dynamic mapping of hippocampal development in childhood onset schizophrenia.pdf:pdf
+      \endverb
+      \keyw{Childhood onset schizophrenia,Hippocampus,Longitudinal,MRI,Mapping}
+    \endentry
+    \entry{Hart2013}{article}{}
+      \name{author}{5}{}{%
+        {{uniquename=0,hash=f9dd041f4c133222e845b3eac9b7178d}{Hart}{H\bibinitperiod}{Traver}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=170a422abeadd0e84e3dfe6c7ca53918}{Komori}{K\bibinitperiod}{H\bibnamedelima Kiyomi}{H\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c2c8539c0cd48ed0f4ab82f326b4e08e}{LaMere}{L\bibinitperiod}{Sarah}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7946fb319c60c08d0ce5e2f0103f9665}{Podshivalova}{P\bibinitperiod}{Katie}{K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d903e4f0f8970ad3f2172e114d45990f}{Salomon}{S\bibinitperiod}{Daniel\bibnamedelima R}{D\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{1cf725782a412a05bb5d01a6c28e5c79}
+      \strng{fullhash}{f2fa570038f2c4aaebd40ccfdce6b153}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2013}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{BACKGROUND: Early application of second-generation sequencing technologies to transcript quantitation (RNA-seq) has hinted at a vast mammalian transcriptome, including transcripts from nearly all known genes, which might be fully measured only by ultradeep sequencing. Subsequent studies suggested that low-abundance transcripts might be the result of technical or biological noise rather than active transcripts; moreover, most RNA-seq experiments did not provide enough read depth to generate high-confidence estimates of gene expression for low-abundance transcripts. As a result, the community adopted several heuristics for RNA-seq analysis, most notably an arbitrary expression threshold of 0.3 - 1 FPKM for downstream analysis. However, advances in RNA-seq library preparation, sequencing technology, and informatic analysis have addressed many of the systemic sources of uncertainty and undermined the assumptions that drove the adoption of these heuristics. We provide an updated view of the accuracy and efficiency of RNA-seq experiments, using genomic data from large-scale studies like the ENCODE project to provide orthogonal information against which to validate our conclusions.$\backslash$n$\backslash$nRESULTS: We show that a human cell's transcriptome can be divided into active genes carrying out the work of the cell and other genes that are likely the by-products of biological or experimental noise. We use ENCODE data on chromatin state to show that ultralow-expression genes are predominantly associated with repressed chromatin; we provide a novel normalization metric, zFPKM, that identifies the threshold between active and background gene expression; and we show that this threshold is robust to experimental and analytical variations.$\backslash$n$\backslash$nCONCLUSIONS: The zFPKM normalization method accurately separates the biologically relevant genes in a cell, which are associated with active promoters, from the ultralow-expression noisy genes that have repressed promoters. A read depth of twenty to thirty million mapped reads allows high-confidence quantitation of genes expressed at this threshold, providing important guidance for the design of RNA-seq studies of gene expression. Moreover, we offer an example for using extensive ENCODE chromatin state information to validate RNA-seq analysis pipelines.}
+      \field{isbn}{1471-2164 (Electronic)1471-2164 (Linking)}
+      \field{issn}{1471-2164}
+      \field{journaltitle}{BMC genomics}
+      \field{title}{{Finding the active genes in deep RNA-seq gene expression studies.}}
+      \field{volume}{14}
+      \field{year}{2013}
+      \field{pages}{778}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/1471-2164-14-778
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Finding the active genes in deep RNA-seq gene expression studies.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3870982%5C&tool=pmcentrez%5C&rendertype=abstract
+      \endverb
+    \endentry
+    \entry{Langfelder2008}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=ed53312176c4875c2dd557bd95be74f8}{Langfelder}{L\bibinitperiod}{P}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=2,hash=0f4b276e3783d27caded8b7820857e41}{Horvath}{H\bibinitperiod}{S}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{01b804a50475d408e4520dc0632e0057}
+      \strng{fullhash}{01b804a50475d408e4520dc0632e0057}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2008}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{BACKGROUND: Correlation networks are increasingly being used in bioinformatics applications. For example, weighted gene co-expression network analysis is a systems biology method for describing the correlation patterns among genes across microarray samples. Weighted correlation network analysis (WGCNA) can be used for finding clusters (modules) of highly correlated genes, for summarizing such clusters using the module eigengene or an intramodular hub gene, for relating modules to one another and to external sample traits (using eigengene network methodology), and for calculating module membership measures. Correlation networks facilitate network based gene screening methods that can be used to identify candidate biomarkers or therapeutic targets. These methods have been successfully applied in various biological contexts, e.g. cancer, mouse genetics, yeast genetics, and analysis of brain imaging data. While parts of the correlation network methodology have been described in separate publications, there is a need to provide a user-friendly, comprehensive, and consistent software implementation and an accompanying tutorial. RESULTS: The WGCNA R software package is a comprehensive collection of R functions for performing various aspects of weighted correlation network analysis. The package includes functions for network construction, module detection, gene selection, calculations of topological properties, data simulation, visualization, and interfacing with external software. Along with the R package we also present R software tutorials. While the methods development was motivated by gene expression data, the underlying data mining approach can be applied to a variety of different settings. CONCLUSION: The WGCNA package provides R functions for weighted correlation network analysis, e.g. co-expression network analysis of gene expression data. The R package along with its source code and additional material are freely available at http://www.genetics.ucla.edu/labs/horvath/CoexpressionNetwork/Rpackages/WGCNA.}
+      \field{edition}{2008/12/31}
+      \field{isbn}{1471-2105 (Electronic)1471-2105 (Linking)}
+      \field{journaltitle}{BMC Bioinformatics}
+      \field{title}{{WGCNA: an R package for weighted correlation network analysis}}
+      \field{volume}{9}
+      \field{year}{2008}
+      \field{pages}{559}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 1471-2105-9-559 [pii]10.1186/1471-2105-9-559
+      \endverb
+      \verb{url}
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/19114008
+      \endverb
+      \keyw{*Computing Methodologies,*Software,Algorithms,Animals,Computational Biology/*methods,Computer Graphics,Databases,Genetic,Gene Expression Profiling/methods,Humans,Mice,Oligonucleotide Array Sequence Analysis/*methods,Pattern Recognition,Automated,Programming Languages,Systems Biology}
+    \endentry
+    \entry{Zhang2005}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=edefadf2737f4300dd8a9daa07b31f02}{Zhang}{Z\bibinitperiod}{Bin}{B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=2,hash=f520a749adbb878b4ba30b3f54e0dad8}{Horvath}{H\bibinitperiod}{Steve}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{e242b3770fcc3812de0af1be93e77392}
+      \strng{fullhash}{e242b3770fcc3812de0af1be93e77392}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2005}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Gene co-expression networks are increasingly used to explore the system-level functionality of genes. The network construction is conceptually straightforward: nodes represent genes and nodes are connected if the corresponding genes are significantly co-expressed across appropriately chosen tissue samples. In reality, it is tricky to define the connections between the nodes in such networks. An important question is whether it is biologically meaningful to encode gene co-expression using binary information (connected=1, unconnected=0). We describe a general framework for ;soft' thresholding that assigns a connection weight to each gene pair. This leads us to define the notion of a weighted gene co-expression network. For soft thresholding we propose several adjacency functions that convert the co-expression measure to a connection weight. For determining the parameters of the adjacency function, we propose a biologically motivated criterion (referred to as the scale-free topology criterion). We generalize the following important network concepts to the case of weighted networks. First, we introduce several node connectivity measures and provide empirical evidence that they can be important for predicting the biological significance of a gene. Second, we provide theoretical and empirical evidence that the ;weighted' topological overlap measure (used to define gene modules) leads to more cohesive modules than its ;unweighted' counterpart. Third, we generalize the clustering coefficient to weighted networks. Unlike the unweighted clustering coefficient, the weighted clustering coefficient is not inversely related to the connectivity. We provide a model that shows how an inverse relationship between clustering coefficient and connectivity arises from hard thresholding. We apply our methods to simulated data, a cancer microarray data set, and a yeast microarray data set.}
+      \field{annotation}{From Duplicate 2 (A general framework for weighted gene co-expression network analysis - Zhang, B; Horvath, S)}
+      \field{edition}{2006/05/02}
+      \field{isbn}{1544-6115 (Electronic)1544-6115 (Linking)}
+      \field{issn}{1544-6115}
+      \field{journaltitle}{Stat Appl Genet Mol Biol}
+      \field{number}{1}
+      \field{title}{{A general framework for weighted gene co-expression network analysis}}
+      \field{volume}{4}
+      \field{year}{2005}
+      \field{pages}{Article17}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.2202/1544-6115.1128
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/A General Framework for Weighted Gene Co-Expression Network Analysis.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/16646834
+      \endverb
+    \endentry
   \endsortlist
 \endrefsection
 \endinput
