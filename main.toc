@@ -14,7 +14,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.1}Schizophrenia}{5}{section.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.1}}{5}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Epidemiology}{5}{subsection.1.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1.2}Psychiatric Genomics Consortium}{5}{subsection.1.1.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.2}Heritability Estimates}{5}{section.1.2}
 \defcounter {refsection}{0}\relax 

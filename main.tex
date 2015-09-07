@@ -68,6 +68,7 @@
 \newacronym{CEU}{CEU}{Northern Europeans from Utah}
 \newacronym{se}{SE}{Standard Error}
 \newacronym{maf}{maf}{Minor Allele Frequency}
+\newacronym{pgc}{PGC}{Psychiatric Genomics Consortium}
 \raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 \makeindex
 \begin{document}\thispagestyle{empty}
@@ -156,7 +157,8 @@
 	
 	\chapter{Literature Review}
 	\section{Schizophrenia}
-	\subsection{}
+	\subsection{Epidemiology}
+	\subsection{\glsentrylong{pgc}}
 	\section{Heritability Estimates}
 	\subsection{Family Studies}
 	\subsection{Twin and Adoption Studies}
@@ -172,6 +174,7 @@
 	
 	\chapter{Heritability Estimation}
 	\section{Introduction}
+	%Definitely need to talk about LDSC
 	\section{Methodology}	
 		The overall aims of this study is to develop a robust algorithm for the estimation of the narrow sense heritability using only the summary statistic from a \gls{GWAS} study. The work in this chapter were done in collaboration with my colleagues who have kindly provide their support and knowledges to make this piece of work possible.
 		Dr Johnny Kwan, Dr Miaxin Li and Professor Sham have helped to laid the framework of this study. Dr Timothy Mak has derived the mathematical proof for our heritability estimation method. Miss Yiming Li, Dr Johnny Kwan, Dr Miaxin Li, Dr Timothy Mak and Professor Sham have helped with the derivation of the standard error of the heritability estimation. Dr Henry Leung has provided critical suggestions on the implementation of the algorithm.
@@ -541,25 +544,25 @@
 			1,000 samples were randomly simulated from the HapMap\citep{Altshuler2010} \acrshort{CEU} population with
 			1,000 \glspl{SNP} randomly select from chromosome 22. 
 			The \gls{LD} matrix and its corresponding singular value were calculated. 
-			The whole process were repeated 50 times and the smallest singular values were plotted\cref{fig:singularValueDist}. 
+			The whole process were repeated 50 times and the cumulative distribution of the ``gap'' of singular values were plotted\cref{fig:singularValueDist}. 
 			It is clearly show that the \gls{LD} matrix has a well-defined rank with a mean of maximum ``gap'' of 466,198,939,298.
 			Therefore the choice of \gls{tSVD} for the regularization is appropriate.
 			\begin{figure}
-				\caption[Distribution of singular value of the LD matrix]{Distribution of singular value of the LD matrix, it can be observed that there is a sudden drop of the singular value, and the mean of maximum ``gap'' in the singular value were 466,198,939,298, suggesting that the rank of the LD matrix is well defined}
+				\caption[Cumulative Distribution of ``gap'' of the LD matrix]{Cumulative Distribution of ``gap'' of the LD matrix, the vertical line indicate the full rank. It can be observed that there is a huge increase in ``gap'' before full rank is achieved. Suggesting that the rank of the LD matrix is well defined}
 				\centering
 				\includegraphics[width=0.5\textwidth]{figure/singular_value_distribution.png}
 				\label{fig:singularValueDist}
 			\end{figure}
 			
 			By employing the \gls{tSVD} as a method for regularization, we were able to solve the ill-posed \cref{eq:shrekEq}, and obtain the estimated heritability.
-			
-			
+						
 	
 		\subsection{Extreme Phenotype Selections}
 		%Explain why we perform extreme phenotype selections
 		\cref{eq:fullShrek} can naturally be applied to the quantitative trait scenario. 
 		%Explain how to apply the heritability estimation in the extreme phenotype situation
 		\subsection{Case Control Studies}
+		
 	\section{Simulation}
 		We implemented the heritability estimation in \gls{shrek} and in order to assess how well \gls{shrek} performs for heritability estimation in comparison to other current methods, we performed a series of systematic simulations.
 		In these simulations, we compared the performance of \gls{shrek} with \gls{gcta}\citep{Yang2011} and the \gls{ldsc}\citep{Bulik-Sullivan2015} with and without the intercept estimation function (-{}-no-intercept). 
@@ -631,6 +634,7 @@
 	
 	\chapter{Heritability of Schizophrenia}
 	\section{Introduction}
+	% talk about the current research on schizophrenia?
 	\section{Heritability Estimation}
 	This will be a very simple section, focused on how to perform the heritability estimation on \acrfull{SCZ}.
 	Should also tokenize the heritability into subcategories (e.g. immune, neuron, etc)
