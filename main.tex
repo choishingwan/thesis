@@ -685,7 +685,7 @@
 	If multiple samples passed through the quality check threshold, we will prefer sample with higher dissection score. 
 	Shall multiple samples have the same dissection score, we will select the one with the highest \gls{rin}.
 	
-	A total of 33 samples passed the quality control with age ranged from \gls{gd}8 to 23 years old. 
+	A total of 16 samples passed the quality control with age ranged from \gls{gd}8 to 23 years old. 
 	\subsubsection{Normalization of data}
 	The RNA Sequencing data were represented as \gls{rpkm} values. 
 	Genes with a low \gls{rpkm} can usually be a result from technical or biological noise\citep{Hart2013}.
@@ -695,7 +695,7 @@
 	As there are insufficient samples for the construction of gene co-expression network for individual developmental stage, we try to construct a co-expression network for genes across all developmental stage. 
 	The transformed \gls{rpkm} values were standardized across developmental stages such that it is mean centered with standard deviation of 1. 
 	
-	Finally, there were 17,266 genes passing through the quality threshold and were used for the construction of co-expression network. 
+	Finally, there were 17,168 genes passing through the quality threshold and were used for the construction of co-expression network. 
 	 
 	\subsubsection{Network Construction}
 	\gls{wgcna} (ver 1.47) were used for the construction of gene co-expression network\citep{Langfelder2008}. 
