@@ -73,6 +73,8 @@
 \newacronym{gd}{GD}{Gestation Day}
 \newacronym{rpkm}{RPKM}{Reads Per Kilobase per Million mapped reads}
 \newacronym{wgcna}{WGCNA}{Weighted Gene Co-expression Network Analysis}
+\newacronym{pc}{PC}{Principle Component}
+\newacronym{GO}{GO}{Gene Ontology}
 \raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 \makeindex
 \begin{document}\thispagestyle{empty}
@@ -142,6 +144,7 @@
 	\addcontentsline{toc}{chapter}{Contents}
 		\tableofcontents
 		\listoffigures
+		\listoftables
 	\end{singlespace}
 \mainmatter
 	\chapter*{Introduction}
@@ -667,6 +670,7 @@
 	\subsection{Methodology}
 	\subsection{Result}
 	\section{Brain development and Schizophrenia}
+	\sectionmark{Brain development}
 	Here we will perform the WGCNA and brain development network.
 	Seeing how the whether if any brain development network were enriched with SNPs that explain the variance of phenotype
 	%Instead, we should put most focus here as no one has done it before
@@ -680,12 +684,13 @@
 	Therefore, we focus on building the gene co-expression network of hippocampus development in this study
 	RNA Sequencing data of the Hippocampus region were obtained from BrainSpan and undergo a series of quality control before the construction of the network. 
 	 
-	For each developmental stage, we select the sample with a dissection score $\ge3$ and an \gls{rin} $\ge8$. 
+	For each developmental stage, when there are more than one samples, we select the sample with a dissection score $\ge3$ and an \gls{rin} $\ge8$. 
 	As some developmental stage only got 1 sample passing the quality check, we limit each developmental stage to have a maximum of 1 sample such that the final network will not be driven by a particular developmental stage. 
 	If multiple samples passed through the quality check threshold, we will prefer sample with higher dissection score. 
 	Shall multiple samples have the same dissection score, we will select the one with the highest \gls{rin}.
 	
 	A total of 16 samples passed the quality control with age ranged from \gls{gd}8 to 23 years old. 
+	
 	\subsubsection{Normalization of data}
 	The RNA Sequencing data were represented as \gls{rpkm} values. 
 	Genes with a low \gls{rpkm} can usually be a result from technical or biological noise\citep{Hart2013}.
@@ -700,16 +705,110 @@
 	\subsubsection{Network Construction}
 	\gls{wgcna} (ver 1.47) were used for the construction of gene co-expression network\citep{Langfelder2008}. 
 	The \emph{blockwiseModules} function, using Biweight Midcorrelation for the construction of correlation matrix and a restriction of minimum model size of 30. 
-	Soft-power threshold were set to 13 where it is the first threshold value which has $R^2 \approx 0.8$ (0.795) and the $R^2$ is saturated\citep{Zhang2005}(\cref{fig:softpowerThreshold}).
+	Soft-power threshold were set to 15 where it is the first threshold value which has $R^2 > 0.8$ (0.817) and the $R^2$ is saturated\citep{Zhang2005}(\cref{fig:softpowerThreshold}).
 	
 	\begin{figure}
-		\caption[Soft-power threshold selection]{Soft-power threshold selection. A soft-power of 13 were selected as it is the first threshold value having $R^2\approx0.8$ (0.795) and where the $R^2$ is saturated.}
+		\caption[Soft-power threshold selection]{Soft-power threshold selection. A soft-power of 13 were selected as it is the first threshold value having $R^2 > 0.8$ (0.817) and where the $R^2$ is saturated.}
 		\centering
 		\scalebox{.8}{\includegraphics{figure/SoftpowerThreshold.png}}
 		\label{fig:softpowerThreshold}
 	\end{figure}
+	
+	\subsubsection{Expression correlation with Age}
+	To identify gene co-expression networks with expressions correlated with the sample age, we performed a correlation analysis between the module eigen-genes and the sample age. 
+	Module eigen-genes were calculated as the first \gls{pc} of expressions of the genes within individual modules using the \emph{moduleEigengenes} function from \gls{wgcna}. 
+	Age were represented as month from conception such that 8 post-conception week will be represented as 2; 4 months will be represented as 10 and 12 years will be represented as 154 etc. 
+	Finally, correlation between age and module eigen-gene expression were calculated pearson correlation.
+	
+	\subsubsection{Functional Annotation}
+	\gls{GO} based enrichment analysis of the significant module was performed using GOrilla\citep{Eden2009}.
+	Genes within the modules were provide as the target gene lists and all the genes passed quality controls were used as the background gene list.
+	As \gls{GO} terms tends to be redundant and overlaps with each other, it will aid the interpretation of \gls{GO} results based by clustering and reducing the \gls{GO} terms based on their similarity. 
+	Thus, \gls{GO} enrichment results were summerized by REViGO\citep{Supek2011} and significant representative \gls{GO} terms were obtained.
+	
+	\subsubsection{Partitioning of Heritability}
+	
 	\subsection{Result}
-	\subsubsection{Sample Quality Controls and Normalization of data}
+	\subsubsection{Co-Expression Network}
+	A total of 35 networks were constructed with a mean network size of 421.6. 
+	Of the 35 modules, 9 have a p-value $< 0.05$ and only one module, the ``black'' module passed the bonferroni correction threshold (p-value $<0.00143$) (\cref{tab:moduleSig}).
+	\begin{table}[htbp]
+		\centering
+		\caption[Correlation of sample age with the module eigen gene]{Correlation of sample age with the module eigen gene. 
+			Module eigen-gene was defined as the first \gls{pc} of genes within the module. 
+			After correcting for multiple testing, only the black module was considered as significantly correlated with the sample age.}
+		\begin{tabular}{rrr}
+			\toprule
+			& Correlation & Pvalue \\
+			\midrule
+			black & 0.804653 & 0.000171 \\
+			blue  & -0.61648 & 0.010981 \\
+			red   & -0.60207 & 0.013595 \\
+			darkred & -0.59137 & 0.015833 \\
+			greenyellow & -0.56995 & 0.021168 \\
+			yellow & 0.567828 & 0.021763 \\
+			darkgrey & -0.55246 & 0.026474 \\
+			saddlebrown & -0.52983 & 0.034783 \\
+			turquoise & -0.51371 & 0.041809 \\
+			purple & -0.46788 & 0.067606 \\
+			darkolivegreen & -0.41272 & 0.112122 \\
+			sienna3 & -0.39535 & 0.129604 \\
+			darkturquoise & 0.386541 & 0.139154 \\
+			darkorange & 0.384966 & 0.140912 \\
+			darkmagenta & 0.375586 & 0.151688 \\
+			brown & 0.366095 & 0.163144 \\
+			tan   & -0.36522 & 0.164229 \\
+			pink  & 0.348979 & 0.18524 \\
+			magenta & -0.32559 & 0.218473 \\
+			midnightblue & -0.29168 & 0.273014 \\
+			lightgreen & 0.289921 & 0.276056 \\
+			paleturquoise & -0.28045 & 0.29276 \\
+			white & 0.27727 & 0.29849 \\
+			orange & 0.19607 & 0.466754 \\
+			steelblue & 0.17355 & 0.520357 \\
+			skyblue & 0.145869 & 0.589857 \\
+			lightyellow & -0.11665 & 0.667028 \\
+			green & -0.09882 & 0.715786 \\
+			violet & -0.08757 & 0.747076 \\
+			lightcyan & -0.0656 & 0.809257 \\
+			cyan  & -0.06441 & 0.812661 \\
+			darkgreen & -0.03914 & 0.885582 \\
+			salmon & 0.038727 & 0.886769 \\
+			royalblue & -0.03785 & 0.889314 \\
+			grey60 & 0.03119 & 0.908709 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:moduleSig}%
+	\end{table}%	
+	It is important to understand the gene expression pattern of this significant module with respect to developmental age. 
+	As a result of that, we use all available hippocampus samples from BrainSpan (n=32) and plot the mean log$_2$ \gls{rpkm} value against the developmental age (\cref{fig:blackMod}).
+	A line of best fit was calculated using the \emph{stat\_smooth} with the loess function from R package \emph{ggplot2}(version 1.0.1). 
+	It was observed that there is a clear trend of gene expression with respect to developemental age with the gene expression increase from early gestation and peak at around late adolescence ($\approx$18 years).
+	Interestingly, this peak in expression seems to concur with the common age of onset of schizophrenia.%Need citation here. 
+	Although this network were built on using expression data of the normal samples, it might provide insight into the development of the disorder.
+	
+	\subsubsection{Functional Annotation}
+	Upon performing the \gls{GO} enrichment analysis, it was found that the significant module was enriched for genes involve in ``central nervous system development'' (p-value=$5.94\times 10^{-5}$),  ``carboxylic acid metabolism'' (p-value=$4.92\times 10^{-6}$), ``positive regulation of production of molecular mediator of immune response'' (p-value=$6.21\times 10^{-3}$), ``response to biotic stimulus'' (p-value=$6.14\times 10^{-3}$) and ``cytolysis'' (p-value=$8.72\times 10^{-3s}$).
+	The enrichment of ``central nervous system development'' supports the importance of this module's role in the development of hippocampus. 
+	Similarly, one of the \gls{GO} term represented by ``carboxylic acid metabolism'' is the ``glutamate metabolic process''(p-value=$3.54\times 10^{-3}$).
+	Consider the importance of glutamate in mediating brain development\citep{Lujan2005}, the enrichment in ``glutamate metabolic process'' further supports module's developmental role in hippocampus. 
+	
+	
+
+	\begin{figure}
+		\caption[Mean Gene Expression across developmental age]{Mean Gene Experssion across developmental age.
+			Mean \gls{rpkm} values of genes in the significant modules were plot with respect to the sample age.
+			A loess smoothing curve was also plotted. 
+			%Might want to talk somemore about it
+			}
+		\centering
+		\scalebox{.8}{\includegraphics{figure/Network_Expression.png}}
+		\label{fig:blackMod}
+	\end{figure}
+	
+	
+	\subsubsection{Partitioning of Heritability}
+	
 	\section{Discussion}
 	\chapter{Heritability of Response to antipsychotic treatment}
 	\chaptermark{Response to antipsychotic treatment}

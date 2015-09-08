@@ -740,6 +740,110 @@
       \verb http://www.ncbi.nlm.nih.gov/pubmed/16646834
       \endverb
     \endentry
+    \entry{Eden2009}{article}{}
+      \name{author}{5}{}{%
+        {{uniquename=0,hash=28e6e892a4a350c454a17814c3972264}{Eden}{E\bibinitperiod}{E}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b7a210be02cd14a369342a21439006cd}{Navon}{N\bibinitperiod}{R}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0b2ff804febbe4fab7b6ea1fe95b820e}{Steinfeld}{S\bibinitperiod}{I}{I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=34a5d0527eecdadd9f52c1f5dc3e7efd}{Lipson}{L\bibinitperiod}{D}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=98d4341e17eb6a05c20cd0d7219937be}{Yakhini}{Y\bibinitperiod}{Z}{Z\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{5da25fbf403b0d92ea32ed1130ea60c4}
+      \strng{fullhash}{bd22721ec25912aac5ad9d37b5af0687}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2009}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{BACKGROUND: Since the inception of the GO annotation project, a variety of tools have been developed that support exploring and searching the GO database. In particular, a variety of tools that perform GO enrichment analysis are currently available. Most of these tools require as input a target set of genes and a background set and seek enrichment in the target set compared to the background set. A few tools also exist that support analyzing ranked lists. The latter typically rely on simulations or on union-bound correction for assigning statistical significance to the results. RESULTS: GOrilla is a web-based application that identifies enriched GO terms in ranked lists of genes, without requiring the user to provide explicit target and background sets. This is particularly useful in many typical cases where genomic data may be naturally represented as a ranked list of genes (e.g. by level of expression or of differential expression). GOrilla employs a flexible threshold statistical approach to discover GO terms that are significantly enriched at the top of a ranked gene list. Building on a complete theoretical characterization of the underlying distribution, called mHG, GOrilla computes an exact p-value for the observed enrichment, taking threshold multiple testing into account without the need for simulations. This enables rigorous statistical analysis of thousand of genes and thousands of GO terms in order of seconds. The output of the enrichment analysis is visualized as a hierarchical structure, providing a clear view of the relations between enriched GO terms. CONCLUSION: GOrilla is an efficient GO analysis tool with unique features that make a useful addition to the existing repertoire of GO enrichment tools. GOrilla's unique features and advantages over other threshold free enrichment tools include rigorous statistics, fast running time and an effective graphical representation. GOrilla is publicly available at: http://cbl-gorilla.cs.technion.ac.il}
+      \field{edition}{2009/02/05}
+      \field{isbn}{1471-2105 (Electronic)1471-2105 (Linking)}
+      \field{journaltitle}{BMC Bioinformatics}
+      \field{title}{{GOrilla: a tool for discovery and visualization of enriched GO terms in ranked gene lists}}
+      \field{volume}{10}
+      \field{year}{2009}
+      \field{pages}{48}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/1471-2105-10-481471-2105-10-48 [pii]
+      \endverb
+      \verb{url}
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/19192299
+      \endverb
+      \keyw{*Genes,*Software,Algorithms,Animals,Arabidopsis/genetics,Computational Biology/*methods,Data Interpretation,Statistical,Databases,Genetic,Gene Expression Profiling,Genomics/*methods,Humans,Information Storage and Retrieval/*methods,Internet,Models,Genetic,Models,Statistical,Terminology as Topic,User-Computer Interface,Yeasts/genetics}
+    \endentry
+    \entry{Supek2011}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=11807015300a0c45b6c85c7b42b09a5b}{Supek}{S\bibinitperiod}{F}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e73f45702a7b6842f508686a4d9ecdf8}{Bosnjak}{B\bibinitperiod}{M}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a0c6ef409d9ded0b93655089ab068939}{Skunca}{S\bibinitperiod}{N}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c82afd0ea771228c6256e92f0a80a0db}{Smuc}{S\bibinitperiod}{T}{T\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{a2d8f1ee6e2fe14847aa00f10547ae19}
+      \strng{fullhash}{290d45387b024ad4b53df07d3d678a41}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Outcomes of high-throughput biological experiments are typically interpreted by statistical testing for enriched gene functional categories defined by the Gene Ontology (GO). The resulting lists of GO terms may be large and highly redundant, and thus difficult to interpret.REVIGO is a Web server that summarizes long, unintelligible lists of GO terms by finding a representative subset of the terms using a simple clustering algorithm that relies on semantic similarity measures. Furthermore, REVIGO visualizes this non-redundant GO term set in multiple ways to assist in interpretation: multidimensional scaling and graph-based visualizations accurately render the subdivisions and the semantic relationships in the data, while treemaps and tag clouds are also offered as alternative views. REVIGO is freely available at http://revigo.irb.hr/.}
+      \field{edition}{2011/07/27}
+      \field{isbn}{1932-6203 (Electronic)1932-6203 (Linking)}
+      \field{journaltitle}{PLoS One}
+      \field{number}{7}
+      \field{title}{{REVIGO summarizes and visualizes long lists of gene ontology terms}}
+      \field{volume}{6}
+      \field{year}{2011}
+      \field{pages}{e21800}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0021800PONE-D-11-04111 [pii]
+      \endverb
+      \verb{url}
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/21789182
+      \endverb
+      \keyw{*Algorithms,*Molecular Sequence Annotation,Computational Biology/*methods,Gene Expression Regulation,Humans,Internet,Software,Transcription Factors/genetics/metabolism,User-Computer Interface}
+    \endentry
+    \entry{Lujan2005}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=eb749d2ac33040bdc95bb23a691df826}{Luj\'{a}n}{L\bibinitperiod}{R.}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b376fde25f5f3c1594914cab39a4a3e2}{Shigemoto}{S\bibinitperiod}{R.}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ed1043dab018ce8757e8da0293bbde47}{L\'{o}pez-Bendito}{L\bibinithyphendelim B\bibinitperiod}{G.}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{463c6b14a202afdc2a80a5715544e3d3}
+      \strng{fullhash}{463c6b14a202afdc2a80a5715544e3d3}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2005}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Our understanding of the role played by neurotransmitter receptors in the developing brain has advanced in recent years. The major excitatory and inhibitory neurotransmitters in the brain, glutamate and GABA, activate both ionotropic (ligand-gated ion channels) and metabotropic (G protein-coupled) receptors, and are generally associated with neuronal communication in the mature brain. However, before the emergence of their role in neurotransmission in adulthood, they also act to influence earlier developmental events, some of which occur prior to synapse formation: such as proliferation, migration, differentiation or survival processes during neural development. To fulfill these actions in the constructing of the nervous system, different types of glutamate and GABA receptors need to be expressed both at the right time and at the right place. The identification by molecular cloning of 16 ionotropic glutamate receptor subunits, eight metabotropic glutamate receptor subtypes, 21 ionotropic and two metabotropic GABA receptor subunits, some of which exist in alternatively splice variants, has enriched our appreciation of how molecular diversity leads to functional diversity in the brain. It now appears that many different types of glutamate and GABA receptor subunits have prominent expression in the embryonic and/or postnatal brain, whereas others are mainly present in the adult brain. Although the significance of this differential expression of subunits is not fully understood, it appears that the change in subunit composition is essential for normal development in particular brain regions. This review focuses on emerging information relating to the expression and role of glutamatergic and GABAergic neurotransmitter receptors during prenatal and postnatal development. \x{fffd}\x{fffd} 2005 IBRO. Published by Elsevier Ltd. All rights reserved.}
+      \field{isbn}{0306-4522}
+      \field{issn}{03064522}
+      \field{journaltitle}{Neuroscience}
+      \field{number}{3}
+      \field{title}{{Glutamate and GABA receptor signalling in the developing brain}}
+      \field{volume}{130}
+      \field{year}{2005}
+      \field{pages}{567\bibrangedash 580}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1016/j.neuroscience.2004.09.042
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/GLUTAMATE AND GABA RECEPTOR SIGNALLING IN THE DEVELOPING BRAIN.pdf:pdf
+      \endverb
+      \keyw{AMPA,NMDA,development,kainate GABA B receptors,mGlu receptors,neurotransmitter receptors}
+    \endentry
   \endsortlist
 \endrefsection
 \endinput

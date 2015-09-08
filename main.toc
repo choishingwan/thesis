@@ -8,7 +8,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Contents}{vii}{section*.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Introduction}{1}{chapter*.12}
+\contentsline {chapter}{Introduction}{1}{chapter*.13}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Literature Review}{5}{chapter.1}
 \defcounter {refsection}{0}\relax 
@@ -26,7 +26,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.3}Narrow Sense Heritability Estimates}{5}{subsection.1.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Genome-wide Complex Trait Analysis}{5}{section*.14}
+\contentsline {subsubsection}{Genome-wide Complex Trait Analysis}{5}{section*.15}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.3}Risk Prediction}{5}{section.1.3}
 \defcounter {refsection}{0}\relax 
@@ -76,36 +76,46 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.1}Methodology}{19}{subsection.3.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Sample Quality Controls}{19}{section*.16}
+\contentsline {subsubsection}{Sample Quality Controls}{19}{section*.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Normalization of data}{20}{section*.17}
+\contentsline {subsubsection}{Normalization of data}{20}{section*.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Network Construction}{20}{section*.18}
+\contentsline {subsubsection}{Network Construction}{20}{section*.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Result}{20}{subsection.3.3.2}
+\contentsline {subsubsection}{Expression correlation with Age}{20}{section*.21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Sample Quality Controls and Normalization of data}{20}{section*.20}
+\contentsline {subsubsection}{Functional Annotation}{22}{section*.22}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Discussion}{20}{section.3.4}
+\contentsline {subsubsection}{Partitioning of Heritability}{22}{section*.23}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Heritability of Response to antipsychotic treatment}{23}{chapter.4}
+\contentsline {subsection}{\numberline {3.3.2}Result}{22}{subsection.3.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Introduction}{23}{section.4.1}
+\contentsline {subsubsection}{Co-Expression Network}{22}{section*.24}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Methodology}{23}{section.4.2}
+\contentsline {subsubsection}{Functional Annotation}{22}{section*.26}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Result}{23}{section.4.3}
+\contentsline {subsubsection}{Partitioning of Heritability}{22}{section*.28}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Discussion}{23}{section.4.4}
+\contentsline {section}{\numberline {3.4}Discussion}{22}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Risk Prediction}{25}{chapter.5}
+\contentsline {chapter}{\numberline {4}Heritability of Response to antipsychotic treatment}{25}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Methodology}{25}{section.5.1}
+\contentsline {section}{\numberline {4.1}Introduction}{25}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.1}Simulation}{25}{subsection.5.1.1}
+\contentsline {section}{\numberline {4.2}Methodology}{25}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Result}{25}{section.5.2}
+\contentsline {section}{\numberline {4.3}Result}{25}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Discussion}{25}{section.5.3}
+\contentsline {section}{\numberline {4.4}Discussion}{25}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Conclusion}{27}{chapter.6}
+\contentsline {chapter}{\numberline {5}Risk Prediction}{27}{chapter.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Methodology}{27}{section.5.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1.1}Simulation}{27}{subsection.5.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Result}{27}{section.5.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Discussion}{27}{section.5.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Conclusion}{29}{chapter.6}
