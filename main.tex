@@ -83,7 +83,7 @@
 \newacronym{GO}{GO}{Gene Ontology}
 \newacronym{MAGMA}{MAGMA}{Multi-marker Analysis of GenoMic Annotation}
 \newacronym{ngs}{NGS}{Next Generation Sequencing}
-\raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
+%\raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 \makeindex
 \begin{document}\thispagestyle{empty}
 \pagestyle{empty}
@@ -190,8 +190,9 @@
 	Also one should identify the research gap based on the current situation and therefore leads to the current study.
 	
 	\section{Schizophrenia}
-	\subsection{Epidemiology}
-	\subsection{\glsentrylong{pgc}}
+	\subsection{Disease Background}
+	\subsection{Risk Factors}
+	\subsection{Challenges}
 	\section{Identifying the Genetic Contribution}
 	\sectionmark{Genetic Contribution}
 	
@@ -214,6 +215,12 @@
 	
 	\chapter{Heritability Estimation}
 	\section{Introduction}
+	Why we are interested in calculating the heritability?
+	The challenges (meta analysis, only test statistics, take long time to calculate the GRM)
+	We developed a programme SHREK
+	Recently there is another programme published based aim to solve the same problem and we should also compare and contrast our method with them.  %I like how this layout~
+	Aim of this chapter -> Calculate a robust estimation of heritability for all genetic architechture. 
+	LD score regression!
 	%Definitely need to talk about LDSC
 	\section{Methodology}	
 		The overall aims of this study is to develop a robust algorithm for the estimation of the narrow sense heritability using only the summary statistic from a \gls{GWAS} study. The work in this chapter were done in collaboration with my colleagues who have kindly provide their support and knowledges to make this piece of work possible.
@@ -571,8 +578,8 @@
 			By selecting an appropriate $t$, \gls{tSVD} can effectively regularize the ill-conditioned matrix and help to find a reasonable approximation to $x$. 
 			A problem with \gls{tSVD} however is that it only work when matrix $\boldsymbol{A}$ has a well determined numeric rank\parencite{Hansen1987}.
 			That is, \gls{tSVD} work best when there is a large gap between $\sigma_k$ and $\sigma_{k+1}$.
-			If a matrix has ill-conditioned rank, then $sigma_k-sigma_{k+1}$ will be small.
-			For any threshold $t$, a small error can change whether if $sigma_{k+1}$ and subsequent singular values should be truncated, leading to unstable results. 
+			If a matrix has ill-conditioned rank, then $\sigma_k-\sigma_{k+1}$ will be small.
+			For any threshold $t$, a small error can change whether if $\sigma_{k+1}$ and subsequent singular values should be truncated, leading to unstable results. 
 			
 			According to \citet{Hansen1987}, matrix where its rank has meaning will have well defined rank. 
 			As \gls{LD} matrix is the correlation matrix between each individual \glspl{SNP}, the rank of the \gls{LD} matrix is the maximum number of linear independent \glspl{SNP} in the region, therefore likely to have a well-defined rank. 
@@ -602,7 +609,7 @@
 			
 			By employing the \gls{tSVD} as a method for regularization, we were able to solve the ill-posed \cref{eq:shrekEq}, and obtain the estimated heritability.
 						
-	
+		\subsection{Comparing with \glsentrylong{ldsc}}
 	
 		
 	\section{Simulation}
@@ -613,58 +620,78 @@
 		We can also evaluate the performance of different methods under varying genetic architecture (e.g. different number of Snps, different LD structures) or even with different disease models (e.g. different number of causal Snps, different heritability).
 		
 		\subsection{Quantitative Trait}
-			To model a polygenic quantitative trait in \gls{GWAS} and \gls{wgs} studies, we assigned per-\gls{SNP} effect sizes drawn from the exponential distribution with $\lambda = 1$ to varying number of causal variants $k$ and heritabilities $H$ where $H\in[0,1)$. 
-			An exponential distribution was chose based on work of \citet{Orr1998} which suggested the exponential distribution provides a heuristic expectation about the genetic architecture of adaptation.
+			One important factor to consider when carrying out a simulation is that the result of the simulation should be translatable to real life situation. 
+			Therefore, it is vital for us to consider as many different scenario as possible.
+			When simulating a quantitative trait, there are a number of parameter for one to consider, for example, the sample size, the number of \glspl{SNP}, the number of causal \glspl{SNP} and the true heritability of the trait are all important parameters. 
+			However, it is also unrealistic for one to test the combination of all of these parameter as that will require a large amount of processing time. 
+			Thus, we aim to strike for a balance between comprehensive test case and a realistic simulation time. 
 			
-			To simulate samples with genetic architecture comparable to true human population, \textit{HAPGEN2}\citep{Su2011} was used.
-			$n$ samples were simulated based on the genome structure of the \gls{CEU} with 20,000 SNPs where $k$ of those are causal.
-			In order to simulate a quantitative trait with target heritability of $h$, the per SNPs effect were calculated as
+			First, although the average samples size for all current \gls{GWAS} was $\sim$ 7,200 samples based on \gls{GWAS} in the \gls{GWAS} Catalog\citep{Welter2014}, we only used 1,000 samples in our simulation.
+			We argue that if the tools were able to perform well when a small sample size were provided, then they should perform equally, if not better, when a larger sample size is given. 
+			
+			Secondly, we try to capture the complex \gls{LD} structure in human population in our simulation.
+			Therefore, we used HAPGEN2\citep{Su2011} with the 1000 genome \gls{CEU} population structure as an input to simulate samples with \gls{LD} structure comparable to that in the 1000 genome \gls{CEU} samples.
+			Considering that it is unlikely for any \glspl{SNP} between two chromosome to be in \gls{LD}, we limit our simulation to chromosome 1 where there are a total of 670,052 \glspl{SNP} information available for use in simulation.
+			However, it is noted that as number of \glspl{SNP} increase, the time required for simulating the samples and sample phenotype become prohibitive high. 
+			As a result of that, we limit the number of \glspl{SNP} simulated to 50,000. 
+			
+			Trait complexity and trait heritability usually dictates the performance of heritability estimation.
+			For example, if the trait is a Mendelian trait where there is a single causal \gls{SNP} with large effect size, it will be relatively easy to calculate the trait's heritability.
+			However, when a trait is polygenic with large amount of causal \glspl{SNP}, each contribute a small portion of effect (e.g. schizophrenia), it will be challenging to estimate the heritability.
+			We therefore varies the number of causal \glspl{SNP} $k$ with $k\in\{10,50,100,1000\}$ such that different spectrum of trait complexity (e.g. oligogenic to polygenic) will be tested. 
+			One exception is Mendelian traits where we omit from our simulation.
+			It is because Mendelian traits usually associate with a single rare \gls{SNP} with large effect size and high penetrance where its heritability can easily be estimated without the use of such complex algorithms.
+			
+			Besides trait complexity, the trait heritability also dictates the performance of heritability estimation. 
+			We would therefore want to simulate traits with heritability $H$ where $H\in[0,1)$. 
+			Based on the work of \citet{Orr1998}, we model our per-\gls{SNP} effect size to follow an exponential distribution with $\lambda=1$, which serves as a heuristic expectation of the genetic architecture of adaptation.
+			Taking into account of the number of causal \glspl{SNP} and target heritability $H$, we can then calculate the per-\gls{SNP} effect size as
 			\begin{align}
 			\beta_i &\sim exp(1)\notag\\
 			\boldsymbol{\beta}&=(\beta_1,\beta_2,...,\beta_k)^t\notag\\
-			\boldsymbol{\gamma} &= \frac{h}{k}\boldsymbol{\beta}\notag\\
-			H&=\boldsymbol{1}^T\boldsymbol{\gamma}
+			\boldsymbol{\gamma} &= \frac{H}{k}\boldsymbol{\beta}
 			\label{eq:snpEffect}
 			\end{align}
 			where $\boldsymbol{\gamma}$ is the vector of per SNP effect size and $H$ is the simulated heritability.
-			The only exception is when $k=1$ where $\beta = H$ such that we can simulate SNPs with large effect size.
+			The final heritability of the simulated trait is defined as $H_{final}=\boldsymbol{1}^t\boldsymbol{\gamma}$
 			
-			After the per \gls{SNP} effect were simulated, we distribute the effect size to $k$ randomly selected \gls{SNP}(s) according to their \gls{maf}.
-			Therefore for \glspl{SNP} with a small \gls{maf}, a larger effect size is given such that the effect size distribution in our simulation will follow that observed in the real life scenario\citep{Manolio2009}.
-			
-			
-			Assuming $\boldsymbol{X}$ to be the standardized genotype of $k$ causal SNPs in $n$ samples, one can get the phenotype of the simulated samples using
+			Another consideration is the \gls{SNP} \gls{maf}, which tends to correlate with effect size\citep{Manolio2009} due to selection.
+			Rare \glspl{SNP} with a small \gls{maf} tends to have a large effect size whereas common \glspl{SNP} tends to have a small effect size. 
+			Therefore, after the per \gls{SNP} effects were simulated, we distribute the effect size to $k$ randomly selected \gls{SNP}(s) according to their \gls{maf}.
+		
+			Finally, by assuming $\boldsymbol{X}$ to be the standardized genotype of $k$ causal SNPs in $n$ samples, one can get the phenotype of the simulated samples based on \cref{eq:snpEffect} using
 			\begin{align}
-			\epsilon_i&\sim N(0,\sqrt{\mathrm{Var}(\boldsymbol{X\gamma})\frac{1-H}{H}} )\notag\\
+			\epsilon_i&\sim N(0,\sqrt{\mathrm{Var}(\boldsymbol{X\gamma})\frac{1-H_{final}}{H_{final}}} )\notag\\
 			\boldsymbol{\epsilon} &= (\epsilon_1,\epsilon_2,...,\epsilon_n)^t\notag\\
 			\boldsymbol{y} &= \boldsymbol{X\gamma}+\boldsymbol{\epsilon}
 			\label{eq:simulationOfPhenotype}
 			\end{align}
 			
 			For each batch of simulated samples, we calculate the estimated heritability using \gls{shrek}, \gls{gcta}, \gls{ldsc} without intercept estimation and \gls{ldsc} with intercept estimate (\textit{\texorpdfstring{LDSC\textsubscript{In}}}) for each $H$.
-			In each iteration, the sample genotype was provided to \gls{gcta} for the calculation of genetic relationship matrix (GRM) whereas for \gls{shrek} and \gls{ldsc} 500 additional samples were simulated based on the 1000 genome project \gls{CEU}\parencite{Project2012} to construct the \gls{LD} matrix and calculate the \gls{LD} score respectively.   
+			In each iteration, the sample genotype was provided to \gls{gcta} for the calculation of genetic relationship matrix (GRM) whereas for \gls{shrek} and \gls{ldsc} 500 additional samples were simulated based on the 1000 genome project \gls{CEU} samples\parencite{Project2012} to construct the \gls{LD} matrix and calculate the \gls{LD} score respectively. 
+			This is because in general situations, \gls{ldsc} and \gls{shrek} will not be provide with the sample genotype, instead, these programmes were designed to work with external \gls{LD} reference data.
+			Therefore to provide a realistic simulation, an independent set of reference samples were provided for \gls{shrek} and \gls{ldsc}.
+			  
 			The whole process were repeated 100 times to obtain the empirical variance of the estimates,.
 			In each iteration, new set of samples were simulated with the \glspl{SNP} set, the causal \glspl{SNP} and the per \gls{SNP} effect size remain unchanged for each $H$.
-			
-			In order to determine a realistic and reasonable sample size for all simulation condition, we manually curated the sample size of all the studies presented on the \gls{GWAS} Catalog\cite{Welter2014} (version 2015-07-17) to get the distribution of sample size in existing studies.
-			It was observed that the mean sample size of all published \gls{GWAS} is $\sim$ 7,200 samples. 
-			Thus, we consider a simulation sample size of 7,200 should be comparable to general \gls{GWAS} studies.
-			Although a large sample size are generally required for \gls{GWAS}, it might also worthwhile for one to test the performance when only small sample size is available.
-			If the tools perform well with a small sample size, it will be beneficial to studies of rare complex traits where it is often difficult to collect a large amount of samples.
-			As a result of that, we also perform simulation with 1,000 samples.
-			
-			Another consideration is the number of causal \glspl{SNP} as it determine the complexity of the trait which usually directly proportional with the number of causal \glspl{SNP}. 
-			To capture the full spectrum of trait complexity (e.g. Mendelian to Oligogenic to Complex Traits), we selected number of causal \glspl{SNP} to be $k\in\{1,10,50,100,1000\}$ such that effect size$ \in(0,\frac{1}{k})$.To simplify the simulation procedure, all causal \glspl{SNP} were included within the data.
+			%In order to determine a realistic and reasonable sample size for all simulation condition, we manually curated the sample size of all the studies presented on the \gls{GWAS} Catalog\cite{Welter2014} (version 2015-07-17) to get the distribution of sample size in existing studies.
+			%It was observed that the mean sample size of all published \gls{GWAS} is $\sim$ 7,200 samples. 
+			%Thus, we consider a simulation sample size of 7,200 should be comparable to general \gls{GWAS} studies.
+			%Although a large sample size are generally required for \gls{GWAS}, it might also worthwhile for one to test the performance when only small sample size is available.
+			%If the tools perform well with a small sample size, it will be beneficial to studies of rare complex traits where it is often difficult to collect a large amount of samples.
+			%As a result of that, we also perform simulation with 1,000 samples.
 			
 			To summarize, 
 			\begin{enumerate}
-				\item Randomly select 200,000 \glspl{SNP} from chromosome 1
-				\item Randomly generate $k$ effect size following \cref{eq:snpEffect} where $k \in \{1,10,50,100,1000\}$
+				\item Randomly select 50,000 \glspl{SNP} from chromosome 1
+				\item Randomly generate $k$ effect size following \cref{eq:snpEffect} where $k \in \{10,50,100,1000\}$
 				\item Randomly assign the effect size to $k$ \glspl{SNP} where \glspl{SNP} with small \gls{maf} will get a large effect size.
-				\item Simulate $n$ samples using \textit{HAPGEN2} with $n \in \{1000,7200\}$
+				\item Simulate 1,000 samples using \textit{HAPGEN2} and calculate their phenotype according to \cref{eq:simulationOfPhenotype}
 				\item Repeat step 4 100 times
 				\item Repeat step 1-5 50 times
 			\end{enumerate}
+			
+			
 		\subsection{Case Control Studies}
 		Simulate of the case control studies are very much like that in the quantitative trait settings except that we will have to generate the phenotype according to a liability threshold.
 		
@@ -676,6 +703,9 @@
 	
 	\chapter{Heritability of Schizophrenia}
 	\section{Introduction}
+	Apply Heritability estimation to the schizophrenia data.
+	The genetic correlation and partitioning of heritability
+	No one worked on linking schizophrenia with brain development directly?
 	% talk about the current research on schizophrenia?
 	% the overall heritablity estimation
 	% The genetic correlation done by the LDSC. 
@@ -699,13 +729,15 @@
 	\subsection{Methodology}
 	\subsubsection{Sample Quality Controls}
 	We obtain the developmental transcriptome data from BrainSpan (\url{http://www.brainspan.org/}). 
-	A total of 56 samples from different developmental stages were provided by BrainSpan with an average of 2.2 samples per developmental stage.
+	A total of 56 samples with different age were provided by BrainSpan with an average of 2.2 samples per age.
 	
-	Previous studies suggested that the Hippocampus is one of the brain region that are most affected in schizophrenia samples\citep{Velakoulis2006,Nugent2007}. 
-	Therefore, we focus on building the gene co-expression network of hippocampus development in this study
-	RNA Sequencing data of the Hippocampus region were obtained from BrainSpan and undergo a series of quality control before the construction of the network. 
+	Studies suggested Hippocampus\citep{Velakoulis2006,Nugent2007}, Amygdala and Striatum\citep{Simpson2010} are brain regions involved in the etiology of schizophrenia. 
+	Therefore, we focus on building the gene co-expression network of hippocampus, amygdala and striatum in this study
+	It is worth noting that the Pre-frontal Cortex is also important for schizophrenia. 
+	However, as there isn't a well defined pre-frontal cortex samples from BrainSpan, we did not include the pre-frontal cortex in the current study.
+	RNA Sequencing data of the brain regions were obtained from BrainSpan and undergo a series of quality control before the construction of the network. 
 	 
-	For each developmental stage, when there are more than one samples, we select the sample with a dissection score $\ge3$ and an \gls{rin} $\ge8$. 
+	For each sample age, when there are more than one samples, we select the sample with a dissection score $\ge3$ and an \gls{rin} $\ge7$. 
 	As some developmental stage only got 1 sample passing the quality check, we limit each developmental stage to have a maximum of 1 sample such that the final network will not be driven by a particular developmental stage. 
 	If multiple samples passed through the quality check threshold, we will prefer sample with higher dissection score. 
 	Shall multiple samples have the same dissection score, we will select the one with the highest \gls{rin}. 
@@ -720,10 +752,10 @@
 	To reduce noise in the final model, genes with a mean \gls{rpkm} $< 1$ in all samples were discarded. 
 	The \gls{rpkm} were then log transformed as instructed by the manual of \gls{wgcna}\citep{Langfelder2008}.
 	
-	As there are insufficient samples for the construction of gene co-expression network for individual developmental stage, we try to construct networks with genes co-expression across all developmental stage. 
-	The transformed \gls{rpkm} values were standardized across developmental stages such that it is mean centered with standard deviation of 1. 
+	As there are insufficient samples for the construction of gene co-expression network for individual sample age, we try to construct networks with genes co-expressed through all sample stage. 
+	This is achieved by taking the standardized log$_2$ \gls{rpkm} across sample age such that all genes has a mean of 0 and standard deviation of 1.
 	
-	Finally, there were 17,168 genes, 17,038 genes and 17,166 genes passing through the quality threshold and were used for the construction of co-expression network in hippocampus, amygdala and striatum respectively. 
+	At the end, there were 17,168 genes, 17,038 genes and 17,166 genes passing through the quality threshold and were used for the construction of co-expression network in hippocampus, amygdala and striatum respectively. 
 	 
 	\subsubsection{Network Construction}
 	\gls{wgcna} (ver 1.47) were used for the construction of gene co-expression network\citep{Langfelder2008}. 
@@ -748,8 +780,8 @@
 	%\end{figure}
 	
 	\subsubsection{Expression correlation with Age}
-	The co-expression network constructed with the standardized gene expression value will contains genes that co-express in all developmental ages.
-	However, this does not necessary suggest the expression of these genes are correlated with the developmental stage.
+	The co-expression network constructed with the standardized gene expression value will contains genes that co-express in all sample age.
+	However, this does not necessary suggest the expression of these genes are correlated with the sample age.
 	To identify gene co-expression networks with expressions correlated with the sample age, we performed a correlation analysis between the module eigen-genes and the sample age. 
 	Network eigen-genes were calculated as the first \gls{pc} of expressions of the genes within individual networks using the \emph{moduleEigengenes} function from \gls{wgcna}. 
 	Age were represented as month from conception such that 8 post-conception week will be represented as 2; 4 months will be represented as 10 and 12 years will be represented as 154 etc. 
@@ -776,7 +808,7 @@
 	On the other hand, 28 networks were constructed for amygdala with mean network size of 591.86.
 	Finally, 25 networks with mean size of 494.52 were constructed from the striatum samples.
 	
-	Of the all the networks constructed, only one network from hippocampus(\cref{tab:hipModSig}) and three networks from amygdala(\cref{tab:amyModSig}) passed the bonferroni correction threshold (p-value $<0.00143$ for hippocampus, p-value $<0.00179$ for amygdala and p-value $<0.002$ for striatum) .
+	Of the all the networks constructed, only one network from hippocampus(\cref{tab:hipModSig}) and three networks from amygdala(\cref{tab:amyModSig}) were significantly correlated with sample age after bonferroni correction threshold (p-value $<0.00143$ for hippocampus, p-value $<0.00179$ for amygdala and p-value $<0.002$ for striatum) .
 	\begin{table}
 		\centering
 		\caption[Correlation of sample age with the module eigen gene]{Correlation of sample age with the module eigen gene. 
@@ -983,6 +1015,8 @@
 	\chapter{Heritability of Response to antipsychotic treatment}
 	\chaptermark{Response to antipsychotic treatment}
 	%Maybe a section instead of a chapter?
+	Important to schizophrenia research
+	
 	\section{Introduction}
 	Here we try to use Beatrice's data and estimate the heritability explained in drug response.
 	Should also repeat the region-wise heritability
@@ -1002,6 +1036,14 @@
 	\section{Result}
 	\section{Discussion}
 	\chapter{Conclusion}
+	
+	
+	
+	
+	
+	
+	
+	
 	\backmatter
 	\printbibliography
 	\chapter*{Supplementary Materials}

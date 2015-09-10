@@ -398,6 +398,45 @@
       \verb http://www.nature.com/doifinder/10.1038/ng.3211
       \endverb
     \endentry
+    \entry{Welter2014}{article}{}
+      \name{author}{11}{}{%
+        {{uniquename=0,hash=307c1059c167e908d211ffdbf3e0c891}{Welter}{W\bibinitperiod}{Danielle}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=db08ecd9360962f8914c334301865ba2}{MacArthur}{M\bibinitperiod}{Jacqueline}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ac165162d3970161757dd3d1fad08c98}{Morales}{M\bibinitperiod}{Joannella}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b43b57cc7bdfb3879a0c7ccc0419b5a3}{Burdett}{B\bibinitperiod}{Tony}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b013ca3ad6e9ef3d1374692179887353}{Hall}{H\bibinitperiod}{Peggy}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e275f54ad9e0960f79f4239c39ed3128}{Junkins}{J\bibinitperiod}{Heather}{H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e72889268d9101c88abf84ecad7641ed}{Klemm}{K\bibinitperiod}{Alan}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=91c5fcd648e30cd5b187eac97d23aa03}{Flicek}{F\bibinitperiod}{Paul}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9ed625ebec38ed6a305285959606d460}{Manolio}{M\bibinitperiod}{Teri}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fac21ca214235add86c47d40635ccfe5}{Hindorff}{H\bibinitperiod}{Lucia}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=dce64332e021c75c9258faed23827c44}{Parkinson}{P\bibinitperiod}{Helen}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{b255eb8416123a137d9d57014818624e}
+      \strng{fullhash}{827c7954a4b463cc984e82ca0335cc64}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2014}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The National Human Genome Research Institute (NHGRI) Catalog of Published Genome-Wide Association Studies (GWAS) Catalog provides a publicly available manually curated collection of published GWAS assaying at least 100,000 single-nucleotide polymorphisms (SNPs) and all SNP-trait associations with P <1 \x{fffd}\x{fffd} 10(-5). The Catalog includes 1751 curated publications of 11 912 SNPs. In addition to the SNP-trait association data, the Catalog also publishes a quarterly diagram of all SNP-trait associations mapped to the SNPs' chromosomal locations. The Catalog can be accessed via a tabular web interface, via a dynamic visualization on the human karyotype, as a downloadable tab-delimited file and as an OWL knowledge base. This article presents a number of recent improvements to the Catalog, including novel ways for users to interact with the Catalog and changes to the curation infrastructure.}
+      \field{isbn}{1362-4962 (Electronic)$\backslash$r0305-1048 (Linking)}
+      \field{issn}{03051048}
+      \field{journaltitle}{Nucleic Acids Research}
+      \field{number}{D1}
+      \field{title}{{The NHGRI GWAS Catalog, a curated resource of SNP-trait associations}}
+      \field{volume}{42}
+      \field{year}{2014}
+      \field{pages}{1001\bibrangedash 1006}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1093/nar/gkt1229
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf
+      \endverb
+    \endentry
     \entry{Orr1998}{article}{}
       \name{author}{1}{}{%
         {{uniquename=0,hash=21e39188461c0210a3d1eb80a7171fb0}{Orr}{O\bibinitperiod}{H\bibnamedelima Allen}{H\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
@@ -521,45 +560,6 @@
       \verb http://dx.doi.org/10.1038/nature08494
       \endverb
     \endentry
-    \entry{Welter2014}{article}{}
-      \name{author}{11}{}{%
-        {{uniquename=0,hash=307c1059c167e908d211ffdbf3e0c891}{Welter}{W\bibinitperiod}{Danielle}{D\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=db08ecd9360962f8914c334301865ba2}{MacArthur}{M\bibinitperiod}{Jacqueline}{J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=ac165162d3970161757dd3d1fad08c98}{Morales}{M\bibinitperiod}{Joannella}{J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=b43b57cc7bdfb3879a0c7ccc0419b5a3}{Burdett}{B\bibinitperiod}{Tony}{T\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=b013ca3ad6e9ef3d1374692179887353}{Hall}{H\bibinitperiod}{Peggy}{P\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=e275f54ad9e0960f79f4239c39ed3128}{Junkins}{J\bibinitperiod}{Heather}{H\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=e72889268d9101c88abf84ecad7641ed}{Klemm}{K\bibinitperiod}{Alan}{A\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=91c5fcd648e30cd5b187eac97d23aa03}{Flicek}{F\bibinitperiod}{Paul}{P\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=9ed625ebec38ed6a305285959606d460}{Manolio}{M\bibinitperiod}{Teri}{T\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=fac21ca214235add86c47d40635ccfe5}{Hindorff}{H\bibinitperiod}{Lucia}{L\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=dce64332e021c75c9258faed23827c44}{Parkinson}{P\bibinitperiod}{Helen}{H\bibinitperiod}{}{}{}{}}%
-      }
-      \strng{namehash}{b255eb8416123a137d9d57014818624e}
-      \strng{fullhash}{827c7954a4b463cc984e82ca0335cc64}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2014}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{The National Human Genome Research Institute (NHGRI) Catalog of Published Genome-Wide Association Studies (GWAS) Catalog provides a publicly available manually curated collection of published GWAS assaying at least 100,000 single-nucleotide polymorphisms (SNPs) and all SNP-trait associations with P <1 \x{fffd}\x{fffd} 10(-5). The Catalog includes 1751 curated publications of 11 912 SNPs. In addition to the SNP-trait association data, the Catalog also publishes a quarterly diagram of all SNP-trait associations mapped to the SNPs' chromosomal locations. The Catalog can be accessed via a tabular web interface, via a dynamic visualization on the human karyotype, as a downloadable tab-delimited file and as an OWL knowledge base. This article presents a number of recent improvements to the Catalog, including novel ways for users to interact with the Catalog and changes to the curation infrastructure.}
-      \field{isbn}{1362-4962 (Electronic)$\backslash$r0305-1048 (Linking)}
-      \field{issn}{03051048}
-      \field{journaltitle}{Nucleic Acids Research}
-      \field{number}{D1}
-      \field{title}{{The NHGRI GWAS Catalog, a curated resource of SNP-trait associations}}
-      \field{volume}{42}
-      \field{year}{2014}
-      \field{pages}{1001\bibrangedash 1006}
-      \range{pages}{6}
-      \verb{doi}
-      \verb 10.1093/nar/gkt1229
-      \endverb
-      \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf
-      \endverb
-    \endentry
     \entry{Velakoulis2006}{article}{}
       \name{author}{11}{}{%
         {{uniquename=0,hash=07303b77ad594847d5476a58369770e6}{Velakoulis}{V\bibinitperiod}{Dennis}{D\bibinitperiod}{}{}{}{}}%
@@ -633,6 +633,43 @@
       \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/Dynamic mapping of hippocampal development in childhood onset schizophrenia.pdf:pdf
       \endverb
       \keyw{Childhood onset schizophrenia,Hippocampus,Longitudinal,MRI,Mapping}
+    \endentry
+    \entry{Simpson2010}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=e81d3859f973e190da1d954f5b32066f}{Simpson}{S\bibinitperiod}{Eleanor\bibnamedelima H.}{E\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=83c117be2c681213bb1cba821d827025}{Kellendonk}{K\bibinitperiod}{Christoph}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f989128c78843505d54f7f8882e189ac}{Kandel}{K\bibinitperiod}{Eric}{E\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier Inc.}%
+      }
+      \strng{namehash}{79d854163f7512954a7e0654cacd8739}
+      \strng{fullhash}{79d854163f7512954a7e0654cacd8739}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2010}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The cognitive symptoms of schizophrenia are largely resistant to current treatment and are thus a life-long burden of the illness. Studies of cognitive symptoms have commonly focused on prefrontal cortex because of its demonstrated importance for executive function and working memory-key components of the deficit. The role of striatal-cortical circuitry and therefore the striatum itself has received much less attention. Here we review longstanding evidence that the striatum and its cortical connections are critical for complex cognition and discuss emerging evidence of the striatum's potential involvement in cognitive symptoms. Finally, we suggest how mouse models might test ideas about the contribution of early striatal dysfunction to the cognitive symptoms of schizophrenia. ?? 2010 Elsevier Inc. All rights reserved.}
+      \field{isbn}{1097-4199 (Electronic)$\backslash$r0896-6273 (Linking)}
+      \field{issn}{08966273}
+      \field{journaltitle}{Neuron}
+      \field{number}{5}
+      \field{title}{{A Possible Role for the Striatum in the Pathogenesis of the Cognitive Symptoms of Schizophrenia}}
+      \field{volume}{65}
+      \field{year}{2010}
+      \field{pages}{585\bibrangedash 596}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1016/j.neuron.2010.02.014
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/A Possible Role for the Striatum in the Pathogenesis of the Cognitive Symptoms of Schizophrenia.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.neuron.2010.02.014
+      \endverb
     \endentry
     \entry{Hart2013}{article}{}
       \name{author}{5}{}{%
