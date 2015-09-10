@@ -1,0 +1,9 @@
+% WARNING - This is exported REVIGO data useful only for the specific purpose of constructing a TreeMap visualization.
+% Do not use this table as a general list of non-redundant GO categories, as it sets an extremely permissive 
+% threshold to detect redundancies (c=0.10) and fill the 'representative' column, while normally c>=0.4 is recommended.
+% To export a reduced-redundancy set of GO terms, go to the Scatterplot & Table tab, and export to CSV from there.
+term_ID,description,frequencyInDb,log10pvalue,uniqueness,dispensability,representative
+GO:0097164,"ammonium ion metabolic process",4.314%,-3.8633,0.308,0.000,"ammonium ion metabolism"
+GO:0044106,"cellular amine metabolic process",0.343%,-3.3768,0.095,0.221,"ammonium ion metabolism"
+GO:0046519,"sphingoid metabolic process",0.021%,-3.2211,0.261,0.266,"ammonium ion metabolism"
+GO:0009308,"amine metabolic process",0.369%,-3.2668,0.216,0.334,"ammonium ion metabolism"

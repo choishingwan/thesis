@@ -2240,7 +2240,11 @@
     <bcf:citekey order="25">Zhang2005</bcf:citekey>
     <bcf:citekey order="26">Eden2009</bcf:citekey>
     <bcf:citekey order="27">Supek2011</bcf:citekey>
-    <bcf:citekey order="28">Lujan2005</bcf:citekey>
+    <bcf:citekey order="28">DeLeeuw2015</bcf:citekey>
+    <bcf:citekey order="29">Gogtay2011</bcf:citekey>
+    <bcf:citekey order="30">Liaw1995</bcf:citekey>
+    <bcf:citekey order="31">Ripke2014</bcf:citekey>
+    <bcf:citekey order="32">DeLeeuw2015</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="none" type="entry" sortscheme="none">
   <bcf:sorting>

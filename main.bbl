@@ -392,7 +392,7 @@
       \verb 10.1038/ng.3211
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Bulik-Sullivan et al. - 2015 - LD Score regression distinguishes confounding from polygenicity in genome-wide association studies.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Bulik-Sullivan et al. - 2015 - LD Score regression distinguishes confounding from polygenicity in genome-wide association studies(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/LD Score regression distinguishes confounding from polygenicity in genome-wide association studies.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/LD Score regression distinguishes confounding from polygenicity in genome-wide association studies.pdf:pdf
       \endverb
       \verb{url}
       \verb http://www.nature.com/doifinder/10.1038/ng.3211
@@ -515,7 +515,7 @@
       \verb 10.1038/nature08494
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Manolio et al. - 2009 - Finding the missing heritability of complex diseases.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Manolio et al. - 2009 - Finding the missing heritability of complex diseases(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/Finding the missing heritability of complex diseases.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Finding the missing heritability of complex diseases.pdf:pdf
       \endverb
       \verb{url}
       \verb http://dx.doi.org/10.1038/nature08494
@@ -812,37 +812,441 @@
       \endverb
       \keyw{*Algorithms,*Molecular Sequence Annotation,Computational Biology/*methods,Gene Expression Regulation,Humans,Internet,Software,Transcription Factors/genetics/metabolism,User-Computer Interface}
     \endentry
-    \entry{Lujan2005}{article}{}
-      \name{author}{3}{}{%
-        {{uniquename=0,hash=eb749d2ac33040bdc95bb23a691df826}{Luj\'{a}n}{L\bibinitperiod}{R.}{R\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=b376fde25f5f3c1594914cab39a4a3e2}{Shigemoto}{S\bibinitperiod}{R.}{R\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=ed1043dab018ce8757e8da0293bbde47}{L\'{o}pez-Bendito}{L\bibinithyphendelim B\bibinitperiod}{G.}{G\bibinitperiod}{}{}{}{}}%
+    \entry{DeLeeuw2015}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=993f011ec84ef0f4176f27a2e0eaff71}{Leeuw}{L\bibinitperiod}{Christiaan\bibnamedelima a.}{C\bibinitperiod\bibinitdelim a\bibinitperiod}{de}{d\bibinitperiod}{}{}}%
+        {{uniquename=0,hash=be0acca67f99fb0f75a7ebaf17ba8ee5}{Mooij}{M\bibinitperiod}{Joris\bibnamedelima M.}{J\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c7359565df9fe46e9d4d21e47b35aad7}{Heskes}{H\bibinitperiod}{Tom}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=91926a8bb05a2e3f38ef519124a5b6d1}{Posthuma}{P\bibinitperiod}{Danielle}{D\bibinitperiod}{}{}{}{}}%
       }
-      \strng{namehash}{463c6b14a202afdc2a80a5715544e3d3}
-      \strng{fullhash}{463c6b14a202afdc2a80a5715544e3d3}
+      \strng{namehash}{0b59e74db5fc67c9562e3ebe5e3fa054}
+      \strng{fullhash}{7d9b581653d142dcd727cce740cb4bf5}
       \field{sortinit}{0}
       \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2005}
+      \field{labelyear}{2015}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Our understanding of the role played by neurotransmitter receptors in the developing brain has advanced in recent years. The major excitatory and inhibitory neurotransmitters in the brain, glutamate and GABA, activate both ionotropic (ligand-gated ion channels) and metabotropic (G protein-coupled) receptors, and are generally associated with neuronal communication in the mature brain. However, before the emergence of their role in neurotransmission in adulthood, they also act to influence earlier developmental events, some of which occur prior to synapse formation: such as proliferation, migration, differentiation or survival processes during neural development. To fulfill these actions in the constructing of the nervous system, different types of glutamate and GABA receptors need to be expressed both at the right time and at the right place. The identification by molecular cloning of 16 ionotropic glutamate receptor subunits, eight metabotropic glutamate receptor subtypes, 21 ionotropic and two metabotropic GABA receptor subunits, some of which exist in alternatively splice variants, has enriched our appreciation of how molecular diversity leads to functional diversity in the brain. It now appears that many different types of glutamate and GABA receptor subunits have prominent expression in the embryonic and/or postnatal brain, whereas others are mainly present in the adult brain. Although the significance of this differential expression of subunits is not fully understood, it appears that the change in subunit composition is essential for normal development in particular brain regions. This review focuses on emerging information relating to the expression and role of glutamatergic and GABAergic neurotransmitter receptors during prenatal and postnatal development. \x{fffd}\x{fffd} 2005 IBRO. Published by Elsevier Ltd. All rights reserved.}
-      \field{isbn}{0306-4522}
-      \field{issn}{03064522}
-      \field{journaltitle}{Neuroscience}
-      \field{number}{3}
-      \field{title}{{Glutamate and GABA receptor signalling in the developing brain}}
-      \field{volume}{130}
-      \field{year}{2005}
-      \field{pages}{567\bibrangedash 580}
-      \range{pages}{14}
+      \field{issn}{1553-7358}
+      \field{journaltitle}{PLOS Computational Biology}
+      \field{number}{4}
+      \field{title}{{MAGMA: Generalized Gene-Set Analysis of GWAS Data}}
+      \field{volume}{11}
+      \field{year}{2015}
+      \field{pages}{e1004219}
+      \range{pages}{-1}
       \verb{doi}
-      \verb 10.1016/j.neuroscience.2004.09.042
+      \verb 10.1371/journal.pcbi.1004219
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/GLUTAMATE AND GABA RECEPTOR SIGNALLING IN THE DEVELOPING BRAIN.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/MAGMA Generalized Gene-Set Analysis of GWAS Data.pdf:pdf
       \endverb
-      \keyw{AMPA,NMDA,development,kainate GABA B receptors,mGlu receptors,neurotransmitter receptors}
+      \verb{url}
+      \verb http://dx.plos.org/10.1371/journal.pcbi.1004219
+      \endverb
+    \endentry
+    \entry{Gogtay2011}{article}{}
+      \name{author}{5}{}{%
+        {{uniquename=0,hash=d81eb622025c3af7304aa81d58637770}{Gogtay}{G\bibinitperiod}{Nitin}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9272577cb30d29c0f19d40565a73a16f}{Vyas}{V\bibinitperiod}{Nora\bibnamedelima S.}{N\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=12b09007f834c4eadadcd996dc29de60}{Testa}{T\bibinitperiod}{Renee}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=cf5eab3e521f54655744d12b947faee2}{Wood}{W\bibinitperiod}{Stephen\bibnamedelima J.}{S\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3fbb14ac65cd8f6914d4c6ecb713950b}{Pantelis}{P\bibinitperiod}{Christos}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{11d0a5149c2f42cfced594a8983adf95}
+      \strng{fullhash}{7668c25a836c6f4039d022dab39242f0}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Many of the major neuropsychiatric illnesses, including schizophrenia, have a typical age of onset in late adolescence. Late adolescence may reflect a critical period in brain development making it particularly vulnerable for the onset of psychopathology. Neuroimaging studies that focus on this age range may provide unique insights into the onset and course of psychosis. In this review, we examine the evidence from 2 unique longitudinal cohorts that span the ages from early childhood through young adulthood; a study of childhood-onset schizophrenia where patients and siblings are followed from ages 6 through to their early twenties, and an ultra-high risk study where subjects (mean age of 19 years) are studied before and after the onset of psychosis. From the available evidence, we make an argument that subtle, regionally specific, and genetically influenced alterations during developmental age windows influence the course of psychosis and the resultant brain phenotype. The importance of examining trajectories of development and the need for future combined approaches, using multimodal imaging together with molecular studies is discussed.}
+      \field{isbn}{1745-1701 (Electronic)$\backslash$r0586-7614 (Linking)}
+      \field{issn}{05867614}
+      \field{journaltitle}{Schizophrenia Bulletin}
+      \field{number}{3}
+      \field{title}{{Age of onset of schizophrenia: Perspectives from structural neuroimaging studies}}
+      \field{volume}{37}
+      \field{year}{2011}
+      \field{pages}{504\bibrangedash 513}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1093/schbul/sbr030
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Age of Onset of Schizophrenia Perspectives From Structural Neuroimaging Studies.pdf:pdf
+      \endverb
+      \keyw{adolescent,brain development,high risk,neural circuitry,prefrontal cortex,schizophrenia}
+    \endentry
+    \entry{Liaw1995}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=8f578ed74845617a5617644180e3a573}{Liaw}{L\bibinitperiod}{S\bibnamedelima H}{S\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=1b4831d6aabf423e3213e5c1214f33f0}{Kuo}{K\bibinitperiod}{I}{I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5011b825249e7610f91f155dda93271e}{Eisenberg}{E\bibinitperiod}{D}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{a1403860356b39c6b69ab89ed7bfae1a}
+      \strng{fullhash}{a1403860356b39c6b69ab89ed7bfae1a}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{1995}
+      \field{labelmonth}{11}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Glutamine synthetase (GS) catalyzes the ATP-dependent condensation of ammonia and glutamate to yield glutamine, ADP, and inorganic phosphate in the presence of divalent cations. Bacterial GS is an enzyme of 12 identical subunits, arranged in two rings of 6, with the active site between each pair of subunits in a ring. In earlier work, we have reported the locations within the funnel-shaped active site of the substrates glutamate and ATP and of the two divalent cations, but the site for ammonia (or ammonium) has remained elusive. Here we report the discovery by X-ray crystallography of a binding site on GS for monovalent cations, Tl+ and Cs+, which is probably the binding site for the substrate ammonium ion. Fourier difference maps show the following. (1) Tl+ and Cs+ bind at essentially the same site, with ligands being Glu 212, Tyr 179, Asp 50', Ser 53' of the adjacent subunit, and the substrate glutamate. From its position adjacent to the substrate glutamate and the cofactor ADP, we propose that this monovalent cation site is the substrate ammonium ion binding site. This proposal is supported by enzyme kinetics. Our kinetic measurements show that Tl+, Cs+, and NH4+ are competitive inhibitors to NH2OH in the gamma-glutamyl transfer reaction. (2) GS is a trimetallic enzyme containing two divalent cation sites (n1, n2) and one monovalent cation site per subunit. These three closely spaced ions are all at the active site: the distance between n1 and n2 is 6 A, between n1 and Tl+ is 4 A, and between n2 and Tl+ is 7 A. Glu 212 and the substrate glutamate are bridging ligands for the n1 ion and Tl+. (3) The presence of a monovalent cation in this site may enhance the structural stability of GS, because of its effect of balancing the negative charges of the substrate glutamate and its ligands and because of strengthening the "side-to-side" intersubunit interaction through the cation-protein bonding. (4) The presence of the cofactor ADP increases the Tl+ binding to GS because ADP binding induces movement of Asp 50' toward this monovalent cation site, essentially forming the site. This observation supports a two-step mechanism with ordered substrate binding: ATP first binds to GS, then Glu binds and attacks ATP to form gamma-glutamyl phosphate and ADP, which complete the ammonium binding site. The third substrate, an ammonium ion, then binds to GS, and then loses a proton to form the more active species ammonia, which attacks the gamma-glutamyl phosphate to yield Gln. (5) Because the products (Glu or Gln) of the reactions catalyzed by GS are determined by the molecule (water or ammonium) attacking the intermediate gamma-glutamyl phosphate, this negatively charged ammonium binding pocket has been designed naturally for high affinity of ammonium to GS, permitting glutamine synthesis to proceed in aqueous solution.}
+      \field{issn}{0961-8368}
+      \field{journaltitle}{Protein science : a publication of the Protein Society}
+      \field{month}{11}
+      \field{number}{11}
+      \field{title}{{Discovery of the ammonium substrate site on glutamine synthetase, a third cation binding site.}}
+      \field{volume}{4}
+      \field{year}{1995}
+      \field{pages}{2358\bibrangedash 65}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1002/pro.5560041114
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Liaw, Kuo, Eisenberg - 1995 - Discovery of the ammonium substrate site on glutamine synthetase, a third cation binding site.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2143006%5C&tool=pmcentrez%5C&rendertype=abstract
+      \endverb
+      \keyw{Adenosine Diphosphate,Adenosine Diphosphate: metabolism,Adenosine Triphosphate,Adenosine Triphosphate: metabolism,Binding Sites,Binding,Competitive,Cations,Monovalent,Cesium,Cesium: metabolism,Crystallography,X-Ray,Glutamate-Ammonia Ligase,Glutamate-Ammonia Ligase: chemistry,Glutamate-Ammonia Ligase: metabolism,Glutamic Acid,Glutamic Acid: metabolism,Kinetics,Models,Molecular,Quaternary Ammonium Compounds,Quaternary Ammonium Compounds: metabolism,Salmonella typhimurium,Salmonella typhimurium: enzymology,Thallium,Thallium: metabolism}
+    \endentry
+    \entry{Ripke2014}{article}{}
+      \name{author}{302}{}{%
+        {{uniquename=0,hash=4d2b8662db812dc578bbba8249049322}{Ripke}{R\bibinitperiod}{Stephan}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ddb2f9e422df4dc8ccaf024028b9f44b}{Neale}{N\bibinitperiod}{Benjamin\bibnamedelima M.}{B\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7e631aa215f5cb10b0016a3c5183a7c8}{Corvin}{C\bibinitperiod}{Aiden}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=199c22cd2053215a489c2f5cd52dc95a}{Walters}{W\bibinitperiod}{James\bibnamedelimb T.\bibnamedelimi R.}{J\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6fe2b16728ffd9bfa785e9e634df7b66}{Farh}{F\bibinitperiod}{Kai-How}{K\bibinithyphendelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=cde301449ebc1852d19f336535c37933}{Holmans}{H\bibinitperiod}{Peter\bibnamedelima a.}{P\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fd85173fe761dc014cfc3c59b8da4cfb}{Lee}{L\bibinitperiod}{Phil}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=badbe2f5761a5ae6eb0b3574a51d3f22}{Bulik-Sullivan}{B\bibinithyphendelim S\bibinitperiod}{Brendan}{B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=26a95c9f68daa0b46dffc0ed06196d93}{Collier}{C\bibinitperiod}{David\bibnamedelima a.}{D\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2d73ae08c6ee8321c8a6f301e2d479d7}{Huang}{H\bibinitperiod}{Hailiang}{H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d093accd0f33fb7ee9d0132876be3df8}{Pers}{P\bibinitperiod}{Tune\bibnamedelima H.}{T\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=dde9fcf5f034ae58fd03b4ffac14fdde}{Agartz}{A\bibinitperiod}{Ingrid}{I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ec8377cddcad5e9438ecb019d44e0975}{Agerbo}{A\bibinitperiod}{Esben}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f81634a950f71fdc611ab78835178e0a}{Albus}{A\bibinitperiod}{Margot}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f3d1da04c5ce0bf47bb861fee6e9b5e1}{Alexander}{A\bibinitperiod}{Madeline}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c304e604fa3e459c817257d2844ca487}{Amin}{A\bibinitperiod}{Farooq}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4e0cafa29dd811dfff798de3051cd9aa}{Bacanu}{B\bibinitperiod}{Silviu\bibnamedelima a.}{S\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4ae6af03e2055037ca7bdf7b6bda98b8}{Begemann}{B\bibinitperiod}{Martin}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=940d8538c6e415cdc85c0c43fcc93157}{{Belliveau\bibnamedelimb Jr}}{B\bibinitperiod}{Richard\bibnamedelima a.}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b77b1a4fcf11c365b4c6b2b968ef9ca1}{Bene}{B\bibinitperiod}{Judit}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8c426131c22238ebc9ca843e41ad4fd3}{Bergen}{B\bibinitperiod}{Sarah\bibnamedelima E.}{S\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=62e09f8b0d72fb3a53ef2701c946af6b}{Bevilacqua}{B\bibinitperiod}{Elizabeth}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2d6b1e9b8d4f64cc350732b91bf019f2}{Bigdeli}{B\bibinitperiod}{Tim\bibnamedelima B.}{T\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5c530db69427eb222da998d0c1cfce94}{Black}{B\bibinitperiod}{Donald\bibnamedelima W.}{D\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b04fec56e72796aaf194e6fffd289124}{Bruggeman}{B\bibinitperiod}{Richard}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d103b1341a6994182c9d9b82fdb1e225}{Buccola}{B\bibinitperiod}{Nancy\bibnamedelima G.}{N\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=22190549bc26e8b668041e915978afbd}{Buckner}{B\bibinitperiod}{Randy\bibnamedelima L.}{R\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d76ce317232e99a4e77c21e8bac121bf}{Byerley}{B\bibinitperiod}{William}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=85026f02d85d1a6c6f17f209aefcf3b0}{Cahn}{C\bibinitperiod}{Wiepke}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4e2fff3ce0daa871d388e3ec2e87356a}{Cai}{C\bibinitperiod}{Guiqing}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=edab0dfe977aa55e8cd19b9f1b02122e}{Campion}{C\bibinitperiod}{Dominique}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=74200b3475065466c0c74298b85a34a6}{Cantor}{C\bibinitperiod}{Rita\bibnamedelima M.}{R\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ea30004d1568f1ada15521bdac0a6685}{Carr}{C\bibinitperiod}{Vaughan\bibnamedelima J.}{V\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7ac98e706e8c960b206b0cf2fd8df3fe}{Carrera}{C\bibinitperiod}{Noa}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=00ab776331aed39dc2fbb4a8abce251e}{Catts}{C\bibinitperiod}{Stanley\bibnamedelima V.}{S\bibinitperiod\bibinitdelim V\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=14329143d6887412e6d4a1404fd977a6}{Chambert}{C\bibinitperiod}{Kimberly\bibnamedelima D.}{K\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7b5753986e290f9ed3fe987b0b229ab6}{Chan}{C\bibinitperiod}{Raymond\bibnamedelimb C.\bibnamedelimi K.}{R\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0da051cb10fa808aa0f5b6083a36af9b}{Chen}{C\bibinitperiod}{Ronald\bibnamedelimb Y.\bibnamedelimi L.}{R\bibinitperiod\bibinitdelim Y\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ca801504aced7ca35f93c60418a1545f}{Chen}{C\bibinitperiod}{Eric\bibnamedelimb Y.\bibnamedelimi H.}{E\bibinitperiod\bibinitdelim Y\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6daab9c045b3d0fc9e6183326e04b8ff}{Cheng}{C\bibinitperiod}{Wei}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f26b752ef0f4c758f04de75217dcf2af}{Cheung}{C\bibinitperiod}{Eric\bibnamedelimb F.\bibnamedelimi C.}{E\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=692d2e18d2581ba608f6346df2d9f266}{{Ann\bibnamedelimb Chong}}{A\bibinitperiod}{Siow}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f174e2986007c91dbae4b6638260f880}{{Robert\bibnamedelimb Cloninger}}{R\bibinitperiod}{C.}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4c413160abaa666575a0b3ecf9260ef6}{Cohen}{C\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2ecc0766c5a76485b89a8c63bc375a53}{Cohen}{C\bibinitperiod}{Nadine}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9bc6d979e5e766731aeddd066a342301}{Cormican}{C\bibinitperiod}{Paul}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ed5e0b62c13bf7bb3693c6eb97a37de1}{Craddock}{C\bibinitperiod}{Nick}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2e6598414669e4f26e92dee1933b92b9}{Crowley}{C\bibinitperiod}{James\bibnamedelima J.}{J\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=53ec43ada13d9a6ae9ab74a5743f69aa}{Curtis}{C\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=375586ee13038ca90823d7def5fa6dda}{Davidson}{D\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6205a304d316e9c93cf992310f18f58a}{Davis}{D\bibinitperiod}{Kenneth\bibnamedelima L.}{K\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=31618537b151d540d6a63ef14011b58a}{Degenhardt}{D\bibinitperiod}{Franziska}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=794593bcbf407d0c4ba74ebb45b73ddc}{{Del\bibnamedelimb Favero}}{D\bibinitperiod}{Jurgen}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7b190076cedbca57c1fc4702e063bf38}{Demontis}{D\bibinitperiod}{Ditte}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e19a770a4737400bbae90e0caf96653e}{Dikeos}{D\bibinitperiod}{Dimitris}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=16b282f5f4a870aafb5d4ebd39c7695a}{Dinan}{D\bibinitperiod}{Timothy}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3b317df871dccd26ea64c8e0b1e99778}{Djurovic}{D\bibinitperiod}{Srdjan}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9174ce378da6460f9eef4f6993e22744}{Donohoe}{D\bibinitperiod}{Gary}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=27e9fab1d6598a346c540c04cdd64d71}{Drapeau}{D\bibinitperiod}{Elodie}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=09611b96aa5a7ade8ce0632740bb657b}{Duan}{D\bibinitperiod}{Jubao}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=dc53c75a20d587fbeba633e9a11bddce}{Dudbridge}{D\bibinitperiod}{Frank}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4c943146e658612b61ae271e3f77a82f}{Durmishi}{D\bibinitperiod}{Naser}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=23979b30b38b74c3557173d88d4b89fb}{Eichhammer}{E\bibinitperiod}{Peter}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b1488511977f3713e929f60016640267}{Eriksson}{E\bibinitperiod}{Johan}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=329a50c9d01ba52c01b51d9707878fac}{Escott-Price}{E\bibinithyphendelim P\bibinitperiod}{Valentina}{V\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6b4b4474cd0c038992fbc3f5961f738a}{Essioux}{E\bibinitperiod}{Laurent}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fcdab6eb5f2be115cb54557a509b68c2}{Fanous}{F\bibinitperiod}{Ayman\bibnamedelima H.}{A\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=73b2a78b28cf8a9e6a0e79b2400b4a86}{Farrell}{F\bibinitperiod}{Martilias\bibnamedelima S.}{M\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f69484c526ed67b7ba334b289acf8ac1}{Frank}{F\bibinitperiod}{Josef}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=940ca1f1f12dca6767f77c75027b7c00}{Franke}{F\bibinitperiod}{Lude}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=da4d5a2a8c289fe417c7248378acacc1}{Freedman}{F\bibinitperiod}{Robert}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fb3b4d1d24eff3f0d56afc8260294c12}{Freimer}{F\bibinitperiod}{Nelson\bibnamedelima B.}{N\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0633966580b566acc97d593b2f97ed74}{Friedl}{F\bibinitperiod}{Marion}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ac4257920fba8eceec89dd34c3662774}{Friedman}{F\bibinitperiod}{Joseph\bibnamedelima I.}{J\bibinitperiod\bibinitdelim I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0917eeb21950f363111fede6a7f20719}{Fromer}{F\bibinitperiod}{Menachem}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b9183022a2363526aa023d5fbf99321e}{Genovese}{G\bibinitperiod}{Giulio}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e1bdea687d1195d2c36a13e5a9aaa677}{Georgieva}{G\bibinitperiod}{Lyudmila}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b63f2d644f069e849e6324adc2acbca7}{Giegling}{G\bibinitperiod}{Ina}{I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=19e40aba235622223e2e09a59c4837ab}{Giusti-Rodr\'{\i{}}guez}{G\bibinithyphendelim R\bibinitperiod}{Paola}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=92f427cf544e74e3c079f5525a98dacc}{Godard}{G\bibinitperiod}{Stephanie}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3d73af6a308dc393ca7a766cbd769697}{Goldstein}{G\bibinitperiod}{Jacqueline\bibnamedelima I.}{J\bibinitperiod\bibinitdelim I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5d0e6f572f9d767b0fa4075363de0437}{Golimbet}{G\bibinitperiod}{Vera}{V\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=de141acde6039dae3461f5a30bc80de8}{Gopal}{G\bibinitperiod}{Srihari}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6565f7ce09b34f3041668569aebc8c00}{Gratten}{G\bibinitperiod}{Jacob}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c01fe339d01aaee784ce48920908e25e}{Haan}{H\bibinitperiod}{Lieuwe}{L\bibinitperiod}{de}{d\bibinitperiod}{}{}}%
+        {{uniquename=0,hash=7ea0cd575eb8568613cd0af3aa2a3947}{Hammer}{H\bibinitperiod}{Christian}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=767e333fb482f957b39d64628e7c37d1}{Hamshere}{H\bibinitperiod}{Marian\bibnamedelima L.}{M\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=23b3bc585b63302674d0d6211c72bca7}{Hansen}{H\bibinitperiod}{Mark}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e8cb73cff7cf87e03cf524db4b463111}{Hansen}{H\bibinitperiod}{Thomas}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d63b2a268f7d76f32be6311c6afd6a3d}{Haroutunian}{H\bibinitperiod}{Vahram}{V\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b863f6cccf3ad64395bb77ae93a70706}{Hartmann}{H\bibinitperiod}{Annette\bibnamedelima M.}{A\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c49a6c4a4f60dfda6946e83f33c92bc6}{Henskens}{H\bibinitperiod}{Frans\bibnamedelima a.}{F\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7cc41a76ac4f6d1a8a448188eaef39f5}{Herms}{H\bibinitperiod}{Stefan}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0018f6d76b2a046e8b5d19205dedddf6}{Hirschhorn}{H\bibinitperiod}{Joel\bibnamedelima N.}{J\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a514c4554bae44577f3bc7e5ac8eb2ff}{Hoffmann}{H\bibinitperiod}{Per}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ebd3da298a0f49eb8f0db9258f2a1210}{Hofman}{H\bibinitperiod}{Andrea}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=94aad6b285fe2f051e342547a9c18f09}{Hollegaard}{H\bibinitperiod}{Mads\bibnamedelima V.}{M\bibinitperiod\bibinitdelim V\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a96548d4981e300c1cee2bbdf5181caf}{Hougaard}{H\bibinitperiod}{David\bibnamedelima M.}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ed19288499a50cde279a6be815a02000}{Ikeda}{I\bibinitperiod}{Masashi}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ebe127b541d3f9c9ca51cb40ccfe5aed}{Joa}{J\bibinitperiod}{Inge}{I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=627488e0fe4f8c3c47265cac912a49a4}{Juli\`{a}}{J\bibinitperiod}{Antonio}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7b805b72bc0d0a3076af791164020786}{Kahn}{K\bibinitperiod}{Ren\'{e}\bibnamedelima S.}{R\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3cee7a48bb677d1113e2d5588deb5110}{Kalaydjieva}{K\bibinitperiod}{Luba}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=79c5e869958d65ab3fe7f8915d6b242f}{Karachanak-Yankova}{K\bibinithyphendelim Y\bibinitperiod}{Sena}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d26020e9efbda5cf5ecd7f3838ffbda4}{Karjalainen}{K\bibinitperiod}{Juha}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=72d1c840b524695b2285a652ba0be12d}{Kavanagh}{K\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=13eefec280fceff10464498860db7ba5}{Keller}{K\bibinitperiod}{Matthew\bibnamedelima C.}{M\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fec4d1470b0fe605bee9c2002dcd9900}{Kennedy}{K\bibinitperiod}{James\bibnamedelima L.}{J\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e8ef93bb9663c830eaf49099b65e12d9}{Khrunin}{K\bibinitperiod}{Andrey}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ec091a15e2accc806e3c0576ec605740}{Kim}{K\bibinitperiod}{Yunjung}{Y\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7ec03840e2b0a7a0a1afd4302d4af560}{Klovins}{K\bibinitperiod}{Janis}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=32d19d38c6fe4b6c25535627bcbdad3b}{Knowles}{K\bibinitperiod}{James\bibnamedelima a.}{J\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e9fe5625b3e7263e08667a65f0a2d4f2}{Konte}{K\bibinitperiod}{Bettina}{B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f0941e4d114ff6dce236828a07a32fee}{Kucinskas}{K\bibinitperiod}{Vaidutis}{V\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=1a9eecc682a5e31ba1b7625019b563d9}{{Ausrele\bibnamedelimb Kucinskiene}}{A\bibinitperiod}{Zita}{Z\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7a08990e744a797b80fcc045860de4df}{Kuzelova-Ptackova}{K\bibinithyphendelim P\bibinitperiod}{Hana}{H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3931a171dd924bd67c5097560a77ca2c}{K\"{a}hler}{K\bibinitperiod}{Anna\bibnamedelima K.}{A\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=285c9fbe21981a11950fa0508641192e}{Laurent}{L\bibinitperiod}{Claudine}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d8821744e321ea31ed7f5a624209732f}{{Lee\bibnamedelimb Chee\bibnamedelimb Keong}}{L\bibinitperiod}{Jimmy}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fe792153a1f52c2a6c5e1188185c9ed2}{{Hong\bibnamedelimb Lee}}{H\bibinitperiod}{S.}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9120756cc038e1a96de91f8120460f4b}{Legge}{L\bibinitperiod}{Sophie\bibnamedelima E.}{S\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=15ce0dcd67c371c3bde52350fc270b79}{Lerer}{L\bibinitperiod}{Bernard}{B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c928718d67a1ac2f9edf3e47cd07f098}{Li}{L\bibinitperiod}{Miaoxin}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=38f3efe34cb29092007fe04331b383a3}{Li}{L\bibinitperiod}{Tao}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3259647b1e22a631b8fee654fb161889}{Liang}{L\bibinitperiod}{Kung-Yee}{K\bibinithyphendelim Y\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=13f83b52de91fcf06889c2f32317b162}{Lieberman}{L\bibinitperiod}{Jeffrey}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fe624db90df199baabfd85304aa66c92}{Limborska}{L\bibinitperiod}{Svetlana}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6092c382997181c4f230557553b2b4eb}{Loughland}{L\bibinitperiod}{Carmel\bibnamedelima M.}{C\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c509c29d4004006b27891a3d8685e777}{Lubinski}{L\bibinitperiod}{Jan}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=018fb8f90d563ed75a9d959316abd96c}{L\"{o}nnqvist}{L\bibinitperiod}{Jouko}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=485c3e1b5386d832e012a12405b4b79e}{{Macek\bibnamedelimb Jr}}{M\bibinitperiod}{Milan}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e57547beaea406483a8d7400b4038f35}{Magnusson}{M\bibinitperiod}{Patrik\bibnamedelimb K.\bibnamedelimi E.}{P\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4553032e5aebaa9ab663b97d18bb0fd2}{Maher}{M\bibinitperiod}{Brion\bibnamedelima S.}{B\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=76909703261ef1b33f19747336799233}{Maier}{M\bibinitperiod}{Wolfgang}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0e0b2d3d5ca8be0a23512ae9d7739b7c}{Mallet}{M\bibinitperiod}{Jacques}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c2ca7fbcddae5b06709f18636d49a1bb}{Marsal}{M\bibinitperiod}{Sara}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4de0928ffc6df846c6533e5209ee35e7}{Mattheisen}{M\bibinitperiod}{Manuel}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=208fc5816772a7bd48e07983d112be26}{Mattingsdal}{M\bibinitperiod}{Morten}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=37b75b4052c7750443615ec7c34f23a4}{McCarley}{M\bibinitperiod}{Robert\bibnamedelima W.}{R\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5ed4f2cb684e922c4652d807545530c8}{McDonald}{M\bibinitperiod}{Colm}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b24321e22ff33706d9f82e72120ee3b0}{McIntosh}{M\bibinitperiod}{Andrew\bibnamedelima M.}{A\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5fe6a28851d3dbd5a2e4e550a0088c84}{Meier}{M\bibinitperiod}{Sandra}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0dd09abe6aeaf3b2ff29809f704aca2d}{Meijer}{M\bibinitperiod}{Carin\bibnamedelima J.}{C\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=af216cd7f116a762782391725643d16b}{Melegh}{M\bibinitperiod}{Bela}{B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4f2483f2ce7ab0dfd9e5e9e20e6050d7}{Melle}{M\bibinitperiod}{Ingrid}{I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6c456b5b4bdffe2c5f9dc38d1eb74bc1}{Mesholam-Gately}{M\bibinithyphendelim G\bibinitperiod}{Raquelle\bibnamedelima I.}{R\bibinitperiod\bibinitdelim I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=18f1ba5821ad561cb8a6a64b4a58cfb9}{Metspalu}{M\bibinitperiod}{Andres}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ec68915b121be7d18f7a2cb96ae7185a}{Michie}{M\bibinitperiod}{Patricia\bibnamedelima T.}{P\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a4adaf764ee96e454adc06c9cadd9535}{Milani}{M\bibinitperiod}{Lili}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ae05b23d5bedc3615e27134256d41e85}{Milanova}{M\bibinitperiod}{Vihra}{V\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=cf7c4099df813a83616878bd1328d81e}{Mokrab}{M\bibinitperiod}{Younes}{Y\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9f949e1e7e71231258ec1fcecd09c1bb}{Morris}{M\bibinitperiod}{Derek\bibnamedelima W.}{D\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=cd76ed6de17e294599c065f2bf2d78bb}{Mors}{M\bibinitperiod}{Ole}{O\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e7d4c0c950498a3a432d9dbeb5c53cba}{Murphy}{M\bibinitperiod}{Kieran\bibnamedelima C.}{K\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9116050df966ec49c513572a59b60326}{Murray}{M\bibinitperiod}{Robin\bibnamedelima M.}{R\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e2899eba77b41573aeb48c472be363bf}{Myin-Germeys}{M\bibinithyphendelim G\bibinitperiod}{Inez}{I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5638bfc3da2a57c6d8125ef3b8188b75}{M\"{u}ller-Myhsok}{M\bibinithyphendelim M\bibinitperiod}{Bertram}{B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ab8ec8a0bd978d644656c2f84fda37d2}{Nelis}{N\bibinitperiod}{Mari}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6261a77d3bec013cd1c8930371c504a3}{Nenadic}{N\bibinitperiod}{Igor}{I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=41be4d9187ebe1bf05e97b5c6a106620}{Nertney}{N\bibinitperiod}{Deborah\bibnamedelima a.}{D\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=272b5ff3bac4f429b25ac3b62945b1e0}{Nestadt}{N\bibinitperiod}{Gerald}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2120b414023c60196905d658a679c480}{Nicodemus}{N\bibinitperiod}{Kristin\bibnamedelima K.}{K\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f55111d03408a96dd97a014e25fec661}{Nikitina-Zake}{N\bibinithyphendelim Z\bibinitperiod}{Liene}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4bf8cb05205507afc5cc316e14fd8951}{Nisenbaum}{N\bibinitperiod}{Laura}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fcce85d4470ec1c608aa904d147619d2}{Nordin}{N\bibinitperiod}{Annelie}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=33e4f2c478b38429ff0f90993a4bda07}{O\x{fffd}\x{fffd}\x{fffd}Callaghan}{O\bibinitperiod}{Eadbhard}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=898c869ebc4f25954816120771c3a9cd}{O\x{fffd}\x{fffd}\x{fffd}Dushlaine}{O\bibinitperiod}{Colm}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=364364be3d473c2c4994feec08a2bfd9}{O\x{fffd}\x{fffd}\x{fffd}Neill}{O\bibinitperiod}{F.\bibnamedelimi Anthony}{F\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2cfba95825235af2cbb2ba2889c148ad}{Oh}{O\bibinitperiod}{Sang-Yun}{S\bibinithyphendelim Y\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b68dc3d76da3a219cf0628c96dc6a570}{Olincy}{O\bibinitperiod}{Ann}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5f1a6728fd3d465e1414c1349bba9e88}{Olsen}{O\bibinitperiod}{Line}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=57c67cc421a8f3258987fdbda1d631d6}{{Van\bibnamedelimb Os}}{V\bibinitperiod}{Jim}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7730bdb315282d4705e78d532f415cf9}{{Endophenotypes\bibnamedelimb International\bibnamedelimb Consortium}}{E\bibinitperiod}{Psychosis}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3fbb14ac65cd8f6914d4c6ecb713950b}{Pantelis}{P\bibinitperiod}{Christos}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d564d15817f643ebeee140dc059e5b15}{Papadimitriou}{P\bibinitperiod}{George\bibnamedelima N.}{G\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=cb40feb97abb4e3c35e8400fd43af514}{Papiol}{P\bibinitperiod}{Sergi}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d825273f3428f3aba565d7b33ea8fdc1}{Parkhomenko}{P\bibinitperiod}{Elena}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=1ee0a067a8062338aa845798486097b7}{Pato}{P\bibinitperiod}{Michele\bibnamedelima T.}{M\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8549dc5a5c94dab93103c49999942d5e}{Paunio}{P\bibinitperiod}{Tiina}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=118076b961bbb0c3f05279b01c319094}{Pejovic-Milovancevic}{P\bibinithyphendelim M\bibinitperiod}{Milica}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d0fad07a209890c269516b78a3f2db34}{Perkins}{P\bibinitperiod}{Diana\bibnamedelima O.}{D\bibinitperiod\bibinitdelim O\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3a34e53a3475ec0f49332b529d8216a6}{Pietil\"{a}inen}{P\bibinitperiod}{Olli}{O\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=61457dad8832de2b11799d2dad0f5497}{Pimm}{P\bibinitperiod}{Jonathan}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bf750a45989cfa73b9b0eeef9f86a953}{Pocklington}{P\bibinitperiod}{Andrew\bibnamedelima J.}{A\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9ef8a0eba7ec297c69a6232e4a1a09de}{Powell}{P\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a478dcd7a6f4a6e8cedd78f7f31f227b}{Price}{P\bibinitperiod}{Alkes}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4a9bc3b8931d3231bd0cdb354009e460}{Pulver}{P\bibinitperiod}{Ann\bibnamedelima E.}{A\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=303179604a3eebc3a9d5cb4eab34a02e}{Purcell}{P\bibinitperiod}{Shaun\bibnamedelima M.}{S\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bc52e90e5605fcfed02f1b70d4ba3b9b}{Quested}{Q\bibinitperiod}{Digby}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d593b18b58e665bf5a8eaf240f443d84}{Rasmussen}{R\bibinitperiod}{Henrik\bibnamedelima B.}{H\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c445e7af22af8d7a50405147d4c05c74}{Reichenberg}{R\bibinitperiod}{Abraham}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6991f1376cf3a46087c048bd7c7d23ee}{Reimers}{R\bibinitperiod}{Mark\bibnamedelima a.}{M\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e8a099ee32d3b1e9e4f4d33b6bae42de}{Richards}{R\bibinitperiod}{Alexander\bibnamedelima L.}{A\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3f25c82228f03dfbcbce23e5f7eeece4}{Roffman}{R\bibinitperiod}{Joshua\bibnamedelima L.}{J\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f65bd3cd5a6eb6bb350f7850da505bee}{Roussos}{R\bibinitperiod}{Panos}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a6126b29c3f643db2ea08dcbdc51b998}{Ruderfer}{R\bibinitperiod}{Douglas\bibnamedelima M.}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=46d755722459135eadad3b541914d99b}{Salomaa}{S\bibinitperiod}{Veikko}{V\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=49fced52d644dbe9498d357bbe726000}{Sanders}{S\bibinitperiod}{Alan\bibnamedelima R.}{A\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f787d2be6975f4c7d2a5413265c065f6}{Schall}{S\bibinitperiod}{Ulrich}{U\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ca41ff8bec1328d14e90f536468fc0ad}{Schubert}{S\bibinitperiod}{Christian\bibnamedelima R.}{C\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5d4577e81f9b1fccffc4dd34d215aa4f}{Schulze}{S\bibinitperiod}{Thomas\bibnamedelima G.}{T\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=246a66d5b2ba55a7159851e56c1e3b73}{Schwab}{S\bibinitperiod}{Sibylle\bibnamedelima G.}{S\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=94acaf35d73ec66caad1b9910c5d661f}{Scolnick}{S\bibinitperiod}{Edward\bibnamedelima M.}{E\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7d5cc3c9416728152fc1bec3c576c957}{Scott}{S\bibinitperiod}{Rodney\bibnamedelima J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0106aee1ff1fd71070c708634fd94b93}{Seidman}{S\bibinitperiod}{Larry\bibnamedelima J.}{L\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3b4049dd6270ee11f4666536f2e7243f}{Shi}{S\bibinitperiod}{Jianxin}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=1e8651a4cfb97985cbffe0940b86711b}{Sigurdsson}{S\bibinitperiod}{Engilbert}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b90b31fd488c85c3bcb19839e082de2e}{Silagadze}{S\bibinitperiod}{Teimuraz}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=212e590439806b2b52b4e2b90df8a6be}{Silverman}{S\bibinitperiod}{Jeremy\bibnamedelima M.}{J\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2c1f04b652e1f75d432f09253656777c}{Sim}{S\bibinitperiod}{Kang}{K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=af7d8294f2d87de958d96a3d5b684eb5}{Slominsky}{S\bibinitperiod}{Petr}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4366df7f94d350ffcf52f0b587ab9ef5}{Smoller}{S\bibinitperiod}{Jordan\bibnamedelima W.}{J\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a46718b50fa0bc76667747ca71a0c3ee}{So}{S\bibinitperiod}{Hon-Cheong}{H\bibinithyphendelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f11155f738aed89beace4802db06192c}{Spencer}{S\bibinitperiod}{ChrisC.\bibnamedelimi a.}{C\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6b82e5a0fcbf171f983e29a9cd0b054c}{Stahl}{S\bibinitperiod}{Eli\bibnamedelima a.}{E\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=30649c3cc3287818df8f917f83cf4da3}{Stefansson}{S\bibinitperiod}{Hreinn}{H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=04cdfbc47e268f2334bbf803dd86eb80}{Steinberg}{S\bibinitperiod}{Stacy}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=751bcb4ec61f7323c239b49a52847e8a}{Stogmann}{S\bibinitperiod}{Elisabeth}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=45d3c2183c3dfb6e162edbdab9aef2c7}{Straub}{S\bibinitperiod}{Richard\bibnamedelima E.}{R\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=297734e6f1df3329a0886ccb2eff345f}{Strengman}{S\bibinitperiod}{Eric}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=27f4ffdf8cc7cc7ff768b4edd12d0c2b}{Strohmaier}{S\bibinitperiod}{Jana}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=37d291d1fd2f0072e94923ab5dbf9c9f}{{Scott\bibnamedelimb Stroup}}{S\bibinitperiod}{T.}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=1f8cc120f2c3e180864c9ac9f0518f27}{Subramaniam}{S\bibinitperiod}{Mythily}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=eecf772a1cd6fb5e18eb9a58d14c3f3b}{Suvisaari}{S\bibinitperiod}{Jaana}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0c729919ec9c516cbd7e30f9eb895d81}{Svrakic}{S\bibinitperiod}{Dragan\bibnamedelima M.}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=adf4c1dc354d1029f4b278949500d717}{Szatkiewicz}{S\bibinitperiod}{Jin\bibnamedelima P.}{J\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=cd4aec21058a4cfd2fd9517112396d88}{S\"{o}derman}{S\bibinitperiod}{Erik}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2241085cd8245c19075fdb0f9b630c4c}{Thirumalai}{T\bibinitperiod}{Srinivas}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=79782e1e369f7e313bf713ee1c27bc86}{Toncheva}{T\bibinitperiod}{Draga}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c05f76a0ec37d37b2a26f1e5e783032d}{Tosato}{T\bibinitperiod}{Sarah}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=27f438be8a67588377dca286f58e8754}{Veijola}{V\bibinitperiod}{Juha}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d5b954d6af8225366bee77886150b0be}{Waddington}{W\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ea6ad99057bba63386219bfc987b651a}{Walsh}{W\bibinitperiod}{Dermot}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3a92ac28b35a3a61c13bc78f47b3cab2}{Wang}{W\bibinitperiod}{Dai}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=42b03d7a28c97c101e0a62ee7baba8f9}{Wang}{W\bibinitperiod}{Qiang}{Q\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d1de405cfa4d2db900c9d711aad80265}{Webb}{W\bibinitperiod}{Bradley\bibnamedelima T.}{B\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9a4cd1345f5dc5a1be20fa1032d65d9f}{Weiser}{W\bibinitperiod}{Mark}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f943e942ce330a2aa8fd0ce597c35e3e}{Wildenauer}{W\bibinitperiod}{Dieter\bibnamedelima B.}{D\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bcf1b960420ff7302812c470e2e97c63}{Williams}{W\bibinitperiod}{Nigel\bibnamedelima M.}{N\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c7c71d18e775836a6446cf376724222a}{Williams}{W\bibinitperiod}{Stephanie}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=192d9f2895177e1f90b8e4d5c71253e0}{Witt}{W\bibinitperiod}{Stephanie\bibnamedelima H.}{S\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=51addbf275529b9faee06fc1785b4660}{Wolen}{W\bibinitperiod}{Aaron\bibnamedelima R.}{A\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f6c9a3230395c46ba271bb533b69ba78}{Wong}{W\bibinitperiod}{Emily\bibnamedelimb H.\bibnamedelimi M.}{E\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=741eb6c4d3a5b1f9ee5f3068eab3086e}{Wormley}{W\bibinitperiod}{Brandon\bibnamedelima K.}{B\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b4ca24bbee166571325a5afba3cd8215}{{Simon\bibnamedelimb Xi}}{S\bibinitperiod}{Hualin}{H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=085477ba9718b40e4586fcc0413c329a}{Zai}{Z\bibinitperiod}{Clement\bibnamedelima C.}{C\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b8b038c78211158376683ecbf7848c18}{Zheng}{Z\bibinitperiod}{Xuebin}{X\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e4caaa855caeca2ba7203ed462e974d5}{Zimprich}{Z\bibinitperiod}{Fritz}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7a1b8010d561f938e4c358a8f962a23e}{Wray}{W\bibinitperiod}{Naomi\bibnamedelima R.}{N\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6861da5029d16b5bde325b90a04cd126}{Stefansson}{S\bibinitperiod}{Kari}{K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=70a1e370afbab507384b2baa9c0357b6}{Visscher}{V\bibinitperiod}{Peter\bibnamedelima M.}{P\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8926c6a8cc54cb62b0d1077d700c7331}{{Trust\bibnamedelimb Case-Control\bibnamedelimb Consortium}}{T\bibinitperiod}{Wellcome}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=121027c65c5db3dfcba662ba21553ab7}{Adolfsson}{A\bibinitperiod}{Rolf}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=11ff9666c7ac73c6ed2d0bbc31580d51}{Andreassen}{A\bibinitperiod}{Ole\bibnamedelima a.}{O\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=469e4415d561b2feebd7b40503a1d2f8}{Blackwood}{B\bibinitperiod}{Douglas\bibnamedelimb H.\bibnamedelimi R.}{D\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=dcd5e23b5450da835018c1482825f2a8}{Bramon}{B\bibinitperiod}{Elvira}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=da5840a2d23dd6ca57eb10cd2852d26a}{Buxbaum}{B\bibinitperiod}{Joseph\bibnamedelima D.}{J\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9d90a39441bb68ab2ea020d7e34507fd}{B\o{}rglum}{B\bibinitperiod}{Anders\bibnamedelima D.}{A\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c37e0f3cfc5f749ecf546dc4d67c395f}{Cichon}{C\bibinitperiod}{Sven}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5dc5e8daf87b2a9c3026829a20b1baa8}{Darvasi}{D\bibinitperiod}{Ariel}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a73e98b1b7167e7aa2103abafb053306}{Domenici}{D\bibinitperiod}{Enrico}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d72a7f6f8481644e50113ee7960b8cd2}{Ehrenreich}{E\bibinitperiod}{Hannelore}{H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8f66478fe9d00f56e992db565f96bc4d}{Esko}{E\bibinitperiod}{T\~{o}nu}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3e605ebac8c55add7e9d5f3d55fe71bc}{Gejman}{G\bibinitperiod}{Pablo\bibnamedelima V.}{P\bibinitperiod\bibinitdelim V\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=66a9a2f192012c0045115505484a214d}{Gill}{G\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=aee1296292cb9357e90a7b234e256261}{Gurling}{G\bibinitperiod}{Hugh}{H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0ebe0cd9b4316fc20beac55cfbc5fcb2}{Hultman}{H\bibinitperiod}{Christina\bibnamedelima M.}{C\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=870c5913201a3bb18fec293b9dce1c66}{Iwata}{I\bibinitperiod}{Nakao}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=806f03b55c6a259c46ab28d959cb56a2}{Jablensky}{J\bibinitperiod}{Assen\bibnamedelima V.}{A\bibinitperiod\bibinitdelim V\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b2511c672182b4c986c7d4fcb4e9aa08}{J\"{o}nsson}{J\bibinitperiod}{Erik\bibnamedelima G.}{E\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8988fb85240e07d998b2e5430b6a80f9}{Kendler}{K\bibinitperiod}{Kenneth\bibnamedelima S.}{K\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c4737b99ec738691a1c4a230a368936e}{Kirov}{K\bibinitperiod}{George}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bb914cd6c963af43de2871c8b5e0499e}{Knight}{K\bibinitperiod}{Jo}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=afdcd052aa6056b343864e153f990750}{Lencz}{L\bibinitperiod}{Todd}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bcca73e0e8381a3d1fb8c4ac5c0658b5}{Levinson}{L\bibinitperiod}{Douglas\bibnamedelima F.}{D\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b66d925525128d7362354e08252bd88c}{Li}{L\bibinitperiod}{Qingqin\bibnamedelima S.}{Q\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f8f15f1f63daf495148e232e3d5124dd}{Liu}{L\bibinitperiod}{Jianjun}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d8c71e94bce8f3b4ec44cf992c1333ad}{Malhotra}{M\bibinitperiod}{Anil\bibnamedelima K.}{A\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f8394409abd15a44a8d203a1baf5d379}{McCarroll}{M\bibinitperiod}{Steven\bibnamedelima a.}{S\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b4e3bbce171798963a9578f16f0332fa}{McQuillin}{M\bibinitperiod}{Andrew}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a05d4f81ddce82019ece4d317b4739a3}{Moran}{M\bibinitperiod}{Jennifer\bibnamedelima L.}{J\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=08c0e2b9b1c3e48a79929342f774e20a}{Mortensen}{M\bibinitperiod}{Preben\bibnamedelima B.}{P\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=61d04182567f2ea52451468ea3d9b523}{Mowry}{M\bibinitperiod}{Bryan\bibnamedelima J.}{B\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=01608f323ec6606ae8cf887589ef19ab}{N\"{o}then}{N\bibinitperiod}{Markus\bibnamedelima M.}{M\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d46c35dce734de60b8b56bf0bd9b6985}{Ophoff}{O\bibinitperiod}{Roel\bibnamedelima a.}{R\bibinitperiod\bibinitdelim a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=43488d7d949ae5f511405e6eeaa7a839}{Owen}{O\bibinitperiod}{Michael\bibnamedelima J.}{M\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=17ea5643a78162d18ae61260b3166431}{Palotie}{P\bibinitperiod}{Aarno}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=12c55c880f34f72aa272cdcde8b5f3e5}{Pato}{P\bibinitperiod}{Carlos\bibnamedelima N.}{C\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a7455e53d68ac932dab470201145a393}{Petryshen}{P\bibinitperiod}{Tracey\bibnamedelima L.}{T\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=91926a8bb05a2e3f38ef519124a5b6d1}{Posthuma}{P\bibinitperiod}{Danielle}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bed5a5e24b9d7b037784f16273fabaff}{Rietschel}{R\bibinitperiod}{Marcella}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=aaf2bfc381f19b1b509139ff0815681b}{Riley}{R\bibinitperiod}{Brien\bibnamedelima P.}{B\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e6c9893371dc83b0513afd81279006e8}{Rujescu}{R\bibinitperiod}{Dan}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a77a077996613f3361180a38332bee84}{Sham}{S\bibinitperiod}{Pak\bibnamedelima C.}{P\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=28b9d03e619bb844001bf8781570da39}{Sklar}{S\bibinitperiod}{Pamela}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a00541a5f591e3b309b246aaa0348e6a}{{St\bibnamedelimb Clair}}{S\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a3e1572436001a53cb5c5afba3ef63f5}{Weinberger}{W\bibinitperiod}{Daniel\bibnamedelima R.}{D\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=381abb4e0de4bfdc7865611f66592fbb}{Wendland}{W\bibinitperiod}{Jens\bibnamedelima R.}{J\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c9fce9dfe2eb3cda0efcff0b0b1aa388}{Werge}{W\bibinitperiod}{Thomas}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6f8f4035c0d639525e9f959a4aa23f48}{Daly}{D\bibinitperiod}{Mark\bibnamedelima J.}{M\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=65b981c72831aeb5da1407b863a18247}{Sullivan}{S\bibinitperiod}{Patrick\bibnamedelima F.}{P\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9cbdce8a45b1d189906cb35fa614cd0f}{O\x{fffd}\x{fffd}\x{fffd}Donovan}{O\bibinitperiod}{Michael\bibnamedelima C.}{M\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{1600e58d3124d3a726094f50acb59903}
+      \strng{fullhash}{6dfd60d7c71b5b5a5081972c11d14029}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelyear}{2014}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Schizophrenia is a highly heritable disorder. Genetic risk is conferred by a large number of alleles, including common alleles of small effect that might be detected by genome-wide association studies. Here we report a multi-stage schizo- phrenia genome-wide association study of up to 36,989 cases and 113,075 controls. We identify 128 independent asso- ciations spanning 108 conservatively defined loci that meet genome-wide significance, 83 of which have not been previously reported. Associations were enriched among genes expressed in brain, providing biological plausibility for the findings. Many findings have the potential to provide entirely new insights into aetiology, but associations at DRD2 and several genes involved in glutamatergic neurotransmission highlight molecules of known and potential therapeutic relevancetoschizophrenia,andareconsistentwithleadingpathophysiologicalhypotheses. Independentofgenesexpressed in brain, associations were enriched among genes expressed in tissues that have important roles in immunity, providing support for the speculated link between the immune systemand schizophrenia.}
+      \field{isbn}{0028-0836}
+      \field{issn}{0028-0836}
+      \field{journaltitle}{Nature}
+      \field{title}{{Biological insights from 108 schizophrenia-associated genetic loci}}
+      \field{volume}{511}
+      \field{year}{2014}
+      \field{pages}{421\bibrangedash 427}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1038/nature13595
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Biological insights from 108 schizophrenia-associated genetic loci.pdf:pdf;:C$\backslash$:/Users/swchoi/Dropbox/Papers/Biological insights from 108 schizophrenia-associated genetic loci - supplementary.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.nature.com/doifinder/10.1038/nature13595
+      \endverb
+      \keyw{Schizophrenia,Schizophrenia: genetics}
     \endentry
   \endsortlist
 \endrefsection

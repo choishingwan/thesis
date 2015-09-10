@@ -1,0 +1,21 @@
+% WARNING - This is exported REVIGO data useful only for the specific purpose of constructing a TreeMap visualization.,,,,,,,
+% Do not use this table as a general list of non-redundant GO categories, as it sets an extremely permissive ,,,,,,
+% threshold to detect redundancies (c=0.10) and fill the 'representative' column, while normally c>=0.4 is recommended.,,,,,,
+% To export a reduced-redundancy set of GO terms, go to the Scatterplot & Table tab, and export to CSV from there.,,,,,
+term_ID,description,frequencyInDb,log10pvalue,uniqueness,dispensability,representative,0.003125
+GO:0002702,positive regulation of production of molecular mediator of immune response,0.11%,-3.2069,0.821,0,positive regulation of production of molecular mediator of immune response,0.000621012
+GO:0002821,positive regulation of adaptive immune response,19.04%,-4.2132,0.722,0.297,positive regulation of production of molecular mediator of immune response,6.12068E-05
+GO:0009607,response to biotic stimulus,1.60%,-3.2118,0.903,0,response to biotic stimulus,0.000614045
+GO:0019752,carboxylic acid metabolic process,2.89%,-5.308,0.566,0,carboxylic acid metabolism,4.9204E-06
+GO:0006536,glutamate metabolic process,0.05%,-3.451,0.632,0.604,carboxylic acid metabolism,0.000353997
+GO:1901565,organonitrogen compound catabolic process,4.37%,-3.7011,0.755,0.145,carboxylic acid metabolism,0.000199022
+GO:0006082,organic acid metabolic process,3.11%,-3.9872,0.68,0.493,carboxylic acid metabolism,0.000102991
+GO:0044281,small molecule metabolic process,13.54%,-3.3625,0.756,0.352,carboxylic acid metabolism,0.00043401
+GO:0007417,central nervous system development,2.24%,-4.2262,0.599,0.026,central nervous system development,5.94019E-05
+GO:0021762,substantia nigra development,0.06%,-3.4283,0.667,0.506,central nervous system development,0.000372992
+GO:0014015,positive regulation of gliogenesis,0.10%,-3.1267,0.535,0.532,central nervous system development,0.000746965
+GO:0034103,regulation of tissue remodeling,0.16%,-3.2069,0.647,0.39,central nervous system development,0.000621012
+GO:0032291,axon ensheathment in central nervous system,0.04%,-3.7305,0.551,0.492,central nervous system development,0.000185994
+GO:0030194,positive regulation of blood coagulation,0.05%,-3.3382,0.55,0.281,central nervous system development,0.000458987
+GO:0098542,defense response to other organism,0.78%,-3.0996,0.88,0.476,central nervous system development,0.00079506
+GO:0019835,cytolysis,0.04%,-3.0595,0.907,0.037,cytolysis,0.000871967
