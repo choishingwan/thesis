@@ -29,7 +29,7 @@ datExpr = t(expr)
 names(datExpr) = row.names(expr)
 row.names(datExpr) = names(expr)
 #The softpower won't be used as we don't need to use the hub gene. But we still enter the softpower we used for building the network
-MEs0 = moduleEigengenes(datExpr, modules$moduleColor, softPower=15,excludeGrey=T)$eigengenes
+MEs0 = moduleEigengenes(datExpr, modules$moduleColor, softPower=28,excludeGrey=T)$eigengenes
 MEs = orderMEs(MEs0)
 #Perform correlation between the age and the module eigen-genes
 traits = read.csv(hipMetaFile, row.names=1)
@@ -50,8 +50,20 @@ plotData$Age = 0
 plotData$Age=hipAge
 #plotData$Age=amyAge
 png(paste("Network_Expression_",i,".png",sep=""), width = 8, height = 8, units = 'in', res = 300)
+print(cor(plotData$expression, predict(loess(plotData$expression~plotData$Age))))
 gg=ggplot(plotData, aes(x=Age, y=expression))+geom_point()+labs(x = "Age", y = "Mean log2 PRKM")+theme_classic(base_size = 12)+ theme(axis.text.x = element_text(angle = 50, hjust = 1))+ theme(plot.title = element_text(lineheight=.8, face="bold",size=24),axis.text=element_text(size=16),axis.title=element_text(size=16,face="bold"))+ stat_smooth(method = "loess", formula = y ~ x, size = 0.5,colour="black", alpha = 0.2)+scale_x_discrete(labels = plotData$age, breaks=plotData$Age)#+ ggtitle("Mean Expression of Genes in \nthe Co-expression network")
 print(gg)
 dev.off()
 }
 
+ for(i in 1:nrow(hipMeta)){
+temp = as.character(hipMeta$age)[i]
+temp = strsplit(temp, split=" ")[[1]]
+if(temp[2] == "pcw"){
+hipMeta$Month[i] = as.numeric(as.character(temp[1]))/4
+}else if(temp[2]=="mos"){
+hipMeta$Month[i] = as.numeric(as.character(temp[1]))+10
+}else if (temp[2]=="yrs"){
+hipMeta$Month[i] = as.numeric(as.character(temp[1]))*12+10
+ }
+}

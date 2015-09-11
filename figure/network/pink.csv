@@ -1,0 +1,6 @@
+% WARNING - This is exported REVIGO data useful only for the specific purpose of constructing a TreeMap visualization.
+% Do not use this table as a general list of non-redundant GO categories, as it sets an extremely permissive 
+% threshold to detect redundancies (c=0.10) and fill the 'representative' column, while normally c>=0.4 is recommended.
+% To export a reduced-redundancy set of GO terms, go to the Scatterplot & Table tab, and export to CSV from there.
+term_ID,description,frequencyInDb,log10pvalue,uniqueness,dispensability,representative
+GO:0007010,"cytoskeleton organization",0.151%,-3.5045,1.000,0.000,"cytoskeleton organization"

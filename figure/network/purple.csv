@@ -1,0 +1,26 @@
+% WARNING - This is exported REVIGO data useful only for the specific purpose of constructing a TreeMap visualization.
+% Do not use this table as a general list of non-redundant GO categories, as it sets an extremely permissive 
+% threshold to detect redundancies (c=0.10) and fill the 'representative' column, while normally c>=0.4 is recommended.
+% To export a reduced-redundancy set of GO terms, go to the Scatterplot & Table tab, and export to CSV from there.
+term_ID,description,frequencyInDb,log10pvalue,uniqueness,dispensability,representative
+GO:0007389,"pattern specification process",1.143%,-7.9431,0.501,0.000,"pattern specification process"
+GO:0044767,"single-organism developmental process",12.982%,-5.8041,0.400,0.698,"pattern specification process"
+GO:0007386,"compartment pattern specification",0.008%,-3.0164,0.577,0.626,"pattern specification process"
+GO:0048468,"cell development",4.830%,-4.1720,0.386,0.474,"pattern specification process"
+GO:0051961,"negative regulation of nervous system development",0.021%,-4.1024,0.406,0.392,"pattern specification process"
+GO:0003002,"regionalization",0.918%,-6.7100,0.437,0.424,"pattern specification process"
+GO:0060562,"epithelial tube morphogenesis",0.858%,-3.2765,0.498,0.619,"pattern specification process"
+GO:0002326,"B cell lineage commitment",0.040%,-3.5331,0.549,0.316,"pattern specification process"
+GO:0009887,"organ morphogenesis",2.260%,-4.0846,0.441,0.560,"pattern specification process"
+GO:0021910,"smoothened signaling pathway involved in ventral spinal cord patterning",0.017%,-3.2351,0.442,0.662,"pattern specification process"
+GO:0021983,"pituitary gland development",0.223%,-5.3625,0.493,0.367,"pattern specification process"
+GO:0045596,"negative regulation of cell differentiation",1.429%,-4.0926,0.245,0.638,"pattern specification process"
+GO:0021696,"cerebellar cortex morphogenesis",0.085%,-3.2351,0.511,0.692,"pattern specification process"
+GO:0021938,"smoothened signaling pathway involved in regulation of cerebellar granule cell precursor cell proliferation",0.013%,-4.0079,0.441,0.524,"pattern specification process"
+GO:0032502,"developmental process",13.055%,-5.2907,0.958,0.000,"developmental process"
+GO:0045892,"negative regulation of transcription, DNA-templated",2.182%,-4.0635,0.473,0.000,"negative regulation of transcription, DNA-templated"
+GO:0043504,"mitochondrial DNA repair",0.010%,-3.0164,0.805,0.245,"negative regulation of transcription, DNA-templated"
+GO:0050857,"positive regulation of antigen receptor-mediated signaling pathway",0.052%,-3.0164,0.766,0.155,"negative regulation of transcription, DNA-templated"
+GO:0048518,"positive regulation of biological process",28.712%,-3.0921,0.847,0.138,"negative regulation of transcription, DNA-templated"
+GO:0045944,"positive regulation of transcription from RNA polymerase II promoter",2.089%,-3.1537,0.618,0.534,"negative regulation of transcription, DNA-templated"
+GO:2000637,"positive regulation of gene silencing by miRNA",0.005%,-3.0164,0.644,0.524,"negative regulation of transcription, DNA-templated"
