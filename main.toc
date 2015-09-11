@@ -66,70 +66,70 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.2}Case Control Studies}{18}{subsection.3.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.3}Exreme Phenotype Selections}{18}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.3}Exreme Phenotype Selections}{19}{subsection.3.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Result}{18}{section.3.4}
+\contentsline {section}{\numberline {3.4}Result}{19}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Discussion}{18}{section.3.5}
+\contentsline {section}{\numberline {3.5}Discussion}{19}{section.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Heritability of Schizophrenia}{19}{chapter.4}
+\contentsline {chapter}{\numberline {4}Heritability of Schizophrenia}{21}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Introduction}{19}{section.4.1}
+\contentsline {section}{\numberline {4.1}Introduction}{21}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Heritability Estimation}{19}{section.4.2}
+\contentsline {section}{\numberline {4.2}Heritability Estimation}{21}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Methodology}{19}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.1}Methodology}{21}{subsection.4.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}Result}{19}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.2}Result}{21}{subsection.4.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Brain development and Schizophrenia}{19}{section.4.3}
+\contentsline {section}{\numberline {4.3}Brain development and Schizophrenia}{21}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.1}Methodology}{19}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.1}Methodology}{21}{subsection.4.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Sample Quality Controls}{19}{section*.16}
+\contentsline {subsubsection}{Sample Quality Controls}{21}{section*.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Normalization of data}{20}{section*.17}
+\contentsline {subsubsection}{Normalization of data}{22}{section*.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Network Construction}{20}{section*.18}
+\contentsline {subsubsection}{Network Construction}{22}{section*.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Expression correlation with Age}{21}{section*.19}
+\contentsline {subsubsection}{Expression correlation with Age}{23}{section*.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Functional Annotation}{21}{section*.20}
+\contentsline {subsubsection}{Functional Annotation}{23}{section*.20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Associate Co-expression network with PGC schizophrenia data}{21}{section*.21}
+\contentsline {subsubsection}{Associate Co-expression network with PGC schizophrenia data}{23}{section*.21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Partitioning of Heritability}{22}{section*.22}
+\contentsline {subsubsection}{Partitioning of Heritability}{24}{section*.22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.2}Result}{22}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.2}Result}{24}{subsection.4.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Co-Expression Network}{22}{section*.23}
+\contentsline {subsubsection}{Co-Expression Network}{24}{section*.23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Functional Annotation}{22}{section*.26}
+\contentsline {subsubsection}{Functional Annotation}{24}{section*.26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Associate Co-expression network with PGC schizophrenia data}{25}{section*.29}
+\contentsline {subsubsection}{Associate Co-expression network with PGC schizophrenia data}{27}{section*.29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Partitioning of Heritability}{26}{section*.30}
+\contentsline {subsubsection}{Partitioning of Heritability}{28}{section*.30}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Discussion}{26}{section.4.4}
+\contentsline {section}{\numberline {4.4}Discussion}{28}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Heritability of Response to antipsychotic treatment}{27}{chapter.5}
+\contentsline {chapter}{\numberline {5}Heritability of Response to antipsychotic treatment}{29}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Introduction}{27}{section.5.1}
+\contentsline {section}{\numberline {5.1}Introduction}{29}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Methodology}{27}{section.5.2}
+\contentsline {section}{\numberline {5.2}Methodology}{29}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Result}{27}{section.5.3}
+\contentsline {section}{\numberline {5.3}Result}{29}{section.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}Discussion}{27}{section.5.4}
+\contentsline {section}{\numberline {5.4}Discussion}{29}{section.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Risk Prediction}{29}{chapter.6}
+\contentsline {chapter}{\numberline {6}Risk Prediction}{31}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}Methodology}{29}{section.6.1}
+\contentsline {section}{\numberline {6.1}Methodology}{31}{section.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.1}Simulation}{29}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.1}Simulation}{31}{subsection.6.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Result}{29}{section.6.2}
+\contentsline {section}{\numberline {6.2}Result}{31}{section.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}Discussion}{29}{section.6.3}
+\contentsline {section}{\numberline {6.3}Discussion}{31}{section.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Conclusion}{31}{chapter.7}
+\contentsline {chapter}{\numberline {7}Conclusion}{33}{chapter.7}
