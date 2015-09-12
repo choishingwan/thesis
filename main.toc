@@ -26,15 +26,37 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.6}Risk Prediction}{5}{section.2.6}
 \defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.6.1}Polygenic Scores}{5}{subsection.2.6.1}
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Literature Review II: Schizophrenia}{7}{chapter.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}Disease Background}{7}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Epidemiological Studies}{7}{section.3.2}
+\contentsline {subsection}{\numberline {3.1.1}Phenotype}{7}{subsection.3.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Challenges}{7}{section.3.3}
+\contentsline {subsection}{\numberline {3.1.2}Comorbidity}{8}{subsection.3.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Summary}{7}{section.3.4}
+\contentsline {section}{\numberline {3.2}Disease Mechanisms}{8}{section.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.1}Twin Studies}{8}{subsection.3.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.2}Epidemiological Studies}{8}{subsection.3.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.3}Genetic Risk Factors}{8}{subsection.3.2.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Common genetic Variation}{8}{section*.14}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Rare Genetic Variation}{8}{section*.15}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.4}Environmental Risk Factors}{8}{subsection.3.2.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Maternal Immune Activation}{8}{section*.16}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}Current Treatments}{8}{section.3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.1}Antipsychotics}{8}{subsection.3.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.2}Pharmacogenetics and Pharmacogenomics}{8}{subsection.3.3.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Heritability Estimation}{9}{chapter.4}
 \defcounter {refsection}{0}\relax 
@@ -82,29 +104,29 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.3.1}Methodology}{23}{subsection.5.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Sample Quality Controls}{23}{section*.15}
+\contentsline {subsubsection}{Sample Quality Controls}{23}{section*.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Normalization of data}{24}{section*.16}
+\contentsline {subsubsection}{Normalization of data}{24}{section*.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Network Construction}{24}{section*.17}
+\contentsline {subsubsection}{Network Construction}{24}{section*.20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Expression correlation with Age}{25}{section*.18}
+\contentsline {subsubsection}{Expression correlation with Age}{25}{section*.21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Functional Annotation}{25}{section*.19}
+\contentsline {subsubsection}{Functional Annotation}{25}{section*.22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Associate Co-expression network with PGC schizophrenia data}{25}{section*.20}
+\contentsline {subsubsection}{Associate Co-expression network with PGC schizophrenia data}{25}{section*.23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Partitioning of Heritability}{26}{section*.21}
+\contentsline {subsubsection}{Partitioning of Heritability}{26}{section*.24}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.3.2}Result}{26}{subsection.5.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Co-Expression Network}{26}{section*.22}
+\contentsline {subsubsection}{Co-Expression Network}{26}{section*.25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Functional Annotation}{26}{section*.25}
+\contentsline {subsubsection}{Functional Annotation}{26}{section*.28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Associate Co-expression network with PGC schizophrenia data}{29}{section*.28}
+\contentsline {subsubsection}{Associate Co-expression network with PGC schizophrenia data}{29}{section*.31}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Partitioning of Heritability}{30}{section*.29}
+\contentsline {subsubsection}{Partitioning of Heritability}{30}{section*.32}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.4}Discussion}{30}{section.5.4}
 \defcounter {refsection}{0}\relax 
