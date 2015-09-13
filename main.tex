@@ -18,8 +18,8 @@
 \usepackage{wrapfig}
 \usepackage{longtable}
 \usepackage{subfig}
-\usepackage[natbib=true,subentry,backend=biber,sorting=none,citestyle=authoryear-comp]{biblatex}
-\addbibresource{citation/Thesis.bib}
+\usepackage[natbib=true,subentry,backend=biber,sorting=nyvt,citestyle=authoryear-comp]{biblatex}
+\addbibresource[datatype=bibtex]{citation/Thesis.bib}
 \usepackage[hidelinks]{hyperref}
 \usepackage{geometry}
 \geometry{
@@ -31,7 +31,6 @@
 	headsep=2ex,          % <-- and this
 }
 \usepackage{fancyhdr}
-\usepackage{fixltx2e}
 \usepackage[acronym,nomain,toc,makeindex ]{glossaries}
 \usepackage{cleveref} %This need to be the last package for it to work properly 
 \newcommand{\beginsupplement}{%
@@ -40,6 +39,14 @@
 	\setcounter{figure}{0}
 	\renewcommand{\thefigure}{S\arabic{figure}}%
 }
+\DeclareSourcemap{
+	\maps[datatype=bibtex]{
+		\map{
+			\step[fieldset=url, null]
+		}
+	}
+}
+
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -82,7 +89,8 @@
 \newacronym{GO}{GO}{Gene Ontology}
 \newacronym{MAGMA}{MAGMA}{Multi-marker Analysis of GenoMic Annotation}
 \newacronym{ngs}{NGS}{Next Generation Sequencing}
-%\raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
+\newacronym{dsm5}{DSM-5}{Diagnostic and Statistical Manual of Mental Disorders, 5th Edition}
+\raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 \makeindex
 \begin{document}\thispagestyle{empty}
 \pagestyle{empty}
@@ -157,66 +165,144 @@
 \pagestyle{fancy}
 	\chapter{Introduction}
 		%\addcontentsline{toc}{chapter}{Introduction}
-	\chapter*{Some considerations}
-	\begin{enumerate}
-		\item PRSice requires the phenotype to aid its selection (More information= stronger)
-		\item It seems like LDSC doesn't necessary perform badly in oligogenic situation.
-		Rather, it is that when the trait is oligogenic, it is more likely for LDSC to behaviour in a strange way.
-		\item For each condition: extreme phenotype, quantitative trait, case control, we can have a separated review. 
-		Discuss on the benefits and challenges of each condition and the method we deal with them.
-		So we can have two chapters (case control, quantitative trait) where extreme phenotype can be a big subsection within quantitative trait.
-		\item For each chapter, there will be this introduction (review on the method), our methodology (Calculation, implementation and also simulation), result (the simulation result). 
-		Then we can have the application (PGC, network)
-	\end{enumerate}
-	Things that I have to include
-	\begin{enumerate}
-		\item Schizophrenia
-		\begin{enumerate}
-			\item Case Control (PGC) \\ LDSC has basically did everything related to partitioning and genetic correlation, so we should focus on the brain network instead
-			\item Drug Response \\ No one has done it before, should have a brief section here. 
-			Focus should be with the \emph{heritability} of response, not to identify the variants.
-			However, we can try to partition the heritability of drug response too.\\
-			Is it really related to genetics? 
-			Or is it something related to environmental?
-			e.g. Discouraging family members leads to not adhere to medicine
-		\end{enumerate}
-		\item Heritability Estimation \\ This part should be straightforward, just the algorithm and the simulation results
 		
-	\end{enumerate}
+	%\chapter*{Some considerations}
+	%\begin{enumerate}
+	%	\item PRSice requires the phenotype to aid its selection (More information= stronger)
+	%	\item It seems like LDSC doesn't necessary perform badly in oligogenic situation.
+	%	Rather, it is that when the trait is oligogenic, it is more likely for LDSC to behaviour in a strange way.
+	%	\item For each condition: extreme phenotype, quantitative trait, case control, we can have a separated review. 
+	%	Discuss on the benefits and challenges of each condition and the method we deal with them.
+	%	So we can have two chapters (case control, quantitative trait) where extreme phenotype can be a big subsection within quantitative trait.
+	%	\item For each chapter, there will be this introduction (review on the method), our methodology (Calculation, implementation and also simulation), result (the simulation result). 
+	%	Then we can have the application (PGC, network)
+	%\end{enumerate}
+	%Things that I have to include
+	%\begin{enumerate}
+	%	\item Schizophrenia
+	%	\begin{enumerate}
+	%		\item Case Control (PGC) \\ LDSC has basically did everything related to partitioning and genetic correlation, so we should focus on the brain network instead
+	%		\item Drug Response \\ No one has done it before, should have a brief section here. 
+	%		Focus should be with the \emph{heritability} of response, not to identify the variants.
+	%		However, we can try to partition the heritability of drug response too.\\
+	%		Is it really related to genetics? 
+	%		Or is it something related to environmental?
+	%		e.g. Discouraging family members leads to not adhere to medicine
+	%	\end{enumerate}
+	%	\item Heritability Estimation \\ This part should be straightforward, just the algorithm and the simulation results
+		
+	%\end{enumerate}
+	
 	\chapter{Literature Review I: Identifying the Genetic Contributions}
 	\chaptermark{Genetic Contributions}
+	% Disease can be influence by both genetic and environmental factors.
+	% WHY DO WE WANT TO IDENTIFY THE GENETIC CONTRIBUTIONS?
+	% Both nature and nurture are important for disease understanding
+	% Environment sometimes difficult collect (e.g. diet)
+	% Being stable, objective, ideal for identifying, characterizing and clustering samples
+	% Personalize medicine
+	% Help to identify disease mechanisms
+	% Deeping understanding of the pathway / biological procedures involved in the disease
+	% Allow development of treatments (targeting the pathway)
+	% Therefore it is important for one to identify the genetic contribution of a trait
+	
+	% First step in finding genetic contributions -> understand whether if the trait is heritable
+	% Twin Studies
+	% ACE model
+	
+	% Then, linkage study such to identify genetic elemetns segregate with disease status
+	% Extreme phenotype selection should also be here
+	
+	% New era on GWAS
+	% Brief explain the concept of GWAS
+	% How GWAS is applied to disease discoveries?
+	% Problem of GWAS -> Cannot identify rare genotypes
+	% Limited resolution
+	
+	% NGS
+	% High Resolution (per base resolution)
+	% Can identify rare genotypes
+	% Can somtimes allow one to pin-point the causal variants 
+	
+	% Heritability Estimation
+	% Based on the GWAS and NGS data, one can identify the narrow sense heritability
+	% GCTA, with the sample genotype, one can calculate the heritability
+	% Problem with Case Control samples
+	% The liability threshold model
+	
+	% Next stage in genetic research
+	% Risk prediction
+	% Difficult -> Causual variants remain largely unknown
+	% Polygenic Score -> How does it work?
+	% Current situation of risk prediction -> Not good
+	
 	The concept of Literature Review is that they are things that happened \emph{before} the studies in this thesis.
 	They should be the disease background and what has happened so far. 
 	Also one should identify the research gap based on the current situation and therefore leads to the current study.
 	
-	\section{Family Studies}
 	\section{Twin and Adoption Studies}
 	%remember, our focus is in the heritability, not trying to separate the genetics and the environment. 
 	Should briefly talk about how Twin modeling was used for finding the GE contribution.
 	Should also mention the ACE model.
-	At the end, we can talk about the heritability estimates of SCZ and ADs
+	\section{Family Studies}
+	
 	\section{\glsentrylongpl{GWAS}}
 	%The background of GWAS, the hypothesis and concept
 	%The sucess and limitation
 	\section{\glsentrylongpl{ngs} Studies}
 	\section{Narrow Sense Heritability}
 	\subsection{\glsentrylong{gcta}}
+	\subsection{Liability Threshold}
+	
 	\section{Risk Prediction}
 	%This part I am uncertain. Focus on finishing the previous sections first. 
 	\subsection{Polygenic Scores}
+	
+	
+	
 	\chapter{Literature Review II: \glsentrylong{scz}}
 	\chaptermark{\glsentrylong{scz}}
+	% Disease background
+	% What is schizophrenia?
+	% Disease phenotype?
+	% Disease characteristics? e.g. Comorbidity
+	% How does it affect our society? -> Why do we want to study it?
+	% What do we know about the disease?
+	% Is it hertable? Worth doing genetic research on it?
+	% What are the common risk factors?
+	% Epidemiological studies -> Environmental risk factors
+	% Hypothesis on develomental brian disorders
+	% Schizophrenia genetic researches
+	% Candidate gene studies
+	% CNV and deletion (also the miRNA?)
+	% GWAS -> PGC
+	% Missing heritability?
+	% Difference in heritability estimation? Ben Yip's paper (Lancet)
+	% Calculation problem?
+	
+	% Another aspect of schizophrenia -> Drug treatment
+	% Interesting as it has direct impact into the health of patients
+	% Different people have different response
+	% Personalized medicine?
+	% Problem with drug responds studies
+	% Lack of power, inconsistent findings
+	% More research are required
+	
+	% The followings should be stated in the chapter introduction
+	% Not much studies on the heritability of drug response
+	% Schizophrenia is heritable, but does it mean that the drug response is also heritable?
+	
 	\section{Disease Background}
-	%Fonud at when
-	\gls{scz} is a detrimental psychiatric disorder affecting $\approx1\%$ of the population.
-	It was first discovered at ???? by ???? and every since then, researchers have tried to understand the disease mechanisms and identify the cause of the disorder in the hope of finding a cure. 
-	\subsection{Phenotype}
-	\gls{scz} patient typically demonstrate ....
-	According to the DSM IV, a diagnosis of \gls{scz} can be made when the patient demonstrate....
+	\gls{scz} is a detrimental psychiatric disorder affecting around $0.3\sim0.7\%$ of the population\citep{AmericanPsychiatricAssociation2013}.
+	\gls{scz} was firsted name as ``dementia praecox'' by Dr. Emil Kraepelin and was later renamed as \acrlong{scz} by Dr. Eugen Bleuler\citep{Jablensky2010}.
+	According to the \gls{dsm5}\citep{AmericanPsychiatricAssociation2013}, \acrlong{scz} is characterized by delusions, hallucinations, disorganized speech, grossly disorganized behavior and negative symptoms such as the diminished emotional expression.
+	Delusions, hallucinations or the disorganized speech must be present for a significant portion of time during a 1-month period and there must be a continuous sign of symptoms for a 6-month period for one to be diagnosis with \acrlong{scz}.
 	
 	\subsection{Comorbidity}
 	
 	\section{Disease Mechanisms}
+	Efforts have been made to identify the genetic cause of \acrlong{scz}.
+	
 	\subsection{Twin Studies}
 	\subsection{Epidemiological Studies}
 	%Ben Yip's paper

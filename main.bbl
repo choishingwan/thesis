@@ -18,73 +18,7 @@
 
 
 \refsection{0}
-  \sortlist{none}{none}
-    \entry{Li2011b}{article}{}
-      \name{author}{4}{}{%
-        {{uniquename=0,hash=f62f549f43c2a6a773391fef98cbf750}{Li}{L\bibinitperiod}{Miao-Xin}{M\bibinithyphendelim X\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=d34d4f7e4b45468d52db231d41382cba}{Yeung}{Y\bibinitperiod}{Juilian\bibnamedelimb M\bibnamedelima Y}{J\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim Y\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=46676619cabe9d4a31d6c7399bf886e6}{Cherny}{C\bibinitperiod}{Stacey\bibnamedelima S}{S\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=7c7b6e384160e2ea994772d9947272e9}{Sham}{S\bibinitperiod}{Pak\bibnamedelima C}{P\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
-      }
-      \strng{namehash}{e0e32a82d2b1391acc6ab43a51b4f9f2}
-      \strng{fullhash}{d8e9548083800d33d7670954b0879fd2}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2011}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{0340-6717, 1432-1203}
-      \field{journaltitle}{Human Genetics}
-      \field{title}{{Evaluating the effective numbers of independent tests and significant p-value thresholds in commercial genotyping arrays and public imputation reference datasets}}
-      \field{volume}{131}
-      \field{year}{2011}
-      \field{pages}{747\bibrangedash 756}
-      \range{pages}{10}
-      \verb{doi}
-      \verb 10.1007/s00439-011-1118-2
-      \endverb
-    \endentry
-    \entry{Project2012}{article}{}
-      \name{author}{6}{}{%
-        {{uniquename=0,hash=f06f9f547912a3d0d5b5da6db3e9c01f}{Project}{P\bibinitperiod}{Genomes}{G\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=f06f9f547912a3d0d5b5da6db3e9c01f}{Project}{P\bibinitperiod}{Genomes}{G\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=fd10847e4a5ae7ba22741f76000c4cc3}{Asia}{A\bibinitperiod}{East}{E\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=4c63f081d1be06ae35e9bd526026deff}{Africa}{A\bibinitperiod}{Saharan}{S\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=6f1e098eb7390e08f8b5daf1f092363b}{Figs}{F\bibinitperiod}{Supplementary}{S\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=060ffa92cb9e0bceb7592c01f8de4f43}{Tables}{T\bibinitperiod}{Supplementary}{S\bibinitperiod}{}{}{}{}}%
-      }
-      \strng{namehash}{db3dce071d197d5ef0c6761821361848}
-      \strng{fullhash}{87411dac6dacdeeac4e1c84eef9f2c3a}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2012}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{By characterizing the geographic and functional spectrum of human genetic variation, the 1000 Genomes Project aims to build a resource to help to understand the genetic contribution to disease. Here we describe the genomes of 1,092 individuals from 14 populations, constructed using a combination of low-coverage whole-genome and exome sequencing. By developing methods to integrate information across several algorithms and diverse data sources, we provide a validated haplotype map of 38\x{fffd}\x{fffd}\x{fffd}million single nucleotide polymorphisms, 1.4\x{fffd}\x{fffd}\x{fffd}million short insertions and deletions, and more than 14,000 larger deletions. We show that individuals from different populations carry different profiles of rare and common variants, and that low-frequency variants show substantial geographic differentiation, which is further increased by the action of purifying selection. We show that evolutionary conservation and coding consequence are key determinants of the strength of purifying selection, that rare-variant load varies substantially across biological pathways, and that each individual contains hundreds of rare non-coding variants at conserved sites, such as motif-disrupting changes in transcription-factor-binding sites. This resource, which captures up to 98\% of accessible single nucleotide polymorphisms at a frequency of 1\% in related populations, enables analysis of common and low-frequency variants in individuals from diverse, including admixed, populations.}
-      \field{eprintclass}{Sherry, S. T., Ward, M. H., Kholodov, M., Baker, J., Phan, L., Smigielski, E. M., \& Sirotkin, K. (2001). dbSNP: the NCBI database of genetic variation. Nucleic acids research, 29(1), 308-11. Retrieved from http:}
-      \field{eprinttype}{arXiv}
-      \field{isbn}{1476-4687 (Electronic)$\backslash$r0028-0836 (Linking)}
-      \field{issn}{00280836}
-      \field{journaltitle}{Nature}
-      \field{number}{V}
-      \field{title}{{An integrated map of genetic variation from 1,092 human genomes}}
-      \field{volume}{135}
-      \field{year}{2012}
-      \field{pages}{\bibrangedash 9}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1038/nature11632
-      \endverb
-      \verb{eprint}
-      \verb /www.pubmedcentral.nih.gov/articlerender.fc
-      \endverb
-      \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/An integrated map of genetic variation from 1,092 human genomes.pdf:pdf
-      \endverb
-      \warn{\item Range field 'pages' in entry 'Project2012' is malformed, skipping}
-    \endentry
+  \sortlist{nyvt}{nyvt}
     \entry{Altshuler2010}{article}{}
       \name{author}{88}{}{%
         {{uniquename=0,hash=695d3f49c440799091efb055955817a4}{Altshuler}{A\bibinitperiod}{David\bibnamedelima M}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
@@ -178,8 +112,8 @@
       }
       \strng{namehash}{437841f3d674d9b7405d23112eefde2c}
       \strng{fullhash}{a31314f5d69e438e2a45621c06b4647b}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
       \field{labelyear}{2010}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
@@ -194,168 +128,37 @@
       \field{year}{2010}
       \field{pages}{52\bibrangedash 58}
       \range{pages}{7}
-      \verb{doi}
-      \verb 10.1038/nature09298
-      \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/Integrating common and rare genetic variation in diverse human populations.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Altshuler et al. - 2010 - Integrating common and rare genetic variation in diverse human populations.pdf:pdf
       \endverb
     \endentry
-    \entry{Shieh2010}{article}{}
+    \entry{AmericanPsychiatricAssociation2013}{book}{}
       \name{author}{1}{}{%
-        {{uniquename=0,hash=fa2542e7bef0eec5965652fb190221d1}{Shieh}{S\bibinitperiod}{G}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3c2bc6f24fd8e3ec1dee1948ed49df96}{{American\bibnamedelimb Psychiatric\bibnamedelimb Association}}{A\bibinitperiod}{}{}{}{}{}{}}%
       }
-      \list{language}{1}{%
-        {eng}%
+      \list{publisher}{1}{%
+        {American Psychiatric Publishing}%
       }
-      \strng{namehash}{fa2542e7bef0eec5965652fb190221d1}
-      \strng{fullhash}{fa2542e7bef0eec5965652fb190221d1}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2010}
+      \strng{namehash}{3c2bc6f24fd8e3ec1dee1948ed49df96}
+      \strng{fullhash}{3c2bc6f24fd8e3ec1dee1948ed49df96}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelyear}{2013}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{This article investigates some unfamiliar properties of the Pearson product-moment correlation coefficient for the estimation of simple correlation coefficient. Although Pearson's r is biased, except for limited situations, and the minimum variance unbiased estimator has been proposed in the literature, researchers routinely employ the sample correlation coefficient in their practical applications, because of its simplicity and popularity. In order to support such practice, this study examines the mean squared errors of r and several prominent formulas. The results reveal specific situations in which the sample correlation coefficient performs better than the unbiased and nearly unbiased estimators, facilitating recommendation of r as an effect size index for the strength of linear association between two variables. In addition, related issues of estimating the squared simple correlation coefficient are also considered.}
-      \field{edition}{2010/12/09}
-      \field{isbn}{1554-3528 (Electronic) 1554-351X (Linking)}
-      \field{journaltitle}{Behav Res Methods}
-      \field{number}{4}
-      \field{title}{{Estimation of the simple correlation coefficient}}
-      \field{volume}{42}
-      \field{year}{2010}
-      \field{pages}{906\bibrangedash 917}
-      \range{pages}{12}
-      \verb{doi}
-      \verb 10.3758/BRM.42.4.906 42/4/906 [pii]
-      \endverb
-      \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Estimation of the simple correlation coefficient.pdf:pdf
-      \endverb
+      \field{abstract}{This new edition of Diagnostic and Statistical Manual of Mental Disorders (DSM-5?), used by clinicians and researchers to diagnose and classify mental disorders, is the product of more than 10 years of effort by hundreds of international experts in all aspects of mental health. Their dedication and hard work have yielded an authoritative volume that defines and classifies mental disorders in order to improve diagnoses, treatment, and research. The criteria are concise and explicit, intended to facilitate an objective assessment of symptom presentations in a variety of clinical settings -- inpatient, outpatient, partial hospital, consultation-liaison, clinical, private practice, and primary care. New features and enhancements make DSM-5? easier to use across all settings: ? The chapter organization reflects a lifespan approach, with disorders typically diagnosed in childhood (such as neurodevelopmental disorders) at the beginning of the manual, and those more typical of older adults (such as neurocognitive disorders) placed at the end. Also included are age-related factors specific to diagnosis. ? The latest findings in neuroimaging and genetics have been integrated into each disorder along with gender and cultural considerations.? The revised organizational structure recognizes symptoms that span multiple diagnostic categories, providing new clinical insight in diagnosis. ? Specific criteria have been streamlined, consolidated, or clarified to be consistent with clinical practice (including the consolidation of autism disorder, Asperger's syndrome, and pervasive developmental disorder into autism spectrum disorder; the streamlined classification of bipolar and depressive disorders; the restructuring of substance use disorders for consistency and clarity; and the enhanced specificity for major and mild neurocognitive disorders).? Dimensional assessments for research and validation of clinical results have been provided.? Both ICD-9-CM and ICD-10-CM codes are included for each disorder, and the organizational structure is consistent with the new ICD-11 in development. The Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, is the most comprehensive, current, and critical resource for clinical practice available to today's mental health clinicians and researchers of all orientations. The information contained in the manual is also valuable to other physicians and health professionals, including psychologists, counselors, nurses, and occupational and rehabilitation therapists, as well as social workers and forensic and legal specialists.}
+      \field{booktitle}{Arlington}
+      \field{isbn}{089042554X}
+      \field{issn}{2317-1782}
+      \field{title}{{Diagnostic and Statistical Manual of Mental Disorders}}
+      \field{year}{2013}
+      \field{pages}{991}
+      \range{pages}{1}
       \verb{url}
-      \verb http://www.ncbi.nlm.nih.gov/pubmed/21139158
+      \verb http://encore.llu.edu/iii/encore/record/C%5C_%5C_Rb1280248%5C_%5C_SDSM-V%5C_%5C_P0,2%5C_%5C_Orightresult%5C_%5C_X3;jsessionid=ABB7428ECBC4BA66625EDD0E0C5AAFA5?lang=eng%5C&suite=cobalt$%5Cbackslash$nhttp://books.google.com/books?id=EIbMlwEACAAJ%5C&pgis=1
       \endverb
-      \keyw{*Statistics as Topic,Regression Analysis}
-    \endentry
-    \entry{Neumaier1998}{article}{}
-      \name{author}{1}{}{%
-        {{uniquename=0,hash=7867d5416dc180390796983c8e58a590}{Neumaier}{N\bibinitperiod}{Arnold}{A\bibinitperiod}{}{}{}{}}%
-      }
-      \strng{namehash}{7867d5416dc180390796983c8e58a590}
-      \strng{fullhash}{7867d5416dc180390796983c8e58a590}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{1998}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{It is shown that the basic regularization procedures for nding meaningful approximate solutions of ill-conditioned or singular linear systems can be phrased and analyzed in terms of classical linear algebra that can be taught in any numerical analysis course. Apart from rewriting many known results in a more elementary form, we also derive a new two-parameter family of merit functions for the determination of the regularization parameter. The traditional merit functions from generalized cross validation (GCV) and generalized maximum likelihood (GML) are recovered as special cases.}
-      \field{isbn}{00361445}
-      \field{issn}{0036-1445}
-      \field{journaltitle}{SIAM Review}
-      \field{number}{3}
-      \field{title}{{Solving Ill-Conditioned and Singular Linear Systems: A Tutorial on Regularization}}
-      \field{volume}{40}
-      \field{year}{1998}
-      \field{pages}{636\bibrangedash 666}
-      \range{pages}{31}
-      \verb{doi}
-      \verb 10.1137/S0036144597321909
-      \endverb
-      \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/SOLVING ILL-CONDITIONED AND SINGULAR LINEAR SYSTEMS A TUTORIAL ON REGULARIZATION.pdf:pdf
-      \endverb
-      \keyw{1,ams subject classifications,error bounds,find,generalized,generalized cross validation,ill-conditioned,ill-posed,in many applications of,introduction,linear algebra,maximum likelihood,primary 65f05,regularization,secondary 65j20,the need arises to,tikhonov regularization}
-    \endentry
-    \entry{eigenweb}{misc}{}
-      \true{moreauthor}
-      \name{author}{2}{}{%
-        {{uniquename=0,hash=32670d1e660cd3381144af1ebb08d86e}{Guennebaud}{G\bibinitperiod}{Ga\"{e}l}{G\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=1b6dac62924fd53d4f500b04996d58d9}{Jacob}{J\bibinitperiod}{Beno$\backslash$\^{}it}{B\bibinitperiod}{}{}{}{}}%
-      }
-      \strng{namehash}{d073c1a4976b71a713a96d8f43b1f9f6}
-      \strng{fullhash}{88ad3a5fe64fc84dea3926ff118c0b09}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2010}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{http://eigen.tuxfamily.org}
-      \field{title}{{Eigen v3}}
-      \field{year}{2010}
-    \endentry
-    \entry{Hansen1987}{article}{}
-      \name{author}{1}{}{%
-        {{uniquename=0,hash=599d9af867e411a6d3061220e140253b}{Hansen}{H\bibinitperiod}{Per\bibnamedelima Christian}{P\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
-      }
-      \list{location}{1}{%
-        {Stanford, CA, USA}%
-      }
-      \strng{namehash}{599d9af867e411a6d3061220e140253b}
-      \strng{fullhash}{599d9af867e411a6d3061220e140253b}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{1987}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{The truncated singular value decomposition (SVD) is considered as a method for regularization of ill-posed linear least squares problems. In particular, the truncated SVD solution is compared with the usual regularized solution. Necessary conditions are defined in which the two methods will yield similar results. This investigation suggests the truncated SVD as a favorable alternative to standard-form regularization in cases of ill-conditioned matrices with well-determined numerical rank.}
-      \field{isbn}{0006-3835}
-      \field{issn}{00063835}
-      \field{journaltitle}{Bit}
-      \field{number}{4}
-      \field{title}{{The truncated SVD as a method for regularization}}
-      \field{volume}{27}
-      \field{year}{1987}
-      \field{pages}{534\bibrangedash 553}
-      \range{pages}{20}
-      \verb{doi}
-      \verb 10.1007/BF01937276
-      \endverb
-      \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/The truncated SVD as a method for regularization.pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://portal.acm.org/citation.cfm?id=891601
-      \endverb
-      \keyw{65F30,891601,AMS subject classification: 65F20,numerical rank,perturbation theory for truncated SVD,regularization in standard form,svd,truncated,truncated SVD}
-    \endentry
-    \entry{Yang2011}{article}{}
-      \name{author}{4}{}{%
-        {{uniquename=0,hash=51e5fb9f55c5b5d1edb17aea3861c908}{Yang}{Y\bibinitperiod}{J}{J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=20964edb25ff5c1ab0389e2abf150e92}{Lee}{L\bibinitperiod}{S\bibnamedelima H}{S\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=d6c6504b2cc5ca1332094b9f4a07076d}{Goddard}{G\bibinitperiod}{M\bibnamedelima E}{M\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=791841f4a3816b307edebd7907ba7fa4}{Visscher}{V\bibinitperiod}{P\bibnamedelima M}{P\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
-      }
-      \list{language}{1}{%
-        {eng}%
-      }
-      \strng{namehash}{e2a55d0b1c12c5c5d4797a727172bf22}
-      \strng{fullhash}{bff3cb4ca12eec589b489ccf4b340c11}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2011}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{For most human complex diseases and traits, SNPs identified by genome-wide association studies (GWAS) explain only a small fraction of the heritability. Here we report a user-friendly software tool called genome-wide complex trait analysis (GCTA), which was developed based on a method we recently developed to address the "missing heritability" problem. GCTA estimates the variance explained by all the SNPs on a chromosome or on the whole genome for a complex trait rather than testing the association of any particular SNP to the trait. We introduce GCTA's five main functions: data management, estimation of the genetic relationships from SNPs, mixed linear model analysis of variance explained by the SNPs, estimation of the linkage disequilibrium structure, and GWAS simulation. We focus on the function of estimating the variance explained by all the SNPs on the X chromosome and testing the hypotheses of dosage compensation. The GCTA software is a versatile tool to estimate and partition complex trait variation with large GWAS data sets.}
-      \field{edition}{2010/12/21}
-      \field{isbn}{1537-6605 (Electronic)0002-9297 (Linking)}
-      \field{journaltitle}{Am J Hum Genet}
-      \field{number}{1}
-      \field{title}{{GCTA: a tool for genome-wide complex trait analysis}}
-      \field{volume}{88}
-      \field{year}{2011}
-      \field{pages}{76\bibrangedash 82}
-      \range{pages}{7}
-      \verb{doi}
-      \verb 10.1016/j.ajhg.2010.11.011S0002-9297(10)00598-7 [pii]
-      \endverb
-      \verb{url}
-      \verb http://www.ncbi.nlm.nih.gov/pubmed/21167468
-      \endverb
-      \keyw{*Polymorphism,Single Nucleotide,*Quantitative Trait Loci,*Software,Chromosomes,Human,X/*genetics,Computer Simulation,Dosage Compensation,Genetic,Female,Genetic Linkage,Genome-Wide Association Study/*methods,Humans,Male,Models,Genetic}
+      \keyw{diagnostic and statistical manual,mental disorder}
     \endentry
     \entry{Bulik-Sullivan2015}{article}{}
       \name{author}{9}{}{%
@@ -374,8 +177,8 @@
       }
       \strng{namehash}{8c2fbaffc9c27679fce260b5a79d46a8}
       \strng{fullhash}{68243dca3901eddfaf9ea0fd9b905eb1}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
       \field{labelyear}{2015}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
@@ -388,116 +191,273 @@
       \field{year}{2015}
       \field{pages}{291\bibrangedash 295}
       \range{pages}{5}
-      \verb{doi}
-      \verb 10.1038/ng.3211
-      \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/LD Score regression distinguishes confounding from polygenicity in genome-wide association studies.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Bulik-Sullivan et al. - 2015 - LD Score regression distinguishes confounding from polygenicity in genome-wide association studies.pdf:pdf
       \endverb
       \verb{url}
       \verb http://www.nature.com/doifinder/10.1038/ng.3211
       \endverb
     \endentry
-    \entry{Welter2014}{article}{}
-      \name{author}{11}{}{%
-        {{uniquename=0,hash=307c1059c167e908d211ffdbf3e0c891}{Welter}{W\bibinitperiod}{Danielle}{D\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=db08ecd9360962f8914c334301865ba2}{MacArthur}{M\bibinitperiod}{Jacqueline}{J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=ac165162d3970161757dd3d1fad08c98}{Morales}{M\bibinitperiod}{Joannella}{J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=b43b57cc7bdfb3879a0c7ccc0419b5a3}{Burdett}{B\bibinitperiod}{Tony}{T\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=b013ca3ad6e9ef3d1374692179887353}{Hall}{H\bibinitperiod}{Peggy}{P\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=e275f54ad9e0960f79f4239c39ed3128}{Junkins}{J\bibinitperiod}{Heather}{H\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=e72889268d9101c88abf84ecad7641ed}{Klemm}{K\bibinitperiod}{Alan}{A\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=91c5fcd648e30cd5b187eac97d23aa03}{Flicek}{F\bibinitperiod}{Paul}{P\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=9ed625ebec38ed6a305285959606d460}{Manolio}{M\bibinitperiod}{Teri}{T\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=fac21ca214235add86c47d40635ccfe5}{Hindorff}{H\bibinitperiod}{Lucia}{L\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=dce64332e021c75c9258faed23827c44}{Parkinson}{P\bibinitperiod}{Helen}{H\bibinitperiod}{}{}{}{}}%
+    \entry{Eden2009}{article}{}
+      \name{author}{5}{}{%
+        {{uniquename=0,hash=28e6e892a4a350c454a17814c3972264}{Eden}{E\bibinitperiod}{E}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b7a210be02cd14a369342a21439006cd}{Navon}{N\bibinitperiod}{R}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0b2ff804febbe4fab7b6ea1fe95b820e}{Steinfeld}{S\bibinitperiod}{I}{I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=34a5d0527eecdadd9f52c1f5dc3e7efd}{Lipson}{L\bibinitperiod}{D}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=98d4341e17eb6a05c20cd0d7219937be}{Yakhini}{Y\bibinitperiod}{Z}{Z\bibinitperiod}{}{}{}{}}%
       }
-      \strng{namehash}{b255eb8416123a137d9d57014818624e}
-      \strng{fullhash}{827c7954a4b463cc984e82ca0335cc64}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2014}
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{5da25fbf403b0d92ea32ed1130ea60c4}
+      \strng{fullhash}{bd22721ec25912aac5ad9d37b5af0687}
+      \field{sortinit}{E}
+      \field{sortinithash}{fefc5210ef4721525b2a478df41efcd4}
+      \field{labelyear}{2009}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{The National Human Genome Research Institute (NHGRI) Catalog of Published Genome-Wide Association Studies (GWAS) Catalog provides a publicly available manually curated collection of published GWAS assaying at least 100,000 single-nucleotide polymorphisms (SNPs) and all SNP-trait associations with P <1 \x{fffd}\x{fffd} 10(-5). The Catalog includes 1751 curated publications of 11 912 SNPs. In addition to the SNP-trait association data, the Catalog also publishes a quarterly diagram of all SNP-trait associations mapped to the SNPs' chromosomal locations. The Catalog can be accessed via a tabular web interface, via a dynamic visualization on the human karyotype, as a downloadable tab-delimited file and as an OWL knowledge base. This article presents a number of recent improvements to the Catalog, including novel ways for users to interact with the Catalog and changes to the curation infrastructure.}
-      \field{isbn}{1362-4962 (Electronic)$\backslash$r0305-1048 (Linking)}
-      \field{issn}{03051048}
-      \field{journaltitle}{Nucleic Acids Research}
-      \field{number}{D1}
-      \field{title}{{The NHGRI GWAS Catalog, a curated resource of SNP-trait associations}}
-      \field{volume}{42}
-      \field{year}{2014}
-      \field{pages}{1001\bibrangedash 1006}
-      \range{pages}{6}
-      \verb{doi}
-      \verb 10.1093/nar/gkt1229
-      \endverb
-      \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf
-      \endverb
-    \endentry
-    \entry{Orr1998}{article}{}
-      \name{author}{1}{}{%
-        {{uniquename=0,hash=21e39188461c0210a3d1eb80a7171fb0}{Orr}{O\bibinitperiod}{H\bibnamedelima Allen}{H\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
-      }
-      \list{publisher}{1}{%
-        {Society for the Study of Evolution}%
-      }
-      \strng{namehash}{21e39188461c0210a3d1eb80a7171fb0}
-      \strng{fullhash}{21e39188461c0210a3d1eb80a7171fb0}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{1998}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{We know very little about the genetic basis of adaptation. Indeed, we can make no theoretical predictions, however heuristic, about the distribution of phenotypic effects among factors fixed during adaptation nor about the expected 'size' of the largest factor fixed. Study of this problem requires taking into account that populations gradually approach a phenotypic optimum during adaptation via the stepwise substitution of favorable mutations. Using Fisher's geometric model of adaptation, I analyze this approach to the optimum, and derive an approximate solution to the size distribution of factors fixed during adaptation. I further generalize these results to allow the input of any distribution of mutational effects. The distribution of factors fixed during adaptation assumes a pleasingly simple, exponential form. This result is remarkably insensitive to changes in the fitness function and in the distribution of mutational effects. An exponential trend among factors fixed appears to be a general property of adaptation toward a fixed optimum.}
-      \field{issn}{00143820}
-      \field{journaltitle}{Evolution}
-      \field{number}{4}
-      \field{title}{{The Population Genetics of Adaptation: The Distribution of Factors Fixed during Adaptive Evolution}}
-      \field{volume}{52}
-      \field{year}{1998}
-      \field{pages}{pp. 935\bibrangedash 949}
-      \range{pages}{-1}
-      \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/the population genetics of adaptation the distribution of cators fixed during adaptive evolution.pdf:pdf
-      \endverb
+      \field{abstract}{BACKGROUND: Since the inception of the GO annotation project, a variety of tools have been developed that support exploring and searching the GO database. In particular, a variety of tools that perform GO enrichment analysis are currently available. Most of these tools require as input a target set of genes and a background set and seek enrichment in the target set compared to the background set. A few tools also exist that support analyzing ranked lists. The latter typically rely on simulations or on union-bound correction for assigning statistical significance to the results. RESULTS: GOrilla is a web-based application that identifies enriched GO terms in ranked lists of genes, without requiring the user to provide explicit target and background sets. This is particularly useful in many typical cases where genomic data may be naturally represented as a ranked list of genes (e.g. by level of expression or of differential expression). GOrilla employs a flexible threshold statistical approach to discover GO terms that are significantly enriched at the top of a ranked gene list. Building on a complete theoretical characterization of the underlying distribution, called mHG, GOrilla computes an exact p-value for the observed enrichment, taking threshold multiple testing into account without the need for simulations. This enables rigorous statistical analysis of thousand of genes and thousands of GO terms in order of seconds. The output of the enrichment analysis is visualized as a hierarchical structure, providing a clear view of the relations between enriched GO terms. CONCLUSION: GOrilla is an efficient GO analysis tool with unique features that make a useful addition to the existing repertoire of GO enrichment tools. GOrilla's unique features and advantages over other threshold free enrichment tools include rigorous statistics, fast running time and an effective graphical representation. GOrilla is publicly available at: http://cbl-gorilla.cs.technion.ac.il}
+      \field{edition}{2009/02/05}
+      \field{isbn}{1471-2105 (Electronic)1471-2105 (Linking)}
+      \field{journaltitle}{BMC Bioinformatics}
+      \field{title}{{GOrilla: a tool for discovery and visualization of enriched GO terms in ranked gene lists}}
+      \field{volume}{10}
+      \field{year}{2009}
+      \field{pages}{48}
+      \range{pages}{1}
       \verb{url}
-      \verb http://www.jstor.org/stable/2411226
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/19192299
       \endverb
+      \keyw{*Genes,*Software,Algorithms,Animals,Arabidopsis/genetics,Computational Biology/*methods,Data Interpretation,Statistical,Databases,Genetic,Gene Expression Profiling,Genomics/*methods,Humans,Information Storage and Retrieval/*methods,Internet,Models,Genetic,Models,Statistical,Terminology as Topic,User-Computer Interface,Yeasts/genetics}
     \endentry
-    \entry{Su2011}{article}{}
-      \name{author}{3}{}{%
-        {{uniquename=0,hash=f168422ce4850696dc051ebbc328a3a5}{Su}{S\bibinitperiod}{Zhan}{Z\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=483d6539602b223f8eeed2e6169d0538}{Marchini}{M\bibinitperiod}{Jonathan}{J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=ffc72dcaaa64555b3bb01df342b2fc53}{Donnelly}{D\bibinitperiod}{Peter}{P\bibinitperiod}{}{}{}{}}%
+    \entry{Gogtay2011}{article}{}
+      \name{author}{5}{}{%
+        {{uniquename=0,hash=d81eb622025c3af7304aa81d58637770}{Gogtay}{G\bibinitperiod}{Nitin}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9272577cb30d29c0f19d40565a73a16f}{Vyas}{V\bibinitperiod}{Nora\bibnamedelima S.}{N\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=12b09007f834c4eadadcd996dc29de60}{Testa}{T\bibinitperiod}{Renee}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=cf5eab3e521f54655744d12b947faee2}{Wood}{W\bibinitperiod}{Stephen\bibnamedelima J.}{S\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3fbb14ac65cd8f6914d4c6ecb713950b}{Pantelis}{P\bibinitperiod}{Christos}{C\bibinitperiod}{}{}{}{}}%
       }
-      \strng{namehash}{0a0e34cd91008467fff5f746f290b05c}
-      \strng{fullhash}{0a0e34cd91008467fff5f746f290b05c}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \strng{namehash}{11d0a5149c2f42cfced594a8983adf95}
+      \strng{fullhash}{7668c25a836c6f4039d022dab39242f0}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
       \field{labelyear}{2011}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Performing experiments with simulated data is an inexpensive approach to evaluating competing experimental designs and analysis methods in genome-wide association studies. Simulation based on resampling known haplotypes is fast and efficient and can produce samples with patterns of linkage disequilibrium (LD), which mimic those in real data. However, the inability of current methods to simulate multiple nearby disease SNPs on the same chromosome can limit their application.}
-      \field{isbn}{1367-4811 (Electronic)$\backslash$r1367-4803 (Linking)}
-      \field{issn}{13674803}
-      \field{journaltitle}{Bioinformatics}
-      \field{number}{16}
-      \field{title}{{HAPGEN2: Simulation of multiple disease SNPs}}
-      \field{volume}{27}
+      \field{abstract}{Many of the major neuropsychiatric illnesses, including schizophrenia, have a typical age of onset in late adolescence. Late adolescence may reflect a critical period in brain development making it particularly vulnerable for the onset of psychopathology. Neuroimaging studies that focus on this age range may provide unique insights into the onset and course of psychosis. In this review, we examine the evidence from 2 unique longitudinal cohorts that span the ages from early childhood through young adulthood; a study of childhood-onset schizophrenia where patients and siblings are followed from ages 6 through to their early twenties, and an ultra-high risk study where subjects (mean age of 19 years) are studied before and after the onset of psychosis. From the available evidence, we make an argument that subtle, regionally specific, and genetically influenced alterations during developmental age windows influence the course of psychosis and the resultant brain phenotype. The importance of examining trajectories of development and the need for future combined approaches, using multimodal imaging together with molecular studies is discussed.}
+      \field{isbn}{1745-1701 (Electronic)$\backslash$r0586-7614 (Linking)}
+      \field{issn}{05867614}
+      \field{journaltitle}{Schizophrenia Bulletin}
+      \field{number}{3}
+      \field{title}{{Age of onset of schizophrenia: Perspectives from structural neuroimaging studies}}
+      \field{volume}{37}
       \field{year}{2011}
-      \field{pages}{2304\bibrangedash 2305}
-      \range{pages}{2}
-      \verb{doi}
-      \verb 10.1093/bioinformatics/btr341
-      \endverb
+      \field{pages}{504\bibrangedash 513}
+      \range{pages}{10}
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/HAPGEN2 simulation of multiple disease SNPs.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Gogtay et al. - 2011 - Age of onset of schizophrenia Perspectives from structural neuroimaging studies.pdf:pdf
       \endverb
+      \keyw{adolescent,brain development,high risk,neural circuitry,prefrontal cortex,schizophrenia}
+    \endentry
+    \entry{eigenweb}{misc}{}
+      \true{moreauthor}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=32670d1e660cd3381144af1ebb08d86e}{Guennebaud}{G\bibinitperiod}{Ga\"{e}l}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=1b6dac62924fd53d4f500b04996d58d9}{Jacob}{J\bibinitperiod}{Beno$\backslash$\^{}it}{B\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{d073c1a4976b71a713a96d8f43b1f9f6}
+      \strng{fullhash}{88ad3a5fe64fc84dea3926ff118c0b09}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelyear}{2010}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{http://eigen.tuxfamily.org}
+      \field{title}{{Eigen v3}}
+      \field{year}{2010}
+    \endentry
+    \entry{Hansen1987}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=599d9af867e411a6d3061220e140253b}{Hansen}{H\bibinitperiod}{Per\bibnamedelima Christian}{P\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Stanford, CA, USA}%
+      }
+      \strng{namehash}{599d9af867e411a6d3061220e140253b}
+      \strng{fullhash}{599d9af867e411a6d3061220e140253b}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelyear}{1987}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The truncated singular value decomposition (SVD) is considered as a method for regularization of ill-posed linear least squares problems. In particular, the truncated SVD solution is compared with the usual regularized solution. Necessary conditions are defined in which the two methods will yield similar results. This investigation suggests the truncated SVD as a favorable alternative to standard-form regularization in cases of ill-conditioned matrices with well-determined numerical rank.}
+      \field{isbn}{0006-3835}
+      \field{issn}{00063835}
+      \field{journaltitle}{Bit}
+      \field{number}{4}
+      \field{title}{{The truncated SVD as a method for regularization}}
+      \field{volume}{27}
+      \field{year}{1987}
+      \field{pages}{534\bibrangedash 553}
+      \range{pages}{20}
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Hansen - 1987 - The truncated SVD as a method for regularization.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://portal.acm.org/citation.cfm?id=891601
+      \endverb
+      \keyw{65F30,891601,AMS subject classification: 65F20,numerical rank,perturbation theory for truncated SVD,regularization in standard form,svd,truncated,truncated SVD}
+    \endentry
+    \entry{Hart2013}{article}{}
+      \name{author}{5}{}{%
+        {{uniquename=0,hash=f9dd041f4c133222e845b3eac9b7178d}{Hart}{H\bibinitperiod}{Traver}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=170a422abeadd0e84e3dfe6c7ca53918}{Komori}{K\bibinitperiod}{H\bibnamedelima Kiyomi}{H\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c2c8539c0cd48ed0f4ab82f326b4e08e}{LaMere}{L\bibinitperiod}{Sarah}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7946fb319c60c08d0ce5e2f0103f9665}{Podshivalova}{P\bibinitperiod}{Katie}{K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d903e4f0f8970ad3f2172e114d45990f}{Salomon}{S\bibinitperiod}{Daniel\bibnamedelima R}{D\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{1cf725782a412a05bb5d01a6c28e5c79}
+      \strng{fullhash}{f2fa570038f2c4aaebd40ccfdce6b153}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelyear}{2013}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{BACKGROUND: Early application of second-generation sequencing technologies to transcript quantitation (RNA-seq) has hinted at a vast mammalian transcriptome, including transcripts from nearly all known genes, which might be fully measured only by ultradeep sequencing. Subsequent studies suggested that low-abundance transcripts might be the result of technical or biological noise rather than active transcripts; moreover, most RNA-seq experiments did not provide enough read depth to generate high-confidence estimates of gene expression for low-abundance transcripts. As a result, the community adopted several heuristics for RNA-seq analysis, most notably an arbitrary expression threshold of 0.3 - 1 FPKM for downstream analysis. However, advances in RNA-seq library preparation, sequencing technology, and informatic analysis have addressed many of the systemic sources of uncertainty and undermined the assumptions that drove the adoption of these heuristics. We provide an updated view of the accuracy and efficiency of RNA-seq experiments, using genomic data from large-scale studies like the ENCODE project to provide orthogonal information against which to validate our conclusions.$\backslash$n$\backslash$nRESULTS: We show that a human cell's transcriptome can be divided into active genes carrying out the work of the cell and other genes that are likely the by-products of biological or experimental noise. We use ENCODE data on chromatin state to show that ultralow-expression genes are predominantly associated with repressed chromatin; we provide a novel normalization metric, zFPKM, that identifies the threshold between active and background gene expression; and we show that this threshold is robust to experimental and analytical variations.$\backslash$n$\backslash$nCONCLUSIONS: The zFPKM normalization method accurately separates the biologically relevant genes in a cell, which are associated with active promoters, from the ultralow-expression noisy genes that have repressed promoters. A read depth of twenty to thirty million mapped reads allows high-confidence quantitation of genes expressed at this threshold, providing important guidance for the design of RNA-seq studies of gene expression. Moreover, we offer an example for using extensive ENCODE chromatin state information to validate RNA-seq analysis pipelines.}
+      \field{isbn}{1471-2164 (Electronic)1471-2164 (Linking)}
+      \field{issn}{1471-2164}
+      \field{journaltitle}{BMC genomics}
+      \field{title}{{Finding the active genes in deep RNA-seq gene expression studies.}}
+      \field{volume}{14}
+      \field{year}{2013}
+      \field{pages}{778}
+      \range{pages}{1}
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Hart et al. - 2013 - Finding the active genes in deep RNA-seq gene expression studies.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3870982%5C&tool=pmcentrez%5C&rendertype=abstract
+      \endverb
+    \endentry
+    \entry{Jablensky2010}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=28c89d49e080b5a44538e68cfafd4dc0}{Jablensky}{J\bibinitperiod}{Assen}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{28c89d49e080b5a44538e68cfafd4dc0}
+      \strng{fullhash}{28c89d49e080b5a44538e68cfafd4dc0}
+      \field{sortinit}{J}
+      \field{sortinithash}{ec3950a647c092421b9fcca6d819504a}
+      \field{labelyear}{2010}
+      \field{labelmonth}{01}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{More than a century since the delineation of dementia praecox by Kraepelin, the etiology, neuropathology, and pathophysiology of schizophrenia remain elusive. Despite the availability of criteria allowing reliable diagnostic identification, schizophrenia essentially remains a broad clinical syndrome defined by reported subjective experiences (symptoms), loss of function (behavioral impairments), and variable patterns of course. Research has identified a number of putative biological markers associated with the disorder, including neurocognitive dysfunction, brain dysmorphology, and neurochemical abnormalities. Yet none of these variables has to date been definitively proven to possess the sensitivity and specificity expected of a diagnostic test. Genetic linkage and association studies have targeted multiple candidate loci and genes, but failed to demonstrate that any specific gene variant, or a combination of genes, is either necessary or sufficient to cause schizophrenia. Thus, the existence of a specific brain disease underlying schizophrenia remains a hypothesis. Against a background of an ever-increasing volume of research data, the inconclusiveness of the search for causes of the disorder fuels doubts about the validity of the schizophrenia construct as presently defined. Given the protean nature of the symptoms of schizophrenia and the poor coherence of the clinical and biological findings, such doubts are not without reason. However, simply dismantling the concept is unlikely to result in an alternative model that would account for the host of clinical phenomena and research data consistent with a disease hypothesis of schizophrenia. For the time being, the clinical concept of schizophrenia is supported by empirical evidence that its multiple facets form a broad syndrome with non-negligible internal cohesion and a characteristic evolution over time. The dissection of the syndrome with the aid of endophenotypes is beginning to be perceived as a promising approach in schizophrenia genetics.}
+      \field{issn}{1294-8322}
+      \field{journaltitle}{Dialogues in clinical neuroscience}
+      \field{month}{01}
+      \field{number}{3}
+      \field{title}{{The diagnostic concept of schizophrenia: its history, evolution, and future prospects.}}
+      \field{volume}{12}
+      \field{year}{2010}
+      \field{pages}{271\bibrangedash 87}
+      \range{pages}{17}
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Jablensky - 2010 - The diagnostic concept of schizophrenia its history, evolution, and future prospects.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3181977%5C&tool=pmcentrez%5C&rendertype=abstract
+      \endverb
+      \keyw{19th Century,20th Century,21st Century,Biological,Biological Evolution,Brain,Brain: metabolism,Brain: pathology,Brain: physiopathology,History,19th Century,History,20th Century,History,21st Century,Humans,Models,Biological,Research,Research: history,Research: trends,Schizophrenia,Schizophrenia: diagnosis,Schizophrenia: etiology,Schizophrenia: genetics,Schizophrenia: history}
+    \endentry
+    \entry{Langfelder2008}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=ed53312176c4875c2dd557bd95be74f8}{Langfelder}{L\bibinitperiod}{P}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=2,hash=0f4b276e3783d27caded8b7820857e41}{Horvath}{H\bibinitperiod}{S}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{01b804a50475d408e4520dc0632e0057}
+      \strng{fullhash}{01b804a50475d408e4520dc0632e0057}
+      \field{sortinit}{L}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelyear}{2008}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{BACKGROUND: Correlation networks are increasingly being used in bioinformatics applications. For example, weighted gene co-expression network analysis is a systems biology method for describing the correlation patterns among genes across microarray samples. Weighted correlation network analysis (WGCNA) can be used for finding clusters (modules) of highly correlated genes, for summarizing such clusters using the module eigengene or an intramodular hub gene, for relating modules to one another and to external sample traits (using eigengene network methodology), and for calculating module membership measures. Correlation networks facilitate network based gene screening methods that can be used to identify candidate biomarkers or therapeutic targets. These methods have been successfully applied in various biological contexts, e.g. cancer, mouse genetics, yeast genetics, and analysis of brain imaging data. While parts of the correlation network methodology have been described in separate publications, there is a need to provide a user-friendly, comprehensive, and consistent software implementation and an accompanying tutorial. RESULTS: The WGCNA R software package is a comprehensive collection of R functions for performing various aspects of weighted correlation network analysis. The package includes functions for network construction, module detection, gene selection, calculations of topological properties, data simulation, visualization, and interfacing with external software. Along with the R package we also present R software tutorials. While the methods development was motivated by gene expression data, the underlying data mining approach can be applied to a variety of different settings. CONCLUSION: The WGCNA package provides R functions for weighted correlation network analysis, e.g. co-expression network analysis of gene expression data. The R package along with its source code and additional material are freely available at http://www.genetics.ucla.edu/labs/horvath/CoexpressionNetwork/Rpackages/WGCNA.}
+      \field{edition}{2008/12/31}
+      \field{isbn}{1471-2105 (Electronic)1471-2105 (Linking)}
+      \field{journaltitle}{BMC Bioinformatics}
+      \field{title}{{WGCNA: an R package for weighted correlation network analysis}}
+      \field{volume}{9}
+      \field{year}{2008}
+      \field{pages}{559}
+      \range{pages}{1}
+      \verb{url}
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/19114008
+      \endverb
+      \keyw{*Computing Methodologies,*Software,Algorithms,Animals,Computational Biology/*methods,Computer Graphics,Databases,Genetic,Gene Expression Profiling/methods,Humans,Mice,Oligonucleotide Array Sequence Analysis/*methods,Pattern Recognition,Automated,Programming Languages,Systems Biology}
+    \endentry
+    \entry{DeLeeuw2015}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=993f011ec84ef0f4176f27a2e0eaff71}{Leeuw}{L\bibinitperiod}{Christiaan\bibnamedelima a.}{C\bibinitperiod\bibinitdelim a\bibinitperiod}{de}{d\bibinitperiod}{}{}}%
+        {{uniquename=0,hash=be0acca67f99fb0f75a7ebaf17ba8ee5}{Mooij}{M\bibinitperiod}{Joris\bibnamedelima M.}{J\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c7359565df9fe46e9d4d21e47b35aad7}{Heskes}{H\bibinitperiod}{Tom}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=91926a8bb05a2e3f38ef519124a5b6d1}{Posthuma}{P\bibinitperiod}{Danielle}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{0b59e74db5fc67c9562e3ebe5e3fa054}
+      \strng{fullhash}{7d9b581653d142dcd727cce740cb4bf5}
+      \field{sortinit}{L}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelyear}{2015}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1553-7358}
+      \field{journaltitle}{PLOS Computational Biology}
+      \field{number}{4}
+      \field{title}{{MAGMA: Generalized Gene-Set Analysis of GWAS Data}}
+      \field{volume}{11}
+      \field{year}{2015}
+      \field{pages}{e1004219}
+      \range{pages}{-1}
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/MAGMA Generalized Gene-Set Analysis of GWAS Data.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.plos.org/10.1371/journal.pcbi.1004219
+      \endverb
+    \endentry
+    \entry{Li2011b}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=f62f549f43c2a6a773391fef98cbf750}{Li}{L\bibinitperiod}{Miao-Xin}{M\bibinithyphendelim X\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d34d4f7e4b45468d52db231d41382cba}{Yeung}{Y\bibinitperiod}{Juilian\bibnamedelimb M\bibnamedelima Y}{J\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim Y\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=46676619cabe9d4a31d6c7399bf886e6}{Cherny}{C\bibinitperiod}{Stacey\bibnamedelima S}{S\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7c7b6e384160e2ea994772d9947272e9}{Sham}{S\bibinitperiod}{Pak\bibnamedelima C}{P\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{e0e32a82d2b1391acc6ab43a51b4f9f2}
+      \strng{fullhash}{d8e9548083800d33d7670954b0879fd2}
+      \field{sortinit}{L}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0340-6717, 1432-1203}
+      \field{journaltitle}{Human Genetics}
+      \field{title}{{Evaluating the effective numbers of independent tests and significant p-value thresholds in commercial genotyping arrays and public imputation reference datasets}}
+      \field{volume}{131}
+      \field{year}{2011}
+      \field{pages}{747\bibrangedash 756}
+      \range{pages}{10}
     \endentry
     \entry{Manolio2009}{article}{}
       \name{author}{27}{}{%
@@ -534,8 +494,8 @@
       }
       \strng{namehash}{a9c6eb1d29d3a966e1967b14e731609f}
       \strng{fullhash}{42a7d3e4393009afba01b095a10f39ea}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
       \field{labelyear}{2009}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
@@ -550,47 +510,39 @@
       \field{year}{2009}
       \field{pages}{747\bibrangedash 753}
       \range{pages}{7}
-      \verb{doi}
-      \verb 10.1038/nature08494
-      \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Finding the missing heritability of complex diseases.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Manolio et al. - 2009 - Finding the missing heritability of complex diseases.pdf:pdf
       \endverb
       \verb{url}
       \verb http://dx.doi.org/10.1038/nature08494
       \endverb
     \endentry
-    \entry{Velakoulis2006}{article}{}
-      \name{author}{11}{}{%
-        {{uniquename=0,hash=07303b77ad594847d5476a58369770e6}{Velakoulis}{V\bibinitperiod}{Dennis}{D\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=933c951e8d22d4fcc6b766b6695d5f53}{Wood}{W\bibinitperiod}{Stephen\bibnamedelima J}{S\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=5315038581f0d0a88f754960e9c2453f}{Wong}{W\bibinitperiod}{Michael\bibnamedelima Th}{M\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=9772e29aac6b54b840aa4b04c73547e6}{McGorry}{M\bibinitperiod}{Patrick\bibnamedelima D}{P\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=45c23fa4a4d95539073f48a246169d61}{Yung}{Y\bibinitperiod}{Alison}{A\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=76b19f0bb928005d227a29f1da068953}{Phillips}{P\bibinitperiod}{Lisa}{L\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=f0dabef3eeab62619902bce140d0074a}{Smith}{S\bibinitperiod}{De}{D\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=41c6ce2fdf8bdc283a9d8149fb667323}{Brewer}{B\bibinitperiod}{Warrick}{W\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=edf5c8b7f0f0fa78216d36583473047d}{Proffitt}{P\bibinitperiod}{Tina}{T\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=e1706bad6183bae7ee185d6333e10063}{Desmond}{D\bibinitperiod}{Patricia}{P\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=3fbb14ac65cd8f6914d4c6ecb713950b}{Pantelis}{P\bibinitperiod}{Christos}{C\bibinitperiod}{}{}{}{}}%
+    \entry{Neumaier1998}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=7867d5416dc180390796983c8e58a590}{Neumaier}{N\bibinitperiod}{Arnold}{A\bibinitperiod}{}{}{}{}}%
       }
-      \strng{namehash}{a51ef20277fd022448734cce334dae9f}
-      \strng{fullhash}{ce7d5c21e1a73a380467601091de8348}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2006}
+      \strng{namehash}{7867d5416dc180390796983c8e58a590}
+      \strng{fullhash}{7867d5416dc180390796983c8e58a590}
+      \field{sortinit}{N}
+      \field{sortinithash}{925374ca63e7594de7fafdb83e64d41d}
+      \field{labelyear}{1998}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Archives of general psychiatry}
-      \field{title}{{Hippocampal and amygdala volumes according to psychosis stage and diagnosis}}
-      \field{volume}{63}
-      \field{year}{2006}
-      \field{pages}{139\bibrangedash 149}
-      \range{pages}{11}
+      \field{abstract}{It is shown that the basic regularization procedures for nding meaningful approximate solutions of ill-conditioned or singular linear systems can be phrased and analyzed in terms of classical linear algebra that can be taught in any numerical analysis course. Apart from rewriting many known results in a more elementary form, we also derive a new two-parameter family of merit functions for the determination of the regularization parameter. The traditional merit functions from generalized cross validation (GCV) and generalized maximum likelihood (GML) are recovered as special cases.}
+      \field{isbn}{00361445}
+      \field{issn}{0036-1445}
+      \field{journaltitle}{SIAM Review}
+      \field{number}{3}
+      \field{title}{{Solving Ill-Conditioned and Singular Linear Systems: A Tutorial on Regularization}}
+      \field{volume}{40}
+      \field{year}{1998}
+      \field{pages}{636\bibrangedash 666}
+      \range{pages}{31}
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/Hippocampal and Amygdala Volumes According to Psychosis Stage and Diagnosis.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Neumaier - 1998 - Solving Ill-Conditioned and Singular Linear Systems A Tutorial on Regularization.pdf:pdf
       \endverb
+      \keyw{1,ams subject classifications,error bounds,find,generalized,generalized cross validation,ill-conditioned,ill-posed,in many applications of,introduction,linear algebra,maximum likelihood,primary 65f05,regularization,secondary 65j20,the need arises to,tikhonov regularization}
     \endentry
     \entry{Nugent2007}{article}{}
       \name{author}{13}{}{%
@@ -610,8 +562,8 @@
       }
       \strng{namehash}{ff97018ee743db3d11ad886dc9bb99c6}
       \strng{fullhash}{4e5fbde92d4d3ade09fed363838bd73e}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{sortinit}{N}
+      \field{sortinithash}{925374ca63e7594de7fafdb83e64d41d}
       \field{labelyear}{2007}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
@@ -626,331 +578,78 @@
       \field{year}{2007}
       \field{pages}{62\bibrangedash 70}
       \range{pages}{9}
-      \verb{doi}
-      \verb 10.1016/j.schres.2006.10.014
-      \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/Dynamic mapping of hippocampal development in childhood onset schizophrenia.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Nugent et al. - 2007 - Dynamic mapping of hippocampal development in childhood onset schizophrenia.pdf:pdf
       \endverb
       \keyw{Childhood onset schizophrenia,Hippocampus,Longitudinal,MRI,Mapping}
     \endentry
-    \entry{Simpson2010}{article}{}
-      \name{author}{3}{}{%
-        {{uniquename=0,hash=e81d3859f973e190da1d954f5b32066f}{Simpson}{S\bibinitperiod}{Eleanor\bibnamedelima H.}{E\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=83c117be2c681213bb1cba821d827025}{Kellendonk}{K\bibinitperiod}{Christoph}{C\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=f989128c78843505d54f7f8882e189ac}{Kandel}{K\bibinitperiod}{Eric}{E\bibinitperiod}{}{}{}{}}%
+    \entry{Orr1998}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=21e39188461c0210a3d1eb80a7171fb0}{Orr}{O\bibinitperiod}{H\bibnamedelima Allen}{H\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
       }
       \list{publisher}{1}{%
-        {Elsevier Inc.}%
+        {Society for the Study of Evolution}%
       }
-      \strng{namehash}{79d854163f7512954a7e0654cacd8739}
-      \strng{fullhash}{79d854163f7512954a7e0654cacd8739}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2010}
+      \strng{namehash}{21e39188461c0210a3d1eb80a7171fb0}
+      \strng{fullhash}{21e39188461c0210a3d1eb80a7171fb0}
+      \field{sortinit}{O}
+      \field{sortinithash}{7803d2715d5e795e70382b084ab8d00e}
+      \field{labelyear}{1998}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{The cognitive symptoms of schizophrenia are largely resistant to current treatment and are thus a life-long burden of the illness. Studies of cognitive symptoms have commonly focused on prefrontal cortex because of its demonstrated importance for executive function and working memory-key components of the deficit. The role of striatal-cortical circuitry and therefore the striatum itself has received much less attention. Here we review longstanding evidence that the striatum and its cortical connections are critical for complex cognition and discuss emerging evidence of the striatum's potential involvement in cognitive symptoms. Finally, we suggest how mouse models might test ideas about the contribution of early striatal dysfunction to the cognitive symptoms of schizophrenia. ?? 2010 Elsevier Inc. All rights reserved.}
-      \field{isbn}{1097-4199 (Electronic)$\backslash$r0896-6273 (Linking)}
-      \field{issn}{08966273}
-      \field{journaltitle}{Neuron}
-      \field{number}{5}
-      \field{title}{{A Possible Role for the Striatum in the Pathogenesis of the Cognitive Symptoms of Schizophrenia}}
-      \field{volume}{65}
-      \field{year}{2010}
-      \field{pages}{585\bibrangedash 596}
-      \range{pages}{12}
-      \verb{doi}
-      \verb 10.1016/j.neuron.2010.02.014
-      \endverb
-      \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/A Possible Role for the Striatum in the Pathogenesis of the Cognitive Symptoms of Schizophrenia.pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://dx.doi.org/10.1016/j.neuron.2010.02.014
-      \endverb
-    \endentry
-    \entry{Hart2013}{article}{}
-      \name{author}{5}{}{%
-        {{uniquename=0,hash=f9dd041f4c133222e845b3eac9b7178d}{Hart}{H\bibinitperiod}{Traver}{T\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=170a422abeadd0e84e3dfe6c7ca53918}{Komori}{K\bibinitperiod}{H\bibnamedelima Kiyomi}{H\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=c2c8539c0cd48ed0f4ab82f326b4e08e}{LaMere}{L\bibinitperiod}{Sarah}{S\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=7946fb319c60c08d0ce5e2f0103f9665}{Podshivalova}{P\bibinitperiod}{Katie}{K\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=d903e4f0f8970ad3f2172e114d45990f}{Salomon}{S\bibinitperiod}{Daniel\bibnamedelima R}{D\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
-      }
-      \strng{namehash}{1cf725782a412a05bb5d01a6c28e5c79}
-      \strng{fullhash}{f2fa570038f2c4aaebd40ccfdce6b153}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2013}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{BACKGROUND: Early application of second-generation sequencing technologies to transcript quantitation (RNA-seq) has hinted at a vast mammalian transcriptome, including transcripts from nearly all known genes, which might be fully measured only by ultradeep sequencing. Subsequent studies suggested that low-abundance transcripts might be the result of technical or biological noise rather than active transcripts; moreover, most RNA-seq experiments did not provide enough read depth to generate high-confidence estimates of gene expression for low-abundance transcripts. As a result, the community adopted several heuristics for RNA-seq analysis, most notably an arbitrary expression threshold of 0.3 - 1 FPKM for downstream analysis. However, advances in RNA-seq library preparation, sequencing technology, and informatic analysis have addressed many of the systemic sources of uncertainty and undermined the assumptions that drove the adoption of these heuristics. We provide an updated view of the accuracy and efficiency of RNA-seq experiments, using genomic data from large-scale studies like the ENCODE project to provide orthogonal information against which to validate our conclusions.$\backslash$n$\backslash$nRESULTS: We show that a human cell's transcriptome can be divided into active genes carrying out the work of the cell and other genes that are likely the by-products of biological or experimental noise. We use ENCODE data on chromatin state to show that ultralow-expression genes are predominantly associated with repressed chromatin; we provide a novel normalization metric, zFPKM, that identifies the threshold between active and background gene expression; and we show that this threshold is robust to experimental and analytical variations.$\backslash$n$\backslash$nCONCLUSIONS: The zFPKM normalization method accurately separates the biologically relevant genes in a cell, which are associated with active promoters, from the ultralow-expression noisy genes that have repressed promoters. A read depth of twenty to thirty million mapped reads allows high-confidence quantitation of genes expressed at this threshold, providing important guidance for the design of RNA-seq studies of gene expression. Moreover, we offer an example for using extensive ENCODE chromatin state information to validate RNA-seq analysis pipelines.}
-      \field{isbn}{1471-2164 (Electronic)1471-2164 (Linking)}
-      \field{issn}{1471-2164}
-      \field{journaltitle}{BMC genomics}
-      \field{title}{{Finding the active genes in deep RNA-seq gene expression studies.}}
-      \field{volume}{14}
-      \field{year}{2013}
-      \field{pages}{778}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1186/1471-2164-14-778
-      \endverb
-      \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Finding the active genes in deep RNA-seq gene expression studies.pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3870982%5C&tool=pmcentrez%5C&rendertype=abstract
-      \endverb
-    \endentry
-    \entry{Langfelder2008}{article}{}
-      \name{author}{2}{}{%
-        {{uniquename=0,hash=ed53312176c4875c2dd557bd95be74f8}{Langfelder}{L\bibinitperiod}{P}{P\bibinitperiod}{}{}{}{}}%
-        {{uniquename=2,hash=0f4b276e3783d27caded8b7820857e41}{Horvath}{H\bibinitperiod}{S}{S\bibinitperiod}{}{}{}{}}%
-      }
-      \list{language}{1}{%
-        {eng}%
-      }
-      \strng{namehash}{01b804a50475d408e4520dc0632e0057}
-      \strng{fullhash}{01b804a50475d408e4520dc0632e0057}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2008}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{BACKGROUND: Correlation networks are increasingly being used in bioinformatics applications. For example, weighted gene co-expression network analysis is a systems biology method for describing the correlation patterns among genes across microarray samples. Weighted correlation network analysis (WGCNA) can be used for finding clusters (modules) of highly correlated genes, for summarizing such clusters using the module eigengene or an intramodular hub gene, for relating modules to one another and to external sample traits (using eigengene network methodology), and for calculating module membership measures. Correlation networks facilitate network based gene screening methods that can be used to identify candidate biomarkers or therapeutic targets. These methods have been successfully applied in various biological contexts, e.g. cancer, mouse genetics, yeast genetics, and analysis of brain imaging data. While parts of the correlation network methodology have been described in separate publications, there is a need to provide a user-friendly, comprehensive, and consistent software implementation and an accompanying tutorial. RESULTS: The WGCNA R software package is a comprehensive collection of R functions for performing various aspects of weighted correlation network analysis. The package includes functions for network construction, module detection, gene selection, calculations of topological properties, data simulation, visualization, and interfacing with external software. Along with the R package we also present R software tutorials. While the methods development was motivated by gene expression data, the underlying data mining approach can be applied to a variety of different settings. CONCLUSION: The WGCNA package provides R functions for weighted correlation network analysis, e.g. co-expression network analysis of gene expression data. The R package along with its source code and additional material are freely available at http://www.genetics.ucla.edu/labs/horvath/CoexpressionNetwork/Rpackages/WGCNA.}
-      \field{edition}{2008/12/31}
-      \field{isbn}{1471-2105 (Electronic)1471-2105 (Linking)}
-      \field{journaltitle}{BMC Bioinformatics}
-      \field{title}{{WGCNA: an R package for weighted correlation network analysis}}
-      \field{volume}{9}
-      \field{year}{2008}
-      \field{pages}{559}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 1471-2105-9-559 [pii]10.1186/1471-2105-9-559
-      \endverb
-      \verb{url}
-      \verb http://www.ncbi.nlm.nih.gov/pubmed/19114008
-      \endverb
-      \keyw{*Computing Methodologies,*Software,Algorithms,Animals,Computational Biology/*methods,Computer Graphics,Databases,Genetic,Gene Expression Profiling/methods,Humans,Mice,Oligonucleotide Array Sequence Analysis/*methods,Pattern Recognition,Automated,Programming Languages,Systems Biology}
-    \endentry
-    \entry{Zhang2005}{article}{}
-      \name{author}{2}{}{%
-        {{uniquename=0,hash=edefadf2737f4300dd8a9daa07b31f02}{Zhang}{Z\bibinitperiod}{Bin}{B\bibinitperiod}{}{}{}{}}%
-        {{uniquename=2,hash=f520a749adbb878b4ba30b3f54e0dad8}{Horvath}{H\bibinitperiod}{Steve}{S\bibinitperiod}{}{}{}{}}%
-      }
-      \list{language}{1}{%
-        {eng}%
-      }
-      \strng{namehash}{e242b3770fcc3812de0af1be93e77392}
-      \strng{fullhash}{e242b3770fcc3812de0af1be93e77392}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2005}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Gene co-expression networks are increasingly used to explore the system-level functionality of genes. The network construction is conceptually straightforward: nodes represent genes and nodes are connected if the corresponding genes are significantly co-expressed across appropriately chosen tissue samples. In reality, it is tricky to define the connections between the nodes in such networks. An important question is whether it is biologically meaningful to encode gene co-expression using binary information (connected=1, unconnected=0). We describe a general framework for ;soft' thresholding that assigns a connection weight to each gene pair. This leads us to define the notion of a weighted gene co-expression network. For soft thresholding we propose several adjacency functions that convert the co-expression measure to a connection weight. For determining the parameters of the adjacency function, we propose a biologically motivated criterion (referred to as the scale-free topology criterion). We generalize the following important network concepts to the case of weighted networks. First, we introduce several node connectivity measures and provide empirical evidence that they can be important for predicting the biological significance of a gene. Second, we provide theoretical and empirical evidence that the ;weighted' topological overlap measure (used to define gene modules) leads to more cohesive modules than its ;unweighted' counterpart. Third, we generalize the clustering coefficient to weighted networks. Unlike the unweighted clustering coefficient, the weighted clustering coefficient is not inversely related to the connectivity. We provide a model that shows how an inverse relationship between clustering coefficient and connectivity arises from hard thresholding. We apply our methods to simulated data, a cancer microarray data set, and a yeast microarray data set.}
-      \field{annotation}{From Duplicate 2 (A general framework for weighted gene co-expression network analysis - Zhang, B; Horvath, S)}
-      \field{edition}{2006/05/02}
-      \field{isbn}{1544-6115 (Electronic)1544-6115 (Linking)}
-      \field{issn}{1544-6115}
-      \field{journaltitle}{Stat Appl Genet Mol Biol}
-      \field{number}{1}
-      \field{title}{{A general framework for weighted gene co-expression network analysis}}
-      \field{volume}{4}
-      \field{year}{2005}
-      \field{pages}{Article17}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb 10.2202/1544-6115.1128
-      \endverb
-      \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/A General Framework for Weighted Gene Co-Expression Network Analysis.pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://www.ncbi.nlm.nih.gov/pubmed/16646834
-      \endverb
-    \endentry
-    \entry{Eden2009}{article}{}
-      \name{author}{5}{}{%
-        {{uniquename=0,hash=28e6e892a4a350c454a17814c3972264}{Eden}{E\bibinitperiod}{E}{E\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=b7a210be02cd14a369342a21439006cd}{Navon}{N\bibinitperiod}{R}{R\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=0b2ff804febbe4fab7b6ea1fe95b820e}{Steinfeld}{S\bibinitperiod}{I}{I\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=34a5d0527eecdadd9f52c1f5dc3e7efd}{Lipson}{L\bibinitperiod}{D}{D\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=98d4341e17eb6a05c20cd0d7219937be}{Yakhini}{Y\bibinitperiod}{Z}{Z\bibinitperiod}{}{}{}{}}%
-      }
-      \list{language}{1}{%
-        {eng}%
-      }
-      \strng{namehash}{5da25fbf403b0d92ea32ed1130ea60c4}
-      \strng{fullhash}{bd22721ec25912aac5ad9d37b5af0687}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2009}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{BACKGROUND: Since the inception of the GO annotation project, a variety of tools have been developed that support exploring and searching the GO database. In particular, a variety of tools that perform GO enrichment analysis are currently available. Most of these tools require as input a target set of genes and a background set and seek enrichment in the target set compared to the background set. A few tools also exist that support analyzing ranked lists. The latter typically rely on simulations or on union-bound correction for assigning statistical significance to the results. RESULTS: GOrilla is a web-based application that identifies enriched GO terms in ranked lists of genes, without requiring the user to provide explicit target and background sets. This is particularly useful in many typical cases where genomic data may be naturally represented as a ranked list of genes (e.g. by level of expression or of differential expression). GOrilla employs a flexible threshold statistical approach to discover GO terms that are significantly enriched at the top of a ranked gene list. Building on a complete theoretical characterization of the underlying distribution, called mHG, GOrilla computes an exact p-value for the observed enrichment, taking threshold multiple testing into account without the need for simulations. This enables rigorous statistical analysis of thousand of genes and thousands of GO terms in order of seconds. The output of the enrichment analysis is visualized as a hierarchical structure, providing a clear view of the relations between enriched GO terms. CONCLUSION: GOrilla is an efficient GO analysis tool with unique features that make a useful addition to the existing repertoire of GO enrichment tools. GOrilla's unique features and advantages over other threshold free enrichment tools include rigorous statistics, fast running time and an effective graphical representation. GOrilla is publicly available at: http://cbl-gorilla.cs.technion.ac.il}
-      \field{edition}{2009/02/05}
-      \field{isbn}{1471-2105 (Electronic)1471-2105 (Linking)}
-      \field{journaltitle}{BMC Bioinformatics}
-      \field{title}{{GOrilla: a tool for discovery and visualization of enriched GO terms in ranked gene lists}}
-      \field{volume}{10}
-      \field{year}{2009}
-      \field{pages}{48}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1186/1471-2105-10-481471-2105-10-48 [pii]
-      \endverb
-      \verb{url}
-      \verb http://www.ncbi.nlm.nih.gov/pubmed/19192299
-      \endverb
-      \keyw{*Genes,*Software,Algorithms,Animals,Arabidopsis/genetics,Computational Biology/*methods,Data Interpretation,Statistical,Databases,Genetic,Gene Expression Profiling,Genomics/*methods,Humans,Information Storage and Retrieval/*methods,Internet,Models,Genetic,Models,Statistical,Terminology as Topic,User-Computer Interface,Yeasts/genetics}
-    \endentry
-    \entry{Supek2011}{article}{}
-      \name{author}{4}{}{%
-        {{uniquename=0,hash=11807015300a0c45b6c85c7b42b09a5b}{Supek}{S\bibinitperiod}{F}{F\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=e73f45702a7b6842f508686a4d9ecdf8}{Bosnjak}{B\bibinitperiod}{M}{M\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=a0c6ef409d9ded0b93655089ab068939}{Skunca}{S\bibinitperiod}{N}{N\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=c82afd0ea771228c6256e92f0a80a0db}{Smuc}{S\bibinitperiod}{T}{T\bibinitperiod}{}{}{}{}}%
-      }
-      \list{language}{1}{%
-        {eng}%
-      }
-      \strng{namehash}{a2d8f1ee6e2fe14847aa00f10547ae19}
-      \strng{fullhash}{290d45387b024ad4b53df07d3d678a41}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2011}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Outcomes of high-throughput biological experiments are typically interpreted by statistical testing for enriched gene functional categories defined by the Gene Ontology (GO). The resulting lists of GO terms may be large and highly redundant, and thus difficult to interpret.REVIGO is a Web server that summarizes long, unintelligible lists of GO terms by finding a representative subset of the terms using a simple clustering algorithm that relies on semantic similarity measures. Furthermore, REVIGO visualizes this non-redundant GO term set in multiple ways to assist in interpretation: multidimensional scaling and graph-based visualizations accurately render the subdivisions and the semantic relationships in the data, while treemaps and tag clouds are also offered as alternative views. REVIGO is freely available at http://revigo.irb.hr/.}
-      \field{edition}{2011/07/27}
-      \field{isbn}{1932-6203 (Electronic)1932-6203 (Linking)}
-      \field{journaltitle}{PLoS One}
-      \field{number}{7}
-      \field{title}{{REVIGO summarizes and visualizes long lists of gene ontology terms}}
-      \field{volume}{6}
-      \field{year}{2011}
-      \field{pages}{e21800}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1371/journal.pone.0021800PONE-D-11-04111 [pii]
-      \endverb
-      \verb{url}
-      \verb http://www.ncbi.nlm.nih.gov/pubmed/21789182
-      \endverb
-      \keyw{*Algorithms,*Molecular Sequence Annotation,Computational Biology/*methods,Gene Expression Regulation,Humans,Internet,Software,Transcription Factors/genetics/metabolism,User-Computer Interface}
-    \endentry
-    \entry{DeLeeuw2015}{article}{}
-      \name{author}{4}{}{%
-        {{uniquename=0,hash=993f011ec84ef0f4176f27a2e0eaff71}{Leeuw}{L\bibinitperiod}{Christiaan\bibnamedelima a.}{C\bibinitperiod\bibinitdelim a\bibinitperiod}{de}{d\bibinitperiod}{}{}}%
-        {{uniquename=0,hash=be0acca67f99fb0f75a7ebaf17ba8ee5}{Mooij}{M\bibinitperiod}{Joris\bibnamedelima M.}{J\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=c7359565df9fe46e9d4d21e47b35aad7}{Heskes}{H\bibinitperiod}{Tom}{T\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=91926a8bb05a2e3f38ef519124a5b6d1}{Posthuma}{P\bibinitperiod}{Danielle}{D\bibinitperiod}{}{}{}{}}%
-      }
-      \strng{namehash}{0b59e74db5fc67c9562e3ebe5e3fa054}
-      \strng{fullhash}{7d9b581653d142dcd727cce740cb4bf5}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2015}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{1553-7358}
-      \field{journaltitle}{PLOS Computational Biology}
+      \field{abstract}{We know very little about the genetic basis of adaptation. Indeed, we can make no theoretical predictions, however heuristic, about the distribution of phenotypic effects among factors fixed during adaptation nor about the expected 'size' of the largest factor fixed. Study of this problem requires taking into account that populations gradually approach a phenotypic optimum during adaptation via the stepwise substitution of favorable mutations. Using Fisher's geometric model of adaptation, I analyze this approach to the optimum, and derive an approximate solution to the size distribution of factors fixed during adaptation. I further generalize these results to allow the input of any distribution of mutational effects. The distribution of factors fixed during adaptation assumes a pleasingly simple, exponential form. This result is remarkably insensitive to changes in the fitness function and in the distribution of mutational effects. An exponential trend among factors fixed appears to be a general property of adaptation toward a fixed optimum.}
+      \field{issn}{00143820}
+      \field{journaltitle}{Evolution}
       \field{number}{4}
-      \field{title}{{MAGMA: Generalized Gene-Set Analysis of GWAS Data}}
-      \field{volume}{11}
-      \field{year}{2015}
-      \field{pages}{e1004219}
+      \field{title}{{The Population Genetics of Adaptation: The Distribution of Factors Fixed during Adaptive Evolution}}
+      \field{volume}{52}
+      \field{year}{1998}
+      \field{pages}{pp. 935\bibrangedash 949}
       \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1371/journal.pcbi.1004219
-      \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/MAGMA Generalized Gene-Set Analysis of GWAS Data.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution(2).pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution(3).pdf:pdf
       \endverb
       \verb{url}
-      \verb http://dx.plos.org/10.1371/journal.pcbi.1004219
+      \verb http://www.jstor.org/stable/2411226
       \endverb
     \endentry
-    \entry{Gogtay2011}{article}{}
-      \name{author}{5}{}{%
-        {{uniquename=0,hash=d81eb622025c3af7304aa81d58637770}{Gogtay}{G\bibinitperiod}{Nitin}{N\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=9272577cb30d29c0f19d40565a73a16f}{Vyas}{V\bibinitperiod}{Nora\bibnamedelima S.}{N\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=12b09007f834c4eadadcd996dc29de60}{Testa}{T\bibinitperiod}{Renee}{R\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=cf5eab3e521f54655744d12b947faee2}{Wood}{W\bibinitperiod}{Stephen\bibnamedelima J.}{S\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=3fbb14ac65cd8f6914d4c6ecb713950b}{Pantelis}{P\bibinitperiod}{Christos}{C\bibinitperiod}{}{}{}{}}%
+    \entry{Project2012}{article}{}
+      \name{author}{6}{}{%
+        {{uniquename=0,hash=f06f9f547912a3d0d5b5da6db3e9c01f}{Project}{P\bibinitperiod}{Genomes}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f06f9f547912a3d0d5b5da6db3e9c01f}{Project}{P\bibinitperiod}{Genomes}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fd10847e4a5ae7ba22741f76000c4cc3}{Asia}{A\bibinitperiod}{East}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4c63f081d1be06ae35e9bd526026deff}{Africa}{A\bibinitperiod}{Saharan}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6f1e098eb7390e08f8b5daf1f092363b}{Figs}{F\bibinitperiod}{Supplementary}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=060ffa92cb9e0bceb7592c01f8de4f43}{Tables}{T\bibinitperiod}{Supplementary}{S\bibinitperiod}{}{}{}{}}%
       }
-      \strng{namehash}{11d0a5149c2f42cfced594a8983adf95}
-      \strng{fullhash}{7668c25a836c6f4039d022dab39242f0}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{2011}
+      \strng{namehash}{db3dce071d197d5ef0c6761821361848}
+      \strng{fullhash}{87411dac6dacdeeac4e1c84eef9f2c3a}
+      \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelyear}{2012}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Many of the major neuropsychiatric illnesses, including schizophrenia, have a typical age of onset in late adolescence. Late adolescence may reflect a critical period in brain development making it particularly vulnerable for the onset of psychopathology. Neuroimaging studies that focus on this age range may provide unique insights into the onset and course of psychosis. In this review, we examine the evidence from 2 unique longitudinal cohorts that span the ages from early childhood through young adulthood; a study of childhood-onset schizophrenia where patients and siblings are followed from ages 6 through to their early twenties, and an ultra-high risk study where subjects (mean age of 19 years) are studied before and after the onset of psychosis. From the available evidence, we make an argument that subtle, regionally specific, and genetically influenced alterations during developmental age windows influence the course of psychosis and the resultant brain phenotype. The importance of examining trajectories of development and the need for future combined approaches, using multimodal imaging together with molecular studies is discussed.}
-      \field{isbn}{1745-1701 (Electronic)$\backslash$r0586-7614 (Linking)}
-      \field{issn}{05867614}
-      \field{journaltitle}{Schizophrenia Bulletin}
-      \field{number}{3}
-      \field{title}{{Age of onset of schizophrenia: Perspectives from structural neuroimaging studies}}
-      \field{volume}{37}
-      \field{year}{2011}
-      \field{pages}{504\bibrangedash 513}
-      \range{pages}{10}
-      \verb{doi}
-      \verb 10.1093/schbul/sbr030
+      \field{abstract}{By characterizing the geographic and functional spectrum of human genetic variation, the 1000 Genomes Project aims to build a resource to help to understand the genetic contribution to disease. Here we describe the genomes of 1,092 individuals from 14 populations, constructed using a combination of low-coverage whole-genome and exome sequencing. By developing methods to integrate information across several algorithms and diverse data sources, we provide a validated haplotype map of 38\x{fffd}\x{fffd}\x{fffd}million single nucleotide polymorphisms, 1.4\x{fffd}\x{fffd}\x{fffd}million short insertions and deletions, and more than 14,000 larger deletions. We show that individuals from different populations carry different profiles of rare and common variants, and that low-frequency variants show substantial geographic differentiation, which is further increased by the action of purifying selection. We show that evolutionary conservation and coding consequence are key determinants of the strength of purifying selection, that rare-variant load varies substantially across biological pathways, and that each individual contains hundreds of rare non-coding variants at conserved sites, such as motif-disrupting changes in transcription-factor-binding sites. This resource, which captures up to 98\% of accessible single nucleotide polymorphisms at a frequency of 1\% in related populations, enables analysis of common and low-frequency variants in individuals from diverse, including admixed, populations.}
+      \field{eprintclass}{Sherry, S. T., Ward, M. H., Kholodov, M., Baker, J., Phan, L., Smigielski, E. M., \& Sirotkin, K. (2001). dbSNP: the NCBI database of genetic variation. Nucleic acids research, 29(1), 308-11. Retrieved from http:}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{1476-4687 (Electronic)$\backslash$r0028-0836 (Linking)}
+      \field{issn}{00280836}
+      \field{journaltitle}{Nature}
+      \field{number}{V}
+      \field{title}{{An integrated map of genetic variation from 1,092 human genomes}}
+      \field{volume}{135}
+      \field{year}{2012}
+      \field{pages}{\bibrangedash 9}
+      \range{pages}{-1}
+      \verb{eprint}
+      \verb /www.pubmedcentral.nih.gov/articlerender.fc
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Age of Onset of Schizophrenia Perspectives From Structural Neuroimaging Studies.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Project et al. - 2012 - An integrated map of genetic variation from 1,092 human genomes.pdf:pdf
       \endverb
-      \keyw{adolescent,brain development,high risk,neural circuitry,prefrontal cortex,schizophrenia}
-    \endentry
-    \entry{Liaw1995}{article}{}
-      \name{author}{3}{}{%
-        {{uniquename=0,hash=8f578ed74845617a5617644180e3a573}{Liaw}{L\bibinitperiod}{S\bibnamedelima H}{S\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=1b4831d6aabf423e3213e5c1214f33f0}{Kuo}{K\bibinitperiod}{I}{I\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=5011b825249e7610f91f155dda93271e}{Eisenberg}{E\bibinitperiod}{D}{D\bibinitperiod}{}{}{}{}}%
-      }
-      \strng{namehash}{a1403860356b39c6b69ab89ed7bfae1a}
-      \strng{fullhash}{a1403860356b39c6b69ab89ed7bfae1a}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
-      \field{labelyear}{1995}
-      \field{labelmonth}{11}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Glutamine synthetase (GS) catalyzes the ATP-dependent condensation of ammonia and glutamate to yield glutamine, ADP, and inorganic phosphate in the presence of divalent cations. Bacterial GS is an enzyme of 12 identical subunits, arranged in two rings of 6, with the active site between each pair of subunits in a ring. In earlier work, we have reported the locations within the funnel-shaped active site of the substrates glutamate and ATP and of the two divalent cations, but the site for ammonia (or ammonium) has remained elusive. Here we report the discovery by X-ray crystallography of a binding site on GS for monovalent cations, Tl+ and Cs+, which is probably the binding site for the substrate ammonium ion. Fourier difference maps show the following. (1) Tl+ and Cs+ bind at essentially the same site, with ligands being Glu 212, Tyr 179, Asp 50', Ser 53' of the adjacent subunit, and the substrate glutamate. From its position adjacent to the substrate glutamate and the cofactor ADP, we propose that this monovalent cation site is the substrate ammonium ion binding site. This proposal is supported by enzyme kinetics. Our kinetic measurements show that Tl+, Cs+, and NH4+ are competitive inhibitors to NH2OH in the gamma-glutamyl transfer reaction. (2) GS is a trimetallic enzyme containing two divalent cation sites (n1, n2) and one monovalent cation site per subunit. These three closely spaced ions are all at the active site: the distance between n1 and n2 is 6 A, between n1 and Tl+ is 4 A, and between n2 and Tl+ is 7 A. Glu 212 and the substrate glutamate are bridging ligands for the n1 ion and Tl+. (3) The presence of a monovalent cation in this site may enhance the structural stability of GS, because of its effect of balancing the negative charges of the substrate glutamate and its ligands and because of strengthening the "side-to-side" intersubunit interaction through the cation-protein bonding. (4) The presence of the cofactor ADP increases the Tl+ binding to GS because ADP binding induces movement of Asp 50' toward this monovalent cation site, essentially forming the site. This observation supports a two-step mechanism with ordered substrate binding: ATP first binds to GS, then Glu binds and attacks ATP to form gamma-glutamyl phosphate and ADP, which complete the ammonium binding site. The third substrate, an ammonium ion, then binds to GS, and then loses a proton to form the more active species ammonia, which attacks the gamma-glutamyl phosphate to yield Gln. (5) Because the products (Glu or Gln) of the reactions catalyzed by GS are determined by the molecule (water or ammonium) attacking the intermediate gamma-glutamyl phosphate, this negatively charged ammonium binding pocket has been designed naturally for high affinity of ammonium to GS, permitting glutamine synthesis to proceed in aqueous solution.}
-      \field{issn}{0961-8368}
-      \field{journaltitle}{Protein science : a publication of the Protein Society}
-      \field{month}{11}
-      \field{number}{11}
-      \field{title}{{Discovery of the ammonium substrate site on glutamine synthetase, a third cation binding site.}}
-      \field{volume}{4}
-      \field{year}{1995}
-      \field{pages}{2358\bibrangedash 65}
-      \range{pages}{8}
-      \verb{doi}
-      \verb 10.1002/pro.5560041114
-      \endverb
-      \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Liaw, Kuo, Eisenberg - 1995 - Discovery of the ammonium substrate site on glutamine synthetase, a third cation binding site.pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2143006%5C&tool=pmcentrez%5C&rendertype=abstract
-      \endverb
-      \keyw{Adenosine Diphosphate,Adenosine Diphosphate: metabolism,Adenosine Triphosphate,Adenosine Triphosphate: metabolism,Binding Sites,Binding,Competitive,Cations,Monovalent,Cesium,Cesium: metabolism,Crystallography,X-Ray,Glutamate-Ammonia Ligase,Glutamate-Ammonia Ligase: chemistry,Glutamate-Ammonia Ligase: metabolism,Glutamic Acid,Glutamic Acid: metabolism,Kinetics,Models,Molecular,Quaternary Ammonium Compounds,Quaternary Ammonium Compounds: metabolism,Salmonella typhimurium,Salmonella typhimurium: enzymology,Thallium,Thallium: metabolism}
+      \warn{\item Range field 'pages' in entry 'Project2012' is malformed, skipping}
     \endentry
     \entry{Ripke2014}{article}{}
       \name{author}{302}{}{%
@@ -1259,8 +958,8 @@
       }
       \strng{namehash}{1600e58d3124d3a726094f50acb59903}
       \strng{fullhash}{6dfd60d7c71b5b5a5081972c11d14029}
-      \field{sortinit}{0}
-      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{sortinit}{R}
+      \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
       \field{labelyear}{2014}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
@@ -1274,18 +973,280 @@
       \field{year}{2014}
       \field{pages}{421\bibrangedash 427}
       \range{pages}{7}
-      \verb{doi}
-      \verb 10.1038/nature13595
-      \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Biological insights from 108 schizophrenia-associated genetic loci.pdf:pdf;:C$\backslash$:/Users/swchoi/Dropbox/Papers/Biological insights from 108 schizophrenia-associated genetic loci - supplementary.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Ripke et al. - 2014 - Biological insights from 108 schizophrenia-associated genetic loci.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Ripke et al. - 2014 - Biological insights from 108 schizophrenia-associated genetic loci(4).pdf:pdf
       \endverb
       \verb{url}
       \verb http://www.nature.com/doifinder/10.1038/nature13595
       \endverb
       \keyw{Schizophrenia,Schizophrenia: genetics}
     \endentry
+    \entry{Shieh2010}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=fa2542e7bef0eec5965652fb190221d1}{Shieh}{S\bibinitperiod}{G}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{fa2542e7bef0eec5965652fb190221d1}
+      \strng{fullhash}{fa2542e7bef0eec5965652fb190221d1}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelyear}{2010}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This article investigates some unfamiliar properties of the Pearson product-moment correlation coefficient for the estimation of simple correlation coefficient. Although Pearson's r is biased, except for limited situations, and the minimum variance unbiased estimator has been proposed in the literature, researchers routinely employ the sample correlation coefficient in their practical applications, because of its simplicity and popularity. In order to support such practice, this study examines the mean squared errors of r and several prominent formulas. The results reveal specific situations in which the sample correlation coefficient performs better than the unbiased and nearly unbiased estimators, facilitating recommendation of r as an effect size index for the strength of linear association between two variables. In addition, related issues of estimating the squared simple correlation coefficient are also considered.}
+      \field{edition}{2010/12/09}
+      \field{isbn}{1554-3528 (Electronic) 1554-351X (Linking)}
+      \field{journaltitle}{Behav Res Methods}
+      \field{number}{4}
+      \field{title}{{Estimation of the simple correlation coefficient}}
+      \field{volume}{42}
+      \field{year}{2010}
+      \field{pages}{906\bibrangedash 917}
+      \range{pages}{12}
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Shieh - 2010 - Estimation of the simple correlation coefficient.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/21139158
+      \endverb
+      \keyw{*Statistics as Topic,Regression Analysis}
+    \endentry
+    \entry{Simpson2010}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=e81d3859f973e190da1d954f5b32066f}{Simpson}{S\bibinitperiod}{Eleanor\bibnamedelima H.}{E\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=83c117be2c681213bb1cba821d827025}{Kellendonk}{K\bibinitperiod}{Christoph}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f989128c78843505d54f7f8882e189ac}{Kandel}{K\bibinitperiod}{Eric}{E\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier Inc.}%
+      }
+      \strng{namehash}{79d854163f7512954a7e0654cacd8739}
+      \strng{fullhash}{79d854163f7512954a7e0654cacd8739}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelyear}{2010}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The cognitive symptoms of schizophrenia are largely resistant to current treatment and are thus a life-long burden of the illness. Studies of cognitive symptoms have commonly focused on prefrontal cortex because of its demonstrated importance for executive function and working memory-key components of the deficit. The role of striatal-cortical circuitry and therefore the striatum itself has received much less attention. Here we review longstanding evidence that the striatum and its cortical connections are critical for complex cognition and discuss emerging evidence of the striatum's potential involvement in cognitive symptoms. Finally, we suggest how mouse models might test ideas about the contribution of early striatal dysfunction to the cognitive symptoms of schizophrenia. ?? 2010 Elsevier Inc. All rights reserved.}
+      \field{isbn}{1097-4199 (Electronic)$\backslash$r0896-6273 (Linking)}
+      \field{issn}{08966273}
+      \field{journaltitle}{Neuron}
+      \field{number}{5}
+      \field{title}{{A Possible Role for the Striatum in the Pathogenesis of the Cognitive Symptoms of Schizophrenia}}
+      \field{volume}{65}
+      \field{year}{2010}
+      \field{pages}{585\bibrangedash 596}
+      \range{pages}{12}
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/A Possible Role for the Striatum in the Pathogenesis of the Cognitive Symptoms of Schizophrenia.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.neuron.2010.02.014
+      \endverb
+    \endentry
+    \entry{Su2011}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=f168422ce4850696dc051ebbc328a3a5}{Su}{S\bibinitperiod}{Zhan}{Z\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=483d6539602b223f8eeed2e6169d0538}{Marchini}{M\bibinitperiod}{Jonathan}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ffc72dcaaa64555b3bb01df342b2fc53}{Donnelly}{D\bibinitperiod}{Peter}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{0a0e34cd91008467fff5f746f290b05c}
+      \strng{fullhash}{0a0e34cd91008467fff5f746f290b05c}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Performing experiments with simulated data is an inexpensive approach to evaluating competing experimental designs and analysis methods in genome-wide association studies. Simulation based on resampling known haplotypes is fast and efficient and can produce samples with patterns of linkage disequilibrium (LD), which mimic those in real data. However, the inability of current methods to simulate multiple nearby disease SNPs on the same chromosome can limit their application.}
+      \field{isbn}{1367-4811 (Electronic)$\backslash$r1367-4803 (Linking)}
+      \field{issn}{13674803}
+      \field{journaltitle}{Bioinformatics}
+      \field{number}{16}
+      \field{title}{{HAPGEN2: Simulation of multiple disease SNPs}}
+      \field{volume}{27}
+      \field{year}{2011}
+      \field{pages}{2304\bibrangedash 2305}
+      \range{pages}{2}
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs(2).pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs(3).pdf:pdf
+      \endverb
+    \endentry
+    \entry{Supek2011}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=11807015300a0c45b6c85c7b42b09a5b}{Supek}{S\bibinitperiod}{F}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e73f45702a7b6842f508686a4d9ecdf8}{Bosnjak}{B\bibinitperiod}{M}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a0c6ef409d9ded0b93655089ab068939}{Skunca}{S\bibinitperiod}{N}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c82afd0ea771228c6256e92f0a80a0db}{Smuc}{S\bibinitperiod}{T}{T\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{a2d8f1ee6e2fe14847aa00f10547ae19}
+      \strng{fullhash}{290d45387b024ad4b53df07d3d678a41}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Outcomes of high-throughput biological experiments are typically interpreted by statistical testing for enriched gene functional categories defined by the Gene Ontology (GO). The resulting lists of GO terms may be large and highly redundant, and thus difficult to interpret.REVIGO is a Web server that summarizes long, unintelligible lists of GO terms by finding a representative subset of the terms using a simple clustering algorithm that relies on semantic similarity measures. Furthermore, REVIGO visualizes this non-redundant GO term set in multiple ways to assist in interpretation: multidimensional scaling and graph-based visualizations accurately render the subdivisions and the semantic relationships in the data, while treemaps and tag clouds are also offered as alternative views. REVIGO is freely available at http://revigo.irb.hr/.}
+      \field{edition}{2011/07/27}
+      \field{isbn}{1932-6203 (Electronic)1932-6203 (Linking)}
+      \field{journaltitle}{PLoS One}
+      \field{number}{7}
+      \field{title}{{REVIGO summarizes and visualizes long lists of gene ontology terms}}
+      \field{volume}{6}
+      \field{year}{2011}
+      \field{pages}{e21800}
+      \range{pages}{-1}
+      \verb{url}
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/21789182
+      \endverb
+      \keyw{*Algorithms,*Molecular Sequence Annotation,Computational Biology/*methods,Gene Expression Regulation,Humans,Internet,Software,Transcription Factors/genetics/metabolism,User-Computer Interface}
+    \endentry
+    \entry{Velakoulis2006}{article}{}
+      \name{author}{11}{}{%
+        {{uniquename=0,hash=07303b77ad594847d5476a58369770e6}{Velakoulis}{V\bibinitperiod}{Dennis}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=933c951e8d22d4fcc6b766b6695d5f53}{Wood}{W\bibinitperiod}{Stephen\bibnamedelima J}{S\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5315038581f0d0a88f754960e9c2453f}{Wong}{W\bibinitperiod}{Michael\bibnamedelima Th}{M\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9772e29aac6b54b840aa4b04c73547e6}{McGorry}{M\bibinitperiod}{Patrick\bibnamedelima D}{P\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=45c23fa4a4d95539073f48a246169d61}{Yung}{Y\bibinitperiod}{Alison}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=76b19f0bb928005d227a29f1da068953}{Phillips}{P\bibinitperiod}{Lisa}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f0dabef3eeab62619902bce140d0074a}{Smith}{S\bibinitperiod}{De}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=41c6ce2fdf8bdc283a9d8149fb667323}{Brewer}{B\bibinitperiod}{Warrick}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=edf5c8b7f0f0fa78216d36583473047d}{Proffitt}{P\bibinitperiod}{Tina}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e1706bad6183bae7ee185d6333e10063}{Desmond}{D\bibinitperiod}{Patricia}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3fbb14ac65cd8f6914d4c6ecb713950b}{Pantelis}{P\bibinitperiod}{Christos}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{a51ef20277fd022448734cce334dae9f}
+      \strng{fullhash}{ce7d5c21e1a73a380467601091de8348}
+      \field{sortinit}{V}
+      \field{sortinithash}{d18f5ce25ce0b5ca7f924e3f6c04870e}
+      \field{labelyear}{2006}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Archives of general psychiatry}
+      \field{title}{{Hippocampal and amygdala volumes according to psychosis stage and diagnosis}}
+      \field{volume}{63}
+      \field{year}{2006}
+      \field{pages}{139\bibrangedash 149}
+      \range{pages}{11}
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Velakoulis et al. - 2006 - Hippocampal and amygdala volumes according to psychosis stage and diagnosis.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Welter2014}{article}{}
+      \name{author}{11}{}{%
+        {{uniquename=0,hash=307c1059c167e908d211ffdbf3e0c891}{Welter}{W\bibinitperiod}{Danielle}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=db08ecd9360962f8914c334301865ba2}{MacArthur}{M\bibinitperiod}{Jacqueline}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ac165162d3970161757dd3d1fad08c98}{Morales}{M\bibinitperiod}{Joannella}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b43b57cc7bdfb3879a0c7ccc0419b5a3}{Burdett}{B\bibinitperiod}{Tony}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b013ca3ad6e9ef3d1374692179887353}{Hall}{H\bibinitperiod}{Peggy}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e275f54ad9e0960f79f4239c39ed3128}{Junkins}{J\bibinitperiod}{Heather}{H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=e72889268d9101c88abf84ecad7641ed}{Klemm}{K\bibinitperiod}{Alan}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=91c5fcd648e30cd5b187eac97d23aa03}{Flicek}{F\bibinitperiod}{Paul}{P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9ed625ebec38ed6a305285959606d460}{Manolio}{M\bibinitperiod}{Teri}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=fac21ca214235add86c47d40635ccfe5}{Hindorff}{H\bibinitperiod}{Lucia}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=dce64332e021c75c9258faed23827c44}{Parkinson}{P\bibinitperiod}{Helen}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{b255eb8416123a137d9d57014818624e}
+      \strng{fullhash}{827c7954a4b463cc984e82ca0335cc64}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelyear}{2014}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The National Human Genome Research Institute (NHGRI) Catalog of Published Genome-Wide Association Studies (GWAS) Catalog provides a publicly available manually curated collection of published GWAS assaying at least 100,000 single-nucleotide polymorphisms (SNPs) and all SNP-trait associations with P <1 \x{fffd}\x{fffd} 10(-5). The Catalog includes 1751 curated publications of 11 912 SNPs. In addition to the SNP-trait association data, the Catalog also publishes a quarterly diagram of all SNP-trait associations mapped to the SNPs' chromosomal locations. The Catalog can be accessed via a tabular web interface, via a dynamic visualization on the human karyotype, as a downloadable tab-delimited file and as an OWL knowledge base. This article presents a number of recent improvements to the Catalog, including novel ways for users to interact with the Catalog and changes to the curation infrastructure.}
+      \field{isbn}{1362-4962 (Electronic)$\backslash$r0305-1048 (Linking)}
+      \field{issn}{03051048}
+      \field{journaltitle}{Nucleic Acids Research}
+      \field{number}{D1}
+      \field{title}{{The NHGRI GWAS Catalog, a curated resource of SNP-trait associations}}
+      \field{volume}{42}
+      \field{year}{2014}
+      \field{pages}{1001\bibrangedash 1006}
+      \range{pages}{6}
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(2).pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(3).pdf:pdf
+      \endverb
+    \endentry
+    \entry{Yang2011}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=51e5fb9f55c5b5d1edb17aea3861c908}{Yang}{Y\bibinitperiod}{J}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=20964edb25ff5c1ab0389e2abf150e92}{Lee}{L\bibinitperiod}{S\bibnamedelima H}{S\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d6c6504b2cc5ca1332094b9f4a07076d}{Goddard}{G\bibinitperiod}{M\bibnamedelima E}{M\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=791841f4a3816b307edebd7907ba7fa4}{Visscher}{V\bibinitperiod}{P\bibnamedelima M}{P\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{e2a55d0b1c12c5c5d4797a727172bf22}
+      \strng{fullhash}{bff3cb4ca12eec589b489ccf4b340c11}
+      \field{sortinit}{Y}
+      \field{sortinithash}{3cbc1e3d286284cedb5e5218a3248f94}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{For most human complex diseases and traits, SNPs identified by genome-wide association studies (GWAS) explain only a small fraction of the heritability. Here we report a user-friendly software tool called genome-wide complex trait analysis (GCTA), which was developed based on a method we recently developed to address the "missing heritability" problem. GCTA estimates the variance explained by all the SNPs on a chromosome or on the whole genome for a complex trait rather than testing the association of any particular SNP to the trait. We introduce GCTA's five main functions: data management, estimation of the genetic relationships from SNPs, mixed linear model analysis of variance explained by the SNPs, estimation of the linkage disequilibrium structure, and GWAS simulation. We focus on the function of estimating the variance explained by all the SNPs on the X chromosome and testing the hypotheses of dosage compensation. The GCTA software is a versatile tool to estimate and partition complex trait variation with large GWAS data sets.}
+      \field{edition}{2010/12/21}
+      \field{isbn}{1537-6605 (Electronic)0002-9297 (Linking)}
+      \field{journaltitle}{Am J Hum Genet}
+      \field{number}{1}
+      \field{title}{{GCTA: a tool for genome-wide complex trait analysis}}
+      \field{volume}{88}
+      \field{year}{2011}
+      \field{pages}{76\bibrangedash 82}
+      \range{pages}{7}
+      \verb{url}
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/21167468
+      \endverb
+      \keyw{*Polymorphism,Single Nucleotide,*Quantitative Trait Loci,*Software,Chromosomes,Human,X/*genetics,Computer Simulation,Dosage Compensation,Genetic,Female,Genetic Linkage,Genome-Wide Association Study/*methods,Humans,Male,Models,Genetic}
+    \endentry
+    \entry{Zhang2005}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=edefadf2737f4300dd8a9daa07b31f02}{Zhang}{Z\bibinitperiod}{Bin}{B\bibinitperiod}{}{}{}{}}%
+        {{uniquename=2,hash=f520a749adbb878b4ba30b3f54e0dad8}{Horvath}{H\bibinitperiod}{Steve}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{e242b3770fcc3812de0af1be93e77392}
+      \strng{fullhash}{e242b3770fcc3812de0af1be93e77392}
+      \field{sortinit}{Z}
+      \field{sortinithash}{fdda4caaa6b5fa63e0c081dcb159543a}
+      \field{labelyear}{2005}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Gene co-expression networks are increasingly used to explore the system-level functionality of genes. The network construction is conceptually straightforward: nodes represent genes and nodes are connected if the corresponding genes are significantly co-expressed across appropriately chosen tissue samples. In reality, it is tricky to define the connections between the nodes in such networks. An important question is whether it is biologically meaningful to encode gene co-expression using binary information (connected=1, unconnected=0). We describe a general framework for ;soft' thresholding that assigns a connection weight to each gene pair. This leads us to define the notion of a weighted gene co-expression network. For soft thresholding we propose several adjacency functions that convert the co-expression measure to a connection weight. For determining the parameters of the adjacency function, we propose a biologically motivated criterion (referred to as the scale-free topology criterion). We generalize the following important network concepts to the case of weighted networks. First, we introduce several node connectivity measures and provide empirical evidence that they can be important for predicting the biological significance of a gene. Second, we provide theoretical and empirical evidence that the ;weighted' topological overlap measure (used to define gene modules) leads to more cohesive modules than its ;unweighted' counterpart. Third, we generalize the clustering coefficient to weighted networks. Unlike the unweighted clustering coefficient, the weighted clustering coefficient is not inversely related to the connectivity. We provide a model that shows how an inverse relationship between clustering coefficient and connectivity arises from hard thresholding. We apply our methods to simulated data, a cancer microarray data set, and a yeast microarray data set.}
+      \field{annotation}{From Duplicate 2 (A general framework for weighted gene co-expression network analysis - Zhang, B; Horvath, S)}
+      \field{edition}{2006/05/02}
+      \field{isbn}{1544-6115 (Electronic)1544-6115 (Linking)}
+      \field{issn}{1544-6115}
+      \field{journaltitle}{Stat Appl Genet Mol Biol}
+      \field{number}{1}
+      \field{title}{{A general framework for weighted gene co-expression network analysis}}
+      \field{volume}{4}
+      \field{year}{2005}
+      \field{pages}{Article17}
+      \range{pages}{-1}
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Zhang, Horvath - 2005 - A general framework for weighted gene co-expression network analysis.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.ncbi.nlm.nih.gov/pubmed/16646834
+      \endverb
+    \endentry
   \endsortlist
+  \missing{Liaw1995}
 \endrefsection
 \endinput
 
