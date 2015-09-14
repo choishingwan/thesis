@@ -132,7 +132,7 @@
       \verb 10.1038/nature09298
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Altshuler et al. - 2010 - Integrating common and rare genetic variation in diverse human populations.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/Integrating common and rare genetic variation in diverse human populations.pdf:pdf
       \endverb
     \endentry
     \entry{AmericanPsychiatricAssociation2013}{book}{}
@@ -198,7 +198,7 @@
       \verb 10.1038/ng.3211
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Bulik-Sullivan et al. - 2015 - LD Score regression distinguishes confounding from polygenicity in genome-wide association studies.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/LD Score regression distinguishes confounding from polygenicity in genome-wide association studies.pdf:pdf
       \endverb
     \endentry
     \entry{Eden2009}{article}{}
@@ -264,7 +264,7 @@
       \verb 10.1093/schbul/sbr030
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Gogtay et al. - 2011 - Age of onset of schizophrenia Perspectives from structural neuroimaging studies.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Age of Onset of Schizophrenia Perspectives From Structural Neuroimaging Studies.pdf:pdf
       \endverb
       \keyw{adolescent,brain development,high risk,neural circuitry,prefrontal cortex,schizophrenia}
     \endentry
@@ -315,7 +315,7 @@
       \verb 10.1007/BF01937276
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Hansen - 1987 - The truncated SVD as a method for regularization.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/The truncated SVD as a method for regularization.pdf:pdf
       \endverb
       \keyw{65F30,891601,AMS subject classification: 65F20,numerical rank,perturbation theory for truncated SVD,regularization in standard form,svd,truncated,truncated SVD}
     \endentry
@@ -348,36 +348,8 @@
       \verb 10.1186/1471-2164-14-778
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Hart et al. - 2013 - Finding the active genes in deep RNA-seq gene expression studies.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Finding the active genes in deep RNA-seq gene expression studies.pdf:pdf
       \endverb
-    \endentry
-    \entry{Jablensky2010}{article}{}
-      \name{author}{1}{}{%
-        {{uniquename=0,hash=28c89d49e080b5a44538e68cfafd4dc0}{Jablensky}{J\bibinitperiod}{Assen}{A\bibinitperiod}{}{}{}{}}%
-      }
-      \strng{namehash}{28c89d49e080b5a44538e68cfafd4dc0}
-      \strng{fullhash}{28c89d49e080b5a44538e68cfafd4dc0}
-      \field{sortinit}{J}
-      \field{sortinithash}{ec3950a647c092421b9fcca6d819504a}
-      \field{labelyear}{2010}
-      \field{labelmonth}{01}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{More than a century since the delineation of dementia praecox by Kraepelin, the etiology, neuropathology, and pathophysiology of schizophrenia remain elusive. Despite the availability of criteria allowing reliable diagnostic identification, schizophrenia essentially remains a broad clinical syndrome defined by reported subjective experiences (symptoms), loss of function (behavioral impairments), and variable patterns of course. Research has identified a number of putative biological markers associated with the disorder, including neurocognitive dysfunction, brain dysmorphology, and neurochemical abnormalities. Yet none of these variables has to date been definitively proven to possess the sensitivity and specificity expected of a diagnostic test. Genetic linkage and association studies have targeted multiple candidate loci and genes, but failed to demonstrate that any specific gene variant, or a combination of genes, is either necessary or sufficient to cause schizophrenia. Thus, the existence of a specific brain disease underlying schizophrenia remains a hypothesis. Against a background of an ever-increasing volume of research data, the inconclusiveness of the search for causes of the disorder fuels doubts about the validity of the schizophrenia construct as presently defined. Given the protean nature of the symptoms of schizophrenia and the poor coherence of the clinical and biological findings, such doubts are not without reason. However, simply dismantling the concept is unlikely to result in an alternative model that would account for the host of clinical phenomena and research data consistent with a disease hypothesis of schizophrenia. For the time being, the clinical concept of schizophrenia is supported by empirical evidence that its multiple facets form a broad syndrome with non-negligible internal cohesion and a characteristic evolution over time. The dissection of the syndrome with the aid of endophenotypes is beginning to be perceived as a promising approach in schizophrenia genetics.}
-      \field{issn}{1294-8322}
-      \field{journaltitle}{Dialogues in clinical neuroscience}
-      \field{month}{01}
-      \field{number}{3}
-      \field{title}{{The diagnostic concept of schizophrenia: its history, evolution, and future prospects.}}
-      \field{volume}{12}
-      \field{year}{2010}
-      \field{pages}{271\bibrangedash 87}
-      \range{pages}{17}
-      \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Jablensky - 2010 - The diagnostic concept of schizophrenia its history, evolution, and future prospects.pdf:pdf
-      \endverb
-      \keyw{19th Century,20th Century,21st Century,Biological,Biological Evolution,Brain,Brain: metabolism,Brain: pathology,Brain: physiopathology,History,19th Century,History,20th Century,History,21st Century,Humans,Models,Biological,Research,Research: history,Research: trends,Schizophrenia,Schizophrenia: diagnosis,Schizophrenia: etiology,Schizophrenia: genetics,Schizophrenia: history}
     \endentry
     \entry{Knapp2004}{article}{}
       \name{author}{3}{}{%
@@ -404,7 +376,7 @@
       \field{pages}{279\bibrangedash 293}
       \range{pages}{15}
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/The global costs of schizophrenia.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Knapp, Mangalore, Simon - 2004 - The global costs of schizophrenia.pdf:pdf
       \endverb
       \keyw{2,2004,279-293,30,burden,cost-of-illness,devastating disease with wide-,economics,of illness,schizophrenia,schizophrenia bulletin,schizophrenia can be a}
     \endentry
@@ -465,7 +437,7 @@
       \verb 10.1371/journal.pcbi.1004219
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/MAGMA Generalized Gene-Set Analysis of GWAS Data.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/de Leeuw et al. - 2015 - MAGMA Generalized Gene-Set Analysis of GWAS Data.pdf:pdf
       \endverb
     \endentry
     \entry{Li2011b}{article}{}
@@ -549,7 +521,7 @@
       \verb 10.1038/nature08494
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Manolio et al. - 2009 - Finding the missing heritability of complex diseases.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Finding the missing heritability of complex diseases.pdf:pdf
       \endverb
     \endentry
     \entry{Neumaier1998}{article}{}
@@ -578,7 +550,7 @@
       \verb 10.1137/S0036144597321909
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Neumaier - 1998 - Solving Ill-Conditioned and Singular Linear Systems A Tutorial on Regularization.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/SOLVING ILL-CONDITIONED AND SINGULAR LINEAR SYSTEMS A TUTORIAL ON REGULARIZATION.pdf:pdf
       \endverb
       \keyw{1,ams subject classifications,error bounds,find,generalized,generalized cross validation,ill-conditioned,ill-posed,in many applications of,introduction,linear algebra,maximum likelihood,primary 65f05,regularization,secondary 65j20,the need arises to,tikhonov regularization}
     \endentry
@@ -620,7 +592,7 @@
       \verb 10.1016/j.schres.2006.10.014
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Dynamic mapping of hippocampal development in childhood onset schizophrenia.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/Dynamic mapping of hippocampal development in childhood onset schizophrenia.pdf:pdf
       \endverb
       \keyw{Childhood onset schizophrenia,Hippocampus,Longitudinal,MRI,Mapping}
     \endentry
@@ -649,7 +621,7 @@
       \field{pages}{pp. 935\bibrangedash 949}
       \range{pages}{-1}
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution(2).pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution(3).pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/the population genetics of adaptation the distribution of cators fixed during adaptive evolution.pdf:pdf
       \endverb
     \endentry
     \entry{Project2012}{article}{}
@@ -688,7 +660,7 @@
       \verb /www.pubmedcentral.nih.gov/articlerender.fc
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Project et al. - 2012 - An integrated map of genetic variation from 1,092 human genomes.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/An integrated map of genetic variation from 1,092 human genomes.pdf:pdf
       \endverb
       \warn{\item Range field 'pages' in entry 'Project2012' is malformed, skipping}
     \endentry
@@ -1018,7 +990,7 @@
       \verb 10.1038/nature13595
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Ripke et al. - 2014 - Biological insights from 108 schizophrenia-associated genetic loci.pdf:pdf;:C$\backslash$:/Users/shingwan/Dropbox/Papers/Biological insights from 108 schizophrenia-associated genetic loci - supplementary.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Biological insights from 108 schizophrenia-associated genetic loci.pdf:pdf;:C$\backslash$:/Users/swchoi/Dropbox/Papers/Biological insights from 108 schizophrenia-associated genetic loci - supplementary.pdf:pdf
       \endverb
       \keyw{Schizophrenia,Schizophrenia: genetics}
     \endentry
@@ -1049,7 +1021,7 @@
       \verb 10.1001/archpsyc.64.10.1123
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/A Systematic Review of Mortality in Schizophrenia.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Saha, Chant, Mcgrath - 2007 - A Systematic Review of Mortality in Schizophrenia.pdf:pdf
       \endverb
     \endentry
     \entry{Schultz2007}{article}{}
@@ -1077,7 +1049,7 @@
       \field{pages}{1821\bibrangedash 1829}
       \range{pages}{9}
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Schizophrenia A Review.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Schultz, North, Shields - 2007 - Schizophrenia A review(2).pdf:pdf
       \endverb
       \keyw{Antipsychotic Agents,Antipsychotic Agents: adverse effects,Antipsychotic Agents: therapeutic use,Diagnosis,Differential,Humans,Nervous System,Nervous System: drug effects,Prognosis,Schizophrenia,Schizophrenia: diagnosis,Schizophrenia: drug therapy,Schizophrenia: physiopathology}
     \endentry
@@ -1110,7 +1082,7 @@
       \verb 10.3758/BRM.42.4.906 42/4/906 [pii]
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Shieh - 2010 - Estimation of the simple correlation coefficient.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Estimation of the simple correlation coefficient.pdf:pdf
       \endverb
       \keyw{*Statistics as Topic,Regression Analysis}
     \endentry
@@ -1145,7 +1117,7 @@
       \verb 10.1016/j.neuron.2010.02.014
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/A Possible Role for the Striatum in the Pathogenesis of the Cognitive Symptoms of Schizophrenia.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/A Possible Role for the Striatum in the Pathogenesis of the Cognitive Symptoms of Schizophrenia.pdf:pdf
       \endverb
     \endentry
     \entry{Su2011}{article}{}
@@ -1176,7 +1148,7 @@
       \verb 10.1093/bioinformatics/btr341
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs(2).pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs(3).pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/HAPGEN2 simulation of multiple disease SNPs.pdf:pdf
       \endverb
     \endentry
     \entry{Supek2011}{article}{}
@@ -1241,7 +1213,7 @@
       \field{pages}{139\bibrangedash 149}
       \range{pages}{11}
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Hippocampal and Amygdala Volumes According to Psychosis Stage and Diagnosis.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/Hippocampal and Amygdala Volumes According to Psychosis Stage and Diagnosis.pdf:pdf
       \endverb
     \endentry
     \entry{Welter2014}{article}{}
@@ -1280,7 +1252,7 @@
       \verb 10.1093/nar/gkt1229
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(2).pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(3).pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf
       \endverb
     \endentry
     \entry{Geneva2013}{report}{}
@@ -1334,7 +1306,7 @@
       \verb 10.1016/j.ajhg.2010.11.011S0002-9297(10)00598-7 [pii]
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/GCTA A Tool for Genome-wide Complex Trait Analysis.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Yang et al. - 2011 - GCTA a tool for genome-wide complex trait analysis.pdf:pdf
       \endverb
       \keyw{*Polymorphism,Single Nucleotide,*Quantitative Trait Loci,*Software,Chromosomes,Human,X/*genetics,Computer Simulation,Dosage Compensation,Genetic,Female,Genetic Linkage,Genome-Wide Association Study/*methods,Humans,Male,Models,Genetic}
     \endentry
@@ -1370,7 +1342,7 @@
       \verb 10.2202/1544-6115.1128
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Zhang, Horvath - 2005 - A general framework for weighted gene co-expression network analysis.pdf:pdf
+      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/A General Framework for Weighted Gene Co-Expression Network Analysis.pdf:pdf
       \endverb
     \endentry
   \endsortlist

@@ -32,31 +32,33 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Literature Review II: Schizophrenia}{5}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Disease Background}{5}{section.3.1}
+\contentsline {section}{\numberline {3.1}Diagnosis}{5}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.1}Comorbidity}{5}{subsection.3.1.1}
+\contentsline {section}{\numberline {3.2}Heritability of Schizophrenia}{5}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Disease Mechanisms}{5}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Comorbidity}{5}{subsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.1}Twin Studies}{6}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}Disease Mechanisms}{5}{section.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.2}Epidemiological Studies}{6}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.3.1}Twin Studies}{6}{subsection.3.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.3}Genetic Risk Factors}{6}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.3.2}Epidemiological Studies}{6}{subsection.3.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.3}Genetic Risk Factors}{6}{subsection.3.3.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Common genetic Variation}{6}{section*.14}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Rare Genetic Variation}{6}{section*.15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.4}Environmental Risk Factors}{6}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.3.4}Environmental Risk Factors}{6}{subsection.3.3.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Maternal Immune Activation}{6}{section*.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Current Treatments}{6}{section.3.3}
+\contentsline {section}{\numberline {3.4}Current Treatments}{6}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.1}Antipsychotics}{6}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.4.1}Antipsychotics}{6}{subsection.3.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Pharmacogenetics and Pharmacogenomics}{6}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.4.2}Pharmacogenetics and Pharmacogenomics}{6}{subsection.3.4.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Heritability Estimation}{7}{chapter.4}
 \defcounter {refsection}{0}\relax 
