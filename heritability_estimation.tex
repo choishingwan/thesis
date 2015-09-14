@@ -533,5 +533,56 @@
 		
 	\section{Result}
 		The heritabilibty estimation were implemented in \gls{shrek} and is available on \url{https://github.com/choishingwan/shrek}.
-		
+		\begin{figure}
+			%Should we flat the heritability estimation such that it is always [0,1]?
+			\centering
+			\centering
+			\subfloat[SHREK]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/shrek_50k_10c_meanH.png}}
+				\label{fig:50k10cQtmeanS}
+			}
+			\subfloat[GCTA]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/gcta_50k_10c_meanH.png}}
+				\label{fig:50k10cQtmeanG}
+			}\\
+			\subfloat[LDSC with fix intercept]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/ldsc_50k_10c_meanH.png}}
+				\label{fig:50k10cQtmeanL}
+			}
+			\subfloat[LDSC with intercept estimation]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/ldscIn_50k_10c_meanH.png}}
+				\label{fig:50k10cQtmeanI}
+			}
+			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 10 causal variants]
+			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 10 causal variants.
+			The mean estimation of each round of simulation were plotted against the empirical heritability simulated.
+				It was observed that \gls{shrek} has the highest $R^2$ and with \gls{mse} lower than that of \gls{ldsc}} 
+			\label{fig:50k10cQtMean}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\centering
+			\subfloat[SHREK]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/shrek_50k_10c_varH.png}}
+				\label{fig:50k10cQtvarS}
+			}
+			\subfloat[GCTA]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/gcta_50k_10c_varH.png}}
+				\label{fig:50k10cQtvarG}
+			}\\
+			\subfloat[LDSC with fix intercept]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/ldsc_50k_10c_varH.png}}
+				\label{fig:50k10cQtvarL}
+			}
+			\subfloat[LDSC with intercept estimation]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/ldscIn_50k_10c_varH.png}}
+				\label{fig:50k10cQtvarI}
+			}
+			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 10 causal variants(Variance)]
+			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 10 causal variants (Variance).
+			When it come to the estimation of variance, it was observed that all the tools can only provide a heuristic estimation of the empirical variance, with \gls{gcta} being the most accurate and \gls{shrek} underestimating the variance.
+			As for \gls{ldsc}, the variance estimated were much higher than the empirical variance no matter if the intercept were fixed or not.
+			It is worth noting that the empirical variance of \gls{gcta} were much lower than \gls{ldsc} and \gls{shrek} whereas the empirical variance of \gls{shrek} tends to be higher than \gls{ldsc} } 
+			\label{fig:50k10cQtVar}
+		\end{figure}
 	\section{Discussion}

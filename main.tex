@@ -10,7 +10,7 @@
 \usepackage[nodisplayskipstretch]{setspace}
 \usepackage{booktabs}
 \usepackage{gensymb}
-\usepackage{parskip}
+%\usepackage{parskip}
 \usepackage{xr}
 \usepackage{pdflscape}
 \usepackage[labelfont=bf,tableposition=top]{caption}
@@ -90,6 +90,9 @@
 \newacronym{MAGMA}{MAGMA}{Multi-marker Analysis of GenoMic Annotation}
 \newacronym{ngs}{NGS}{Next Generation Sequencing}
 \newacronym{dsm5}{DSM-5}{Diagnostic and Statistical Manual of Mental Disorders, 5th Edition}
+\newacronym{mse}{MSE}{mean squared error}
+\newacronym{who}{WHO}{World Health Organization}
+\newacronym{yld}{YLD}{years lost due to disability}
 \raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 \makeindex
 \begin{document}\thispagestyle{empty}
@@ -263,10 +266,53 @@
 	\chapter{Literature Review II: \glsentrylong{scz}}
 	\chaptermark{\glsentrylong{scz}}
 	% Disease background
-	% What is schizophrenia?
-	% Disease phenotype?
-	% Disease characteristics? e.g. Comorbidity
-	% How does it affect our society? -> Why do we want to study it?
+	\glsentrylong{scz} is a detrimental psychiatric disorder affecting around $0.3\sim0.7\%$ of the population\citep{AmericanPsychiatricAssociation2013}.
+	It is characterized by delusions, hallucinations, disorganized speech, grossly disorganized behavior and negative symptoms such as the diminished emotional expression\citep{AmericanPsychiatricAssociation2013} with a typical age of onset at late adolescent or late 20s in male and late 20s or early 30s in female\citep{Schultz2007}.
+	
+	\glsentrylong{scz} not only impose long lasting health, social and financial burden not only to the patients, but also to their families\citep{Knapp2004}. 
+	Even more so, patients with \glsentrylong{scz} increased suicide rate \citep{Saha2007}, leading to a higher mortality.
+	Based on the \gls{who} report, \glsentrylong{scz} is one of the top 20 leading cause of \gls{yld} in 2012, ranking 16 among all possible causes (\cref{tab:whoYLD}), demonstrating the extent of impact from \glsentrylong{scz} to patients.
+	
+	%Comorbidity
+	
+	% Because how schizophrenia is so damaging, researchers have tried to identify the cause of the disease.
+	% Then we talk about the researchs that has been done
+	
+	\begin{table}
+		\centering
+		\caption[Top 20 leading cause of \glsentrylong{yld} calculated by \glsentryshort{who} in year 2012]{Top 20 leading cause of \gls{yld} calculated by \gls{who} in year 2012.
+			\glsentrylong{scz} is considered as one of the top 20 leading cause of \gls{yld}\citep{Geneva2013}}
+		\begin{tabular}{rrrrr}
+			\toprule
+			Rank  & Cause & \gls{yld} (000s) & \% \gls{yld} & \gls{yld} per 100,000 population \\
+			\midrule
+			0     & All Causes & 740,545 & 100   & 10466 \\
+			1     & Unipolar depressive disorders & 76,419 & 10.3  & 1080 \\
+			2     & Back and neck pain & 53,855 & 7.3   & 761 \\
+			3     & Iron-deficiency anaemia & 43,615 & 5.9   & 616 \\
+			4     & Chronic obstructive pulmonary disease & 30,749 & 4.2   & 435 \\
+			5     & Alcohol use disorders & 27,905 & 3.8   & 394 \\
+			6     & Anxiety disorders & 27,549 & 3.7   & 389 \\
+			7     & Diabetes mellitus & 22,492 & 3     & 318 \\
+			8     & Other hearing loss & 22,076 & 3     & 312 \\
+			9     & Falls & 20,409 & 2.8   & 288 \\
+			10    & Migraine & 18,538 & 2.5   & 262 \\
+			11    & Osteoarthritis & 18,096 & 2.4   & 256 \\
+			12    & Skin diseases & 15,744 & 2.1   & 223 \\
+			13    & Asthma & 14,134 & 1.9   & 200 \\
+			14    & Road injury & 13,902 & 1.9   & 196 \\
+			15    & Refractive errors & 13,498 & 1.8   & 191 \\
+			\textbf{16}    & \textbf{Schizophrenia} & \textbf{13,408} & \textbf{1.8}   & \textbf{189} \\
+			17    & Bipolar disorder & 13,271 & 1.8   & 188 \\
+			18    & Drug use disorders & 10,620 & 1.4   & 150 \\
+			19    & Endocrine, blood, immune disorders & 10,495 & 1.4   & 148 \\
+			20    & Gynecological diseases & 10,227 & 1.4   & 145 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:whoYLD}%
+	\end{table}%
+	
+	
 	% What do we know about the disease?
 	% Is it hertable? Worth doing genetic research on it?
 	% What are the common risk factors?

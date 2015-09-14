@@ -8,19 +8,39 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Cumulative Distribution of ``gap'' of the LD matrix}}{15}{figure.caption.16}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Cumulative Distribution of ``gap'' of the LD matrix}}{15}{figure.caption.17}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Simulation of Quantitative Traits with 50k SNPs and 10 causal variants}}{20}{figure.caption.18}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {SHREK}}}{20}{subfigure.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {GCTA}}}{20}{subfigure.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {LDSC with fix intercept}}}{20}{subfigure.2.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {LDSC with intercept estimation}}}{20}{subfigure.2.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Simulation of Quantitative Traits with 50k SNPs and 10 causal variants(Variance)}}{21}{figure.caption.19}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {SHREK}}}{21}{subfigure.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {GCTA}}}{21}{subfigure.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {LDSC with fix intercept}}}{21}{subfigure.3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {LDSC with intercept estimation}}}{21}{subfigure.3.4}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Mean Gene Expression across developmental age}}{26}{figure.caption.26}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Mean Gene Expression across developmental age}}{28}{figure.caption.29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {``Black'' Network from Hippocampus}}}{26}{subfigure.1.1}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {``Black'' Network from Hippocampus}}}{28}{subfigure.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {``Tan'' Network from Amygdala}}}{26}{subfigure.1.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {``Tan'' Network from Amygdala}}}{28}{subfigure.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {``Pink'' Network from Amygdala}}}{26}{subfigure.1.3}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {``Pink'' Network from Amygdala}}}{28}{subfigure.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {``Yellow'' Network from Amygdala}}}{26}{subfigure.1.4}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {``Yellow'' Network from Amygdala}}}{28}{subfigure.1.4}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 

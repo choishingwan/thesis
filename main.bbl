@@ -128,6 +128,9 @@
       \field{year}{2010}
       \field{pages}{52\bibrangedash 58}
       \range{pages}{7}
+      \verb{doi}
+      \verb 10.1038/nature09298
+      \endverb
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Altshuler et al. - 2010 - Integrating common and rare genetic variation in diverse human populations.pdf:pdf
       \endverb
@@ -155,8 +158,8 @@
       \field{year}{2013}
       \field{pages}{991}
       \range{pages}{1}
-      \verb{url}
-      \verb http://encore.llu.edu/iii/encore/record/C%5C_%5C_Rb1280248%5C_%5C_SDSM-V%5C_%5C_P0,2%5C_%5C_Orightresult%5C_%5C_X3;jsessionid=ABB7428ECBC4BA66625EDD0E0C5AAFA5?lang=eng%5C&suite=cobalt$%5Cbackslash$nhttp://books.google.com/books?id=EIbMlwEACAAJ%5C&pgis=1
+      \verb{doi}
+      \verb 10.1176/appi.books.9780890425596.744053
       \endverb
       \keyw{diagnostic and statistical manual,mental disorder}
     \endentry
@@ -191,11 +194,11 @@
       \field{year}{2015}
       \field{pages}{291\bibrangedash 295}
       \range{pages}{5}
+      \verb{doi}
+      \verb 10.1038/ng.3211
+      \endverb
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Bulik-Sullivan et al. - 2015 - LD Score regression distinguishes confounding from polygenicity in genome-wide association studies.pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://www.nature.com/doifinder/10.1038/ng.3211
       \endverb
     \endentry
     \entry{Eden2009}{article}{}
@@ -226,8 +229,8 @@
       \field{year}{2009}
       \field{pages}{48}
       \range{pages}{1}
-      \verb{url}
-      \verb http://www.ncbi.nlm.nih.gov/pubmed/19192299
+      \verb{doi}
+      \verb 10.1186/1471-2105-10-481471-2105-10-48 [pii]
       \endverb
       \keyw{*Genes,*Software,Algorithms,Animals,Arabidopsis/genetics,Computational Biology/*methods,Data Interpretation,Statistical,Databases,Genetic,Gene Expression Profiling,Genomics/*methods,Humans,Information Storage and Retrieval/*methods,Internet,Models,Genetic,Models,Statistical,Terminology as Topic,User-Computer Interface,Yeasts/genetics}
     \endentry
@@ -257,6 +260,9 @@
       \field{year}{2011}
       \field{pages}{504\bibrangedash 513}
       \range{pages}{10}
+      \verb{doi}
+      \verb 10.1093/schbul/sbr030
+      \endverb
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Gogtay et al. - 2011 - Age of onset of schizophrenia Perspectives from structural neuroimaging studies.pdf:pdf
       \endverb
@@ -305,11 +311,11 @@
       \field{year}{1987}
       \field{pages}{534\bibrangedash 553}
       \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/BF01937276
+      \endverb
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Hansen - 1987 - The truncated SVD as a method for regularization.pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://portal.acm.org/citation.cfm?id=891601
       \endverb
       \keyw{65F30,891601,AMS subject classification: 65F20,numerical rank,perturbation theory for truncated SVD,regularization in standard form,svd,truncated,truncated SVD}
     \endentry
@@ -338,11 +344,11 @@
       \field{year}{2013}
       \field{pages}{778}
       \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/1471-2164-14-778
+      \endverb
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Hart et al. - 2013 - Finding the active genes in deep RNA-seq gene expression studies.pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3870982%5C&tool=pmcentrez%5C&rendertype=abstract
       \endverb
     \endentry
     \entry{Jablensky2010}{article}{}
@@ -371,10 +377,36 @@
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Jablensky - 2010 - The diagnostic concept of schizophrenia its history, evolution, and future prospects.pdf:pdf
       \endverb
-      \verb{url}
-      \verb http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3181977%5C&tool=pmcentrez%5C&rendertype=abstract
-      \endverb
       \keyw{19th Century,20th Century,21st Century,Biological,Biological Evolution,Brain,Brain: metabolism,Brain: pathology,Brain: physiopathology,History,19th Century,History,20th Century,History,21st Century,Humans,Models,Biological,Research,Research: history,Research: trends,Schizophrenia,Schizophrenia: diagnosis,Schizophrenia: etiology,Schizophrenia: genetics,Schizophrenia: history}
+    \endentry
+    \entry{Knapp2004}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=1ab9c4932395528ccdee3b70eefbc342}{Knapp}{K\bibinitperiod}{Martin}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7f603c20e0e16d9a324835763a225d05}{Mangalore}{M\bibinitperiod}{Roshni}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8ce5b203576d33502dc3dd0c47d2bbfa}{Simon}{S\bibinitperiod}{Judit}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{199dfa51708113e2d92c47b6e985fd77}
+      \strng{fullhash}{199dfa51708113e2d92c47b6e985fd77}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelyear}{2004}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Schizophrenia is a chronic disease associated with a significant and long-lasting health, social, and financial burden, not only for patients but also for families, other caregivers, and the wider society. Many national and local studies have sought to estimate the societal burden of the illness--or some components of it--in monetary terms. Findings vary. We systematically reviewed the literature to locate all existing international estimates to date. Sixty-two relevant studies were found and summarized. Within- and between-country differences were analyzed descriptively. Despite the wide diversity of data sets and methods applied, all cost-of-illness estimates highlight the heavy societal burden of schizophrenia. Such information helps us to understand the health, health care, economic, and policy importance of schizophrenia, and to better interpret and explain the large within- and across-country differences that exist.}
+      \field{isbn}{15329194}
+      \field{issn}{0586-7614}
+      \field{journaltitle}{Schizophrenia bulletin}
+      \field{number}{2}
+      \field{title}{{The global costs of schizophrenia.}}
+      \field{volume}{30}
+      \field{year}{2004}
+      \field{pages}{279\bibrangedash 293}
+      \range{pages}{15}
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/The global costs of schizophrenia.pdf:pdf
+      \endverb
+      \keyw{2,2004,279-293,30,burden,cost-of-illness,devastating disease with wide-,economics,of illness,schizophrenia,schizophrenia bulletin,schizophrenia can be a}
     \endentry
     \entry{Langfelder2008}{article}{}
       \name{author}{2}{}{%
@@ -401,8 +433,8 @@
       \field{year}{2008}
       \field{pages}{559}
       \range{pages}{1}
-      \verb{url}
-      \verb http://www.ncbi.nlm.nih.gov/pubmed/19114008
+      \verb{doi}
+      \verb 1471-2105-9-559 [pii]10.1186/1471-2105-9-559
       \endverb
       \keyw{*Computing Methodologies,*Software,Algorithms,Animals,Computational Biology/*methods,Computer Graphics,Databases,Genetic,Gene Expression Profiling/methods,Humans,Mice,Oligonucleotide Array Sequence Analysis/*methods,Pattern Recognition,Automated,Programming Languages,Systems Biology}
     \endentry
@@ -429,11 +461,11 @@
       \field{year}{2015}
       \field{pages}{e1004219}
       \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1371/journal.pcbi.1004219
+      \endverb
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/MAGMA Generalized Gene-Set Analysis of GWAS Data.pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://dx.plos.org/10.1371/journal.pcbi.1004219
       \endverb
     \endentry
     \entry{Li2011b}{article}{}
@@ -458,6 +490,9 @@
       \field{year}{2011}
       \field{pages}{747\bibrangedash 756}
       \range{pages}{10}
+      \verb{doi}
+      \verb 10.1007/s00439-011-1118-2
+      \endverb
     \endentry
     \entry{Manolio2009}{article}{}
       \name{author}{27}{}{%
@@ -510,11 +545,11 @@
       \field{year}{2009}
       \field{pages}{747\bibrangedash 753}
       \range{pages}{7}
+      \verb{doi}
+      \verb 10.1038/nature08494
+      \endverb
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Manolio et al. - 2009 - Finding the missing heritability of complex diseases.pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://dx.doi.org/10.1038/nature08494
       \endverb
     \endentry
     \entry{Neumaier1998}{article}{}
@@ -539,6 +574,9 @@
       \field{year}{1998}
       \field{pages}{636\bibrangedash 666}
       \range{pages}{31}
+      \verb{doi}
+      \verb 10.1137/S0036144597321909
+      \endverb
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Neumaier - 1998 - Solving Ill-Conditioned and Singular Linear Systems A Tutorial on Regularization.pdf:pdf
       \endverb
@@ -578,8 +616,11 @@
       \field{year}{2007}
       \field{pages}{62\bibrangedash 70}
       \range{pages}{9}
+      \verb{doi}
+      \verb 10.1016/j.schres.2006.10.014
+      \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Nugent et al. - 2007 - Dynamic mapping of hippocampal development in childhood onset schizophrenia.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Dynamic mapping of hippocampal development in childhood onset schizophrenia.pdf:pdf
       \endverb
       \keyw{Childhood onset schizophrenia,Hippocampus,Longitudinal,MRI,Mapping}
     \endentry
@@ -609,9 +650,6 @@
       \range{pages}{-1}
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution(2).pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution(3).pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://www.jstor.org/stable/2411226
       \endverb
     \endentry
     \entry{Project2012}{article}{}
@@ -643,6 +681,9 @@
       \field{year}{2012}
       \field{pages}{\bibrangedash 9}
       \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1038/nature11632
+      \endverb
       \verb{eprint}
       \verb /www.pubmedcentral.nih.gov/articlerender.fc
       \endverb
@@ -973,13 +1014,72 @@
       \field{year}{2014}
       \field{pages}{421\bibrangedash 427}
       \range{pages}{7}
-      \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Ripke et al. - 2014 - Biological insights from 108 schizophrenia-associated genetic loci.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Ripke et al. - 2014 - Biological insights from 108 schizophrenia-associated genetic loci(4).pdf:pdf
+      \verb{doi}
+      \verb 10.1038/nature13595
       \endverb
-      \verb{url}
-      \verb http://www.nature.com/doifinder/10.1038/nature13595
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Ripke et al. - 2014 - Biological insights from 108 schizophrenia-associated genetic loci.pdf:pdf;:C$\backslash$:/Users/shingwan/Dropbox/Papers/Biological insights from 108 schizophrenia-associated genetic loci - supplementary.pdf:pdf
       \endverb
       \keyw{Schizophrenia,Schizophrenia: genetics}
+    \endentry
+    \entry{Saha2007}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=e588b101cb56f19b52969f1519b8c749}{Saha}{S\bibinitperiod}{Sukanta}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=012fe5ec8e1ea0e021fd08848909decb}{Chant}{C\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5ce3464c110cf7bda6c9a225395f849a}{Mcgrath}{M\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{7e43ba3ee5e8e2843095256faef37ce7}
+      \strng{fullhash}{7e43ba3ee5e8e2843095256faef37ce7}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelyear}{2007}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We identified 37 articles drawn from 25 different nations. The median SMR for all persons for all-cause mortality was 2.58 (10\%-90\% quantile, 1.18- 5.76), with a corresponding random-effects pooledSMR of 2.50 (95\% confidence interval, 2.18-2.43).No sex dif- ference was detected. Suicide was associated with the high- est SMR (12.86); however, most of the major causes-of- death categories were found to be elevated in people with schizophrenia. The SMRs for all-cause mortality have in- creased during recent decades (P=.03).}
+      \field{issn}{0003-990X}
+      \field{journaltitle}{Archives of general psychiatry}
+      \field{number}{10}
+      \field{title}{{A Systematic Review of Mortality in Schizophrenia}}
+      \field{volume}{64}
+      \field{year}{2007}
+      \field{pages}{1123\bibrangedash 1131}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1001/archpsyc.64.10.1123
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/A Systematic Review of Mortality in Schizophrenia.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Schultz2007}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=1d7735b3da21171e86552bcd86d5e930}{Schultz}{S\bibinitperiod}{Stephen\bibnamedelima H.}{S\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ac5b4dafd0647b4f98908431e7be3101}{North}{N\bibinitperiod}{Stephen\bibnamedelima W.}{S\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9bf9d050e0b53ae5abb5e69259b54c6b}{Shields}{S\bibinitperiod}{Cleveland\bibnamedelima G.}{C\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{feb63002c8d797d52a135870d61a1a6d}
+      \strng{fullhash}{feb63002c8d797d52a135870d61a1a6d}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelyear}{2007}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Schizophrenia is a debilitating mental illness that affects 1 percent of the population in all cultures. It affects equal numbers of men and women, but the onset is often later in women than in men. Schizophrenia is characterized by positive and negative symptoms. Positive symptoms include hallucinations, voices that converse with or about the patient, and delusions that are often paranoid. Negative symptoms include flattened affect, loss of a sense of pleasure, loss of will or drive, and social withdrawal. Both types of symptoms affect patients' families; therefore, it is important for physicians to provide guidance to all persons affected by the disease. Psychosocial and family interventions can improve outcomes. Medications can control symptoms, but virtually all antipsychotics have neurologic or physical side effects (e.g., weight gain, hypercholesterolemia, diabetes). There is a 10 percent lifetime risk of suicide in patients with schizophrenia.}
+      \field{isbn}{0002-838X (Print)}
+      \field{issn}{0002838X}
+      \field{journaltitle}{American Family Physician}
+      \field{number}{12}
+      \field{title}{{Schizophrenia: A review}}
+      \field{volume}{75}
+      \field{year}{2007}
+      \field{pages}{1821\bibrangedash 1829}
+      \range{pages}{9}
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Schizophrenia A Review.pdf:pdf
+      \endverb
+      \keyw{Antipsychotic Agents,Antipsychotic Agents: adverse effects,Antipsychotic Agents: therapeutic use,Diagnosis,Differential,Humans,Nervous System,Nervous System: drug effects,Prognosis,Schizophrenia,Schizophrenia: diagnosis,Schizophrenia: drug therapy,Schizophrenia: physiopathology}
     \endentry
     \entry{Shieh2010}{article}{}
       \name{author}{1}{}{%
@@ -1006,11 +1106,11 @@
       \field{year}{2010}
       \field{pages}{906\bibrangedash 917}
       \range{pages}{12}
+      \verb{doi}
+      \verb 10.3758/BRM.42.4.906 42/4/906 [pii]
+      \endverb
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Shieh - 2010 - Estimation of the simple correlation coefficient.pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://www.ncbi.nlm.nih.gov/pubmed/21139158
       \endverb
       \keyw{*Statistics as Topic,Regression Analysis}
     \endentry
@@ -1041,11 +1141,11 @@
       \field{year}{2010}
       \field{pages}{585\bibrangedash 596}
       \range{pages}{12}
+      \verb{doi}
+      \verb 10.1016/j.neuron.2010.02.014
+      \endverb
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/A Possible Role for the Striatum in the Pathogenesis of the Cognitive Symptoms of Schizophrenia.pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://dx.doi.org/10.1016/j.neuron.2010.02.014
       \endverb
     \endentry
     \entry{Su2011}{article}{}
@@ -1072,6 +1172,9 @@
       \field{year}{2011}
       \field{pages}{2304\bibrangedash 2305}
       \range{pages}{2}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btr341
+      \endverb
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs(2).pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs(3).pdf:pdf
       \endverb
@@ -1104,8 +1207,8 @@
       \field{year}{2011}
       \field{pages}{e21800}
       \range{pages}{-1}
-      \verb{url}
-      \verb http://www.ncbi.nlm.nih.gov/pubmed/21789182
+      \verb{doi}
+      \verb 10.1371/journal.pone.0021800PONE-D-11-04111 [pii]
       \endverb
       \keyw{*Algorithms,*Molecular Sequence Annotation,Computational Biology/*methods,Gene Expression Regulation,Humans,Internet,Software,Transcription Factors/genetics/metabolism,User-Computer Interface}
     \endentry
@@ -1138,7 +1241,7 @@
       \field{pages}{139\bibrangedash 149}
       \range{pages}{11}
       \verb{file}
-      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Velakoulis et al. - 2006 - Hippocampal and amygdala volumes according to psychosis stage and diagnosis.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Hippocampal and Amygdala Volumes According to Psychosis Stage and Diagnosis.pdf:pdf
       \endverb
     \endentry
     \entry{Welter2014}{article}{}
@@ -1173,9 +1276,31 @@
       \field{year}{2014}
       \field{pages}{1001\bibrangedash 1006}
       \range{pages}{6}
+      \verb{doi}
+      \verb 10.1093/nar/gkt1229
+      \endverb
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(2).pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(3).pdf:pdf
       \endverb
+    \endentry
+    \entry{Geneva2013}{report}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=5d292a222024f1b13e98a059c94a9b75}{{World\bibnamedelimb Health\bibnamedelimb Organization}}{W\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Geneva}%
+      }
+      \strng{namehash}{5d292a222024f1b13e98a059c94a9b75}
+      \strng{fullhash}{5d292a222024f1b13e98a059c94a9b75}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelyear}{2013}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{WHO methods and data sources for global burden of disease estimates}}
+      \field{type}{techreport}
+      \field{year}{2013}
     \endentry
     \entry{Yang2011}{article}{}
       \name{author}{4}{}{%
@@ -1205,8 +1330,11 @@
       \field{year}{2011}
       \field{pages}{76\bibrangedash 82}
       \range{pages}{7}
-      \verb{url}
-      \verb http://www.ncbi.nlm.nih.gov/pubmed/21167468
+      \verb{doi}
+      \verb 10.1016/j.ajhg.2010.11.011S0002-9297(10)00598-7 [pii]
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/GCTA A Tool for Genome-wide Complex Trait Analysis.pdf:pdf
       \endverb
       \keyw{*Polymorphism,Single Nucleotide,*Quantitative Trait Loci,*Software,Chromosomes,Human,X/*genetics,Computer Simulation,Dosage Compensation,Genetic,Female,Genetic Linkage,Genome-Wide Association Study/*methods,Humans,Male,Models,Genetic}
     \endentry
@@ -1238,11 +1366,11 @@
       \field{year}{2005}
       \field{pages}{Article17}
       \range{pages}{-1}
+      \verb{doi}
+      \verb 10.2202/1544-6115.1128
+      \endverb
       \verb{file}
       \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Zhang, Horvath - 2005 - A general framework for weighted gene co-expression network analysis.pdf:pdf
-      \endverb
-      \verb{url}
-      \verb http://www.ncbi.nlm.nih.gov/pubmed/16646834
       \endverb
     \endentry
   \endsortlist
