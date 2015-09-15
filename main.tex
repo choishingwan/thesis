@@ -22,38 +22,17 @@
 \addbibresource[datatype=bibtex]{citation/Thesis.bib}
 \usepackage[hidelinks]{hyperref}
 \usepackage{geometry}
-\geometry{
-	top=1in,            % <-- you want to adjust this
-	inner=1in,
-	outer=1in,
-	bottom=1in,
-	headheight=3ex,       % <-- and this
-	headsep=2ex,          % <-- and this
-}
 \usepackage{fancyhdr}
 \usepackage[acronym,nomain,toc,makeindex ]{glossaries}
 \usepackage{cleveref} %This need to be the last package for it to work properly 
-\newcommand{\beginsupplement}{%
-	\setcounter{table}{0}
-	\renewcommand{\thetable}{S\arabic{table}}%
-	\setcounter{figure}{0}
-	\renewcommand{\thefigure}{S\arabic{figure}}%
-}
-\DeclareSourcemap{
-	\maps[datatype=bibtex]{
-		\map{
-			\step[fieldset=url, null]
-		}
-	}
-}
 
 
-\pagestyle{fancy}
-\fancyhf{}
-\fancyfoot[LE,RO]{\thepage}
-\renewcommand{\footrulewidth}{1pt}
-\fancyhead[L]{\leftmark}
-\fancyhead[R]{\rightmark}
+
+%
+%
+%	TITLE PAGE DEFINITION
+%
+%
 \title{Genetic and Environmental risk factors of Schizophrenia and Autism}
 \date{\today}
 \author{\href{mailto:choishingwan@gmail.com}{Choi Shing Wan}\\
@@ -61,10 +40,24 @@
 \singlespacing
 \renewcommand*\contentsname{Contents}
 
+
 %\includeonly{environmental_risk/er_chapter,supplementary_materials}
 \newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\newcommand*{\glng}{\glsentrylong}
+\newcommand*{\Glng}{\Glsentrylong}
+\newcommand{\beginsupplement}{%
+	\setcounter{table}{0}
+	\renewcommand{\thetable}{S\arabic{table}}%
+	\setcounter{figure}{0}
+	\renewcommand{\thefigure}{S\arabic{figure}}%
+}
+
+
+%
+%	GLOSSARY SECTION
+%
 \makeglossary
-\newacronym{scz}{SCZ}{Schizophrenia}
+\newacronym{scz}{SCZ}{schizophrenia}
 \newacronym[longplural={Genome Wide Association Studies}]{GWAS}{GWAS}{Genome Wide Association Study}
 \newacronym{wgs}{WGS}{Whole Genome Sequencing}
 \newacronym{SNP}{SNP}{Single Nucleotide Polymorphism}
@@ -91,6 +84,31 @@
 \newacronym{mse}{MSE}{mean squared error}
 \newacronym{who}{WHO}{World Health Organization}
 \newacronym{yld}{YLD}{years lost due to disability}
+\newacronym{ci}{CI}{confidence interval}
+
+%
+%
+%	FORMATING SECTION
+%
+%
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\footrulewidth}{1pt}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\rightmark}
+
+\geometry{
+	top=1in,            % <-- you want to adjust this
+	inner=1in,
+	outer=1in,
+	bottom=1in,
+	headheight=3ex,       % <-- and this
+	headsep=2ex,          % <-- and this
+}
+
+
 \raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 \onehalfspacing
 %\doublespacing
@@ -167,8 +185,10 @@
 	\end{singlespace}
 \mainmatter
 \pagestyle{fancy}
+
+\setlength{\parindent}{4em}
+\setlength{\parskip}{0.75em}
 	\chapter{Introduction}
-		%\addcontentsline{toc}{chapter}{Introduction}
 		
 	%\chapter*{Some considerations}
 	%\begin{enumerate}
@@ -250,12 +270,12 @@
 	Should also mention the ACE model.
 	\section{Family Studies}
 	
-	\section{\glsentrylongpl{GWAS}}
+	\section{Genome Wide Association Studies}
 	%The background of GWAS, the hypothesis and concept
 	%The sucess and limitation
 	\section{\glsentrylongpl{ngs} Studies}
 	\section{Narrow Sense Heritability}
-	\subsection{\glsentrylong{gcta}}
+	\subsection{\glng{gcta}}
 	\subsection{Liability Threshold}
 	
 	\section{Risk Prediction}
@@ -264,19 +284,19 @@
 	
 	
 	
-	\chapter{Literature Review II: \glsentrylong{scz}}
-	\chaptermark{\glsentrylong{scz}}
+	\chapter{Literature Review II: Schizophrenia}
+	\chaptermark{Schizophrenia}
 	% Disease background
-	\glsentrylong{scz} is a detrimental psychiatric disorder, affecting around $0.3\sim0.7\%$ of the population\citep{AmericanPsychiatricAssociation2013}.
+	\Glng{scz} is a detrimental psychiatric disorder, affecting around $0.3\sim0.7\%$ of the population\citep{AmericanPsychiatricAssociation2013}.
 	It is characterized by positive symptoms including delusions, hallucinations, disorganized speech and grossly disorganized behavior, and negative symptoms such as the diminished emotional expression\citep{AmericanPsychiatricAssociation2013} with a typical age of onset at late adolescent or late 20s in male and late 20s or early 30s in female\citep{Schultz2007}.
 	
-	\glsentrylong{scz} not only impose long lasting health, social and financial burden not only to the patients, but also to their families\citep{Knapp2004}. 
-	Even more so, patients with \glsentrylong{scz} increased suicide rate \citep{Saha2007}, leading to a higher mortality.
-	Based on the \gls{who} report, \glsentrylong{scz} is one of the top 20 leading cause of \gls{yld} in 2012, ranking 16 among all possible causes (\cref{tab:whoYLD}), demonstrating the extent of impact from \glsentrylong{scz} to patients.
+	\Glng{scz} not only impose long lasting health, social and financial burden not only to the patients, but also to their families\citep{Knapp2004}. 
+	Even more so, patients with \glng{scz} increased suicide rate \citep{Saha2007}, leading to a higher mortality.
+	Based on the \gls{who} report, \glng{scz} is one of the top 20 leading cause of \gls{yld} in 2012, ranking 16 among all possible causes (\cref{tab:whoYLD}), demonstrating the extent of impact from \glng{scz} to patients.
 	\begin{table}
 		\centering
-		\caption[Top 20 leading cause of \glsentrylong{yld} calculated by \glsentryshort{who} in year 2012]{Top 20 leading cause of \gls{yld} calculated by \gls{who} in year 2012.
-			\glsentrylong{scz} is considered as one of the top 20 leading cause of \gls{yld}\citep{Geneva2013}}
+		\caption[Top 20 leading cause of \glng{yld} calculated by \glsentryshort{who} in year 2012]{Top 20 leading cause of \gls{yld} calculated by \gls{who} in year 2012.
+			\Glng{scz} was considered as one of the top 20 leading cause of \gls{yld}\citep{Geneva2013}}
 		\begin{tabular}{rrrrr}
 			\toprule
 			Rank  & Cause & \gls{yld} (000s) & \% \gls{yld} & \gls{yld} per 100,000 population \\
@@ -307,20 +327,20 @@
 		\label{tab:whoYLD}%
 	\end{table}%
 	
-	Due to the severity of \glsentrylong{scz}, it has drawn much attention from the research community aiming to delineate the disease mechanics and be able to identify the risk factors.
-	Arguably, the most important first step to any \glsentrylong{scz} study is to have a robust and reliable disease diagnosis.
+	Due to the severity of \glng{scz}, it has drawn much attention from the research community aiming to delineate the disease mechanics and be able to identify the risk factors.
+	Arguably, the most important first step to any \glng{scz} study is to have a robust and reliable disease diagnosis.
 	
 	\section{Diagnosis}
 	% Describe early problems of diagnosis
 	% Describe current method of diagnosis
-	\glsentrylong{scz} was first named ``Dementia Praecox'' by Dr. Emil Kraepelin and was later renamed as \glsentrylong{scz} by Dr. Eugen Bleuler\citep{Jablensky2010}.
-	Early nosological entity for \glsentrylong{scz} such as that in \gls{dsm}-\rom{1} and \gls{dsm}-\rom{2} were vague and unreliable where the inter-rater agreement can be as low as 54$\%$.\citep{Tsuang2000,Harvey2012} 
+	\Glng{scz} was first named ``Dementia Praecox'' by Dr. Emil Kraepelin and was later renamed as \glng{scz} by Dr. Eugen Bleuler\citep{Jablensky2010}.
+	Early nosological entity for \glng{scz} such as that in \gls{dsm}-\rom{1} and \gls{dsm}-\rom{2} were vague and unreliable where the inter-rater agreement can be as low as 54$\%$.\citep{Tsuang2000,Harvey2012} 
 	
 	Later nosologies addressed these problem by introducing structural assessment and clear defined criteria. 
 	With these improvements, the inter-rater agreement of \gls{dsm}-\rom{3} raised to $\sim 90\%$ \citep{Harvey2012}, suggesting the diagnosis were much more reliable.
 	
 	Currently \gls{dsm} is at its 5th edition\citep{AmericanPsychiatricAssociation2013}. 
-	A patient will be diagnosed with \glsentrylong{scz}(F20.9) if they suffered from 2 or more of the following symptoms for a significant portion of time during a 1-month period: 
+	A patient will be diagnosed with \glng{scz}(F20.9) if they suffered from 2 or more of the following symptoms for a significant portion of time during a 1-month period: 
 	\begin{enumerate*}[label=\arabic*\upshape)]
 		\item delusion; \label{ls:delusion}
 		\item hallucinations;\label{ls:hallucinations}
@@ -328,11 +348,25 @@
 		\item grossly disorganized or catatonic behaviour; and\label{ls:catatonicBehavior}
 		\item negative symptoms such as diminished emotional expression,\label{ls:negativeSymptoms}
 	\end{enumerate*}  where one of the symptom must be either (\ref{ls:delusion}, (\ref{ls:hallucinations} or (\ref{ls:disorganizedSpeech}.
-	Signs of disturbance also need to persist for at least 6-month before the patient can be diagnosed with \glsentrylong{scz}.
+	Signs of disturbance also need to persist for at least 6-month before the patient can be diagnosed with \glng{scz}.
 	
-	\section{Heritability of \glsentrylong{scz}}
-	One of the most fundamental question in the study of \glsentrylong{scz} is that whether if it is environmental or inherited disorder.
+	\section{Twin Studies of Schizophrenia}
+	\sectionmark{Twin Studies of \glng{scz}}
+	One of the most fundamental question in the study of \glng{scz} is that whether if it is environmental or inherited disorder.
+	The common method for calculating the portion of genetic and environmental contribution was by the familial studies, especially twin studies.
+	On 2003, \cite{Sullivan2003} has conducted a quantitative meta-analysis of the published twin studies of \glng{scz}.
 	
+	A total of 12 studies were included in the meta-analysis. 
+	By taking into account of the ascertainment bias, the authors found that the common environmental effects on liability to \glng{scz} to be $11\%$ with a $95\%$ \gls{ci} ranged from $3\%-19\%$, suggesting there to be a non-zero contribution of environmental influence.
+	
+	Considering the environments shared by twin pairs tends to diverge over time, the authors therefore suggested that the environmental effects would be most likely to occur early in life, concurring with the neurodevelopmental hypothesis of \glng{scz}.
+	
+	On the other hand, they also found that the heritability of \glng{scz} was around $81\%$ with a $95\%$ \gls{ci} ranged from $73\%-90\%$, suggesting that \glng{scz} is predominantly a genetic disorder
+	Because of its high heritability, the identification of the genes responsible will be crucial for the understanding of the disease and the development of treatments.
+	
+	
+	\section{Genetic Analysis of Schizophrenia}
+	As \glng{scz} is highly heritable, it has attracted much attention from the scientific community to 
 	% Brief describe twins and family study. 
 	% Present data which shows increased risk in schizophrenia for first degree relatives
 	% Explain that schizophrenia is heritable, dominently genetic
@@ -380,7 +414,7 @@
 
 	
 	\section{Disease Mechanisms}
-	Efforts have been made to identify the genetic cause of \acrlong{scz}.
+	Efforts have been made to identify the genetic cause of \glng{scz}.
 	
 	\subsection{Twin Studies}
 	\subsection{Epidemiological Studies}
@@ -393,8 +427,8 @@
 	\subsection{Antipsychotics}
 	\subsection{Pharmacogenetics and Pharmacogenomics}
 	
-	\chapter{Heritability Estimation}
-	\input{heritability_estimation.tex}
+	
+	\include{heritability_estimation}
 	
 	\chapter{Heritability of Schizophrenia}
 	\section{Introduction}

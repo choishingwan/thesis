@@ -417,11 +417,6 @@
   </bcf:optionscope>
   <!-- SOURCEMAP -->
   <bcf:sourcemap>
-    <bcf:maps datatype="bibtex" level="user">
-      <bcf:map>
-        <bcf:map_step map_field_set="url" map_null="1"/>
-      </bcf:map>
-    </bcf:maps>
     <bcf:maps datatype="bibtex" level="driver">
       <bcf:map>
         <bcf:map_step map_type_source="conference" map_type_target="inproceedings"/>
@@ -2252,40 +2247,41 @@
     <bcf:citekey order="9">Harvey2012</bcf:citekey>
     <bcf:citekey order="10">Harvey2012</bcf:citekey>
     <bcf:citekey order="11">AmericanPsychiatricAssociation2013</bcf:citekey>
-    <bcf:citekey order="12">Li2011b</bcf:citekey>
-    <bcf:citekey order="13">Project2012</bcf:citekey>
-    <bcf:citekey order="14">Altshuler2010</bcf:citekey>
-    <bcf:citekey order="15">Shieh2010</bcf:citekey>
+    <bcf:citekey order="12">Sullivan2003</bcf:citekey>
+    <bcf:citekey order="13">Li2011b</bcf:citekey>
+    <bcf:citekey order="14">Project2012</bcf:citekey>
+    <bcf:citekey order="15">Altshuler2010</bcf:citekey>
     <bcf:citekey order="16">Shieh2010</bcf:citekey>
-    <bcf:citekey order="17">Neumaier1998</bcf:citekey>
-    <bcf:citekey order="18">eigenweb</bcf:citekey>
-    <bcf:citekey order="19">Hansen1987</bcf:citekey>
+    <bcf:citekey order="17">Shieh2010</bcf:citekey>
+    <bcf:citekey order="18">Neumaier1998</bcf:citekey>
+    <bcf:citekey order="19">eigenweb</bcf:citekey>
     <bcf:citekey order="20">Hansen1987</bcf:citekey>
     <bcf:citekey order="21">Hansen1987</bcf:citekey>
     <bcf:citekey order="22">Hansen1987</bcf:citekey>
-    <bcf:citekey order="23">Altshuler2010</bcf:citekey>
-    <bcf:citekey order="24">Yang2011</bcf:citekey>
-    <bcf:citekey order="25">Bulik-Sullivan2015</bcf:citekey>
-    <bcf:citekey order="26">Welter2014</bcf:citekey>
-    <bcf:citekey order="27">Su2011</bcf:citekey>
-    <bcf:citekey order="28">Orr1998</bcf:citekey>
+    <bcf:citekey order="23">Hansen1987</bcf:citekey>
+    <bcf:citekey order="24">Altshuler2010</bcf:citekey>
+    <bcf:citekey order="25">Yang2011</bcf:citekey>
+    <bcf:citekey order="26">Bulik-Sullivan2015</bcf:citekey>
+    <bcf:citekey order="27">Welter2014</bcf:citekey>
+    <bcf:citekey order="28">Su2011</bcf:citekey>
     <bcf:citekey order="29">Orr1998</bcf:citekey>
-    <bcf:citekey order="30">Manolio2009</bcf:citekey>
-    <bcf:citekey order="31">Project2012</bcf:citekey>
-    <bcf:citekey order="32">Velakoulis2006</bcf:citekey>
-    <bcf:citekey order="32">Nugent2007</bcf:citekey>
-    <bcf:citekey order="33">Simpson2010</bcf:citekey>
-    <bcf:citekey order="34">Hart2013</bcf:citekey>
-    <bcf:citekey order="35">Langfelder2008</bcf:citekey>
+    <bcf:citekey order="30">Orr1998</bcf:citekey>
+    <bcf:citekey order="31">Manolio2009</bcf:citekey>
+    <bcf:citekey order="32">Project2012</bcf:citekey>
+    <bcf:citekey order="33">Velakoulis2006</bcf:citekey>
+    <bcf:citekey order="33">Nugent2007</bcf:citekey>
+    <bcf:citekey order="34">Simpson2010</bcf:citekey>
+    <bcf:citekey order="35">Hart2013</bcf:citekey>
     <bcf:citekey order="36">Langfelder2008</bcf:citekey>
-    <bcf:citekey order="37">Zhang2005</bcf:citekey>
-    <bcf:citekey order="38">Eden2009</bcf:citekey>
-    <bcf:citekey order="39">Supek2011</bcf:citekey>
-    <bcf:citekey order="40">DeLeeuw2015</bcf:citekey>
-    <bcf:citekey order="41">Gogtay2011</bcf:citekey>
-    <bcf:citekey order="42">Liaw1995</bcf:citekey>
-    <bcf:citekey order="43">Ripke2014</bcf:citekey>
-    <bcf:citekey order="44">DeLeeuw2015</bcf:citekey>
+    <bcf:citekey order="37">Langfelder2008</bcf:citekey>
+    <bcf:citekey order="38">Zhang2005</bcf:citekey>
+    <bcf:citekey order="39">Eden2009</bcf:citekey>
+    <bcf:citekey order="40">Supek2011</bcf:citekey>
+    <bcf:citekey order="41">DeLeeuw2015</bcf:citekey>
+    <bcf:citekey order="42">Gogtay2011</bcf:citekey>
+    <bcf:citekey order="43">Liaw1995</bcf:citekey>
+    <bcf:citekey order="44">Ripke2014</bcf:citekey>
+    <bcf:citekey order="45">DeLeeuw2015</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyvt" type="entry" sortscheme="nyvt">
   <bcf:sorting>
