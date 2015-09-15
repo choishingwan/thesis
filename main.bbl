@@ -132,7 +132,7 @@
       \verb 10.1038/nature09298
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/Integrating common and rare genetic variation in diverse human populations.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Altshuler et al. - 2010 - Integrating common and rare genetic variation in diverse human populations.pdf:pdf
       \endverb
     \endentry
     \entry{AmericanPsychiatricAssociation2013}{book}{}
@@ -150,7 +150,7 @@
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{This new edition of Diagnostic and Statistical Manual of Mental Disorders (DSM-5?), used by clinicians and researchers to diagnose and classify mental disorders, is the product of more than 10 years of effort by hundreds of international experts in all aspects of mental health. Their dedication and hard work have yielded an authoritative volume that defines and classifies mental disorders in order to improve diagnoses, treatment, and research. The criteria are concise and explicit, intended to facilitate an objective assessment of symptom presentations in a variety of clinical settings -- inpatient, outpatient, partial hospital, consultation-liaison, clinical, private practice, and primary care. New features and enhancements make DSM-5? easier to use across all settings: ? The chapter organization reflects a lifespan approach, with disorders typically diagnosed in childhood (such as neurodevelopmental disorders) at the beginning of the manual, and those more typical of older adults (such as neurocognitive disorders) placed at the end. Also included are age-related factors specific to diagnosis. ? The latest findings in neuroimaging and genetics have been integrated into each disorder along with gender and cultural considerations.? The revised organizational structure recognizes symptoms that span multiple diagnostic categories, providing new clinical insight in diagnosis. ? Specific criteria have been streamlined, consolidated, or clarified to be consistent with clinical practice (including the consolidation of autism disorder, Asperger's syndrome, and pervasive developmental disorder into autism spectrum disorder; the streamlined classification of bipolar and depressive disorders; the restructuring of substance use disorders for consistency and clarity; and the enhanced specificity for major and mild neurocognitive disorders).? Dimensional assessments for research and validation of clinical results have been provided.? Both ICD-9-CM and ICD-10-CM codes are included for each disorder, and the organizational structure is consistent with the new ICD-11 in development. The Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, is the most comprehensive, current, and critical resource for clinical practice available to today's mental health clinicians and researchers of all orientations. The information contained in the manual is also valuable to other physicians and health professionals, including psychologists, counselors, nurses, and occupational and rehabilitation therapists, as well as social workers and forensic and legal specialists.}
+      \field{abstract}{This new edition of Diagnostic and Statistical Manual of Mental Disorders (DSM-5), used by clinicians and researchers to diagnose and classify mental disorders, is the product of more than 10 years of effort by hundreds of international experts in all aspects of mental health. Their dedication and hard work have yielded an authoritative volume that defines and classifies mental disorders in order to improve diagnoses, treatment, and research. The criteria are concise and explicit, intended to facilitate an objective assessment of symptom presentations in a variety of clinical settings -- inpatient, outpatient, partial hospital, consultation-liaison, clinical, private practice, and primary care. New features and enhancements make DSM-5 easier to use across all settings: The chapter organization reflects a lifespan approach, with disorders typically diagnosed in childhood (such as neurodevelopmental disorders) at the beginning of the manual, and those more typical of older adults (such as neurocognitive disorders) placed at the end. Also included are age-related factors specific to diagnosis. The latest findings in neuroimaging and genetics have been integrated into each disorder along with gender and cultural considerations. The revised organizational structure recognizes symptoms that span multiple diagnostic categories, providing new clinical insight in diagnosis. Specific criteria have been streamlined, consolidated, or clarified to be consistent with clinical practice (including the consolidation of autism disorder, Asperger's syndrome, and pervasive developmental disorder into autism spectrum disorder; the streamlined classification of bipolar and depressive disorders; the restructuring of substance use disorders for consistency and clarity; and the enhanced specificity for major and mild neurocognitive disorders). Dimensional assessments for research and validation of clinical results have been provided. Both ICD-9-CM and ICD-10-CM codes are included for each disorder, and the organizational structure is consistent with the new ICD-11 in development. The Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, is the most comprehensive, current, and critical resource for clinical practice available to today's mental health clinicians and researchers of all orientations. The information contained in the manual is also valuable to other physicians and health professionals, including psychologists, counselors, nurses, and occupational and rehabilitation therapists, as well as social workers and forensic and legal specialists.}
       \field{booktitle}{Arlington}
       \field{isbn}{089042554X}
       \field{issn}{2317-1782}
@@ -198,7 +198,7 @@
       \verb 10.1038/ng.3211
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/LD Score regression distinguishes confounding from polygenicity in genome-wide association studies.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Bulik-Sullivan et al. - 2015 - LD Score regression distinguishes confounding from polygenicity in genome-wide association studies.pdf:pdf
       \endverb
     \endentry
     \entry{Eden2009}{article}{}
@@ -264,7 +264,7 @@
       \verb 10.1093/schbul/sbr030
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Age of Onset of Schizophrenia Perspectives From Structural Neuroimaging Studies.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Gogtay et al. - 2011 - Age of onset of schizophrenia Perspectives from structural neuroimaging studies.pdf:pdf
       \endverb
       \keyw{adolescent,brain development,high risk,neural circuitry,prefrontal cortex,schizophrenia}
     \endentry
@@ -315,7 +315,7 @@
       \verb 10.1007/BF01937276
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/The truncated SVD as a method for regularization.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Hansen - 1987 - The truncated SVD as a method for regularization.pdf:pdf
       \endverb
       \keyw{65F30,891601,AMS subject classification: 65F20,numerical rank,perturbation theory for truncated SVD,regularization in standard form,svd,truncated,truncated SVD}
     \endentry
@@ -348,8 +348,73 @@
       \verb 10.1186/1471-2164-14-778
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Finding the active genes in deep RNA-seq gene expression studies.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Hart et al. - 2013 - Finding the active genes in deep RNA-seq gene expression studies.pdf:pdf
       \endverb
+    \endentry
+    \entry{Harvey2012}{article}{}
+      \name{author}{6}{}{%
+        {{uniquename=0,hash=64d84f8e5abbcfb45cbd503b09817008}{Harvey}{H\bibinitperiod}{Philip\bibnamedelima D.}{P\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0dbda05e15b644a61b0e882c344ef3d6}{Heaton}{H\bibinitperiod}{Robert\bibnamedelima K.}{R\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ef884f852bd2a1abca1498b983536563}{Carpenter}{C\bibinitperiod}{William\bibnamedelima T.}{W\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c4d5207abf74fbc21143337809b00302}{Green}{G\bibinitperiod}{Michael\bibnamedelima F.}{M\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=50c8bb31dcccd9a8e7f7d6739c92de7d}{Gold}{G\bibinitperiod}{James\bibnamedelima M.}{J\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=ae9b4ce2fbbd81a702654e2038b3441e}{Schoenbaum}{S\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier B.V.}%
+      }
+      \strng{namehash}{f73055e023b39786d9c487048b015947}
+      \strng{fullhash}{6cd58a195529b8c7d6c223f025d77fad}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelyear}{2012}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Background: The Social Security Administration is considering whether schizophrenia may warrant inclusion in their new "Compassionate Allowance" process, which aims to identify diseases and other medical conditions that almost always qualify for Social Security disability benefits simply on the basis of their confirmed presence. This paper examines the reliability and validity of schizophrenia diagnosis, how a valid diagnosis is established, and the stability of the diagnosis over time. A companion paper summarizes evidence on the empirical association between schizophrenia and disability, thus leading to this paper that evaluates how valid clinical diagnoses of schizophrenia are. Methods: Literature review and synthesis, based on a workplan developed in an expert meeting convened by the National Institute of Mental Health and the Social Security Administration. Findings: At least since the introduction of the 3rd edition of the American Psychiatric Association's Diagnostic and Statistical Manual (DSM-III) in 1980, diagnoses of schizophrenia made by mental health specialists are valid, reliable, and stable over time, across community as well as academic practice settings, and across different assessment methods. These analyses are particularly valid during the time-frame relevant to social security awards: at least 2. years after the initial stages of illness. We could not find studies that have evaluated the validity or reliability of schizophrenia diagnoses made exclusively by primary care providers (vs. mental health professionals). Discussion: In the post-DSM-III era, schizophrenia diagnosis-using modern diagnostic criteria-is valid and reliable when performed by doctoral-level mental health specialists (i.e., psychiatrists and psychologists), in community as well as academic settings. \x{fffd}\x{fffd} 2012 Elsevier B.V.}
+      \field{issn}{09209964}
+      \field{journaltitle}{Schizophrenia Research}
+      \field{number}{1-3}
+      \field{title}{{Diagnosis of schizophrenia: Consistency across information sources and stability of the condition}}
+      \field{volume}{140}
+      \field{year}{2012}
+      \field{pages}{9\bibrangedash 14}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1016/j.schres.2012.03.026
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Diagnosis of schizophrenia Consistency across information sources and stability of the condition.pdf:pdf
+      \endverb
+      \keyw{Diagnosis,Disability}
+    \endentry
+    \entry{Jablensky2010}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=28c89d49e080b5a44538e68cfafd4dc0}{Jablensky}{J\bibinitperiod}{Assen}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{28c89d49e080b5a44538e68cfafd4dc0}
+      \strng{fullhash}{28c89d49e080b5a44538e68cfafd4dc0}
+      \field{sortinit}{J}
+      \field{sortinithash}{ec3950a647c092421b9fcca6d819504a}
+      \field{labelyear}{2010}
+      \field{labelmonth}{01}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{More than a century since the delineation of dementia praecox by Kraepelin, the etiology, neuropathology, and pathophysiology of schizophrenia remain elusive. Despite the availability of criteria allowing reliable diagnostic identification, schizophrenia essentially remains a broad clinical syndrome defined by reported subjective experiences (symptoms), loss of function (behavioral impairments), and variable patterns of course. Research has identified a number of putative biological markers associated with the disorder, including neurocognitive dysfunction, brain dysmorphology, and neurochemical abnormalities. Yet none of these variables has to date been definitively proven to possess the sensitivity and specificity expected of a diagnostic test. Genetic linkage and association studies have targeted multiple candidate loci and genes, but failed to demonstrate that any specific gene variant, or a combination of genes, is either necessary or sufficient to cause schizophrenia. Thus, the existence of a specific brain disease underlying schizophrenia remains a hypothesis. Against a background of an ever-increasing volume of research data, the inconclusiveness of the search for causes of the disorder fuels doubts about the validity of the schizophrenia construct as presently defined. Given the protean nature of the symptoms of schizophrenia and the poor coherence of the clinical and biological findings, such doubts are not without reason. However, simply dismantling the concept is unlikely to result in an alternative model that would account for the host of clinical phenomena and research data consistent with a disease hypothesis of schizophrenia. For the time being, the clinical concept of schizophrenia is supported by empirical evidence that its multiple facets form a broad syndrome with non-negligible internal cohesion and a characteristic evolution over time. The dissection of the syndrome with the aid of endophenotypes is beginning to be perceived as a promising approach in schizophrenia genetics.}
+      \field{issn}{1294-8322}
+      \field{journaltitle}{Dialogues in clinical neuroscience}
+      \field{month}{01}
+      \field{number}{3}
+      \field{title}{{The diagnostic concept of schizophrenia: its history, evolution, and future prospects.}}
+      \field{volume}{12}
+      \field{year}{2010}
+      \field{pages}{271\bibrangedash 87}
+      \range{pages}{17}
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Jablensky - 2010 - The diagnostic concept of schizophrenia its history, evolution, and future prospects.pdf:pdf
+      \endverb
+      \keyw{19th Century,20th Century,21st Century,Biological,Biological Evolution,Brain,Brain: metabolism,Brain: pathology,Brain: physiopathology,History,19th Century,History,20th Century,History,21st Century,Humans,Models,Biological,Research,Research: history,Research: trends,Schizophrenia,Schizophrenia: diagnosis,Schizophrenia: etiology,Schizophrenia: genetics,Schizophrenia: history}
     \endentry
     \entry{Knapp2004}{article}{}
       \name{author}{3}{}{%
@@ -376,7 +441,7 @@
       \field{pages}{279\bibrangedash 293}
       \range{pages}{15}
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Knapp, Mangalore, Simon - 2004 - The global costs of schizophrenia.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/The global costs of schizophrenia.pdf:pdf
       \endverb
       \keyw{2,2004,279-293,30,burden,cost-of-illness,devastating disease with wide-,economics,of illness,schizophrenia,schizophrenia bulletin,schizophrenia can be a}
     \endentry
@@ -437,7 +502,7 @@
       \verb 10.1371/journal.pcbi.1004219
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/de Leeuw et al. - 2015 - MAGMA Generalized Gene-Set Analysis of GWAS Data.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/MAGMA Generalized Gene-Set Analysis of GWAS Data.pdf:pdf
       \endverb
     \endentry
     \entry{Li2011b}{article}{}
@@ -521,7 +586,7 @@
       \verb 10.1038/nature08494
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Finding the missing heritability of complex diseases.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Manolio et al. - 2009 - Finding the missing heritability of complex diseases.pdf:pdf
       \endverb
     \endentry
     \entry{Neumaier1998}{article}{}
@@ -550,7 +615,7 @@
       \verb 10.1137/S0036144597321909
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/SOLVING ILL-CONDITIONED AND SINGULAR LINEAR SYSTEMS A TUTORIAL ON REGULARIZATION.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Neumaier - 1998 - Solving Ill-Conditioned and Singular Linear Systems A Tutorial on Regularization.pdf:pdf
       \endverb
       \keyw{1,ams subject classifications,error bounds,find,generalized,generalized cross validation,ill-conditioned,ill-posed,in many applications of,introduction,linear algebra,maximum likelihood,primary 65f05,regularization,secondary 65j20,the need arises to,tikhonov regularization}
     \endentry
@@ -592,7 +657,7 @@
       \verb 10.1016/j.schres.2006.10.014
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/Dynamic mapping of hippocampal development in childhood onset schizophrenia.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Dynamic mapping of hippocampal development in childhood onset schizophrenia.pdf:pdf
       \endverb
       \keyw{Childhood onset schizophrenia,Hippocampus,Longitudinal,MRI,Mapping}
     \endentry
@@ -621,7 +686,7 @@
       \field{pages}{pp. 935\bibrangedash 949}
       \range{pages}{-1}
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/the population genetics of adaptation the distribution of cators fixed during adaptive evolution.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution(2).pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Orr - 1998 - The Population Genetics of Adaptation The Distribution of Factors Fixed during Adaptive Evolution(3).pdf:pdf
       \endverb
     \endentry
     \entry{Project2012}{article}{}
@@ -660,7 +725,7 @@
       \verb /www.pubmedcentral.nih.gov/articlerender.fc
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/An integrated map of genetic variation from 1,092 human genomes.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Project et al. - 2012 - An integrated map of genetic variation from 1,092 human genomes.pdf:pdf
       \endverb
       \warn{\item Range field 'pages' in entry 'Project2012' is malformed, skipping}
     \endentry
@@ -990,7 +1055,7 @@
       \verb 10.1038/nature13595
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Biological insights from 108 schizophrenia-associated genetic loci.pdf:pdf;:C$\backslash$:/Users/swchoi/Dropbox/Papers/Biological insights from 108 schizophrenia-associated genetic loci - supplementary.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Ripke et al. - 2014 - Biological insights from 108 schizophrenia-associated genetic loci.pdf:pdf;:C$\backslash$:/Users/shingwan/Dropbox/Papers/Biological insights from 108 schizophrenia-associated genetic loci - supplementary.pdf:pdf
       \endverb
       \keyw{Schizophrenia,Schizophrenia: genetics}
     \endentry
@@ -1021,7 +1086,7 @@
       \verb 10.1001/archpsyc.64.10.1123
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Saha, Chant, Mcgrath - 2007 - A Systematic Review of Mortality in Schizophrenia.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/A Systematic Review of Mortality in Schizophrenia.pdf:pdf
       \endverb
     \endentry
     \entry{Schultz2007}{article}{}
@@ -1049,7 +1114,7 @@
       \field{pages}{1821\bibrangedash 1829}
       \range{pages}{9}
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Schultz, North, Shields - 2007 - Schizophrenia A review(2).pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Schizophrenia A Review.pdf:pdf
       \endverb
       \keyw{Antipsychotic Agents,Antipsychotic Agents: adverse effects,Antipsychotic Agents: therapeutic use,Diagnosis,Differential,Humans,Nervous System,Nervous System: drug effects,Prognosis,Schizophrenia,Schizophrenia: diagnosis,Schizophrenia: drug therapy,Schizophrenia: physiopathology}
     \endentry
@@ -1082,7 +1147,7 @@
       \verb 10.3758/BRM.42.4.906 42/4/906 [pii]
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Desktop/Papers/Estimation of the simple correlation coefficient.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Shieh - 2010 - Estimation of the simple correlation coefficient.pdf:pdf
       \endverb
       \keyw{*Statistics as Topic,Regression Analysis}
     \endentry
@@ -1117,7 +1182,7 @@
       \verb 10.1016/j.neuron.2010.02.014
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/A Possible Role for the Striatum in the Pathogenesis of the Cognitive Symptoms of Schizophrenia.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/A Possible Role for the Striatum in the Pathogenesis of the Cognitive Symptoms of Schizophrenia.pdf:pdf
       \endverb
     \endentry
     \entry{Su2011}{article}{}
@@ -1148,7 +1213,7 @@
       \verb 10.1093/bioinformatics/btr341
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/HAPGEN2 simulation of multiple disease SNPs.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs(2).pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Su, Marchini, Donnelly - 2011 - HAPGEN2 Simulation of multiple disease SNPs(3).pdf:pdf
       \endverb
     \endentry
     \entry{Supek2011}{article}{}
@@ -1184,6 +1249,37 @@
       \endverb
       \keyw{*Algorithms,*Molecular Sequence Annotation,Computational Biology/*methods,Gene Expression Regulation,Humans,Internet,Software,Transcription Factors/genetics/metabolism,User-Computer Interface}
     \endentry
+    \entry{Tsuang2000}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=ec00e26db958751728e4b767e9d0c23a}{Tsuang}{T\bibinitperiod}{Ming\bibnamedelima T.}{M\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9c26ce2286144b6fa5a22effd6be1ac8}{Stone}{S\bibinitperiod}{William\bibnamedelima S.}{W\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=744984e5db74ca91e8710f15b2009a13}{Faraone}{F\bibinitperiod}{Stephen\bibnamedelima V.}{S\bibinitperiod\bibinitdelim V\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{a0772629822740208053588aa325f739}
+      \strng{fullhash}{a0772629822740208053588aa325f739}
+      \field{sortinit}{T}
+      \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
+      \field{labelyear}{2000}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{OBJECTIVE: The authors assess implications of DSM criteria for schizophrenia by reviewing the criteria's 1) emphasis on psychotic features, 2) dissociation of symptoms from their etiology, 3) exclusive reliance on clinical features but exclusion of biological indicators, and 4) classification of schizophrenia as a discrete category. The authors then discuss alternative conceptions of schizophrenia that take into account recent data concerning its genetic and neurodevelopmental origins and its pathophysiological substrates. METHOD: The historical development of diagnostic criteria for schizophrenia is reviewed in the context of recent published data on the biology and development of schizophrenia. RESULTS: Growing evidence suggests that symptoms of psychosis may be a common end-state in a variety of disorders, including schizophrenia, rather than a reflection of the specific etiology of schizophrenia. Features occurring before the advent of psychosis that are clinical, biological, and/or neuropsychological in nature may constitute evidence of a genetic predisposition toward schizophrenia ("schizotaxia") and may provide more specific information about the genetic, pathophysiological, and developmental origins of schizophrenia. CONCLUSIONS: The success of efforts to treat and prevent schizophrenia will depend to an important extent on an accurate understanding of its causes. This goal can be furthered by conducting field trials to develop research criteria to assess the value of a developmentally sensitive, biologically informed approach to classification that would consider schizotaxia with psychosis (schizophrenia) and schizotaxia alone as distinct diagnostic conditions.}
+      \field{isbn}{0002-953X}
+      \field{issn}{0002953X}
+      \field{journaltitle}{American Journal of Psychiatry}
+      \field{number}{7}
+      \field{title}{{Toward reformulating the diagnosis of schizophrenia}}
+      \field{volume}{157}
+      \field{year}{2000}
+      \field{pages}{1041\bibrangedash 1050}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1176/appi.ajp.157.7.1041
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Toward Reformulating the Diagnosis of Schizophrenia.pdf:pdf
+      \endverb
+    \endentry
     \entry{Velakoulis2006}{article}{}
       \name{author}{11}{}{%
         {{uniquename=0,hash=07303b77ad594847d5476a58369770e6}{Velakoulis}{V\bibinitperiod}{Dennis}{D\bibinitperiod}{}{}{}{}}%
@@ -1213,7 +1309,7 @@
       \field{pages}{139\bibrangedash 149}
       \range{pages}{11}
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/Hippocampal and Amygdala Volumes According to Psychosis Stage and Diagnosis.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/Hippocampal and Amygdala Volumes According to Psychosis Stage and Diagnosis.pdf:pdf
       \endverb
     \endentry
     \entry{Welter2014}{article}{}
@@ -1252,7 +1348,7 @@
       \verb 10.1093/nar/gkt1229
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf;:C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(2).pdf:pdf;:C$\backslash$:/Users/swchoi/Desktop/Papers/The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations.pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(2).pdf:pdf;:C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Welter et al. - 2014 - The NHGRI GWAS Catalog, a curated resource of SNP-trait associations(3).pdf:pdf
       \endverb
     \endentry
     \entry{Geneva2013}{report}{}
@@ -1306,7 +1402,7 @@
       \verb 10.1016/j.ajhg.2010.11.011S0002-9297(10)00598-7 [pii]
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Yang et al. - 2011 - GCTA a tool for genome-wide complex trait analysis.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/Dropbox/Papers/GCTA A Tool for Genome-wide Complex Trait Analysis.pdf:pdf
       \endverb
       \keyw{*Polymorphism,Single Nucleotide,*Quantitative Trait Loci,*Software,Chromosomes,Human,X/*genetics,Computer Simulation,Dosage Compensation,Genetic,Female,Genetic Linkage,Genome-Wide Association Study/*methods,Humans,Male,Models,Genetic}
     \endentry
@@ -1342,7 +1438,7 @@
       \verb 10.2202/1544-6115.1128
       \endverb
       \verb{file}
-      \verb :C$\backslash$:/Users/swchoi/Dropbox/Papers/A General Framework for Weighted Gene Co-Expression Network Analysis.pdf:pdf
+      \verb :C$\backslash$:/Users/shingwan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Zhang, Horvath - 2005 - A general framework for weighted gene co-expression network analysis.pdf:pdf
       \endverb
     \endentry
   \endsortlist

@@ -60,11 +60,9 @@
 	\includegraphics[width=0.5\textwidth]{hkuLogo.jpg}}
 \singlespacing
 \renewcommand*\contentsname{Contents}
-\onehalfspacing
-%\doublespacing
 
 %\includeonly{environmental_risk/er_chapter,supplementary_materials}
-
+\newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 \makeglossary
 \newacronym{scz}{SCZ}{Schizophrenia}
 \newacronym[longplural={Genome Wide Association Studies}]{GWAS}{GWAS}{Genome Wide Association Study}
@@ -89,11 +87,14 @@
 \newacronym{GO}{GO}{Gene Ontology}
 \newacronym{MAGMA}{MAGMA}{Multi-marker Analysis of GenoMic Annotation}
 \newacronym{ngs}{NGS}{Next Generation Sequencing}
-\newacronym{dsm5}{DSM-5}{Diagnostic and Statistical Manual of Mental Disorders, 5th Edition}
+\newacronym{dsm}{DSM}{Diagnostic and Statistical Manual of Mental Disorders}
 \newacronym{mse}{MSE}{mean squared error}
 \newacronym{who}{WHO}{World Health Organization}
 \newacronym{yld}{YLD}{years lost due to disability}
-\raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
+%\raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
+\onehalfspacing
+%\doublespacing
+
 \makeindex
 \begin{document}\thispagestyle{empty}
 \pagestyle{empty}
@@ -307,17 +308,45 @@
 	\end{table}%
 	
 	Due to the severity of \glsentrylong{scz}, it has drawn much attention from the research community aiming to delineate the disease mechanics and be able to identify the risk factors.
-	Arguably, the most important first step to any \glsentrylong{scz} is to have a robust disease diagnosis.
+	Arguably, the most important first step to any \glsentrylong{scz} study is to have a robust and reliable disease diagnosis.
 	
 	\section{Diagnosis}
 	% Describe early problems of diagnosis
 	% Describe current method of diagnosis
-	% 
-	\section{Heritability of \glsentrylong{scz}}
-	The important first step was to test whether \glsentrylong{scz} is heritable or not.
+	\glsentrylong{scz} was first named ``Dementia Praecox'' by Dr. Emil Kraepelin and was later renamed as \glsentrylong{scz} by Dr. Eugen Bleuler\citep{Jablensky2010}.
+	Early nosological entity for \glsentrylong{scz} such as that in \gls{dsm}-\rom{1} and \gls{dsm}-\rom{2} were vague and unreliable where the inter-rater agreement can be as low as 54$\%$.\citep{Tsuang2000,Harvey2012} 
 	
-	% Because how schizophrenia is so damaging, researchers have tried to identify the cause of the disease.
-	% Then we talk about the researchs that has been done
+	Later nosologies addressed these problem by introducing structural assessment and clear defined criteria. 
+	With these improvements, the inter-rater agreement of \gls{dsm}-\rom{3} raised to $\sim 90\%$ \citep{Harvey2012}, suggesting the diagnosis were much more reliable.
+	
+	Currently \gls{dsm} is at its 5th edition\citep{AmericanPsychiatricAssociation2013}. 
+	A patient will be diagnosed with \glsentrylong{scz}(F20.9) if they suffered from 2 or more of the following symptoms for a significant portion of time during a 1-month period: 
+	\begin{enumerate*}[label=\arabic*\upshape)]
+		\item delusion; \label{ls:delusion}
+		\item hallucinations;\label{ls:hallucinations}
+		\item disorganized speech;\label{ls:disorganizedSpeech}
+		\item grossly disorganized or catatonic behaviour; and\label{ls:catatonicBehavior}
+		\item negative symptoms such as diminished emotional expression,\label{ls:negativeSymptoms}
+	\end{enumerate*}  where one of the symptom must be either (\ref{ls:delusion}, (\ref{ls:hallucinations} or (\ref{ls:disorganizedSpeech}.
+	Signs of disturbance also need to persist for at least 6-month before the patient can be diagnosed with \glsentrylong{scz}.
+	
+	\section{Heritability of \glsentrylong{scz}}
+	One of the most fundamental question in the study of \glsentrylong{scz} is that whether if it is environmental or inherited disorder.
+	% Brief describe twins and family study. 
+	% Present data which shows increased risk in schizophrenia for first degree relatives
+	% Explain that schizophrenia is heritable, dominently genetic
+	% Therefore it is important to study it from the angle of genetics
+	
+	% Candidate studies of Schziphrenia
+	% CNV, deletions -> Emily
+	% Little to no succes for common SNP
+	% Small effect size, insufficient power
+	% Recent collaboration -> PGC
+	% Identify 20~40% heritability 
+	% Missing heritability?
+	% Ben Yip's paper -> Over estimation of heritability of twin studies
+	% GxE interaction?
+	% Problem with the current heritability estimation?
 	% Comorbidity	
 	
 	
@@ -348,7 +377,6 @@
 	% Schizophrenia is heritable, but does it mean that the drug response is also heritable?
 	
 
-	\subsection{Comorbidity}
 	
 	\section{Disease Mechanisms}
 	Efforts have been made to identify the genetic cause of \acrlong{scz}.
@@ -360,8 +388,6 @@
 	\subsection{Genetic Risk Factors}
 	\subsubsection{Common genetic Variation}
 	\subsubsection{Rare Genetic Variation}
-	\subsection{Environmental Risk Factors}
-	\subsubsection{Maternal Immune Activation}
 	\section{Current Treatments}
 	\subsection{Antipsychotics}
 	\subsection{Pharmacogenetics and Pharmacogenomics}
