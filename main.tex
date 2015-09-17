@@ -10,6 +10,7 @@
 \usepackage[nodisplayskipstretch]{setspace}
 \usepackage{booktabs}
 \usepackage{gensymb}
+\usepackage[utf8]{inputenc} 
 %\usepackage{parskip}
 \usepackage{xr}
 \usepackage{pdflscape}
@@ -18,13 +19,12 @@
 \usepackage{wrapfig}
 \usepackage{longtable}
 \usepackage{subfig}
-\usepackage[natbib=true,subentry,backend=biber,sorting=nyvt,citestyle=authoryear-comp]{biblatex}
 \usepackage[hidelinks]{hyperref}
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage[acronym,nomain,toc,makeindex ]{glossaries}
 \usepackage{cleveref} %This need to be the last package for it to work properly 
-
+\usepackage[hyperref=true,maxcitenames=3,maxbibnames=3,url=false,isbn=false,backref=true,natbib=true,backend=biber,sorting=nyvt,defernumbers=false, style=authoryear]{biblatex}
 
 
 %
@@ -155,7 +155,7 @@
 
 	\cleardoublepage
 	\phantomsection
-	\contentsline{toc}{chapter}{Declaration}
+	\addcontentsline{toc}{chapter}{Declaration}
 	\newgeometry{inner=2in, outer=2in}
 	\chapter*{\centerline{Declaration}}
 	\vspace{1cm}
@@ -774,7 +774,7 @@
 	
 	
 	\backmatter
-	\printbibliography
+	\printbibliography[heading=bibintoc,title={Bibliography}]
 	\chapter*{Supplementary Materials}
 	\beginsupplement
 	\begin{table}[htbp]

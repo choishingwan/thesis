@@ -4,11 +4,11 @@
   <bcf:options component="biber" type="global">
     <bcf:option type="singlevalued">
       <bcf:key>output_encoding</bcf:key>
-      <bcf:value>ascii</bcf:value>
+      <bcf:value>utf8</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>input_encoding</bcf:key>
-      <bcf:value>ascii</bcf:value>
+      <bcf:value>utf8</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>debug</bcf:key>
@@ -319,7 +319,8 @@
     <bcf:option>doi</bcf:option>
     <bcf:option>eprint</bcf:option>
     <bcf:option>related</bcf:option>
-    <bcf:option>subentry</bcf:option>
+    <bcf:option>dashed</bcf:option>
+    <bcf:option>mergedate</bcf:option>
   </bcf:optionscope>
   <bcf:optionscope type="PER_TYPE">
     <bcf:option>alphaothers</bcf:option>
@@ -2252,36 +2253,33 @@
     <bcf:citekey order="14">Project2012</bcf:citekey>
     <bcf:citekey order="15">Altshuler2010</bcf:citekey>
     <bcf:citekey order="16">Shieh2010</bcf:citekey>
-    <bcf:citekey order="17">Shieh2010</bcf:citekey>
-    <bcf:citekey order="18">Neumaier1998</bcf:citekey>
-    <bcf:citekey order="19">eigenweb</bcf:citekey>
+    <bcf:citekey order="17">Neumaier1998</bcf:citekey>
+    <bcf:citekey order="18">eigenweb</bcf:citekey>
+    <bcf:citekey order="19">Hansen1987</bcf:citekey>
     <bcf:citekey order="20">Hansen1987</bcf:citekey>
     <bcf:citekey order="21">Hansen1987</bcf:citekey>
-    <bcf:citekey order="22">Hansen1987</bcf:citekey>
-    <bcf:citekey order="23">Hansen1987</bcf:citekey>
-    <bcf:citekey order="24">Altshuler2010</bcf:citekey>
-    <bcf:citekey order="25">Yang2011</bcf:citekey>
-    <bcf:citekey order="26">Bulik-Sullivan2015</bcf:citekey>
-    <bcf:citekey order="27">Welter2014</bcf:citekey>
-    <bcf:citekey order="28">Su2011</bcf:citekey>
-    <bcf:citekey order="29">Orr1998</bcf:citekey>
-    <bcf:citekey order="30">Orr1998</bcf:citekey>
-    <bcf:citekey order="31">Manolio2009</bcf:citekey>
-    <bcf:citekey order="32">Project2012</bcf:citekey>
-    <bcf:citekey order="33">Velakoulis2006</bcf:citekey>
-    <bcf:citekey order="33">Nugent2007</bcf:citekey>
-    <bcf:citekey order="34">Simpson2010</bcf:citekey>
-    <bcf:citekey order="35">Hart2013</bcf:citekey>
-    <bcf:citekey order="36">Langfelder2008</bcf:citekey>
-    <bcf:citekey order="37">Langfelder2008</bcf:citekey>
-    <bcf:citekey order="38">Zhang2005</bcf:citekey>
-    <bcf:citekey order="39">Eden2009</bcf:citekey>
-    <bcf:citekey order="40">Supek2011</bcf:citekey>
-    <bcf:citekey order="41">DeLeeuw2015</bcf:citekey>
-    <bcf:citekey order="42">Gogtay2011</bcf:citekey>
-    <bcf:citekey order="43">Liaw1995</bcf:citekey>
-    <bcf:citekey order="44">Ripke2014</bcf:citekey>
-    <bcf:citekey order="45">DeLeeuw2015</bcf:citekey>
+    <bcf:citekey order="22">Altshuler2010</bcf:citekey>
+    <bcf:citekey order="23">Yang2011</bcf:citekey>
+    <bcf:citekey order="24">Bulik-Sullivan2015</bcf:citekey>
+    <bcf:citekey order="25">Welter2014</bcf:citekey>
+    <bcf:citekey order="26">Su2011</bcf:citekey>
+    <bcf:citekey order="27">Orr1998</bcf:citekey>
+    <bcf:citekey order="28">Manolio2009</bcf:citekey>
+    <bcf:citekey order="29">Project2012</bcf:citekey>
+    <bcf:citekey order="30">Velakoulis2006</bcf:citekey>
+    <bcf:citekey order="30">Nugent2007</bcf:citekey>
+    <bcf:citekey order="31">Simpson2010</bcf:citekey>
+    <bcf:citekey order="32">Hart2013</bcf:citekey>
+    <bcf:citekey order="33">Langfelder2008</bcf:citekey>
+    <bcf:citekey order="34">Langfelder2008</bcf:citekey>
+    <bcf:citekey order="35">Zhang2005</bcf:citekey>
+    <bcf:citekey order="36">Eden2009</bcf:citekey>
+    <bcf:citekey order="37">Supek2011</bcf:citekey>
+    <bcf:citekey order="38">DeLeeuw2015</bcf:citekey>
+    <bcf:citekey order="39">Gogtay2011</bcf:citekey>
+    <bcf:citekey order="40">Liaw1995</bcf:citekey>
+    <bcf:citekey order="41">Ripke2014</bcf:citekey>
+    <bcf:citekey order="42">DeLeeuw2015</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyvt" type="entry" sortscheme="nyvt">
   <bcf:sorting>
