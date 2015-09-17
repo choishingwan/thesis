@@ -254,7 +254,7 @@
 			 
 			Another way to get the \gls{se} is based on the fact that $\boldsymbol{f}$ is approximately $\chi^2$ distributed. 
 			Therefore \cref{eq:shrekEq} can be viewed as a decomposition of a vector of $\chi^2$ distributions with degree of freedom of 1. 
-			Replacing the vector $\boldsymbol{f}$ with a vector of 1, we can perform the decomposition of the degree of freedom, getting the ``effective number''($e$) of the association\citep{Li2011b}. 
+			Replacing the vector $\boldsymbol{f}$ with a vector of 1, we can perform the decomposition of the degree of freedom, getting the ``effective number''($e$) of the association\citep{Li2011}. 
 			%The problem of this effective number is that they uses the eigenvalue instead of this multiplication.
 			%So either we have to explain why we don't follow it (therefore explaining the slidding windows) or we should just avoid mentioning the effective number
 			Substituting $e$ into the variance equation of non-central $\chi^2$ distribution will yield
@@ -271,7 +271,7 @@
 			%Explain how to apply the heritability estimation in the extreme phenotype situation
 		\subsection{Calculating the \glsentrylong{LD} matrix}
 			To estimate the heritability, the population \gls{LD} matrix is required.
-			In reality, one can only obtain the \gls{LD} matrix based on a subset of the population (e.g. the 1000 genome project\parencite{Project2012} or the HapMap project\parencite{Altshuler2010}).
+			In reality, one can only obtain the \gls{LD} matrix based on a subset of the population (e.g. the 1000 genome project\citep{Project2012} or the HapMap project\citep{Altshuler2010}).
 			There are therefore sampling errors among the \gls{LD} elements. 
 			
 			Now if we consider \cref{eq:fullShrek}, the $\boldsymbol{R_{sq}}$ matrix is required.
@@ -305,10 +305,10 @@
 			However, when $\boldsymbol{R_{sq}}$ is ill-conditioned, the traditional decomposition method will fail.
 			Even if the decomposition is successfully performed, the result tends to be a meaningless approximation to the true $\boldsymbol{\hat{h^2}}$. 
 			
-			Therefore, to obtain a meaningful solution, regularization techniques such as the Tikhonov Regularization (also known as Ridge Regression) and \gls{tSVD} has to be performed\parencite{Neumaier1998}. 
+			Therefore, to obtain a meaningful solution, regularization techniques such as the Tikhonov Regularization (also known as Ridge Regression) and \gls{tSVD} has to be performed\citep{Neumaier1998}. 
 			There are a large variety of regularization techniques, yet the discussion of which is beyond the scope of this study. 
 			In this study, we will focus on the use of \gls{tSVD} in the regularization of the \gls{LD} matrix.
-			This is because the \gls{SVD} routine has been implemented in the EIGEN C++ library \parencite{eigenweb}, allowing us to implement the \gls{tSVD} method without much concern with regard to the detail of the algorithm. 
+			This is because the \gls{SVD} routine has been implemented in the EIGEN C++ library \citep{eigenweb}, allowing us to implement the \gls{tSVD} method without much concern with regard to the detail of the algorithm. 
 			
 			To understand the problem of the ill-conditioned matrix and regularization method, we consider the matrix equation $\boldsymbol{Ax}=\boldsymbol{B}$ where $\boldsymbol{A}$ is ill-conditioned or singular with $n\times n$ dimension.
 			The \gls{SVD} of $\boldsymbol{A}$ can be expressed as 
@@ -349,7 +349,7 @@
 				&\boldsymbol{A}^+ = \boldsymbol{U\Sigma}_k\boldsymbol{V}^t  &\qquad\text{and}\qquad  &\boldsymbol{\Sigma}_k=\mathrm{diag}(\sigma_1,\dots,\sigma_k,0,\dots,0)
 				\label{eq:tsvd}				
 			\end{alignat}
-			where $\boldsymbol{\Sigma}_k$ equals to replacing the smallest $n-k$ singular value replaced by 0 \parencite{Hansen1987}. 
+			where $\boldsymbol{\Sigma}_k$ equals to replacing the smallest $n-k$ singular value replaced by 0 \citep{Hansen1987}. 
 			Alternatively, we can define
 			\begin{equation}
 			\sigma_i=\begin{cases}
@@ -361,7 +361,7 @@
 			Any singular value $\sigma_i$ less than the threshold will be replaced by 0. 
 			
 			By selecting an appropriate $t$, \gls{tSVD} can effectively regularize the ill-conditioned matrix and help to find a reasonable approximation to $x$. 
-			A problem with \gls{tSVD} however is that it only work when matrix $\boldsymbol{A}$ has a well determined numeric rank\parencite{Hansen1987}.
+			A problem with \gls{tSVD} however is that it only work when matrix $\boldsymbol{A}$ has a well determined numeric rank\citep{Hansen1987}.
 			That is, \gls{tSVD} work best when there is a large gap between $\sigma_k$ and $\sigma_{k+1}$.
 			If a matrix has ill-conditioned rank, then $\sigma_k-\sigma_{k+1}$ will be small.
 			For any threshold $t$, a small error can change whether if $\sigma_{k+1}$ and subsequent singular values should be truncated, leading to unstable results. 

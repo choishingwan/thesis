@@ -19,7 +19,6 @@
 \usepackage{longtable}
 \usepackage{subfig}
 \usepackage[natbib=true,subentry,backend=biber,sorting=nyvt,citestyle=authoryear-comp]{biblatex}
-\addbibresource[datatype=bibtex]{citation/Thesis.bib}
 \usepackage[hidelinks]{hyperref}
 \usepackage{geometry}
 \usepackage{fancyhdr}
@@ -56,6 +55,7 @@
 %
 %	GLOSSARY SECTION
 %
+\addbibresource[datatype=bibtex]{citation/citation.bib}
 \makeglossary
 \newacronym{scz}{SCZ}{schizophrenia}
 \newacronym[longplural={Genome Wide Association Studies}]{GWAS}{GWAS}{Genome Wide Association Study}
@@ -155,7 +155,7 @@
 
 	\cleardoublepage
 	\phantomsection
-	\addcontentsline{toc}{chapter}{Declaration}
+	\contentsline{toc}{chapter}{Declaration}
 	\newgeometry{inner=2in, outer=2in}
 	\chapter*{\centerline{Declaration}}
 	\vspace{1cm}
