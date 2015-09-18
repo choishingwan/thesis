@@ -189,8 +189,6 @@
 
 \setlength{\parindent}{4em}
 \setlength{\parskip}{0.75em}
-	\chapter{Introduction}
-		
 	%\chapter*{Some considerations}
 	%\begin{enumerate}
 	%	\item PRSice requires the phenotype to aid its selection (More information= stronger)
@@ -218,75 +216,8 @@
 		
 	%\end{enumerate}
 	
-	\chapter{Literature Review I: Identifying the Genetic Contributions}
-	\chaptermark{Genetic Contributions}
-	% Disease can be influence by both genetic and environmental factors.
-	% WHY DO WE WANT TO IDENTIFY THE GENETIC CONTRIBUTIONS?
-	% Both nature and nurture are important for disease understanding
-	% Environment sometimes difficult collect (e.g. diet)
-	% Being stable, objective, ideal for identifying, characterizing and clustering samples
-	% Personalize medicine
-	% Help to identify disease mechanisms
-	% Deeping understanding of the pathway / biological procedures involved in the disease
-	% Allow development of treatments (targeting the pathway)
-	% Therefore it is important for one to identify the genetic contribution of a trait
-	
-	% First step in finding genetic contributions -> understand whether if the trait is heritable
-	% Twin Studies
-	% ACE model
-	
-	% Then, linkage study such to identify genetic elemetns segregate with disease status
-	% Extreme phenotype selection should also be here
-	
-	% New era on GWAS
-	% Brief explain the concept of GWAS
-	% How GWAS is applied to disease discoveries?
-	% Problem of GWAS -> Cannot identify rare genotypes
-	% Limited resolution
-	
-	% NGS
-	% High Resolution (per base resolution)
-	% Can identify rare genotypes
-	% Can somtimes allow one to pin-point the causal variants 
-	
-	% Heritability Estimation
-	% Based on the GWAS and NGS data, one can identify the narrow sense heritability
-	% GCTA, with the sample genotype, one can calculate the heritability
-	% Problem with Case Control samples
-	% The liability threshold model
-	
-	% Next stage in genetic research
-	% Risk prediction
-	% Difficult -> Causual variants remain largely unknown
-	% Polygenic Score -> How does it work?
-	% Current situation of risk prediction -> Not good
-	
-	The concept of Literature Review is that they are things that happened \emph{before} the studies in this thesis.
-	They should be the disease background and what has happened so far. 
-	Also one should identify the research gap based on the current situation and therefore leads to the current study.
-	
-	\section{Twin and Adoption Studies}
-	%remember, our focus is in the heritability, not trying to separate the genetics and the environment. 
-	Should briefly talk about how Twin modeling was used for finding the GE contribution.
-	Should also mention the ACE model.
-	\section{Family Studies}
-	
-	\section{Genome Wide Association Studies}
-	%The background of GWAS, the hypothesis and concept
-	%The sucess and limitation
-	\section{\glsentrylongpl{ngs} Studies}
-	\section{Narrow Sense Heritability}
-	\subsection{\glng{gcta}}
-	\subsection{Liability Threshold}
-	
-	\section{Risk Prediction}
-	%This part I am uncertain. Focus on finishing the previous sections first. 
-	\subsection{Polygenic Scores}
-	
-	
-	
-	\chapter{Literature Review II: Schizophrenia}
-	\chaptermark{Schizophrenia}
+	\chapter{Introduction - Heritability Estimation in Schizophrenia}
+	\chaptermark{Introduction}
 	% Disease background
 	\Glng{scz} is a detrimental psychiatric disorder, affecting around $0.3\sim0.7\%$ of the population\citep{AmericanPsychiatricAssociation2013}.
 	It is characterized by positive symptoms including delusions, hallucinations, disorganized speech and grossly disorganized behavior, and negative symptoms such as the diminished emotional expression\citep{AmericanPsychiatricAssociation2013} with a typical age of onset at late adolescent or late 20s in male and late 20s or early 30s in female\citep{Schultz2007}.
@@ -352,12 +283,30 @@
 	Signs of disturbance also need to persist for at least 6-month before the patient can be diagnosed with \glng{scz}.
 	
 	\section{Twin Studies of Schizophrenia}
+	% Need to go deeper into twin studies
 	\sectionmark{Twin Studies of \glng{scz}}
 	It was first observed that \glng{scz} tends to aggregate in families where relatives of schizophrenic patients tends to have higher risk of developing \glng{scz}\citep{gottesman1991schizophrenia}.
 	The fundamental question to ask would be whether if this aggregation has an environmental or genetic origin.
 	
-	To find out whether if genetic or environment were the main mediator in \glng{scz}, researchers conducted varies twin and adoption studies.
+	One key concept in finding the \emph{proportion} of genetic and environmental contribution is \emph{heritability}. 
+	Heritability is defined as the proportion of variation in phenotype explained by variation in genetics. 
+	% What is heritability?
+	% What are the different form of heritabilities?
+	% What are the use of heritability? (Why do we want to calculate it)
+	% How to calculate it?
+	% Problems with heritability?
 	
+	% Heritability estimation in Schizophrenia
+	% Twin studies -> Some reviews
+	% Then the meta analysis
+	% Then to Ben Ben's study (Family Based population study)
+	% Explain the difference
+	% Research in schziphrenia
+	% Risk factors
+	
+	To find out whether if genetic or environment were the main mediator in \glng{scz}, researchers conducted varies twin and adoption studies. 
+	% Here, we need to introduce Twin Studies
+	% Then we need to introduce the liability model
 	In one of the landmark study conducted by \cite{Sullivan2003}, a quantitative meta-analysis was performed on 12 published \glng{scz} twin studies.
 	They found that although there was a non-zero contribution of environmental influence on liability of \glng{scz} ($11\%$,\gls{ci}=$3\%-19\%$), there was a much larger contribution from genetics ($81\%$, \gls{ci}=$73\%-90\%$), suggesting that \glng{scz} was largely mediated by the genetic elements.
 	
@@ -365,6 +314,8 @@
 	A recent large scale population based study in Sweden population\citep{Lichtenstein2009} also found that there was a large genetic contribution in \glng{scz} ($64\%$).
 	Although a different estimation of heritability were obtained from the two studies, there is no doubt that \glng{scz} is highly heritable, justify the initiative of conducting genetic research in elucidating genetic risk factor of \glng{scz}.
 	
+	\section{Risk Factors of Schizophrenia}
+	\sectionmark{Risk Factors}
 	
 	\section{Genetic Analysis of Schizophrenia}
 	Although it was clear that \glng{scz} is a genetic disease, family studies shown that it is unlikely for \glng{scz} to be affected by genes with a large effect.
@@ -372,7 +323,7 @@
 	However, studies found that the life time morbid risk of monozyogitc twins were only $48\%$(\cref{fig:lifeMRscz})\citep{gottesman1991schizophrenia}, making it unlikely for \glng{scz} to follow a Mendelian pattern.
 	\begin{wrapfigure}{R}{8cm}
 		\centering
-		\includegraphics{figure/lifeTimeMorbidRisk.jpg}
+		\includegraphics[width=0.5\textwidth]{figure/lifeTimeMorbidRisk.png}
 		\caption[Lifetime morbid risks of \glng{scz} in various classes of relatives of a proband]{Lifetime morbid risks of \glng{scz} in various classes of relatives of a proband.
 			It was noted that the morbid risk of monozygotic (MZ) twins were only $48\%$, much lower than one would expect if \glng{scz} follows a Mendelian pattern.
 			Reproduced with permission from journal\citep{Riley2006}. \label{fig:lifeMRscz}}
@@ -387,7 +338,10 @@
 	By comparing the observed life time morbid risk and the calculated risk from different models, it was observed that the model with a maximum risk of $\sim\le2$ was more compatible than that with risk $\ge3$.
 	Thus, not only is \glng{scz} polygenic, the effect size of each individual causal genes are likely to be small (less than 2 fold risk elevation).
 
-	
+	Considerable research effort has been made in past years, aiming to identify the susceptible genes of \glng{scz}.
+	However, early linkage studies were unable to capture the small effects and largely return with inconsistent results\citep{Harrison2005}. 
+	As technology progress, large scale hypothesis free testings such as that of \gls{GWAS} starts to become available.
+	% Linkage studies largely return inconsistent results. 
 	% Failed Linkage studies
 	% Little findings of candidate genes
 	% Use GWAS
@@ -404,8 +358,9 @@
 	% Small effect size, insufficient power
 	% Recent collaboration -> PGC
 	% Identify 20~40% heritability 
-	\subsection{Common Genetic Variation}
-	\subsection{Rare Genetic Variation}
+	\section{Narrow Sense Heritability}
+	\subsection{\glng{gcta}}
+	\subsection{\glng{ldsc}}
 	% Common disease rare variant ->Shaun's exome sequencing paper
 	
 	\section{Missing heritability}
@@ -439,7 +394,8 @@
 
 	\section{Antipsychotics}
 	\subsection{Pharmacogenetics and Pharmacogenomics}
-	
+	\subsection{Extreme Phenotype Selection}
+	\section{Summary}
 	
 	\include{heritability_estimation}
 	
