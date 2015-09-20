@@ -86,6 +86,7 @@
 \newacronym{who}{WHO}{World Health Organization}
 \newacronym{yld}{YLD}{years lost due to disability}
 \newacronym{ci}{CI}{confidence interval}
+\newacronym{iq}{IQ}{intelligence quotient}
 
 %
 %
@@ -250,7 +251,7 @@
 			13    & Asthma & 14,134 & 1.9   & 200 \\
 			14    & Road injury & 13,902 & 1.9   & 196 \\
 			15    & Refractive errors & 13,498 & 1.8   & 191 \\
-			\textbf{16}    & \textbf{Schizophrenia} & \textbf{13,408} & \textbf{1.8}   & \textbf{189} \\
+			16    & Schizophrenia & 13,408 & 1.8   & 189 \\
 			17    & Bipolar disorder & 13,271 & 1.8   & 188 \\
 			18    & Drug use disorders & 10,620 & 1.4   & 150 \\
 			19    & Endocrine, blood, immune disorders & 10,495 & 1.4   & 148 \\
@@ -285,6 +286,7 @@
 	
 	\section{Risk Factors of Schizophrenia}
 	\sectionmark{Risk Factors}
+	Considerable efforts has been made to identify the risk factors of \glng{scz}.
 	% Epidemiological studies
 	% MIA 
 	% Drug abuse
@@ -297,7 +299,7 @@
 	
 	\section{Estimation of Heritability}
 
-	One key concept in quantitative genetics is \emph{heritability}, which was defined as \emph{proportion} of total variance of a trait in a population explained by variation in genetic factors.
+	One key concept in quantitative genetics is \emph{heritability}, which was defined as \emph{proportion} of total variance of a trait in a population explained by variation of genetic factors in the population.
 	One can partition observed phenotype into a combination of genetic and environmental components\citep{Falconer1996}
 	$$
 	\text{Phenotype(P)}=\text{Genotype(G)}+\text{Environment(E)}
@@ -315,28 +317,41 @@
 	$$
 		\sigma_G^2=\sigma_A^2+\sigma_D^2+\sigma_I^2
 	$$
-	where additive genetic variance was the variance explained by the average effects of all loci involved in the determination of the trait. 
-	On the other hand, the dominant genetic effects and epistatic genetic effectss were the interaction between alleles at the \emph{same} locus or \emph{different} loci respectively.
+	where additive genetic variance was the variance explained by the average effects of all loci involved in the determination of the trait, whereas dominant genetic effects and epistatic genetic effectss were the interaction between alleles at the \emph{same} locus or \emph{different} loci respectively.
 	
 	As individuals only transmit one copy of each allele to their offspring, relatives other than full siblings and identical twins will only share a maximum of one copy of the allele from each other.
-	Considering that dominance and non-additive genetic effects were concerning the interactive effect, these effects are unlikely to contribute to the resemblance between relatives \citep{Visscher2008}.
-	Therefore, it is usually more useful to consider the narrow sense heritability($h^2$) which only consider the additive genetic effects:
+	Considering that dominance and non-additive genetic effects were concerning the interactive effect, which usually involve more than one copy of the alleles, thes effects are unlikely to contribute to the resemblance between relatives \citep{Visscher2008}, thus it is usually more useful to consider the narrow sense heritability($h^2$) which only consider the additive genetic effects:
 	\begin{align}
 	h^2&=\frac{\sigma_A^2}{\sigma_P^2} \notag\\
 	h^2&=\frac{\sigma_A^2}{\sigma_G^2+\sigma_E^2}
 	\label{eq:narrowHeritability}
 	\end{align}
 	
-	% population based
-	% can change if one factor change 
-	As heritability is a populational measurement of the \emph{ratio} between different variance, change in any of the measurement (e.g. $\sigma_G^2$ or $\sigma_E^2$) will also affect the estimation of heritability.
+	One key feature of heritability is that it is a \emph{ratio} of \emph{populational} measurement at a specific time point.
+	As a result of that, the heritability estimation might differ from one population to another and one might obtain a different heritability estimate if the method or time-point of measurement of the trait differs.
+	An classical example was the study of \gls{iq} where the heritability estimation increases with age\citep{Bouchard2013}.
+	It was hypothesize that the shared environment has a larger effect on individuals when they were young, and that as they become more independent, the effect of shared environment diminishes, leading to a \emph{increased portion} of variance in \gls{iq} explained by the variance in genetic\citep{Bouchard2013}. 
 	
-	
-	
-	
-	
+	To conclude, it is important to remember that any estimation of heritability is specific to the specific population at that specific time point.
 	
 	\section{Liability Threshold}
+	According the central limit theorem, if a phenotype is determined by a multitude of genetics and environmental factors with relatively small effect, then its distribution will likely follow a normal distribution as is the case of many quantitative traits\citep{Visscher2008}. % No, what if there is interaction between variables? Then it will break the CLT
+	The variance of phenotype can therefore be calculated as the variance under the normal distribution.
+	However, such is not the case for disease such as \glng{scz} where instead of having a continuous distribution of phenotype, only a dichotomous labeling of ``affected'' and ``normal'' were obtained.
+	The variance of these phenotype were therefore more difficult to obtain.
+	
+	\citet{Falconer1965} proposed the liability threshold model, which suggesting that these discontinuous traits also follow a continuous distribution with an additional parameter called the ``liability threshold''.
+	Under the liability threshold model, the discontinuous traits were also affected by combination of many genetics and environmental factors, each with a small effects, as in the case of the continuous traits.
+	The main difference was that the phenotype of an individual is determined by whether if the combined effects of these factors(``liability'') were above a particular threshold (``liability threshold'').
+	So for example, in the case of \glng{scz}, only when an individual has a liability above the liability threshold will he/she be affected.
+	
+	
+	% More detail of the liability threshold model
+	% Then the application in schizophrenia
+	% Then Twin studies
+	
+	
+	
 	\section{Twin Studies of Schizophrenia}
 	% Need to go deeper into twin studies
 	\sectionmark{Twin Studies of \glng{scz}}
