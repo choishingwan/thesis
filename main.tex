@@ -6,6 +6,7 @@
 \usepackage{caption}
 \usepackage{fullpage}
 \usepackage{afterpage}
+\usepackage{float}
 \usepackage{multirow}
 \usepackage[nodisplayskipstretch]{setspace}
 \usepackage{booktabs}
@@ -297,6 +298,7 @@
 	
 	It was first observed that \glng{scz} tends to aggregate in families where relatives of schizophrenic patients tends to have higher risk of developing \glng{scz}\citep{gottesman1991schizophrenia}. %Need to be longer
 	The fundamental question to ask would be whether what is the relative contribution of genetic and environmental factors to \glng{scz}?
+	\textbf{Whether if the \emph{difference} in phenotype is accounted by genetics or environmental factors?}
 	
 	\section{Estimation of Heritability}
 
@@ -328,13 +330,97 @@
 	\label{eq:narrowHeritability}
 	\end{align}
 	% add in how to calculate the heritability in normal way here
+	In order to obtain the variance explained by the genetic effects, we can consider the following simplistic scenario:
 	
+	Let there be two alleles $A_1$ and $A_2$ each has an allele frequencies of $p$ and $q$, then the genotype frequencies will follow
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{rrr}
+			&$A_1$($p$)&$A_2$($q$)\\
+			$A_1$($p$)&$p^2$&$pq$\\
+			$A_2$($q$)&$pq$&$q^2$
+		\end{tabular}
+	\end{table} 
+	Now if we consider the effects of heterozygous genotypes to be $h$ and $d$ be twice the difference of effects between the two homozygous genotypes, then we have
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{rrrr}
+			Genotype &$A_1A_1$&	$A_1A_2$&$A_2A_2$\\
+			Frequency& $p^2$&$2pq$&$q^2$\\
+			Genotype effect& $d$&$h$&$-d$
+		\end{tabular}
+	\end{table} 
+	Based on these information, we can calculate the mean genotype effect in a population as
+	\begin{align}
+	\mu_G &= p^2d+2pqh-q^2d\notag\\
+	&=(p^2-q^2)d+2pqh\notag\\
+	&=(p-q)(p+q)d+2pqh\notag\\
+	&=(p-q)d+2pqh
+	\end{align}
+	The variance of genetic effects is therefore
+	\begin{align}
+	\sigma_G^2 &= p^2d^2+q^2d^2+2pqh^2-\mu_G^2\notag\\
+	&=p^2d^2+q^2d^2+2pqh^2-[(p-q)d+2pqh]^2\notag\\
+	&=(p^2+q^2)d^2+2pqh^2-[(p-q)^2d^2+4p^2q^2h^2+4(p-q)pqdh]\notag\\
+	&=[(p+q)^2-2pq]d^2+2pqh^2-[(p^2+q^2-2pq)d^2+4p^2q^2h^2+4(p-q)pqdh]\notag\\
+	&=-2pqd^2+2pqh^2-[-4pqd^2+4p^2q^2h^2+4(p-q)pqdh]\notag\\
+	&=2pq[-d^2+h^2+2d^2-2pqh^2-2(p-q)dh]\notag\\
+	&=2pq[d^2+(1-2pq)h^2-2(p-q)dh]\notag\\
+	&=2pq[d^2+(1-1+p^2+q^2)h^2-2(p-q)dh]\notag\\
+	&=2pq[d^2+((q+p)(q-p)+2pq)h^2-2(p-q)dh]\notag\\
+	&=2pq[d^2+(q-p)h^2+2(q-p)dh+2pqh^2]\notag\\
+	&=2pq[d+(q-p)h]^2+4p^2q^2h^2
+	\end{align}
+	If we then consider the $A_1$ allele as the increasing allele, then the dosage of $A_1$ in the genotypes will be
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{rrrr}
+			Genotype &$A_1A_1$&	$A_1A_2$&$A_2A_2$\\
+			Frequency& $p^2$&$2pq$&$q^2$\\
+			Genotype effect($y$)& $d$&$h$&$-d$\\
+			Dose($x$)& 2 & 1 & 0
+		\end{tabular}
+	\end{table} 
+	With the dosage concept, we can regress the genotype effect against the dose using linear regression.
+	The variance due to regression will then be representative of the additive genetic effects whereas the variance due to residual will be representative of the non-additive genetic effects.
+	
+	The mean of dose will be
+	$$
+	\mu_x = 2p^2+2pq = 2p(p+q)=2p 
+	$$	
+	and the variance will be
+	\begin{align}
+	\sigma_x^2&=2^2p^2+2pq+0-\mu_x^2\notag\\
+	&=4p^2+2pq-4p^2\notag\\
+	&=2pq
+	\end{align}
+	then, by considering the covariance between the dose and genetic effect, we get
+	\begin{align}
+	\sigma_{x,y}&= 2p^2d+2pqh-\mu_x\mu_G \notag\\
+	&=2p^2d+2pqh-2p[(p-q)d+2pqh]\notag\\
+	&=2pqh+2pqd-4p^2qh\notag\\
+	&=2pqd+2pqh(1-2p)\notag\\
+	&=2pqd+2pqh(q-p)\notag\\
+	&=2pq[d+h(q-p)]
+	\end{align}
+	with these information, we can calculate the variance due to regression as
+	\begin{align}
+	\beta_{\sigma_{x,y}} &= 2pq[d+(q-p)h][d+(q-p)h] \notag\\
+	&=2pq[d+(q-p)h]^2\notag\\
+	&=\sigma_A^2
+	\end{align}
+	and the variance due to regression is represented as
+	\begin{align}
+	\sigma_y^2-\beta_{\sigma_{x,y}} &= 4p^2q^2h^2\notag\\
+	&= \sigma_D^2
+	\end{align}
 	One key feature of heritability is that it is a \emph{ratio} of \emph{populational} measurement at a specific time point.
 	As a result of that, the heritability estimation might differ from one population to another and one might obtain a different heritability estimate if the method or time-point of measurement of the trait differs.
 	An classical example was the study of \gls{iq} where the heritability estimation increases with age\citep{Bouchard2013}.
 	It was hypothesize that the shared environment has a larger effect on individuals when they were young, and that as they become more independent, the effect of shared environment diminishes, leading to a \emph{increased portion} of variance in \gls{iq} explained by the variance in genetic\citep{Bouchard2013}. 
 	
-	To conclude, it is important to remember that any estimation of heritability is specific to the specific population at that specific time point.
+	A challenge with these calculation was that when working with discontinuous trait, the variance of phenotype is often determined by the population prevalence.
+	Arguably, one of the key concept in study of discontinuous trait is the liability threshold model.
 	
 	\section{Liability Threshold}
 	According the central limit theorem, if a phenotype is determined by a multitude of genetics and environmental factors with relatively small effect, then its distribution will likely follow a normal distribution as is the case of many quantitative traits\citep{Visscher2008}. % No, what if there is interaction between variables? Then it will break the CLT
