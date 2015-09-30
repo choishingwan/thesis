@@ -544,113 +544,201 @@
 	\section{Result}
 		The heritabilibty estimation were implemented in \gls{shrek} and is available on \url{https://github.com/choishingwan/shrek}.  
 		% We need to find a way to explain our results in a logical sense
+		
 		\begin{figure}
-			%Should we flat the heritability estimation such that it is always [0,1]?
 			\centering
 			\centering
 			\subfloat[SHREK]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/shrek_50k_10c_meanH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/10c/shrek_50k_10c_meanH.png}}
 				\label{fig:50k10cQtmeanS}
 			}
 			\subfloat[GCTA]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/gcta_50k_10c_meanH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/10c/gcta_50k_10c_meanH.png}}
 				\label{fig:50k10cQtmeanG}
 			}\\
 			\subfloat[LDSC with fix intercept]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/ldsc_50k_10c_meanH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/10c/ldsc_50k_10c_meanH.png}}
 				\label{fig:50k10cQtmeanL}
 			}
 			\subfloat[LDSC with intercept estimation]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/ldscIn_50k_10c_meanH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/10c/ldscIn_50k_10c_meanH.png}}
 				\label{fig:50k10cQtmeanI}
 			}
-			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 10 causal variants]
-			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 10 causal variants.
-			The mean estimation of each round of simulation were plotted against the empirical heritability simulated.
-				It was observed that \gls{shrek} has the highest $R^2$ and with \gls{mse} lower than that of \gls{ldsc}} 
+			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 10 causal variants of same effect size]
+			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 10 causal variants with same effect size.
+				It was observed that of all the tools, \gls{shrek} performed best in such scenario} 
 			\label{fig:50k10cQtMean}
 		\end{figure}
 		\begin{figure}
 			\centering
 			\centering
 			\subfloat[SHREK]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/shrek_50k_10c_varH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/10c/shrek_50k_10c_varH.png}}
 				\label{fig:50k10cQtvarS}
 			}
 			\subfloat[GCTA]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/gcta_50k_10c_varH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/10c/gcta_50k_10c_varH.png}}
 				\label{fig:50k10cQtvarG}
 			}\\
 			\subfloat[LDSC with fix intercept]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/ldsc_50k_10c_varH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/10c/ldsc_50k_10c_varH.png}}
 				\label{fig:50k10cQtvarL}
 			}
 			\subfloat[LDSC with intercept estimation]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/ldscIn_50k_10c_varH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/10c/ldscIn_50k_10c_varH.png}}
 				\label{fig:50k10cQtvarI}
 			}
-			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 10 causal variants(Variance)]
-			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 10 causal variants (Variance).
-			When it come to the estimation of variance, it was observed that all the tools can only provide a heuristic estimation of the empirical variance, with \gls{gcta} being the most accurate and \gls{shrek} underestimating the variance.
-			As for \gls{ldsc}, the variance estimated were much higher than the empirical variance no matter if the intercept were fixed or not.
-			It is worth noting that the empirical variance of \gls{gcta} were much lower than \gls{ldsc} and \gls{shrek} whereas the empirical variance of \gls{shrek} tends to be higher than \gls{ldsc} } 
+			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 10 causal variants with same effect size (variance)]
+			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 10 causal variants with same effect size (variance).} 
 			\label{fig:50k10cQtVar}
 		\end{figure}
 		
 		
-		
 		\begin{figure}
-			%Should we flat the heritability estimation such that it is always [0,1]?
 			\centering
 			\centering
 			\subfloat[SHREK]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/shrek_50k_50c_meanH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/50c/shrek_50k_50c_meanH.png}}
 				\label{fig:50k50cQtmeanS}
 			}
 			\subfloat[GCTA]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/gcta_50k_50c_meanH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/50c/gcta_50k_50c_meanH.png}}
 				\label{fig:50k50cQtmeanG}
 			}\\
 			\subfloat[LDSC with fix intercept]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/ldsc_50k_50c_meanH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/50c/ldsc_50k_50c_meanH.png}}
 				\label{fig:50k50cQtmeanL}
 			}
 			\subfloat[LDSC with intercept estimation]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/ldscIn_50k_50c_meanH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/50c/ldscIn_50k_50c_meanH.png}}
 				\label{fig:50k50cQtmeanI}
 			}
-			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 50 causal variants]
-			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 50 causal variants.
-				The mean estimation of each round of simulation were plotted against the empirical heritability simulated.
-				Under this condition, \gls{gcta} has the highest $R^2$, followed by \gls{shrek}. 
-				However, it was noted that \gls{shrek} was generally upwardly biased when compare to other tools.
-				Also , the \gls{mse} of \gls{ldsc} were substantially lower than in the condition of 10 causal \glspl{SNP}.
-				} 
+			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 50 causal variants of same effect size]
+			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 50 causal variants with same effect size.
+				It was observed that of all the tools, \gls{shrek} performed best in such scenario} 
 			\label{fig:50k50cQtMean}
 		\end{figure}
 		\begin{figure}
 			\centering
 			\centering
 			\subfloat[SHREK]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/shrek_50k_50c_varH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/50c/shrek_50k_50c_varH.png}}
 				\label{fig:50k50cQtvarS}
 			}
 			\subfloat[GCTA]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/gcta_50k_50c_varH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/50c/gcta_50k_50c_varH.png}}
 				\label{fig:50k50cQtvarG}
 			}\\
 			\subfloat[LDSC with fix intercept]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/ldsc_50k_50c_varH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/50c/ldsc_50k_50c_varH.png}}
 				\label{fig:50k50cQtvarL}
 			}
 			\subfloat[LDSC with intercept estimation]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/ldscIn_50k_50c_varH.png}}
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/50c/ldscIn_50k_50c_varH.png}}
 				\label{fig:50k50cQtvarI}
 			}
-			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 50 causal variants(Variance)]
-			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 50 causal variants (Variance).
-				Again, all the tools can only provide a heuristic estimation of the empirical variance, with \gls{gcta} being the most accurate.
-			}
+			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 50 causal variants with same effect size (variance)]
+			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 50 causal variants with same effect size (variance).} 
 			\label{fig:50k50cQtVar}
 		\end{figure}
+		
+		
+		\begin{figure}
+			\centering
+			\centering
+			\subfloat[SHREK]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/100c/shrek_50k_100c_meanH.png}}
+				\label{fig:50k100cQtmeanS}
+			}
+			\subfloat[GCTA]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/100c/gcta_50k_100c_meanH.png}}
+				\label{fig:50k100cQtmeanG}
+			}\\
+			\subfloat[LDSC with fix intercept]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/100c/ldsc_50k_100c_meanH.png}}
+				\label{fig:50k100cQtmeanL}
+			}
+			\subfloat[LDSC with intercept estimation]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/100c/ldscIn_50k_100c_meanH.png}}
+				\label{fig:50k100cQtmeanI}
+			}
+			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 100 causal variants of same effect size]
+			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 100 causal variants with same effect size.
+				It was observed that of all the tools, \gls{shrek} performed best in such scenario} 
+			\label{fig:50k100cQtMean}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\centering
+			\subfloat[SHREK]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/100c/shrek_50k_100c_varH.png}}
+				\label{fig:50k100cQtvarS}
+			}
+			\subfloat[GCTA]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/100c/gcta_50k_100c_varH.png}}
+				\label{fig:50k100cQtvarG}
+			}\\
+			\subfloat[LDSC with fix intercept]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/100c/ldsc_50k_100c_varH.png}}
+				\label{fig:50k100cQtvarL}
+			}
+			\subfloat[LDSC with intercept estimation]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/100c/ldscIn_50k_100c_varH.png}}
+				\label{fig:50k100cQtvarI}
+			}
+			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 100 causal variants with same effect size (variance)]
+			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 100 causal variants with same effect size (variance).} 
+			\label{fig:50k100cQtVar}
+		\end{figure}
+		
+		
+		\begin{figure}
+			\centering
+			\centering
+			\subfloat[SHREK]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/250c/shrek_50k_250c_meanH.png}}
+				\label{fig:50k250cQtmeanS}
+			}
+			\subfloat[GCTA]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/250c/gcta_50k_250c_meanH.png}}
+				\label{fig:50k250cQtmeanG}
+			}\\
+			\subfloat[LDSC with fix intercept]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/250c/ldsc_50k_250c_meanH.png}}
+				\label{fig:50k250cQtmeanL}
+			}
+			\subfloat[LDSC with intercept estimation]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/250c/ldscIn_50k_250c_meanH.png}}
+				\label{fig:50k250cQtmeanI}
+			}
+			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 250 causal variants of same effect size]
+			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 250 causal variants with same effect size.
+				It was observed that of all the tools, \gls{shrek} performed best in such scenario} 
+			\label{fig:50k250cQtMean}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\centering
+			\subfloat[SHREK]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/250c/shrek_50k_250c_varH.png}}
+				\label{fig:50k250cQtvarS}
+			}
+			\subfloat[GCTA]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/250c/gcta_50k_250c_varH.png}}
+				\label{fig:50k250cQtvarG}
+			}\\
+			\subfloat[LDSC with fix intercept]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/250c/ldsc_50k_250c_varH.png}}
+				\label{fig:50k250cQtvarL}
+			}
+			\subfloat[LDSC with intercept estimation]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/same_effect/250c/ldscIn_50k_250c_varH.png}}
+				\label{fig:50k250cQtvarI}
+			}
+			\caption[Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 250 causal variants with same effect size (variance)]
+			{Simulation of Quantitative Traits with 50k \glsentryshortpl{SNP} and 250 causal variants with same effect size (variance).} 
+			\label{fig:50k250cQtVar}
+		\end{figure}
+		
+		
 	\section{Discussion}
