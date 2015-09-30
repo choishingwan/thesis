@@ -99,8 +99,8 @@
 \fancyhf{}
 \fancyfoot[LE,RO]{\thepage}
 \renewcommand{\footrulewidth}{1pt}
-\fancyhead[L]{\leftmark}
-\fancyhead[R]{\rightmark}
+\fancyhead[LE]{\leftmark}
+\fancyhead[RO]{\rightmark}
 
 \geometry{
 	top=1in,            % <-- you want to adjust this
@@ -300,9 +300,9 @@
 	The fundamental question to ask would be whether what is the relative contribution of genetic and environmental factors to \glng{scz}?
 	\textbf{Whether if the \emph{difference} in phenotype is accounted by genetics or environmental factors?}
 	
-	\section{Estimation of Heritability}
+	\section{Broad Sense Heritability}
 
-	One key concept in quantitative genetics is \emph{heritability}, which was defined as \emph{proportion} of total variance of a trait in a population explained by variation of genetic factors in the population.
+	A key concept in quantitative genetics is \emph{heritability}, which was defined as \emph{proportion} of total variance of a trait in a population explained by variation of genetic factors in the population.
 	One can partition observed phenotype into a combination of genetic and environmental components\citep{Falconer1996}
 	$$
 	\text{Phenotype(P)}=\text{Genotype(G)}+\text{Environment(E)}
@@ -316,111 +316,74 @@
 	H^2=\frac{\sigma_G^2}{\sigma_P^2}
 	$$
 	
-	One can further partition the genetic variance into variance of additive genetic effects ($\sigma_A^2$), variance of dominant genetic effects ($\sigma_D^2$) and other epistatic genetic effects ($\sigma_I^2$) such that
+	One key feature of heritability is that it is a \emph{ratio} of \emph{populational} measurement at a specific time point.
+	As a result of that, the heritability estimation might differ from one population to another due to difference in \gls{maf} and one might obtain a different heritability estimate if the method or time-point of measurement of the trait differs because of different environmental factors coming into play.
+	An classical example was the study of \gls{iq} where the heritability estimation increases with age\citep{Bouchard2013}.
+	It was hypothesize that the shared environment has a larger effect on individuals when they were young, and that as they become more independent, the effect of shared environment diminishes, leading to a \emph{increased portion} of variance in \gls{iq} explained by the variance in genetic\citep{Bouchard2013}. 
+	
+	\section{Narrow sense Heritability}
+	In reality, the problem of heritability was more complicated for there were different forms of genetic effects. 
+	For example, one can partition the genetic variance into variance of additive genetic effects ($\sigma_A^2$), variance of dominant genetic effects ($\sigma_D^2$) and other epistatic genetic effects ($\sigma_I^2$) such that
 	$$
 		\sigma_G^2=\sigma_A^2+\sigma_D^2+\sigma_I^2
 	$$
 	where additive genetic variance was the variance explained by the average effects of all loci involved in the determination of the trait, whereas dominant genetic effects and epistatic genetic effectss were the interaction between alleles at the \emph{same} locus or \emph{different} loci respectively.
 	
 	As individuals only transmit one copy of each allele to their offspring, relatives other than full siblings and identical twins will only share a maximum of one copy of the allele from each other.
-	Considering that dominance and non-additive genetic effects were concerning the interactive effect, which usually involve more than one copy of the alleles, thes effects are unlikely to contribute to the resemblance between relatives \citep{Visscher2008}, thus it is usually more useful to consider the narrow sense heritability($h^2$) which only consider the additive genetic effects:
+	Considering that dominance and non-additive genetic effects were concerning the interactive effect, which usually involve more than one copy of the alleles, these effects are unlikely to contribute to the resemblance between relatives \citep{Visscher2008}.
+	On the other hand, the additive genetic effects is usually transmitted from parent to offspring, thus it is usually more useful to consider the narrow sense heritability($h^2$) which only consider the additive genetic effects:
 	\begin{align}
 	h^2&=\frac{\sigma_A^2}{\sigma_P^2} \notag\\
 	h^2&=\frac{\sigma_A^2}{\sigma_G^2+\sigma_E^2}
 	\label{eq:narrowHeritability}
 	\end{align}
+	
 	% add in how to calculate the heritability in normal way here
-	In order to obtain the variance explained by the genetic effects, we can consider the following simplistic scenario:
-	
-	Let there be two alleles $A_1$ and $A_2$ each has an allele frequencies of $p$ and $q$, then the genotype frequencies will follow
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{rrr}
-			&$A_1$($p$)&$A_2$($q$)\\
-			$A_1$($p$)&$p^2$&$pq$\\
-			$A_2$($q$)&$pq$&$q^2$
-		\end{tabular}
-	\end{table} 
-	Now if we consider the effects of heterozygous genotypes to be $h$ and $d$ be twice the difference of effects between the two homozygous genotypes, then we have
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{rrrr}
-			Genotype &$A_1A_1$&	$A_1A_2$&$A_2A_2$\\
-			Frequency& $p^2$&$2pq$&$q^2$\\
-			Genotype effect& $d$&$h$&$-d$
-		\end{tabular}
-	\end{table} 
-	Based on these information, we can calculate the mean genotype effect in a population as
+	To obtain the additive genetic effect, we can first consider the genetic effect of parents to be $G_p=A+D$. 
+	As only half of the additive effect were transmitted to their offspring, the child will have a genetic effect of $G_c=\frac{1}{2}A+\frac{1}{2}A'+D'$ where $A'$ is the additive genetic effect obtained from another parent by random and $D'$ is the non-additive genetic effect in the offspring.
+	If we then consider the parent offspring covariance, we will get
 	\begin{align}
-	\mu_G &= p^2d+2pqh-q^2d\notag\\
-	&=(p^2-q^2)d+2pqh\notag\\
-	&=(p-q)(p+q)d+2pqh\notag\\
-	&=(p-q)d+2pqh
-	\end{align}
-	The variance of genetic effects is therefore
+	\mathrm{Cov_{OP}}&= \sum(\frac{1}{2}A+\frac{1}{2}A'+D')(A+D)\notag\\
+	&=\frac{1}{2}\sum A^2+\frac{1}{2}\sum AD + \frac{1}{2}\sum A'(A+D) +D'(A+D) \notag\\ 
+	&=\frac{1}{2}V_A+ \frac{1}{2}\mathrm{Cov}_{AD} + \frac{1}{2}\mathrm{Cov}_{A'A} + \frac{1}{2}\mathrm{Cov}_{A'D} +\mathrm{Cov}_{D'A} +\mathrm{Cov}_{D'D}  
+	\label{eq:halfCompletedCovOP}
+	\end{align} 
+	Under the assumption of random mating,  $A'$ should be independent from $A$ and $D$. 
+	On the other hand, as $D'$ was specific to the child, both of them should be independent from $A$ and $D$.
+	Moreover, the covariance between the additive genetics and non-additive genetics should be zero\citep{Falconer1996}.
+	Thus, \cref{eq:halfCompletedCovOP} becomes
 	\begin{align}
-	\sigma_G^2 &= p^2d^2+q^2d^2+2pqh^2-\mu_G^2\notag\\
-	&=p^2d^2+q^2d^2+2pqh^2-[(p-q)d+2pqh]^2\notag\\
-	&=(p^2+q^2)d^2+2pqh^2-[(p-q)^2d^2+4p^2q^2h^2+4(p-q)pqdh]\notag\\
-	&=[(p+q)^2-2pq]d^2+2pqh^2-[(p^2+q^2-2pq)d^2+4p^2q^2h^2+4(p-q)pqdh]\notag\\
-	&=-2pqd^2+2pqh^2-[-4pqd^2+4p^2q^2h^2+4(p-q)pqdh]\notag\\
-	&=2pq[-d^2+h^2+2d^2-2pqh^2-2(p-q)dh]\notag\\
-	&=2pq[d^2+(1-2pq)h^2-2(p-q)dh]\notag\\
-	&=2pq[d^2+(1-1+p^2+q^2)h^2-2(p-q)dh]\notag\\
-	&=2pq[d^2+((q+p)(q-p)+2pq)h^2-2(p-q)dh]\notag\\
-	&=2pq[d^2+(q-p)h^2+2(q-p)dh+2pqh^2]\notag\\
-	&=2pq[d+(q-p)h]^2+4p^2q^2h^2
+	\mathrm{Cov_{OP}} &= \frac{1}{2}V_A+\mathrm{Cov}_{AD} \notag\\
+	&= \frac{1}{2}V_A
+	\label{eq:covOP}
 	\end{align}
-	If we then consider the $A_1$ allele as the increasing allele, then the dosage of $A_1$ in the genotypes will be
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{rrrr}
-			Genotype &$A_1A_1$&	$A_1A_2$&$A_2A_2$\\
-			Frequency& $p^2$&$2pq$&$q^2$\\
-			Genotype effect($y$)& $d$&$h$&$-d$\\
-			Dose($x$)& 2 & 1 & 0
-		\end{tabular}
-	\end{table} 
-	With the dosage concept, we can regress the genotype effect against the dose using linear regression.
-	The variance due to regression will then be representative of the additive genetic effects whereas the variance due to residual will be representative of the non-additive genetic effects.
-	
-	The mean of dose will be
+	Now if we assume the variance of phenotype of the parent and offspring were the same, then using \cref{eq:covOP}, we can obtain the narrow-sense heritability as
+	\begin{align}
+	h^2 &= \frac{1}{2}\frac{V_A}{\sigma_P^2}
+	\label{eq:narrowHerit}
+	\end{align}
+	If we consider the simple linear regression equation $Y=X\beta+\epsilon$, its slope can be calculated as 
 	$$
-	\mu_x = 2p^2+2pq = 2p(p+q)=2p 
-	$$	
-	and the variance will be
-	\begin{align}
-	\sigma_x^2&=2^2p^2+2pq-\mu_x^2\notag\\
-	&=4p^2+2pq-4p^2\notag\\
-	&=2pq
-	\end{align}
-	then, by considering the covariance between the dose and genetic effect, we get
-	\begin{align}
-	\sigma_{x,y}&= 2p^2d+2pqh-\mu_x\mu_G \notag\\
-	&=2p^2d+2pqh-2p[(p-q)d+2pqh]\notag\\
-	&=2pqh+2pqd-4p^2qh\notag\\
-	&=2pqd+2pqh(1-2p)\notag\\
-	&=2pqd+2pqh(q-p)\notag\\
-	&=2pq[d+h(q-p)]
-	\end{align}
-	with these information, we can calculate the variance due to regression as
-	\begin{align}
-	\beta_{\sigma_{x,y}} &= 2pq[d+(q-p)h][d+(q-p)h] \notag\\
-	&=2pq[d+(q-p)h]^2\notag\\
-	&=\sigma_A^2
-	\end{align}
-	and the variance due to regression is represented as
-	\begin{align}
-	\sigma_y^2-\beta_{\sigma_{x,y}} &= 4p^2q^2h^2\notag\\
-	&= \sigma_D^2
-	\end{align}
-	One key feature of heritability is that it is a \emph{ratio} of \emph{populational} measurement at a specific time point.
-	As a result of that, the heritability estimation might differ from one population to another and one might obtain a different heritability estimate if the method or time-point of measurement of the trait differs.
-	An classical example was the study of \gls{iq} where the heritability estimation increases with age\citep{Bouchard2013}.
-	It was hypothesize that the shared environment has a larger effect on individuals when they were young, and that as they become more independent, the effect of shared environment diminishes, leading to a \emph{increased portion} of variance in \gls{iq} explained by the variance in genetic\citep{Bouchard2013}. 
+	\beta_{XY} = \frac{\mathrm{Cov}_{XY}}{\sigma_{X}{Y}}
+	$$
+	which resemble \cref{eq:narrowHerit}. 
+	Therefore,  we can calculate the narrow sense heritability as
+	$$
+	h^2 = 2\beta_{OP}
+	\label{eq:narrowSenseHerit}
+	$$
+	where $\beta_{OP}$ is the slope of the simple linear regression regressing the phenotype of an offspring to the phenotype of \emph{one} of its parents.
+	We can further generalize \cref{eq:narrowSenseHerit} to all possible relativeness 
+	$$
+	h^2=\frac{\beta_{XY}}{r}
+	\label{eq:finalNarrow}
+	$$
+	where $r$ is the relativeness of $X$ and $Y$.
 	
-	A challenge with these calculation was that when working with discontinuous trait, the variance of phenotype is often determined by the population prevalence.
-	Arguably, one of the key concept in study of discontinuous trait is the liability threshold model.
+	When the relativeness of the samples was known, one can then easily calculate the narrow senese heritability using \cref{eq:finalNarrow}.
+	However, in the case of discontinuous trait (e.g. disease status) the calculation becomes more completed because the variance of the phenotype was dependent on the population prevalence.
+	As \cref{eq:finalNarrow} does not account for the trait prevalence, it cannot be directly applied to discontinuous traits.
+	In order to perform heritability estimation, we will need the concept of liability threshold model popularized by \cite{Falconer1965}.
 	
 	\section{Liability Threshold}
 	According the central limit theorem, if a phenotype is determined by a multitude of genetics and environmental factors with relatively small effect, then its distribution will likely follow a normal distribution as is the case of many quantitative traits\citep{Visscher2008}. % No, what if there is interaction between variables? Then it will break the CLT
@@ -515,7 +478,6 @@
 	\subsection{\glng{gcta}}
 	\subsection{\glng{ldsc}}
 	% Common disease rare variant ->Shaun's exome sequencing paper
-	
 	\section{Missing heritability}
 	% Ben Yip's paper -> Over estimation of heritability of twin studies
 	% GxE interaction?
