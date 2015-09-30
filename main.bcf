@@ -2259,12 +2259,78 @@
     <bcf:citekey order="20">Bouchard2013</bcf:citekey>
     <bcf:citekey order="21">Visscher2008</bcf:citekey>
     <bcf:citekey order="22">Falconer1996</bcf:citekey>
-    <bcf:citekey order="23">Falconer1965</bcf:citekey>
-    <bcf:citekey order="24">Visscher2008</bcf:citekey>
+    <bcf:citekey order="23">Bouchard2013</bcf:citekey>
+    <bcf:citekey order="24">Bouchard2013</bcf:citekey>
     <bcf:citekey order="25">Falconer1965</bcf:citekey>
-    <bcf:citekey order="26">Sullivan2003</bcf:citekey>
-    <bcf:citekey order="27">Lichtenstein2009</bcf:citekey>
-    <bcf:citekey order="28">gottesman1991schizophrenia</bcf:citekey>
-    <bcf:citekey order="29">Gottesman1967</bcf:citekey>
-    <bcf:citekey order="30">Risch1990a</bcf:citekey>
-    <bcf:ci
+    <bcf:citekey order="26">Visscher2008</bcf:citekey>
+    <bcf:citekey order="27">Falconer1965</bcf:citekey>
+    <bcf:citekey order="28">Sullivan2003</bcf:citekey>
+    <bcf:citekey order="29">Lichtenstein2009</bcf:citekey>
+    <bcf:citekey order="30">gottesman1991schizophrenia</bcf:citekey>
+    <bcf:citekey order="31">Gottesman1967</bcf:citekey>
+    <bcf:citekey order="32">Risch1990a</bcf:citekey>
+    <bcf:citekey order="33">Risch1990a</bcf:citekey>
+    <bcf:citekey order="34">Harrison2005</bcf:citekey>
+    <bcf:citekey order="35">Li2011</bcf:citekey>
+    <bcf:citekey order="36">Project2012</bcf:citekey>
+    <bcf:citekey order="37">Altshuler2010</bcf:citekey>
+    <bcf:citekey order="38">Shieh2010</bcf:citekey>
+    <bcf:citekey order="39">Neumaier1998</bcf:citekey>
+    <bcf:citekey order="40">eigenweb</bcf:citekey>
+    <bcf:citekey order="41">Hansen1987</bcf:citekey>
+    <bcf:citekey order="42">Hansen1987</bcf:citekey>
+    <bcf:citekey order="43">Hansen1987</bcf:citekey>
+    <bcf:citekey order="44">Altshuler2010</bcf:citekey>
+    <bcf:citekey order="45">Yang2011</bcf:citekey>
+    <bcf:citekey order="46">Bulik-Sullivan2015</bcf:citekey>
+    <bcf:citekey order="47">Welter2014</bcf:citekey>
+    <bcf:citekey order="48">Su2011</bcf:citekey>
+    <bcf:citekey order="49">Orr1998</bcf:citekey>
+    <bcf:citekey order="50">Manolio2009</bcf:citekey>
+    <bcf:citekey order="51">Project2012</bcf:citekey>
+    <bcf:citekey order="52">Velakoulis2006</bcf:citekey>
+    <bcf:citekey order="52">Nugent2007</bcf:citekey>
+    <bcf:citekey order="53">Simpson2010</bcf:citekey>
+    <bcf:citekey order="54">Hart2013</bcf:citekey>
+    <bcf:citekey order="55">Langfelder2008</bcf:citekey>
+    <bcf:citekey order="56">Langfelder2008</bcf:citekey>
+    <bcf:citekey order="57">Zhang2005</bcf:citekey>
+    <bcf:citekey order="58">Eden2009</bcf:citekey>
+    <bcf:citekey order="59">Supek2011</bcf:citekey>
+    <bcf:citekey order="60">DeLeeuw2015</bcf:citekey>
+    <bcf:citekey order="61">Gogtay2011</bcf:citekey>
+    <bcf:citekey order="62">Liaw1995</bcf:citekey>
+    <bcf:citekey order="63">Ripke2014</bcf:citekey>
+    <bcf:citekey order="64">DeLeeuw2015</bcf:citekey>
+  </bcf:section>
+  <bcf:sortlist section="0" name="nyvt" type="entry" sortscheme="nyvt">
+  <bcf:sorting>
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">presort</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="2" final="1">
+      <bcf:sortitem order="1">sortkey</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="3">
+      <bcf:sortitem order="1">sortname</bcf:sortitem>
+      <bcf:sortitem order="2">author</bcf:sortitem>
+      <bcf:sortitem order="3">editor</bcf:sortitem>
+      <bcf:sortitem order="4">translator</bcf:sortitem>
+      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="6">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="4">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">year</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1" pad_side="left" pad_width="4" pad_char="0">volume</bcf:sortitem>
+      <bcf:sortitem order="2">0000</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="6">
+      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sorting>
+  </bcf:sortlist>
+</bcf:controlfile>
