@@ -2,16 +2,22 @@
 
 % Need to stress that we are only calculating the narrow sense heritability
 	\section{Introduction}
-	Why we are interested in calculating the heritability?
-	The challenges (meta analysis, only test statistics, take long time to calculate the GRM)
-	We developed a programme SHREK
-	Recently there is another programme published based aim to solve the same problem and we should also compare and contrast our method with them.  %I like how this layout~
-	Aim of this chapter -> Calculate a robust estimation of heritability for all genetic architechture. 
-	LD score regression!
-	%Definitely need to talk about LDSC
+	The development of \glng{ldsc} has brought great prospect in estimating the heritability of complex disease for one can now estimate the heritability of a trait without requiring the rare genotype. 
+	However, it was noted by the author of \gls{ldsc} that when the number of causal variants were small, \gls{ldsc} tends to have a larger standard error, therefore it was better suited for more polygenic condition\citep{Bulik-Sullivan2015}. 
+	Also, it was suggested that \gls{ldsc} for some unbeknownst reason does not work well with targeted genotype array.
+	Together, we believe there were still room for improvement of the method such that the performance of heritability estimation should be robust to all possible condition (e.g. number of causal SNPs, type of genotyping array).
+	
+	In this chapter, we would introduce our method of heritability estimation using test static called \gls{shrek}. We will compare the performance of \gls{shrek} and \gls{ldsc} using simulation of different genetic architectures. 
+	
+	
 	\section{Methodology}	
-		The overall aims of this study is to develop a robust algorithm for the estimation of the narrow sense heritability using only the summary statistic from a \gls{GWAS} study. The work in this chapter were done in collaboration with my colleagues who have kindly provide their support and knowledges to make this piece of work possible.
-		Dr Johnny Kwan, Dr Miaxin Li and Professor Sham have helped to laid the framework of this study. Dr Timothy Mak has derived the mathematical proof for our heritability estimation method. Miss Yiming Li, Dr Johnny Kwan, Dr Miaxin Li, Dr Timothy Mak and Professor Sham have helped with the derivation of the standard error of the heritability estimation. Dr Henry Leung has provided critical suggestions on the implementation of the algorithm.
+		The overall aims of this study is to develop a robust algorithm for the estimation of the narrow sense heritability using only the summary statistic from a \gls{GWAS} study. 
+		The work in this chapter were done in collaboration with my colleagues who have kindly provide their support and knowledges to make this piece of work possible.
+		Dr Johnny Kwan, Dr Miaxin Li and Professor Sham have helped to laid the framework of this study. 
+		Dr Timothy Mak has derived the mathematical proof for our heritability estimation method. 
+		Miss Yiming Li, Dr Johnny Kwan, Dr Miaxin Li, Dr Timothy Mak and Professor Sham have helped with the derivation of the standard error of the heritability estimation. 
+		Dr Henry Leung has provided critical suggestions on the implementation of the algorithm.
+		
 		\subsection{Heritability Estimation}
 			The narrow-sense heritability is defined as 
 			$$
@@ -267,11 +273,20 @@
 			 \cref{eq:effectiveChi} will gives us an heuristic estimation of the \gls{se}. 
 		\subsection{Case Control Studies}	 
 		%Discuss on the liability threshold model. Then the apply orange paper. Then explain how to get the results. 
+		
 		\subsection{Extreme Phenotype Selections}
 			%Explain why we perform extreme phenotype selections. Explain how that affect the variance of the estimation. Finally, explain how to perform heritability estimation on extreme phenotype. 
-		\cref{eq:fullShrek} can naturally be applied to the quantitative trait scenario. 
-			%Explain how to apply the heritability estimation in the extreme phenotype situation
+			When extreme phenotype selection were performed, the variance of the selected phenotype will not be representative of that in the population.
+			Most notably, the variance of the post selection phenotype will tends to increase.
+			Thus, to adjust for this bias, one can multiple the estimated heritability $\hat{h^2}$ by the ratio between the variance before $V_P$ and after $V_{P'}$ the selection process\citep{Sham2014}:
+			
+			\begin{equation}
+			\hat{Heritability} = \frac{V_{P'}}{V_P}\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}
+			\label{eq:extremeShrek}
+			\end{equation}
+			
 		\subsection{Calculating the \glsentrylong{LD} matrix}
+			% Might want to remove this section as we no longer use this correction
 			To estimate the heritability, the population \gls{LD} matrix is required.
 			In reality, one can only obtain the \gls{LD} matrix based on a subset of the population (e.g. the 1000 genome project\citep{Project2012} or the HapMap project\citep{Altshuler2010}).
 			There are therefore sampling errors among the \gls{LD} elements. 
@@ -409,10 +424,24 @@
 		Through simulation, we can obtain the sample distribution of the heritability estimate under different study designs (e.g. Quantitativat traits, Case-Control studies or extreme phenotype selection). 
 		%We can also evaluate the performance of different methods under varying genetic architecture (e.g. different number of Snps, different LD structures) or even with different disease models (e.g. different number of causal Snps, different heritability).
 		
-
+		It was extremely important for us to consider as much possible conditions as possible.
+		Here we will outline all the parameters used in the simulation.
 		\subsection{Sample Size}
+		The sample size was one of the most important parameter in determining the standard error of the heritability estimation. 
+		As the sample size increases, study will be more representative of the true population and therefore generate a more stable and accurate results.
+		
+		Using simple text mining technique, we have calculated the average sample size for all \gls{GWAS} recorded on the \gls{GWAS} catalog\citep{Welter2014} was around 7,200 samples.
+		We argue that if all the tools were able to preform well when the sample size was small, then they should have no problem handling larger data sets.
+		Thus, we only simulate 1,000 samples in our simulation and if all the tools can accurately estimate the heritability, then they should have no problem in estimating the heritability when there were more samples.
+		
 		\subsection{Number of SNPs in Simulation}
+		As technology progress, the number of \glspl{SNP} on each array chip has increased significantly.
+		We can now achieve a single base pair resolution using the \gls{ngs} technologies.
+		However, it was computationally infeasible for us to simulate a large amount of \glspl{SNP} in every single simulation. 
+		Considering that one can usually partition the whole genome into individual chromosomes during the heritability estimation, we therefore only simulate chromosome 1 with 50,000 \glspl{SNP} in majority of the simulations.
+		
 		\subsection{Genetic Architecture} % Should contain the effect size distribution, the causal SNP number and the heritability spectrum
+		
 		\subsection{Case Control Studies}
 		\subsection{Extreme Phenotype Selection}
 		\subsection{Quantitative Trait}
