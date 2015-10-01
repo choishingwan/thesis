@@ -10,6 +10,7 @@
 \usepackage{multirow}
 \usepackage[nodisplayskipstretch]{setspace}
 \usepackage{booktabs}
+\usepackage{textcomp}
 \usepackage{gensymb}
 \usepackage[utf8]{inputenc} 
 %\usepackage{parskip}
@@ -92,6 +93,7 @@
 \newacronym{lps}{LPS}{lipopolysaccharide}
 \newacronym{il6}{IL-6}{Interleukin-6}
 \newacronym{mz}{MZ}{monozygotic twins}
+\newacronym{mia}{MIA}{maternal immune activation}
 
 %
 %
@@ -291,25 +293,35 @@
 	
 	\section{Risk Factors of Schizophrenia}
 	\sectionmark{Risk Factors}
-	\subsection{Epidemiological Studies}
 	% Talk about brown's study, the increased risk of schizophrenia in the influenza epidemic
 	% Talk about some other risk factors such as drug use etc
 	Considerable effort has been made trying ot identify possible risk factors of \glng{scz}. 
 	It was first observed that there was an increased risk of \glng{scz} in individual who were fetuses during the 1957 influenza epidemic\citep{Mednick1958}. 
 	Subsequently, other infectious agents such as HSV-2 and \textit{T.gondii} were also found to increase the risk of \glng{scz} if an individual's mother were infected during pregnancy.
-	As different infectious agents all increase the risk of \glng{scz}, it leads to the hypothesis of maternal immune activation \citep{Brown2010}.
+	As different infectious agents all increase the risk of \glng{scz}, it leads to the hypothesis of \gls{mia} \citep{Brown2010}.
 	It was hypothesized that instead of a particular infectious agents, it was the maternal immune response that disrupt the brain development in the offspring, thus leading to an elevated risk of \glng{scz}.
 	
 	By utilizing the rodent models, it was found when the pregnant rodent was injected with the viral mimic \gls{polyic} or the bacterial \gls{lps}, the offspring will display neuropathological features similar to those observed in \glng{scz}\citep{Meyer2009b}.
 	It was further demonstrated that similar findings can be obtained through the injection of only the \gls{il6}, suggesting that it was not the infection, but the maternal immune response that might have disrupted the fetal brain development.
 	
-	% Then talk about the transient effect of MIA
-	% And also some problem of these studies where the model only work as an proxy as we can never make a schizophrenic mice for sure.
-	% Then briefly talk about other possible risk factors e.g. drug use, alcohol abuse etc.
-	% Most should be alone the line of brain damage or environmental insult?
+	\begin{wrapfigure}{R}{8cm}
+		\centering
+		\includegraphics[width=0.5\textwidth]{figure/risk_factors_of_schizophrenia.png}
+		\caption[Risk factors of \glng{scz}]{Risk factors of \glng{scz}.
+			It was observed that family history of \glng{scz} was the largest risk factors where individuals with family history of \glng{scz} can have as much as 9 times  increase in risk of \glng{scz}.}
+		\label{fig:riskfactors}
+	\end{wrapfigure}
+	Recent studies of global gene expression patterns in \gls{mia}-exposed rodent fetal brains \citep{Garbett2012a} suggest that \gls{mia} only causes a transient gene expression change in the fetal brain.
+	Thus, the author suggest that it was likely for the post-pubertal onset of schizophrenic and other psychosis-related phenotypes to be stemmed from attempts of the brain to counteract the environmental stress induced by \gls{mia} during its early development\citep{Garbett2012a}. 
 	
+	Together, these results provide a strong evidence of \gls{mia} in the etiology of \glng{scz}, it was even estimated that one third of all \glng{scz} cases could have been prevented shall all infection were prevented from the entire pregnant population\citep{Brown2010} .
 	
-	\subsection{Familial Studies}
+	Similarly, tobacco consumption \citep{Kelly1999}, socio economical status and even the area of birth (e.g. urban vs suburb) were found to associate with increased risk of schizophrenia\citep{McGrath2008a}.
+	However, by and large, the single largest risk factor was family history of \glng{scz}\cref{fig:riskfactors}\citep{Sullivan2005}.
+	It was first observed that \glng{scz} tends to aggregate in families and relatives of schizophrenic patients tends to have higher risk of developing \glng{scz}\citep{gottesman1991schizophrenia}. 
+	
+
+	
 	% Another important arm of studies come from the segragation studies of schizophrneia
 	% Try to observe the segragation of schzoiphrenia. 
 	% Might be able to talk about some early observations on twin / adoption studies
@@ -321,7 +333,7 @@
 	It was first observed that \glng{scz} tends to aggregate in families where relatives of schizophrenic patients tends to have higher risk of developing \glng{scz}\citep{gottesman1991schizophrenia}. %Need to be longer
 	The fundamental question to ask would be whether what is the relative contribution of genetic and environmental factors to \glng{scz}?
 	\textbf{Whether if the \emph{difference} in phenotype is accounted by genetics or environmental factors?}
-	\begin{wrapfigure}{R}{8cm}
+	\begin{wrapfigure}{HR}{8cm}
 		\centering
 		\includegraphics[width=0.5\textwidth]{figure/lifeTimeMorbidRisk.png}
 		\caption[Lifetime morbid risks of \glng{scz} in various classes of relatives of a proband]{Lifetime morbid risks of \glng{scz} in various classes of relatives of a proband.
@@ -368,7 +380,6 @@
 	\label{eq:narrowHeritability}
 	\end{align}
 	
-<<<<<<< HEAD
 	% add in how to calculate the heritability in normal way here
 	To obtain the additive genetic effect, we can first consider the genetic effect of parents to be $G_p=A+D$. 
 	As only half of the additive effect were transmitted to their offspring, the child will have a genetic effect of $G_c=\frac{1}{2}A+\frac{1}{2}A'+D'$ where $A'$ is the additive genetic effect obtained from another parent by random and $D'$ is the non-additive genetic effect in the offspring.
