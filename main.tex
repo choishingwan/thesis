@@ -1,4 +1,4 @@
-\documentclass{book}
+\documentclass[12pt]{book}
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{colortbl}
@@ -53,7 +53,7 @@
 	\setcounter{figure}{0}
 	\renewcommand{\thefigure}{S\arabic{figure}}%
 }
-
+\newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 
 %
 %	GLOSSARY SECTION
@@ -92,8 +92,10 @@
 \newacronym{polyic}{PolyI:C}{polyriboinosinic-polyribocytidilic acid}
 \newacronym{lps}{LPS}{lipopolysaccharide}
 \newacronym{il6}{IL-6}{Interleukin-6}
-\newacronym{mz}{MZ}{monozygotic twins}
+\newacronym{mz}{MZ}{monozygotic}
+\newacronym{dz}{DZ}{dizygotic}
 \newacronym{mia}{MIA}{maternal immune activation}
+\newacronym{ncp}{NCP}{non-centrality parameter}
 
 %
 %
@@ -234,13 +236,13 @@
 	\Glng{scz} not only impose long lasting health, social and financial burden not only to the patients, but also to their families\citep{Knapp2004}. 
 	Even more so, patients with \glng{scz} increased suicide rate \citep{Saha2007}, leading to a higher mortality.
 	Based on the \gls{who} report, \glng{scz} is one of the top 20 leading cause of \gls{yld} in 2012, ranking 16 among all possible causes (\cref{tab:whoYLD}), demonstrating the extent of impact from \glng{scz} to patients.
-	\begin{table}
+	\begin{table}[ht]
 		\centering
-		\caption[Top 20 leading cause of \glng{yld} calculated by \glsentryshort{who} in year 2012]{Top 20 leading cause of \gls{yld} calculated by \gls{who} in year 2012.
+		\caption[Top 20 leading cause of \glng{yld}]{Top 20 leading cause of \gls{yld} calculated by \gls{who} in year 2012.
 			\Glng{scz} was considered as one of the top 20 leading cause of \gls{yld}\citep{Geneva2013}}
 		\begin{tabular}{rrrrr}
 			\toprule
-			Rank  & Cause & \gls{yld} (000s) & \% \gls{yld} & \gls{yld} per 100,000 population \\
+			Rank  & Cause & \gls{yld} (000s) & \% \gls{yld} & \specialcell[b]{\gls{yld} per \\100k population}\\
 			\midrule
 			0     & All Causes & 740,545 & 100   & 10466 \\
 			1     & Unipolar depressive disorders & 76,419 & 10.3  & 1080 \\
@@ -300,39 +302,33 @@
 	Subsequently, other infectious agents such as HSV-2 and \textit{T.gondii} were also found to increase the risk of \glng{scz} if an individual's mother were infected during pregnancy.
 	As different infectious agents all increase the risk of \glng{scz}, it leads to the hypothesis of \gls{mia} \citep{Brown2010}.
 	It was hypothesized that instead of a particular infectious agents, it was the maternal immune response that disrupt the brain development in the offspring, thus leading to an elevated risk of \glng{scz}.
-	
+		
 	By utilizing the rodent models, it was found when the pregnant rodent was injected with the viral mimic \gls{polyic} or the bacterial \gls{lps}, the offspring will display neuropathological features similar to those observed in \glng{scz}\citep{Meyer2009b}.
 	It was further demonstrated that similar findings can be obtained through the injection of only the \gls{il6}, suggesting that it was not the infection, but the maternal immune response that might have disrupted the fetal brain development.
 	
-	\begin{wrapfigure}{R}{8cm}
-		\centering
-		\includegraphics[width=0.5\textwidth]{figure/risk_factors_of_schizophrenia.png}
-		\caption[Risk factors of \glng{scz}]{Risk factors of \glng{scz}.
-			It was observed that family history of \glng{scz} was the largest risk factors where individuals with family history of \glng{scz} can have as much as 9 times  increase in risk of \glng{scz}.}
-		\label{fig:riskfactors}
-	\end{wrapfigure}
 	Recent studies of global gene expression patterns in \gls{mia}-exposed rodent fetal brains \citep{Garbett2012a} suggest that \gls{mia} only causes a transient gene expression change in the fetal brain.
-	Thus, the author suggest that it was likely for the post-pubertal onset of schizophrenic and other psychosis-related phenotypes to be stemmed from attempts of the brain to counteract the environmental stress induced by \gls{mia} during its early development\citep{Garbett2012a}. 
+	Based on their observation, the author suggest that it was likely for the post-pubertal onset of schizophrenic and other psychosis-related phenotypes to be stemmed from attempts of the brain to counteract the environmental stress induced by \gls{mia} during its early development\citep{Garbett2012a}. 
 	
-	Together, these results provide a strong evidence of \gls{mia} in the etiology of \glng{scz}, it was even estimated that one third of all \glng{scz} cases could have been prevented shall all infection were prevented from the entire pregnant population\citep{Brown2010} .
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{figure/risk_factors_of_schizophrenia.png}
+		\caption[Risk factors of \glng{scz}]{Risk factors of \glng{scz}.
+			It was observed that family history of \glng{scz} was the largest risk factors.
+			Risk of \glng{scz} can be more than 9 times higher than the general population for individual with a family history of \glng{scz}}
+		\label{fig:riskfactors}
+	\end{figure}
+	Together, these results supports the involvement of \gls{mia} in the development of \glng{scz}.
+	It was even estimated that one third of all \glng{scz} cases could have been prevented shall all infection were prevented from the entire pregnant population\citep{Brown2010}.
 	
 	Similarly, tobacco consumption \citep{Kelly1999}, socio economical status and even the area of birth (e.g. urban vs suburb) were found to associate with increased risk of schizophrenia\citep{McGrath2008a}.
 	However, by and large, the single largest risk factor was family history of \glng{scz}\cref{fig:riskfactors}\citep{Sullivan2005}.
-	It was first observed that \glng{scz} tends to aggregate in families and relatives of schizophrenic patients tends to have higher risk of developing \glng{scz}\citep{gottesman1991schizophrenia}. 
-	% Still need to continue slightly here.
-	% Should mainly talk about the important of such findings
+	Studies conducted by Ernst R{\"u}din, Franz J. Kallmann and Hans Luxenburger all demonstrated that the relatives of \glng{scz} tends to have increased risk of \glng{scz}\citep{Gottesman1982}. 
+	The implication of such observation was two fold:
+	as family members usually shares larger portion of their genetic effects with each other than that of the population, the genetic effects might be the main mediator of \glng{scz}; 
+	on the other hand, culture, socio-economical status and area of birth usually also transmit within the family, so one cannot separate the environmental factors from the genetic factors.
 	
 	It was important for one to understand whether if \glng{scz} was more affected by the genetic or the environmental factors. 
-	The evidence so far seems to suggest that \glng{scz} was affected by both. 
-	To understand whether if \glng{scz} was more affected by variance in genetic factors or environmental factors, we will need to estimate the heritability of \glng{scz}.
-	\begin{wrapfigure}{HR}{8cm}
-		\centering
-		\includegraphics[width=0.5\textwidth]{figure/lifeTimeMorbidRisk.png}
-		\caption[Lifetime morbid risks of \glng{scz} in various classes of relatives of a proband]{Lifetime morbid risks of \glng{scz} in various classes of relatives of a proband.
-			It was noted that the morbid risk of monozygotic (MZ) twins were only $48\%$, much lower than one would expect if \glng{scz} follows a Mendelian pattern.
-			Reproduced with permission from journal\citep{Riley2006}. \label{fig:lifeMRscz}}
-		
-	\end{wrapfigure}
+	To understand whether if \glng{scz} was more affected by variance in genetic factors or environmental factors, we will need to estimate the its heritability.
 	
 	\section{Broad Sense Heritability}
 
@@ -397,36 +393,34 @@
 	\label{eq:narrowHerit}
 	\end{align}
 	If we consider the simple linear regression equation $Y=X\beta+\epsilon$, its slope can be calculated as 
-	$$
+	\begin{equation}
 	\beta_{XY} = \frac{\mathrm{Cov}_{XY}}{\sigma_{X}{Y}}
-	$$
+	\end{equation}
 	which resemble \cref{eq:narrowHerit}. 
 	Therefore,  we can calculate the narrow sense heritability as
-	$$
+	\begin{equation}
 	h^2 = 2\beta_{OP}
 	\label{eq:narrowSenseHerit}
-	$$
+	\end{equation}
 	where $\beta_{OP}$ is the slope of the simple linear regression regressing the phenotype of an offspring to the phenotype of \emph{one} of its parents.
 	We can further generalize \cref{eq:narrowSenseHerit} to all possible relativeness 
-	$$
+	\begin{equation}
 	h^2=\frac{\beta_{XY}}{r}
 	\label{eq:finalNarrow}
-	$$
+	\end{equation}
 	where $r$ is the relativeness of $X$ and $Y$.
-=======
 	
-	One key feature of heritability is that it is a \emph{ratio} of \emph{populational} measurement at a specific time point.
-	As a result of that, the heritability estimation might differ from one population to another and one might obtain a different heritability estimate if the method or time-point of measurement of the trait differs.
-	An classical example was the study of \gls{iq} where the heritability estimation increases with age\citep{Bouchard2013}.
-	It was hypothesize that the shared environment has a larger effect on individuals when they were young, and that as they become more independent, the effect of shared environment diminishes, leading to a \emph{increased portion} of variance in \gls{iq} explained by the variance in genetic\citep{Bouchard2013}. 
->>>>>>> d5e22704225505da107d7fc3e79f83f5f6e3617c
+	A key assumption in this calculation was that the relatives does not share anything other than the additive genetic factors.
+	However, this was usually not the case as relatives does tends to be in the same cultural group and might have similar socio-economical status which might all contribute the the variance of the trait.
+	This might therefore lead to bias in \cref{eq:finalNarrow} and we shall discuss the partitioning of variance in the later sections.
 	
-	When the relativeness of the samples was known, one can then easily calculate the narrow senese heritability using \cref{eq:finalNarrow}.
+	Nonetheless, \cref{eq:finalNarrow} was still useful for the understanding of the calculation of heritability.
 	However, in the case of discontinuous trait (e.g. disease status) the calculation becomes more completed because the variance of the phenotype was dependent on the population prevalence.
 	As \cref{eq:finalNarrow} does not account for the trait prevalence, it cannot be directly applied to discontinuous traits.
 	In order to perform heritability estimation, we will need the concept of liability threshold model popularized by \cite{Falconer1965}.
 	
 	\section{Liability Threshold}
+	\label{sec:liability}
 	According the central limit theorem, if a phenotype is determined by a multitude of genetics and environmental factors with relatively small effect, then its distribution will likely follow a normal distribution as is the case of many quantitative traits\citep{Visscher2008}. % No, what if there is interaction between variables? Then it will break the CLT
 	The variance of phenotype can therefore be calculated as the variance under the normal distribution.
 	However, such is not the case for disease such as \glng{scz} where instead of having a continuous distribution of phenotype, only a dichotomous labeling of ``affected'' and ``normal'' were obtained.
@@ -437,36 +431,66 @@
 	The main difference was that the phenotype of an individual is determined by whether if the combined effects of these factors(``liability'') were above a particular threshold (``liability threshold'').
 	So for example, in the case of \glng{scz}, only when an individual has a liability above the liability threshold will he/she be affected.
 	
-	% How to apply liability threshold together with heritability estimation
-	% More detail of the liability threshold model
+	One can then esimate the heritability of the discontinuous by comparing the mean liability of the general population when compared to the relatives of the affected individuals.	
+	For example, if we consider a single threshold model of a dichotomous trait, where 
+	\begin{align}
+	T_G &= \text{Liability threshold of the general population}\notag\\
+	T_R &= \text{Liability threshold of relatives of the index case} \notag\\
+	q_G &= \text{Prevalence in the general population}\notag\\
+	q_R &= \text{Prevalence in relatives of the index case}\notag\\
+	L_a &= \text{Mean Liability of the index case} \notag
+	\end{align}
+	by assuming both the liability distribution of the general population and that of the relative of the index case both follows the standard normal distribution, we can align the two distribution with respect to $T_G$ and $T_R$. 
+	We can then calculate the mean liability of the index case $L_a$ as $L_a=\frac{z_G}{q_G}$ where $z_G$ is the density of the normal distribution at the liability threshold $T_G$.
+	Then we can express the regression of relative's liability on the liability of the index case as
+	\begin{align}
+	\beta &= \frac{T_G-T_R}{L_a}
+	\label{eq:liability}
+	\end{align}
+	
+	Thus, by applying \cref{eq:liability} to \cref{eq:finalNarrow}, we get
+	\begin{align}
+	h^2 =\frac{T_G-T_R}{L_ar}
+	\end{align}
+	
 	% Then the application in schizophrenia
-	% Then Twin studies
-	
-	
-	
+	% Then Twin studies 
+	% Or maybe twin studies first, then the application in schziophrenia?
+		
 	\section{Twin Studies of Schizophrenia}
 	% Need to go deeper into twin studies
-	\sectionmark{Twin Studies of \glng{scz}}
+	Now that we can deal with discontinuous traits, we shall come back to the limitation of \cref{eq:finalNarrow}.
+	The key limitation of \cref{eq:finalNarrow} was its inability to discriminate the genetic factors from the shared environmental factors.
+	Such problem arise as family not only shared some of their genes, but they also tends to shared some of the environmental factors such as diet. 
+	In fact, this was the main reason for researchers to discord the argument that \glng{scz} was a genetic disorder.
 	
-	% What is heritability?
-	% What are the different form of heritabilities?
-	% What are the use of heritability? (Why do we want to calculate it)
-	% How to calculate it?
-	% Problems with heritability?
+	A classical adoption study carried out by \citet{HESTON1966} in 1966 set off to discriminate whether if the increased risk of \glng{scz} in relatives of \glng{scz} was caused by the shared environmental factors or the shared genetic factors. 
+	An advantages of adoption studies was that if the child was separated from their family early after birth, then the shared environmental factors should be minimized, thus any resemblance between the parent and child should be driven mainly by the shared genetic factors.
 	
-	% Heritability estimation in Schizophrenia
-	% Twin studies -> Some reviews
-	% Then the meta analysis
-	% Then to Ben Ben's study (Family Based population study)
-	% Explain the difference
-	% Research in schziphrenia
-	% Risk factors
+	\citet{HESTON1966} collected data of 47 individuals born from a schizophrenic mother during the period from 1915 to 1947. 
+	They were separated from their mother within three day of birth and were sent to a foster family. 
+	50 matched control were also recruited to the studi.
+	It was observed that there was an increased risk of \glng{scz} in individual born to schizophrenic mother when compared to the control group even-though they were brought up in a different environment as that of their mother.
+	This result suggested that \glng{scz} was likely driven by the shared genetic factors instead of the shared environmental factors.
 	
-	To find out whether if genetic or environment were the main mediator in \glng{scz}, researchers conducted varies twin and adoption studies. 
-	% Here, we need to introduce Twin Studies
-	% Then we need to introduce the liability model
-	In one of the landmark study conducted by \cite{Sullivan2003}, a quantitative meta-analysis was performed on 12 published \glng{scz} twin studies.
-	They found that although there was a non-zero contribution of environmental influence on liability of \glng{scz} ($11\%$,\gls{ci}=$3\%-19\%$), there was a much larger contribution from genetics ($81\%$, \gls{ci}=$73\%-90\%$), suggesting that \glng{scz} was largely mediated by the genetic elements.
+	Despite the usefulness of adoption studies in separating the effect of shared environment from the genetic factors, collection of adoption data were difficult. 
+	On the other hand, any prenatal influence such as alcohol abuse during pregnancy might confound the results.
+	Therefore, another useful approach would be the twin studies using the relationship between the \gls{mz} and \gls{dz} twins.
+	
+	Theoretically, \gls{mz} twins should shared all their genetic components (both additive($A$) and non-additive($D$) genetic factors) and also their common environmental factors($C$) where the only difference between the twin would be the non-shared environmental factors($E$). 
+	As for the \gls{dz} twins, they should also shared the same common environmental factors yet they only share $\frac{1}{2}$ of their additive genetic factors and $\frac{1}{4}$ of their non-additive genetic factors. 
+	The non-shared environmental was also by definition not shared among the twins\citep{Rijsdijk2002}.
+	Based on these assumptions, \cite{Falconer1996} derived the heritability as
+	\begin{equation}
+	h^2 = 2(\rho_{MZ}-\rho_{DZ})
+	\end{equation}
+	where $\rho_{MZ}$ and $\rho_{DZ}$ were the phenotype correlation between the \gls{mz} twins and \gls{dz} twins respectively.
+	
+	By combining Falconer's formula and the concept of liability threshold model, \citet{Gottesman01071967} estimated that the heritability of \glng{scz} should be $>60\%$ previously collected twin data.
+	These result strongly suggest \glng{scz} as a genetic disorder.
+	
+	Such finding was further supported by one of the landmark meta-analysis study conducted by \cite{Sullivan2003}.
+	Based on data obtained from 12 published \glng{scz} twin studies, the authors found that although there was a non-zero contribution of environmental influence on liability of \glng{scz} ($11\%$,\gls{ci}=$3\%-19\%$), there was a much larger contribution from genetics ($81\%$, \gls{ci}=$73\%-90\%$), suggesting that \glng{scz} was largely mediated by the genetic elements.
 	
 	Such findings were not limited to twin-studies but were also reported in large scale population based studies.
 	A recent large scale population based study in Sweden population\citep{Lichtenstein2009} also found that there was a large genetic contribution in \glng{scz} ($64\%$).
@@ -475,21 +499,31 @@
 	
 	
 	\section{Genetic Analysis of Schizophrenia}
-	Although it was clear that \glng{scz} is a genetic disease, family studies shown that it is unlikely for \glng{scz} to be affected by genes with a large effect.
-	Specifically, shall \glng{scz} be a Mendelian disorder, then we would expect all monozygotic siblings of the proband to also suffer from \glng{scz}.
-	However, studies found that the life time morbid risk of monozyogitc twins were only $48\%$(\cref{fig:lifeMRscz})\citep{gottesman1991schizophrenia}, making it unlikely for \glng{scz} to follow a Mendelian pattern.
+	Studies on estimation of heritability of \glng{scz} strongly support \glng{scz} as a genetic disorder.
+	However, little was known about the mechanism of \glng{scz} nor the genetic architecture of the disorder. 
+	All data from adoption studies, twin studies and family studies shown that \glng{scz} does not follow the Mendelian framework\cite{Gottesman01071967,Gottesman1982}.
+	Specifically, shall \glng{scz} be a Mendelian disorder, then we would expect all \gls{mz} siblings of the proband to also suffer from \glng{scz}.
+	However, the life time morbid risk of monozyogitc twins were only $48\%$(\cref{fig:lifeMRscz})\citep{gottesman1991schizophrenia}, making it unlikely for \glng{scz} to follow a Mendelian pattern.
 	
 	Based on these observations, \cite{Gottesman1967} proposed that \glng{scz} follows a polygenic model where disease phenotype were determined by the additive effects from multiple genes.
 	Thus, \glng{scz} is a complex genetic disorder with complicated pattern of inheritance. 
 	Their hypothesis was supported by the calculation of \cite{Risch1990a} by taking into account of different inheritance model and the life time morbid risk observed in relatives of affected individuals.
 	
-	Another interesting conclusion from the calculation of \cite{Risch1990a} was the effect size of individual locus. 
-	By comparing the observed life time morbid risk and the calculated risk from different models, it was observed that the model with a maximum risk of $\sim\le2$ was more compatible than that with risk $\ge3$.
+	Another interesting conclusion from the calculation of \citet{Risch1990a} was the effect size of individual locus. 
+	By comparing the observed life time morbid risk and the calculated risk from different models, it was observed that the model with a maximum risk of $\sim\le2$ was more compatible than that with risk $\ge3$\citep{Risch1990}.
 	Thus, not only is \glng{scz} polygenic, the effect size of each individual causal genes are likely to be small (less than 2 fold risk elevation).
 
-	Considerable research effort has been made in past years, aiming to identify the susceptible genes of \glng{scz}.
-	However, early linkage studies were unable to capture the small effects and largely return with inconsistent results\citep{Harrison2005}. 
-	As technology progress, large scale hypothesis free testings such as that of \gls{GWAS} starts to become available.
+	\subsection{The Human Genome Project and HapMap Project}
+	\glsreset{SNP}
+	\glsreset{LD}
+	In 1990, the Human genome project was initiated, aiming at constructing the first physical map of the human genome at per nucleotide resolution\citep{Lander2001}.
+	The completion of the human genome project has opened up a new era of genetic research, allowing researchers to identify \glspl{SNP} on the human genome, which is one of the major source of genetic variation.
+	
+	Soon after the completion of the human genome project, the HapMap Project was initiated, aiming to identify the non-random correlation of genotypes on the human genome.
+	Genotypes that were perfectly correlated was considered to be in full \gls{LD}.
+	
+	
+	% Now go into the GWAS part
 	% Linkage studies largely return inconsistent results. 
 	% Failed Linkage studies
 	% Little findings of candidate genes
@@ -507,8 +541,8 @@
 	% Small effect size, insufficient power
 	% Recent collaboration -> PGC
 	% Identify 20~40% heritability 
-	\section{\glng{gcta}}
-	\section{\glng{ldsc}}
+	\subsection{\glng{gcta}}
+	\subsection{\glng{ldsc}}
 	% Common disease rare variant ->Shaun's exome sequencing paper
 	\section{Missing heritability}
 	% Ben Yip's paper -> Over estimation of heritability of twin studies
@@ -868,18 +902,7 @@
 	\section{Methodology}
 	\section{Result}
 	\section{Discussion}
-	\chapter{Risk Prediction}
-	\section{Methodology}
-	We can define the traditional \gls{PGS} as
-	\begin{equation}
-	\hat{Y} = diag(\beta)X
-	\end{equation}
-	where $X$ is the standardized genotype, $\beta$ is the test-statistic calculated from other studies. 
-	
-	
-	\subsection{Simulation}
-	\section{Result}
-	\section{Discussion}
+
 	\chapter{Conclusion}
 	
 	
@@ -893,64 +916,6 @@
 	\printbibliography[heading=bibintoc,title={Bibliography}]
 	\chapter*{Supplementary Materials}
 	\beginsupplement
-	\begin{table}[ht]
-		\centering
-		\caption[\glsentryshort{GO} enrichment results for the ``yellow'' network from Amygdala]{\gls{GO} enrichment results for the ``yellow'' network from Amygdala. 
-			Most of the terms are related to translation transcription and are not specific enough to understand the true function of the network}
-		\begin{tabular}{rrr}
-			\toprule
-			term\_ID & description & p-value \\
-			\midrule
-			GO:0006614 & SRP-dependent cotranslational protein targeting to membrane & $1.63\times 10^{-47}$ \\
-			GO:0006412 & translation & $5.76\times 10^{-27}$ \\
-			GO:0006171 & cAMP biosynthetic process & $1.5\times 10^{-3}$ \\
-			GO:0042274 & ribosomal small subunit biogenesis & $3.13\times 10^{-8}$ \\
-			GO:0006413 & translational initiation & $2.12\times 10^{-28}$ \\
-			GO:0006414 & translational elongation & $7.63\times 10^{-31}$ \\
-			GO:0006415 & translational termination & $3.92\times 10^{-32}$ \\
-			GO:0071702 & organic substance transport & $4.16\times 10^{-10}$ \\
-			GO:0002181 & cytoplasmic translation & $1.19\times 10^{-7}$ \\
-			GO:1901566 & organonitrogen compound biosynthetic process & $6\times 10^{-17}$ \\
-			GO:0070972 & protein localization to endoplasmic reticulum & $5.36\times 10^{-44}$ \\
-			GO:0071822 & protein complex subunit organization & $2.21\times 10^{-6}$ \\
-			GO:0071826 & ribonucleoprotein complex subunit organization & $3.67\times 10^{-3}$ \\
-			GO:0022411 & cellular component disassembly & $1.55\times 10^{-17}$ \\
-			GO:1902578 & single-organism localization & $4.3\times 10^{-8}$ \\
-			GO:1902580 & single-organism cellular localization & $1.3\times 10^{-15}$ \\
-			GO:0000028 & ribosomal small subunit assembly & $1.91\times 10^{-7}$ \\
-			GO:0033036 & macromolecule localization & $1.74\times 10^{-11}$ \\
-			GO:0070727 & cellular macromolecule localization & $1.09\times 10^{-16}$ \\
-			GO:0006605 & protein targeting & $1.64\times 10^{-28}$ \\
-			GO:0022613 & ribonucleoprotein complex biogenesis & $3.32\times 10^{-9}$ \\
-			GO:0044765 & single-organism transport & $4.19\times 10^{-8}$ \\
-			GO:0044085 & cellular component biogenesis & $4.81\times 10^{-7}$ \\
-			GO:0061024 & membrane organization & $5.29\times 10^{-15}$ \\
-			GO:0051641 & cellular localization & $1.65\times 10^{-14}$ \\
-			GO:0044267 & cellular protein metabolic process & $6.57\times 10^{-5}$ \\
-			GO:0019083 & viral transcription & $1.64\times 10^{-44}$ \\
-			GO:1901564 & organonitrogen compound metabolic process & $1.15\times 10^{-14}$ \\
-			GO:0019538 & protein metabolic process & $4.17\times 10^{-5}$ \\
-			GO:0006401 & RNA catabolic process & $1.34\times 10^{-29}$ \\
-			GO:0010467 & gene expression & $1.4\times 10^{-11}$ \\
-			GO:0044419 & interspecies interaction between organisms & $4.74\times 10^{-15}$ \\
-			GO:0043604 & amide biosynthetic process & $4.35\times 10^{-26}$ \\
-			GO:0043603 & cellular amide metabolic process & $4.94\times 10^{-21}$ \\
-			GO:0044764 & multi-organism cellular process & $1.11\times 10^{-15}$ \\
-			GO:0016072 & rRNA metabolic process & $2.03\times 10^{-3}$ \\
-			GO:0016071 & mRNA metabolic process & $1.58\times 10^{-15}$ \\
-			GO:0000184 & nuclear-transcribed mRNA catabolic process, nonsense-mediated decay & $4.81\times 10^{-42}$ \\
-			GO:0034655 & nucleobase-containing compound catabolic process & $1.29\times 10^{-24}$ \\
-			GO:0044699 & single-organism process & $2.4\times 10^{-5}$ \\
-			GO:0051179 & localization & $7.96\times 10^{-8}$ \\
-			GO:0051704 & multi-organism process & $6.02\times 10^{-12}$ \\
-			GO:0071840 & cellular component organization or biogenesis & $3.83\times 10^{-3}$ \\
-			GO:0048871 & multicellular organismal homeostasis & $6.56\times 10^{-3}$ \\
-			GO:0009056 & catabolic process & $1.8\times 10^{-11}$ \\
-			\bottomrule
-		\end{tabular}%
-		\label{tab:yellowGO}%
-	\end{table}%
-
 	\chapter*{Appendix}
 
 \end{document}

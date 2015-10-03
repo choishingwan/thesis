@@ -273,7 +273,42 @@
 			 \cref{eq:effectiveChi} will gives us an heuristic estimation of the \gls{se}. 
 		\subsection{Case Control Studies}	 
 		%Discuss on the liability threshold model. Then the apply orange paper. Then explain how to get the results. 
+			When dealing with case control data, as the phenotype were usually discontinuous, we cannot directly use \cref{eq:fullShrek} to estimate the heritability.
+			Instead, we will need to employ the concept of liability threshold model from \cref{sec:liability}. 
+			
+			Based on the derivation of \cite{Yang2010}, the approximate ratio between the \gls{ncp} obtained from case control studies ($NPC_{CC}$) and quantitative trait studies($NCP_{QT}$) were
 		
+			\begin{equation}
+			\frac{NCP_{CC}}{NCP_{QT}} = \frac{i^2v(1-v)N_{CC}}{(1-K)^2N_{QT}}
+			\label{eq:originNCPTransform}
+			\end{equation}
+			where
+			\begin{align*}
+			 K &= \text{Population Prevalence} \\
+			 v &= \text{Proportion of Cases}\\
+			 N &= \text{Total Number of Samples}\\
+			 i &= \frac{z}{K}\\
+			 z &= \text{height of standard normal curve at truncation pretained to K}
+			\end{align*}
+			
+			Based on this observation, we can then directly transform the \gls{ncp} between the case control studies and quantitative trait studies.
+			During the transformation, $N_{CC}$ and $N_{QT}$ will be the same, therefore \cref{eq:originNCPTransform} became
+			\begin{equation}
+			NCP_{QT} = \frac{NCP_{CC}(1-K)^2}{i^2v(1-v)}
+			\label{eq:transform}
+			\end{equation}
+			
+			By combining \cref{eq:transform} and \cref{eq:defineF}, we can then have
+			\begin{equation}
+			f = \frac{(\chi^2_{CC}-1)(1-K)^2}{ni^2v(1-v)}
+			\end{equation}
+			where $\chi^2_{CC}$ is the test statistic from the case control association test.
+			Finally, the heritability estimation of case control studies can be simplified to 
+			\begin{equation}
+			\hat{Heritability} =\frac{(1-K)^2}{i^2v(1-v)} \boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}
+			\label{eq:caseControlHerit}
+			\end{equation}
+			
 		\subsection{Extreme Phenotype Selections}
 			%Explain why we perform extreme phenotype selections. Explain how that affect the variance of the estimation. Finally, explain how to perform heritability estimation on extreme phenotype. 
 			When extreme phenotype selection were performed, the variance of the selected phenotype will not be representative of that in the population.
@@ -415,7 +450,7 @@
 			By employing the \gls{tSVD} as a method for regularization, we were able to solve the ill-posed \cref{eq:shrekEq}, and obtain the estimated heritability.
 						
 		\subsection{Comparing with \glsentrylong{ldsc}}
-	
+			% main difference 
 		
 	\section{Simulation}
 		We implemented the heritability estimation in \gls{shrek} and in order to assess how well \gls{shrek} performs for heritability estimation in comparison to other current methods, we performed a series of systematic simulations.
