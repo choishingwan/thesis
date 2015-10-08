@@ -74,6 +74,9 @@
 \newacronym{CEU}{CEU}{Northern Europeans from Utah}
 \newacronym{se}{SE}{Standard Error}
 \newacronym{maf}{maf}{Minor Allele Frequency}
+\newacronym{isc}{ISC}{International Schizophrenia Consortium}
+\newacronym{mgs}{MGS}{Molecular Genetic of Schizophrenia}
+\newacronym{sgene}{SGENE}{Schizophrenia Genetics Consortium}
 \newacronym{pgc}{PGC}{Psychiatric Genomics Consortium}
 \newacronym{rin}{RIN}{RNA integrity number}
 \newacronym{gd}{GD}{Gestation Day}
@@ -96,6 +99,7 @@
 \newacronym{dz}{DZ}{dizygotic}
 \newacronym{mia}{MIA}{maternal immune activation}
 \newacronym{ncp}{NCP}{non-centrality parameter}
+\newacronym{cnv}{CNV}{copy number variation}
 
 %
 %
@@ -515,41 +519,85 @@
 	Their hypothesis was supported by the calculation of \cite{Risch1990a} by taking into account of different inheritance model and the life time morbid risk observed in relatives of affected individuals.
 	
 	Another interesting conclusion from the calculation of \citet{Risch1990a} was the effect size of individual locus. 
-	By comparing the observed life time morbid risk and the calculated risk from different models, it was observed that the model with a maximum risk of $\sim\le2$ was more compatible than that with risk $\ge3$\citep{Risch1990}.
-	Thus, not only is \glng{scz} polygenic, the effect size of each individual causal genes are likely to be small (less than 2 fold risk elevation).
+	By comparing the observed life time morbid risk and the calculated risk from different models, \citeauthor{Risch1990a} 	suggested that genetic models with a single locus with risk of 3.0 and with all other loci of small effect or models with two or three loci with risk of 2.0 were most consistent with the observed life time morbid risk of \glng{scz}.	\citep{Risch1990}.
+	
+	\citeauthor{Risch1990a}'s calculation provided an explanation for the early inconsistent findings of linkage studies in \glng{scz}\citep{Harrison2005}.
+	As linkage studies were aimed to identify genetic variation of large effect size they failed to capture genetic loci with small effect size.
+	It was therefore tempting to suggest that \glng{scz} only follows the ``common disease-common variant'' model, which stated that \glng{scz} should be mediated by large amount of common variants such as \glng{SNP}, each with a small effect size.
+	
+	However, another possible hypothesis was that the variation mediating \glng{scz} were rare, therefore require a large sample size to detect. 
+	The inconsistent results of the early linkage studies might be due to the inadequate sample size. 
+	This lead to some researchers suggesting the ``common disease-rare variant'' hypothesis, which propose that \glng{scz} was mediated by a small amount of rare variants, each with a large effect size\citep{McClellan2007}.
+	
+	Nevertheless, success in genetic research of \glng{scz} remains limited.
+	Only until the initiation of Human Genome Project and the technological advance resulted from the it does genetic research of \glng{scz} entered an era of success.
 
-	% Some information on candidate gene studies and early hypothesis of schizophrenia
 	\subsection{The Human Genome Project and HapMap Project}
 	\glsreset{SNP}
 	\glsreset{LD}
 	In 1990, the Human genome project was initiated, aiming at constructing the first physical map of the human genome at per nucleotide resolution\citep{Lander2001}.
 	The completion of the human genome project has opened up a new era of genetic research, allowing researchers to identify \glspl{SNP} on the human genome, which is one of the major source of genetic variation.
 	
-	Soon after the completion of the human genome project, the HapMap Project was initiated\citep{Consortium2005}, aiming to provide a genome-wide database of common human sequence variation such as \glspl{SNP} with \gls{maf}$\ge0.05$.
+	Soon after the completion of the human genome project, the HapMap Project was initiated\citep{Consortium2005}, aiming to provide a genome-wide database of common human sequence variation such as \glspl{SNP} with \gls{maf} $\ge0.05$.
 	What was more important was that the HapMap Project also provided a detailed \gls{LD} map of the human genome.
 	
-	\gls{LD} was of particular importance for it was the non-random correlation of genotypes between 2 genetic locus. 
+	\gls{LD} was of particular importance to genetic research for it was the non-random correlation of genotypes between 2 genetic locus. 
 	\glspl{SNP} in high \gls{LD} were usually observed together in the human genome.
-	When a large amount of \glspl{SNP} were in high \gls{LD} together, they form what was known as an \gls{LD} block.
-	So if one can select a representative \gls{SNP} within the \gls{LD} block and only perform association testing on the representative \gls{SNP}.
-	This was considered as ``tagging'' and this allow researchers to only test a subset of \glspl{SNP} instead of needing to sequence the whole genome.
-	
-	Such concept form the fundamental basis of \gls{GWAS} which was now extensively used in the genetic research.
+	When a large amount of \glspl{SNP} were in high \gls{LD} together, they form what was known as a \gls{LD} block.
+	By performing association testing on \glspl{SNP} representing a \gls{LD} block(``tagging''), one can avoid the need of performing association on the whole genome, therefore reducing the cost of the experiment.
+	This was the fundamental concept of \gls{GWAS} which was now extensively used in the genetic research.
 	
 	\subsection{Genome Wide Association Study}
-	% Now go into the GWAS part
-	% Still don't find anything because of the power
-	% Large scale global collaboration -> PGC finally found something
-	% Still, small effects -> Much of the heritability were missing
-	% Why? 
+	In \gls{GWAS}, genome-wide genotyping array were commonly used to systematically detect genetic variants such as \gls{SNP} and \gls{cnv}.
+	For quantitative traits, the association between the trait and frequency of the variants were calculated using methods such as linear regression.
+	On the other hand, for dichotomous traits such as \glng{scz}, the frequency of the variants were compared between the case and control samples using methods such as chi-square test or logistic regression.
+	Because of the problem of multiple testing, only variants with a p-value passing a genome wide threshold (p-value $\le5\times10^{-8}$) were considered significant.
+	Another possible method to decide the significant threshold was to consider the ``effective number'' of tests\citep{Li2011} taking into consideration of \gls{LD} as not all tests in a \gls{GWAS} were independent of each other. 
+	The power of the \gls{GWAS} were determined by the magnitude of effect, sample size, and required level of statistical significance(the false-positive, or type I, error rate)\citep{Purcell2003}.
+	A large sample size and a large effect usually result in a larger power.
 	
-	% Candidate studies of Schziphrenia
-	% CNV, deletions -> Emily
-	% Little to no succes for common SNP
-	% Small effect size, insufficient power
-	% Recent collaboration -> PGC
-	% Identify 20~40% heritability 
+	Despite the great promise from \gls{GWAS}, early \gls{GWAS} in \glng{scz} remain largely disappointed and were unable to identify any robust genetic markers associated with \glng{scz}.
+	The failure of early \gls{GWAS} in \glng{scz} were mainly due to the relative small sample size of the studies, which result in low detection power.
+	
+	To overcome the problem of small sample size, large consortium were formed such that data from different research groups from different countries were combined, essentially providing a large sample size for the analysis.
+	By 2014, the \Glng{scz} Working group of the \gls{pgc} has collected 34,241 \glng{scz} samples and 45,604 controls\citep{Ripke2014}.
+	Combining the samples with those obtained by deCODE genetics, a total of 36,989 \glng{scz} samples and 113,075 controls were used for the largest meta analysis of \glng{scz}.
+	In their study\citep{Ripke2014}, 128 linkage-disequilibrium-independent \glspl{SNP} were found to  exceeded the genome-wide significance(p-value $\le 5\times10^{-8}$), corresponding to 108 genetic loci.
+	75\% of these loci contain protein coding genes and a further 8\% of these loci were within 20kb of a gene. 
+	It was found that genes involved in glutamatergic neurotransmission (e.g. \textit{GRM3}, \textit{GRIN2A} and \textit{GRIA1}), synaptic plasticity and genes encoding the voltage-gated calcium channel subunits (e.g. \textit{CACNA1C}, \textit{CACNB2} and \textit{CACNA1I}) were among the genes associate within these loci.
+	Importantly, \textit{DRD2}, the target of all effective anti-psychotic drug were also associated with \glng{scz}, converge with existing hypothesis of \textit{DRD2} as an important treatment target of \glng{scz}.
+	\begin{figure}
+		\centering
+		\caption[Enrichment of enhancers of SNPs associated with Schizophrenia]{Enrichment of enhancers of SNPs associated with \glng{scz}. 
+			It was observed that the largest enrichment were in cell lines related to the brain and in tissues with important immune functions. 
+			Graphs reproduced with permission from the journal.\citep{Ripke2014}}
+		\includegraphics[height=\textwidth]{figure/pgc_enrichment_tissue.jpg}
+		\label{fig:pgcEnrich}
+	\end{figure}
+	It was further demonstrated that \glng{scz} association were significantly enriched at enhancers active in brain and enriched at enhancers active in tissues with important immune functions\cref{fig:pgcEnrich}\citep{Ripke2014}.
+		
+	The enrichment of immune related enhancers provide the first genetic support of the involvement of the immune system in the etiology of \glng{scz}.
+	Because of its role in neural development\citep{Zhao1998,Deverman2009}, it is likely that the perturbation in the immune system might disrupt the brain development, therefore increasing the risk of \glng{scz}.
+	Indeed, studies on \gls{mia} has demonstrated that cytokine imbalance might predispose individual to \glng{scz}\citep{Meyer2009}. 
+	
+	
+	% Evidence converge?
+	% How much of the genetics have we found?
+	% Need heritability estimation based on the results
+	% Usually not conduct with family data as it require large sample size
+	% Can we estimate heritability without using family samples?
+	% GCTA
+	
 	\subsection{\glng{gcta}}
+	% Advantages when compared to twin study and adoption studies
+	% Doesn't need family data
+	% Use the crptal relationship between individual 
+	% Calculate the genetic distance between samples 
+	% Use that in place of the relationship stuff
+	% Perform linear mix model for the estimation of heritability
+	% Problem of this method
+	% Cannot use test statistics
+	% Need to use another method as most only provide test statistics
 	\subsection{\glng{ldsc}}
 	% Common disease rare variant ->Shaun's exome sequencing paper
 	\section{Missing heritability}
