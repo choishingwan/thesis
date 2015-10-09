@@ -100,7 +100,8 @@
 \newacronym{mia}{MIA}{maternal immune activation}
 \newacronym{ncp}{NCP}{non-centrality parameter}
 \newacronym{cnv}{CNV}{copy number variation}
-
+\newacronym{grm}{GRM}{Genetic Relationship Matrix}
+\newacronym{gc}{GC}{Genomic Control}
 %
 %
 %	FORMATING SECTION
@@ -308,7 +309,9 @@
 	It was hypothesized that instead of a particular infectious agents, it was the maternal immune response that disrupt the brain development in the offspring, thus leading to an elevated risk of \glng{scz}.
 		
 	By utilizing the rodent models, it was found when the pregnant rodent was injected with the viral mimic \gls{polyic} or the bacterial \gls{lps}, the offspring will display neuropathological features similar to those observed in \glng{scz}\citep{Meyer2009b}.
-	It was further demonstrated that similar findings can be obtained through the injection of only the \gls{il6}, suggesting that it was not the infection, but the maternal immune response that might have disrupted the fetal brain development.
+	It was further demonstrated that similar findings can be obtained through the injection of only the \gls{il6}\citep{Smith2007}, suggesting that it was not the infection, but the maternal immune response that might have disrupted the fetal brain development.
+	
+	% If have time, can extend here
 	
 	Recent studies of global gene expression patterns in \gls{mia}-exposed rodent fetal brains \citep{Garbett2012a} suggest that \gls{mia} only causes a transient gene expression change in the fetal brain.
 	Based on their observation, the author suggest that it was likely for the post-pubertal onset of schizophrenic and other psychosis-related phenotypes to be stemmed from attempts of the brain to counteract the environmental stress induced by \gls{mia} during its early development\citep{Garbett2012a}. 
@@ -556,6 +559,7 @@
 	The power of the \gls{GWAS} were determined by the magnitude of effect, sample size, and required level of statistical significance(the false-positive, or type I, error rate)\citep{Purcell2003}.
 	A large sample size and a large effect usually result in a larger power.
 	
+	\subsubsection{Single Nucleotide Polymorphism} 
 	Despite the great promise from \gls{GWAS}, early \gls{GWAS} in \glng{scz} remain largely disappointed and were unable to identify any robust genetic markers associated with \glng{scz}.
 	The failure of early \gls{GWAS} in \glng{scz} were mainly due to the relative small sample size of the studies, which result in low detection power.
 	
@@ -580,28 +584,51 @@
 	Because of its role in neural development\citep{Zhao1998,Deverman2009}, it is likely that the perturbation in the immune system might disrupt the brain development, therefore increasing the risk of \glng{scz}.
 	Indeed, studies on \gls{mia} has demonstrated that cytokine imbalance might predispose individual to \glng{scz}\citep{Meyer2009}. 
 	
+	\subsubsection{Copy Number Variation}
+	\glsreset{cnv}
+	Another important arm of genetic research in \glng{scz} was to identify \gls{cnv} associated with \gls{scz}.
+	\gls{cnv} were classified as segment of DNA that is 1kb or larger and that is present at a different copy number when compared to the reference genome, usually in the form of insertion, deletion or duplication\citep{Feuk2006}.
+	Due to the length of these variants, the \gls{cnv} might contain the entire genes and their regulatory regions which might in turn contribute to significant phenotypic differences\citep{Feuk2006}.
 	
-	% Evidence converge?
-	% How much of the genetics have we found?
-	% Need heritability estimation based on the results
-	% Usually not conduct with family data as it require large sample size
-	% Can we estimate heritability without using family samples?
-	% GCTA
+	To identify robust association between \gls{cnv} and \glng{scz}, \cite{Szatkiewicz2014} conducted a \gls{GWAS} for \gls{cnv} association with \glng{scz} used the Swedish national sample (4,719 \glng{scz} samples and 5,917 controls).
+	In their study, they were able to association between \glng{scz} and \gls{cnv} such as 16p11.2 duplications, 22q11.2 deletions, 3q29 deletions and 17q12 duplications were identified.
+	Through the gene set association analysis, calcium channel signaling and binding partners of the fragile X mental retardation protein were found to be associated with these \gls{cnv}\citep{Szatkiewicz2014}.
+	Interestingly, the calcium channel signaling were also enriched in the \gls{pgc} \gls{GWAS} on \gls{SNP} association, suggesting that the variants were converging on similar set of pathway or gene sets. 
+	
+	% I need to state rare and large effect because LDSC cannot do that 
+	Unlike the result form the \gls{SNP} \gls{GWAS}, the \gls{cnv} identified were rare($\le12$ in 4,719 samples) and has a relative large effect (e.g. 17q12 duplications has an odd ratio of 4.16). 
+	The results from the \gls{SNP} \gls{GWAS} supports the ``common disease-common variant'' model whereas the \gls{GWAS} on \gls{cnv} supports the ``common disease-rare variant'' model, illustrating the complex genetic model behind the etiology of \glng{scz}.
+	
+	Although the \gls{GWAS} in \glng{scz} seems to return a lot of interesting results, the question remains: How much do we know about \glng{scz}? And how much of \glng{scz} do we not know?
+	To answer these question, we need to estimate the heritability based on the \gls{GWAS} data. 
+	However, in order to obtain the large volume of data, most of the samples were not relatives. 
+	How can one estimate the heritability based only on the genetic data of the general population instead of family or twin data?
 	
 	\subsection{\glng{gcta}}
-	% Advantages when compared to twin study and adoption studies
-	% Doesn't need family data
-	% Use the crptal relationship between individual 
-	% Calculate the genetic distance between samples 
-	% Use that in place of the relationship stuff
-	% Perform linear mix model for the estimation of heritability
-	% Problem of this method
-	% Cannot use test statistics
-	% Need to use another method as most only provide test statistics
+	Unlike family based data, the relationship between the samples were unknown. 
+	Yet in a typical \gls{GWAS}, the genotype of each individuals were known.
+	The ``genetic distance'' between two individual will provide an estimate of their relationship, thus allowing the calculation of heritability.
+	\citet{Yang2011} use the concept of genetic distance to calculate the \gls{grm} to represent the relationship between individuals.
+	The \gls{grm} were then used in the restricted maximum likelohood analysis(REML) to estimate the heritability of the trait\citep{Yang2011}.
+	This was implemented in \gls{gcta} and were now wildly used in the estimation of heritability on \gls{GWAS} data.
+	
+	The problem with \gls{gcta} was that it require the genotype data to estimate the heritability.
+	However, for complex disease like \gls{scz}, the data were usually obtained from multiple data source.
+	Because of privacy issues, usually only the test statistic were shared among the research groups and only meta analysis were performed.
+	Given there was no raw genotype data, it is impossible to calculate the \gls{grm}, thus making the use of \gls{gcta} impossible.
+	  
 	\subsection{\glng{ldsc}}
-	% Common disease rare variant ->Shaun's exome sequencing paper
+	Sometimes, in a \gls{GWAS} study, one can observe an general inflation of test statistics. 
+	It was usually considered to be contributed to the presence of confounding factors such as population stratification under the assumption that most of the \glspl{SNP} should have no association to the disease.
+	It was therefore a common practice for one to perform the \gls{gc} on the \gls{GWAS} results\citep{Zheng2006}.
+	
+	The problem of the \gls{gc} was that the basic assumption of a small number of causal \glspl{SNP} might not be true. 
+	Through careful simulation, \citet{Yang2011b} demonstrated that in the absence of population stratification and other form of technical artifacts, the presence of polygenic inheritance can also inflate the test statistic\citep{Yang2011b}.
+	More importantly, they observed that the magnitude of inflation was determined by the \emph{heritability}, the \gls{LD} structure, sample size and the number of causal \glspl{SNP} of the trait.
+
+	Following on their observation, 
+	
 	\section{Missing heritability}
-	% Ben Yip's paper -> Over estimation of heritability of twin studies
 	% GxE interaction? Found no nonadditive genetics but didn't test the GxE
 	% Problem with the current heritability estimation?
 	% Comorbidity	
@@ -614,20 +641,11 @@
 	% Difference in heritability estimation? Ben Yip's paper (Lancet)
 	% Calculation problem?
 	
-	% Another aspect of schizophrenia -> Drug treatment
-	% Interesting as it has direct impact into the health of patients
-	% Different people have different response
-	% Personalized medicine?
-	% Problem with drug responds studies
-	% Lack of power, inconsistent findings
-	% More research are required
-	
-	% The followings should be stated in the chapter introduction
-	% Not much studies on the heritability of drug response
-	% Schizophrenia is heritable, but does it mean that the drug response is also heritable?
-	
-
 	\section{Antipsychotics}
+	One of the ultimate goal in the research of \glng{scz} is to identify an effective treatment for the disorder.	
+	To date, despite the increasing research efforts in \glng{scz}, there was no effective cure for \glng{scz}.
+	So far, the treatment method of \glng{scz} were the use of antipsychotic drugs where there is a large variability between individuals in their response to the drugs.
+	
 	\subsection{Pharmacogenetics and Pharmacogenomics}
 	\subsection{Extreme Phenotype Selection}
 	\section{Summary}
