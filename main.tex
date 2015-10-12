@@ -72,7 +72,7 @@
 \newacronym{gcta}{GCTA}{Genome-wide Complex Trait Analysis}
 \newacronym{ldsc}{LDSC}{LD SCore}
 \newacronym{CEU}{CEU}{Northern Europeans from Utah}
-\newacronym{se}{SE}{Standard Error}
+\newacronym{se}{SE}{standard error}
 \newacronym{maf}{maf}{Minor Allele Frequency}
 \newacronym{isc}{ISC}{International Schizophrenia Consortium}
 \newacronym{mgs}{MGS}{Molecular Genetic of Schizophrenia}
@@ -102,6 +102,7 @@
 \newacronym{cnv}{CNV}{copy number variation}
 \newacronym{grm}{GRM}{Genetic Relationship Matrix}
 \newacronym{gc}{GC}{Genomic Control}
+\newacronym{mhc}{MHC}{major histocompatibility complex}
 %
 %
 %	FORMATING SECTION
@@ -327,15 +328,17 @@
 	Together, these results supports the involvement of \gls{mia} in the development of \glng{scz}.
 	It was even estimated that one third of all \glng{scz} cases could have been prevented shall all infection were prevented from the entire pregnant population\citep{Brown2010}.
 	
-	Similarly, tobacco consumption \citep{Kelly1999}, socio economical status and even the area of birth (e.g. urban vs suburb) were found to associate with increased risk of schizophrenia\citep{McGrath2008a}.
-	However, by and large, the single largest risk factor was family history of \glng{scz}\cref{fig:riskfactors}\citep{Sullivan2005}.
-	Studies conducted by Ernst R{\"u}din, Franz J. Kallmann and Hans Luxenburger all demonstrated that the relatives of \glng{scz} tends to have increased risk of \glng{scz}\citep{Gottesman1982}. 
+	Similarly, tobacco consumption \citep{Kelly1999}, socio economical status and even the area of birth (e.g. urban vs suburb) were also found to be associated with increased risk of schizophrenia\citep{McGrath2008a}.
+	However, by and large, the single largest risk factor was family history of \glng{scz}(\cref{fig:riskfactors})\citep{Sullivan2005}.
+	Studies conducted by Ernst R{\"u}din, Franz J. Kallmann and Hans Luxenburger, all demonstrated that the relatives of \glng{scz} tends to have increased risk of \glng{scz}\citep{Gottesman1982}. 
 	The implication of such observation was two fold:
 	as family members usually shares larger portion of their genetic effects with each other than that of the population, the genetic effects might be the main mediator of \glng{scz}; 
 	on the other hand, culture, socio-economical status and area of birth usually also transmit within the family, so one cannot separate the environmental factors from the genetic factors.
-	
-	It was important for one to understand whether if \glng{scz} was more affected by the genetic or the environmental factors. 
-	To understand whether if \glng{scz} was more affected by variance in genetic factors or environmental factors, we will need to estimate the its heritability.
+
+
+	It was important to study the relative contribution of genetic and environmental influence to individual differences in \glng{scz}.
+	If \glng{scz} was indeed a genetic disease, we may then focus the resources into study of genetic variations in \glng{scz} patients. 
+	To quantify the relative contribution of genetic and environmental influence, one will need to estimate the \emph{heritability} of \glng{scz}.
 	
 	\section{Broad Sense Heritability}
 
@@ -434,7 +437,7 @@
 	The variance of these phenotype were therefore more difficult to obtain.
 	
 	\citet{Falconer1965} proposed the liability threshold model, which suggesting that these discontinuous traits also follow a continuous distribution with an additional parameter called the ``liability threshold''.
-	Under the liability threshold model, the discontinuous traits were also affected by combination of many genetics and environmental factors, each with a small effects, as in the case of the continuous traits.
+	Under the liability threshold model, the discontinuous traits were also affected by combination of multitude of genetics and environmental factors, each with a small effects, as in the case of the continuous traits.
 	The main difference was that the phenotype of an individual is determined by whether if the combined effects of these factors(``liability'') were above a particular threshold (``liability threshold'').
 	So for example, in the case of \glng{scz}, only when an individual has a liability above the liability threshold will he/she be affected.
 	
@@ -483,7 +486,7 @@
 	Moreover, any prenatal influence such as alcohol abuse during pregnancy might confound the results.
 	Therefore, an alternative way would be the twin studies using the relationship between the \gls{mz} and \gls{dz} twins.
 	
-	Theoretically, \gls{mz} twins should shared all their genetic components (both additive($A$) and non-additive($D$) genetic factors) and also their common environmental factors($C$) where the only difference between the twin would be the non-shared environmental factors($E$). 
+	Theoretically, \gls{mz} twins should shared all their genetic components (both additive($A$) and non-additive($D$) genetic factors) and also their common environmental factors($C$) where the only difference between a twin pair would be the non-shared environmental factors($E$). 
 	As for the \gls{dz} twins, they should also shared the same common environmental factors yet they only share $\frac{1}{2}$ of their additive genetic factors and $\frac{1}{4}$ of their non-additive genetic factors. 
 	The non-shared environmental was also by definition not shared among the twins\citep{Rijsdijk2002}.
 	Based on these assumptions, \cite{Falconer1996} derived the heritability as
@@ -503,7 +506,7 @@
 	
 	
 	\section{Genetic Analysis of Schizophrenia}
-	
+	\subsection{Genetic Architecture of Schizophrenia}
 	\begin{wrapfigure}{R}{8cm}
 		\centering
 		\includegraphics[width=0.5\textwidth]{figure/lifeTimeMorbidRisk.png}
@@ -526,7 +529,7 @@
 	
 	\citeauthor{Risch1990a}'s calculation provided an explanation for the early inconsistent findings of linkage studies in \glng{scz}\citep{Harrison2005}.
 	As linkage studies were aimed to identify genetic variation of large effect size they failed to capture genetic loci with small effect size.
-	It was therefore tempting to suggest that \glng{scz} only follows the ``common disease-common variant'' model, which stated that \glng{scz} should be mediated by large amount of common variants such as \glng{SNP}, each with a small effect size.
+	It was therefore tempting to suggest that \glng{scz} only follows the ``common disease-common variant'' model, which stated that \glng{scz} should be mediated by large amount of common variants such as \glng{SNP}, each carries a small effect size.
 	
 	However, another possible hypothesis was that the variation mediating \glng{scz} were rare, therefore require a large sample size to detect. 
 	The inconsistent results of the early linkage studies might be due to the inadequate sample size. 
@@ -542,13 +545,14 @@
 	The completion of the human genome project has opened up a new era of genetic research, allowing researchers to identify \glspl{SNP} on the human genome, which is one of the major source of genetic variation.
 	
 	Soon after the completion of the human genome project, the HapMap Project was initiated\citep{Consortium2005}, aiming to provide a genome-wide database of common human sequence variation such as \glspl{SNP} with \gls{maf} $\ge0.05$.
-	What was more important was that the HapMap Project also provided a detailed \gls{LD} map of the human genome.
+	More importantly was that the HapMap Project also provided a detailed \gls{LD} map of the human genome.
 	
 	\gls{LD} was of particular importance to genetic research for it was the non-random correlation of genotypes between 2 genetic locus. 
 	\glspl{SNP} in high \gls{LD} were usually observed together in the human genome.
 	When a large amount of \glspl{SNP} were in high \gls{LD} together, they form what was known as a \gls{LD} block.
 	By performing association testing on \glspl{SNP} representing a \gls{LD} block(``tagging''), one can avoid the need of performing association on the whole genome, therefore reducing the cost of the experiment.
-	This was the fundamental concept of \gls{GWAS} which was now extensively used in the genetic research.
+	This was the fundamental concept of \gls{GWAS} which tests the 
+	which was now extensively used in the genetic research.
 	
 	\subsection{Genome Wide Association Study}
 	In \gls{GWAS}, genome-wide genotyping array were commonly used to systematically detect genetic variants such as \gls{SNP} and \gls{cnv}.
@@ -560,16 +564,17 @@
 	A large sample size and a large effect usually result in a larger power.
 	
 	\subsubsection{Single Nucleotide Polymorphism} 
-	Despite the great promise from \gls{GWAS}, early \gls{GWAS} in \glng{scz} remain largely disappointed and were unable to identify any robust genetic markers associated with \glng{scz}.
+	Despite the great promise from \gls{GWAS}, early \gls{GWAS} in \glng{scz} remain largely disappointing and were unable to identify any robust genetic markers associated with \glng{scz}.
 	The failure of early \gls{GWAS} in \glng{scz} were mainly due to the relative small sample size of the studies, which result in low detection power.
 	
 	To overcome the problem of small sample size, large consortium were formed such that data from different research groups from different countries were combined, essentially providing a large sample size for the analysis.
 	By 2014, the \Glng{scz} Working group of the \gls{pgc} has collected 34,241 \glng{scz} samples and 45,604 controls\citep{Ripke2014}.
-	Combining the samples with those obtained by deCODE genetics, a total of 36,989 \glng{scz} samples and 113,075 controls were used for the largest meta analysis of \glng{scz}.
+	By combining the samples with those obtained by deCODE genetics, a total of 36,989 \glng{scz} samples and 113,075 controls were used for the largest meta analysis of \glng{scz}.
 	In their study\citep{Ripke2014}, 128 linkage-disequilibrium-independent \glspl{SNP} were found to  exceeded the genome-wide significance(p-value $\le 5\times10^{-8}$), corresponding to 108 genetic loci.
 	75\% of these loci contain protein coding genes and a further 8\% of these loci were within 20kb of a gene. 
-	It was found that genes involved in glutamatergic neurotransmission (e.g. \textit{GRM3}, \textit{GRIN2A} and \textit{GRIA1}), synaptic plasticity and genes encoding the voltage-gated calcium channel subunits (e.g. \textit{CACNA1C}, \textit{CACNB2} and \textit{CACNA1I}) were among the genes associate within these loci.
-	Importantly, \textit{DRD2}, the target of all effective anti-psychotic drug were also associated with \glng{scz}, converge with existing hypothesis of \textit{DRD2} as an important treatment target of \glng{scz}.
+	It was found that genes involved in glutamatergic neurotransmission (e.g. \textit{GRM3}, \textit{GRIN2A} and \textit{GRIA1}), synaptic plasticity and genes encoding the voltage-gated calcium channel subunits (e.g. \textit{CACNA1C}, \textit{CACNB2} and \textit{CACNA1I}) were among the genes associated within these loci.
+	Importantly, \textit{DRD2}, the target of all effective anti-psychotic drug were also associated with \glng{scz}.
+	This result converges with existing knowledge of \textit{DRD2} being involved in the pathology of \glng{scz}, supported by multiple lines of research\citep{Talkowski2007}.
 	\begin{figure}
 		\centering
 		\caption[Enrichment of enhancers of SNPs associated with Schizophrenia]{Enrichment of enhancers of SNPs associated with \glng{scz}. 
@@ -578,9 +583,9 @@
 		\includegraphics[height=\textwidth]{figure/pgc_enrichment_tissue.jpg}
 		\label{fig:pgcEnrich}
 	\end{figure}
-	It was further demonstrated that \glng{scz} association were significantly enriched at enhancers active in brain and enriched at enhancers active in tissues with important immune functions\cref{fig:pgcEnrich}\citep{Ripke2014}.
+	It was further demonstrated that \glng{scz} association were significantly enriched at enhancers active in brain and enriched at enhancers active in tissues with important immune functions(\cref{fig:pgcEnrich})\citep{Ripke2014}.
 		
-	The enrichment of immune related enhancers provide the first genetic support of the involvement of the immune system in the etiology of \glng{scz}.
+	The enrichment of immune related enhancers remains significant even after the removal of \gls{mhc} region from the analysis, provided further genetic support of the involvement of the immune system in the etiology of \glng{scz}.
 	Because of its role in neural development\citep{Zhao1998,Deverman2009}, it is likely that the perturbation in the immune system might disrupt the brain development, therefore increasing the risk of \glng{scz}.
 	Indeed, studies on \gls{mia} has demonstrated that cytokine imbalance might predispose individual to \glng{scz}\citep{Meyer2009}. 
 	
@@ -596,10 +601,10 @@
 	Interestingly, the calcium channel signaling were also enriched in the \gls{pgc} \gls{GWAS} on \gls{SNP} association, suggesting that the variants were converging on similar set of pathway or gene sets. 
 	
 	% I need to state rare and large effect because LDSC cannot do that 
-	Unlike the result form the \gls{SNP} \gls{GWAS}, the \gls{cnv} identified were rare($\le12$ in 4,719 samples) and has a relative large effect (e.g. 17q12 duplications has an odd ratio of 4.16). 
+	Unlike the result form the \gls{GWAS} on \gls{SNP} data, the \gls{cnv} identified were rare($\le12$ in 4,719 samples) and has a relative large effect (e.g. 22q11 deletion has an odd ratio of 16.32\citep{Szatkiewicz2014}). 
 	The results from the \gls{SNP} \gls{GWAS} supports the ``common disease-common variant'' model whereas the \gls{GWAS} on \gls{cnv} supports the ``common disease-rare variant'' model, illustrating the complex genetic model behind the etiology of \glng{scz}.
 	
-	Although the \gls{GWAS} in \glng{scz} seems to return a lot of interesting results, the question remains: How much do we know about \glng{scz}? And how much of \glng{scz} do we not know?
+	Although the \gls{GWAS} in \glng{scz} seems to return a lot of interesting results, the question remains: How much of the known genetic risk factors associated explain the disease risk of \glng{scz}?
 	To answer these question, we need to estimate the heritability based on the \gls{GWAS} data. 
 	However, in order to obtain the large volume of data, most of the samples were not relatives. 
 	How can one estimate the heritability based only on the genetic data of the general population instead of family or twin data?
@@ -626,20 +631,128 @@
 	Through careful simulation, \citet{Yang2011b} demonstrated that in the absence of population stratification and other form of technical artifacts, the presence of polygenic inheritance can also inflate the test statistic\citep{Yang2011b}.
 	More importantly, they observed that the magnitude of inflation was determined by the \emph{heritability}, the \gls{LD} structure, sample size and the number of causal \glspl{SNP} of the trait.
 
-	Following on their observation, 
+	Following on this observation, \citet{Bulik-Sullivan2015} developed the \gls{ldsc}.
+	The fundamental concept of \gls{ldsc} was that the more genetic variant a \gls{SNP} tag, the more likely for it to be able to tag a causal variant; 
+	whereas population stratification and cryptic relatedness should not be associated with \gls{LD}.
+	The number of genetic variants tagged by a \gls{SNP}$_j$ ($l_j$)(\gls{LD} score) was then defined as the sum of $r^2$ of the $k$ \glspl{SNP} within a 1cM window of \gls{SNP}$_j$:
+	\begin{equation}
+	l_j = \sum_kr^2_{jk}
+	\label{eq:ldScore}
+	\end{equation}
 	
-	\section{Missing heritability}
-	% GxE interaction? Found no nonadditive genetics but didn't test the GxE
-	% Problem with the current heritability estimation?
-	% Comorbidity	
+	The expected $\chi^2$ of \gls{SNP}$_j$ was then defined as a function of the \gls{LD} score ($l_j$), the number of samples ($N$), the number of \glspl{SNP} in the analysis($M$), the contribution of confounding factors ($a$) and most importantly, the heritability ($h^2$):
+	\begin{equation}
+	\mathrm{E}[\chi^2_j | l_j] = \frac{Nl_jh^2}{M}+Na+1
+	\label{eq:fullLDSC}
+	\end{equation}
+	If one express the \gls{LD} score and the $chi^2$ as vectors $\boldsymbol{L}$ and $\boldsymbol{\chi^2}$ respectively, \cref{eq:fullLDSC} becomes a regression of the $\chi^2$ against the \gls{LD} score:
+	\begin{equation}
+	\boldsymbol{\chi^2}= \frac{N}{M}\boldsymbol{L}h^2+Na+1
+	\label{eq:ldReg}
+	\end{equation}
 	
-	% Schizophrenia genetic researches
-	% Candidate gene studies
-	% CNV and deletion (also the miRNA?)
-	% GWAS -> PGC
-	% Missing heritability?
-	% Difference in heritability estimation? Ben Yip's paper (Lancet)
-	% Calculation problem?
+	As a result of that, the heritability $h^2$ will be the slope of the regression and the intercept minus one will represent the mean contribution of the confounding bias such as those of population stratification. 
+	Thus, \cref{eq:ldReg} can be used for the estimation of heritability given only the test statistics and the population \gls{LD} were provided. 
+	
+	
+	Using data from \citet{Ripke2014}, and applying the liability threshold adjustment, \citet{Bulik-Sullivan2015} estimated the heritability of \glng{scz} should be 0.555 with \gls{se} of 0.008.
+	The estimated heritability was lower than what was previously estimated from population based study(64\%\citep{Lichtenstein2009}) and twin studies(81\%\citep{Sullivan2003}).
+	Possible reasons of such discrepancies might be that in \citet{Ripke2014}'s study, only \glspl{SNP} data were collected. 
+	From \citet{Szatkiewicz2014}, it was clearly demonstrated that other than \glspl{SNP}, \glspl{cnv} were also associated with \glng{scz}.
+	By ignoring \glspl{cnv} in the estimation of heritability, the estimation of \citet{Bulik-Sullivan2015} would only provided a lower bound of heritability estimated.
+	Another possibility of the``missing'' heritability can be due to interaction between the genetic and environmental factors. 
+	Although previous studies\citep{Gottesman01071967} suggested that the non-additive genetic factors were unlikely to contribute to \glng{scz}, the possibility of involvement of gene-environmental interaction $G\times E$ were not ruled out.
+	Indeed, in the adoption study conducted by \citet{Tienari2004}, it was found that individuals with higher genetic risk were significantly more sensitive to ``adverse'' vs ``healthy'' rearing patterns in adoptive families than are adoptees at low genetic risk\citep{Tienari2004}, providing support to a possible interaction between genetic and environmental factors.
+	Therefore, in order to account for the ``missing'' heritability, one might need to consider genetic variations other than \glspl{SNP} and might need to take into consideration of the $G\times E$ interaction.
+	
+	Nonetheless, the heritability estimation from \citet{Ripke2014} were still encouraging, as for the first time in genetic research of \glng{scz}, a large portion of heritability of \glng{scz} were finally identified.
+	This permit the genetic research of \glng{scz} to move beyond statistical association and focus on the functional basis of the genetic susceptibility locus of \glng{scz}.
+	
+	\subsection{Partitioning of Heritability of Schizophrenia}
+	\subsectionmark{Partitioning of Heritability}
+	Traditionally, functional enrichment analysis in \gls{GWAS} only take into account of \glspl{SNP} that passed the genome wide significance threshold. 
+	However, for complex traits such as that of \glng{scz}, much fo the heritability might lies in \glspl{SNP} that do not reach genome wide significance threshold at the current sample size.
+	For example, in 2013, only 13 risk loci were detected using 13,833 \glng{scz} samples and 18,310 controls \citep{Ripke2013}. 
+	When the sample size increased to 34,241 \glng{scz} samples and 45,604 controls in 2014, 108 risk loci were identified\citep{Ripke2014}. 
+	Thus, if one only consider the significant loci, risk loci that have not reach genome wide significance threshold might be ignored from the analysis, decreasing the power of the functional enrichment analysis.
+	
+	By using information from all \glspl{SNP} and taking into account of the \gls{LD} structure, \gls{ldsc} might help to partition the heritability and therefore provide some useful insight into the disease etiology.
+
+	\begin{longtable}{rrrr}
+		\caption[Enrichment of Top Cell Type of Schizophrenia]{Enrichment of Top Cell type of Schizophrenia.
+			* = significant at False Discovery Rate $<$ 0.05.
+			** = significant at p $<$ 0.05 after correcting for multiple hypothesis. 
+			Reproduce with permission from Journal.\citep{Finucane2015}}
+		%\begin{tabular}{rrrr}
+			\toprule
+			Cell type & cell-type group & Mark  & P-value \\
+			\midrule
+			Fetal brain** & CNS   & H3K4me3 & $3.09\times 10^{-19}$ \\
+			Mid frontal lobe** & CNS   & H3K4me3 & $3.63\times 10^{-15}$ \\
+			Germinal matrix** & CNS   & H3K4me3 & $2.09\times 10^{-13}$ \\
+			Mid frontal lobe** & CNS   & H3K9ac & $5.37\times 10^{-12}$ \\
+			Angular gyrus** & CNS   & H3K4me3 & $1.29\times 10^{-11}$ \\
+			Inferior temporal lobe** & CNS   & H3K4me3 & $1.70\times 10^{-11}$ \\
+			Cingulate gyrus** & CNS   & H3K9ac & $5.37\times 10^{-11}$ \\
+			Fetal brain** & CNS   & H3K9ac & $5.75\times 10^{-11}$ \\
+			Anterior caudate** & CNS   & H3K4me3 & $2.19\times 10^{-10}$ \\
+			Cingulate gyrus** & CNS   & H3K4me3 & $4.57\times 10^{-10}$ \\
+			Pancreatic islets** & Adrenal/Pancreas & H3K4me3 & $2.24\times 10^{-09}$ \\
+			Anterior caudate** & CNS   & H3K9ac & $3.16\times 10^{-9}$ \\
+			Angular gyrus** & CNS   & H3K9ac & $4.68\times 10^{-9}$ \\
+			Mid frontal lobe** & CNS   & H3K27ac & $7.94\times 10^{-9}$ \\
+			Anterior caudate** & CNS   & H3K4me1 & $1.20\times 10^{-8}$ \\
+			Inferior temporal lobe** & CNS   & H3K4me1 & $3.72\times 10^{-8}$ \\
+			Psoas muscle** & Skeletal Muscle & H3K4me3 & $4.17\times 10^{-8}$ \\
+			Fetal brain** & CNS   & H3K4me1 & $6.17\times 10^{-8}$ \\
+			Inferior temporal lobe** & CNS   & H3K9ac & $9.33\times 10^{-8}$ \\
+			Hippocampus middle** & CNS   & H3K9ac & $9.33\times 10^{-7}$ \\
+			Pancreatic islets** & Adrenal/Pancreas & H3K9ac & $1.62\times 10^{-6}$ \\
+			Penis foreskin melanocyte primary** & Other & H3K4me3 & $2.09\times 10^{-6}$ \\
+			Angular gyrus** & CNS   & H3K27ac & $2.34\times 10^{-6}$ \\
+			Cingulate gyrus** & CNS   & H3K4me1 & $2.82\times 10^{-6}$ \\
+			Hippocampus middle** & CNS   & H3K4me3 & $2.82\times 10^{-6}$ \\
+			CD34 primary** & Immune & H3K4me3 & $4.68\times 10^{-6}$ \\
+			Sigmoid colon** & GI    & H3K4me3 & $5.01\times 10^{-6}$ \\
+			Fetal adrenal** & Adrenal/Pancreas & H3K4me3 & $6.31\times 10^{-6}$ \\
+			Inferior temporal lobe** & CNS   & H3K27ac & $8.32\times 10^{-6}$ \\
+			Peripheralblood mononuclear primary** & Immune & H3K4me3 & $9.33\times 10^{-6}$ \\
+			Gastric** & GI    & H3K4me3 & $1.17\times 10^{-5}$ \\
+			Substantia nigra* & CNS   & H3K4me3 & $1.95\times 10^{-5}$ \\
+			Fetal brain* & CNS   & H3K4me3 & $2.63\times 10^{-5}$ \\
+			Hippocampus middle* & CNS   & H3K4me1 & $3.31\times 10^{-5}$ \\
+			Ovary* & Other & H3K4me3 & $6.46\times 10^{-5}$ \\
+			CD19 primary (UW)* & Immune & H3K4me3 & $7.08\times 10^{-5}$ \\
+			Small intestine* & GI    & H3K4me3 & $8.51\times 10^{-5}$ \\
+			Lung* & Cardiovascular & H3K4me3 & $1.17\times 10^{-4}$ \\
+			Fetal stomach* & GI    & H3K4me3 & $1.29\times 10^{-4}$ \\
+			Fetal leg muscle* & Skeletal Muscle & H3K4me3 & $1.51\times 10^{-4}$ \\
+			Spleen* & Immune & H3K4me3 & $1.70\times 10^{-4}$ \\
+			Breast fibroblast primary* & Connective/Bone & H3K4me3 & $2.04\times 10^{-4}$ \\
+			Right ventricle* & Cardiovascular & H3K4me3 & $2.14\times 10^{-4}$ \\
+			CD4+ CD25- Th primary* & Immune & H3K4me3 & $2.19\times 10^{-4}$ \\
+			CD4+ CD25- IL17- PMA Ionomycin stim MACS Th sprimary* & Immune & H3K4me1 & $2.19\times 10^{-4}$ \\
+			CD8 naive primary (UCSF-UBC)* & Immune & H3K4me3 & $2.24\times 10^{-4}$ \\
+			Pancreas* & Adrenal/Pancreas & H3K4me3 & $2.34\times 10^{-4}$ \\
+			CD4+ CD25- Th primary* & Immune & H3K4me1 & $2.75\times 10^{-4}$ \\
+			CD4+ CD25- CD45RA+ naive primary* & Immune & H3K4me1 & $2.75\times 10^{-4}$\\
+			Colonic mucosa* & GI    & H3K4me3 & $3.24\times 10^{-4}$ \\
+			Right atrium* & Cardiovascular & H3K4me3 & $3.31\times 10^{-4}$ \\
+			Fetal trunk muscle* & Skeletal Muscle & H3K4me3 & $3.39\times 10^{-4}$ \\
+			CD4+ CD25int CD127+ Tmem primary* & Immune & H3K4me3 & $3.47\times 10^{-4}$ \\
+			Substantia nigra* & CNS   & H3K9ac & $3.63\times 10^{-4}$ \\
+			Placenta amnion* & Other & H3K4me3 & $4.17\times 10^{-4}$ \\
+			Breast myoepithelial* & Other & H3K9ac & $5.50\times 10^{-4}$ \\
+			CD8 naive primary (BI)* & Immune & H3K4me1 & $5.75\times 10^{-4}$ \\
+			Substantia nigra* & CNS   & H3K4me1 & $6.61\times 10^{-4}$ \\
+			Cingulate gyrus* & CNS   & H3K27ac & $7.94\times 10^{-4}$ \\
+			CD4+ CD25- CD45RA+ naive primary* & Immune & H3K4me3 & $8.71\times 10^{-4}$ \\
+			\bottomrule
+		%\end{tabular}%
+		\label{tab:cellTypeScz}%
+	\end{longtable}%
+	
+	\subsection{Genetic Correlation}
 	
 	\section{Antipsychotics}
 	One of the ultimate goal in the research of \glng{scz} is to identify an effective treatment for the disorder.	
