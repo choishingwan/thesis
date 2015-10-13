@@ -103,6 +103,7 @@
 \newacronym{grm}{GRM}{Genetic Relationship Matrix}
 \newacronym{gc}{GC}{Genomic Control}
 \newacronym{mhc}{MHC}{major histocompatibility complex}
+\newacronym{cns}{CNS}{central nervous system}
 %
 %
 %	FORMATING SECTION
@@ -676,13 +677,18 @@
 	When the sample size increased to 34,241 \glng{scz} samples and 45,604 controls in 2014, 108 risk loci were identified\citep{Ripke2014}. 
 	Thus, if one only consider the significant loci, risk loci that have not reach genome wide significance threshold might be ignored from the analysis, decreasing the power of the functional enrichment analysis.
 	
-	By using information from all \glspl{SNP} and taking into account of the \gls{LD} structure, \gls{ldsc} might help to partition the heritability and therefore provide some useful insight into the disease etiology.
+	Unlike traditional functional enrichment analysis, \gls{ldsc} uses information from all \glspl{SNP} and taking into account of the \gls{LD} structure to partition heritability into different functional categories. 
+	Thus should be more powerful when compared to traditional analysis and should help to provide useful insight into the disease etiology of \glng{scz}.
 
-	\begin{longtable}{rrrr}
-		\caption[Enrichment of Top Cell Type of Schizophrenia]{Enrichment of Top Cell type of Schizophrenia.
-			* = significant at False Discovery Rate $<$ 0.05.
-			** = significant at p $<$ 0.05 after correcting for multiple hypothesis. 
-			Reproduce with permission from Journal.\citep{Finucane2015}}
+	\citet{Finucane2015} used data from \citet{Ripke2014} and functional categories derived from the ENCODE annotation\citep{ENCODEProjectConsortium2012}, the NIH Roadmap Epigenomics Mapping Consortium annotation\citep{Bernstein2010} and other studies\citep{Finucane2015}, it was found that the brain cell types were most enriched in \glng{scz}, especially those related to the \gls{cns}.
+	Of all the functional categories, the most enriched category in \glng{scz} was the H3K4me3 mark in the fetal brain(\cref{tab:cellTypeScz}). 
+	As H3K4me3 was mostly linked to active promoters, it was likely for genes that were active in fetal brain (e.g genes related to brain development) to be associated with \glng{scz}, supporting the idea of \glng{scz} as an neuro-developmental disorder. 
+	
+	Moreover, it was also observed that the second most enriched cell types were those related to immunity.
+	Undoubtedly, the \gls{cns} and the immune system have an important role in the disease etiology of \gls{scz}. 
+
+	\begin{singlespace}
+	\begin{longtable}{p{6cm}rrr}
 		%\begin{tabular}{rrrr}
 			\toprule
 			Cell type & cell-type group & Mark  & P-value \\
@@ -749,19 +755,48 @@
 			CD4+ CD25- CD45RA+ naive primary* & Immune & H3K4me3 & $8.71\times 10^{-4}$ \\
 			\bottomrule
 		%\end{tabular}%
+		\caption[Enrichment of Top Cell Type of Schizophrenia]{Enrichment of Top Cell type of Schizophrenia.
+			* = significant at False Discovery Rate $<$ 0.05.
+			** = significant at p $<$ 0.05 after correcting for multiple hypothesis. 
+			Reproduce with permission from Journal.\citep{Finucane2015}}
 		\label{tab:cellTypeScz}%
 	\end{longtable}%
+	\end{singlespace}
 	
 	\subsection{Genetic Correlation}
+	Another very important application of \gls{ldsc} is that it allow one to identify the genetic correlation between traits\citep{Bulik-Sullivan2015a}. 
+	The genetic correlation can be used as an genetic analogue to co-morbidity, thus allowing deeper understanding to the etiology of the traits.
+	Above all, genetic correlation was important in studying the treatment response. 
+	It has been observed that there was an increased prevalence of anxiety, depression and substance abuse in \glng{scz}\citep{Buckley2009}. 
+	These co-morbidity were generally associated with more severe psychopathology and with poorer outcome\citep{Buckley2009}.
+	A deeper understanding of possible co-morbidity between different traits and \glng{scz} might provide insight not only to the disease etiology of \glng{scz}, it might even provide important information in possible treatment options for \glng{scz}. 
+	Using breast cancer as an example, it was found that patients with comorbidity had poorer survival than those without comobidity\citep{Sogaard2013} and it was suggested that by treating the comorbid diseases, one might be able to delay mortality in breast cancer patients\citep{Ording2013}.
+		
+	By applying their method to 25 different phenotypes, \citet{Bulik-Sullivan2015a} shown that \glng{scz} has significant genetic correlation with bipolar disorder, major depression and more surprisingly, anorexia nervosa.
+	Previous studies have always suggest there to be an co-morbidity between \glng{scz} and bipolar disorder \citep{Lichtenstein2009,Purcell2009,Buckley2009}.
+	Similarly, it was not uncommon for \glng{scz} to display depressive symptoms\citep{Buckley2009}. 
+	It was even observed that individuals at high risk and ultrahigh risk for developing \glng{scz} have generally demonstrated a significant degree of depressive symptoms prior to and during the emergence of psychotic symptoms, suggesting a close relationship between \glng{scz} and depression. 
+	
+	On the other hand, the genetic correlation between \glng{scz} and anorexia nervosa were slightly unexpected for there has been a lack of study in the co-morbidity between eating disorder and \glng{scz}. 
+	Nonetheless, this finding raises the possibility of similarity between anorexia and nervosa.
 	
 	\section{Antipsychotics}
-	One of the ultimate goal in the research of \glng{scz} is to identify an effective treatment for the disorder.	
-	To date, despite the increasing research efforts in \glng{scz}, there was no effective cure for \glng{scz}.
-	So far, the treatment method of \glng{scz} were the use of antipsychotic drugs where there is a large variability between individuals in their response to the drugs.
+	Despite the success in the genetic research of \gls{scz}, an effective cure of \glng{scz} was yet to be found.
+	Currently, the main treatment method for \glng{scz} was the use of antipsychotic drugs yet there was a large variability between individuals in their response to the drugs.
+	Some might even suffer from adverse side effects such as agranulocytosis.
+	Thus, it is important to administrate the ``correct'' drug for each individual.
+	However, there was an lack of understanding of the factors influencing the drug response, making it difficult, if not impossible, to develop a robust diagnostic test for selecting the most appropriate treatment for individuals.
+	
+	% There was an important need for the study
+	% Need an direction
+	% Heritability estimation of drug response
+	% Lead to genetic testings
+	% Candidate genes, GWAS no consistent results
+	% Questions regarding the heritability of treatment response?
+	% Then talk about the current thesis.
 	
 	\subsection{Pharmacogenetics and Pharmacogenomics}
-	\subsection{Extreme Phenotype Selection}
-	\section{Summary}
+	\section{Chapter Summaries}
 	
 	\include{heritability_estimation}
 	
