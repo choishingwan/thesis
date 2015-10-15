@@ -2378,25 +2378,22 @@
     <bcf:citekey order="134">Bulik-Sullivan2015</bcf:citekey>
     <bcf:citekey order="135">Welter2014</bcf:citekey>
     <bcf:citekey order="136">Su2011</bcf:citekey>
-    <bcf:citekey order="137">Welter2014</bcf:citekey>
-    <bcf:citekey order="138">Su2011</bcf:citekey>
-    <bcf:citekey order="139">Orr1998</bcf:citekey>
-    <bcf:citekey order="140">Manolio2009</bcf:citekey>
-    <bcf:citekey order="141">Project2012</bcf:citekey>
-    <bcf:citekey order="142">Velakoulis2006</bcf:citekey>
-    <bcf:citekey order="142">Nugent2007</bcf:citekey>
-    <bcf:citekey order="143">Simpson2010</bcf:citekey>
-    <bcf:citekey order="144">Hart2013</bcf:citekey>
-    <bcf:citekey order="145">Langfelder2008</bcf:citekey>
-    <bcf:citekey order="146">Langfelder2008</bcf:citekey>
-    <bcf:citekey order="147">Zhang2005</bcf:citekey>
-    <bcf:citekey order="148">Eden2009</bcf:citekey>
-    <bcf:citekey order="149">Supek2011</bcf:citekey>
-    <bcf:citekey order="150">DeLeeuw2015</bcf:citekey>
-    <bcf:citekey order="151">Gogtay2011</bcf:citekey>
-    <bcf:citekey order="152">Liaw1995</bcf:citekey>
-    <bcf:citekey order="153">Ripke2014</bcf:citekey>
-    <bcf:citekey order="154">DeLeeuw2015</bcf:citekey>
+    <bcf:citekey order="137">Orr1998</bcf:citekey>
+    <bcf:citekey order="138">Project2012</bcf:citekey>
+    <bcf:citekey order="139">Velakoulis2006</bcf:citekey>
+    <bcf:citekey order="139">Nugent2007</bcf:citekey>
+    <bcf:citekey order="140">Simpson2010</bcf:citekey>
+    <bcf:citekey order="141">Hart2013</bcf:citekey>
+    <bcf:citekey order="142">Langfelder2008</bcf:citekey>
+    <bcf:citekey order="143">Langfelder2008</bcf:citekey>
+    <bcf:citekey order="144">Zhang2005</bcf:citekey>
+    <bcf:citekey order="145">Eden2009</bcf:citekey>
+    <bcf:citekey order="146">Supek2011</bcf:citekey>
+    <bcf:citekey order="147">DeLeeuw2015</bcf:citekey>
+    <bcf:citekey order="148">Gogtay2011</bcf:citekey>
+    <bcf:citekey order="149">Liaw1995</bcf:citekey>
+    <bcf:citekey order="150">Ripke2014</bcf:citekey>
+    <bcf:citekey order="151">DeLeeuw2015</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyvt" type="entry" sortscheme="nyvt">
   <bcf:sorting>
