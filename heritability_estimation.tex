@@ -3,9 +3,8 @@
 % Need to stress that we are only calculating the narrow sense heritability
 	\section{Introduction}
 	The development of \glng{ldsc} has brought great prospect in estimating the heritability of complex disease for one can now estimate the heritability of a trait without requiring the rare genotype. 
-	However, it was noted by the author of \gls{ldsc} that when the number of causal variants were small, \gls{ldsc} tends to have a larger standard error, therefore it was better suited for more polygenic condition\citep{Bulik-Sullivan2015}. 
-	Also, it was suggested that \gls{ldsc} for some unbeknown reason does not work well with targeted genotype array.
-	Together, we believe there were still room for improvement of the method such that the performance of heritability estimation should be robust to all possible condition (e.g. number of causal SNPs, type of genotyping array).
+	However, as noted by the author of \gls{ldsc}, when the number of causal variants were small, or when working on targeted genotype array, \gls{ldsc} tends to have a larger standard error or might produce funky results\citep{Bulik-Sullivan2015}. 
+	Thus, there might be room for improvement of the method such that the performance of heritability estimation should be robust to all possible condition (e.g. number of causal SNPs, type of genotyping array).
 	
 	In this chapter, we would introduce our method of heritability estimation using test static called \gls{shrek}. We will compare the performance of \gls{shrek} and \gls{ldsc} using simulation of different genetic architectures. 
 	
@@ -451,31 +450,130 @@
 						
 		\subsection{Comparing with \glsentrylong{ldsc}}
 			% main difference 
-		
+			Conceptually, the fundamental hypothesis of \gls{ldsc} and \gls{shrek} were quite different.
+			\gls{ldsc} were based on the ``global'' inflation of test statistic and its relationship to the \gls{LD} pattern and by using this relationship, \gls{ldsc} might estimate the heritability.
+			On the other hand, \gls{shrek} focuses more on the per-\gls{SNP} level.
+			Our main idea with \gls{shrek} was that the test statistic of each \glspl{SNP} should be representative to the amount of variation they explain when there is no \gls{LD}. 
+			Thus, based on this concept, \gls{shrek} targeted in ``removing'' the inflation of test statistic introduced through the \gls{LD} between \glspl{SNP} and the heritability can be calculated by adding the test statistic of all \glspl{SNP} after ``removing'' the inflation. 
+			
+			Mathematically, the calculation of \gls{ldsc} and \gls{shrek} were very different. 
+			\gls{ldsc} take the sum of all $R^2$ within a 1cM region as the LD score and regress it against the test statistic to obtain the slope and intercept which represent the heritability and amount of confounding factors respectively. 
+			In their model, \gls{ldsc} assume that each \glspl{SNP} will explain the same portion of heritability
+			\begin{align}
+			 \mathrm{Var}(\beta)&=\frac{h^2}{M}\boldsymbol{I}\\
+			 M &= \text{number of SNPs}\notag\\
+			 \beta &= \text{vector containing per normalized genotype effect sizes}\notag\\
+			 I &= \text{identity matrix}\notag\\
+			 h^2 &= \text{heritability}\notag
+			\end{align}
+			
+			As for \gls{shrek}, the whole \gls{LD} matrix were used and inverted to decompose the \gls{LD} from the test statistic. 
+			There were no assumption of the amount of heritability explained by each \glspl{SNP}. 
+			However, \gls{shrek} does assumed that the null should be 1 and therefore \gls{shrek} cannot detect the amount of confounding factors. 
+					
 	\section{Simulation}
-		We implemented the heritability estimation in \gls{shrek} and in order to assess how well \gls{shrek} performs for heritability estimation in comparison to other current methods, we performed a series of systematic simulations.
-		In these simulations, we compared the performance of \gls{shrek} with \gls{gcta}\citep{Yang2011} and the \gls{ldsc}\citep{Bulik-Sullivan2015} with and without the intercept estimation function (-{}-no-intercept). 
-		
+		We implemented the heritability estimation in \gls{shrek}.
+		To assess how well \gls{shrek} performs for heritability estimation in comparison to other current methods, we performed series of systematic simulation.
+		In these simulations, performance of \gls{shrek}, \gls{gcta}\citep{Yang2011} and \gls{ldsc}\citep{Bulik-Sullivan2015} with and without the intercept estimation function (-{}-no-intercept) were tested.
 		Through simulation, we can obtain the sample distribution of the heritability estimate under different study designs (e.g. Quantitativat traits, Case-Control studies or extreme phenotype selection). 
 		%We can also evaluate the performance of different methods under varying genetic architecture (e.g. different number of Snps, different LD structures) or even with different disease models (e.g. different number of causal Snps, different heritability).
-		
-		It was extremely important for us to consider as much possible conditions as possible.
-		Here we will outline all the parameters used in the simulation.
-		\subsection{Sample Size}
+		Factors considered in our simulations were as follow:		\subsection{Sample Size}
 		The sample size was one of the most important parameter in determining the standard error of the heritability estimation. 
 		As the sample size increases, study will be more representative of the true population and therefore generate a more stable and accurate results.
 		
 		Using simple text mining technique, we have calculated the average sample size for all \gls{GWAS} recorded on the \gls{GWAS} catalog\citep{Welter2014} was around 7,200 samples.
-		We argue that if all the tools were able to preform well when the sample size was small, then they should have no problem handling larger data sets.
-		Thus, we only simulate 1,000 samples in our simulation and if all the tools can accurately estimate the heritability, then they should have no problem in estimating the heritability when there were more samples.
+		We argued that if the tools were able to preform well when the sample size was small, then they should have no problem handling larger data sets for the sample size only affect the standard error and should not bias the estimate.
+		Thus, we only simulate 1,000 samples in our simulation to test the performance of the tools when a small sample size was provided.
 		
 		\subsection{Number of SNPs in Simulation}
 		As technology progress, the number of \glspl{SNP} on each array chip has increased significantly.
 		We can now achieve a single base pair resolution using the \gls{ngs} technologies.
-		However, it was computationally infeasible for us to simulate a large amount of \glspl{SNP} in every single simulation. 
-		Considering that one can usually partition the whole genome into individual chromosomes during the heritability estimation, we therefore only simulate chromosome 1 with 50,000 \glspl{SNP} in majority of the simulations.
+		However, in simulation, the number of \glspl{SNP} is one of the biggest determinant of speed. 
+		The time required for simulation raised form 2 hours to 2 days when the number of \glspl{SNP} increased from 3,000 to 50,000. 
+		Considering that one usually partition the whole genome into individual chromosomes during the heritability estimation, and that it was infeasible for us to simulate \glspl{SNP} number similar to those encountered in real genotype chip, we compromise the number of \glspl{SNP} in our simulation to 50,000 \glspl{SNP} from chromosome 1.
 		
 		\subsection{Genetic Architecture} % Should contain the effect size distribution, the causal SNP number and the heritability spectrum
+		Of all the simulation parameter, the genetic architecture was arguably the most complicated parameter. 
+		It involves the \gls{LD} pattern, the distribution of effect size, the number of causal \glspl{SNP}, the \gls{maf} of the causal \glspl{SNP} and most importantly, the heritability of the trait ($h^2$).
+		
+		Because we would like to cover most of the heritability spectrum, we will simulate traits with $h^2$ ranging from 0 to 0.9, with increment of 0.1 such that $h^2\in\{0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9\}$.
+		To simplify the condition, all ``causal'' variants were included in the simulation (e.g. perfect tagging).
+		We also try to obtain realistic \gls{LD} pattern by using HAPGEN2\citep{Su2011} to simulate genotype based on the \gls{LD} pattern of the 1000 genome \gls{CEU} samples. 
+		
+		First, we only consider situation of common \glspl{SNP} and only simulate \glspl{SNP} with \gls{maf} $> 0.1$.
+		In these simulation, we varies the number of causal \glspl{SNP} ($k$) and the effect size distribution.
+		We consider $k\in\{5,10,50,100,250,500\}$ such that we can cover different disease spectrum (Oligogenic to Polygenic diseases). 
+		As for effect size distribution, we considered two conditions:
+		\begin{enumerate}
+			\item Equal Effect Size
+			\item Random Effect Size
+		\end{enumerate}
+		The simplest situation was when all casual \glspl{SNP} have the same effect size 
+		\begin{equation}
+		\beta_s=\pm\sqrt{\frac{h^2}{k}}
+		\label{eq:stableEffect}
+		\end{equation}
+		The direction of effect should be randomly simulated.
+		As for the random effect size scenario, we consider the effect size to be 
+		\begin{equation}
+		\beta_r=\pm\sqrt{\frac{\lambda\times h^2}{\sum\lambda}}
+		\label{eq:randomEffect}
+		\end{equation}with $\lambda\sim exp(1)$.
+		The direction of effect was also randomly simulated.
+		Once the effect size was calculated, we can then randomly assign the effect size to $k$ random \glspl{SNP} with normalized genotype $\boldsymbol{X}$, the phenotype can then be calculated as 
+		\begin{align}
+		\epsilon_i&\sim N(0,\sqrt{\mathrm{Var}(\boldsymbol{X\beta})\frac{1-h^2}{h^2}} )\notag\\
+		\boldsymbol{\epsilon} &= (\epsilon_1,\epsilon_2,...,\epsilon_n)^t\notag\\
+		\boldsymbol{y} &= \boldsymbol{X\beta}+\boldsymbol{\epsilon}
+		\label{eq:simulationOfPhenotype}
+		\end{align}
+		
+		To summarize, the simulation procedure follows:
+		\begin{enumerate}
+			\item Randomly select 50,000 \glspl{SNP} with \gls{maf}$>0.1$ from chromosome 1
+			\item Randomly generate $k$ effect size with $k \in \{5,10,50,100,250,500\}$ following either \cref{eq:stableEffect} or \cref{eq:randomEffect}
+			\item Randomly assign the effect size to $k$ \glspl{SNP}
+			\item Simulate 1,000 samples using HAPGEN2 and calculate their phenotype according to \cref{eq:simulationOfPhenotype}
+			\item Perform heritability estimation using \gls{shrek}, \gls{ldsc} and \gls{gcta}
+			\item Repeat step 4-5 50 times
+			\item Repeat step 1-6 10 times
+		\end{enumerate}
+		
+		\subsubsection{Extreme Effect Size}
+		Another condition we were interested in was the performance of the tools when there is a small amount of \glspl{SNP} that explain a large portion of effect e.g. 50\%.
+		Similarly, we only consider 1,000 samples, with 50,000 common \glspl{SNP}(\gls{maf} $>0.1$).
+		We hypothesize that under the polygenic model, such extreme distribution in effect size should have much larger effect when compared to that in oligogenic condition. 
+		Thus we only consider the polygenic condition where the number of causal \gls{SNP} ($k$) were limited to 100 or 250. 
+		
+		We simulate $m$ \glspl{SNP} accounting for 50\% of all the effect where $m\in\{1,5,10\}$.
+		The effect size was then calculated as
+		\begin{align}
+		\beta_{eL} &= \pm\sqrt{\frac{0.5h^2}{m}} 
+		\beta_{eS} &= \pm\sqrt{\frac{0.5h^2}{k-m}} 
+		\beta &= \{\beta_{eL}, \beta_{eS}\}
+		\label{eq:extremEffect}
+		\end{align}
+		the effect size were then randomly assigned to $k$ causal \glspl{SNP} and phenotype was calculated as in \cref{eq:simulationOfPhenotype}.
+		The simulation procedure then becomes
+		\begin{enumerate}
+			\item Randomly select 50,000 \glspl{SNP} with \gls{maf}$>0.1$ from chromosome 1
+			\item Randomly generate $k$ effect size with $k \in \{100,250\}$ and $m$ extreme effect, following \cref{eq:extremEffect} where $m\in{1,5,10}$
+			\item Randomly assign the effect size to $k$ \glspl{SNP}
+			\item Simulate 1,000 samples using HAPGEN2 and calculate their phenotype according to \cref{eq:simulationOfPhenotype}
+			\item Perform heritability estimation using \gls{shrek}, \gls{ldsc} and \gls{gcta}
+			\item Repeat step 4-5 50 times
+			\item Repeat step 1-6 10 times
+		\end{enumerate}
+		\subsubsection{Rare SNPs}
+		Based on the ``common disease - rare variant'' hypothesis, a complex disease might still be affected by number of rare genetic variants. 
+		With the advancement of technology, there are now genotype arrays such as exome chip which aim to detect some of the rare variants. 
+		Thus we were interested in testing the performance of the tools under such extreme scenario.
+		
+		Here, we will consider the situation where of the $k$ causal \glspl{SNP}, $r$ of them were rare (e.g. \gls{maf}$<0.05$).
+		Instead of simulating only common \glspl{SNP}, we simulate 50,000 \glspl{SNP} with \gls{maf} $>0.01$. 
+		Then we simulate $k$ effect size using equation \cref{eq:stableEffect}.
+		However, instead of randomly distributing the effect size to $k$ random \glspl{SNP}, we distribute the effect size to $r$ rare \glspl{SNP} (\gls{maf} $<0.05$) and $k-r$ common \glspl{SNP} (\gls{maf}$>0.05$) with $r\in\{5,10\}$.
+		Again, the phenotype was calculated using \cref{eq:simulationOfPhenotype}.
 		
 		\subsection{Case Control Studies}
 		\subsection{Extreme Phenotype Selection}
@@ -521,12 +619,6 @@
 			Therefore, after the per \gls{SNP} effects were simulated, we distribute the effect size to $k$ randomly selected \gls{SNP}(s) according to their \gls{maf}.
 		
 			Finally, by assuming $\boldsymbol{X}$ to be the standardized genotype of $k$ causal SNPs in $n$ samples, one can get the phenotype of the simulated samples based on \cref{eq:snpEffect} using
-			\begin{align}
-			\epsilon_i&\sim N(0,\sqrt{\mathrm{Var}(\boldsymbol{X\gamma})\frac{1-H_{final}}{H_{final}}} )\notag\\
-			\boldsymbol{\epsilon} &= (\epsilon_1,\epsilon_2,...,\epsilon_n)^t\notag\\
-			\boldsymbol{y} &= \boldsymbol{X\gamma}+\boldsymbol{\epsilon}
-			\label{eq:simulationOfPhenotype}
-			\end{align}
 			
 			For each batch of simulated samples, we calculate the estimated heritability using \gls{shrek}, \gls{gcta}, \gls{ldsc} with intercept fixed at 1 and \gls{ldsc} allowing for intercept estimation for each $H$.
 			In each iteration, the sample genotype was provided to \gls{gcta} for the calculation of genetic relationship matrix (GRM) whereas for \gls{shrek} and \gls{ldsc} 500 additional samples were simulated based on the 1000 genome project \gls{CEU} samples\parencite{Project2012} to construct the \gls{LD} matrix and calculate the \gls{LD} score respectively. 
