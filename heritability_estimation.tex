@@ -489,7 +489,7 @@
 		As technology progress, the number of \glspl{SNP} on each array chip has increased significantly.
 		We can now achieve a single base pair resolution using the \gls{ngs} technologies.
 		However, in simulation, the number of \glspl{SNP} is one of the biggest determinant of speed. 
-		The time required for simulation raised form 2 hours to 2 days when the number of \glspl{SNP} increased from 3,000 to 50,000. 
+		The time required for simulation increase as number of \glspl{SNP} increases. 
 		Considering that one usually partition the whole genome into individual chromosomes during the heritability estimation, and that it was infeasible for us to simulate \glspl{SNP} number similar to those encountered in real genotype chip, we compromise the number of \glspl{SNP} in our simulation to 50,000 \glspl{SNP} from chromosome 1.
 		
 		\subsection{Genetic Architecture} % Should contain the effect size distribution, the causal SNP number and the heritability spectrum
@@ -574,16 +574,7 @@
 			\item Repeat step 4-5 50 times
 			\item Repeat step 1-6 10 times
 		\end{enumerate}
-		\subsubsection{Rare SNPs}
-		Based on the ``common disease - rare variant'' hypothesis, a complex disease might still be affected by number of rare genetic variants. 
-		With the advancement of technology, there are now genotype arrays such as exome chip which aim to detect some of the rare variants. 
-		Thus we were interested in testing the performance of the tools under such extreme scenario.
-		
-		Here, we will consider the situation where of the $k$ causal \glspl{SNP}, $r$ of them were rare (e.g. \gls{maf}$<0.05$).
-		Instead of simulating only common \glspl{SNP}, we simulate 50,000 \glspl{SNP} with \gls{maf} $>0.01$. 
-		Then we simulate $k$ effect size using equation \cref{eq:stableEffect}.
-		However, instead of randomly distributing the effect size to $k$ random \glspl{SNP}, we distribute the effect size to $r$ rare \glspl{SNP} (\gls{maf} $<0.05$) and $k-r$ common \glspl{SNP} (\gls{maf}$>0.05$) with $r\in\{5,10\}$.
-		Again, the phenotype was calculated using \cref{eq:simulationOfPhenotype}.
+		\subsubsection{Effect of Minor Allele Frequency}
 		
 		\subsection{Case Control Studies}
 		The simulation of case control studies was very much like that of the simulation of quantitative trait. 
@@ -593,68 +584,24 @@
 		Although there were only two additional parameter, the computational challenge for the simulation of case control was significantly bigger than that for the simulation of quantitative trait.
 		Take for example, if one like to simulate a trait with population prevalence of $p$ and observed prevalence  of $q$ and would like to have $n$ cases in total, one will have to simulate $\min(\frac{n}{p}, \frac{n}{q})$ samples.
 		Considering the scenario where the observed prevalence is 50\%, the population prevalence is 1\% and 1,000 cases,a minimum of 100,000 samples will be required.
-		If each samples have 50,000 \glspl{SNP}, then one will need to process a minimum of 40GB of data per iteration.
 		
-		Given limited computer resources, we simulate 1,000 cases with $q=0.5$ and varies $p\in\{0.5,0.1\}$ as a prove of concept simulation. 
-		We argue that although we only consider a limited combination of prevalence, the result should be generalize to other combination of prevalence.
-		
-		
+		% Maybe instead of chromosome 1, use chromosome 22 and reduce the number of SNPs, that will be better.
+		Given limited computer resources, we only simulate 1,000 cases, with an observed prevalence of 0.5 and population prevalence $p\in\{0.5,0.001\}$.
+		Most importantly, we reduce the number of \glspl{SNP} simulated to 5,000 and used chromosome 22 instead, such that the \glspl{SNP} density remains more or less unchanged by the number of processes required were largely reduced.
+		We acknowledged that the current simulation was relatively brief, however, it should be able to serve as a prove of concept simulation to study the performance of the tools under the case control scenario.
 		
 		\subsection{Extreme Phenotype Selection}
-		\subsection{Case Control Studies}
-		Similar to quantitative trait simulation, the sample size, the number of \glspl{SNP}, the number of causal \glspl{SNP} and the true heritability of the trait are important parameters to consider during simulation. 
-		On top of that, there are a few more parameters one must consider during the simulation of case control studies such as the population prevalence of the trait and the observed prevalence of the study. 
+		The simulation of extreme phenotype selection follows that of the quantitative trait simulation. 
+		Due to their similarity, we only simulate condition where there were 100 causal \glspl{SNP}. 
+		We will then simulate 5,000 samples and select 500 samples from the extreme end of the sample distribution.
 		
-		To simulate cases and controls, we will need to simulate the liability distribution by taking into acount of the prevalence. 
-		So for example, if one like to simulate a trait with population prevalence of $p$ and observed prevalence  of $q$ and would like to have $n$ cases in total, one will have to simulate $\min(\frac{n+pn}{p}, \frac{n+qn}{q})$ samples.
-		It is therefore challenging for one to simulate scenario with a small $p$ or $q$ values. 
-		
-		In this study, we fixed $q=0.5$ and varies $p\in\{0.5,0.1\}$. Although disease such as \gls{scz} can have a prevalence $\approx1\%$, the required sample numbers become infeasible for large scale simulation where a minimum of 101,000 samples will be required if we wish to obtain 1,000 cases.
-		Despite our wish to simulate conditions with small prevalence, the limitation of computation power simply forbade us to undergo such simulation. 
-		
-		Once the liability distribution were simulated, cases can be drawn from samples with a liability higher than the liability threshold. 
-		The liability threshold was calculated as the value $> 1-p$ of all values under the standard normal distribution using the \emph{qnorm} function in R. 
-		Samples with a liability lower than the liability threshold were then considered as control samples. 
-		1,000 cases and 1,000 controls were then randomly drawn from the corresponding population of samples.
-		 
-		To summarize, 
-		\begin{enumerate}
-			\item Randomly select 50,000 \glspl{SNP} from chromosome 1
-			\item Randomly generate $k$ effect size following \cref{eq:snpEffect} where $k \in \{10,50,100,1000\}$
-			\item Randomly assign the effect size to $k$ \glspl{SNP} where \glspl{SNP} with small \gls{maf} will get a large effect size.
-			\item Simulate $\frac{n+qn}{q}$ samples using HAPGEN2 where $q\in\{0.5,0.1\}$
-			\item Simulate sample phenotype according to the liability threshold where 1,000 cases and 1,000 controls were obtained
-			\item Perform heritability estimation using \gls{shrek}, \gls{ldsc} and  \gls{gcta}
-			\item Repeat step 4-6 50 times
-			\item Repeat step 1-7 50 times
-		\end{enumerate}
-		
-		\subsection{Exreme Phenotype Selections}
-		The simulation of extreme phenotype selection is very much like the combination of quantitative trait simulation. 
-		The simplest way to simulate the extreme phenotype selection is to first simulation $N$ samples, then from this population of samples, select $n$ samples from both end of the population and use them to perform association and heritability estimation.
-		
-		Due to the similarity in nature with the simulation of quantitative traits and case control studies, we limit the number of causal \glspl{SNP} simulated as 100. 
-		We also limit our simulation to select samples with phenotype on the top and bottom $10\%$ of the population.
-		
-		However, it was noted that both \gls{gcta} and \gls{ldsc} did not implement heritability estimation under extreme phenotype selection. 
-		To perform a fair comparison with \gls{shrek}, we calculate the adjustment factor $\frac{\mathrm{Var}(Phenotype\ before\ selection)}{\mathrm{Var}(Phenotype\ after\ selection)}$ to the estimation from \gls{gcta} and \gls{ldsc}.
-		
-		Therefore, to summarize,
-		\begin{enumerate}
-			\item Randomly select 50,000 \glspl{SNP} from chromosome 1
-			\item Randomly generate 100 effect size following \cref{eq:snpEffect}
-			\item Randomly assign the effect size to $k$ \glspl{SNP} where \glspl{SNP} with small \gls{maf} will get a large effect size.
-			\item Simulate 10,000 samples using HAPGEN2 and calculate their phenotype according to \cref{eq:simulationOfPhenotype}
-			\item Select the top and bottom $10\%$ of samples from the 10,000 samples.
-			\item Perform heritability estimation using \gls{shrek}, \gls{ldsc} and  \gls{gcta}
-			\item Manually apply the adjustment factor to estimation of \gls{gcta} and \gls{ldsc}
-			\item Repeat step 4-7 50 times
-			\item Repeat step 1-8 50 times
-		\end{enumerate}
+		It was noted that the extreme phenotype selection were not supported by the \gls{ldsc} and \gls{gcta}.
+		To allow comparison in such scenario, we apply the extreme phenotype adjustment from \citet{Sham2014} to the estimation obtained from \gls{ldsc} and \gls{gcta}.
 		
 	\section{Result}
 		The heritabilibty estimation were implemented in \gls{shrek} and is available on \url{https://github.com/choishingwan/shrek}.  
 		% We need to find a way to explain our results in a logical sense
+		
 		
 		\begin{figure}
 			\centering

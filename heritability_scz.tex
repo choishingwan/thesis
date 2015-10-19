@@ -1,15 +1,17 @@
 \chapter{Heritability of Schizophrenia}
 
 \section{Introduction}
+% There is a large developmental thingy in schizophrenia
+% So will genes co-express in the brain during brain development 
+% be enriched with the heritability?
+% Need to talk about BrainSpan
+% Need to talk about WGCNA
+% Mention about RPKM
+\citet{Bulik-Sullivan2015,Finucane2015,Bulik-Sullivan2015a} have performed a series of comprehensive studies on the heritability of \glng{scz}.
+ 
 Apply Heritability estimation to the schizophrenia data.
 The genetic correlation and partitioning of heritability
 No one worked on linking schizophrenia with brain development directly?
-% talk about the current research on schizophrenia?
-% the overall heritablity estimation
-% The genetic correlation done by the LDSC. 
-% The theory of brain development 
-% How the co-expression network works
-% Drug response?
 \section{Heritability Estimation}
 This will be a very simple section, focused on how to perform the heritability estimation on \acrfull{scz}.
 Should also tokenize the heritability into subcategories (e.g. immune, neuron, etc)
@@ -26,8 +28,9 @@ Seeing how the whether if any brain development network were enriched with SNPs 
 %Also descript brainspan here
 \subsection{Methodology}
 \subsubsection{Sample Quality Controls}
-We obtain the developmental transcriptome data from BrainSpan (\url{http://www.brainspan.org/}). 
-A total of 56 samples with different age were provided by BrainSpan with an average of 2.2 samples per age.
+Developmental transcriptome data were obtained from BrainSpan (\url{http://www.brainspan.org/}).
+
+A total of 56 samples with different age were provided by BrainSpan.
 
 Studies suggested Hippocampus\citep{Velakoulis2006,Nugent2007}, Amygdala and Striatum\citep{Simpson2010} are brain regions involved in the etiology of schizophrenia. 
 Therefore, we focus on building the gene co-expression network of hippocampus, amygdala and striatum in this study
