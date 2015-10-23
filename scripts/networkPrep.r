@@ -30,10 +30,10 @@ sampleSelect <-function(rnaMeta, sampleMeta, region){
 	}
 }
 #Data info
-brainSpan = "~/workspace/inheritance_estimate/scripts/network/expression_matrix.csv"
-brainSpanRow="~/workspace/inheritance_estimate/scripts/network/rows_metadata.csv"
-brainSpanCol="~/workspace/inheritance_estimate/scripts/network/columns_metadata.csv"
-humanMetaFile = "~/workspace/inheritance_estimate/scripts/network/Human_Brain_Seq_Stages.csv"
+brainSpan = "~/workspace/inheritance_estimate/network/expression_matrix.csv"
+brainSpanRow="~/workspace/inheritance_estimate/network/rows_metadata.csv"
+brainSpanCol="~/workspace/inheritance_estimate/network/columns_metadata.csv"
+humanMetaFile = "~/workspace/inheritance_estimate/network/Human_Brain_Seq_Stages.csv"
 
 # Reading files
 colmeta = read.csv(brainSpanCol,row.names=1)
@@ -52,16 +52,20 @@ for(i in unique(colmeta$structure_acronym)){
 	temp = sampleSelect(colmeta, humanMeta, i)
 	if(!is.null(temp)){
 		if(dim(temp)[1] > 10){
-			okRegions=rbind(okRegions, i)
 			select = colmeta$donor_name %in% temp$donor_name & colmeta$structure_acronym %in% temp$structure_acronym
+			
+			okRegions=rbind(okRegions, data.frame(mod =i, size=sum(select))
 			select.count = count[,select]
 			colnames(select.count) = colmeta$donor_name[select]
 			select.count.filter = select.count[rowMeans(select.count)>1,]
 			select.count.log2 = log2(select.count.filter+1)
 			select.count.sd = apply(select.count.log2, 1, sd)
 			select.count.norm = (select.count.log2-rowMeans(select.count.log2))/select.count.sd
-			write.csv(select.count.norm, paste(i, ".count", sep=""))
-			write.csv(select.count.log2, paste(i, ".log.count", sep=""))
+			#write.csv(select.count.norm, paste(i, ".count", sep=""))
+			raw = count[,colmeta$structure_acronym %in% temp$structure_acronym];
+			colnames(raw) = colmeta$donor_name[colmeta$structure_acronym %in% temp$structure_acronym]
+			raw.filter = raw[rowMeans(select.count)>1,]
+			write.csv(log2(raw.filter+1), paste(i, ".log.count", sep=""))
 			write.csv(temp,paste(i,".sampleInfo", sep=""))
 			#system(paste("asub -c \"Rscript ~/workspace/inheritance_estimate/scripts/network/wgcna.r -f ",i,".count -o ",i,".network -s 0 -t 10 \" -e choishingwan@gmail.com -m 40gb -n nodes=1:ppn=12 -j ",i,".network",sep=""));
 			# Due to server restrictions and some random reasons, the above command will only generate all the required cmd files but not submitting the job to server.

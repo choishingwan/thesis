@@ -29,49 +29,74 @@ Seeing how the whether if any brain development network were enriched with SNPs 
 \subsection{Methodology}
 \subsubsection{Sample Quality Controls}
 Developmental transcriptome data were obtained from BrainSpan (\url{http://www.brainspan.org/}).
+A total of 56 individual with different ages were provided. 
+Considering the age of onset of \glng{scz}, we selected an age cut off of 30 years old. 
+Any individual older than 30 years old were excluded from the analysis.
+An individual can have more than one regions sequenced, thus there were a total of 524 RNA Sequencing data available.
+We only select samples with dissection score $>3$ and an \gls{rin}$\ge7$.
+This gave us a total of 421 brain expression data, subdivided into 21 regions according to the BrainSpan meta data.
 
-A total of 56 samples with different age were provided by BrainSpan.
+A challenge in trying to build co-expression gene networks using the BrainSpan samples were the relatively small sample size.
+As for some age, there were only as little as 1 individual, we cannot build a separate gene co-expression networks for each age. 
+Rather, we can only build a gene co-expression networks containing genes that were co-expressed in all sample age. 
+By combining samples from different age together, we will have adequate sample size for the network construction.
+However, another problem arise when merging all samples together was the possibility of over-representing age groups with more individual. 
+Thus, when more than 1 samples were available for a particular age group, we will only use the sample with the best quality.
+Samples with higher dissection score were always preferred as they should better represent their region. 
+In situation where there were multiple samples with the same dissection score, we select sample with a higher \gls{rin} value, which indicate a better RNA quality.
+Finally, for any region, we require at least 10 samples after the quality control were performed such that we will have a sufficient number of sample for network construction.
+In the end, 16 brain regions each with 14-21 samples were selected for gene co-expression network construction.
 
-Studies suggested Hippocampus\citep{Velakoulis2006,Nugent2007}, Amygdala and Striatum\citep{Simpson2010} are brain regions involved in the etiology of schizophrenia. 
-Therefore, we focus on building the gene co-expression network of hippocampus, amygdala and striatum in this study
-It is worth noting that the Pre-frontal Cortex is also important for schizophrenia. 
-However, as there isn't a well defined pre-frontal cortex samples from BrainSpan, we did not include the pre-frontal cortex in the current study.
-RNA Sequencing data of the brain regions were obtained from BrainSpan and undergo a series of quality control before the construction of the network. 
-
-For each sample age, when there are more than one samples, we select the sample with a dissection score $\ge3$ and an \gls{rin} $\ge7$. 
-As some developmental stage only got 1 sample passing the quality check, we limit each developmental stage to have a maximum of 1 sample such that the final network will not be driven by a particular developmental stage. 
-If multiple samples passed through the quality check threshold, we will prefer sample with higher dissection score. 
-Shall multiple samples have the same dissection score, we will select the one with the highest \gls{rin}. 
-And if the samples have the same dissection score and \gls{rin} value, we will randomly select one for the network construction.
-
-After performing the quality control, a total of 16, 18 and 15 samples were selected for hippocampus, amygdala and striatum respectively.
-The sample age ranged from \gls{gd}8 to 23 years old representing the fetal developmental stage till the age of onset of schizophrenia.
+%Studies suggested Hippocampus\citep{Velakoulis2006,Nugent2007}, Amygdala and Striatum\citep{Simpson2010} are brain regions involved in the etiology of schizophrenia. 
+%Therefore, we focus on building the gene co-expression network of hippocampus, amygdala and striatum in this study
+%RNA Sequencing data of the brain regions were obtained from BrainSpan and undergo a series of quality control before the construction of the network. 
 
 \subsubsection{Normalization of data}
-The RNA Sequencing data were represented as \gls{rpkm} values. 
-Genes with a low \gls{rpkm} can usually be a result from technical or biological noise\citep{Hart2013}.
-To reduce noise in the final model, genes with a mean \gls{rpkm} $< 1$ in all samples were discarded. 
-The \gls{rpkm} were then log transformed as instructed by the manual of \gls{wgcna}\citep{Langfelder2008}.
+The RNA Sequencing data were represented as \gls{rpkm} values.
+The \gls{rpkm} normalization were used such that count data from different samples can be comparable without worrying the difference in sequencing depth. 
+Genes with a low \gls{rpkm} were usually a result from technical or biological noise\citep{Hart2013}.
+Thus to reduce noise in the final model, genes with a mean \gls{rpkm} $< 1$ in all samples were discarded. 
+The \gls{rpkm} were then log$_2$ transformed as instructed by the manual of \gls{wgcna}\citep{Langfelder2008}.
 
 As there are insufficient samples for the construction of gene co-expression network for individual sample age, we try to construct networks with genes co-expressed through all sample stage. 
 This is achieved by taking the standardized log$_2$ \gls{rpkm} across sample age such that all genes has a mean of 0 and standard deviation of 1.
 
-At the end, there were 17,168 genes, 17,038 genes and 17,166 genes passing through the quality threshold and were used for the construction of co-expression network in hippocampus, amygdala and striatum respectively. 
-
+\begin{table}
+	\centering
+	\caption[Region information for network construction]{Region information for network construction.
+		The soft-threshold was picked based on \citet{Langfelder2008}.
+		When multiple saturation level were found, the first soft-threshold with scale free $R^2 \ge 0.8$ were selected unless the expected median connectivity was lower than 30 (default minimum network size).
+		The reason for the restriction placed on the expected median connectivity was that we do not want to construct very small networks, which were likely to be a result of noise.
+	}
+	\begin{tabular}{p{9cm}p{1.5cm}p{2cm}p{1.5cm}}
+		\toprule
+		Region & Acronym & Number of Samples & Soft-Threshold \\
+		\midrule
+		 Primary auditory cortex (core) & A1C & 16 & 16 \\%
+		 Amygdaloid complex & AMY & 15 & 14 \\%
+		 Cerebellar cortex & CBC & 18 & 15 \\
+		 Dorsolateral prefrontal cortex & DFC & 21 & 26\\
+		 Hippocampus (hippocampal formation) & HIP & 17 & 16 \\
+		 Posteroventral (inferior) parietal cortex & IPC & 18 & 9 \\
+		 Inferolateral temporal cortex (area TEv, area 20) & ITC & 16 & 17 \\ %
+		 Primary motor cortex (area M1, area 4) & M1C & 14 & 10  \\ 
+		 Mediodorsal nucleus of thalamus & MD & 14 & 22  \\
+		 anterior(rostral) cingulate(medial prefrontal) cortex & MFC & 17 & 12 \\
+		 Orbital frontal cortex & OFC & 16 & 15 \\
+		 Primary somatosensory cortex (area S1, areas 3,1,2) & S1C & 14 & 16 \\
+		 Posterior (caudal) superior temporal cortex (area 22c) & STC & 21 & 12 \\
+		 Striatum & STR & 16 & 16 \\
+		 Primary visual cortex (striate cortex, area V1/17) & V1C & 18 & 20 \\
+		 Ventrolateral prefrontal cortex & VFC & 19 & 27\\
+		\bottomrule
+		\label{tab:regionSample}
+	\end{tabular}
+\end{table}
 \subsubsection{Network Construction}
 \gls{wgcna} (ver 1.47) were used for the construction of gene co-expression network\citep{Langfelder2008}. 
-The \emph{blockwiseModules} function, using Biweight Midcorrelation for the construction of correlation matrix and a restriction of minimum network size of 30. 
-For the construction of gene co-expression networks in hippocampus, the soft-power threshold were set to 15 where it is the first threshold value which has $R^2 > 0.8$ (0.817) and the $R^2$ is saturated\citep{Zhang2005}.%(\cref{fig:softpowerThreshold})
-As for striatum, the soft-power threshold were set to 20. 
-Again, this is the first threshold value with $R^2 >0.8$ (0.879) and where the $R^2$ is saturated.
-
-On the other hand, for amygdala, soft-power threshold were set to 9 which is the first threshold for $R^2$ to reach saturation. 
-However, with a soft-power threshold of 9, the $R^2$ were only 0.776, which is lower than the recommended 0.8 threshold.
-The reason behind this decision was that the first soft-power threshold to have $R^2 > 0.8$ is 30.
-Under this threshold, the mean connectivity of the resulting networks will be around 23.6 with a median connectivity of 2.51.
-Such level of connectivity will likely yield networks that are too small to useful.
-If one would like to satisfy both requirement of threshold selection, a threshold $>30$ are likely required and any networks constructed will likely to be small.
-As a result of that, we select threshold of 9 where networks with reasonable size can be constructed.
+The \emph{blockwiseModules} function, using Biweight Midcorrelation for the correlation matrix and a restriction of minimum network size of 30 were used.
+During the construction of gene co-expression network using \gls{wgcna}, one need to select a soft-power threshold such that the constructed network should be \emph{scale-free}.
+Based on \citet{Zhang2005}, we select the first $R^2$ that was saturated with $R^2>0.7$. 
 
 %\begin{figure}
 %	\caption[Soft-power threshold selection]{Soft-power threshold selection. A soft-power of 13 were selected as it is the first threshold value having $R^2 > 0.8$ (0.817) and where the $R^2$ is saturated.}

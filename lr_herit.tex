@@ -1,0 +1,165 @@
+
+	\section{Broad Sense Heritability}
+
+	A key concept in quantitative genetics is \emph{heritability}, which was defined as \emph{proportion} of total variance of a trait in a population explained by variation of genetic factors in the population.
+	One can partition observed phenotype into a combination of genetic and environmental components\citep{Falconer1996}
+	$$
+	\text{Phenotype(P)}=\text{Genotype(G)}+\text{Environment(E)}
+	$$
+	where the variance of the observed phenotype ($\sigma_P^2$) can be expressed as variance of genotype ($\sigma_G^2$) and variance of environment ($\sigma_E^2$)
+	$$
+		\sigma_P^2=\sigma_G^2+\sigma_E^2
+	$$
+	The broad sense heritability can then be defined as the ratio between the variance of the observed phenotype and the variance of the genetic effects
+	$$
+	H^2=\frac{\sigma_G^2}{\sigma_P^2}
+	$$
+	
+	One key feature of heritability is that it is a \emph{ratio} of \emph{populational} measurement at a specific time point.
+	As a result of that, the heritability estimation might differ from one population to another due to difference in \gls{maf} and one might obtain a different heritability estimate if the method or time-point of measurement of the trait differs because of different environmental factors coming into play.
+	An classical example was the study of \gls{iq} where the heritability estimation increases with age\citep{Bouchard2013}.
+	It was hypothesize that the shared environment has a larger effect on individuals when they were young, and that as they become more independent, the effect of shared environment diminishes, leading to a \emph{increased portion} of variance in \gls{iq} explained by the variance in genetic\citep{Bouchard2013}. 
+	
+	\section{Narrow Sense Heritability}
+	In reality, the problem of heritability was more complicated for there were different forms of genetic effects. 
+	For example, one can partition the genetic variance into variance of additive genetic effects ($\sigma_A^2$), variance of dominant genetic effects ($\sigma_D^2$) and other epistatic genetic effects ($\sigma_I^2$) such that
+	$$
+		\sigma_G^2=\sigma_A^2+\sigma_D^2+\sigma_I^2
+	$$
+	where additive genetic variance was the variance explained by the average effects of all loci involved in the determination of the trait, whereas dominant genetic effects and epistatic genetic effectss were the interaction between alleles at the \emph{same} locus or \emph{different} loci respectively.
+	
+	As individuals only transmit one copy of each allele to their offspring, relatives other than full siblings and identical twins will only share a maximum of one copy of the allele from each other.
+	Considering that dominance and non-additive genetic effects were concerning the interactive effect, which usually involve more than one copy of the alleles, these effects are unlikely to contribute to the resemblance between relatives \citep{Visscher2008}.
+	On the other hand, the additive genetic effects is usually transmitted from parent to offspring, thus it is usually more useful to consider the narrow sense heritability($h^2$) which only consider the additive genetic effects:
+	\begin{align}
+	h^2&=\frac{\sigma_A^2}{\sigma_P^2} \notag\\
+	h^2&=\frac{\sigma_A^2}{\sigma_G^2+\sigma_E^2}
+	\label{eq:narrowHeritability}
+	\end{align}
+	
+	% add in how to calculate the heritability in normal way here
+	To obtain the additive genetic effect, we can first consider the genetic effect of parents to be $G_p=A+D$. 
+	As only half of the additive effect were transmitted to their offspring, the child will have a genetic effect of $G_c=\frac{1}{2}A+\frac{1}{2}A'+D'$ where $A'$ is the additive genetic effect obtained from another parent by random and $D'$ is the non-additive genetic effect in the offspring.
+	If we then consider the parent offspring covariance, we will get
+	\begin{align}
+	\mathrm{Cov_{OP}}&= \sum(\frac{1}{2}A+\frac{1}{2}A'+D')(A+D)\notag\\
+	&=\frac{1}{2}\sum A^2+\frac{1}{2}\sum AD + \frac{1}{2}\sum A'(A+D) +D'(A+D) \notag\\ 
+	&=\frac{1}{2}V_A+ \frac{1}{2}\mathrm{Cov}_{AD} + \frac{1}{2}\mathrm{Cov}_{A'A} + \frac{1}{2}\mathrm{Cov}_{A'D} +\mathrm{Cov}_{D'A} +\mathrm{Cov}_{D'D}  
+	\label{eq:halfCompletedCovOP}
+	\end{align} 
+	Under the assumption of random mating,  $A'$ should be independent from $A$ and $D$. 
+	On the other hand, as $D'$ was specific to the child, both of them should be independent from $A$ and $D$.
+	Moreover, the covariance between the additive genetics and non-additive genetics should be zero\citep{Falconer1996}.
+	Thus, \cref{eq:halfCompletedCovOP} becomes
+	\begin{align}
+	\mathrm{Cov_{OP}} &= \frac{1}{2}V_A+\mathrm{Cov}_{AD} \notag\\
+	&= \frac{1}{2}V_A
+	\label{eq:covOP}
+	\end{align}
+	Now if we assume the variance of phenotype of the parent and offspring were the same, then using \cref{eq:covOP}, we can obtain the narrow-sense heritability as
+	\begin{align}
+	h^2 &= \frac{1}{2}\frac{V_A}{\sigma_P^2}
+	\label{eq:narrowHerit}
+	\end{align}
+	If we consider the simple linear regression equation $Y=X\beta+\epsilon$, its slope can be calculated as 
+	\begin{equation}
+	\beta_{XY} = \frac{\mathrm{Cov}_{XY}}{\sigma_{X}{Y}}
+	\end{equation}
+	which resemble \cref{eq:narrowHerit}. 
+	Therefore,  we can calculate the narrow sense heritability as
+	\begin{equation}
+	h^2 = 2\beta_{OP}
+	\label{eq:narrowSenseHerit}
+	\end{equation}
+	where $\beta_{OP}$ is the slope of the simple linear regression regressing the phenotype of an offspring to the phenotype of \emph{one} of its parents.
+	We can further generalize \cref{eq:narrowSenseHerit} to all possible relativeness 
+	\begin{equation}
+	h^2=\frac{\beta_{XY}}{r}
+	\label{eq:finalNarrow}
+	\end{equation}
+	where $r$ is the relativeness of $X$ and $Y$.
+	
+	A key assumption in this calculation was that the relatives does not share anything other than the additive genetic factors.
+	However, this was usually not the case as relatives does tends to be in the same cultural group and might have similar socio-economical status which might all contribute the the variance of the trait.
+	This might therefore lead to bias in \cref{eq:finalNarrow} and we shall discuss the partitioning of variance in the later sections.
+	
+	Nonetheless, \cref{eq:finalNarrow} was still useful for the understanding of the calculation of heritability.
+	However, in the case of discontinuous trait (e.g. disease status) the calculation becomes more completed because the variance of the phenotype was dependent on the population prevalence.
+	As \cref{eq:finalNarrow} does not account for the trait prevalence, it cannot be directly applied to discontinuous traits.
+	In order to perform heritability estimation, we will need the concept of liability threshold model popularized by \cite{Falconer1965}.
+	
+	\section{Liability Threshold}
+	\label{sec:liability}
+	According the central limit theorem, if a phenotype is determined by a multitude of genetics and environmental factors with relatively small effect, then its distribution will likely follow a normal distribution as is the case of many quantitative traits\citep{Visscher2008}. % No, what if there is interaction between variables? Then it will break the CLT
+	The variance of phenotype can therefore be calculated as the variance under the normal distribution.
+	However, such is not the case for disease such as \glng{scz} where instead of having a continuous distribution of phenotype, only a dichotomous labeling of ``affected'' and ``normal'' were obtained.
+	The variance of these phenotype were therefore more difficult to obtain.
+	
+	\citet{Falconer1965} proposed the liability threshold model, which suggesting that these discontinuous traits also follow a continuous distribution with an additional parameter called the ``liability threshold''.
+	Under the liability threshold model, the discontinuous traits were also affected by combination of multitude of genetics and environmental factors, each with a small effects, as in the case of the continuous traits.
+	The main difference was that the phenotype of an individual is determined by whether if the combined effects of these factors(``liability'') were above a particular threshold (``liability threshold'').
+	So for example, in the case of \glng{scz}, only when an individual has a liability above the liability threshold will he/she be affected.
+	
+	One can then esimate the heritability of the discontinuous by comparing the mean liability of the general population when compared to the relatives of the affected individuals.	
+	For example, if we consider a single threshold model of a dichotomous trait, where 
+	\begin{align}
+	T_G &= \text{Liability threshold of the general population}\notag\\
+	T_R &= \text{Liability threshold of relatives of the index case} \notag\\
+	q_G &= \text{Prevalence in the general population}\notag\\
+	q_R &= \text{Prevalence in relatives of the index case}\notag\\
+	L_a &= \text{Mean Liability of the index case} \notag
+	\end{align}
+	by assuming both the liability distribution of the general population and that of the relative of the index case both follows the standard normal distribution, we can align the two distribution with respect to $T_G$ and $T_R$. 
+	We can then calculate the mean liability of the index case $L_a$ as $L_a=\frac{z_G}{q_G}$ where $z_G$ is the density of the normal distribution at the liability threshold $T_G$.
+	Then we can express the regression of relative's liability on the liability of the index case as
+	\begin{align}
+	\beta &= \frac{T_G-T_R}{L_a}
+	\label{eq:liability}
+	\end{align}
+	
+	Thus, by applying \cref{eq:liability} to \cref{eq:finalNarrow}, we get
+	\begin{align}
+	h^2 =\frac{T_G-T_R}{L_ar}
+	\end{align}
+	
+	% Then the application in schizophrenia
+	% Then Twin studies 
+	% Or maybe twin studies first, then the application in schziophrenia?
+		
+	\section{Twin Studies of Schizophrenia}
+	% Need to go deeper into twin studies
+	Now that we can deal with discontinuous traits, we shall come back to the limitation of \cref{eq:finalNarrow}.
+	The key limitation of \cref{eq:finalNarrow} was its inability to discriminate the genetic factors from the shared environmental factors.
+	Such problem arise as family not only shared some of their genes, but they also tends to shared some of the environmental factors such as diet. 
+	In fact, this was the main reason for researchers to discord the argument that \glng{scz} was a genetic disorder.
+	
+	A classical adoption study carried out by \citet{HESTON1966} in 1966 set off to discriminate whether if the increased risk of \glng{scz} in relatives of \glng{scz} was caused by the shared environmental factors or the shared genetic factors. 
+	An advantages of adoption studies was that if the child was separated from their family early after birth, then the shared environmental factors should be minimized, thus any resemblance between the parent and child should be driven mainly by the shared genetic factors.
+	\citet{HESTON1966} collected data of 47 individuals born from a schizophrenic mother during the period from 1915 to 1947. 
+	They were separated from their mother within three day of birth and were sent to a foster family. 
+	50 matched control were also recruited to the study.
+	It was observed that there was an increased risk of \glng{scz} in individual born to schizophrenic mother when compared to the control group even-though they were brought up in a different environment as that of their mother.
+	This result suggested that \glng{scz} was likely driven by the shared genetic factors instead of the shared environmental factors.
+	
+	Despite the usefulness of adoption studies in delineating the effect of shared environment from the genetic factors, collection of adoption data were difficult. 
+	Moreover, any prenatal influence such as alcohol abuse during pregnancy might confound the results.
+	Therefore, an alternative way would be the twin studies using the relationship between the \gls{mz} and \gls{dz} twins.
+	
+	Theoretically, \gls{mz} twins should shared all their genetic components (both additive($A$) and non-additive($D$) genetic factors) and also their common environmental factors($C$) where the only difference between a twin pair would be the non-shared environmental factors($E$). 
+	As for the \gls{dz} twins, they should also shared the same common environmental factors yet they only share $\frac{1}{2}$ of their additive genetic factors and $\frac{1}{4}$ of their non-additive genetic factors. 
+	The non-shared environmental was also by definition not shared among the twins\citep{Rijsdijk2002}.
+	Based on these assumptions, \cite{Falconer1996} derived the heritability as
+	\begin{equation}
+	h^2 = 2(\rho_{MZ}-\rho_{DZ})
+	\end{equation}
+	where $\rho_{MZ}$ and $\rho_{DZ}$ were the phenotype correlation between the \gls{mz} twins and \gls{dz} twins respectively.
+	
+	By combining Falconer's formula and the concept of liability threshold model, \citet{Gottesman01071967} estimated that the heritability of \glng{scz} to be $>60\%$ based on previously collected twin data, strongly suggesting \glng{scz} as a genetic disorder.
+	The result was further supported by one of the landmark meta-analysis study conducted by \cite{Sullivan2003}.
+	Based on data obtained from 12 published \glng{scz} twin studies, the authors found that although there was a non-zero contribution of environmental influence on liability of \glng{scz} ($11\%$,\gls{ci}=$3\%-19\%$), there was a much larger contribution from genetics ($81\%$, \gls{ci}=$73\%-90\%$), further supporting that \glng{scz} was largely mediated by the genetic factors.
+	
+	Such findings were not limited to twin-studies but were also reported in large scale population based studies.
+	A recent large scale population based study in Sweden population\citep{Lichtenstein2009} also found that there was a large genetic contribution in \glng{scz} ($64\%$).
+	Although the estimated heritability(64\%\citep{Lichtenstein2009} vs 81\%\citep{Sullivan2003}) differs between the two studies, they, there is no doubt that \glng{scz} is highly heritable, leading to the initiative of genetic research in \glng{scz}.
+	
+	
