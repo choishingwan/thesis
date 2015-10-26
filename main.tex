@@ -138,6 +138,7 @@
 \raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 \onehalfspacing
 %\doublespacing
+%\includeonly{heritability_estimation}
 \includeonly{literature_review}
 
 \makeindex
@@ -215,32 +216,6 @@
 
 \setlength{\parindent}{4em}
 \setlength{\parskip}{0.75em}
-	%\chapter*{Some considerations}
-	%\begin{enumerate}
-	%	\item PRSice requires the phenotype to aid its selection (More information= stronger)
-	%	\item It seems like LDSC doesn't necessary perform badly in oligogenic situation.
-	%	Rather, it is that when the trait is oligogenic, it is more likely for LDSC to behaviour in a strange way.
-	%	\item For each condition: extreme phenotype, quantitative trait, case control, we can have a separated review. 
-	%	Discuss on the benefits and challenges of each condition and the method we deal with them.
-	%	So we can have two chapters (case control, quantitative trait) where extreme phenotype can be a big subsection within quantitative trait.
-	%	\item For each chapter, there will be this introduction (review on the method), our methodology (Calculation, implementation and also simulation), result (the simulation result). 
-	%	Then we can have the application (PGC, network)
-	%\end{enumerate}
-	%Things that I have to include
-	%\begin{enumerate}
-	%	\item Schizophrenia
-	%	\begin{enumerate}
-	%		\item Case Control (PGC) \\ LDSC has basically did everything related to partitioning and genetic correlation, so we should focus on the brain network instead
-	%		\item Drug Response \\ No one has done it before, should have a brief section here. 
-	%		Focus should be with the \emph{heritability} of response, not to identify the variants.
-	%		However, we can try to partition the heritability of drug response too.\\
-	%		Is it really related to genetics? 
-	%		Or is it something related to environmental?
-	%		e.g. Discouraging family members leads to not adhere to medicine
-	%	\end{enumerate}
-	%	\item Heritability Estimation \\ This part should be straightforward, just the algorithm and the simulation results
-		
-	%\end{enumerate}
 	
 	\include{literature_review}
 	\include{heritability_estimation}

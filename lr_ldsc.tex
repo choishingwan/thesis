@@ -4,16 +4,16 @@
 	Yet in a typical \gls{GWAS}, the genotype of each individuals were known.
 	The ``genetic distance'' between two individual will provide an estimate of their relationship, thus allowing the calculation of heritability.
 	\citet{Yang2011} use the concept of genetic distance to calculate the \gls{grm} to represent the relationship between individuals.
-	The \gls{grm} were then used in the restricted maximum likelohood analysis(REML) to estimate the heritability of the trait\citep{Yang2011}.
+	The \gls{grm} were then used in the restricted maximum likelihood analysis(REML) to estimate the heritability of the trait\citep{Yang2011}.
 	This was implemented in \gls{gcta} and were now wildly used in the estimation of heritability on \gls{GWAS} data.
 	
 	The problem with \gls{gcta} was that it require the genotype data to estimate the heritability.
 	However, for complex disease like \glng{scz}, the data were usually obtained from multiple data source.
-	Because of privacy issues, usually only the test statistic were shared among the research groups and only meta analysis were performed.
+	Because of privacy issues, usually only the test statistic were shared among the research groups and only meta-analysis were performed.
 	Given there was no raw genotype data, it is impossible to calculate the \gls{grm}, thus making the use of \gls{gcta} impossible.
 	  
 	\subsection{\glng{ldsc}}
-	Sometimes, in a \gls{GWAS} study, one can observe an general inflation of test statistics. 
+	Sometimes, in a \gls{GWAS} study, one can observe a general inflation of test statistics. 
 	It was usually considered to be contributed to the presence of confounding factors such as population stratification under the assumption that most of the \glspl{SNP} should have no association to the disease.
 	It was therefore a common practice for one to perform the \gls{gc} on the \gls{GWAS} results\citep{Zheng2006}.
 	
@@ -35,7 +35,7 @@
 	\mathrm{E}[\chi^2_j | l_j] = \frac{Nl_jh^2}{M}+Na+1
 	\label{eq:fullLDSC}
 	\end{equation}
-	If one express the \gls{LD} score and the $chi^2$ as vectors $\boldsymbol{L}$ and $\boldsymbol{\chi^2}$ respectively, \cref{eq:fullLDSC} becomes a regression of the $\chi^2$ against the \gls{LD} score:
+	If one express the \gls{LD} score and the $\chi^2$ as vectors $\boldsymbol{L}$ and $\boldsymbol{\chi^2}$ respectively, \cref{eq:fullLDSC} becomes a regression of the $\chi^2$ against the \gls{LD} score:
 	\begin{equation}
 	\boldsymbol{\chi^2}= \frac{N}{M}\boldsymbol{L}h^2+Na+1
 	\label{eq:ldReg}
@@ -49,7 +49,7 @@
 	The estimated heritability was lower than what was previously estimated from population based study(64\%\citep{Lichtenstein2009}) and twin studies(81\%\citep{Sullivan2003}).
 	Possible reasons of such discrepancies might be that in \citet{Ripke2014}'s study, only \glspl{SNP} data were collected. 
 	From \citet{Szatkiewicz2014}, it was clearly demonstrated that other than \glspl{SNP}, \glspl{cnv} were also associated with \glng{scz}.
-	By ignoring \glspl{cnv} in the estimation of heritability, the estimation of \citet{Bulik-Sullivan2015} would only provided a lower bound of heritability estimated.
+	By ignoring \glspl{cnv} in the estimation of heritability, the estimation of \citet{Bulik-Sullivan2015} would only provide a lower bound of heritability estimated.
 	Another possibility of the``missing'' heritability can be due to interaction between the genetic and environmental factors. 
 	Although previous studies\citep{Gottesman01071967} suggested that the non-additive genetic factors were unlikely to contribute to \glng{scz}, the possibility of involvement of gene-environmental interaction $G\times E$ were not ruled out.
 	Indeed, in the adoption study conducted by \citet{Tienari2004}, it was found that individuals with higher genetic risk were significantly more sensitive to ``adverse'' vs ``healthy'' rearing patterns in adoptive families than are adoptees at low genetic risk\citep{Tienari2004}, providing support to a possible interaction between genetic and environmental factors.
@@ -61,7 +61,7 @@
 	\subsection{Partitioning of Heritability of Schizophrenia}
 	\subsectionmark{Partitioning of Heritability}
 	Traditionally, functional enrichment analysis in \gls{GWAS} only take into account of \glspl{SNP} that passed the genome wide significance threshold. 
-	However, for complex traits such as that of \glng{scz}, much fo the heritability might lies in \glspl{SNP} that do not reach genome wide significance threshold at the current sample size.
+	However, for complex traits such as that of \glng{scz}, much of the heritability might lies in \glspl{SNP} that do not reach genome wide significance threshold at the current sample size.
 	For example, in 2013, only 13 risk loci were detected using 13,833 \glng{scz} samples and 18,310 controls \citep{Ripke2013}. 
 	When the sample size increased to 34,241 \glng{scz} samples and 45,604 controls in 2014, 108 risk loci were identified\citep{Ripke2014}. 
 	Thus, if one only consider the significant loci, risk loci that have not reach genome wide significance threshold might be ignored from the analysis, decreasing the power of the functional enrichment analysis.
@@ -71,7 +71,7 @@
 
 	\citet{Finucane2015} used data from \citet{Ripke2014} and functional categories derived from the ENCODE annotation\citep{ENCODEProjectConsortium2012}, the NIH Roadmap Epigenomics Mapping Consortium annotation\citep{Bernstein2010} and other studies\citep{Finucane2015}, it was found that the brain cell types were most enriched in \glng{scz}, especially those related to the \gls{cns}.
 	Of all the functional categories, the most enriched category in \glng{scz} was the H3K4me3 mark in the fetal brain(\cref{tab:cellTypeScz}). 
-	As H3K4me3 was mostly linked to active promoters, it was likely for genes that were active in fetal brain (e.g genes related to brain development) to be associated with \glng{scz}, supporting the idea of \glng{scz} as an neuro-developmental disorder. 
+	As H3K4me3 was mostly linked to active promoters, it was likely for genes that were active in fetal brain (e.g. genes related to brain development) to be associated with \glng{scz}, supporting the idea of \glng{scz} as a neuro-developmental disorder. 
 	
 	Moreover, it was also observed that the second most enriched cell types were those related to immunity.
 	Undoubtedly, the \gls{cns} and the immune system have an important role in the disease etiology of \glng{scz}. 
@@ -154,15 +154,15 @@
 	
 	\subsection{Genetic Correlation}
 	Another very important application of \gls{ldsc} is that it allow one to identify the genetic correlation between traits\citep{Bulik-Sullivan2015a}. 
-	The genetic correlation can be used as an genetic analogue to co-morbidity, thus allowing deeper understanding to the etiology of the traits.
+	The genetic correlation can be used as a genetic analogue to co-morbidity, thus allowing deeper understanding to the etiology of the traits.
 	Above all, genetic correlation was important in studying the treatment response. 
 	It has been observed that there was an increased prevalence of anxiety, depression and substance abuse in \glng{scz}\citep{Buckley2009}. 
 	These co-morbidity were generally associated with more severe psychopathology and with poorer outcome\citep{Buckley2009}.
 	A deeper understanding of possible co-morbidity between different traits and \glng{scz} might provide insight not only to the disease etiology of \glng{scz}, it might even provide important information in possible treatment options for \glng{scz}. 
-	Using breast cancer as an example, it was found that patients with comorbidity had poorer survival than those without comobidity\citep{Sogaard2013} and it was suggested that by treating the comorbid diseases, one might be able to delay mortality in breast cancer patients\citep{Ording2013}.
+	Using breast cancer as an example, it was found that patients with comorbidity had poorer survival than those without comorbidity\citep{Sogaard2013} and it was suggested that by treating the comorbid diseases, one might be able to delay mortality in breast cancer patients\citep{Ording2013}.
 		
 	By applying their method to 25 different phenotypes, \citet{Bulik-Sullivan2015a} shown that \glng{scz} has significant genetic correlation with bipolar disorder, major depression and more surprisingly, anorexia nervosa.
-	Previous studies have always suggest there to be an co-morbidity between \glng{scz} and bipolar disorder \citep{Lichtenstein2009,Purcell2009,Buckley2009}.
+	Previous studies have always suggest there to be a co-morbidity between \glng{scz} and bipolar disorder \citep{Lichtenstein2009,Purcell2009,Buckley2009}.
 	Similarly, it was not uncommon for \glng{scz} to display depressive symptoms\citep{Buckley2009}. 
 	It was even observed that individuals at high risk and ultrahigh risk for developing \glng{scz} have generally demonstrated a significant degree of depressive symptoms prior to and during the emergence of psychotic symptoms, suggesting a close relationship between \glng{scz} and depression. 
 	

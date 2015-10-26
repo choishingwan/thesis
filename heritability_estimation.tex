@@ -558,8 +558,8 @@
 		We simulate $m$ \glspl{SNP} accounting for 50\% of all the effect where $m\in\{1,5,10\}$.
 		The effect size was then calculated as
 		\begin{align}
-		\beta_{eL} &= \pm\sqrt{\frac{0.5h^2}{m}} 
-		\beta_{eS} &= \pm\sqrt{\frac{0.5h^2}{k-m}} 
+		\beta_{eL} &= \pm\sqrt{\frac{0.5h^2}{m}} \notag\\
+		\beta_{eS} &= \pm\sqrt{\frac{0.5h^2}{k-m}} \notag\\
 		\beta &= \{\beta_{eL}, \beta_{eS}\}
 		\label{eq:extremEffect}
 		\end{align}
@@ -574,7 +574,6 @@
 			\item Repeat step 4-5 50 times
 			\item Repeat step 1-6 10 times
 		\end{enumerate}
-		\subsubsection{Effect of Minor Allele Frequency}
 		
 		\subsection{Case Control Studies}
 		The simulation of case control studies was very much like that of the simulation of quantitative trait. 
@@ -586,14 +585,16 @@
 		Considering the scenario where the observed prevalence is 50\%, the population prevalence is 1\% and 1,000 cases,a minimum of 100,000 samples will be required.
 		
 		% Maybe instead of chromosome 1, use chromosome 22 and reduce the number of SNPs, that will be better.
-		Given limited computer resources, we only simulate 1,000 cases, with an observed prevalence of 0.5 and population prevalence $p\in\{0.5,0.001\}$.
+		Given limited computer resources, we only simulate 1,000 cases, with an observed prevalence of 0.5 and population prevalence $p\in\{0.5, 0.1, 0.05, 0.01\}$.
 		Most importantly, we reduce the number of \glspl{SNP} simulated to 5,000 and used chromosome 22 instead, such that the \glspl{SNP} density remains more or less unchanged by the number of processes required were largely reduced.
 		We acknowledged that the current simulation was relatively brief, however, it should be able to serve as a prove of concept simulation to study the performance of the tools under the case control scenario.
 		
 		\subsection{Extreme Phenotype Selection}
-		The simulation of extreme phenotype selection follows that of the quantitative trait simulation. 
-		Due to their similarity, we only simulate condition where there were 100 causal \glspl{SNP}. 
-		We will then simulate 5,000 samples and select 500 samples from the extreme end of the sample distribution.
+		The simulation of extreme phenotype selection was the same as the quantitative trait simulation. 
+		The only difference being that instead of using all samples for heritability estimation, we only use the extreme 10\% of samples among the population for the heritability estimation.
+		In brief, instead of simulating 1,000 samples, we simulate 5,000 samples following the exact procedure in the quantitative trait simulation with random effect size.
+		However, after simulation of the phenotype using \cref{eq:simulationOfPhenotype}, we standardize the phenotype and only select the top 10\% and bottom 10\% samples (500 samples each) from the sample distribution.
+		We then perform the same simulation procedure as in the quantitative trait simulation with random effect size.
 		
 		It was noted that the extreme phenotype selection were not supported by the \gls{ldsc} and \gls{gcta}.
 		To allow comparison in such scenario, we apply the extreme phenotype adjustment from \citet{Sham2014} to the estimation obtained from \gls{ldsc} and \gls{gcta}.
