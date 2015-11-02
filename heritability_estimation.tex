@@ -582,14 +582,14 @@
 			\item Repeat step 1-7 10 times
 		\end{enumerate}
 		
-		\section{Comparison with Other Programmes}
+		\section{Comparison with Other Algorithms}
 		It is also important for us to compare our algorithm to existing methods for the performance in estimating the narrow sense heritability.
 		We would also like to extend the simulation to other conditions such as quantitative traits with extreme effect size distribution, case control studies and quantitative traits with extreme phenotype selections.
 		
-		Currently, the only other programme that is capable to estimate the narrow sense heritability using only test statistic is the \gls{ldsc} \citep{Bulik-Sullivan2015}. 
+		Currently, the only other algorithm that is capable to estimate the narrow sense heritability using only test statistic is the \gls{ldsc} \citep{Bulik-Sullivan2015}. 
 		On the other hand, \gls{gcta} \citep{Yang2011} is commonly considered as the golden standard for heritability estimation in \gls{GWAS} data. 
 		Therefore, we choose to compare the performance of our algorithm to that of \gls{ldsc} and \gls{gcta}.
-		It is important to note that as we are assessing the performance of the programme through controlled simulation, there should be little confounding factors. 
+		It is important to note that as we are assessing the performance of the algorithms through controlled simulation, there should be little confounding factors. 
 		For \gls{ldsc}, the default intercept estimation function allows it to estimate and correct for confounding factors with an increase in \gls{se}. 
 		The simulation will therefore be unfair to \gls{ldsc} with intercept estimation, as the \gls{se} is increased yet there are little confounding factors for it to correct.
 		Thus, we also simulate \gls{ldsc} with a fixed intercept (-{}-no-intercept) parameters to avoid bias against \gls{ldsc}.	
@@ -684,7 +684,30 @@
 	\section{Result}
 		The heritabilibty estimation were implemented in \gls{shrek} and is available on \url{https://github.com/choishingwan/shrek}.  
 		\subsection{Performance}
+		We first examine the performance of \gls{shrek} when estimating the narrow sense heritability of varies quantitative traits. 
+		Although the number of causal \glspl{SNP} did not have a significant impact to the performance of \gls{shrek}, a general up-ward bias was observed. 
+		As the simulated heritability increases, the bias of the estimate systematically increases.
+		One possible reason for the general up-ward bias was that we under-estimate the $R^2$ during the analysis. 
+		When considering \cref{eq:rho2Correct}, it was observed that the $R^2$ were downwardly corrected. 
+		Therefore we hypothesize that by not performing the bias correcting in the \gls{LD}, we might get more accurate estimation of the heritability.
 		
+		We re-run the simulation on \cref{sec:shrekSim}, this time comparing the performance of \gls{shrek} with and without the \gls{LD} correction.
+		It was observed that when \gls{shrek} was performed without \gls{LD} correction, there was a downward bias. 
+		The magnitude of bias was much smaller when compared to the estimation with \gls{LD} correction. 
+		On top of that, the variance of estimation was also smaller when \gls{LD} correction was not performed.
+		In conclusion, \gls{shrek} without \gls{LD} correction seems to be superior in performance when compared to \gls{shrek} with \gls{LD} correction. %TODO The mse table for SHREK 
+		The default behavior of \gls{shrek} now is to avoid performing the \gls{LD} correction, with the option to allow user to enable \gls{LD} correction when it was required.
+		
+		%TODO might need to explain whey LD correction is bad here later after we have figure it out
+		\subsection{Comparing with Other Algorithms}
+		It is important for us to compare our algorithm with existing algorithms to understand the relative performance of the algorithms under different conditions.
+		First, we examined the performance of the algorithms under the quantitative trait scenario where we varies the trait heritability and the number of causal \glspl{SNP}.
+		\subsubsection{Quantitative Trait Simulation}
+		
+		
+		
+	
+				
 		To study the performance of \gls{shrek} and \gls{ldsc} in comparison to \gls{gcta}, we performed a variety of simulations to model scenarios with different number of causal \glspl{SNP}, different effect size distribution and different type of traits. 
 		
 		First, we examined the performance of the algorithms under the quantitative trait scenario. 
