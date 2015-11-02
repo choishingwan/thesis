@@ -1,4 +1,4 @@
-\documentclass{book}
+\documentclass[12pt]{book}
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{colortbl}
@@ -6,9 +6,11 @@
 \usepackage{caption}
 \usepackage{fullpage}
 \usepackage{afterpage}
+\usepackage{float}
 \usepackage{multirow}
 \usepackage[nodisplayskipstretch]{setspace}
 \usepackage{booktabs}
+\usepackage{textcomp}
 \usepackage{gensymb}
 \usepackage[utf8]{inputenc} 
 %\usepackage{parskip}
@@ -23,6 +25,7 @@
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage[acronym,nomain,toc,makeindex ]{glossaries}
+\usepackage{graphicx}
 \usepackage{cleveref} %This need to be the last package for it to work properly 
 \usepackage[hyperref=true,maxcitenames=3,maxbibnames=3,url=false,isbn=false,backref=true,natbib=true,backend=biber,sorting=nyvt,defernumbers=false, style=authoryear]{biblatex}
 
@@ -39,8 +42,6 @@
 \singlespacing
 \renewcommand*\contentsname{Contents}
 
-
-%\includeonly{environmental_risk/er_chapter,supplementary_materials}
 \newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 \newcommand*{\glng}{\glsentrylong}
 \newcommand*{\Glng}{\Glsentrylong}
@@ -50,7 +51,7 @@
 	\setcounter{figure}{0}
 	\renewcommand{\thefigure}{S\arabic{figure}}%
 }
-
+\newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 
 %
 %	GLOSSARY SECTION
@@ -69,8 +70,11 @@
 \newacronym{gcta}{GCTA}{Genome-wide Complex Trait Analysis}
 \newacronym{ldsc}{LDSC}{LD SCore}
 \newacronym{CEU}{CEU}{Northern Europeans from Utah}
-\newacronym{se}{SE}{Standard Error}
+\newacronym{se}{SE}{standard error}
 \newacronym{maf}{maf}{Minor Allele Frequency}
+\newacronym{isc}{ISC}{International Schizophrenia Consortium}
+\newacronym{mgs}{MGS}{Molecular Genetic of Schizophrenia}
+\newacronym{sgene}{SGENE}{Schizophrenia Genetics Consortium}
 \newacronym{pgc}{PGC}{Psychiatric Genomics Consortium}
 \newacronym{rin}{RIN}{RNA integrity number}
 \newacronym{gd}{GD}{Gestation Day}
@@ -79,13 +83,36 @@
 \newacronym{pc}{PC}{Principle Component}
 \newacronym{GO}{GO}{Gene Ontology}
 \newacronym{MAGMA}{MAGMA}{Multi-marker Analysis of GenoMic Annotation}
-\newacronym{ngs}{NGS}{Next Generation Sequencing}
+\newacronym{ngs}{NGS}{next generation sequencing}
 \newacronym{dsm}{DSM}{Diagnostic and Statistical Manual of Mental Disorders}
 \newacronym{mse}{MSE}{mean squared error}
 \newacronym{who}{WHO}{World Health Organization}
 \newacronym{yld}{YLD}{years lost due to disability}
 \newacronym{ci}{CI}{confidence interval}
-
+\newacronym{iq}{IQ}{intelligence quotient}
+\newacronym{polyic}{PolyI:C}{polyriboinosinic-polyribocytidilic acid}
+\newacronym{lps}{LPS}{lipopolysaccharide}
+\newacronym{il6}{IL-6}{Interleukin-6}
+\newacronym{mz}{MZ}{monozygotic}
+\newacronym{dz}{DZ}{dizygotic}
+\newacronym{mia}{MIA}{maternal immune activation}
+\newacronym{ncp}{NCP}{non-centrality parameter}
+\newacronym{cnv}{CNV}{copy number variation}
+\newacronym{grm}{GRM}{Genetic Relationship Matrix}
+\newacronym{gc}{GC}{Genomic Control}
+\newacronym{mhc}{MHC}{major histocompatibility complex}
+\newacronym{cns}{CNS}{central nervous system}
+\newacronym{panss}{PANSS}{Positive and Negative Symptom Scale}
+\newacronym{fga}{FGA}{First Generation Antipsychotic}
+\newacronym{sga}{SGA}{Second Generation Antipsychotic}
+\newacronym{nmda}{NMDA}{N-methyl-D-aspartate}
+\newacronym{eps}{EPS}{extrapyramidal motor symptoms}
+\newacronym{td}{TD}{Tardive dyskinesia}
+\newacronym{pet}{PET}{positron emission tomography}
+\newacronym{catie}{CATIE}{Clinical Antipsychotic Trials of Intervention Effectiveness}
+\newacronym{pca}{PCA}{principle component analysis}
+\newacronym{fdr}{FDR}{false discovery rate}
+\newacronym{pcgc}{PCGC}{Phenotype correlation - genotype correlation regression}
 %
 %
 %	FORMATING SECTION
@@ -96,8 +123,8 @@
 \fancyhf{}
 \fancyfoot[LE,RO]{\thepage}
 \renewcommand{\footrulewidth}{1pt}
-\fancyhead[L]{\leftmark}
-\fancyhead[R]{\rightmark}
+\fancyhead[LE]{\leftmark}
+\fancyhead[RO]{\rightmark}
 
 \geometry{
 	top=1in,            % <-- you want to adjust this
@@ -112,6 +139,16 @@
 \raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 \onehalfspacing
 %\doublespacing
+\includeonly{heritability_estimation}
+%\includeonly{literature_review}
+
+
+\extrafloats{100}
+
+
+
+
+
 
 \makeindex
 \begin{document}\thispagestyle{empty}
@@ -188,574 +225,12 @@
 
 \setlength{\parindent}{4em}
 \setlength{\parskip}{0.75em}
-	\chapter{Introduction}
-		
-	%\chapter*{Some considerations}
-	%\begin{enumerate}
-	%	\item PRSice requires the phenotype to aid its selection (More information= stronger)
-	%	\item It seems like LDSC doesn't necessary perform badly in oligogenic situation.
-	%	Rather, it is that when the trait is oligogenic, it is more likely for LDSC to behaviour in a strange way.
-	%	\item For each condition: extreme phenotype, quantitative trait, case control, we can have a separated review. 
-	%	Discuss on the benefits and challenges of each condition and the method we deal with them.
-	%	So we can have two chapters (case control, quantitative trait) where extreme phenotype can be a big subsection within quantitative trait.
-	%	\item For each chapter, there will be this introduction (review on the method), our methodology (Calculation, implementation and also simulation), result (the simulation result). 
-	%	Then we can have the application (PGC, network)
-	%\end{enumerate}
-	%Things that I have to include
-	%\begin{enumerate}
-	%	\item Schizophrenia
-	%	\begin{enumerate}
-	%		\item Case Control (PGC) \\ LDSC has basically did everything related to partitioning and genetic correlation, so we should focus on the brain network instead
-	%		\item Drug Response \\ No one has done it before, should have a brief section here. 
-	%		Focus should be with the \emph{heritability} of response, not to identify the variants.
-	%		However, we can try to partition the heritability of drug response too.\\
-	%		Is it really related to genetics? 
-	%		Or is it something related to environmental?
-	%		e.g. Discouraging family members leads to not adhere to medicine
-	%	\end{enumerate}
-	%	\item Heritability Estimation \\ This part should be straightforward, just the algorithm and the simulation results
-		
-	%\end{enumerate}
 	
-	\chapter{Literature Review I: Identifying the Genetic Contributions}
-	\chaptermark{Genetic Contributions}
-	% Disease can be influence by both genetic and environmental factors.
-	% WHY DO WE WANT TO IDENTIFY THE GENETIC CONTRIBUTIONS?
-	% Both nature and nurture are important for disease understanding
-	% Environment sometimes difficult collect (e.g. diet)
-	% Being stable, objective, ideal for identifying, characterizing and clustering samples
-	% Personalize medicine
-	% Help to identify disease mechanisms
-	% Deeping understanding of the pathway / biological procedures involved in the disease
-	% Allow development of treatments (targeting the pathway)
-	% Therefore it is important for one to identify the genetic contribution of a trait
-	
-	% First step in finding genetic contributions -> understand whether if the trait is heritable
-	% Twin Studies
-	% ACE model
-	
-	% Then, linkage study such to identify genetic elemetns segregate with disease status
-	% Extreme phenotype selection should also be here
-	
-	% New era on GWAS
-	% Brief explain the concept of GWAS
-	% How GWAS is applied to disease discoveries?
-	% Problem of GWAS -> Cannot identify rare genotypes
-	% Limited resolution
-	
-	% NGS
-	% High Resolution (per base resolution)
-	% Can identify rare genotypes
-	% Can somtimes allow one to pin-point the causal variants 
-	
-	% Heritability Estimation
-	% Based on the GWAS and NGS data, one can identify the narrow sense heritability
-	% GCTA, with the sample genotype, one can calculate the heritability
-	% Problem with Case Control samples
-	% The liability threshold model
-	
-	% Next stage in genetic research
-	% Risk prediction
-	% Difficult -> Causual variants remain largely unknown
-	% Polygenic Score -> How does it work?
-	% Current situation of risk prediction -> Not good
-	
-	The concept of Literature Review is that they are things that happened \emph{before} the studies in this thesis.
-	They should be the disease background and what has happened so far. 
-	Also one should identify the research gap based on the current situation and therefore leads to the current study.
-	
-	\section{Twin and Adoption Studies}
-	%remember, our focus is in the heritability, not trying to separate the genetics and the environment. 
-	Should briefly talk about how Twin modeling was used for finding the GE contribution.
-	Should also mention the ACE model.
-	\section{Family Studies}
-	
-	\section{Genome Wide Association Studies}
-	%The background of GWAS, the hypothesis and concept
-	%The sucess and limitation
-	\section{\glsentrylongpl{ngs} Studies}
-	\section{Narrow Sense Heritability}
-	\subsection{\glng{gcta}}
-	\subsection{Liability Threshold}
-	
-	\section{Risk Prediction}
-	%This part I am uncertain. Focus on finishing the previous sections first. 
-	\subsection{Polygenic Scores}
-	
-	
-	
-	\chapter{Literature Review II: Schizophrenia}
-	\chaptermark{Schizophrenia}
-	% Disease background
-	\Glng{scz} is a detrimental psychiatric disorder, affecting around $0.3\sim0.7\%$ of the population\citep{AmericanPsychiatricAssociation2013}.
-	It is characterized by positive symptoms including delusions, hallucinations, disorganized speech and grossly disorganized behavior, and negative symptoms such as the diminished emotional expression\citep{AmericanPsychiatricAssociation2013} with a typical age of onset at late adolescent or late 20s in male and late 20s or early 30s in female\citep{Schultz2007}.
-	
-	\Glng{scz} not only impose long lasting health, social and financial burden not only to the patients, but also to their families\citep{Knapp2004}. 
-	Even more so, patients with \glng{scz} increased suicide rate \citep{Saha2007}, leading to a higher mortality.
-	Based on the \gls{who} report, \glng{scz} is one of the top 20 leading cause of \gls{yld} in 2012, ranking 16 among all possible causes (\cref{tab:whoYLD}), demonstrating the extent of impact from \glng{scz} to patients.
-	\begin{table}
-		\centering
-		\caption[Top 20 leading cause of \glng{yld} calculated by \glsentryshort{who} in year 2012]{Top 20 leading cause of \gls{yld} calculated by \gls{who} in year 2012.
-			\Glng{scz} was considered as one of the top 20 leading cause of \gls{yld}\citep{Geneva2013}}
-		\begin{tabular}{rrrrr}
-			\toprule
-			Rank  & Cause & \gls{yld} (000s) & \% \gls{yld} & \gls{yld} per 100,000 population \\
-			\midrule
-			0     & All Causes & 740,545 & 100   & 10466 \\
-			1     & Unipolar depressive disorders & 76,419 & 10.3  & 1080 \\
-			2     & Back and neck pain & 53,855 & 7.3   & 761 \\
-			3     & Iron-deficiency anaemia & 43,615 & 5.9   & 616 \\
-			4     & Chronic obstructive pulmonary disease & 30,749 & 4.2   & 435 \\
-			5     & Alcohol use disorders & 27,905 & 3.8   & 394 \\
-			6     & Anxiety disorders & 27,549 & 3.7   & 389 \\
-			7     & Diabetes mellitus & 22,492 & 3     & 318 \\
-			8     & Other hearing loss & 22,076 & 3     & 312 \\
-			9     & Falls & 20,409 & 2.8   & 288 \\
-			10    & Migraine & 18,538 & 2.5   & 262 \\
-			11    & Osteoarthritis & 18,096 & 2.4   & 256 \\
-			12    & Skin diseases & 15,744 & 2.1   & 223 \\
-			13    & Asthma & 14,134 & 1.9   & 200 \\
-			14    & Road injury & 13,902 & 1.9   & 196 \\
-			15    & Refractive errors & 13,498 & 1.8   & 191 \\
-			\textbf{16}    & \textbf{Schizophrenia} & \textbf{13,408} & \textbf{1.8}   & \textbf{189} \\
-			17    & Bipolar disorder & 13,271 & 1.8   & 188 \\
-			18    & Drug use disorders & 10,620 & 1.4   & 150 \\
-			19    & Endocrine, blood, immune disorders & 10,495 & 1.4   & 148 \\
-			20    & Gynecological diseases & 10,227 & 1.4   & 145 \\
-			\bottomrule
-		\end{tabular}%
-		\label{tab:whoYLD}%
-	\end{table}%
-	
-	Due to the severity of \glng{scz}, it has drawn much attention from the research community aiming to delineate the disease mechanics and be able to identify the risk factors.
-	Arguably, the most important first step to any \glng{scz} study is to have a robust and reliable disease diagnosis.
-	
-	\section{Diagnosis}
-	% Describe early problems of diagnosis
-	% Describe current method of diagnosis
-	\Glng{scz} was first named ``Dementia Praecox'' by Dr. Emil Kraepelin and was later renamed as \glng{scz} by Dr. Eugen Bleuler\citep{Jablensky2010}.
-	Early nosological entity for \glng{scz} such as that in \gls{dsm}-\rom{1} and \gls{dsm}-\rom{2} were vague and unreliable where the inter-rater agreement can be as low as 54$\%$.\citep{Tsuang2000,Harvey2012} 
-	
-	Later nosologies addressed these problem by introducing structural assessment and clear defined criteria. 
-	With these improvements, the inter-rater agreement of \gls{dsm}-\rom{3} raised to $\sim 90\%$ \citep{Harvey2012}, suggesting the diagnosis were much more reliable.
-	
-	Currently \gls{dsm} is at its 5th edition\citep{AmericanPsychiatricAssociation2013}. 
-	A patient will be diagnosed with \glng{scz}(F20.9) if they suffered from 2 or more of the following symptoms for a significant portion of time during a 1-month period: 
-	\begin{enumerate*}[label=\arabic*\upshape)]
-		\item delusion; \label{ls:delusion}
-		\item hallucinations;\label{ls:hallucinations}
-		\item disorganized speech;\label{ls:disorganizedSpeech}
-		\item grossly disorganized or catatonic behaviour; and\label{ls:catatonicBehavior}
-		\item negative symptoms such as diminished emotional expression,\label{ls:negativeSymptoms}
-	\end{enumerate*}  where one of the symptom must be either (\ref{ls:delusion}, (\ref{ls:hallucinations} or (\ref{ls:disorganizedSpeech}.
-	Signs of disturbance also need to persist for at least 6-month before the patient can be diagnosed with \glng{scz}.
-	
-	\section{Twin Studies of Schizophrenia}
-	\sectionmark{Twin Studies of \glng{scz}}
-	It was first observed that \glng{scz} tends to aggregate in families where relatives of schizophrenic patients tends to have higher risk of developing \glng{scz}\citep{gottesman1991schizophrenia}.
-	The fundamental question to ask would be whether if this aggregation has an environmental or genetic origin.
-	
-	To find out whether if genetic or environment were the main mediator in \glng{scz}, researchers conducted varies twin and adoption studies.
-	
-	In one of the landmark study conducted by \cite{Sullivan2003}, a quantitative meta-analysis was performed on 12 published \glng{scz} twin studies.
-	They found that although there was a non-zero contribution of environmental influence on liability of \glng{scz} ($11\%$,\gls{ci}=$3\%-19\%$), there was a much larger contribution from genetics ($81\%$, \gls{ci}=$73\%-90\%$), suggesting that \glng{scz} was largely mediated by the genetic elements.
-	
-	Such findings were not limited to twin-studies but were also reported in large scale population based studies.
-	A recent large scale population based study in Sweden population\citep{Lichtenstein2009} also found that there was a large genetic contribution in \glng{scz} ($64\%$).
-	Although a different estimation of heritability were obtained from the two studies, there is no doubt that \glng{scz} is highly heritable, justify the initiative of conducting genetic research in elucidating genetic risk factor of \glng{scz}.
-	
-	
-	\section{Genetic Analysis of Schizophrenia}
-	Earliest attempts in finding causal variants for \glng{scz} such as the use of linkage studies return with largely inconsistent findings. 
-	% Failed Linkage studies
-	% Little findings of candidate genes
-	% Use GWAS
-	% Still don't find anything because of the power
-	% Large scale global collaboration -> PGC finally found something
-	% Still, small effects -> Much of the heritability were missing
-	% Why? 
-	
-	% Linkage studies were disappointing, with little replications in results and \citep{Harrison2005}
-	
-	% Candidate studies of Schziphrenia
-	% CNV, deletions -> Emily
-	% Little to no succes for common SNP
-	% Small effect size, insufficient power
-	% Recent collaboration -> PGC
-	% Identify 20~40% heritability 
-	\subsection{Common Genetic Variation}
-	\subsection{Rare Genetic Variation}
-	% Common disease rare variant ->Shaun's exome sequencing paper
-	
-	\section{Missing heritability}
-	% Ben Yip's paper -> Over estimation of heritability of twin studies
-	% GxE interaction?
-	% Problem with the current heritability estimation?
-	% Comorbidity	
-	
-	% Epidemiological studies -> Environmental risk factors
-	% Hypothesis on develomental brian disorders
-	% Schizophrenia genetic researches
-	% Candidate gene studies
-	% CNV and deletion (also the miRNA?)
-	% GWAS -> PGC
-	% Missing heritability?
-	% Difference in heritability estimation? Ben Yip's paper (Lancet)
-	% Calculation problem?
-	
-	% Another aspect of schizophrenia -> Drug treatment
-	% Interesting as it has direct impact into the health of patients
-	% Different people have different response
-	% Personalized medicine?
-	% Problem with drug responds studies
-	% Lack of power, inconsistent findings
-	% More research are required
-	
-	% The followings should be stated in the chapter introduction
-	% Not much studies on the heritability of drug response
-	% Schizophrenia is heritable, but does it mean that the drug response is also heritable?
-	
-
-	\section{Antipsychotics}
-	\subsection{Pharmacogenetics and Pharmacogenomics}
-	
-	
+	\include{literature_review}
 	\include{heritability_estimation}
-	
-	\chapter{Heritability of Schizophrenia}
-	\section{Introduction}
-	Apply Heritability estimation to the schizophrenia data.
-	The genetic correlation and partitioning of heritability
-	No one worked on linking schizophrenia with brain development directly?
-	% talk about the current research on schizophrenia?
-	% the overall heritablity estimation
-	% The genetic correlation done by the LDSC. 
-	% The theory of brain development 
-	% How the co-expression network works
-	% Drug response?
-	\section{Heritability Estimation}
-	This will be a very simple section, focused on how to perform the heritability estimation on \acrfull{scz}.
-	Should also tokenize the heritability into subcategories (e.g. immune, neuron, etc)
-	%Should not put too much weight into it, otherwise it will be a direct copy of LDSC. Won't really add much power. 
-	
-	
-	\subsection{Methodology}
-	\subsection{Result}
-	\section{Brain development and Schizophrenia}
-	\sectionmark{Brain development}
-	Here we will perform the WGCNA and brain development network.
-	Seeing how the whether if any brain development network were enriched with SNPs that explain the variance of phenotype
-	%Instead, we should put most focus here as no one has done it before
-	%Also descript brainspan here
-	\subsection{Methodology}
-	\subsubsection{Sample Quality Controls}
-	We obtain the developmental transcriptome data from BrainSpan (\url{http://www.brainspan.org/}). 
-	A total of 56 samples with different age were provided by BrainSpan with an average of 2.2 samples per age.
-	
-	Studies suggested Hippocampus\citep{Velakoulis2006,Nugent2007}, Amygdala and Striatum\citep{Simpson2010} are brain regions involved in the etiology of schizophrenia. 
-	Therefore, we focus on building the gene co-expression network of hippocampus, amygdala and striatum in this study
-	It is worth noting that the Pre-frontal Cortex is also important for schizophrenia. 
-	However, as there isn't a well defined pre-frontal cortex samples from BrainSpan, we did not include the pre-frontal cortex in the current study.
-	RNA Sequencing data of the brain regions were obtained from BrainSpan and undergo a series of quality control before the construction of the network. 
-	 
-	For each sample age, when there are more than one samples, we select the sample with a dissection score $\ge3$ and an \gls{rin} $\ge7$. 
-	As some developmental stage only got 1 sample passing the quality check, we limit each developmental stage to have a maximum of 1 sample such that the final network will not be driven by a particular developmental stage. 
-	If multiple samples passed through the quality check threshold, we will prefer sample with higher dissection score. 
-	Shall multiple samples have the same dissection score, we will select the one with the highest \gls{rin}. 
-	And if the samples have the same dissection score and \gls{rin} value, we will randomly select one for the network construction.
-	
-	After performing the quality control, a total of 16, 18 and 15 samples were selected for hippocampus, amygdala and striatum respectively.
-	The sample age ranged from \gls{gd}8 to 23 years old representing the fetal developmental stage till the age of onset of schizophrenia.
-	
-	\subsubsection{Normalization of data}
-	The RNA Sequencing data were represented as \gls{rpkm} values. 
-	Genes with a low \gls{rpkm} can usually be a result from technical or biological noise\citep{Hart2013}.
-	To reduce noise in the final model, genes with a mean \gls{rpkm} $< 1$ in all samples were discarded. 
-	The \gls{rpkm} were then log transformed as instructed by the manual of \gls{wgcna}\citep{Langfelder2008}.
-	
-	As there are insufficient samples for the construction of gene co-expression network for individual sample age, we try to construct networks with genes co-expressed through all sample stage. 
-	This is achieved by taking the standardized log$_2$ \gls{rpkm} across sample age such that all genes has a mean of 0 and standard deviation of 1.
-	
-	At the end, there were 17,168 genes, 17,038 genes and 17,166 genes passing through the quality threshold and were used for the construction of co-expression network in hippocampus, amygdala and striatum respectively. 
-	 
-	\subsubsection{Network Construction}
-	\gls{wgcna} (ver 1.47) were used for the construction of gene co-expression network\citep{Langfelder2008}. 
-	The \emph{blockwiseModules} function, using Biweight Midcorrelation for the construction of correlation matrix and a restriction of minimum network size of 30. 
-	For the construction of gene co-expression networks in hippocampus, the soft-power threshold were set to 15 where it is the first threshold value which has $R^2 > 0.8$ (0.817) and the $R^2$ is saturated\citep{Zhang2005}.%(\cref{fig:softpowerThreshold})
-	As for striatum, the soft-power threshold were set to 20. 
-	Again, this is the first threshold value with $R^2 >0.8$ (0.879) and where the $R^2$ is saturated.
-	
-	On the other hand, for amygdala, soft-power threshold were set to 9 which is the first threshold for $R^2$ to reach saturation. 
-	However, with a soft-power threshold of 9, the $R^2$ were only 0.776, which is lower than the recommended 0.8 threshold.
-	The reason behind this decision was that the first soft-power threshold to have $R^2 > 0.8$ is 30.
-	Under this threshold, the mean connectivity of the resulting networks will be around 23.6 with a median connectivity of 2.51.
-	Such level of connectivity will likely yield networks that are too small to useful.
-	If one would like to satisfy both requirement of threshold selection, a threshold $>30$ are likely required and any networks constructed will likely to be small.
-	As a result of that, we select threshold of 9 where networks with reasonable size can be constructed.
-	
-	%\begin{figure}
-	%	\caption[Soft-power threshold selection]{Soft-power threshold selection. A soft-power of 13 were selected as it is the first threshold value having $R^2 > 0.8$ (0.817) and where the $R^2$ is saturated.}
-	%	\centering
-	%	\scalebox{.8}{\includegraphics{figure/SoftpowerThreshold.png}}
-	%	\label{fig:softpowerThreshold}
-	%\end{figure}
-	
-	\subsubsection{Expression correlation with Age}
-	The co-expression network constructed with the standardized gene expression value will contains genes that co-express in all sample age.
-	However, this does not necessary suggest the expression of these genes are correlated with the sample age.
-	To identify gene co-expression networks with expressions correlated with the sample age, we performed a correlation analysis between the module eigen-genes and the sample age. 
-	Network eigen-genes were calculated as the first \gls{pc} of expressions of the genes within individual networks using the \emph{moduleEigengenes} function from \gls{wgcna}. 
-	Age were represented as month from conception such that 8 post-conception week will be represented as 2; 4 months will be represented as 10 and 12 years will be represented as 154 etc. 
-	Finally, correlation between age and network eigen-gene expression were calculated pearson correlation.
-	
-	\subsubsection{Functional Annotation}
-	\gls{GO} based enrichment analysis of the significant module was performed using GOrilla\citep{Eden2009}.
-	Genes within the networks were provide as the target gene lists and all the genes passed quality controls were used as the background gene list.
-	As \gls{GO} terms tends to be redundant and overlaps with each other, it will aid the interpretation of \gls{GO} results based by clustering and reducing the \gls{GO} terms based on their similarity. 
-	Thus, \gls{GO} enrichment results were summerized by REViGO\citep{Supek2011} and significant representative \gls{GO} terms were obtained.
-	
-	\subsubsection{Associate Co-expression network with \glsentryshort{pgc} schizophrenia data}
-	The co-expression networks were built from normal samples and should not be representative of the brain expression pattern in schizophrenia patients.
-	it is however interesting to see if the co-expression networks were disrupted in schizophrenia patient.
-	To test whether if the gene co-expression networks contain genes that are jointly associated with schizophrenia, we first use \gls{MAGMA}\citep{DeLeeuw2015}(version v1.03) to compute the gene-base p-value from the \gls{SNP} wise p-value obtained from \gls{pgc}. 
-	Gene-set enrichment analysis were then performed on networks that were significantly correlated with developmental age. 
-	As we were only interested in whether if the genes within the networks were jointly associated with schizophrenia, we only focus on the result of the self-contained gene set analysis and ignore the result from competitive analysis.
-	
-	\subsubsection{Partitioning of Heritability}
-	
-	\subsection{Result}
-	\subsubsection{Co-Expression Network}
-	A total of 35 networks were constructed based on the hippocampus samples with a mean network size of 421.6.
-	On the other hand, 28 networks were constructed for amygdala with mean network size of 591.86.
-	Finally, 25 networks with mean size of 494.52 were constructed from the striatum samples.
-	
-	Of the all the networks constructed, only one network from hippocampus(\cref{tab:hipModSig}) and three networks from amygdala(\cref{tab:amyModSig}) were significantly correlated with sample age after bonferroni correction threshold (p-value $<0.00143$ for hippocampus, p-value $<0.00179$ for amygdala and p-value $<0.002$ for striatum) .
-	\begin{table}
-		\centering
-		\caption[Correlation of sample age with the module eigen gene]{Correlation of sample age with the module eigen gene. 
-			Module eigen-gene was defined as the first \gls{pc} of genes within the module. 
-			After correcting for multiple testing, only the black module was considered as significantly correlated with the sample age.}
-		\subfloat[Hippocampus]{
-			\begin{tabular}{rrr}
-				\toprule
-				& Correlation & Pvalue \\
-				\midrule
-				black & 0.804653 & 0.000171 \\
-				blue  & -0.61648 & 0.010981 \\
-				red   & -0.60207 & 0.013595 \\
-				darkred & -0.59137 & 0.015833 \\
-				greenyellow & -0.56995 & 0.021168 \\
-				yellow & 0.567828 & 0.021763 \\
-				darkgrey & -0.55246 & 0.026474 \\
-				saddlebrown & -0.52983 & 0.034783 \\
-				turquoise & -0.51371 & 0.041809 \\
-				purple & -0.46788 & 0.067606 \\
-				darkolivegreen & -0.41272 & 0.112122 \\
-				sienna3 & -0.39535 & 0.129604 \\
-				darkturquoise & 0.386541 & 0.139154 \\
-				darkorange & 0.384966 & 0.140912 \\
-				darkmagenta & 0.375586 & 0.151688 \\
-				brown & 0.366095 & 0.163144 \\
-				tan   & -0.36522 & 0.164229 \\
-				pink  & 0.348979 & 0.18524 \\
-				magenta & -0.32559 & 0.218473 \\
-				midnightblue & -0.29168 & 0.273014 \\
-				lightgreen & 0.289921 & 0.276056 \\
-				paleturquoise & -0.28045 & 0.29276 \\
-				white & 0.27727 & 0.29849 \\
-				orange & 0.19607 & 0.466754 \\
-				steelblue & 0.17355 & 0.520357 \\
-				skyblue & 0.145869 & 0.589857 \\
-				lightyellow & -0.11665 & 0.667028 \\
-				green & -0.09882 & 0.715786 \\
-				violet & -0.08757 & 0.747076 \\
-				lightcyan & -0.0656 & 0.809257 \\
-				cyan  & -0.06441 & 0.812661 \\
-				darkgreen & -0.03914 & 0.885582 \\
-				salmon & 0.038727 & 0.886769 \\
-				royalblue & -0.03785 & 0.889314 \\
-				grey60 & 0.03119 & 0.908709 \\
-				\bottomrule
-				\label{tab:hipModSig}%
-			\end{tabular}%
-		}
-		\qquad%
-		\subfloat[Amygdala]{
-			\begin{tabular}{rrr}
-				\toprule
-				& Correlation & P-value \\
-				\midrule
-				tan   & 0.849999 & $7.96\times 10^{-6}$ \\
-				yellow & -0.757 & $2.76\times 10^{-4}$ \\
-				pink  & -0.68541 & $1.69\times 10^{-3}$ \\
-				greenyellow & -0.67831 & $1.97\times 10^{-3}$ \\
-				red   & -0.64532 & $3.83\times 10^{-3}$ \\
-				turquoise & -0.59771 & $8.80\times 10^{-3}$ \\
-				lightyellow & -0.56347 & 0.0149 \\
-				brown & 0.548516 & 0.0184 \\
-				darkgreen & -0.46366 & 0.0526 \\
-				blue  & -0.4604 & 0.0545 \\
-				purple & -0.44182 & 0.0664 \\
-				darkgrey & -0.39065 & 0.109 \\
-				orange & -0.36966 & 0.131 \\
-				white & 0.28737 & 0.248 \\
-				darkred & 0.283247 & 0.255 \\
-				black & 0.271383 & 0.276 \\
-				salmon & -0.24203 & 0.333 \\
-				skyblue & 0.207071 & 0.410 \\
-				cyan  & 0.18778 & 0.456 \\
-				lightgreen & 0.166495 & 0.509 \\
-				grey60 & 0.15156 & 0.548 \\
-				midnightblue & 0.136078 & 0.590 \\
-				magenta & -0.13459 & 0.594 \\
-				darkturquoise & 0.129954 & 0.607 \\
-				lightcyan & 0.090241 & 0.722 \\
-				darkorange & -0.05166 & 0.839 \\
-				green & -0.04745 & 0.852 \\
-				royalblue & 0.020456 & 0.936 \\
-				\bottomrule
-				\label{tab:amyModSig}%
-			\end{tabular}%
-		}
-	\end{table}
-	
-	By plotting the mean expression of each network against the sample age, one can inspect how the dynamic of the network changes across different developmental stage.
-	Thus, mean expression of all the genes within the significant networks were calculated for all amygdala (n=33) and hippocampus (n=32) samples from BrainSpan.
-	The mean \gls{rpkm} values were then log$_2$ transformed and plot against the sample age where a line of bests fit was calculated using the \emph{stat\_smooth} with the loess function from R package \emph{ggplot2}(version 1.0.1). (\cref{fig:allMod}).
-	
-	The expression pattern observed were intriguing where there both the ``black''(\cref{fig:blackMod}) and ``tan'' (\cref{fig:tanMod}) networks have mean gene expression level increase as development progress and reaches its peak at around late adolescence ($\approx 18-21$), concurring with the onset age of schizophrenia.
-	Similarly, an inverse pattern were observed with the ``yellow'' network where its mean expression was highest during fetal development and drop steadily to its lowest around late adolescence and increase again afterwards(\cref{fig:yellowMod}).
-	
-	The expression pattern of the ``black'' and ``tan'' networks are of particular interest as they follow the inverted ``U'' shape trajectory of the grey matter volumn observed in previous studies\citep{Gogtay2011}, suggest that they might have a role in mediating brain development. 
-	\begin{figure}
-		\caption[Mean Gene Expression across developmental age]{Mean Gene Experssion across developmental age.
-			Mean \gls{rpkm} values of genes in the significant modules were plot with respect to the sample age.
-			A loess smoothing curve was also plotted. 
-			%Might want to talk somemore about it
-		}
-		\centering
-		\subfloat[``Black'' Network from Hippocampus]{
-			\scalebox{.4}{\includegraphics{figure/network/hip_network.png}}
-			\label{fig:blackMod}
-		}
-		\subfloat[``Tan'' Network from Amygdala]{
-			\scalebox{.4}{\includegraphics{figure/network/amy_tan_network}}
-			\label{fig:tanMod}
-		}\\
-		\subfloat[``Pink'' Network from Amygdala]{
-			\scalebox{.4}{\includegraphics{figure/network/amy_pink_network}}
-			\label{fig:pinkMod}
-		}
-		\subfloat[``Yellow'' Network from Amygdala]{
-			\scalebox{.4}{\includegraphics{figure/network/amy_yellow_network}}
-			\label{fig:yellowMod}
-		}
-		\label{fig:allMod}
-	\end{figure}
-	
-	
-	
-	\subsubsection{Functional Annotation}
-	Upon performing the \gls{GO} enrichment analysis, a total of 16 \gls{GO} terms were enriched in the ``black'' hippocampus network, 4 in the ``tan'' amygdala network and 45 in the ``yellow'' amygdala network. 
-	No \gls{GO} term was enriched in the ``pink'' amygdala network.
-	
-	The enriched \gls{GO} terms of the ``yellow'' amygdala network were mainly related to translation and transcription and were not specific to brain function or development(\cref{tab:yellowGO}). 
-	On the contrary, the \gls{GO} terms enriched in the ``black'' hippocampus network were highly relevant to brain function and development (\cref{tab:blackGO})(e.g. ``central nervous system development'' and ``glutamate metabolic process'') and the ``tan'' amygdala network were also related to ammonium ion metabolism (\cref{tab:tanGO}) which is vita for glutamine synthesis from glutamate\citep{Liaw1995}. 
-	
-	Together, it is highly likely that the ``black'' hippocampus and ``tan'' amygdala networks are related to brain development and function.
-	
-	\begin{table}[h]
-		\centering
-		\caption[\glsentryshort{GO} enrichment results for the ``black'' network from Hippocampus]{\gls{GO} enrichment results for the ``black'' network from Hippocampus.
-			Among the enriched \gls{GO} terms, it was most interesting to identify a number of brain developmental related \gls{GO} terms such as ``central nervous system development'', ``axon ensheathment in central nervous system'', ``glutamate metabolic process'' and ``positive regulation of gliogenesis''. 
-			Surprisingly, \gls{GO} related to immune systems were also observed ``positive regulation of production of molecular mediator of immune response''.
-		}
-		\begin{tabular}{rrr}
-			\toprule
-			term\_ID & description & p-value \\
-			\midrule
-			GO:0019752 & carboxylic acid metabolic process & $4.92\times 10^{-6}$ \\
-			GO:0007417 & central nervous system development & $5.94\times 10^{-5}$ \\
-			GO:0002821 & positive regulation of adaptive immune response & $6.12\times 10^{-5}$ \\
-			GO:0006082 & organic acid metabolic process & $1.03\times 10^{-3}$ \\
-			GO:0032291 & axon ensheathment in central nervous system & $1.86\times 10^{-3}$ \\
-			GO:1901565 & organonitrogen compound catabolic process & $1.99\times 10^{-3}$ \\
-			GO:0006536 & glutamate metabolic process & $3.54\times 10^{-3}$ \\
-			GO:0021762 & substantia nigra development & $3.73\times 10^{-3}$ \\
-			GO:0044281 & small molecule metabolic process & $4.34\times 10^{-3}$ \\
-			GO:0030194 & positive regulation of blood coagulation & $4.59\times 10^{-3}$ \\
-			GO:0009607 & response to biotic stimulus & $6.14\times 10^{-3}$ \\
-			GO:0002702 & positive regulation of production of molecular mediator of immune response & $6.21\times 10^{-3}$ \\
-			GO:0034103 & regulation of tissue remodeling & $6.21\times 10^{-3}$ \\
-			GO:0014015 & positive regulation of gliogenesis & $7.47\times 10^{-3}$ \\
-			GO:0098542 & defense response to other organism & $7.95\times 10^{-3}$ \\
-			GO:0019835 & cytolysis & $8.72\times 10^{-3}$ \\
-			\bottomrule
-		\end{tabular}%
-		\label{tab:blackGO}%
-	\end{table}%
-	\begin{table}[h]
-		\centering
-		\caption[\glsentryshort{GO} enrichment results for the ``tan'' network from Amygdala]{\gls{GO} enrichment results for the ``tan'' network from Amygdala.
-			Unlike the ``black'' network, only a small number of \gls{GO} terms were enriched. 
-			However, these \gls{GO} terms are relatively specific to amine/ammonium ion metabolism.
-			Interestingly, ammonium ion are essential to the synthesis of glutamine from glutamate, suggesting that this network might be relate to the glutamate system.
-			}
-		\begin{tabular}{rrr}
-				\toprule
-				term\_ID & description & p-value \\
-				\midrule
-				GO:0097164 & ammonium ion metabolic process & $1.37\times 10^{-3}$ \\
-				GO:0044106 & cellular amine metabolic process & $4.2\times 10^{-3}$ \\
-				GO:0009308 & amine metabolic process & $5.41\times 10^{-3}$ \\
-				GO:0046519 & sphingoid metabolic process & $6.01\times 10^{-3}$ \\
-				\bottomrule
-		\end{tabular}%
-		\label{tab:tanGO}%
-	\end{table}%
+	\include{heritability_scz}
+	\include{drug_response}
 
-	\subsubsection{Associate Co-expression network with \glsentryshort{pgc} schizophrenia data}
-	Although the co-expression network were extremely interesting for their expression pattern and functional enrichment in brain development and function related \gls{GO} terms, there were no evidence of their involvement nor importance in schizophrenia.
-	Therefore it is of particular interest for us to test whether if genes within these co-expression networks were associated withs schizophrenia. 
-	
-	First, gene base p-value of 18,622 genes were calculated using p-values from the \gls{pgc} schizophrenia working group\citep{Ripke2014}.
-	Gene set enrichment analysis were then performed using \gls{MAGMA}\citep{DeLeeuw2015} to test whether if there genes within the ``black'' hippocampus and ``tan'' amygdala networks were significantly associated with schizophrenia.
-	
-	Based on the self-contained gene set enrichment analysis, genes within both networks were significantly associated with schizophrenia with p-value of $1.38\times 10^{-41}$ for the ``tan'' amygdala network and $2.70\times 10{-74}$ for the ``black'' hippocampus network.
-	These suggest that these networks might be disrupted in schizophrenia patients.
-	%Network	Size	self-contained	competitive
-	%Amygdala        289   1.3869e-41      0.44715
-	%Hippocampus     458   2.6993e-74      0.20002
-	
-	
-	
-	
-	\subsubsection{Partitioning of Heritability}
-	
-	\section{Discussion}
-	\chapter{Heritability of Response to antipsychotic treatment}
-	\chaptermark{Response to antipsychotic treatment}
-	%Maybe a section instead of a chapter?
-	Important to schizophrenia research
-	
-	\section{Introduction}
-	Here we try to use Beatrice's data and estimate the heritability explained in drug response.
-	Should also repeat the region-wise heritability
-	\section{Methodology}
-	\section{Result}
-	\section{Discussion}
-	\chapter{Risk Prediction}
-	\section{Methodology}
-	We can define the traditional \gls{PGS} as
-	\begin{equation}
-	\hat{Y} = diag(\beta)X
-	\end{equation}
-	where $X$ is the standardized genotype, $\beta$ is the test-statistic calculated from other studies. 
-	
-	
-	\subsection{Simulation}
-	\section{Result}
-	\section{Discussion}
 	\chapter{Conclusion}
 	
 	
@@ -769,64 +244,6 @@
 	\printbibliography[heading=bibintoc,title={Bibliography}]
 	\chapter*{Supplementary Materials}
 	\beginsupplement
-	\begin{table}[htbp]
-		\centering
-		\caption[\glsentryshort{GO} enrichment results for the ``yellow'' network from Amygdala]{\gls{GO} enrichment results for the ``yellow'' network from Amygdala. 
-			Most of the terms are related to translation transcription and are not specific enough to understand the true function of the network}
-		\begin{tabular}{rrr}
-			\toprule
-			term\_ID & description & p-value \\
-			\midrule
-			GO:0006614 & SRP-dependent cotranslational protein targeting to membrane & $1.63\times 10^{-47}$ \\
-			GO:0006412 & translation & $5.76\times 10^{-27}$ \\
-			GO:0006171 & cAMP biosynthetic process & $1.5\times 10^{-3}$ \\
-			GO:0042274 & ribosomal small subunit biogenesis & $3.13\times 10^{-8}$ \\
-			GO:0006413 & translational initiation & $2.12\times 10^{-28}$ \\
-			GO:0006414 & translational elongation & $7.63\times 10^{-31}$ \\
-			GO:0006415 & translational termination & $3.92\times 10^{-32}$ \\
-			GO:0071702 & organic substance transport & $4.16\times 10^{-10}$ \\
-			GO:0002181 & cytoplasmic translation & $1.19\times 10^{-7}$ \\
-			GO:1901566 & organonitrogen compound biosynthetic process & $6\times 10^{-17}$ \\
-			GO:0070972 & protein localization to endoplasmic reticulum & $5.36\times 10^{-44}$ \\
-			GO:0071822 & protein complex subunit organization & $2.21\times 10^{-6}$ \\
-			GO:0071826 & ribonucleoprotein complex subunit organization & $3.67\times 10^{-3}$ \\
-			GO:0022411 & cellular component disassembly & $1.55\times 10^{-17}$ \\
-			GO:1902578 & single-organism localization & $4.3\times 10^{-8}$ \\
-			GO:1902580 & single-organism cellular localization & $1.3\times 10^{-15}$ \\
-			GO:0000028 & ribosomal small subunit assembly & $1.91\times 10^{-7}$ \\
-			GO:0033036 & macromolecule localization & $1.74\times 10^{-11}$ \\
-			GO:0070727 & cellular macromolecule localization & $1.09\times 10^{-16}$ \\
-			GO:0006605 & protein targeting & $1.64\times 10^{-28}$ \\
-			GO:0022613 & ribonucleoprotein complex biogenesis & $3.32\times 10^{-9}$ \\
-			GO:0044765 & single-organism transport & $4.19\times 10^{-8}$ \\
-			GO:0044085 & cellular component biogenesis & $4.81\times 10^{-7}$ \\
-			GO:0061024 & membrane organization & $5.29\times 10^{-15}$ \\
-			GO:0051641 & cellular localization & $1.65\times 10^{-14}$ \\
-			GO:0044267 & cellular protein metabolic process & $6.57\times 10^{-5}$ \\
-			GO:0019083 & viral transcription & $1.64\times 10^{-44}$ \\
-			GO:1901564 & organonitrogen compound metabolic process & $1.15\times 10^{-14}$ \\
-			GO:0019538 & protein metabolic process & $4.17\times 10^{-5}$ \\
-			GO:0006401 & RNA catabolic process & $1.34\times 10^{-29}$ \\
-			GO:0010467 & gene expression & $1.4\times 10^{-11}$ \\
-			GO:0044419 & interspecies interaction between organisms & $4.74\times 10^{-15}$ \\
-			GO:0043604 & amide biosynthetic process & $4.35\times 10^{-26}$ \\
-			GO:0043603 & cellular amide metabolic process & $4.94\times 10^{-21}$ \\
-			GO:0044764 & multi-organism cellular process & $1.11\times 10^{-15}$ \\
-			GO:0016072 & rRNA metabolic process & $2.03\times 10^{-3}$ \\
-			GO:0016071 & mRNA metabolic process & $1.58\times 10^{-15}$ \\
-			GO:0000184 & nuclear-transcribed mRNA catabolic process, nonsense-mediated decay & $4.81\times 10^{-42}$ \\
-			GO:0034655 & nucleobase-containing compound catabolic process & $1.29\times 10^{-24}$ \\
-			GO:0044699 & single-organism process & $2.4\times 10^{-5}$ \\
-			GO:0051179 & localization & $7.96\times 10^{-8}$ \\
-			GO:0051704 & multi-organism process & $6.02\times 10^{-12}$ \\
-			GO:0071840 & cellular component organization or biogenesis & $3.83\times 10^{-3}$ \\
-			GO:0048871 & multicellular organismal homeostasis & $6.56\times 10^{-3}$ \\
-			GO:0009056 & catabolic process & $1.8\times 10^{-11}$ \\
-			\bottomrule
-		\end{tabular}%
-		\label{tab:yellowGO}%
-	\end{table}%
-
 	\chapter*{Appendix}
 
 \end{document}

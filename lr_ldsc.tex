@@ -1,0 +1,171 @@
+
+	\subsection{\glng{gcta}}
+	Unlike family based data, the relationship between the samples were unknown. 
+	Yet in a typical \gls{GWAS}, the genotype of each individuals were known.
+	The ``genetic distance'' between two individual will provide an estimate of their relationship, thus allowing the calculation of heritability.
+	\citet{Yang2011} use the concept of genetic distance to calculate the \gls{grm} to represent the relationship between individuals.
+	The \gls{grm} were then used in the restricted maximum likelihood analysis(REML) to estimate the heritability of the trait\citep{Yang2011}.
+	This was implemented in \gls{gcta} and were now wildly used in the estimation of heritability on \gls{GWAS} data.
+	
+	The problem with \gls{gcta} was that it require the genotype data to estimate the heritability.
+	However, for complex disease like \glng{scz}, the data were usually obtained from multiple data source.
+	Because of privacy issues, usually only the test statistic were shared among the research groups and only meta-analysis were performed.
+	Given there was no raw genotype data, it is impossible to calculate the \gls{grm}, thus making the use of \gls{gcta} impossible.
+	  
+	\subsection{\glng{ldsc}}
+	Sometimes, in a \gls{GWAS} study, one can observe a general inflation of test statistics. 
+	It was usually considered to be contributed to the presence of confounding factors such as population stratification under the assumption that most of the \glspl{SNP} should have no association to the disease.
+	It was therefore a common practice for one to perform the \gls{gc} on the \gls{GWAS} results\citep{Zheng2006}.
+	
+	The problem of the \gls{gc} was that the basic assumption of a small number of causal \glspl{SNP} might not be true. 
+	Through careful simulation, \citet{Yang2011b} demonstrated that in the absence of population stratification and other form of technical artifacts, the presence of polygenic inheritance can also inflate the test statistic\citep{Yang2011b}.
+	More importantly, they observed that the magnitude of inflation was determined by the \emph{heritability}, the \gls{LD} structure, sample size and the number of causal \glspl{SNP} of the trait.
+
+	Following on this observation, \citet{Bulik-Sullivan2015} developed the \gls{ldsc}.
+	The fundamental concept of \gls{ldsc} was that the more genetic variant a \gls{SNP} tag, the more likely for it to be able to tag a causal variant; 
+	whereas population stratification and cryptic relatedness should not be associated with \gls{LD}.
+	The number of genetic variants tagged by a \gls{SNP}$_j$ ($l_j$)(\gls{LD} score) was then defined as the sum of $r^2$ of the $k$ \glspl{SNP} within a 1cM window of \gls{SNP}$_j$:
+	\begin{equation}
+	l_j = \sum_kr^2_{jk}
+	\label{eq:ldScore}
+	\end{equation}
+	
+	The expected $\chi^2$ of \gls{SNP}$_j$ was then defined as a function of the \gls{LD} score ($l_j$), the number of samples ($N$), the number of \glspl{SNP} in the analysis($M$), the contribution of confounding factors ($a$) and most importantly, the heritability ($h^2$):
+	\begin{equation}
+	\mathrm{E}[\chi^2_j | l_j] = \frac{Nl_jh^2}{M}+Na+1
+	\label{eq:fullLDSC}
+	\end{equation}
+	If one express the \gls{LD} score and the $\chi^2$ as vectors $\boldsymbol{L}$ and $\boldsymbol{\chi^2}$ respectively, \cref{eq:fullLDSC} becomes a regression of the $\chi^2$ against the \gls{LD} score:
+	\begin{equation}
+	\boldsymbol{\chi^2}= \frac{N}{M}\boldsymbol{L}h^2+Na+1
+	\label{eq:ldReg}
+	\end{equation}
+	
+	As a result of that, the heritability $h^2$ will be the slope of the regression and the intercept minus one will represent the mean contribution of the confounding bias such as those of population stratification. 
+	Thus, \cref{eq:ldReg} can be used for the estimation of heritability given only the test statistics and the population \gls{LD} were provided. 
+	
+	
+	Using data from \citet{Ripke2014}, and applying the liability threshold adjustment, \citet{Bulik-Sullivan2015} estimated the heritability of \glng{scz} should be 0.555 with \gls{se} of 0.008.
+	The estimated heritability was lower than what was previously estimated from population based study(64\%\citep{Lichtenstein2009}) and twin studies(81\%\citep{Sullivan2003}).
+	Possible reasons of such discrepancies might be that in \citet{Ripke2014}'s study, only \glspl{SNP} data were collected. 
+	From \citet{Szatkiewicz2014}, it was clearly demonstrated that other than \glspl{SNP}, \glspl{cnv} were also associated with \glng{scz}.
+	By ignoring \glspl{cnv} in the estimation of heritability, the estimation of \citet{Bulik-Sullivan2015} would only provide a lower bound of heritability estimated.
+	Another possibility of the``missing'' heritability can be due to interaction between the genetic and environmental factors. 
+	Although previous studies\citep{Gottesman01071967} suggested that the non-additive genetic factors were unlikely to contribute to \glng{scz}, the possibility of involvement of gene-environmental interaction $G\times E$ were not ruled out.
+	Indeed, in the adoption study conducted by \citet{Tienari2004}, it was found that individuals with higher genetic risk were significantly more sensitive to ``adverse'' vs ``healthy'' rearing patterns in adoptive families than are adoptees at low genetic risk\citep{Tienari2004}, providing support to a possible interaction between genetic and environmental factors.
+	Therefore, in order to account for the ``missing'' heritability, one might need to consider genetic variations other than \glspl{SNP} and might need to take into consideration of the $G\times E$ interaction.
+	
+	Nonetheless, the heritability estimation from \citet{Ripke2014} were still encouraging, as for the first time in genetic research of \glng{scz}, a large portion of heritability of \glng{scz} were finally identified.
+	This permit the genetic research of \glng{scz} to move beyond statistical association and focus on the functional basis of the genetic susceptibility locus of \glng{scz}.
+	
+	\subsection{Partitioning of Heritability of Schizophrenia}
+	\subsectionmark{Partitioning of Heritability}
+	Traditionally, functional enrichment analysis in \gls{GWAS} only take into account of \glspl{SNP} that passed the genome wide significance threshold. 
+	However, for complex traits such as that of \glng{scz}, much of the heritability might lies in \glspl{SNP} that do not reach genome wide significance threshold at the current sample size.
+	For example, in 2013, only 13 risk loci were detected using 13,833 \glng{scz} samples and 18,310 controls \citep{Ripke2013}. 
+	When the sample size increased to 34,241 \glng{scz} samples and 45,604 controls in 2014, 108 risk loci were identified\citep{Ripke2014}. 
+	Thus, if one only consider the significant loci, risk loci that have not reach genome wide significance threshold might be ignored from the analysis, decreasing the power of the functional enrichment analysis.
+	
+	Unlike traditional functional enrichment analysis, \gls{ldsc} uses information from all \glspl{SNP} and taking into account of the \gls{LD} structure to partition heritability into different functional categories. 
+	Thus should be more powerful when compared to traditional analysis and should help to provide useful insight into the disease etiology of \glng{scz}.
+
+	\citet{Finucane2015} used data from \citet{Ripke2014} and functional categories derived from the ENCODE annotation\citep{ENCODEProjectConsortium2012}, the NIH Roadmap Epigenomics Mapping Consortium annotation\citep{Bernstein2010} and other studies\citep{Finucane2015}, it was found that the brain cell types were most enriched in \glng{scz}, especially those related to the \gls{cns}.
+	Of all the functional categories, the most enriched category in \glng{scz} was the H3K4me3 mark in the fetal brain(\cref{tab:cellTypeScz}). 
+	As H3K4me3 was mostly linked to active promoters, it was likely for genes that were active in fetal brain (e.g. genes related to brain development) to be associated with \glng{scz}, supporting the idea of \glng{scz} as a neuro-developmental disorder. 
+	
+	Moreover, it was also observed that the second most enriched cell types were those related to immunity.
+	Undoubtedly, the \gls{cns} and the immune system have an important role in the disease etiology of \glng{scz}. 
+
+	\begin{singlespace}
+	\begin{longtable}{p{6cm}rrr}
+		%\begin{tabular}{rrrr}
+			\toprule
+			Cell type & cell-type group & Mark  & P-value \\
+			\midrule
+			Fetal brain** & CNS   & H3K4me3 & $3.09\times 10^{-19}$ \\
+			Mid frontal lobe** & CNS   & H3K4me3 & $3.63\times 10^{-15}$ \\
+			Germinal matrix** & CNS   & H3K4me3 & $2.09\times 10^{-13}$ \\
+			Mid frontal lobe** & CNS   & H3K9ac & $5.37\times 10^{-12}$ \\
+			Angular gyrus** & CNS   & H3K4me3 & $1.29\times 10^{-11}$ \\
+			Inferior temporal lobe** & CNS   & H3K4me3 & $1.70\times 10^{-11}$ \\
+			Cingulate gyrus** & CNS   & H3K9ac & $5.37\times 10^{-11}$ \\
+			Fetal brain** & CNS   & H3K9ac & $5.75\times 10^{-11}$ \\
+			Anterior caudate** & CNS   & H3K4me3 & $2.19\times 10^{-10}$ \\
+			Cingulate gyrus** & CNS   & H3K4me3 & $4.57\times 10^{-10}$ \\
+			Pancreatic islets** & Adrenal/Pancreas & H3K4me3 & $2.24\times 10^{-09}$ \\
+			Anterior caudate** & CNS   & H3K9ac & $3.16\times 10^{-9}$ \\
+			Angular gyrus** & CNS   & H3K9ac & $4.68\times 10^{-9}$ \\
+			Mid frontal lobe** & CNS   & H3K27ac & $7.94\times 10^{-9}$ \\
+			Anterior caudate** & CNS   & H3K4me1 & $1.20\times 10^{-8}$ \\
+			Inferior temporal lobe** & CNS   & H3K4me1 & $3.72\times 10^{-8}$ \\
+			Psoas muscle** & Skeletal Muscle & H3K4me3 & $4.17\times 10^{-8}$ \\
+			Fetal brain** & CNS   & H3K4me1 & $6.17\times 10^{-8}$ \\
+			Inferior temporal lobe** & CNS   & H3K9ac & $9.33\times 10^{-8}$ \\
+			Hippocampus middle** & CNS   & H3K9ac & $9.33\times 10^{-7}$ \\
+			Pancreatic islets** & Adrenal/Pancreas & H3K9ac & $1.62\times 10^{-6}$ \\
+			Penis foreskin melanocyte primary** & Other & H3K4me3 & $2.09\times 10^{-6}$ \\
+			Angular gyrus** & CNS   & H3K27ac & $2.34\times 10^{-6}$ \\
+			Cingulate gyrus** & CNS   & H3K4me1 & $2.82\times 10^{-6}$ \\
+			Hippocampus middle** & CNS   & H3K4me3 & $2.82\times 10^{-6}$ \\
+			CD34 primary** & Immune & H3K4me3 & $4.68\times 10^{-6}$ \\
+			Sigmoid colon** & GI    & H3K4me3 & $5.01\times 10^{-6}$ \\
+			Fetal adrenal** & Adrenal/Pancreas & H3K4me3 & $6.31\times 10^{-6}$ \\
+			Inferior temporal lobe** & CNS   & H3K27ac & $8.32\times 10^{-6}$ \\
+			Peripheralblood mononuclear primary** & Immune & H3K4me3 & $9.33\times 10^{-6}$ \\
+			Gastric** & GI    & H3K4me3 & $1.17\times 10^{-5}$ \\
+			Substantia nigra* & CNS   & H3K4me3 & $1.95\times 10^{-5}$ \\
+			Fetal brain* & CNS   & H3K4me3 & $2.63\times 10^{-5}$ \\
+			Hippocampus middle* & CNS   & H3K4me1 & $3.31\times 10^{-5}$ \\
+			Ovary* & Other & H3K4me3 & $6.46\times 10^{-5}$ \\
+			CD19 primary (UW)* & Immune & H3K4me3 & $7.08\times 10^{-5}$ \\
+			Small intestine* & GI    & H3K4me3 & $8.51\times 10^{-5}$ \\
+			Lung* & Cardiovascular & H3K4me3 & $1.17\times 10^{-4}$ \\
+			Fetal stomach* & GI    & H3K4me3 & $1.29\times 10^{-4}$ \\
+			Fetal leg muscle* & Skeletal Muscle & H3K4me3 & $1.51\times 10^{-4}$ \\
+			Spleen* & Immune & H3K4me3 & $1.70\times 10^{-4}$ \\
+			Breast fibroblast primary* & Connective/Bone & H3K4me3 & $2.04\times 10^{-4}$ \\
+			Right ventricle* & Cardiovascular & H3K4me3 & $2.14\times 10^{-4}$ \\
+			CD4+ CD25- Th primary* & Immune & H3K4me3 & $2.19\times 10^{-4}$ \\
+			CD4+ CD25- IL17- PMA Ionomycin stim MACS Th sprimary* & Immune & H3K4me1 & $2.19\times 10^{-4}$ \\
+			CD8 naive primary (UCSF-UBC)* & Immune & H3K4me3 & $2.24\times 10^{-4}$ \\
+			Pancreas* & Adrenal/Pancreas & H3K4me3 & $2.34\times 10^{-4}$ \\
+			CD4+ CD25- Th primary* & Immune & H3K4me1 & $2.75\times 10^{-4}$ \\
+			CD4+ CD25- CD45RA+ naive primary* & Immune & H3K4me1 & $2.75\times 10^{-4}$\\
+			Colonic mucosa* & GI    & H3K4me3 & $3.24\times 10^{-4}$ \\
+			Right atrium* & Cardiovascular & H3K4me3 & $3.31\times 10^{-4}$ \\
+			Fetal trunk muscle* & Skeletal Muscle & H3K4me3 & $3.39\times 10^{-4}$ \\
+			CD4+ CD25int CD127+ Tmem primary* & Immune & H3K4me3 & $3.47\times 10^{-4}$ \\
+			Substantia nigra* & CNS   & H3K9ac & $3.63\times 10^{-4}$ \\
+			Placenta amnion* & Other & H3K4me3 & $4.17\times 10^{-4}$ \\
+			Breast myoepithelial* & Other & H3K9ac & $5.50\times 10^{-4}$ \\
+			CD8 naive primary (BI)* & Immune & H3K4me1 & $5.75\times 10^{-4}$ \\
+			Substantia nigra* & CNS   & H3K4me1 & $6.61\times 10^{-4}$ \\
+			Cingulate gyrus* & CNS   & H3K27ac & $7.94\times 10^{-4}$ \\
+			CD4+ CD25- CD45RA+ naive primary* & Immune & H3K4me3 & $8.71\times 10^{-4}$ \\
+			\bottomrule
+		%\end{tabular}%
+		\caption[Enrichment of Top Cell Type of Schizophrenia]{Enrichment of Top Cell type of Schizophrenia.
+			* = significant at False Discovery Rate $<$ 0.05.
+			** = significant at p $<$ 0.05 after correcting for multiple hypothesis. 
+			Reproduce with permission from Journal.\citep{Finucane2015}}
+		\label{tab:cellTypeScz}%
+	\end{longtable}%
+	\end{singlespace}
+	
+	\subsection{Genetic Correlation}
+	Another very important application of \gls{ldsc} is that it allow one to identify the genetic correlation between traits\citep{Bulik-Sullivan2015a}. 
+	The genetic correlation can be used as a genetic analogue to co-morbidity, thus allowing deeper understanding to the etiology of the traits.
+	Above all, genetic correlation was important in studying the treatment response. 
+	It has been observed that there was an increased prevalence of anxiety, depression and substance abuse in \glng{scz}\citep{Buckley2009}. 
+	These co-morbidity were generally associated with more severe psychopathology and with poorer outcome\citep{Buckley2009}.
+	A deeper understanding of possible co-morbidity between different traits and \glng{scz} might provide insight not only to the disease etiology of \glng{scz}, it might even provide important information in possible treatment options for \glng{scz}. 
+	Using breast cancer as an example, it was found that patients with comorbidity had poorer survival than those without comorbidity\citep{Sogaard2013} and it was suggested that by treating the comorbid diseases, one might be able to delay mortality in breast cancer patients\citep{Ording2013}.
+		
+	By applying their method to 25 different phenotypes, \citet{Bulik-Sullivan2015a} shown that \glng{scz} has significant genetic correlation with bipolar disorder, major depression and more surprisingly, anorexia nervosa.
+	Previous studies have always suggest there to be a co-morbidity between \glng{scz} and bipolar disorder \citep{Lichtenstein2009,Purcell2009,Buckley2009}.
+	Similarly, it was not uncommon for \glng{scz} to display depressive symptoms\citep{Buckley2009}. 
+	It was even observed that individuals at high risk and ultrahigh risk for developing \glng{scz} have generally demonstrated a significant degree of depressive symptoms prior to and during the emergence of psychotic symptoms, suggesting a close relationship between \glng{scz} and depression. 
+	
+	On the other hand, the genetic correlation between \glng{scz} and anorexia nervosa were slightly unexpected for there has been a lack of study in the co-morbidity between eating disorder and \glng{scz}. 
+	Nonetheless, this finding raises the possibility of similarity between anorexia and nervosa.
+	% Serotonergic system have been implicated in depression, negative symptoms of sczhiophrneia and eating disorders \citep{Arranz2007}.
