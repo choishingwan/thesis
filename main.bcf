@@ -2255,15 +2255,14 @@
     <bcf:citekey order="17">Welter2014</bcf:citekey>
     <bcf:citekey order="18">Su2011</bcf:citekey>
     <bcf:citekey order="19">Li2003</bcf:citekey>
-    <bcf:citekey order="20">Yang2011</bcf:citekey>
-    <bcf:citekey order="21">Bulik-Sullivan2015</bcf:citekey>
-    <bcf:citekey order="22">Su2011</bcf:citekey>
-    <bcf:citekey order="23">Orr1998</bcf:citekey>
-    <bcf:citekey order="24">Project2012</bcf:citekey>
-    <bcf:citekey order="25">Sham2014</bcf:citekey>
-    <bcf:citekey order="26">Orr1998</bcf:citekey>
+    <bcf:citekey order="20">Orr1998</bcf:citekey>
+    <bcf:citekey order="21">Purcell2007</bcf:citekey>
+    <bcf:citekey order="22">Bulik-Sullivan2015</bcf:citekey>
+    <bcf:citekey order="23">Yang2011</bcf:citekey>
+    <bcf:citekey order="24">Sham2014</bcf:citekey>
+    <bcf:citekey order="25">Orr1998</bcf:citekey>
+    <bcf:citekey order="26">Golan2014</bcf:citekey>
     <bcf:citekey order="27">Golan2014</bcf:citekey>
-    <bcf:citekey order="28">Golan2014</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyvt" type="entry" sortscheme="nyvt">
   <bcf:sorting>

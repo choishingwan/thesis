@@ -489,7 +489,8 @@
 			There were no assumption of the amount of heritability explained by each \glspl{SNP}. 
 			However, our algorithm does assumed that the null should be 1 and therefore cannot detect the amount of confounding factors. 
 					
-	\section{Simulation}
+	\section{Assessing the Performance of Our Algorithm}
+	\label{sec:shrekSim}
 		First, we would like to test how well our algorithm works for heritability estimation under different scenarios.
 		To account for different genetic architecture, we varies the heritability of the trait, the number of causal \glspl{SNP} and the genotypes(therefore varies the \gls{LD} pattern) during the quantitative trait simulation.
 		
@@ -543,47 +544,17 @@
 		
 		Finally, we would like to simulate traits with different inheritance model such as oligogenic traits and polygenic traits.
 		We therefore varies the number of causal \glspl{SNP} ($k$) with $k\in\{5, 10, 50, 100, 250, 500\}$.
-		
-		
-		To assess how well our algorithm performs for narrow sense heritability estimation in comparison to other current methods, we performed series of systematic simulation.
-		In these simulations, performance of our algorithm, \gls{gcta} \citep{Yang2011} and \gls{ldsc} \citep{Bulik-Sullivan2015} with and without the intercept estimation function (-{}-no-intercept) were tested.
-		Through simulation, we can obtain the sample distribution of the heritability estimate under different study designs (e.g. Quantitativat traits, Case-Control studies or extreme phenotype selection). 
-		Factors considered in our simulations were as follow:		
-		
-		
-		
-		\subsection{Genetic Architecture} % Should contain the effect size distribution, the causal SNP number and the heritability spectrum
-		Of all the simulation parameter, the genetic architecture was arguably the most complicated parameter. 
-		It involves the \gls{LD} pattern, the distribution of effect size, the number of causal \glspl{SNP}, the \gls{maf} of the causal \glspl{SNP} and most importantly, the heritability of the trait ($h^2$).
-		
-		Because we would like to cover most of the heritability spectrum, we will simulate traits with $h^2$ ranging from 0 to 0.9, with increment of 0.1 such that $h^2 \in \{0,\allowbreak 0.1,\allowbreak 0.2,\allowbreak 0.3,\allowbreak 0.4,\allowbreak 0.5,\allowbreak 0.6,\allowbreak 0.7,\allowbreak 0.8,\allowbreak 0.9\}$.
-		To simplify the condition, all ``causal'' variants were included in the simulation (e.g. perfect tagging).
-		We also try to obtain realistic \gls{LD} pattern by using HAPGEN2\citep{Su2011} to simulate genotype based on the \gls{LD} pattern of the 1000 genome \gls{CEU} samples. 
-		
-		
-		First, we only consider situation of common \glspl{SNP} and only simulate \glspl{SNP} with \gls{maf} $> 0.1$.
-		In these simulation, we varies the number of causal \glspl{SNP} ($k$) and the effect size distribution.
-		We consider $k\in\{5, 10, 50, 100, 250, 500\}$ such that we can cover different disease spectrum (Oligogenic to Polygenic diseases). 
-		As for effect size distribution, we considered two conditions:
-		\begin{enumerate}
-			\item Equal Effect Size
-			\item Random Effect Size
-		\end{enumerate}
-		The simplest situation was when all casual \glspl{SNP} have the same effect size 
-		\begin{equation}
-		\beta_s=\pm\sqrt{\frac{h^2}{k}}
-		\label{eq:stableEffect}
-		\end{equation}
-		The direction of effect should be randomly simulated.
-		As for the random effect size scenario, we consider the effect size to be 
-		\begin{equation}
-		\beta_r=\pm\sqrt{\frac{\gamma \times h^2}{\sum \gamma}}
+		An important consideration in the simulation of causal \glspl{SNP} is the effect size distribution. 
+		\citet{Orr1998} suggested that the exponential distribution can be used to approximate the genetic architecture of adaptation. 
+		As a result of that, we used the exponential distribution with $\lambda=1$ as an approximation to the effect size distribution:
+		\begin{align}
+		\theta&=\mathrm{exp}(\lambda=1)\notag\\
+		\beta&=\pm\sqrt{\frac{\theta \times h^2}{\sum \theta}}
 		\label{eq:randomEffect}
-		\end{equation}
-		with $\gamma\sim exp(\lambda=1)$ and a random direction of effect.
-		Rationale behind the choice of exponential distribution was based on \citet{Orr1998}, which suggested that exponential distribution with $\lambda=1$ may serve as a heuristic expectation the genetic architecture of adaptation.
-
-		Once the effect size was calculated, we can then randomly assign the effect size to $k$ random \glspl{SNP} with normalized genotype $\boldsymbol{X}$, the phenotype can then be calculated as 
+		\end{align}
+		with a random direction of effect.
+		
+		Given the normalized genotype as $\boldsymbol{X}$ and the simulated heritability as $h^2$, the phenotype can then be calculated as 
 		\begin{align}
 		\epsilon_i&\sim N(0,\sqrt{\mathrm{Var}(\boldsymbol{X\beta})\frac{1-h^2}{h^2}} )\notag\\
 		\boldsymbol{\epsilon} &= (\epsilon_1,\epsilon_2,...,\epsilon_n)^t\notag\\
@@ -591,64 +562,114 @@
 		\label{eq:simulationOfPhenotype}
 		\end{align}
 		
-		For each batch of simulated samples, we calculate the estimated heritability using our algorithm, \gls{gcta}, \gls{ldsc} with intercept fixed at 1 and \gls{ldsc} allowing for intercept estimation for each $h^2$.
-		In each iteration, the sample genotype was provided to \gls{gcta} for the calculation of genetic relationship matrix (GRM) whereas for our algorithm and \gls{ldsc}, 500 independent samples were simulated based on the 1000 genome project \gls{CEU} samples\parencite{Project2012} to construct the \gls{LD} matrix and calculate the \gls{LD} score respectively.
-		This was because both \gls{ldsc} and our algorithm were designed to work in situation where the raw genotype were not provided and the \gls{LD} structure was usually obtained form the public data base instead.
-		Therefore to provide a realistic simulation, an independent set of reference samples were provided for our algorithm and \gls{ldsc}.
+		The test statistics were then calculated using the plink programme \citep{Purcell2007} and input to our algorithm to estimate the heritability. 
+		An independent 500 samples were simulated as a reference panel for the calculation of \gls{LD} matrix as in reality, we should not have the sample genotype for the construction of the \gls{LD} matrix. 
+		The whole process will be repeated 50 times such that a distribution of the estimate can be obtained. 
+		The whole simulation process can be viewed as follow:
+		We simulate a large population of samples (e.g. $50\times1,000+500 = 50,500$) where 500 samples were randomly selected as a reference panel. 
+		In the subsequent iteration of simulation, 1,000 samples were randomly selected from the population \textit{without replacement} and estimation were performed.
+		We then simulate 10 different population and repeat the whole process.
 		
-		The whole process were repeated 50 times with the same \glspl{SNP} set, the same causal \glspl{SNP} and the same effect size for each $h^2$ such than an empirical variance can be obtained.
-		We then repeat the process 10 times on different \glspl{SNP} sets, with different causal \glspl{SNP} but the same effect size for each $h^2$.
-		This should introduce a slight variation in the \gls{LD} structure and should demonstrate the robustness of the programmes under different \gls{LD} construct.
-		To summarize, the simulation procedure follows:
+		In summary:
 		\begin{enumerate}
 			\item Randomly select 50,000 \glspl{SNP} with \gls{maf}$>0.1$ from chromosome 1
-			\item Randomly generate $k$ effect size with $k \in \{5,10,50,100,250,500\}$ following either \cref{eq:stableEffect} or \cref{eq:randomEffect}
+			\item Simulate 500 samples using HAPGEN2 and used as a reference panel
+			\item Randomly generate $k$ effect size with $k \in \{5,10,50,100,250,500\}$ following  \cref{eq:randomEffect}
 			\item Randomly assign the effect size to $k$ \glspl{SNP}
 			\item Simulate 1,000 samples using HAPGEN2 and calculate their phenotype according to \cref{eq:simulationOfPhenotype}
-			\item Perform heritability estimation using our algorithm, \gls{ldsc} and \gls{gcta}
-			\item Repeat step 4-5 50 times
-			\item Repeat step 1-6 10 times
+			\item Perform heritability estimation using our algorithm
+			\item Repeat step 5-6 50 times
+			\item Repeat step 1-7 10 times
 		\end{enumerate}
 		
-		\subsubsection{Extreme Effect Size}
-		Another condition we were interested in was the performance of the tools when there is a small amount of \glspl{SNP} that explain a large portion of effect e.g. 50\%.
-		Similarly, we only consider 1,000 samples, with 50,000 common \glspl{SNP}(\gls{maf} $>0.1$).
-		We hypothesize that under the polygenic model, such extreme distribution in effect size should have much larger effect when compared to that in oligogenic condition. 
-		Thus we only consider the polygenic condition where the number of causal \gls{SNP} ($k$) were limited to 100 or 250. 
+		\section{Comparison with Other Programmes}
+		It is also important for us to compare our algorithm to existing methods for the performance in estimating the narrow sense heritability.
+		We would also like to extend the simulation to other conditions such as quantitative traits with extreme effect size distribution, case control studies and quantitative traits with extreme phenotype selections.
 		
-		We simulate $m$ \glspl{SNP} accounting for 50\% of all the effect where $m\in\{1,5,10\}$.
+		Currently, the only other programme that is capable to estimate the narrow sense heritability using only test statistic is the \gls{ldsc} \citep{Bulik-Sullivan2015}. 
+		On the other hand, \gls{gcta} \citep{Yang2011} is commonly considered as the golden standard for heritability estimation in \gls{GWAS} data. 
+		Therefore, we choose to compare the performance of our algorithm to that of \gls{ldsc} and \gls{gcta}.
+		It is important to note that as we are assessing the performance of the programme through controlled simulation, there should be little confounding factors. 
+		For \gls{ldsc}, the default intercept estimation function allows it to estimate and correct for confounding factors with an increase in \gls{se}. 
+		The simulation will therefore be unfair to \gls{ldsc} with intercept estimation, as the \gls{se} is increased yet there are little confounding factors for it to correct.
+		Thus, we also simulate \gls{ldsc} with a fixed intercept (-{}-no-intercept) parameters to avoid bias against \gls{ldsc}.	
+		
+		\subsection{Simulation}
+		We first repeated the whole simulation process in \cref{sec:shrekSim} by including \gls{gcta}, \gls{ldsc} with fixed intercept and \gls{ldsc} with intercept estimation on top of our algorithm. 
+		The sample genotype was provided to \gls{gcta} for the calculation of the genetic relationship matrix and the estimation of heritability.
+		On the other hand, the \gls{LD} score for \gls{ldsc} were calculated using the same simulated reference panel as our algorithm to simulate conditions where the sample genotype was not available.
+		So the simulation follows the following procedure:
+		
+		\begin{enumerate}
+			\item Randomly select 50,000 \glspl{SNP} with \gls{maf}$>0.1$ from chromosome 1
+			\item Simulate 500 samples using HAPGEN2 and used as a reference panel
+			\item Randomly generate $k$ effect size with $k \in \{5,10,50,100,250,500\}$ following  \cref{eq:randomEffect}
+			\item Randomly assign the effect size to $k$ \glspl{SNP}
+			\item Simulate 1,000 samples using HAPGEN2 and calculate their phenotype according to \cref{eq:simulationOfPhenotype}
+			\item Perform heritability estimation using our algorithm, \gls{gcta}, \gls{ldsc} with fixed intercept and \gls{ldsc} with intercept estimation.
+			\item Repeat step 5-6 50 times
+			\item Repeat step 1-7 10 times
+		\end{enumerate}
+		
+		\subsection{Extreme Effect Size}
+		On top of the original quantitative trait simulation, another condition we were interested in was the performance of the algorithms when there is a small amount of \glspl{SNP} with a much larger effect size.
+		This can be observed in disease such as %HERE
+		
+		To simulate extreme effect size, we consider scenarios where $m$ \glspl{SNP} accounts 50\% of all the effect size with $m\in\{1,5,10\}$.
 		The effect size was then calculated as
 		\begin{align}
 		\beta_{eL} &= \pm\sqrt{\frac{0.5h^2}{m}} \notag\\
-		\beta_{eS} &= \pm\sqrt{\frac{0.5h^2}{k-m}} \notag\\
+		\beta_{eS} &= \pm\sqrt{\frac{0.5h^2}{100-m}} \notag\\
 		\beta &= \{\beta_{eL}, \beta_{eS}\}
 		\label{eq:extremEffect}
 		\end{align}
-		the effect size were then randomly assigned to $k$ causal \glspl{SNP} and phenotype was calculated as in \cref{eq:simulationOfPhenotype}.
+		The effect size were then randomly assigned to 100 causal \glspl{SNP} and phenotype will be calculated as in \cref{eq:simulationOfPhenotype}.
 		The simulation procedure then becomes
 		\begin{enumerate}
 			\item Randomly select 50,000 \glspl{SNP} with \gls{maf}$>0.1$ from chromosome 1
-			\item Randomly generate $k$ effect size with $k \in \{100,250\}$ and $m$ extreme effect, following \cref{eq:extremEffect} where $m\in{1,5,10}$
-			\item Randomly assign the effect size to $k$ \glspl{SNP}
+			\item Simulate 500 samples using HAPGEN2 and used as a reference panel
+			\item Randomly generate 100 effect size where $m$ has extreme effect, following \cref{eq:extremEffect}, with $m\in\{1,5,10\}$
+			\item Randomly assign the effect size to 100 \glspl{SNP}
 			\item Simulate 1,000 samples using HAPGEN2 and calculate their phenotype according to \cref{eq:simulationOfPhenotype}
-			\item Perform heritability estimation using our algorithm, \gls{ldsc} and \gls{gcta}
-			\item Repeat step 4-5 50 times
-			\item Repeat step 1-6 10 times
+			\item Perform heritability estimation using our algorithm, \gls{ldsc} with fixed intercept, \gls{ldsc} with intercept estimation and \gls{gcta}
+			\item Repeat step 5-6 50 times
+			\item Repeat step 1-7 10 times
 		\end{enumerate}
 		
 		\subsection{Case Control Studies}
-		The simulation of case control studies was very much like that of the simulation of quantitative trait. 
+		The simulation of case control studies was similar to the simulation of quantitative trait. 
 		However, there were two additional parameters to consider: the population prevalence and the observed prevalence.
-		These parameters allow us to simulate the samples under a liability model, therefore simulating the case control studies.
+		These parameters were required to simulate the samples under a liability model for case control studies.
 
-		Although there were only two additional parameter, the computational challenge for the simulation of case control was significantly bigger than that for the simulation of quantitative trait.
-		Take for example, if one like to simulate a trait with population prevalence of $p$ and observed prevalence  of $q$ and would like to have $n$ cases in total, one will have to simulate $\min(\frac{n}{p}, \frac{n}{q})$ samples.
-		Considering the scenario where the observed prevalence is 50\%, the population prevalence is 1\% and 1,000 cases,a minimum of 100,000 samples will be required.
+		Although there were only two additional parameter, it is significantly more challenging for to simulate when compared to the simulation of quantitative traits.
+		It is mainly because of the number of samples required to simulate adequate samples under the liability threshold model.
+		Take for example, if one like to simulate a trait with population prevalence of $p$ and observed prevalence of $q$ and would like to have $n$ cases in total, one will have to simulate $\min(\frac{n}{p}, \frac{n}{q})$ samples.
+		Considering the scenario where the observed prevalence is 50\%, the population prevalence is 1\%, if we want to simulate 1,000 cases, a minimum of 100,000 samples will be required.
 		
-		% Maybe instead of chromosome 1, use chromosome 22 and reduce the number of SNPs, that will be better.
-		Given limited computer resources, we only simulate 1,000 cases, with an observed prevalence of 0.5 and population prevalence $p\in\{0.5, 0.1, 0.05, 0.01\}$.
-		Most importantly, we reduce the number of \glspl{SNP} simulated to 5,000 and used chromosome 22 instead, such that the \glspl{SNP} density remains more or less unchanged by the number of processes required were largely reduced.
-		We acknowledged that the current simulation was relatively brief, however, it should be able to serve as a prove of concept simulation to study the performance of the tools under the case control scenario.
+		Given limited computer resources, it will be infeasible for us to simulate 1,000 cases with 50,000 \glspl{SNP} when the population prevalence is small.
+		To simplify the simulation and reduce the burden of computation, we limited the observed prevalence to 50\% and varies the population prevalence $p$ such that $p\in\{0.5, 0.1, 0.05, 0.01\}$.
+		Most importantly, we reduce the number of \glspl{SNP} simulated to 5,000 on chromosome 22 instead of 50,000 \glspl{SNP} on chromosome 1. 
+		The change from chromosome 1 to chromosome 22 allow us to reduce the number of \glspl{SNP} without changing much of the \gls{SNP} density. 
+		We acknowledged that the current simulation was relatively brief, however, it should serves as a prove of concept simulation to study the performance of the algorithms under the case control scenario.
+		
+		In the case control simulation, we randomly select 5,000 \glspl{SNP} from chromosome 22 with \gls{maf} $\ge0.1$ in the \gls{CEU} haplotypes as an input to HAPGEN2. 
+		We then randomly select 100 \glspl{SNP} with effect size simulated based on \cref{eq:randomEffect}.
+		In order to simulate a case control samples with 1,000 cases, we then simulate $\frac{1,000}{p}$ samples and calculate their phenotype using \cref{eq:simulationOfPhenotype}.
+		The phenotype was then standardized and cases were defined as sample with phenotype passing the liability threshold with respect to $p$.
+		An equal amount of samples were then randomly selected from samples with phenotype lower than the liability threshold and defined as controls.
+			
+		Finally, the case control simulation were performed as:
+		\begin{enumerate}
+			\item Randomly select 5,000 \glspl{SNP} with \gls{maf}$>0.1$ from chromosome 22
+			\item Simulate 500 samples using HAPGEN2 and used as a reference panel
+			\item Randomly generate 100 effect size following  \cref{eq:randomEffect}
+			\item Randomly assign the effect size to 100 \glspl{SNP}
+			\item Simulate $\frac{1,000}{p}$ samples using HAPGEN2 and calculate their phenotype according to \cref{eq:simulationOfPhenotype}
+			\item Define case control status using the liability threshold and randomly select same number of case and controls for subsequent simulation
+			\item Perform heritability estimation using our algorithm, \gls{ldsc} with fixed intercept, \gls{ldsc} with intercept estimation and \gls{gcta}
+			\item Repeat step 5-7 50 times
+			\item Repeat step 1-8 10 times
+		\end{enumerate}
 		
 		\subsection{Extreme Phenotype Selection}
 		The simulation of extreme phenotype selection was the same as the quantitative trait simulation. 
@@ -662,10 +683,11 @@
 		
 	\section{Result}
 		The heritabilibty estimation were implemented in \gls{shrek} and is available on \url{https://github.com/choishingwan/shrek}.  
+		\subsection{Performance}
 		
 		To study the performance of \gls{shrek} and \gls{ldsc} in comparison to \gls{gcta}, we performed a variety of simulations to model scenarios with different number of causal \glspl{SNP}, different effect size distribution and different type of traits. 
 		
-		First, we examined the performance of the programmes under the quantitative trait scenario. 
+		First, we examined the performance of the algorithms under the quantitative trait scenario. 
 		In the quantitative trait scenario, we varies the number of causal \glspl{SNP} and either assigned an equal effect size to each causal \glspl{SNP} or assigned a per-allele effect sizes drawn from the squared root of the exponential distribution with $\lambda=1$.
 		
 		\subsection{Quantitative Trait Simulation with Equal Effect Size}
@@ -798,5 +820,6 @@
 	\section{Discussion}
 	
 	\section{Supplementary place holder}
+
 	
 	%Put these graphs in supplementary instead
