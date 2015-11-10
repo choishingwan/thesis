@@ -19,8 +19,9 @@
 			}
 			\caption[Quantitative Trait with Random Effect Size Simulation Result(Mean)]
 			{Mean of results from quantitative trait simulation with random effect size simulation.
-				The result was very much similar to the condition where a equal effect size was simulated.
-				Again, \gls{shrek} has the most accurate mean estimate when compared to other tools, with \gls{ldsc} slightly inflated.} 
+				\gls{shrek} was observed to be slightly biased downward.
+				On the other hand, \gls{gcta} were biased upward except in the condition of 10 causal \glspl{SNP}. 
+				Whereas a relatively higher upward bias was observed for \gls{ldsc}.} 
 			\label{fig:QtRandMean}
 		\end{figure}
 		
@@ -45,8 +46,8 @@
 			}
 			\caption[Quantitative Trait with Random Effect Size Simulation Result(Variance)]
 			{Variance of results from quantitative trait simulation with random effect size simulation.
-				Again, the variance of the estimate were almost the same as in simulation of equal effect size where \gls{gcta} has the smallest variance, follow by \gls{ldsc}. 
-				However, it was observed when the number of causal \glspl{SNP} decreases, the variance of the estimation increases for all programme, with variance of the \gls{shrek} estimate being the least sensitive to change in heritability.
+				\gls{gcta} has the smallest variance, follow by \gls{ldsc}. 
+				However, it was observed when the number of causal \glspl{SNP} decreases, the variance of the estimation increases for all algorithm, with variance of the \gls{shrek} estimate being the least affected.
 			} 
 			\label{fig:QtRandVar}
 		\end{figure}
@@ -72,7 +73,8 @@
 			}
 			\caption[Quantitative Trait with Random Effect Size Simulation Result(Estimated Variance)]
 			{Estimated variance of results from quantitative trait simulation with random effect size simulation when compared to the empirical variance.
-				Similar to the simulation with equal effect size, the estimated variance seems to be affected by the number of causal \glspl{SNP}.
+			\gls{gcta} has the best estimate of its empirical variance whereas \gls{shrek} tends to under-estimate its empirical variance.
+			On the other hand, \gls{ldsc} to over-estimate the variance especially when the number of causal \glspl{SNP} is small.
 				} 
 			\label{fig:QtRandVarCom}
 		\end{figure}

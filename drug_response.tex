@@ -2,17 +2,88 @@
 	\chapter{Heritability of Response to antipsychotic treatment}
 	\chaptermark{Response to antipsychotic treatment}
 	%Maybe a section instead of a chapter?
-	One of the aim of pharmacogenetics is to be able to predict the treatment response of individuals based on their genetic data.
-	An important parameter to consider here will be the heritability of antipsychotic drug response for it provide an upper bound of how much of the variation in treatment response can be predicted by genetic data. 
-	However, it was extremely difficult to obtain twins and family data on antipsychotic drug response, making it impossible for the estimation of the heritability.
-	
-	In this chapter, we aimed to estimate the heritability of antipsychotic response, using data from the antipsychotic \gls{GWAS} and Exome Sequencing study. 
-	Moreover, we were interested in investigating which functional categories were more important in antipsychotic drug response. 
-	Therefore, we will also perform the partitioning of heritability on a series of functional categories.
-	
 	\section{Introduction}
-	Here we try to use Beatrice's data and estimate the heritability explained in drug response.
-	Should also repeat the region-wise heritability
-	\section{Methodology}
+	One of the aim of pharmacogenetics studies are to be able to predict the treatment response of individuals based on their genetic data.
+	However, traditional pharmacogenetics studies relies on existing knowledge and only study a subset of candidate genes and the findings were limited.
+	With the popularization of \gls{GWAS}, we now have the ability to examine the whole genome without restricting to a small number of candidate genes. 
+	Unfortunately, it was difficult to obtain a large amount of subjects, leading to a lack of detection power in the \gls{GWAS}. 
+	Even for \gls{catie}, the largest \gls{GWAS} conducted on antipsychotic treatment response, none of the \glspl{SNP} passed the genome wide association \citep{McClay2011}.
+	A possible method to aid the detection power of the \gls{GWAS} is to perform extreme phenotype selection \citep{Guey2011}.
+	By performing the extreme phenotype selection, one can inflate the frequency distortion between two group of samples.
+	
+	Here, we performed a \gls{GWAS} on antipsychotic treatment response using the extreme phenotype selection to detect genetic variation associated with individual difference in response to treatment with Olanzapine, Quetiapine, Ziprasidone, Aripiprazole, Risperidone, Perphenazine and Haloperidol. 
+	The sample consisted of 315 Chinese \glng{scz} patients and were genotyped using Illumina zhonghua v.1.1 genotyping chip.
+	Treatment outcome was measured using \gls{panss}.
+	
+	On top of the genetic association, we were interested in investigate the heritability of antipsychotic treatment response.
+	Moreover, we would like to partition the heritability into different functional categories, hoping to identify important functions that participates in antipsychotic drug response. 
+	
+	\section{Materials and Methods}
+	\subsection{Subjects}
+	A total of 2,636 patients with \glng{scz} were recruited from the ``State High-Tech Development Plan (863 Plan, No: 2009AA022702'').
+	Patients with \glng{scz} were diagnosed by at least two trained psychiatrists shortly after their first presentation to mental health service based on the \gls{scidp} \citep{First2002}. 
+	Any diagnostic uncertainty was resolved by at least two senior clinicians. 
+	To avoid confounding factors, patients with other psychiatric disorders, severe medical conditions, regular use of clozapine, pregnancy, history of substance abuse, and/or treatment non-compliance were excluded from the study. 
+	\gls{panss} assessment was performed on the patients to obtain a baseline score.
+	Patients will then be randomly assigned into six independent treatment groups, each were administrated with either Olanzapine, Quetiapine, Ziprasidone, Aripiprazole, Risperidone, Perphenazine and Haloperidol randomly for a six week period.
+	\gls{panss} assessment was then performed again following the 6 weeks medication period. 
+	The proportional change in total \gls{panss} score (\gls{panss}-T) was then used to represent treatment effects.
+	Change in \gls{panss}-T was calculated as follow:
+	\begin{equation}
+	 \Delta\text{PANSS-T}=\frac{Score_{baseline}-Score_{Week6}}{Score_{baseline}-30}
+	\end{equation}
+	We then distribute the patients according to the reduction of their \gls{panss}-T.
+	Patients from the extreme 15\% were selected and we matched them according to sex, age and drug used. 
+	In total, 316 matched patients (158 patients from each extreme end) were selected and informed consent were obtained.
+	After obtaining informed consent, genomic DNA was purified from peripheral blood leucocytes. 
+	DNA samples were then genotyped by Genergy Biotechnology (shanghai) Co. Ltd using the Illumina zhonghua v.1.1 genotyping chip.
+	
+	\subsection{Quality Control}
+	The genotyping data were subjected to quality control using PLINK (version 1.9) \citep{Purcell2007}.
+	\glspl{SNP} were excluded from the analysis if 
+	\begin{enumerate*}[label=\roman*)]
+		\item the genotyping rate was $<99\%$ in the data set;
+		\item the \gls{maf} was $<0.05$;
+		\item and if it violated the Hardy-Weinberg equilibrium test (p-value $< 0.00001$).
+	\end{enumerate*}
+	
+	For sample level quality control, subjects were excluded from the analysis if 
+	\begin{enumerate*}[label=\roman*)]
+		\item they were duplicated or related;
+		\item the genotype calling rate was $<99\%$;
+		\item there was cross contamination;
+		\item and if population stratification was observed.
+	\end{enumerate*}
+	
+	To check for sample relatedness, we first pruned \glspl{SNP} with $R^2$ bigger than 0.25 within a window of 200 \glspl{SNP} and transverse the window with a step size of 5 \glspl{SNP}.
+	Genome-wide \gls{ibd} analysis was then performed using PLINK.
+	One from each pair of related individuals (defined as proportion \gls{ibd} $\ge0.125$) with lower quality was excluded from the subsequent analysis.
+	On the other hand, to detect cross contamination, we calculated the inbreeding coefficient using PLINK and remove any subjects with an inbreeding coefficient 3 standard deviation away from the mean.
+	Finally, population stratification was evaluated using the \gls{pca} analysis in PLINK (version 1.9).
+	To minimize effect of population substructure, we included the top 10 \glspl{pc} as an covariates in the association test.
+	
+	\subsection{Association Analysis}
+	The \glspl{SNP} passing quality control were test in PLINK for association with the \gls{panss}-T reduction, using sex and the top 10 \glspl{pc} as the covariates for analysis.
+	We also tried to adjust for years of education and the drug used.
+	However, considering the sample size, the drugs were categorized into ``atypical'' and ``typical'' drugs instead of using independent drugs for covariates to reduce the number of categories. 
+	
+	Gene based tests were performed using \gls{MAGMA} \citep{DeLeeuw2015}, which employed a multiple linear principal component regression model and are able to account for the \gls{LD} pattern between \glspl{SNP}.
+	Genes with p-value passing the bonferroni correction threshold were considered to be significant.
+	
+	\subsection{Functional Annotation}
+	
+	\subsection{Heritability Estimation}
+	\subsection{Partitioning of Heritability}
+	
 	\section{Result}
+	\subsection{SNP association Results}
+	A total of 310 samples passed the quality control and 678,033 \glspl{SNP} were successfully genotyped, with an average call rate of 99.89\%. 
+	
+	
 	\section{Discussion}
+	
+	
+	
+	
+	
+	
