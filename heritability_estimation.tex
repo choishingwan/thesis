@@ -490,19 +490,19 @@
 		Given the relatively small sample size, the sampling bias might be high, therefore lead to systematic bias in the heritability estimation in our algorithm.
 		
 		To correct for the bias, we would like to apply a \gls{LD} correction algorithm to correct for the bias in the sample \gls{LD}.
-		Different authors \citep{Weir1980,Wang2007} have proposed different methods for the correction of sample $R^2$. 
-		We considered the following \gls{LD} correction algorithms:
+		Different authors \citep{Weir1980,Wang2007} have proposed methods for the correction of sample $R^2$ and can be applied for the correction of sample bias in \gls{LD}.
+		Therefore we considered the following $R^2$ correction algorithms:
 		\begin{align}
 		\text{Ezekiel}: \tilde{R^2}&= 1-\frac{n-1}{n-2}(1-\hat{R^2})\label{eq:ezekiel} \\
-		\text{Okin-Pratt}: \tilde{R^2}&=1-\frac{(n-3)(1-\hat{R^2})}{n-2}(1+\frac{2(1-\hat{R^2})}{n})\label{eq:okin} \\
+		\text{Olkin-Pratt}: \tilde{R^2}&=1-\frac{(n-3)(1-\hat{R^2})}{n-2}(1+\frac{2(1-\hat{R^2})}{n})\label{eq:okin} \\
 		\text{Pratt}: \tilde{R^2}&=1-\frac{(n-3)(1-\hat{R^2})}{n-2}(1+\frac{2(1-\hat{R^2})}{n-3.3})\label{eq:pratt} \\
 		\text{Smith}: \tilde{R^2}&=1-\frac{n}{n-1}(1-\hat{R^2}) \label{eq:smith}\\
 		\text{Weir}: \tilde{R^2}&=\hat{R^2}-\frac{1}{2n} \label{eq:weir}
 		\end{align}
 		where $n$ is the number of samples used to calculate the $R^2$, $\hat{R^2}$ is the sample $R^2$ and $\tilde{R^2}$ is the corrected $R2$.
 		
-		In order to assess the performance of each individual correction methods, we perform a simple quantitative polygenic trait simulation to compare the performance of our algorithm using different \gls{LD} bias correction algorithms.
-		
+		In order to assess the performance of each individual correction methods, we perform simulations to compare the performance of our algorithm using different \gls{LD} bias correction algorithms.
+		Most importantly, we would like to assess the performance of different algorithms not only under one specific \gls{LD} range, but also under the complex \gls{LD} structure observed in real life scenarios.
 		First, 5,000 \glspl{SNP} with \gls{maf} $\ge0.1$ were randomly selected from chromosome 22 from the 1000 genome \gls{CEU} haplotypes and were used as an input to HAPGEN2 \citep{Su2011} to simulate 1,000 individuals.
 		HAPGEN2 is a simulation tools which simulates new haplotypes as an imperfect mosaic of haplotpyes from a reference panel and the haplotypes that have already been simulated using the \textit{Li and Stephens} (LS) model of \gls{LD} \citep{Li2003}.
 		This allow us to simulate genotypes with \gls{LD} structures comparable to those observed in \gls{CEU} population. 
@@ -585,8 +585,7 @@
 			However, in our simulation, we will repeat the calculation $50(\text{iteration})\times10(\text{number of heritability})=500$ times for \emph{each} condition tested. 
 			The time required to finish all the simulation quickly becomes infeasible given the large amount of \glspl{SNP}.
 			To compromise, we simulate a total of 50,000 \glspl{SNP} from chromosome 1 as a balance between run time of simulation and the total \glspl{SNP} simulated.
-			With 50,000 \glspl{SNP}, 
-			%TODO the snp density of our simulation
+			With 50,000 \glspl{SNP}, there are roughly 200 \glspl{SNP} within a 1 \gls{mb} region.
 		\subsection{Genetic Architecture}
 			Of all simulation parameter, the genetic architecture was the most complicated and important parameter. 
 			The \gls{LD} pattern, the number of causal \glspl{SNP}, the effect size of the causal \glspl{SNP} and the heritability of the trait were all important factors contribute to the genetic architecture of a trait. 
@@ -598,13 +597,12 @@
 			However, to simplify our simulation, all ``causal'' variants were included in our simulation (e.g. perfectly ``tagged'')
 		
 			Thirdly, to obtain a realistic \gls{LD} pattern, we simulate the genotypes using the HAPGEN2 programme\citep{Su2011}, using the 1000 genome \gls{CEU} haplotypes as an input.
-			In a typical \gls{GWAS} , one usually only have power in detecting ``common variants'', defined as variants with \gls{maf} $\ge 0.01$.
-			We therefore only consider scenario with ``common'' variants and only use \glspl{SNP} with \gls{maf} $\ge0.1$ in the \gls{CEU} haplotypes as an input to HAPGEN2. 
-			This will reduce the probability of having \glspl{SNP} with \gls{maf} $<0.01$ in the final simulated sample sets.
+			In a typical \gls{GWAS} , one usually only have power in detecting ``common variants'', defined as variants with \gls{maf} $\ge 0.05$.
+			We therefore only consider scenario with ``common'' variants and only use \glspl{SNP} with \gls{maf} $\ge0.05$ in the \gls{CEU} haplotypes as an input to HAPGEN2 to simulate 1,000 samples.
 			
 			Finally, we would like to simulate traits with different inheritance model such as oligogenic traits and polygenic traits.
 			We therefore varies the number of causal \glspl{SNP} ($k$) with $k\in\{5, 10, 50, 100, 250, 500\}$.
-			The effect size were then simulated using \cref{eq:randomEffect} and the phenotype were simulated using \cref{eq:simulationOfPhenotype} similar to that in \cref{sec:ldSim}.
+			The effect size were then simulated using \cref{eq:randomEffect} and the phenotype were simulated using \cref{eq:simulationOfPhenotype}.
 			
 			For \gls{gcta}, the sample genotypes were provided to calculate the genetic relationship matrix and the sample phenotype were used in combination with the genetic relationship matrix to estimate the heritability.
 			
@@ -702,91 +700,47 @@
 	
 	\section{Result}
 		The heritabilibty estimation were implemented in \gls{shrek} and is available on \url{https://github.com/choishingwan/shrek}.  
-		\subsection{Performance}
-		We first examine the performance of \gls{shrek} when estimating the narrow sense heritability of varies quantitative traits. 
-		Although the number of causal \glspl{SNP} did not have a significant impact to the performance of \gls{shrek}, a general up-ward bias was observed (figure similar to \cref{fig:shrekCMean}). 
-		As the simulated heritability increases, the bias of the estimate systematically increases.
-		Consider the systematic nature of the bias, we hypothesize that the bias might be a result of a simulation artifact which produces sample \gls{LD} that violates our expectation of an inflated sample \gls{LD}.
-		Another possibility is that there is a general \emph{underestimation} of the \gls{LD}, therefore leads to an over estimation of heritability.
-		
-		We re-ran the simulation on \cref{sec:shrekSim}, this time comparing the performance of \gls{shrek} with and without the \gls{LD} correction and instead of simulating 50,000 \glspl{SNP} on chromosome 1, we simulate 5,000 \glspl{SNP} on chromosome 22 for a faster comparison.
-		It was observed that when \gls{shrek} was performed without \gls{LD} correction (\cref{fig:shrekNCMean}), there was a downward bias where the magnitude of bias was much smaller when compared to the estimation with \gls{LD} correction (\cref{fig:shrekCMean}). 
-		On top of that, although the variance of both algorithm was affected by the number of causal \glspl{SNP} where a smaller amount of causal \glspl{SNP} leads to higher variance, the variance of estimation was smaller when \gls{LD} correction was not performed.
-		All in all, the \gls{mse} when \gls{LD} correction was not performed was almost half of when \gls{LD} correction was performed (\cref{tab:shrekLDmse}).
-		
-		\begin{figure}
+		\subsection{LD Correction}
+		\begin{figure}[t]
 			\centering
-			\subfloat[Mean of Estimation without LD Correction]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/ld_correct/shrek_Qt_Rand_mean.png}}
-				\label{fig:shrekNCMean}
+			\subfloat[Mean Estimation]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/ld_correct/ldCom_mean.png}}
+				\label{fig:meanLDCor}
 			}
-			\subfloat[Mean of Estimation with LD Correction]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/ld_correct/shrekC_Qt_Rand_mean.png}}
-				\label{fig:shrekCMean}
-			}\\
-			\subfloat[Variance of Estimation without LD Correction]{
-				\scalebox{.4}{\includegraphics{figure/quantitative/ld_correct/shrek_Qt_Rand_sd.png}}
-				\label{fig:shrekNCVar}
+			\subfloat[Empirical Variance]{
+				\scalebox{.4}{\includegraphics{figure/quantitative/ld_correct/ldCom_var.png}}
+				\label{fig:varLDCor}
 			}
-			\subfloat[Variance of Estimation with LD Correction]{
-				
-				\scalebox{.4}{\includegraphics{figure/quantitative/ld_correct/shrekC_Qt_Rand_sd.png}}
-				\label{fig:shrekCVar}
-			}
-			\caption[Performance of SHREK with and without LD correction]
-			{Performance of SHREK with and without LD correction.
-				It was observed that there was an upward bias of \gls{shrek} when the \gls{LD} correction was performed. 
-				Not only was the bias in estimation of \gls{shrek} lower when \gls{LD} correction was not performed, the variance was also smaller, suggesting that the \gls{LD} correction seems to have a negative impact to the heritability estimation.
-				} 
-			\label{fig:shrekLDCom}
+			\caption[Effect of LD correction to Heritability Estimation]
+			{Effect of LD correction to Heritability Estimation.
+				We compared the performance of our algorithm when different $R^2$ bias correction algorithm was used.
+				When no bias correction was carried out, a downward bias was observed. 
+				After the application of the bias correction algorithms, the mean estimations of all except in the case of Weir \cref{eq:weir} algorithms leads to an overestimation of heritability.
+				On the other hand, the corrections all lead to increase in variance of the estimation.
+			} 
+			\label{fig:ldCorCom}
 		\end{figure}
-		\begin{table}
-			\centering
-			\begin{tabular}{rrr}
-				\toprule
-				Number of Causal SNPs & SHREK without LD Correction & SHREK with LD Correction \\
-				\midrule
-				5	&	0.0175	&	0.0352 \\
-				10	&	0.0163	&	0.0337 \\
-				50	&	0.0149	&	0.0305 \\
-				100	&	0.0159	&	0.0319 \\
-				250	&	0.0146	&	0.0319 \\
-				500	&	0.0138	&	0.0293 \\
-				\bottomrule
-			\end{tabular}
-			\caption[Mean Squared Error of SHREK with and without LD Correction]{
-				\gls{mse} \gls{shrek} with and without \gls{LD} correction.
-				The \gls{mse} remains relatively stable for both algorithm with respect to the number of causal \glspl{SNP}.
-				However, \gls{shrek} with \gls{LD} correction does have almost doubled the \gls{mse} when compared to \gls{shrek} without \gls{LD} correction. 
-				This suggest that the \gls{LD} correction might be have a negative impact to the heritability estimation in our simulation.
-				}
-			\label{tab:shrekLDmse}
-		\end{table}
+		First, we would like to assess the effect of \gls{LD} correction on the heritability estimation and the impact of different bias correction algorithms. 
+		By performing the simulation using HAPGEN2, we were able to simulate sample with \gls{LD} structure comparable to the \gls{LD} of the 1000 genome \gls{CEU} samples.
 		
-		The result does suggest that there might be some problem with the \gls{LD}, therefore lead to bias in estimation when the \gls{LD} correction was used. 
-		To understand the source of the issue, we first inspect whether if the simulated \gls{LD} matrix were as expected where the sample $R^2$ should be more likely to be bigger than the population $R^2$.
+		First, we would like to compare the performance of \gls{shrek} when different bias correction algorithms were applied (\cref{fig:meanLDCor}).
+		From the graph, it was observed that when no bias correction was applied, the mean estimation were in general downwardly biased.
+		This was consistent with our expectation of a general upward bias in sample $R^2$ which will downwardly penalize the resulting heritability estimation.
+		On the other hand, the bias correction algorithms all worked as expected where they increases the mean estimation of heritability.
+		By removing the upward bias in the sample $R^2$, the heritability estimation should increase.
+		However for most algorithms except for Weir's formula (\cref{eq:weir}) an over adjustment were observed, leading to a general upward bias in the estimation.
+		Taking into account of the variance of estimation (\cref{fig:varLDCor}), Weir's formula were the most suitable for \gls{shrek} where not only it reduces the bias in the final heritability estimation, it does not introduce too much additional variance into the estimation.
+		As a result of that, we selected the Weir's formula as our default \gls{LD} correction algorithm.
 		
-		When comparing the ``population'' $R^2$ and the ``sample'' $R^2$, the ``sample'' $R^2$ from the simulation were on average larger than ``population'' $R^2$ (0.00189 larger).
-		On the other hand, when comparing the $R^2$ from the independent samples, the $R^2$ was 0.00180 larger than the ``population'' $R^2$. 
-		Finally, when comparing the ``sample'' $R^2$ from the $R^2$ of the independent samples, the ``sample'' $R^2$ was $9.052\times10^{-5}$ larger than the $R^2$ of the independent samples.
-		The difference between the two were very small, suggesting that they were very similar.
-		Also, the bias observed in the ``sample'' $R^2$ when compared to the ``population'' $R^2$ also suggest that the simulation does produce the expected results, ruling out the possibility of simulation artifact.
-		
-		
-		
-		In conclusion, \gls{shrek} without \gls{LD} correction seems to be superior in performance when compared to \gls{shrek} with \gls{LD} correction. %TODO The mse table for SHREK 
-		The default behavior of \gls{shrek} now is to avoid performing the \gls{LD} correction, with the option to allow user to enable \gls{LD} correction when it was required.
-		
-		%TODO might need to explain whey LD correction is bad here later after we have figure it out
 		\subsection{Comparing with Other Algorithms}
-		It is important for us to compare our algorithm with existing algorithms to understand the relative performance of the algorithms under different conditions.
+		Having selected the optimal \gls{LD} correction algorithm, we then compared the performance of \gls{shrek} with existing algorithms to understand the relative of these algorithms under different conditions.
 		First, we examined the performance of the algorithms under the quantitative trait scenario where we varies the trait heritability and the number of causal \glspl{SNP}.
 		\subsubsection{Quantitative Trait Simulation}
 		\input{he_qt_rand.tex}
-		In the simulation of quantitative trait scenario, the effect size were randomly drawn from the exponential distribution with $\lambda=1$. 
-		Under this scenario, we would like the assess the performance of the algorithms when the heritability of the trait and the underlaying genetic architecture of the trait changes.
+		In the simulation of quantitative trait scenario, the effect size were randomly drawn from the exponential distribution with $\lambda=1$ and traits with different number of causal \glspl{SNP} and different narrow sense heritability were simulated.
+		The main aim of this simulation was to assess the effect of number of causal \glspl{SNP} and trait heritability on the power of estimation of different algorithms.
 		
-		First, we would like to examine the mean heritability estimation when compared to the simulated heritability.
+		First, the mean heritability estimation were compared to the simulated heritability in order to identify the bias in estimation for each algorithms.
 		From the graph (\cref{fig:QtRandMean}), it was observed that the mean estimations of \gls{shrek} were very close to the simulated heritability (\cref{fig:shrekQtRandMean}), with a slight downward bias. 
 		Moreover, the bias was insensitive to the change in number of causal \glspl{SNP} suggesting that \gls{shrek} might be relatively robust to trait complexity.
 		Similarly, estimations form \gls{gcta} were also accurate and were only moderately biased upward (\cref{fig:gctaQtRandMean}). 
@@ -869,7 +823,10 @@
 		
 		% CC Rand Effect
 		\subsection{Case Control Simulation}
+		\input{he_cc_10.tex}
+		\input{he_cc_50.tex}
 		\input{he_cc_100.tex}
+		\input{he_cc_500.tex}
 		Finally, for the case control simulation, we simulated 
 		
 		\subsection{Extreme Phenotype Simulation}

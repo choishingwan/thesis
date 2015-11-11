@@ -1,0 +1,84 @@
+	\begin{figure}
+			\centering
+			\subfloat[SHREK]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/cc_50c/shrek_CC_Random_mean.png}}
+				\label{fig:shrekCC50RandMean}
+			}
+			\subfloat[GCTA]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/cc_50c/gcta_CC_Random_mean.png}}
+				\label{fig:gctaCC50RandMean}
+			}\\
+			\subfloat[LDSC with fix intercept]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/cc_50c/ldsc_CC_Random_mean.png}}
+				\label{fig:ldscCC50RandMean}
+			}
+			\subfloat[LDSC with intercept estimation]{
+				
+				\scalebox{.4}{\includegraphics{figure/he_summary/cc_50c/ldscIn_CC_Random_mean.png}}
+				\label{fig:ldscInCC50RandMean}
+			}
+			\caption[Case Control with Random Effect Size Simulation Result(Mean)]
+			{Mean of results from case control simulation with random effect size simulation.
+				The performance of \gls{gcta} was as suggested by \citet{Golan2014} where there was an underestimation as prevalence decreases.
+				On the other hand, \gls{ldsc} were upwardly biased when a fixed intercept was used and this bias was corrected when an estimation of intercept was allowed.
+				\gls{shrek} does not seems to as sensitive to change in prevalence and the estimation were relatively robust.
+				} 
+			\label{fig:CC50RandMean}
+		\end{figure}
+		
+		\begin{figure}
+			\centering
+			\subfloat[SHREK]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/cc_50c/shrek_CC_Random_sd.png}}
+				\label{fig:shrekCC50RandVar}
+			}
+			\subfloat[GCTA]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/cc_50c/gcta_CC_Random_sd.png}}
+				\label{fig:gctaCC50RandVar}
+			}\\
+			\subfloat[LDSC with fix intercept]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/cc_50c/ldsc_CC_Random_sd.png}}
+				\label{fig:ldscCC50RandVar}
+			}
+			\subfloat[LDSC with intercept estimation]{
+				
+				\scalebox{.4}{\includegraphics{figure/he_summary/cc_50c/ldscIn_CC_Random_sd.png}}
+				\label{fig:ldscInCC50RandVar}
+			}
+			\caption[Case Control with Random Effect Size Simulation Result(Variance)]
+			{Variance of results from case control simulation with random effect size simulation.
+				It was clear that the prevalence affects the variance of estimation where a larger variance tends to increase the variance of estimation.
+				Again, \gls{gcta} has the lowest variance, however, unlike in the quantitative trait simulation, \gls{shrek} has a lower average variance when compared to \gls{ldsc} with fixed intercept.
+				Nonetheless, it was important to remember that in case control simulation, a much smaller amount of \glspl{SNP} was used, thus the results was not directly comparable to results from the quantitative simulation.
+			} 
+			\label{fig:CC50RandVar}
+		\end{figure}
+		
+		
+		\begin{figure}
+			\centering
+			\subfloat[SHREK]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/cc_50c/shrek_CC_Random_sdCom.png}}
+				\label{fig:shrekCC50RandVarCom}
+			}
+			\subfloat[GCTA]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/cc_50c/gcta_CC_Random_sdCom.png}}
+				\label{fig:gctaCC50RandVarCom}
+			}\\
+			\subfloat[LDSC with fix intercept]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/cc_50c/ldsc_CC_Random_sdCom.png}}
+				\label{fig:ldscCC50RandVarCom}
+			}
+			\subfloat[LDSC with intercept estimation]{
+				
+				\scalebox{.4}{\includegraphics{figure/he_summary/cc_50c/ldscIn_CC_Random_sdCom.png}}
+				\label{fig:ldscInCC50RandVarCom}
+			}
+			\caption[Case Control with Random Effect Size Simulation Result(Estimated Variance)]
+			{Estimated variance of results from case control simulation with random effect size simulation when compared to empirical variance.
+				From the quantitative trait simulation with random effect size(\cref{fig:QtRandVarCom}), it was observed that the variance estimation of \gls{shrek} and \gls{gcta} were rater accurate.
+				Similarly, in the case control simulation with 500 causal \glspl{SNP}, it was observed that the variance estimation of \gls{shrek} and \gls{gcta} were close to the empirical variance with slight bias.
+				A large up-ward bias was observed for \gls{ldsc} with fixed intercept estimation but the bias was less when \gls{ldsc} was allowed to estimate the intercept.s
+			} 
+			\label{fig:CC50RandVarCom}
+		\end{figure}
