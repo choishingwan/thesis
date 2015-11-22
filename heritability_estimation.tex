@@ -717,7 +717,9 @@
 	
 	\section{Application to Real Data}
 	To test the performance of our algorithm under real life scenario, we apply our algorithm to the \gls{pgc} data, including Bipolar \citep{PsychiatricGWASConsortiumBipolarDisorderWorkingGroup2011}, Major depression disorder \citep{Ripke2013b}, Autism (Unpublished) and \glng{scz} \citep{Ripke2013}.
-	For the bipolar and major depression data, as they were from hg18, we performed liftover \citep{Hinrichs2006} to convert the genomic coordinates to version hg19 such that it is compatible with the data from 1000 genome.
+	We also performed \gls{ldsc} alongside our algorithm to compare the results from the two algorithm.
+	Unfortunately, as the sample genotypes were not provided, we cannot perform \gls{gcta} analysis, therefore we only considered our algorithm and \gls{ldsc}.
+	For the bipolar and major depression data, we performed liftover \citep{Hinrichs2006} to convert the genomic coordinates to genome version hg19 such that it is compatible with the data from 1000 genome.
 	
 	The reference genome were downloaded from 1000 genome \citep{Project2012} and were converted to plink binaries using plink -{}-vcf function. 
 	We used the European super population which contain a total of 503 samples where singleton and non-biallelic \glspl{SNP} were filtered out.
@@ -725,8 +727,10 @@
 	Samples pairs with pi hat larger than 0.125 were considered related, which roughly correspond to third degree relativeness. 
 	Samples were removed on a stepwise fashion where samples related to most samples were removed first, until none of the samples were related. 
 	In total, 57 samples were removed, leaving us with 446 reference samples. 
+	\gls{LD} score was computed based on the 446 samples using a 1\gls{mb} window size.
 	
-	
+	As all the studies were case control \gls{GWAS}, the population prevalence of the trait has to be provided in order to adjust for the attenuation bias. 
+	Therefore we used prevalence of 0.15 for major depression disorder and 0.01 for \glng{scz}, bipolar disorder and autism.
 	
 	
 	
@@ -872,57 +876,120 @@
 		On the other hand, the opposite effect was observed for \gls{shrek} and \gls{ldsc} with fixed intercept.
 		Interestingly, when allow the estimate the intercept, the heritability estimated from \gls{ldsc} becomes underestimated. 
 		The magnitude of the bias also decreases, suggesting that the intercept estimation might have corrected for part of the bias of \gls{ldsc}.
+		The same pattern were also observed when the number of causal \glspl{SNP} increases (\cref{fig:CC50RandMean,fig:CCRandMean,fig:CC500RandMean}), suggesting that the effect of number of causal \glspl{SNP} were not the main contributor to the difference in bias. 
 		
-		Again, the empirical variance of \gls{gcta} was the smallest among the algorithms (\cref{fig:gctaCC10RandVar}) and \gls{ldsc} with intercept estimation has the largest empirical variance (\cref{fig:ldscInCC10RandVar}). 
+		As one inspect the empirical variance of the algorithms, \gls{gcta} clearly has the smallest average empirical variance among the algorithms (\cref{fig:gctaCC10RandVar}) where \gls{ldsc} with intercept estimation has the largest empirical variance (\cref{fig:ldscInCC10RandVar}). 
 		Unlike the quantitative trait simulation, the empirical variance of the estimates from \gls{shrek} (\cref{fig:shrekCC10RandVar}) seems to be very close to that of \gls{ldsc} with fixed intercept (\cref{fig:ldscCC10RandVar}).
 		When the heritability of the trait is high, the empirical variance of \gls{shrek} is even lower than that of \gls{ldsc} with fixed intercept. 
+		As one increases the number of causal \glspl{SNP}, the empirical variance of all algorithms decreases (\cref{fig:CC50RandVar,fig:CCRandVar,fig:CC500RandVar}) agreeing with the results from the quantitative trait simulation.
 		
-		On the other hand, the estimated variance of \gls{shrek} is clearly affected by the population prevalence where the magnitude of underestimation increases as the prevalence decreases (\cref{fig:shrekCC10RandVarCom}).
-		Whereas for \gls{gcta} (\cref{fig:gctaCC10RandVarCom}), the degree of bias in the estimation of variance was smaller when compared to \gls{shrek}.
-		For \gls{ldsc}, no matter if the intercept was fixed or estimated, as much as a two fold overestimation of the variance was observed. 
+		On the other hand, both \gls{shrek} (\cref{fig:shrekCC10RandVarCom}) and \gls{gcta} (\cref{fig:gctaCC10RandVarCom}) underestimates their empirical variance whereas \gls{ldsc} overestimates its empirical variance no matter if the intercept estimation was performed  (\cref{fig:CC10RandVarCom}).
+		As the number of causal \glspl{SNP} increases (\cref{fig:CC50RandVarCom,fig:CCRandVarCom,fig:CC500RandVarCom}), the bias of variance estimation remain unchanged for \gls{shrek}. 
+		However, for \gls{ldsc}, the magnitude of bias of variance estimation reduces as the number of causal \glspl{SNP} increases and were able to provide a relatively accurate estimation of its empirical variance when there were 500 causal \glspl{SNP} (\cref{fig:ldscCC500RandVarCom}).
 		
-		Taking into account of the bias and variance of the estimations (\cref{tab:mseCC10}), \gls{shrek} has the best performance of all the algorithm tested.
-		Most interestingly, the performance of \gls{ldsc} with intercept estimation comes as a surprise as one would generally expect the performance of \gls{ldsc} with intercept estimation to be inferior when compared to \gls{ldsc} with fixed intercept under the condition where no confounder variables were observed.
-		However, not only does \gls{ldsc} with intercept estimation has a better performance when compared to the fixed intercept version, its \gls{mse} increases as population prevalence increases, opposite to what was observed in all other algorithms.
-		Further investigation might be needed to understand the effect of this intercept estimation to the performance of \gls{ldsc} under the case control simulation.
+		
+		Taking into account of the bias and variance of the estimations (\cref{tab:mseCC}), \gls{shrek} has the best average performance of all the algorithm tested.
+		Interestingly, the performance of \gls{ldsc} with intercept estimation were better than \gls{ldsc} with fixed intercept when the prevalence is small.
+		However, considering that we did not simulate any confounding variables, we would expect the intercept estimation to be unnecessary and will only increase the \gls{se} of the heritability estimation without improving the estimates.
+		Yet from the simulation results, it suggests that the intercept estimation might have corrected some bias, leading to a better performance when intercept estimation was performed. 
+		
+		Another interesting observation was that although the \gls{mse} tends to decrease when the population prevalence increases for most algorithms, an inversed relationship was observed for \gls{ldsc} when intercept estimation was performed. 
+		As the population prevalence increases, the \gls{mse} also increases for \gls{ldsc} with intercept estimations and further investigation might be required to understand the specific reason of this behavior.
+
+		In general, the effect of the number of causal \glspl{SNP} in the case control simulation agrees with what was observed in the quantitative trait simulations where as the number of causal \glspl{SNP} increases the \gls{mse} tends to decrease for all algorithms, with \gls{shrek} least sensitive.
 		Finally, it is important to note that for the case control simulation, a smaller amount of \glspl{SNP} was simulated when compared to that in the quantitative trait simulation. 
 		The total sample number involved was also larger (2,000 samples with 1,000 cases and 1,000 controls).
-		As a result of that, the result from this case control simulation was not directly comparable to the results from the quantitative trait simulation.
-		
+		Thus, the result from this case control simulation was not directly comparable to the results from the quantitative trait simulation.
 		\begin{table}
 			\centering
-			\begin{tabular}{rrrrr}
+			\begin{tabular}{p{2cm}p{2.4cm}rrrr}
 				\toprule
-				Population Prevalence&	SHREK&	LDSC&	LDSC-In&	GCTA \\
+				Population Prevalence&	Number of Causal SNPs&	SHREK&	LDSC&	LDSC-In&	GCTA \\
 				\midrule
-				0.01	&	0.0145	&	0.0361	&	0.0164	&	0.0675\\
-				0.05	&	0.0110	&	0.0201	&	0.00983	&	0.0302\\
-				0.10	&	0.00512	&	0.0109	&	0.0301	&	0.0165\\
-				0.50	&	0.00560	&	0.00749	&	0.0219	&	0.00410\\
+				0.01&	10&	\textbf{0.0145}&	0.0361&	0.0164&	0.0675\\
+				0.01&	50&	0.0135&	0.0254&	\textbf{0.00791}&	0.0702\\
+				0.01&	100&	0.0128&	0.0227&	\textbf{0.0102}&	0.0698\\
+				0.01&	500&	\textbf{0.0126}&	0.0214&	0.0150&	0.0710\\
+				0.05&	10&	0.0110&	0.0201&	\textbf{0.00983}&	0.0302\\
+				0.05&	50&	\textbf{0.00453}&	0.00974&	0.0115&	0.0299\\
+				0.05&	100&	\textbf{0.00569}&	0.0113&	0.00981&	0.0304\\
+				0.05&	500&	\textbf{0.00540}&	0.00999&	0.0171&	0.0305\\
+				0.1&	10&	\textbf{0.00512}&	0.0109&	0.0301&	0.0165\\
+				0.1&	50&	\textbf{0.00381}&	0.00824&	0.0105&	0.0152\\
+				0.1&	100&	\textbf{0.00418}&	0.00802&	0.0163&	0.0148\\
+				0.1&	500&	\textbf{0.00400}&	0.00740&	0.0141&	0.0155\\
+				0.5&	10&	0.00560&	0.00749&	0.0219&	\textbf{0.00410}\\
+				0.5&	50&	0.00362&	0.00528&	0.0232&	\textbf{0.00244}\\
+				0.5&	100&	0.00356&	0.00460&	0.0208&	\textbf{0.00225}\\
+				0.5&	500&	0.00338&	0.00365&	0.0159&	\textbf{0.00200}\\
 				\bottomrule
 			\end{tabular}
-			\caption[MSE of Case Control Simulation with 10 causal SNPs]{
-				\Gls{mse} of Case Control simulation with 10 causal SNPs.
+			\caption[MSE of Case Control Simulation]{
+				\Gls{mse} of Case Control simulation.
+				Algorithm with the best performance under each condition were bold-ed.
+				When the population prevalence is 0.5, \gls{gcta} has the best performance, followed by \gls{shrek}.
+				For most other conditions, \gls{shrek} has the best performance. 
 				Of all the algorithms, \gls{shrek} has the lowest average \gls{mse}.
-				When the population prevalence is high, the performance of \gls{gcta} is comparable to that of \gls{shrek}.
 				Interestingly, although most algorithms has a decreased \gls{mse} as the population prevalence increases, \gls{ldsc} with intercept estimation behaves in the opposite way. 
-				Further investigation is required to understand the performance of \gls{ldsc} under the case control simulation, especially with regards to the effect of the intercept estimation.
+				Further investigation might be required to understand the reversed behavior of \gls{ldsc} with intercept estimation when compared to other algorithms, especially when the same pattern was not observed for \gls{ldsc} with fixed intercept estimation. 
+				On the other hand, one can observed that the \gls{mse} tends to decrease as the number of causal \glspl{SNP} increases, as observed in the quantitative simulation. 
 			}
-			\label{tab:mseCC10}
+			\label{tab:mseCC}
 		\end{table}
-		
-		  
-		\input{he_cc_50.tex}
-		\input{he_cc_100.tex}
-		\input{he_cc_500.tex}
-		
-		
 		\subsection{Extreme Phenotype Simulation}
 		%TODO compare the result to that of the quantitative simulation, there is no increase in power though...
 		
+		%TODO at the end, it is important to state the estimation problem
 		\subsection{Real Data Simulation}
+		
 		\subsection{Application to Real Data}
+		We applied our methods to the \gls{pgc} \gls{scz}, major depression disorder, autism and bipolar data sets.
+		
 	\section{Discussion}
-
+	In this chapter, we introduced an alternative method to \gls{ldsc} for the estimation of heritability using only the test statistics and have made available for download a standalone C++ programme \gls{shrek}.
 	
-	%Put these graphs in supplementary instead
+	\subsection{LD Correction}
+	As \gls{shrek} relies on the \gls{LD} information to estimate the heritability, it is important for us to correct for possible sampling bias form the \gls{LD} matrix. 
+	When testing for the bias correction algorithms, it was observed that majority of the algorithms, except that of \cref{eq:weir}, inflates the heritability estimated. 
+	Therefore, our initial decision was to use \cref{eq:weir} as our \gls{LD} sampling bias correction algorithm.
+	However, in subsequent simulation of the quantitative traits, a general overestimation of the heritability was again observed.
+	Because the pattern of overestimation is close to the one observed in the \gls{LD} correction simulation, we hypothesize \cref{eq:weir} might also have introduced bias into the heritability estimation but the bias is only noticeable when the number of \glspl{SNP} increases.
+	When compared the \gls{shrek}, \gls{ldsc} only overestimates the heritability when the number of causal \glspl{SNP} is small.
+	When inspecting their algorithm, it was observed that \gls{ldsc} also corrected for the sampling bias on the $R^2$, but with yet another equation:
+	\begin{equation}
+	\text{LDSC}: \tilde{R^2}= \hat{R^2}-\frac{1-\hat{R^2}}{n-2}\label{eq:ldscR2} \\
+	\end{equation}
+	It is therefore important to test whether if the application of \cref{eq:ldscR2} might help to improve the performance of \gls{shrek} and whether if the performance of \cref{eq:weir} does decrease when the number of \glspl{SNP} increases.
+	We therefore repeated the simulation on \gls{LD} correction but instead of simulating 5,000 \glspl{SNP} on chromosome 22, we simulated 50,000 \glspl{SNP} on chromosome 1.
+	To reduce the run time of the simulation, we only compared the performance of \gls{shrek} when \cref{eq:ldscR2}, \cref{eq:weir} and \cref{eq:pratt} were used for the \gls{LD} correction.
+	\begin{figure}[t]
+		\centering
+		\subfloat[Mean Estimation]{
+			\scalebox{.4}{\includegraphics{figure/quantitative/ld_correct/ldCom_mean_b.png}}
+			\label{fig:bigmeanLDCor}
+		}
+		\subfloat[Empirical Variance]{
+			\scalebox{.4}{\includegraphics{figure/quantitative/ld_correct/ldCom_var_b.png}}
+			\label{fig:bigvarLDCor}
+		}
+		\caption[Effect of LD correction to Heritability Estimation with 50,000 SNPs]
+		{Effect of LD correction to Heritability Estimation when 50,000 \glspl{SNP} were simulated.
+			As an overestimation was observed in the quantitative trait simulation, we performed a short simulation to assess the impact of \gls{LD} correction to the heritability of \gls{shrek} when the there is a larger number of \glspl{SNP}.
+			From the graph, it was observed that all \gls{LD} correction algorithms inflate the heritability estimation when large number of \glspl{SNP} were simulated.
+			In fact, the bias was the smallest when no \gls{LD} correction was performed. 
+		} 
+		\label{fig:ldCorBigCom}
+	\end{figure}
+	
+	Surprisingly, when large amount of \glspl{SNP} were estimated, the bias of heritability estimation was the smallest when no \gls{LD} correction was performed (\cref{fig:ldCorBigCom}) where only a small downward bias was observed. 
+	The performance of \cref{eq:ldscR2} was comparable to \cref{eq:pratt} and \cref{eq:weir} introduce least bias to the estimation.
+	It was clear that the genomic data structure (e.g. 0,1,2) violates some of the underlying assumption of the \gls{LD} correction algorithms (e.g. normality) thus general \gls{LD} correction algorithms might not be applicable to our situation.
+	Further research is therefore required to find an optimal solution to correct for the \gls{LD} sampling bias. 
+	Meanwhile, we allow users the freedom to disable the \gls{LD} correction in \gls{shrek}.
+	
+	\subsection{Simulation Results}
+	
+	
+	
+	
+	
