@@ -713,38 +713,6 @@
 		It was noted that the extreme phenotype selection were not supported by the \gls{ldsc} and \gls{gcta}.
 		To allow comparison in such scenario, we apply the extreme phenotype adjustment from \citet{Sham2014} to the estimation obtained from \gls{ldsc} and \gls{gcta}.
 	
-		\subsection{Simulate Effect of ``Tagging''}
-		In previous simulations, the causal \glspl{SNP} were always included. 
-		However, in real life scenario, the true causal variants not be \emph{directly} detectable by the \gls{GWAS} chip.
-		Instead, one exploit the \gls{LD} between the \gls{GWAS} \glspl{SNP} and the causal variants to indirectly capture the effect.
-		It is therefore important for one to select \glspl{SNP} that are most representative (e.g. in high \gls{LD}) with the surrounding \glspl{SNP} such that by only detecting these ``tag'' \glspl{SNP}, maximum information of the area can be obtained and it is more likely for the effect of the surrounding causal variants to be captured.
-	
-		To study the effect of incomplete ``tagging'' to the power of heritability estimation, we simulate 1,000 samples with 317,630 \glspl{SNP} that has \gls{maf} $>0.05$ on chromosome 1.
-		This number of \glspl{SNP} was the maximum feasible number for the simulation under limited computational resources.
-		The effect size was then simulated for \emph{all} \glspl{SNP} based on the standard normal distribution for traits with different heritability ($h^2$):
-		\begin{align}
-		\theta&=\mathrm{N}(0,1)\notag\\
-		\beta&=\pm\sqrt{\left|\frac{\theta \times h^2}{\sum \theta}\right|}
-		\label{eq:normEffect}
-		\end{align}
-		The phenotype of individual was then simulated using \cref{eq:simulationOfPhenotype}.
-		50,000 \glspl{SNP} were then randomly selected and used as an input to \gls{gcta}, \gls{ldsc} and our algorithm.
-		It is noted that \gls{LD} score required by \gls{ldsc} was calculated using the \emph{full} \gls{SNP} set as under general circumstances, the author of \gls{ldsc} recommend using the \gls{LD} score computed from all the \glspl{SNP} in the reference panel that passed through the quality check.
-		We repeat this procedure 5 times, each time varying the \glspl{SNP} included in the final test.
-		A total of 10 sets of samples, each consist of 1,000 individuals were simulated.
-		In summary:
-		\begin{enumerate}
-			\item Use the maximum possible amount of \glspl{SNP} wit \gls{maf}$>0.1$ from chromosome 1 (317,630)
-			\item Simulate 500 samples using HAPGEN2 and used as a reference panel
-			\item Randomly generate effect size following \cref{eq:normEffect} and assign to all the \glspl{SNP}
-			\item Simulate 1,000 samples using HAPGEN2 and calculate their phenotype according to \cref{eq:simulationOfPhenotype}
-			\item Randomly select 50,000 \glspl{SNP} from the full \glspl{SNP} set
-			\item Perform heritability estimation using our algorithm, \gls{ldsc} with fixed intercept, \gls{ldsc} with intercept estimation and \gls{gcta}
-			\item Repeat step 5-6 5 times
-			\item Repeat step 4-7 10 times
-		\end{enumerate}
-		
-		
 	\section{Simulation with Real Data}
 	
 	\section{Application to Real Data}
