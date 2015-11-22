@@ -1,53 +1,54 @@
 	\begin{figure}
 			\centering
 			\subfloat[SHREK]{
-				\scalebox{.4}{\includegraphics{figure/he_summary/random/shrek_Qt_Random_mean.png}}
+				\scalebox{.4}{\includegraphics{figure/he_summary/random/shrek_Qt_Rand_mean.png}}
 				\label{fig:shrekQtRandMean}
 			}
 			\subfloat[GCTA]{
-				\scalebox{.4}{\includegraphics{figure/he_summary/random/gcta_Qt_Random_mean.png}}
+				\scalebox{.4}{\includegraphics{figure/he_summary/random/gcta_Qt_Rand_mean.png}}
 				\label{fig:gctaQtRandMean}
 			}\\
 			\subfloat[LDSC with fix intercept]{
-				\scalebox{.4}{\includegraphics{figure/he_summary/random/ldsc_Qt_Random_mean.png}}
+				\scalebox{.4}{\includegraphics{figure/he_summary/random/ldsc_Qt_Rand_mean.png}}
 				\label{fig:ldscQtRandMean}
 			}
 			\subfloat[LDSC with intercept estimation]{
 				
-				\scalebox{.4}{\includegraphics{figure/he_summary/random/ldscIn_Qt_Random_mean.png}}
+				\scalebox{.4}{\includegraphics{figure/he_summary/random/ldscIn_Qt_Rand_mean.png}}
 				\label{fig:ldscInQtRandMean}
 			}
-			\caption[Quantitative Trait with Random Effect Size Simulation Result(Mean)]
+			\caption[Mean of Quantitative Trait Simulation Results]
 			{Mean of results from quantitative trait simulation with random effect size simulation.
-				\gls{shrek} was observed to be slightly biased downward.
-				On the other hand, \gls{gcta} were biased upward except in the condition of 10 causal \glspl{SNP}. 
-				Whereas a relatively higher upward bias was observed for \gls{ldsc}.} 
+				Estimations form \gls{shrek} were slightly biased upwards whereas \gls{gcta} and \gls{ldsc} with intercept estimations both biased downwards.
+				On the other hand, \gls{ldsc} with fixed intercept provides least biased estimates under polygenic conditions. 
+				However, when the number of causal \glspl{SNP} is small (e.g. 5 or 10), an upward bias was observed.} 
 			\label{fig:QtRandMean}
 		\end{figure}
 		
 		\begin{figure}
 			\centering
 			\subfloat[SHREK]{
-				\scalebox{.4}{\includegraphics{figure/he_summary/random/shrek_Qt_Random_sd.png}}
+				\scalebox{.4}{\includegraphics{figure/he_summary/random/shrek_Qt_Rand_sd.png}}
 				\label{fig:shrekQtRandVar}
 			}
 			\subfloat[GCTA]{
-				\scalebox{.4}{\includegraphics{figure/he_summary/random/gcta_Qt_Random_sd.png}}
+				\scalebox{.4}{\includegraphics{figure/he_summary/random/gcta_Qt_Rand_sd.png}}
 				\label{fig:gctaQtRandVar}
 			}\\
 			\subfloat[LDSC with fix intercept]{
-				\scalebox{.4}{\includegraphics{figure/he_summary/random/ldsc_Qt_Random_sd.png}}
+				\scalebox{.4}{\includegraphics{figure/he_summary/random/ldsc_Qt_Rand_sd.png}}
 				\label{fig:ldscQtRandVar}
 			}
 			\subfloat[LDSC with intercept estimation]{
 				
-				\scalebox{.4}{\includegraphics{figure/he_summary/random/ldscIn_Qt_Random_sd.png}}
+				\scalebox{.4}{\includegraphics{figure/he_summary/random/ldscIn_Qt_Rand_sd.png}}
 				\label{fig:ldscInQtRandVar}
 			}
-			\caption[Quantitative Trait with Random Effect Size Simulation Result(Variance)]
+			\caption[Variance of Quantitative Trait Simulation Results]
 			{Variance of results from quantitative trait simulation with random effect size simulation.
-				\gls{gcta} has the smallest variance, follow by \gls{ldsc}. 
+				Under the polygenic conditions, \gls{gcta} has the smallest variance, follow by \gls{ldsc}. 
 				However, it was observed when the number of causal \glspl{SNP} decreases, the variance of the estimation increases for all algorithm, with variance of the \gls{shrek} estimate being the least affected.
+				In fact, under oligogenic conditions, \gls{shrek} has a lower empirical variance when compared to \gls{ldsc}.
 			} 
 			\label{fig:QtRandVar}
 		\end{figure}
@@ -55,25 +56,25 @@
 		\begin{figure}
 			\centering
 			\subfloat[SHREK]{
-				\scalebox{.4}{\includegraphics{figure/he_summary/random/shrek_Qt_Random_sdCom.png}}
+				\scalebox{.4}{\includegraphics{figure/he_summary/random/shrek_Qt_Rand_sdCom.png}}
 				\label{fig:shrekQtRandVarCom}
 			}
 			\subfloat[GCTA]{
-				\scalebox{.4}{\includegraphics{figure/he_summary/random/gcta_Qt_Random_sdCom.png}}
+				\scalebox{.4}{\includegraphics{figure/he_summary/random/gcta_Qt_Rand_sdCom.png}}
 				\label{fig:gctaQtRandVarCom}
 			}\\
 			\subfloat[LDSC with fix intercept]{
-				\scalebox{.4}{\includegraphics{figure/he_summary/random/ldsc_Qt_Random_sdCom.png}}
+				\scalebox{.4}{\includegraphics{figure/he_summary/random/ldsc_Qt_Rand_sdCom.png}}
 				\label{fig:ldscQtRandVarCom}
 			}
 			\subfloat[LDSC with intercept estimation]{
 				
-				\scalebox{.4}{\includegraphics{figure/he_summary/random/ldscIn_Qt_Random_sdCom.png}}
+				\scalebox{.4}{\includegraphics{figure/he_summary/random/ldscIn_Qt_Rand_sdCom.png}}
 				\label{fig:ldscInQtRandVarCom}
 			}
-			\caption[Quantitative Trait with Random Effect Size Simulation Result(Estimated Variance)]
+			\caption[Estimation of Variance in Quantitative Trait Simulation]
 			{Estimated variance of results from quantitative trait simulation with random effect size simulation when compared to the empirical variance.
-			\gls{gcta} has the best estimate of its empirical variance whereas \gls{shrek} tends to under-estimate its empirical variance.
+			\gls{gcta} has the best estimate of its empirical variance under the polygenic conditions whereas \gls{shrek} tends to under-estimate its empirical variance.
 			On the other hand, \gls{ldsc} to over-estimate the variance especially when the number of causal \glspl{SNP} is small.
 				} 
 			\label{fig:QtRandVarCom}
