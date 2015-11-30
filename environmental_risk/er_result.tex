@@ -1,12 +1,12 @@
 \subsection{Quality Control and Alignment}
 Figure \ref{fig:schematicMIA} summarizes the overall study design and results obtained.
 On average, 39 million reads were generated for each sample. 
-Over 90$\%$ of reads were uniquely mapped to the \organism{Mus musculus} reference genome (mm10, Ensembl GRCm38.74) and the ERCC spike-in control reference using STAR\cite{Dobin2013}. 
+Over 90$\%$ of reads were uniquely mapped to the \textit{Mus musculus} reference genome (mm10, Ensembl GRCm38.74) and the ERCC spike-in control reference using STAR\cite{Dobin2013}. 
 Read counts of the External RNA Controls Consortium (ERCC) spike-in control were highly correlated with their true concentration (Pearson’s R $\le$ 0.956)(Table \ref{tab:ercc_correlation}), indicating that the RNA Seq read counts were representative of the true mRNA concentration.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.9\textwidth]{environmental_risk/image/er_flowchart.png}
-	\caption{Schematic of the experimental flow. 
+	\caption[Schematic of the experimental flow]{Schematic of the experimental flow. 
 		Fetal mouse brains were extracted and used for RNA Sequencing. 
 		DESeq2 were used to generate the differential expressed gene (DEG) list and also stabilize the variance of the gene expression counts. 
 		Functional enrichment analysis were then performed on the DEG list using GOrilla, REViGO and the userListEnrichment function. 
@@ -14,7 +14,7 @@ Read counts of the External RNA Controls Consortium (ERCC) spike-in control were
 \end{figure}
 \begin{table}[h]
 	\centering
-	\caption{Correlation between the true concentration and the normalized RNA Seq read counts.
+	\caption[Correlation between concentration and counts]{Correlation between the true concentration and the normalized RNA Seq read counts.
 		The high correlation indicates that the RNA Seq read counts are representative of the true concentration.}
 	\label{tab:ercc_correlation}
 	\begin{tabular}{rr}
@@ -42,8 +42,8 @@ Read counts of the External RNA Controls Consortium (ERCC) spike-in control were
 \subsection{Differential gene expression analysis}
 A total of 16,015 genes passed QC, of which 3,430 genes were differentially expressed (1,775 up-regulated and 1,655 down-regulated) with a Bonferroni-corrected p-value $<$ 0.05. 
 A volcano plot of PolyI:C versus Saline for all genes is presented in Figure \ref{subfig1:deseqVoc}, with the significantly up- and down-regulated genes colored in red and blue, respectively. 
-Many of our differentially expressed genes (DEGs) were within the list of schizophrenia-related candidate genes identified by the Psychiatric Genomics Consortium (PGC)\cite{Greenwood2011} previously (hyper geometric p-value $= 1.12\times 10^{-11}$) (Table \ref{tab:candidateGeneTable}), including \gene{Dlg4}\cite{Balan2013} and \gene{Disc1}\cite{Morris2003}.
-Some DEGs were also known to be associated with autism (like \gene{Gabrb3}\cite{Fatemi2009}) or other brain diseases (like \gene{Chrnb2} in epilepsy\cite{Conti2015}).
+Many of our differentially expressed genes (DEGs) were within the list of schizophrenia-related candidate genes identified by the Psychiatric Genomics Consortium (PGC)\cite{Greenwood2011} previously (hyper geometric p-value $= 1.12\times 10^{-11}$) (Table \ref{tab:candidateGeneTable}), including \textit{Dlg4}\cite{Balan2013} and \textit{Disc1}\cite{Morris2003}.
+Some DEGs were also known to be associated with autism (like \textit{Gabrb3}\cite{Fatemi2009}) or other brain diseases (like \textit{Chrnb2} in epilepsy\cite{Conti2015}).
 \begin{figure}[!h]
 	\centering     
 	\subfloat[Using only RNA Seq data\label{subfig1:deseqVoc}]{%
@@ -52,7 +52,7 @@ Some DEGs were also known to be associated with autism (like \gene{Gabrb3}\cite{
 	\subfloat[Combining RNA Seq and microarray data\label{subfig2:combatVoc}]{%
 		\includegraphics[width=0.45\textwidth]{environmental_risk/image/er_combat_volcano.png}
 	}
-	\caption{Volcano plot of Case (PolyI:C) vs Control (Saline). 
+	\caption[Volcano Plot]{Volcano plot of Case (PolyI:C) vs Control (Saline). 
 		Genes that were significantly down-regulated are colored in blue whereas genes that were significantly up-regulated are colored in red. 
 		a) Using only RNA-Seq data; 
 		b) Using combination of RNA-Seq and microarray data.
@@ -72,7 +72,7 @@ We incorporated the external micro-array data as additional controls.
 After quality control (QC), there are a total of 13,112 genes that can be found in both our RNA Seq data and the microarray chips.
 Among the 13,112 genes, 868 were found to be differentially expressed (398 up-regulated and 470 down-regulated) with a Bonferroni-corrected p-value $<$ 0.05.
 A volcano plot of PolyI:C versus Saline for all genes passing QC is presented in Figure \ref{subfig2:combatVoc}. 851 of the DEGs (98.0$\%$) overlapped with those discovered in our previous analysis without these external control data. 
-Seven of the candidate schizophrenia genes previously identified by the PGC remained in our DEG list, including the GABA enzyme, \gene{Gad1} and \gene{Gad2}; \gene{Gabra3}, \gene{Ctnna2} and the dopamine-related gene, \gene{Th} (Table \ref{tab:candidateGeneTable}). 
+Seven of the candidate schizophrenia genes previously identified by the PGC remained in our DEG list, including the GABA enzyme, \textit{Gad1} and \textit{Gad2}; \textit{Gabra3}, \textit{Ctnna2} and the dopamine-related gene, \textit{Th} (Table \ref{tab:candidateGeneTable}). 
 
 \subsubsection{Gene Ontology enrichment}
 The GO enrichment analysis found a total of 24 significantly enriched GO terms, of which 8 were enriched by the up-regulated genes and 16 were enriched by those down-regulated.
@@ -85,7 +85,7 @@ The gene-set enrichment analysis identified 5 enriched brain-related gene sets i
 
 
 \begin{figure}
-	\caption{real time PCR validation of RNA Seq results.
+	\caption[rtPCR Results]{real time PCR validation of RNA Seq results.
 		The delta CT values are highly correlated with the RNA-Seq counts (case: pearson correlation = -0.968, control: pearson correlation = 0.952), suggesting that the RNA-Seq count is a true representation of the RNA concentration.
 		The difference in detla CT between the cases and controls also support the differential gene expression results of the RNA Sequencing analysis.}\label{fig:rtResult}
 		\vspace{-20pt}

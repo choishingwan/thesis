@@ -26,8 +26,9 @@
 \usepackage{fancyhdr}
 \usepackage[acronym,nomain,toc,makeindex ]{glossaries}
 \usepackage{graphicx}
+\usepackage[section]{placeins}
 \usepackage{cleveref} %This need to be the last package for it to work properly 
-\usepackage[hyperref=true,maxcitenames=3,maxbibnames=3,url=false,isbn=false,backref=true,natbib=true,backend=biber,sorting=nyvt,defernumbers=false, style=authoryear]{biblatex}
+\usepackage[hyperref=true,maxcitenames=3,maxbibnames=3,url=true,isbn=false,backref=true,natbib=true,backend=biber,sorting=nyvt,defernumbers=false, style=authoryear]{biblatex}
 
 
 %
@@ -116,6 +117,15 @@
 \newacronym{scidp}{SCID-P}{Structured Clinical Interview for DSM-IV-TR Axis I Disorders, Research Version, Patient Edition}
 \newacronym{ibd}{IBD}{identity by descent}
 \newacronym{mb}{mb}{megabase}
+\newacronym{deg}{DEG}{differentially expressed gene}
+\newacronym{qc}{QC}{quality control}
+\newacronym{hku}{HKU}{the University of Hong Kong}
+\newacronym{pcr}{PCR}{polymerase chain reaction}
+\newacronym{ercc}{ERCC}{External RNA Controls Consortium}
+\newacronym{go}{GO}{Gene Ontology}
+\newacronym{rtpcr}{rt-PCR}{real time PCR}
+\newacronym{ct}{CT}{cycle threshold}
+\newacronym{geo}{GEO}{Gene Expression Omnibus}
 %
 %
 %	FORMATING SECTION
@@ -231,9 +241,10 @@
 	
 	\include{literature_review}
 	\include{heritability_estimation}
+	\include{omega_project}
 	%\include{heritability_scz}
 	%\include{drug_response}
-
+	%\include{environmental_risk/er_chapter}
 	\chapter{Conclusion}
 	
 	
@@ -247,10 +258,7 @@
 	\printbibliography[heading=bibintoc,title={Bibliography}]
 	\chapter*{Supplementary Materials}
 	\beginsupplement
-	\chapter*{Appendix}
-	\input{he_cc_50.tex}
-	\input{he_cc_100.tex}
-	\input{he_cc_500.tex}
+	%\input{environmental_risk/er_rtPCR_primer.tex}
 \end{document}
 
 
