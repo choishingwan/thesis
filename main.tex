@@ -36,11 +36,6 @@
 %	TITLE PAGE DEFINITION
 %
 %
-\title{Genetic and Environmental risk factors of Schizophrenia and Autism}
-\date{\today}
-\author{\href{mailto:choishingwan@gmail.com}{Choi Shing Wan}\\
-	\includegraphics[width=0.5\textwidth]{hkuLogo.jpg}}
-\singlespacing
 \renewcommand*\contentsname{Contents}
 
 \newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
@@ -69,7 +64,7 @@
 \newacronym{SVD}{SVD}{Singular Value Decomposition}
 \newacronym{shrek}{SHREK}{SNP Heritability and Risk Estimation Kit}
 \newacronym{gcta}{GCTA}{Genome-wide Complex Trait Analysis}
-\newacronym{ldsc}{LDSC}{LD SCore}
+\newacronym{ldsc}{LDSC}{LD SCore regression}
 \newacronym{CEU}{CEU}{Northern Europeans from Utah}
 \newacronym{se}{SE}{standard error}
 \newacronym{maf}{maf}{Minor Allele Frequency}
@@ -116,6 +111,7 @@
 \newacronym{pcgc}{PCGC}{Phenotype correlation - genotype correlation regression}
 \newacronym{scidp}{SCID-P}{Structured Clinical Interview for DSM-IV-TR Axis I Disorders, Research Version, Patient Edition}
 \newacronym{ibd}{IBD}{identity by descent}
+\newacronym{bp}{bp}{base pair}
 \newacronym{mb}{mb}{megabase}
 \newacronym{deg}{DEG}{differentially expressed gene}
 \newacronym{qc}{QC}{quality control}
@@ -126,6 +122,9 @@
 \newacronym{rtpcr}{rt-PCR}{real time PCR}
 \newacronym{ct}{CT}{cycle threshold}
 \newacronym{geo}{GEO}{Gene Expression Omnibus}
+\newacronym{mlm}{MLM}{mixed linear model}
+\newacronym{reml}{REML}{restricted maximum likelihood}
+\newacronym{pufa}{PUFA}{polyunsaturated fatty acid}
 %
 %
 %	FORMATING SECTION
@@ -142,17 +141,18 @@
 \geometry{
 	top=1in,            % <-- you want to adjust this
 	inner=1in,
-	outer=1in,
-	bottom=1in,
+	outer=3.5cm,
+	bottom=3.5cm,
 	headheight=3ex,       % <-- and this
 	headsep=2ex,          % <-- and this
 }
 
 
 \raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
-\onehalfspacing
-%\doublespacing
-\includeonly{heritability_estimation}
+%\onehalfspacing
+\doublespacing
+%\includeonly{heritability_estimation}
+\includeonly{omega_project}
 %\includeonly{literature_review}
 
 
@@ -168,37 +168,39 @@
 \pagestyle{empty}
 
 %\maketitle
-\begin{titlepage}
-	\begin{center}
-		\vspace*{1cm}
-		
-		\Huge
-		\textbf{Heritability Estimation and Risk Prediction in Schizophrenia}
-		
-		\vspace{0.5cm}
-		\LARGE
-		
-		\vspace{1.5cm}
-		
-		\textbf{\href{mailto:choishingwan@gmail.com}{Choi Shing Wan}}
-		
-		\vfill
-		
-		A thesis submitted in partial fulfillment of the requirements for \\
-		the Degree of Doctor of Philosophy
-		
-		\vspace{0.8cm}
-		
-		\includegraphics[width=0.4\textwidth]{figure/hkuLogo.jpg}
-		
-		\Large
-		Department of Psychiatry\\
-		University of Hong Kong\\
-		Hong Kong\\
-		\today
-		
-	\end{center}
-\end{titlepage}
+\begin{singlespace}
+	\begin{titlepage}
+		\begin{center}
+			\vspace*{1cm}
+			
+			\Huge
+			\textbf{Genetic and Environmental risk factors of Schizophrenia}
+			
+			\vspace{0.5cm}
+			\LARGE
+			
+			\vspace{1.5cm}
+			
+			\textbf{\href{mailto:choishingwan@gmail.com}{Choi Shing Wan}}
+			
+			\vfill
+			
+			A thesis submitted in partial fulfillment of the requirements for \\
+			the Degree of Doctor of Philosophy
+			
+			\vspace{0.8cm}
+			
+			\includegraphics[width=0.4\textwidth]{figure/hkuLogo.jpg}
+			
+			\Large
+			Department of Psychiatry\\
+			University of Hong Kong\\
+			Hong Kong\\
+			\today
+			
+		\end{center}
+	\end{titlepage}
+\end{singlespace}
 
 
 \frontmatter 
@@ -246,6 +248,34 @@
 	%\include{drug_response}
 	%\include{environmental_risk/er_chapter}
 	\chapter{Conclusion}
+	% Heritability Estimation
+	% What the field was like before what we have done
+	% No real way to analysis the heritability using test statistic until LDSC
+	% Around the same time as LDSC
+	% Allow heritability estimation using test statistic
+	% Only the begining and still have much to learn and develop
+	
+	% Sczhiophrenia
+	% Still many missing heritability
+	% Rare variants?
+	% Methylation 
+	% Gene Environment interaction 
+	% Much to do and much to work on 
+	% Translation is still far away (but getting closer)
+	% Should turn focus in making sense of the functional aspect of the genetic
+	% Found association, but not causation
+	% Still doesn't really understand the disease eitology or how those gene affect the brain / patient
+	
+	% Omega project
+	% Provide an alternative way to study schizophrenia
+	% Not necessary identifying all the genes
+	% More helpful if we can identify a treatment 
+	% Difficult and only a pilot
+	% Need to do more e.g. study other brain region
+	% Look at the spatial effect of the MIA on brain
+	% Different response
+	% Information from antipsychotic
+	% Apply antipsychotic to mice? <- just a thought not really a part of thesis.
 	
 	
 	

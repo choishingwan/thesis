@@ -3,7 +3,7 @@
 % Need to stress that we are only calculating the narrow sense heritability
 	\section{Introduction}
 	The development of \glng{ldsc} has brought great prospect in estimating the heritability of complex disease for one can now estimate the heritability of a trait without requiring the rare genotype. 
-	However, as noted by the author of \gls{ldsc}, when the number of causal variants were small, or when working on targeted genotype array, \gls{ldsc} tends to have a larger standard error or might produce funky results \citep{Bulik-Sullivan2015}.
+	However, as noted by the author of \gls{ldsc}, when the number of causal variants were small, or when working on targeted genotype array, \gls{ldsc} tends to have a larger standard error or might produce unexpected results \citep{Bulik-Sullivan2015}.
 	Ideally, we would like to be able to robustly estimate the heritability for all traits, disregarding the genetic architecture (e.g. number of causal \glspl{SNP}).
 	
 	Moreover, most of the times researchers are interested in the study of dichotomous traits (e.g. ``affected'', ``normal'').
@@ -520,7 +520,7 @@
 		\text{Smith}: \tilde{R^2}&=1-\frac{n}{n-1}(1-\hat{R^2}) \label{eq:smith}\\
 		\text{Weir}: \tilde{R^2}&=\hat{R^2}-\frac{1}{2n} \label{eq:weir}
 		\end{align}
-		where $n$ is the number of samples used to calculate the $R^2$, $\hat{R^2}$ is the sample $R^2$ and $\tilde{R^2}$ is the corrected $R2$.
+		where $n$ is the number of samples used to calculate the $R^2$, $\hat{R^2}$ is the sample $R^2$ and $\tilde{R^2}$ is the corrected $R^2$.
 		
 		In order to assess the performance of each individual correction methods, we perform simulations to compare the performance of our algorithm using different \gls{LD} bias correction algorithms.
 		Most importantly, we would like to assess the performance of different algorithms not only under one specific \gls{LD} range, but also under the complex \gls{LD} structure observed in real life scenarios.
@@ -1350,8 +1350,11 @@
 	However, we do argue that we have performed a substantial amount of simulations and should be able to provide a general concept as to how the performance of \gls{shrek}, \gls{ldsc} and \gls{gcta} are affected in the general scenarios.
 	
 	\newpage
+	
+\begin{singlespace}
 \section{Supplementary}
-	\input{he_cc_50.tex}
+\input{he_cc_50.tex}
 \input{he_cc_100.tex}
 \input{he_cc_500.tex}
+\end{singlespace}
 	
