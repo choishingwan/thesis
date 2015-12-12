@@ -1,9 +1,8 @@
-\chapter{Omega 3 Diet in Schizophrenia}
+\chapter{n-3 Polyunsaturated Fatty Acid Rich Diet in Schizophrenia}
 \section{Introduction}
 As research in \glng{scz} progress, we start to identify an increasing amount of variants. 
-There are now 108 variants identified to be associated with \glng{scz} \citep{Ripke2013}.
-However, most of these variants only explained for a small portion of the heritability.
-Using \gls{ldsc} and \gls{shrek}, we estimated the \gls{pgc} \glng{scz} \gls{GWAS} only accounts for no more than 20\% of the heritability, much least than what was estimated from the twin studies \citep{Lichtenstein2009,Sullivan2003}.
+There are now 108 genomic loci identified to be associated with \glng{scz} \citep{Ripke2013}.
+Using \gls{ldsc} and \gls{shrek}, we estimated that \gls{pgc} \glng{scz} \gls{GWAS} only accounts for no more than 20\% of the heritability, much least than what was estimated from the twin studies \citep{Lichtenstein2009,Sullivan2003}.
 Although the \gls{pgc} \glng{scz} \gls{GWAS} bring great promises to the field of \glng{scz} genetics, there is still a long way before one can translate the findings from the \gls{pgc} \glng{scz} \gls{GWAS} into clinical applications.
 
 Another direction of \glng{scz} research was to investigate how different environmental risk factors contribute to the etiology of \glng{scz}.
@@ -46,13 +45,24 @@ Although we don't have sufficient sample size for such analysis in our pilot stu
 Brain is a complex organ in that it is subdivided into multiple regions, each with their own responsibility.
 Thus it is expected that the gene expression pattern differs from region to regions.
 It is then important for us to select a region of interest for our analysis. 
-Typically, 
+As a pilot study, we have exploit the samples from our previous study on \gls{mia} and effect of n-3 \gls{pufa} \citep{Li2015} where only the cerebellum was available.
+Although hippocampus \citep{Velakoulis2006,Nugent2007} and prefrontal cortex \citep{Knable1997,Perlstein2001} were the two most studied region in \glng{scz}, the cerebellum has also been reported to be related to \glng{scz} \citep{Yeganeh-Doost2011,Andreasen2008}.
+Moreover, the cerebellum plays a central role in the cortico-cerebellar-thalamic-cortical neuronal circuit.
+\Gls{pet} studies show a dysfunction in this  circuit can contribute to ``cognitive dysmetria'', e.g. impaired cognition and other symptoms of \glng{scz} \citep{Yeganeh-Doost2011}.
+Altogether, this makes the cerebellum an interesting target to investigate.
 
+To summarize, in this chapter, we conducted a pilot study on the effect of early \gls{mia} and n-3 \gls{pufa} rich diet on the gene expression pattern of the cerebellum of mouse using RNA Sequencing.
 
+The work in this chapter were done in collaboration with my colleagues who have kindly provide their support and knowledges to make this piece of work possible.
+Dr Li Qi and Dr Basil Paul were responsible for generating the animal model and providing the sample for our study;
+Dr Li Qi and Dr Desmond Campbell helped with the experimental design;
+Vicki Lin has helped with the RNA extraction; 
+Tikky Leung for her high quality sequencing service;
+Nick Lin for his help in tackling problems encountered during sequencing quality control; 
+Dr Johnny Kwan, Dr Desmond Campbell and Professor Sham for their guidance in the statistical analysis.
 
 \section{Methodology}
 \subsection{Sample Preparation}
-%TODO talk about the sex problem
 Female and male C57BL6/N mice were bred and mated by The University of Hong Kong, Laboratory Animal Unit. 
 Timed-pregnant mice were held in a normal light–dark cycle (light on at 0700 hours), and temperature and humidity-controlled animal vivarium. 
 All animal procedures were approved by the Committee on the Use of Live Animals in Teaching and Research (CULATR) at The University of Hong Kong.
@@ -63,12 +73,13 @@ Control animals received an injection of 5ml kg$^{-1}$ 0.9\% saline.
 The animals were returned to the home cage after the injection and were not disturbed, except for weekly cage cleaning.
 The resulting offspring were weaned and sexed at postnatal day 21. 
 The pups were weighed and littermates of the same sex were caged separately, with three to four animal per cage.
-Half of the animal were fed on diets enriched with n-3 PUFAs (Omega 3 rich) and half were fed a standard (control, Omega 6 rich) lab diet until the end of the study.
-The latter `n-6 PUFA' control diet had the same calorific value and total fat content as the n-3 PUFA diet. 
+Half of the animal were fed on diets enriched with n-3 \glspl{pufa} and half were fed a standard  lab diet until the end of the study.
+The latter `n-6 \gls{pufa}' control diet had the same calorific value and total fat content as the n-3 \gls{pufa} diet. 
 The diets were custom prepared and supplied by Harlan Laboratories (Madison, WI, USA). 
-The n-6 and n-3 PUFAs were derived from corn oil or menhaden fish oil, respectively. 
-The n-6 PUFA control diet, was based on the standard AIN-93G rodent laboratory diet \citep{Reeves1993}, and contained 65 g kg$^{-1}$ corn oil and 5 g kg$^{-1}$ fish oil with an approximate (n6)/(n3) ratio of 13:1. 
-The n-3 PUFA diet contained 35 g kg$^{-1}$ corn oil and 35 g kg$^{-1}$ fish oil with an approximate (n6)/(n3) ratio of 1:1 \citep{Olivo2005}.
+The n-6 and n-3 \gls{pufa} were derived from corn oil or menhaden fish oil, respectively. 
+The n-6 \gls{pufa} control diet, was based on the standard AIN-93G rodent laboratory diet \citep{Reeves1993}, and contained 65 g kg$^{-1}$ corn oil and 5 g kg$^{-1}$ fish oil with an approximate (n6)/(n3) ratio of 13:1. 
+The n-3 \gls{pufa} diet contained 35 g kg$^{-1}$ corn oil and 35 g kg$^{-1}$ fish oil with an approximate (n6)/(n3) ratio of 1:1 \citep{Olivo2005}.
+To avoid being confounded by sex difference, we only use the male offspring for our analysis.
 The male offspring were sacrificed by cervical dislocation on postnatal week 12 and the cerebellum was extracted and stored in -80$^{\circ}$C until RNA extraction.
 
 
@@ -78,7 +89,7 @@ RNA quality was assayed using the Agilent 2100 Bioanalyzer and RNA was quantifie
 Samples with \gls{rin} $<7$ were not included in our study as the RNA are most likely degraded.
 As a pilot study, we select a minimum of 3 samples per group and each samples must come from a different litter to control for littering effect.
 The RNA Sequencing library was performed at the Centre for Genomic Sciences, the University of Hong Kong, using the KAPA Strannder mRNA-Seq Kit. 
-All samples were sequenced using Illumina HiSeq 1500 at 2 lanes (2x101bp paired end reads).
+All samples were sequenced using Illumina HiSeq 1500 at 2 lanes (2$\times$101 \gls{bp} paired end reads).
 We distribute the samples such that each lane contain roughly the same amount of samples from different conditions.
 \begin{table}
 	\centering
@@ -102,9 +113,10 @@ We distribute the samples such that each lane contain roughly the same amount of
 	\end{tabular}
 	\caption[Sample Information]{
 		Sample information.
-		O3 = Omega 3 diet; O6 = Omega 6 diet; POL = \gls{polyic} exposed; SAL = Saline exposed.
+		O3 = n-3 \gls{pufa} diet; O6 = n-6 \gls{pufa} diet; POL = \gls{polyic} exposed; SAL = Saline exposed.
 		We have tried to separate the samples into different lane and batch to control for the lane and batch effect. 
 		Samples from different litters were also used with the exception of 1M\_2 and 1M\_3 which came from the same litter but were given a different diet.
+		\label{tab:sampleInfo}
 	}
 \end{table}
 \subsection{Sequencing Quality Control}
@@ -112,8 +124,8 @@ We distribute the samples such that each lane contain roughly the same amount of
 It can generate the required per base \gls{qc} and provide a general picture of how well the sequencing were done.
 
 From the FastQC report, it was noted that some adapter sequences remained in the final sequence, by using trim\_glore, a wrapper for cutadapt (version 1.9.1) \citep{Martin2011}, we trim the adapter sequences from the sequence and only retain reads that were at least 75 \gls{bp} long for subsequent alignment. 
-\subsection{Alignment}
 
+\subsection{Alignment}
 When aligning RNA Sequencing reads, one can either directly align the reads to the transcriptome or to the genome. 
 However, when aligning to the transcriptome, multiple isoforms can share part of the sequence, thus leads to high level of multiple alignment, having an negative impact to the downstream analysis especially if one were only interested in the gene base expression.
 On the other hand, when directly aligning the reads to the genome, one need to use splicing aware aligners to handle the splicing.
@@ -129,40 +141,245 @@ However, it was found that the assumption of Poisson distribution is too restric
 Taking into account of the over-dispersion, modern RNA Sequencing statistical package usually models the RNA Sequencing counts using the negative binomial distribution \citep{Anders2010,Robinson2010} or the beta negative binomial distribution \citep{Trapnell2012}.
 Based on the review of \citet{Seyednasrollah2015}, it was suggested that DESeq2 and limma are the most robust statistical packages for analyzing RNA Sequencing data. 
 Considering that the authors of DESeq2 were very active in providing supports for the package, we selected DESeq2 (version 2.1.4.5) \citep{Love2014} as the statistic package for the differential gene expression analysis.
-In order to reduce noise associated with low expression, genes with base mean count $<$ 10 were removed from all analyses. 
 
-% Explain why we don't include batch and lane effect
-% Define the model as condition + diet + condition:diet
-% Identify the difference
+Perhaps one of the most controversial study in RNA Sequencing was the mouse ENCODE  paper by \citet{Yue2014} where \citet{Gilad2015} demonstrated that most of the findings from \citet{Yue2014} was confounded by lane and batch effect.
+This highlights the importance of lane and batch effect in the design of RNA Sequencing.
+To avoid batch and lane effect, the whole sampling collection procedure and sequencing was performed in a way where we minimize the batch and lane difference between conditions (\cref{tab:sampleInfo}). 
+However, because of the sample quality across different batches, we were unable to fully balance out the batch effect. 
+Therefore, in our analysis, we must control for the batch effect.
+Moreover, we were interested in the following comparisons:
+\begin{enumerate}
+	\item Saline exposed samples with n-3 \gls{pufa} rich diet vs Saline exposed samples with n-6 \gls{pufa} rich diet 
+	\item PolyI:C exposed samples with n-3 \gls{pufa} rich diet vs PolyI:C exposed samples with n-6 \gls{pufa} rich diet 
+	\item Saline exposed samples with n-6 \gls{pufa} rich diet vs PolyI:C exposed samples with n-6 \gls{pufa} rich diet 
+\end{enumerate}
+To obtain the desire comparison, and also control for batch effect, we used $\sim Batch+Condition+Diet+Condition:Diet$ as our model of statistical analysis where Condition is the \gls{mia} exposure status.
+
+We would also like to see if the batch effect can leads to false positive results.
+Therefore we performed the \gls{lrt}.
+The \gls{lrt} examines two models for the counts, a full model with a certain number of terms and a reduced model, in which some of the terms of the full model are removed. 
+The test determines if the increased likelihood of the data using the extra terms in the full model is more than expected if those extra terms are truly zero.
+Thus we compared the full model $\sim Batch+Condition+Diet+Condition:Diet$ with $\sim Condition+Diet+Condition:Diet$ to understand the effect of batch on our data.
+
+In our analysis, we removed all genes with base mean count $<$ 10  to reduce noise associated with low expression. 
+The Benjamini and Hochberg method were then used to correct for multiple testing.
 
 \subsection{Functional Annotation}
-After getting the \glspl{deg}, it is interesting to identify possible functional categories that were enriched with the \glspl{deg}.
+Usually, one would like to perform functional annotation of the \glspl{deg} which allow one to identify biological processes (e.g. pathways) that were disrupted (e.g. enriched by the \glspl{deg}).
+However, if only a small number of \glspl{deg} were identified, the common enrichment analysis, which usually were an inclusion / exclusion based, can be biased. 
+An alternative method was to perform the Wilcoxon Rank Sum test to test whether if the p-value of genes within the gene set are than the p-value of genes outside the gene set.
+We downloaded the canonical pathways from the \gls{msigdb} (v5.0 updated April 2015) \citep{Subramanian2005} as our reference pathways.
+To avoid testing overly narrow or broad functional pathways, we selected pathways that contains at least 10 and at most 300 genes.
+The Wilcoxon Rank Sum test was then performed for each pathway to test for significance.
+Pathways with adjusted p-value $<0.05$ (using Benjamini and Hochberg adjustment) were considered as significant.
+
+\subsection{Designing the Replication Study}
+One of the most important goal of a pilot study is to provide information for further replication studies. 
+In order to estimate the power and required samples for further studies, we performed the power estimation using Scotty \citep{Busby2013}.
+We provide the count data from our pilot samples to Scotty to estimate the minimal required samples for our replication study if we would like to detect at least 90\% of the genes that are differentially expressed by a 2$\times$ fold change at p$<0.01$ and that at least 80\% of genes has at least 80\% of the maximum power.
 
 \section{Results} 
-\underline{}\subsubsection{Sample Quality}
+\subsection{Sample Quality}
 On average, 87 million reads were generated for each sample of which more than 90\% of the read bases has quality score $>30$ meaning that the probability of having an incorrect base call is less than 1 in 1,000.
-Over 87\% of reads could be uniquely mapped to the \textit{Mus musculus} reference genome (mm10, Ensembl GRCm38.82) using the STAR aligner (version 2.5.0a) \citep{Dobin2013}.
+After removing the adapter sequences from the reads, more than 97\% of the reads remains.
+Over 90\% of the trimmed reads could be uniquely mapped to the \textit{Mus musculus} reference genome (mm10, Ensembl GRCm38.82) using the STAR aligner (version 2.5.0a) \citep{Dobin2013}.
+To obtained the expression count, we used the featureCounts (version 1.5.0) \citep{Liao2014} to generate the count matrix required for downstream analysis.
 
 Next, we are interested in whether if there are any series batch or lane effect.
 We perform unsupervised clustering on the sample count data.
 It was observed that none of the samples were clustered by lane or batch, suggesting that there were no serious batch or lane effect presented in our samples.
-However, one sample from the Omega3-\gls{polyic} group was found to be substantially different from all other samples (\cref{fig:distMatrix}).
+However, one sample from the n3-\gls{polyic} group was found to be substantially different from all other samples (\cref{fig:distMatrix}).
 It was unclear whether if the difference was due to sample contaminations or was due to sample mis-label.
 To avoid problems in down-stream analysis, we excluded this sample from subsequent analyses
  \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{figure/DistanceMatrix.png}
+	\includegraphics[width=0.7\textwidth]{figure/DistanceMatrix.png}
 	\caption[Sample Clustering]{Sample Clustering results.
 		It was observed that there was no clear clustering for lane or batch effects.
-		However, one sample from the Omega3-\gls{polyic} group was found to be substantially different from all other samples.
+		However, one sample from the n3-\gls{pufa}-\gls{polyic} group was found to be substantially different from all other samples.
 		
 		It was unclear whether if the difference was due to sample contaminations or was due to sample mis-label.
 		To avoid problems in down-stream analysis, we excluded this sample from subsequent analyses }
 	\label{fig:distMatrix}
  \end{figure}
+\subsection{Differential Expression Analysis}
+\begin{figure}
+	\centering
+	\subfloat[O6-Saline mouse vs O6-PolyI:C mouse]{
+		\scalebox{.4}{\includegraphics{figure/omega/miaO6_wald_qq.png}}
+		\label{fig:miaO6Wald}
+	}
+	\subfloat[O6-Saline mouse vs O3-Saline mouse]{
+		\scalebox{.4}{\includegraphics{figure/omega/omegaSAL_wald_qq.png}}
+		\label{fig:omegaSALWald}
+	}\\
+	\subfloat[O6-PolyI:C mouse vs O3-PolyI:C mouse]{
+		\scalebox{.4}{\includegraphics{figure/omega/omegaPOL_wald_qq.png}}
+		\label{fig:omegaPOLWald}
+	}
+	\subfloat[Batch Effect]{
+		\scalebox{.35}{\includegraphics{figure/omega/nobatch_lrt.png}}
+		\label{fig:batchLRT}
+	}
+	\caption[QQ Plot Statistic Results]
+	{QQ Plot of statistic results.
+		From the QQ plot, it was observed that most of the observed p-value was less than what would have been expected. 
+		This is likely due to the small sample size of our study which leads to an under powered association.
+		The only exception was the analysis of batch effect were a large amount of genes were found to be significant. 
+		This demonstrate the importance of adjusting for batch effect} 
+	\label{fig:waldQQ}
+\end{figure}
+After excluding the problematic samples, we performed the DESeq2 analysis.
+Of the 16,747 genes that passed through quality control, only one gene, \textit{Sgk1} (p-adjusted=0.00186) was found to be significantly differentiated when comparing the expression in \gls{polyic} exposed mouse given different diet (\cref{fig:omegaPOLWald}).
+No genes were found to be significant for the other two comparison (\cref{fig:miaO6Wald,fig:omegaSALWald}).
 
-\subsubsection{Differential Expression Analysis}
 
-\subsubsection{Functional Annotation}
+We also performed the \gls{lrt} to compare test the effect of batch on our analysis. 
+A total of 178 genes were found to be significant differentiated (\cref{fig:batchLRT}), suggesting that the ``Batch'' is indeed an important factor to consider in our analysis.
+
+\subsection{Functional Annotation}
+It is common practice to try and perform functional annotation to the \glspl{deg}. 
+However, in most of our analysis, there were either no \gls{deg} or only 1 \gls{deg}, making it difficult to perform functional annotation such as \gls{GO} enrichment analysis.
+We used the Wilcox rank sum test to analysis whether if a pathway contain genes that are more significant than genes not within the pathway.
+
+None of the pathway were found to be significant when comparing the effect of the n-3 rich diet in Saline exposed mouse. 
+On the contrary, 17 pathways were found to be more significant when comparing the effect of n-3 \gls{pufa} rich diet in \gls{polyic} exposed samples (\cref{tab:o6polyPath}) where 4 pathways were related to growth factors such as \gls{fgf} or \gls{egf} and 4 others were related to kinases such a s \gls{pi3k} or \gls{mapk}.
+
+Finally, 12 pathways were found to significant when comparing Saline and \gls{polyic} exposed mouse given the n-6 \gls{pufa} rich diet (\cref{tab:miaPath}) with pathways such as neuroactive ligand-receptor interaction (p-adj = $1.27\times10^{-3}$), calcium signaling pathway (p-adj = $2.79\times10^{-3}$) and genes involved in Neuronal System (p-adj=0.00153).
+
+\begin{landscape}
+	\begin{table}
+		\begin{tabular}{rrrp{10cm}r}
+			\toprule
+			ID&	Size&	Source&	Description&	Adjusted P-Value\\
+			\midrule
+			M508&	78&	REACTOME&	Genes involved in Signaling by SCF-KIT&	0.00671\\
+			M570&	44&	REACTOME&	Genes involved in PI3K events in ERBB2 signaling&	0.0242\\
+			M3008&	196&	NABA&	Genes encoding structural ECM glycoproteins&	0.0309\\
+			M1090&	112&	REACTOME&	Genes involved in Signaling by FGFR&	0.0309\\
+			M563&	109&	REACTOME&	Genes involved in Signaling by EGFR in Cancer&	0.0309\\
+			M17776&	100&	REACTOME&	Genes involved in Downstream signaling of activated FGFR&	0.0309\\
+			M1076&	83&	REACTOME&	Genes involved in Amyloids&	0.0309\\
+			M850&	56&	REACTOME&	Genes involved in PI-3K cascade&	0.0309\\
+			M10450&	38&	REACTOME&	Genes involved in GAB1 signalosome&	0.0309\\
+			M16227&	24&	REACTOME&	Genes involved in Cholesterol biosynthesis&	0.0309\\
+			M5872&	17&	KEGG&	Steroid biosynthesis&	0.0309\\
+			M16334&	10&	BIOCARTA&	Eph Kinases and ephrins support platelet aggregation&	0.0309\\
+			M5884&	275&	NABA&	Ensemble of genes encoding core extracellular matrix including ECM glycoproteins, collagens and proteoglycans&	0.0456\\
+			M635&	127&	REACTOME&	Genes involved in Signaling by FGFR in disease&	0.0456\\
+			M568&	38&	REACTOME&	Genes involved in PI3K events in ERBB4 signaling&	0.0456\\
+			M165&	32&	PID&	Syndecan-4-mediated signaling events&	0.0456\\
+			M1262&	15&	REACTOME&	Genes involved in GRB2:SOS provides linkage to MAPK signaling for Intergrins&	0.0456\\
+			\bottomrule
+		\end{tabular}
+		\caption[Significant Pathways When Comparing Effect of Diet in PolyI:C Exposed Mouse]{Significant Pathways when comparing effect of diet in \gls{polyic} exposed mouse.
+			The pathway IDs are the systematic name from \gls{msigdb}.
+			Most of the significant pathways were related to the kinase such as PI3K and MAPK or growth factors such as \gls{fgf} and \gls{egf}.
+			}
+			\label{tab:o6polyPath}
+	\end{table}
+	
+	\begin{table}
+		\begin{tabular}{rrrp{10cm}r}
+			\toprule
+			ID&	Size&	Source&	Description&	Adjusted P-Value\\
+			\midrule
+			M13380&	272&	KEGG&	Neuroactive ligand-receptor interaction&	$1.27\times10^{-3}$\\
+			M2890&	178&	KEGG&	Calcium signaling pathway&	$2.79\times10^{-3}$\\
+			M12289&	188&	REACTOME&	Genes involved in Peptide ligand-binding receptors&	0.00118\\
+			M5884&	275&	NABA&	Ensemble of genes encoding core extracellular matrix including ECM glycoproteins, collagens and proteoglycans&	0.00119\\
+			M735&	279&	REACTOME&	Genes involved in Neuronal System&	0.00153\\
+			M15514&	186&	REACTOME&	Genes involved in Transmission across Chemical Synapses&	0.00401\\
+			M4904&	121&	REACTOME&	Genes involved in G alpha (s) signalling events&	0.0127\\
+			M3008&	196&	NABA&	Genes encoding structural ECM glycoproteins&	0.0131\\
+			M752&	137&	REACTOME&	Genes involved in Neurotransmitter Receptor Binding And Downstream Transmission In The Postsynaptic Cell&	0.0131\\
+			M10792&	267&	KEGG&	MAPK signaling pathway&	0.0195\\
+			M17&	59&	PID&	Notch signaling pathway&	0.0406\\
+			M18437&	184&	REACTOME&	Genes involved in G alpha (q) signalling events&	0.0406\\
+			\bottomrule
+		\end{tabular}
+		\caption[Significant Pathways When Comparing Effect PolyI:C in Mouse Given n-6 \gls{pufa} Rich Diet]{Significant Pathways When Comparing Effect PolyI:C in Mouse Given n-6 \gls{pufa} Rich Diet.
+			The pathway IDs are the systematic name from \gls{msigdb}.
+			Interestingly, we observed a lot of neural related pathways and even got significant signal in the calcium signaling pathway, which was reported to be associated with \glng{scz} \citep{Purcell2014}. 
+		}
+		\label{tab:miaPath}
+	\end{table}
+\end{landscape}
+\subsection{Designing the Replication Study}
+The main purpose of the current study is to serve as a pilot for subsequent replications.
+It is therefore vital for us to exploit the current data to estimate the number of samples required in order to have sufficient power for association.
+Using Scotty \citep{Busby2013}, given that we would like to detect at least 90\% of the genes that are differentially expressed by a 2$\times$ fold change at p$<0.01$ and that at least 80\% of genes has at least 80\% of the maximum power, we will need at least 10 samples per group in the replication study given the current sequencing depth.
+
 
 \section{Discussion}
+In this pilot study, we demonstrated that \textit{Sgk1} might be affected by n-3 \gls{pufa} rich diet in the cerebellum of \gls{mia} exposed mouse. 
+
+\begin{figure}
+		\centering
+		\includegraphics[width=0.6\textwidth]{figure/omega/Sgk1_expression.png}
+		\label{fig:sgk1Express}
+		\caption[Normalized Expression of Differential Expressed Genes]{
+			Normalized Expression of the \glspl{deg}.
+			It was observed that the expression level of \textit{Sgk1} increases after the mouse was given a n3-\gls{pufa} rich diet.
+			}
+\end{figure}
+% First explain the genes
+% MIA Xbp1 -> Immune -> Important?
+% Omega IL6 fits because Sgk1 is related to that
+
+% Then functional enrichment 
+% Then the design of subsequent study
+
+As only one \gls{deg} was identified, it is difficult for us to use the normal functional enrichment analysis that employ the hypergeometric analysis. 
+Therefore we performed the non-parametric Wilcoxon Rank Sum test in an attempt to identify possible pathways that contains genes that are more significant than genes not contained within the pathway.
+In the end, 17 pathways were found to be significant when comparing the effect of diet in \gls{polyic} exposed mouse cerebellum (\cref{tab:o6polyPath}).
+When investigating the function of these pathways, it was found that most were related to either \gls{fgf} receptor and \gls{egf} receptor, or were related to \gls{pi3k} and \gls{mapk}.
+What was interested was that studies \citep{Ojeda2011,Schlessinger2004} has shown that major canonical pathways activated by \gls{fgf} and \gls{egf} share similar signals that includes \gls{mapk} and \gls{pi3k}.
+More importantly, \citet{Ojeda2011} demonstrated that when cultured in \gls{egf}-containing media, the human fetal neural stem cells were drove away from the motor neuron differentiation path and instead differentiated toward glutamate and \gls{gaba} neuronal subtypes which were both found to be associated with \glng{scz} \citep{Wassef2003,Javitt2010,Nakazawa2012}.
+
+On the other hand, 12 pathways were found to be significant when comparing the effect of \gls{mia} when mouse were given the n-6 \gls{pufa} rich diet (\cref{tab:miaPath}).
+Interestingly, of the 12 significant pathways, 5 pathways were related to neuronal functions such as nueoractive ligand-receptor interaction (padj=$1.27\times 10^{-3}$), genes involved in neuronal system (padj=0.00153) and genes involved in transmission across chemical synapses (padj=0.00401).
+It is possible that the \gls{mia} has disrupted the normal functioning of the neural system in the cerebellum, thus lead to schizophrenia-like behaviours in the adult mouse. 
+Moreover, it was found that the calcium signaling pathway was also significant when comparing the effect of \gls{mia}. 
+\citet{Purcell2014} has 
+
+\subsection{Limitation}
+We first acknowledge that the sample size of the current study is small and are underpowered.
+This is reflected in the QQ-plots (\cref{fig:waldQQ,fig:LRTQQ}) where the observed p-values were generally smaller than would have expected.
+A better study design will include more samples yet we are limited by our budget.
+However, the importance of a pilot study is to identify potential targets for replications or to provide guidance for follow up studies. 
+With our data, we were able to identify two genes, the \textit{Sgk1} and \textit{Xbp1}, for follow up and were able to estimate the required number of samples in the follow up studies to achieve substantial power.
+Moreover, our study demonstrated the importance of controlling the batch effect which can severally confound the results.
+Therefore in subsequent follow up studies, one should always control for batch effect in the experimental design and statistical analysis.
+
+Second, we examined only male brains in the current study. 
+The decision to direct experimental resources to males was made because there is evidence that the male fetus is more vulnerable to environmental exposures such as inflammation in prenatal life \citep{Bergeron2013,Lein2007}. 
+We acknowledge that an interesting follow up study would be to investigate the gender difference in response to \gls{mia} and dietary change.
+
+Third, although RNA Sequencing was performed, we have not performed any analysis on possible alternative splicing events or denovo transcript assembly.
+The reason behind such decision is that our sample size is simply too small.
+Without sufficient information, denovo transcript assembly can return noisy results.
+On the other hand, in order to investigate possible alternative splicing events, we would need to perform the analysis on transcript level instead of gene level. 
+This increase the possible candidates from 47,400 genes to 114,083 transcripts.
+Combined with the difficulties of the quantification of different isoforms, a much larger power is required for the alternative splicing analysis. 
+On top of that, the functional annotation of transcripts is another difficult aspect to tackle.
+While there are wealth of information on gene annotation, information on functional difference between isoforms of the same gene were generally lacking. 
+The lack of annotation simply leads to difficulties in making sense of the data. 
+Thus although we acknowledge the possible importance of alternative splicing and denovo transcripts, we did not perform any alternative splicing analysis or denovo transcripts assembly.
+Nonetheless, the use of RNA Sequencing allow us to easily perform these experiments once sufficient samples are obtained.
+
+Forth, it is important to note that a high RNA expression level does not guarantee a high protein concentration \citep{Vogel2012}.
+Post transcriptional, translational and degradation regulation can all affect the rates of protein production and turnover, therefore contributes to the determination of protein concentrations, at least as much as transcription itself \citep{Vogel2012}.
+The RNA Sequencing thus only provide an approximation to the concentration of a particular protein in the samples.
+Nonetheless, RNA Sequencing helps to identify potential targets for protein assays where detail analysis can be performed on the protein level.
+
+Finally, at the time of this thesis, we have yet performed any \gls{rtpcr} or any functional studies to validate our findings.
+One of the most vital steps after any RNA Sequencing results is to validate the differential expression findings using the \gls{rtpcr}.
+Ideally, not only should one perform the \gls{rtpcr} on the sequenced samples, one should also perform the \gls{rtpcr} on an independent set of samples. 
+Moreover, the RNA Sequencing only helps to identify possible candidates that were ``associated'' with a particular trait.
+It does not however provide any causal linkage between the phenotype and the differential expression.
+If one would like to establish a direct linkage between the phenotype and the gene, one will need to carry out functional studies such as knock-in knock-out mouse design.
+So take for example, in order to understand how \textit{Sgk1} interacts with \gls{mia} and the n-3 \gls{pufa} rich diet, we will need to investigate the effect of n-3 \gls{pufa} rich diet in \gls{mia} exposed \textit{Sgk1} knock-out genes or the effect of co-ingestion of \textit{Sgk1} inhibitor with n-3 \gls{pufa} diet in \gls{mia} exposed mouse.
+
+Currently, we are planning to perform the \gls{rtpcr} on \textit{Sgk1} and \textit{Xbp1} genes on all available samples. 
+Shall the results be validated, we can then perform subsequent functional studies. 

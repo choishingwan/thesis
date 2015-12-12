@@ -28,7 +28,7 @@
 \usepackage{graphicx}
 \usepackage[section]{placeins}
 \usepackage{cleveref} %This need to be the last package for it to work properly 
-\usepackage[hyperref=true,maxcitenames=3,maxbibnames=3,url=true,isbn=false,backref=true,natbib=true,backend=biber,sorting=nyvt,defernumbers=false, style=authoryear]{biblatex}
+\usepackage[hyperref=true,maxcitenames=3,maxbibnames=3,url=true,doi=false,isbn=false,backref=true,natbib=true,backend=biber,sorting=nyvt,defernumbers=false, style=authoryear]{biblatex}
 
 
 %
@@ -125,6 +125,13 @@
 \newacronym{mlm}{MLM}{mixed linear model}
 \newacronym{reml}{REML}{restricted maximum likelihood}
 \newacronym{pufa}{PUFA}{polyunsaturated fatty acid}
+\newacronym{lrt}{LRT}{likelihood ratio test}
+\newacronym{msigdb}{MSigDB}{Molecular Signatures Database}
+\newacronym{fgf}{FGF}{fibroblast growth factor}
+\newacronym{egf}{EGF}{epidermal growth factor}
+\newacronym{pi3k}{PI3K}{phosphatidylinositol 3-kinase}
+\newacronym{mapk}{MAPK}{mitogen-activated protein kinase}
+\newacronym{gaba}{GABA}{$\gamma$-aminobutyric acid}
 %
 %
 %	FORMATING SECTION
@@ -151,6 +158,7 @@
 \raggedbottom %Remove it before printing as this is something to do with global settings. Can make each page look uneven but more dense. 
 %\onehalfspacing
 \doublespacing
+%TODO this is the include space
 %\includeonly{heritability_estimation}
 \includeonly{omega_project}
 %\includeonly{literature_review}
@@ -248,46 +256,102 @@
 	%\include{drug_response}
 	%\include{environmental_risk/er_chapter}
 	\chapter{Conclusion}
-	% Heritability Estimation
-	% What the field was like before what we have done
-	% No real way to analysis the heritability using test statistic until LDSC
-	% Around the same time as LDSC
-	% Allow heritability estimation using test statistic
-	% Only the begining and still have much to learn and develop
+	\gls{shrek}, an algorithm for the estimation of heritability using \gls{GWAS} test statistics are reported in this thesis.
+	To our knowledge, this is the only algorithm other than the LD Score regression that can perform heritability estimation using test statistics.
+	In this thesis, we were able to demonstrate that \gls{shrek} can provided a more robust estimate in case-control designs when no confounding variables was present. 
+	By applying \gls{shrek} on the test statistic from the \gls{pgc} \glng{scz} \gls{GWAS}, we estimated that \glng{scz} has a \gls{SNP}-heritability of 0.174 (SD=0.00453), which is similar to the estimate of 0.197 (SD=0.0058) by \gls{ldsc}.
 	
-	% Sczhiophrenia
-	% Still many missing heritability
-	% Rare variants?
-	% Methylation 
-	% Gene Environment interaction 
-	% Much to do and much to work on 
-	% Translation is still far away (but getting closer)
-	% Should turn focus in making sense of the functional aspect of the genetic
-	% Found association, but not causation
-	% Still doesn't really understand the disease eitology or how those gene affect the brain / patient
+	On the other hand, we report a pilot RNA Sequencing study aiming to investigate the effect of \acrfull{mia} and n-3 \gls{pufa} rich diet on the gene expression pattern in the adult cerebellum. 
+	%TODO HERE
+	\section{Challenge in SNP-Heritability Estimation}
+	Although now that we can estimates the \gls{SNP} heritability based on the test statistic of large scale meta analysis, this is only the beginning for there are still a lot of questions left unanswered in the estimation of \gls{SNP} heritability.
+	One major problem of \gls{shrek} and \gls{ldsc} is that they both heavily relies on the \gls{LD} structures from the reference panel.
+	However, for any meta analysis, samples are usually from a large variety of the ethnicity, although one can choose a reference that are representative of the majority of samples, we are uncertain how the sample mixing can alter the \gls{LD} structures, this might potentially leads to biased estimates.
+	If the fundamental \gls{LD} structure was not as expected, both \gls{shrek} and \gls{ldsc} will not be able to provide an accurate estimate. 
+	For example, if a \gls{GWAS} was conducted with 50\% European and 50\% African, population stratification may confound the results.
+	Even if one control for the population stratification using the \gls{pca}, the question remains whether if one should use the African reference panel or the European reference panel in the estimation of \gls{SNP} heritability.
+	This problem is further complicated when the information regarding population stratification was usually unavailable. 
+	Thus further researches are required to tackle the problem of population stratification before one can confidently estimate the \gls{SNP} heritability on large scale meta analysis that consists of samples from a large variety of ethic background.
 	
-	% Omega project
-	% Provide an alternative way to study schizophrenia
-	% Not necessary identifying all the genes
-	% More helpful if we can identify a treatment 
-	% Difficult and only a pilot
-	% Need to do more e.g. study other brain region
-	% Look at the spatial effect of the MIA on brain
-	% Different response
-	% Information from antipsychotic
-	% Apply antipsychotic to mice? <- just a thought not really a part of thesis.
+	One important observation in our simulation study was that there was a general bias observed in all the \gls{SNP}-heritability estimation algorithm.
+	This is likely to due to the ascertainment bias introduced through case control sampling.
+	Although the liability adjustment was performed, bias was still observed. 
+	This suggested that we will need a better liability adjustment algorithm if we would like to accurately estimate the \gls{SNP}-heritability from case control studies.
+	
+	As technology advances, researchers can now use the \gls{ngs} technology to sequence the genome at per base resolution. 
+	This brings great prospect in the genetic studies for now we can directly identify the causal variants and can even detect rare causal variants providing sufficient sample size. 
+	However, both \gls{shrek} and \gls{ldsc} are designed to work on the test statistics of a \gls{GWAS} where common \glspl{SNP} are usually the focus of the studies. 
+	Because of the huge sampling error associating with rare variants, \gls{shrek} and \gls{ldsc} might be unsuitable for rare variants. 
+	In fact, it was found that when all causal variants are rare (\gls{maf} $<1\%$), \gls{ldsc} will often generate a negative slope, and the intercept will exceed the mean $\chi^2$ statistic \citep{Bulik-Sullivan2015}.
+	As a result of that, a different algorithm must be developed in order to estimates the heritability from rare variants.
+	
+	\section{Schizophrenia: Future Perspectives}
+	With the success of the \gls{pgc} \glng{scz} \gls{GWAS}, research in \glng{scz} genetics has finally entered an era of success.
+	Through international collaboration we have finally identify 108 genetic loci that are associated with \glng{scz} \citep{Ripke2013}.
+	However, the \gls{GWAS} only provides statistical association between the variants \glng{scz} and does not provide direct evidence as to the functional involvement of these variants in the etiology of \glng{scz}.
+	Functional consequences of these variations in \glng{scz} are therefore an important topic for the understanding of the mechanism of \glng{scz}.
+	
+	On the other hand, when estimating the \gls{SNP}-heritability of \glng{scz}, it was found that no more than 20\% of the heritability has been accounted for by the current \gls{GWAS}.
+	There is no doubt that by continue to increase the sample size of the \gls{GWAS}, one can identify more variants associated with \glng{scz} and therefore increases the \gls{SNP}-heritability. 
+	However, it is also likely that they will have a very small effect size which might not be useful for clinical translations.
+	Another possibility is that the so call ``missing'' heritability might be accounted for by other factors such as rare variants and epigenetic such as methylation.
+	
+	There is clear evidence that \glng{scz} patients has a higher mortality than the general population \citep{Saha2007}.
+	Given this strong selective pressure, it is likely that the causal variants of \glng{scz} that has a large effect size will be selected against in the population. 
+	As a result of that, causal variants with large effect size should be rare in nature (\cref{fig:effectSize}).
+	With the technological advancement in \gls{ngs}, we are now able to investigate the human genome at per base resolution using Exome Sequencing and even Whole Genome Sequencing technology.
+	Recent study by \citet{Purcell2014} was able to identify gene sets enriched by rare variants that were associated with \glng{scz} using Exome Sequencing. 
+	This demonstrate the power of the sequencing technology in the identification of possible risk variants. 
+	Moreover, there was overlaps observed between genes harboring rare risk variants and those within the \gls{pgc} \glng{scz} \gls{GWAS} \citep{Purcell2014}, suggesting that the rare variants and common variants studies are complementing each other.
+	As more resources are devoted in to sequencing the genome of \glng{scz} patients, we would expect to identify more rare variants that are associated with \glng{scz}.
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figure/maf_effectSize.png}
+		\caption[Relationship between Effect Size and Allele Frequency]{
+			Relationship between effect size and allele frequency. 
+			It is expected that rare variants with large effect size were actively selected against in the population and therefore should be rare.
+		}
+		\label{fig:effectSize}
+	\end{figure}
+	
+	Currently, most of the focus in \glng{scz} was directed to genetic variation yet it is possible that the heritability of \glng{scz} is also transmitted in the form of epigenetic changes such as methylation.
+	When considering the risk of \glng{scz}, it was observed that the risk for individual born from a schizophrenic mother is larger than that from a schizophrenic father. 
+	It is therefore possible that the risk of \glng{scz} is passed on through maternal imprinting. 
+	Epigenetic studies in \glng{scz} \citep{Wockner2014,Nishioka2012} has identified genes with differential DNA methylation patterns associated with \glng{scz}, suggesting the important of epigenetic in the etiology of \glng{scz}.
+	
+	As a genetic disorder, most of the research of \glng{scz} has been focusing on the genetic factors. 
+	Although the genetic variation accounted for majority of the variations in \glng{scz}, the environmental factors, especially prenatal infection are also important factors to consider. 
+	It was estimated that prenatal infection accounts for roughly 33\% of all \glng{scz} cases \citep{Brown2010}.
+	The \gls{mia} rodent model has provide vital information on the possible interaction between the immune and neuronal system in the etiology of \glng{scz} \citep{Meyer2007a}.
+	For example, \gls{il6}, a pro-inflammatory cytokine has been found to be an important mediator in generating the schizophrenia-like behaviour in rodent model \citep{Smith2007}.
+	More importantly, there are evidence of the interaction between prenatal infection and genetic variation, supporting a mechanism of gene-environment interaction in the causation of \glng{scz} \citep{Clarke2009}.
+	As the \gls{SNP}-heritability estimation does not take into account of the gene environmental interactions, it is possible that the ``missing'' heritability can be due to gene-environmental interactions. 
+	Efforts is now made by the European network of national \glng{scz} networks studying Gene-Environmental Interaction (EUGEI) to identify possible genetic and environmental interaction that contributes to the disease etiology of \glng{scz}.
 	
 	
+	% We know too little to understand
+	With the sophistication of technologies, we can now perform whole genome sequencing with the HiSeq \RN{10} Ten system costing less than \$1,000. 
+	The problem now then isn't the cost of generating the data, but the difficulties in making sense of the data. 
+	The first problem is the alignment of sequence read to low complexity sequence or low-degeneracy repeats \citep{Sims2014}. 
+	One possible solution is to use system such as the Oxford Nanopore which can provide extra long-reads, thus allowing for better alignment.
+	However, the Oxford Nanopore is still underdevelopment and has a relatively high error rate \citep{Mikheyev2014}. 
+	Only until the error rate is dramatically decreased can the use of Oxford Nanopore system become feasible. 
 	
+	Even if we can accurately align all the reads to the genome, we still face another challenge.
+	When it comes to complex disease such as \glng{scz}, there can be a lot of causal variants observed throughout the genome. 
+	However, we are only capable to estimate the functional impact of variants on the exomic regions.
+	The development of ENCODE project \citep{ENCODEProjectConsortium2012} and Genotype-Tissue Expression (GTEx) project \citep{Consortium2015} have helped provide reference point for the annotation of genetic variations in the intergenic regions yet there are still many genetic variation in the genome where their function remains unknown to us. 
+	Only through the tireless effort of the molecular biologist can we gain sufficient information required to make sense of the sequencing data obtained.	
 	
-	
-	
+	% This is only the beginning, not the end
+	In conclusion, we have only catch a glimpse of the etiology of \glng{scz} and there are still a lot of questions left unanswered.
+	It is expected that only by combining the study of epigenetic, genomic variation, gene expressions, and gene environmental interaction can we have a deeper understanding of the complex disease mechanism of \glng{scz}.
+	Hopefully, in the near future, we can gain enough understanding to start translating the research findings into clinical applications to help improving the quality of life of \glng{scz} patients.
 	
 	
 	\backmatter
 	\printbibliography[heading=bibintoc,title={Bibliography}]
-	\chapter*{Supplementary Materials}
-	\beginsupplement
+
 	%\input{environmental_risk/er_rtPCR_primer.tex}
 \end{document}
 
