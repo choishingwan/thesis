@@ -34,7 +34,7 @@ It is therefore interesting to study the gene expression changes in adult offspr
 Ultimately, one would like to identify treatments / cures for \glng{scz} thus help to boost the quality of life of the \glng{scz} patients.
 One candidate is the n-3 \gls{pufa} which can inhibits the production of \gls{il6} \citep{Trebble2003}, a major mediator in \gls{mia} \citep{Smith2007}.
 n-3 \gls{pufa} is also plays a critical role in the development of central nervous system \citep{Clandinin1999} and it has robust anti-inflammatory properties \citep{Trebble2003}.
-Previous study from our lab suggested that a n-3 \gls{pufa} rich diet can help to reduce the schizophrenia-like phenotype in mouse exposed to early \gls{mia} insults \citep{Li2015}. 
+Previous study from our lab suggested that a n-3 \gls{pufa} rich diet can help to reduce the schizophrenia-like phenotype in mice exposed to early \gls{mia} insults \citep{Li2015}. 
 Thus we would also like assess the effect of an n-3 \gls{pufa} rich diet on the gene expression pattern in the brain of the adult offspring.
 
 % Cerebellum
@@ -205,15 +205,15 @@ To avoid problems in down-stream analysis, we excluded this sample from subseque
 \subsection{Differential Expression Analysis}
 \begin{figure}
 	\centering
-	\subfloat[O6-Saline mouse vs O6-PolyI:C mouse]{
+	\subfloat[O6-Saline mice vs O6-PolyI:C mice]{
 		\scalebox{.4}{\includegraphics{figure/omega/miaO6_wald_qq.png}}
 		\label{fig:miaO6Wald}
 	}
-	\subfloat[O6-Saline mouse vs O3-Saline mouse]{
+	\subfloat[O6-Saline mice vs O3-Saline mice]{
 		\scalebox{.4}{\includegraphics{figure/omega/omegaSAL_wald_qq.png}}
 		\label{fig:omegaSALWald}
 	}\\
-	\subfloat[O6-PolyI:C mouse vs O3-PolyI:C mouse]{
+	\subfloat[O6-PolyI:C mice vs O3-PolyI:C mice]{
 		\scalebox{.4}{\includegraphics{figure/omega/omegaPOL_wald_qq.png}}
 		\label{fig:omegaPOLWald}
 	}
@@ -230,7 +230,7 @@ To avoid problems in down-stream analysis, we excluded this sample from subseque
 	\label{fig:waldQQ}
 \end{figure}
 After excluding the problematic samples, we performed the DESeq2 analysis.
-Of the 16,747 genes that passed through quality control, only one gene, \textit{Sgk1} (p-adjusted=0.00186) was found to be significantly differentiated when comparing the expression in \gls{polyic} exposed mouse given different diet (\cref{fig:omegaPOLWald}).
+Of the 16,747 genes that passed through quality control, only one gene, \textit{Sgk1} (p-adjusted=0.00186) was found to be significantly differentiated when comparing the expression in \gls{polyic} exposed mice given different diet (\cref{fig:omegaPOLWald}).
 No genes were found to be significant for the other two comparison (\cref{fig:miaO6Wald,fig:omegaSALWald}).
 
 
@@ -242,10 +242,10 @@ It is common practice to try and perform functional annotation to the \glspl{deg
 However, in most of our analysis, there were either no \gls{deg} or only 1 \gls{deg}, making it difficult to perform functional annotation such as \gls{GO} enrichment analysis.
 We used the Wilcox rank sum test to analysis whether if a pathway contain genes that are more significant than genes not within the pathway.
 
-None of the pathway were found to be significant when comparing the effect of the n-3 rich diet in Saline exposed mouse. 
+None of the pathway were found to be significant when comparing the effect of the n-3 rich diet in Saline exposed mice. 
 On the contrary, 17 pathways were found to be more significant when comparing the effect of n-3 \gls{pufa} rich diet in \gls{polyic} exposed samples (\cref{tab:o6polyPath}) where 4 pathways were related to growth factors such as \gls{fgf} or \gls{egf} and 4 others were related to kinases such a s \gls{pi3k} or \gls{mapk}.
 
-Finally, 12 pathways were found to significant when comparing Saline and \gls{polyic} exposed mouse given the n-6 \gls{pufa} rich diet (\cref{tab:miaPath}) with pathways such as neuroactive ligand-receptor interaction (p-adj = $1.27\times10^{-3}$), calcium signaling pathway (p-adj = $2.79\times10^{-3}$) and genes involved in Neuronal System (p-adj=0.00153).
+Finally, 12 pathways were found to significant when comparing Saline and \gls{polyic} exposed mice given the n-6 \gls{pufa} rich diet (\cref{tab:miaPath}) with pathways such as neuroactive ligand-receptor interaction (p-adj = $1.27\times10^{-3}$), calcium signaling pathway (p-adj = $2.79\times10^{-3}$) and genes involved in Neuronal System (p-adj=0.00153).
 
 \begin{landscape}
 	\begin{table}
@@ -272,7 +272,7 @@ Finally, 12 pathways were found to significant when comparing Saline and \gls{po
 			M1262&	15&	REACTOME&	Genes involved in GRB2:SOS provides linkage to MAPK signaling for Intergrins&	0.0456\\
 			\bottomrule
 		\end{tabular}
-		\caption[Significant Pathways When Comparing Effect of Diet in PolyI:C Exposed Mouse]{Significant Pathways when comparing effect of diet in \gls{polyic} exposed mouse.
+		\caption[Significant Pathways When Comparing Effect of Diet in PolyI:C Exposed Mouse]{Significant Pathways when comparing effect of diet in \gls{polyic} exposed mice.
 			The pathway IDs are the systematic name from \gls{msigdb}.
 			Most of the significant pathways were related to the kinase such as PI3K and MAPK or growth factors such as \gls{fgf} and \gls{egf}.
 			}
@@ -312,36 +312,58 @@ Using Scotty \citep{Busby2013}, given that we would like to detect at least 90\%
 
 
 \section{Discussion}
-In this pilot study, we demonstrated that \textit{Sgk1} might be affected by n-3 \gls{pufa} rich diet in the cerebellum of \gls{mia} exposed mouse. 
+In this pilot study, we demonstrated that \textit{Sgk1} might be affected by n-3 \gls{pufa} rich diet in the cerebellum of \gls{mia} exposed mice. 
+\textit{Sgk1} is a serine/threonine kinase activated by \gls{pi3k} signals and study has shown that the expression of \textit{Sgk1} is associated with spatial learning, fear-conditioning learning and recognition learning in rat \citep{Tsai2002,Lee2003}.
+For example, \citet{Tsai2002} observed a 4 fold increase of \textit{Sgk1} in the hippocampus of fast learners when compared to slow learners where transfection of \textit{Sgk1} mutant DNA impairs the water maze performance in rat.
+
+On the other hand, it was found that \textit{Sgk1} can regulates the AMPA and kainate glutamate receptors, especially GluR6 which is encoded by \textit{Grik2} \citep{Lang2006,Lang2010}.
+The kainate receptors contributes to the excitatory postsynaptic current and are important to the synaptic transmission and plasticity in the hippocampus \citep{Lang2006}.
+The upregulation of AMPA and kainate receptors are therefore expected to enhance the excitatory effects of glutamate \citep{Lang2010}.
+Moreover, \textit{Sgk1} also up-regulates the glutamate transporters such as EAAT4 \citep{Bohmer2004}.
+The glutamate receptors are vital for clearance of glutamate from the synaptic cleft.
+This prevents excessive glutamate accumulation and therefore help to prevent the neurotoxic effects of glutamate \citep{Lang2010}.
+Considering the complexity of the glutamatergic system and the conflicting role of \textit{Sgk1}, it is likely that more genes might play a role in the tight regulation of the system.
+However, it is no doubt that the disruption of \textit{Sgk1} might affect the normal functioning of the glutamatergic system.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{figure/omega/Sgk1_expression.png}
+	\caption[Normalized Expression of \textit{Sgk1}]{
+		Normalized Expression of \textit{Sgk1}.
+		It was observed that the expression level of \textit{Sgk1} increases after the mice was given a n3-\gls{pufa} rich diet where a significant increase was observed in mice exposed to \gls{polyic}.
+	}\label{fig:sgk1Express}
+\end{figure}
+
+In our study, it was observed that upon given the n-3 \gls{pufa} rich diet, the \textit{Sgk1} expression in the cerebellum increases (\cref{fig:sgk1Express}).
+Although the increase was not significant in the saline mice, a significant up-regulation was observed in the \gls{polyic} exposed mice. 
+Additionally, it was also observed that \gls{pi3k} pathways and pathways related to \gls{fgf} receptors and \gls{egf} receptors were significant when studying the effect of n-3 \gls{pufa} rich diet to \gls{polyic} exposed mice.
+Upon further investigation, it was found that the \gls{fgf} receptors and \gls{egf} receptors are upstream of the \gls{pi3k}-Akt pathway (\cref{fig:pi3kPathway}) which is responsible for the activation of \textit{Sgk1}.
+Although we were unable to provide direct connection between the expression of \textit{Sgk1} and the improve functioning of the \gls{polyic} mice given n-3 \gls{pufa} diet, our results do suggest a possible effect of the n-3 \gls{pufa} rich diet in the expression of genes related to the \gls{pi3k}/Akt pathway and might affect the expression of \textit{Sgk1}.
+Further studies are therefore required to understand whether if the change in expression of \textit{Sgk1} can account for the improved functioning of the \gls{polyic} mice. 
+A possible design will be to induce the expression of \textit{Sgk1} in \gls{polyic} mice through transfection.
 
 \begin{figure}
-		\centering
-		\includegraphics[width=0.6\textwidth]{figure/omega/Sgk1_expression.png}
-		\label{fig:sgk1Express}
-		\caption[Normalized Expression of Differential Expressed Genes]{
-			Normalized Expression of the \glspl{deg}.
-			It was observed that the expression level of \textit{Sgk1} increases after the mouse was given a n3-\gls{pufa} rich diet.
-			}
+	\centering
+	\includegraphics[width=0.6\textwidth]{figure/omega/pi3ksignaling.jpg}
+	\caption[Schematic of signalling through the PI3K/AKT pathway]{
+		Schematic of signalling through the \gls{pi3k}/AKT pathway.
+		It was observed that the growth factors were upstream of the \gls{pi3k}/AKT pathway of which \textit{Sgk1} one of the member of the pathway.
+		Figure adopted from \citet{Hennessy2005} with permission from journal.
+	}\label{fig:pi3kPathway}
 \end{figure}
-% First explain the genes
-% MIA Xbp1 -> Immune -> Important?
-% Omega IL6 fits because Sgk1 is related to that
-
-% Then functional enrichment 
-% Then the design of subsequent study
-
-As only one \gls{deg} was identified, it is difficult for us to use the normal functional enrichment analysis that employ the hypergeometric analysis. 
-Therefore we performed the non-parametric Wilcoxon Rank Sum test in an attempt to identify possible pathways that contains genes that are more significant than genes not contained within the pathway.
-In the end, 17 pathways were found to be significant when comparing the effect of diet in \gls{polyic} exposed mouse cerebellum (\cref{tab:o6polyPath}).
-When investigating the function of these pathways, it was found that most were related to either \gls{fgf} receptor and \gls{egf} receptor, or were related to \gls{pi3k} and \gls{mapk}.
-What was interested was that studies \citep{Ojeda2011,Schlessinger2004} has shown that major canonical pathways activated by \gls{fgf} and \gls{egf} share similar signals that includes \gls{mapk} and \gls{pi3k}.
-More importantly, \citet{Ojeda2011} demonstrated that when cultured in \gls{egf}-containing media, the human fetal neural stem cells were drove away from the motor neuron differentiation path and instead differentiated toward glutamate and \gls{gaba} neuronal subtypes which were both found to be associated with \glng{scz} \citep{Wassef2003,Javitt2010,Nakazawa2012}.
-
-On the other hand, 12 pathways were found to be significant when comparing the effect of \gls{mia} when mouse were given the n-6 \gls{pufa} rich diet (\cref{tab:miaPath}).
+When examine the expression change in mice exposed to \gls{polyic}, none of the genes were significantly differentiated. 
+However, we do observe 12 pathways that contains genes that were more significant than genes not within the pathway (\cref{tab:miaPath}).
 Interestingly, of the 12 significant pathways, 5 pathways were related to neuronal functions such as nueoractive ligand-receptor interaction (padj=$1.27\times 10^{-3}$), genes involved in neuronal system (padj=0.00153) and genes involved in transmission across chemical synapses (padj=0.00401).
-It is possible that the \gls{mia} has disrupted the normal functioning of the neural system in the cerebellum, thus lead to schizophrenia-like behaviours in the adult mouse. 
-Moreover, it was found that the calcium signaling pathway was also significant when comparing the effect of \gls{mia}. 
-\citet{Purcell2014} has 
+Most importantly, it was found that the calcium signaling pathway was significant when comparing the effect of \gls{mia}. 
+The association of the calcium signaling pathway with \glng{scz} was not a new finding \citep{Lidow2003,Purcell2014,Ripke2013}.
+Previous exome sequencing study of \glng{scz} by \citet{Purcell2014} has already report the enrichment of non-synonymouse variants within the voltage gate calcium ion channel genes in the \glng{scz} cases and the \gls{pgc} \glng{scz} \gls{GWAS} has also found association between genes encoding the calcium channel subunits with \glng{scz}.
+As calcium signaling pathway is the key component of the mechanism responsible for regulating neuronal excitability \citep{Berridge2014}, the disruption of the calcium signaling pathway is likely to have a profound effect on the neural function. 
+Together, our results suggest that \gls{mia} might have disrupted the normal functioning of the neural system in the cerebellum, thus lead to schizophrenia-like behaviours in the adult mice yet follow up studies are required to validate our findings.
+
+Finally, it is important to note that this is a pilot study and the sample size was modest. 
+One of the main purpose of this study was to provide an estimation of sample size required for a replication study.
+By using Scotty \citep{Busby2013}, we have estimated that the replication study should contain at least 10 samples for each group in order for us to detect at least 80\% of genes has at least 80\% of the maximum power. 
+We have also demonstrated that the batch effect can have a big impact to the association (\cref{fig:batchLRT}), therefore one should always control for the batch effect whenever possible.
+Given the current resources, one of the preferred design for the follow up study are given in \cref{tab:bestdesign}.
 
 \subsection{Limitation}
 We first acknowledge that the sample size of the current study is small and are underpowered.
@@ -379,7 +401,73 @@ Ideally, not only should one perform the \gls{rtpcr} on the sequenced samples, o
 Moreover, the RNA Sequencing only helps to identify possible candidates that were ``associated'' with a particular trait.
 It does not however provide any causal linkage between the phenotype and the differential expression.
 If one would like to establish a direct linkage between the phenotype and the gene, one will need to carry out functional studies such as knock-in knock-out mouse design.
-So take for example, in order to understand how \textit{Sgk1} interacts with \gls{mia} and the n-3 \gls{pufa} rich diet, we will need to investigate the effect of n-3 \gls{pufa} rich diet in \gls{mia} exposed \textit{Sgk1} knock-out genes or the effect of co-ingestion of \textit{Sgk1} inhibitor with n-3 \gls{pufa} diet in \gls{mia} exposed mouse.
+So take for example, in order to understand how \textit{Sgk1} interacts with \gls{mia} and the n-3 \gls{pufa} rich diet, we will need to investigate the effect of n-3 \gls{pufa} rich diet in \gls{mia} exposed \textit{Sgk1} knock-out genes or the effect of co-ingestion of \textit{Sgk1} inhibitor with n-3 \gls{pufa} diet in \gls{mia} exposed mice.
 
-Currently, we are planning to perform the \gls{rtpcr} on \textit{Sgk1} and \textit{Xbp1} genes on all available samples. 
+Currently, we are planning to perform the \gls{rtpcr} on \textit{Sgk1} on all available samples. 
 Shall the results be validated, we can then perform subsequent functional studies. 
+
+\newpage
+\section{Supplementary}
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{center}
+	\begin{longtable}[H]{rrrrrr}
+			\toprule
+			Litter & Condition & Diet  & Cage  & Batch & Lane \\
+			\midrule
+			\endhead
+			\hline
+			\multicolumn{6}{c}{Continued}\\
+			\bottomrule
+			\endfoot
+			\bottomrule
+			\endlastfoot
+			    1     & PolyIC & n-3 PUFA & 1     & 1     & 1 \\
+			    1     & PolyIC & n-6 PUFA & 2     & 5     & 1 \\
+			    2     & PolyIC & n-3 PUFA & 3     & 4     & 2 \\
+			    2     & PolyIC & n-6 PUFA & 4     & 3     & 3 \\
+			    3     & PolyIC & n-3 PUFA & 5     & 2     & 4 \\
+			    3     & PolyIC & n-6 PUFA & 6     & 1     & 1 \\
+			    4     & PolyIC & n-3 PUFA & 7     & 5     & 1 \\
+			    4     & PolyIC & n-6 PUFA & 8     & 4     & 2 \\
+			    5     & PolyIC & n-3 PUFA & 9     & 3     & 3 \\
+			    5     & PolyIC & n-6 PUFA & 10    & 2     & 4 \\
+			    6     & PolyIC & n-3 PUFA & 1     & 2     & 1 \\
+			    6     & PolyIC & n-6 PUFA & 2     & 1     & 2 \\
+			    7     & PolyIC & n-3 PUFA & 3     & 5     & 2 \\
+			    7     & PolyIC & n-6 PUFA & 4     & 4     & 3 \\
+			    8     & PolyIC & n-3 PUFA & 5     & 3     & 4 \\
+			    8     & PolyIC & n-6 PUFA & 6     & 2     & 1 \\
+			    9     & PolyIC & n-3 PUFA & 7     & 1     & 2 \\
+			    9     & PolyIC & n-6 PUFA & 8     & 5     & 2 \\
+			    10    & PolyIC & n-3 PUFA & 9     & 4     & 3 \\
+			    10    & PolyIC & n-6 PUFA & 10    & 3     & 4 \\
+			    11    & Saline & n-3 PUFA & 1     & 3     & 1 \\
+			    11    & Saline & n-6 PUFA & 2     & 2     & 2 \\
+			    12    & Saline & n-3 PUFA & 3     & 1     & 3 \\
+			    12    & Saline & n-6 PUFA & 4     & 5     & 3 \\
+			    13    & Saline & n-3 PUFA & 5     & 4     & 4 \\
+			    13    & Saline & n-6 PUFA & 6     & 3     & 1 \\
+			    14    & Saline & n-3 PUFA & 7     & 2     & 2 \\
+			    14    & Saline & n-6 PUFA & 8     & 1     & 3 \\
+			    15    & Saline & n-3 PUFA & 9     & 5     & 3 \\
+			    15    & Saline & n-6 PUFA & 10    & 4     & 4 \\
+			    16    & Saline & n-3 PUFA & 1     & 4     & 1 \\
+			    16    & Saline & n-6 PUFA & 2     & 3     & 2 \\
+			    17    & Saline & n-3 PUFA & 3     & 2     & 3 \\
+			    17    & Saline & n-6 PUFA & 4     & 1     & 4 \\
+			    18    & Saline & n-3 PUFA & 5     & 5     & 4 \\
+			    18    & Saline & n-6 PUFA & 6     & 4     & 1 \\
+			    19    & Saline & n-3 PUFA & 7     & 3     & 2 \\
+			    19    & Saline & n-6 PUFA & 8     & 2     & 3 \\
+			    20    & Saline & n-3 PUFA & 9     & 1     & 4 \\
+			    20    & Saline & n-6 PUFA & 10    & 5     & 4 \\
+			\bottomrule
+		\caption[Design for Follow Up Study]{
+			Design for follow up study.
+			This will be the idea design for follow up study where litter effect, cage effect, batch effect and lane effects are all balanced out for the conditions.
+			One can also include the \gls{ercc} spike in control to serves as an internal standard for additional level of control \citep{Jiang2011a}.
+			}
+		\label{tab:bestdesign}%
+	\end{longtable}%ssss
+\end{center}
+% End up it is very easy, all you have to do is to first sort the table with the previous condition then e.g. Cage, then repeat the number of condition e.g. 1,2,1,2,1,2 until the end. Keep doing that and you will have a best mixed model

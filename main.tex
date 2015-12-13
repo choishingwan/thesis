@@ -212,14 +212,46 @@
 
 
 \frontmatter 
-
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Abstract}
+	\chapter*{\centerline{Abstract}}
+	Schizophrenia is a complex disorder affecting approximately 1\% of the population worldwide. 
+	Twin studies and population studies suggest that genetic variations accounts for $\sim80\%$ of the population variance in disease liability of schizophrenia.
+	Yet the true contribution of common genetic variants, particularly \gls{SNP}, to schizophrenia remains unknown.
+	
+	
+	
+	In this thesis, we proposed an alternative approach for estimating \gls{SNP}-heritability from \gls{GWAS} summary statistics, called the \gls{shrek}, which provides a robust heritability estimation, even under oligogenic conditions.
+	Our simulation results suggest that when compared to \gls{ldsc}, \gls{shrek} can provide a more robust estimate for oligogentic traits and in case-control designs where no confounding variables was present.
+	Using the latest \gls{GWAS} summary statistics released by the Psychiatric Genomic Consortium , we estimated that schizophrenia has a \gls{SNP}-heritability of 0.174 (SD=0.00453), which is similar to the estimate of 0.197 (SD=0.0058) by \gls{ldsc}.
+	
+	Finally, 
+	
+	
+	
+	With the success of the Psychiatric Genomic Consortium Schizophrenia \gls{GWAS}, it is of immense interest to accurately determine the true contribution of common genetic variiants, particularly \gls{SNP} (\gls{SNP}-heritability), to schizophrenia.
+	Combined with the heritability estimation from twin studies, this should allow one to determine whether if majority of the heritability has been captured through the \gls{GWAS} study.
+	A discrepancy between the twin heritability and the \gls{SNP}-heritability might suggest that some of the genetic variations were inherited through other mechanism such as epigenetics changes, structural variations and even gene environmental interactions.
+	Thus, the \gls{SNP} heritability will provide valuable information that may guide future researches for schizophrenia.
+	
+	The problem with \gls{SNP} heritability was that most algorithms require the use of raw genotypes from the \gls{GWAS} in order to estimate the \gls{SNP} heritability.
+	However, due to privacy concerns, the raw genotypes from large scale \gls{GWAS} such as that for schizophrenia were usually unavailable. 
+	This leads to difficulties in the estimation of \gls{SNP} heritability.
+	Recently, the \gls{ldsc} has been published which has the ability to estimates the \gls{SNP} heritability with only the summary statistics from the \gls{GWAS}, thus does not require the use of raw genotype.
+	However, \gls{ldsc} is ill suited for estimation of heritability under oligogenic conditions because it requires regressing genetic effect as function of linkage disequilibrium over large number of \glspl{SNP}.
+	Although schizophrenia are most likely polygenic, it is still of particular interest to see if there can be robust algorithms that may accurately estimate the \gls{SNP}-heritability of schizophrenia.
+	
+	The ultimate goal of schizophrenia research is usually to be able to develop possible treatment or cure for schizophrenia patients, thus improving their quality of life. 
+	
+	\glsresetall
 	\cleardoublepage
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Declaration}
 	\newgeometry{inner=2in, outer=2in}
 	\chapter*{\centerline{Declaration}}
 	\vspace{1cm}
-	I declare that this thesis represents my own work, except where due acknowledgments	is made, and that it has not been previously included in a thesis, dissertation or report submitted to this University or to any other institution for a degree,	diploma or other qualification.
+	I declare that this thesis represents my own work, except where due acknowledgments	is made, and that it has not been previously included in a thesis, dissertation or report submitted to this University or to any other institution for a degree, diploma or other qualification.
 	\vspace{1.5cm}
 	
 	\centerline{Signed....................................................................}
@@ -252,9 +284,6 @@
 	\include{literature_review}
 	\include{heritability_estimation}
 	\include{omega_project}
-	%\include{heritability_scz}
-	%\include{drug_response}
-	%\include{environmental_risk/er_chapter}
 	\chapter{Conclusion}
 	\gls{shrek}, an algorithm for the estimation of heritability using \gls{GWAS} test statistics are reported in this thesis.
 	To our knowledge, this is the only algorithm other than the LD Score regression that can perform heritability estimation using test statistics.
@@ -262,7 +291,11 @@
 	By applying \gls{shrek} on the test statistic from the \gls{pgc} \glng{scz} \gls{GWAS}, we estimated that \glng{scz} has a \gls{SNP}-heritability of 0.174 (SD=0.00453), which is similar to the estimate of 0.197 (SD=0.0058) by \gls{ldsc}.
 	
 	On the other hand, we report a pilot RNA Sequencing study aiming to investigate the effect of \acrfull{mia} and n-3 \gls{pufa} rich diet on the gene expression pattern in the adult cerebellum. 
-	%TODO HERE
+	Overall, our results suggest the \gls{mia} exposure might disrupt gene expressions that are related to neural function in the cerebellum of adult mice. 
+	In addition, we observed there to be a significant up-regulation of \textit{Sgk1} after the \gls{polyic} exposed mice given the n-3 \gls{pufa} rich diet. 
+	Consider the neuroprotective nature of \textit{Sgk1}, it is possible that the n-3 \gls{pufa} rich diet can help to ``rescued'' some of the neuronal function by up-regulating \textit{Skg1}.
+	As a pilot study, our results also helps to design a follow up study with adequate sample size and control for different confounding variables such as batch effect and cage effect. 
+	
 	\section{Challenge in SNP-Heritability Estimation}
 	Although now that we can estimates the \gls{SNP} heritability based on the test statistic of large scale meta analysis, this is only the beginning for there are still a lot of questions left unanswered in the estimation of \gls{SNP} heritability.
 	One major problem of \gls{shrek} and \gls{ldsc} is that they both heavily relies on the \gls{LD} structures from the reference panel.
