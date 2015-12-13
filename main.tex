@@ -27,6 +27,7 @@
 \usepackage[acronym,nomain,toc,makeindex ]{glossaries}
 \usepackage{graphicx}
 \usepackage[section]{placeins}
+\usepackage{eufrak}
 \usepackage{cleveref} %This need to be the last package for it to work properly 
 \usepackage[hyperref=true,maxcitenames=3,maxbibnames=3,url=true,doi=false,isbn=false,backref=true,natbib=true,backend=biber,sorting=nyvt,defernumbers=false, style=authoryear]{biblatex}
 
@@ -160,7 +161,7 @@
 \doublespacing
 %TODO this is the include space
 %\includeonly{heritability_estimation}
-\includeonly{omega_project}
+%\includeonly{omega_project}
 %\includeonly{literature_review}
 
 
@@ -216,34 +217,27 @@
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Abstract}
 	\chapter*{\centerline{Abstract}}
+	\vspace{1cm}
 	Schizophrenia is a complex disorder affecting approximately 1\% of the population worldwide. 
 	Twin studies and population studies suggest that genetic variations accounts for $\sim80\%$ of the population variance in disease liability of schizophrenia.
 	Yet the true contribution of common genetic variants, particularly \gls{SNP}, to schizophrenia remains unknown.
 	
-	
+	On the other hand, it was observed that prenatal infection increases the risk of schizophrenia. 
+	Of all environmental risk factors, prenatal infection is the largest risk factor.
+	Moreover, recent study has shown that a n-3 \gls{pufa} rich diet can help to reduce the schizophrenia-like phenotype in mice exposed to early \gls{mia} insults.
+	It is therefore important to understand how \gls{mia} and the n-3 \gls{pufa} rich diet affects the molecular signature within the brain.
 	
 	In this thesis, we proposed an alternative approach for estimating \gls{SNP}-heritability from \gls{GWAS} summary statistics, called the \gls{shrek}, which provides a robust heritability estimation, even under oligogenic conditions.
 	Our simulation results suggest that when compared to \gls{ldsc}, \gls{shrek} can provide a more robust estimate for oligogentic traits and in case-control designs where no confounding variables was present.
 	Using the latest \gls{GWAS} summary statistics released by the Psychiatric Genomic Consortium , we estimated that schizophrenia has a \gls{SNP}-heritability of 0.174 (SD=0.00453), which is similar to the estimate of 0.197 (SD=0.0058) by \gls{ldsc}.
 	
-	Finally, 
-	
-	
-	
-	With the success of the Psychiatric Genomic Consortium Schizophrenia \gls{GWAS}, it is of immense interest to accurately determine the true contribution of common genetic variiants, particularly \gls{SNP} (\gls{SNP}-heritability), to schizophrenia.
-	Combined with the heritability estimation from twin studies, this should allow one to determine whether if majority of the heritability has been captured through the \gls{GWAS} study.
-	A discrepancy between the twin heritability and the \gls{SNP}-heritability might suggest that some of the genetic variations were inherited through other mechanism such as epigenetics changes, structural variations and even gene environmental interactions.
-	Thus, the \gls{SNP} heritability will provide valuable information that may guide future researches for schizophrenia.
-	
-	The problem with \gls{SNP} heritability was that most algorithms require the use of raw genotypes from the \gls{GWAS} in order to estimate the \gls{SNP} heritability.
-	However, due to privacy concerns, the raw genotypes from large scale \gls{GWAS} such as that for schizophrenia were usually unavailable. 
-	This leads to difficulties in the estimation of \gls{SNP} heritability.
-	Recently, the \gls{ldsc} has been published which has the ability to estimates the \gls{SNP} heritability with only the summary statistics from the \gls{GWAS}, thus does not require the use of raw genotype.
-	However, \gls{ldsc} is ill suited for estimation of heritability under oligogenic conditions because it requires regressing genetic effect as function of linkage disequilibrium over large number of \glspl{SNP}.
-	Although schizophrenia are most likely polygenic, it is still of particular interest to see if there can be robust algorithms that may accurately estimate the \gls{SNP}-heritability of schizophrenia.
-	
-	The ultimate goal of schizophrenia research is usually to be able to develop possible treatment or cure for schizophrenia patients, thus improving their quality of life. 
-	
+	We also performed a pilot study to investigate the effect of n-3 \gls{pufa} rich diet on the gene expression pattern of \gls{mia} exposed mice cerebellum using the \gls{polyic} mouse model.
+	In study, we have successfully identify \textit{Sgk1}, a gene that can regulates glutamatergic system, as a possible candidate that were mediated by n-3 \gls{pufa} rich diet in the \gls{polyic} exposed mice. 
+	Pathways related to neural functioning and calcium ion signally were also found to be significant in when investigating the effect of \gls{mia} in the cerebellum.
+	Together with the accumulating evidence that deregulation of synapse might be involved in \glng{scz}, our pilot study suggests that future studies focusing on manipulations of the genes related to neural function as well as glutamate-related genes such as \textit{Sgk1}, might help to identify molecular signal of \glng{scz} related to \gls{mia} and that were affected by the n-3 \gls{pufa} rich diet, hence provide novel targets for  treatment in \glng{scz}.
+	\begin{flushright}
+		(390 words)
+	\end{flushright}
 	\glsresetall
 	\cleardoublepage
 	\phantomsection
@@ -260,10 +254,23 @@
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Acknowledgments}
 	\chapter*{\centerline{Acknowledgements}}
+	\vspace{1cm}
+	This thesis would not be possible without my supervisors, Processor Pak Sham, Dr Stacey Cherny and Dr Wanling Yeung and I would like to thank them for taking me in and giving my guidance whenever I need during my study.
+	I would like to especially thanks Professor Pak Sham for his trust, guidance and support to me and provide me the valuable opportunity to work on different projects.
+	
+	I am also blessed to have Dr Johnny Kwan, Dr Timothy Mak and Dr Desmond Campbell to have the patience to teach me all the statistical problems I have encountered during my studies and especially Dr Johnny Kwan for his constant guidances.
+	Without my helpful and lovely colleagues, my life will be much different and I am in debt to them for giving me such a memorable and enjoyable time for the past 4 years. 
+	Thank you Beatrice Wu, Dr Li Qi, Tomy Hui, Vicki Lin, Nick Lin, John Wong, Dr Clara Tang, Dr Amy Butler, Dr Allen Gui, Dr Sylvia Lam, Yung Tse Choi, Oi Chi Chan Pui King Wong and Dr Miaoxin Li for their constant support and advice and for giving such a lovely atmosphere in the department. 
+	
+	Finally, I must thanks Beatrice Wu and my family for without their support and constant encouragement, I won't be able to complete my thesis.
+	
+	\begin{center}
+	\large THANK YOU!
+	\end{center}
 	\cleardoublepage
 	\phantomsection
 	\begin{singlespace}
-	\printglossary[title=Abbreviations,toctitle=Abbreviations]
+	\printglossary[title=Abbreviations,toctitle=Abbreviations,style=long,nonumberlist]
 	\cleardoublepage
 	\phantomsection
 	%To generate the correct abbreviations, use alt+shift+F1 twice before using F1
