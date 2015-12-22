@@ -1,4 +1,4 @@
-\documentclass[12pt]{book}
+\documentclass[12pt]{scrbook}
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{colortbl}
@@ -134,12 +134,13 @@
 \newacronym{pi3k}{PI3K}{phosphatidylinositol 3-kinase}
 \newacronym{mapk}{MAPK}{mitogen-activated protein kinase}
 \newacronym{gaba}{GABA}{$\gamma$-aminobutyric acid}
+\newacronym{ecm}{ECM}{extracellular matrix}
+\newacronym{mmp}{MMP}{matrix metalloproteinase}
 %
 %
 %	FORMATING SECTION
 %
 %
-
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot[LE,RO]{\thepage}
@@ -163,7 +164,7 @@
 %TODO this is the include space
 %\includeonly{heritability_estimation}
 %\includeonly{omega_project}
-\includeonly{literature_review}
+%\includeonly{literature_review}
 
 
 %\extrafloats{100}
@@ -273,7 +274,7 @@
 	Without my helpful and lovely colleagues, my life will be much different and I am in debt to them for giving me such a memorable and enjoyable time for the past 4 years. 
 	Thank you Beatrice Wu, Dr Li Qi, Tomy Hui, Vicki Lin, Nick Lin, John Wong, Dr Clara Tang, Dr Amy Butler, Dr Allen Gui, Dr Sylvia Lam, Yung Tse Choi, Oi Chi Chan Pui King Wong and Dr Miaoxin Li for their constant support and advice and for giving such a lovely atmosphere in the department. 
 	
-	Finally, I must thanks Beatrice Wu and my family for without their support and constant encouragement, I won't be able to complete my thesis.
+	Finally, I must thank you Beatrice Wu and my family for without their support and constant encouragement, I won't be able to complete my thesis.
 	
 	\begin{center}
 	\large THANK YOU!
@@ -305,16 +306,19 @@
 	\chapter{Conclusion}
 	\label{conclusionChapter}
 	\glsresetall
-	\gls{shrek}, an algorithm for the estimation of heritability using \gls{GWAS} test statistics are reported in this thesis.
-	To our knowledge, this is the only algorithm other than \gls{ldsc} that can perform heritability estimation using summary statistics from \gls{GWAS}.
-	Our simulation results suggest that when compared to \gls{ldsc}, \gls{shrek} can provide a more robust estimate for oligogentic traits and in case-control designs where no confounding variables was present. 
+	In this thesis, we presented \gls{shrek}, an robust algorithm for the estimation of \gls{SNP} heritability using \gls{GWAS} summary statistics, an alternative to \gls{ldsc}.
+	Through simulations, it was suggested that when compared to \gls{ldsc}, \gls{shrek} can provide a more robust estimate for oligogentic traits and in case-control designs where no confounding variables was present. 
 	Using the latest \gls{GWAS} summary statistics released by the \gls{pgc}, we estimated that \glng{scz} has a \gls{SNP}-heritability of 0.174 (SD=0.00453), which is similar to the estimate of 0.197 (SD=0.0058) by \gls{ldsc}.
 	
-	On the other hand, we report a pilot RNA Sequencing study aiming to investigate the effect of \acrfull{mia} and n-3 \gls{pufa} rich diet on the gene expression pattern in adult cerebellum. 
-	Overall, our results suggest the \gls{mia} exposure might disrupt gene expressions that are related to neural function or the calcium ion signaling in the cerebellum of adult mice. 
-	In addition, we observed a significant up-regulation of \textit{Sgk1} in \gls{polyic} exposed mice that were given the n-3 \gls{pufa} rich diet. 
-	Consider the regulatory role of \textit{Sgk1} in the glutamatergic system, it is possible that the n-3 \gls{pufa} rich diet can help to ``rescued'' some of the impaired functions in the glutamatergic system yet further studies are required.
-	Based on our data, we were able to design a follow up study with adequate sample size and control for different confounding variables such as batch effect and cage effect. 
+	When compared to the heritability estimated from twin studies ($81\%$) \citep{Sullivan2003} and large scale population based study (64\%) \citep{Lichtenstein2009}, the \gls{SNP} heritability is much lower, suggesting that factors other than common \glspl{SNP} might have accounted for the remaining heritability.
+	
+	On the other hand, we were interested to see if differential gene expression induced by \gls{mia} and genetic variations observed in \glng{scz} were acting on the same functional pathway in the development of \glng{scz}.
+	By performing RNA Sequencing on the \gls{polyic} \gls{mia} mouse model, we were able to identify a total of 12 pathways that might be perturbed by early \gls{mia} events in the cerebellum of the mouse, including calcium ion signaling and pathways related to neural or synaptic functioning.
+	
+	Moreover, because recent study suggest a n-3 \gls{pufa} rich diet can help to reduce the \glng{scz}-like behaviour in mouse exposed to early \gls{mia} events \citep{Li2015}, we were also interested to investigate how the n-3 \gls{pufa} rich diet affect the gene expression pattern in the adult cerebellum.
+	\textit{Sgk1}, a gene that regulates the glutamatergic system, were found to be significant in \gls{polyic} exposed mouse given different diet. 
+	Most importantly, we found that pathways related to \gls{ecm} were affected not only by \gls{mia}, but also in \gls{polyic} samples given different diets. 
+	Pathways related to \gls{ecm} were also found to contributes a disproportionate amount of \gls{SNP} heritability to \glng{scz}, suggesting that it is a potential target for future research.
 	
 	\section{Challenge in SNP-Heritability Estimation}
 	Although it is now possible to estimates the \gls{SNP} heritability based on the summary statistic from \gls{GWAS}, a lot of questions remain unanswered in the estimation of \gls{SNP} heritability.
@@ -345,10 +349,8 @@
 	The results from the \gls{GWAS} was based on the statistical association between variants and \glng{scz} yet the functional involvement of these variants in the etiology of \glng{scz} remains unknown.
 	Functional analysis of these variants, and their contribution to the etiology of \glng{scz} will become an important topic for further research in \glng{scz} genetics.
 	
-	On the other hand, when estimating the \gls{SNP}-heritability of \glng{scz}, it was found that no more than 20\% of the heritability has been accounted for by the current \gls{GWAS}.
-	By continuing to increase the sample size of the \gls{GWAS}, more associated variants will be able to be identified, thus increasing the \gls{SNP} heritability. 
-	However, it is important to note that the heritability estimated from twin studies were not restricted to common \glspl{SNP}. 
-	It is highly possible that other factors such as rare variants and epigenetic variants such as methylation might also contribute to the heritability of \glng{scz}.
+	On the other hand, when estimating the \gls{SNP}-heritability of \glng{scz}, it was found that no more than 20\% of the heritability has been accounted for by the current \gls{GWAS} which is lower than the 81\% estimated based on twin studies \citep{Sullivan2003}. 
+	This suggest that factors other than common \gls{SNP} were contributing to the heritability of \glng{scz}.
 	
 	Clear evidences suggest that \glng{scz} patients has a higher mortality than the general population \citep{Saha2007}.
 	Given this strong selective pressure, it is likely that the causal variants of \glng{scz} with large effect size will be selected against in the population. 

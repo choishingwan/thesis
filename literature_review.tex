@@ -19,7 +19,7 @@
 		\centering
 		\caption[Top 20 leading cause of \glng{yld}]{Top 20 leading cause of \gls{yld} calculated by \gls{who} in year 2012.
 			\Glng{scz} was considered as one of the top 20 leading cause of \gls{yld}\citep{Geneva2013}}
-		\begin{tabular}{rrrrr}
+		\begin{tabular}{rp{5cm}rrr}
 			\toprule
 			Rank  & Cause & \gls{yld} (000s) & \% \gls{yld} & \specialcell[b]{\gls{yld} per \\100k population}\\
 			\midrule
@@ -56,10 +56,11 @@
 	For example, if \glng{scz} is a genetic disorder, then one should focus on collecting genetic data and identify genetic variants that might associate with \glng{scz}.
 	Yet if \glng{scz} is an environmental disorder, one should instead focus on how the environmental factors affect the normal functioning of the patients.
 	In order to study the relative contribution of genetic and environmental influence to individual differences in \glng{scz}, one will need to calculate the \emph{heritability} of \glng{scz}.
-	\subsection{Broad Sense Heritability}
+	There are two definition of heritability: the broad sense heritability and the narrow sense heritability.
+	The broad sense heritability is defined as the \emph{proportion} of total variance of a trait in a population explained by the \emph{total} variation of genetic factors in the population whereas the narrow sense heritability is defined as the proportion of total variance of a trait in a population explained by the variation of \emph{additive} genetic factors in the population.
 	
-	Heritability is defined as the \emph{proportion} of total variance of a trait in a population explained by variation of genetic factors in the population.
-	One can partition observed phenotype into a combination of genetic and environmental components \citep{Falconer1996}
+	\subsection{Broad Sense Heritability}
+	For any phenotype, one can partition it into a combination of genetic and environmental components \citep{Falconer1996}
 	$$
 	\text{Phenotype (P)}=\text{Genotype (G)}+\text{Environment (E)}
 	$$
@@ -67,7 +68,7 @@
 	$$
 	\sigma_P^2=\sigma_G^2+\sigma_E^2
 	$$
-	The broad sense heritability can then be defined as the ratio between the variance of the observed phenotype and the variance of the genetic effects
+	The ratio between the variance of the observed phenotype and the variance of the genetic effects is then defined as the broad sense heritability:
 	$$
 	H^2=\frac{\sigma_G^2}{\sigma_P^2}
 	$$
@@ -154,8 +155,16 @@
 	\citet{Falconer1965} proposed the liability threshold model, which suggesting that these discontinuous traits also follow a continuous distribution with an additional parameter called the ``liability threshold''.
 	Under the liability threshold model, the discontinuous traits were affected by combination of multitude of genetics and environmental factors, each with a small effects, as in the case of the continuous traits.
 	The main difference was that the phenotype of an individual is determined by whether if the combined effects of these factors (``liability'') were above a particular threshold (``liability threshold'').
-	So for example, in the case of \glng{scz}, only when an individual has a liability above the liability threshold will he/she be affected.
-	
+	So for example, in the case of \glng{scz}, only when an individual has a liability above the liability threshold will he/she be affected (\cref{fig:liability}).
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{figure/liability.png}
+		\caption[Liability Threshold Model]{
+			The liability threshold model.
+			Only when an individual has a liability above the liability threshold will he/she be affected.
+			}
+			\label{fig:liability}
+	\end{figure}
 	One can then estimate the heritability of the discontinuous by comparing the mean liability of the general population when compared to the relatives of the affected individuals.	
 	For example, if we consider a single threshold model of a dichotomous trait, where 
 	\begin{align}
@@ -274,8 +283,7 @@
 	The failure of early \gls{GWAS} in \glng{scz} were mainly due to the relative small sample size of the studies, which result in low detection power.
 	
 	To overcome the problem of small sample size, large consortium were formed such that data from different research groups from different countries were combined, which provides a large sample size for the analysis.
-	By 2014, the \Glng{scz} Working group of the \gls{pgc} has collected 34,241 \glng{scz} samples and 45,604 controls \citep{Ripke2014}.
-	By combining the samples with those obtained by deCODE genetics, a total of 36,989 \glng{scz} samples and 113,075 controls were used for the largest meta-analysis of \glng{scz}.
+	By 2014, the \Glng{scz} Working group of the \gls{pgc} has collected a total of 36,989 \glng{scz} samples and 113,075 controls for the meta-analysis of \glng{scz} \citep{Ripke2014}.
 	In their study \citep{Ripke2014}, 128 linkage-disequilibrium-independent \glspl{SNP} were found to  exceeded the genome-wide significance (p-value $\le 5\times10^{-8}$), corresponding to 108 genetic loci.
 	75\% of these loci contain protein coding genes and a further 8\% of these loci were within 20\gls{kb} of a gene. 
 	It was found that genes involved in glutamatergic neurotransmission (e.g. \textit{GRM3}, \textit{GRIN2A} and \textit{GRIA1}), synaptic plasticity and genes encoding the voltage-gated calcium channel subunits (e.g. \textit{CACNA1C}, \textit{CACNB2} and \textit{CACNA1I}) were among the genes associated within these loci.
@@ -528,7 +536,10 @@
 	Moreover, using the national registers in Finland, \citet{Clarke2009} found that the effect of prenatal infection was five times greater in those who had a family history of psychosis when compared to those who did not. 
 	Together, these findings support a mechanism of gene-environment interaction in the causation of schizophrenia.
 	
-	In order to understand the $G\times E$ interaction, one might need to first understand how environmental factors, especially that of prenatal infection, participate in the development of \glng{scz}.
+	Many environmental factors have been associated with \glng{scz}, including prenatal infection \citep{Brown2010}, winter birth \citep{OCallaghan1991}, tobacco consumption \citep{Kelly1999} and socio economic status \citep{McGrath2008a}.
+	They are therefore potential targets for the study of $G\times E$ interaction.
+	However, by and large, the prenatal infection is the largest environmental risk factor of \glng{scz} and existing evidence suggest that there are indeed an interaction between prenatal infection and genetic variations \citep{Clarke2009}.
+	It is therefore interesting to investigate how prenatal infection trigger \glng{scz} and how it interacts with genetic variations in the development of \glng{scz}.	
 	
 	\subsection{Prenatal Infection}
 	\begin{figure}
@@ -596,18 +607,74 @@
 	Together, these results supports the involvement of \gls{mia} in the development of \glng{scz}.
 	It was even estimated that one third of all \glng{scz} cases could have been prevented shall all infection were prevented from the entire pregnant population \citep{Brown2010}.
 	
+	One of the critical consideration in the study of \gls{mia} is the specific gestation period of vulnerability to infection-mediated disturbance \citep{Meyer2007a}.
+	Early epidemiological studies have suggested that the second trimester of human pregnancy might have been the vulnerability period.
+	However, in the birth cohorts such as the Prenatal Determinants of \Gls{scz}, it was found that the time window with maximal risk for infection-mediated disturbance in brain development is earlier than the second trimester of human pregnancy and can be as early as the first trimester \citep{Meyer2007a}.
+	Through the review of existing \gls{mia} studies on rodent models, \citet{Meyer2007a} suggests that effect of \gls{mia} during late pregnancy can be restricted to the late developmental programmes, thus have a more restricted pathological phenotype in the grown offspring compared to \gls{mia} during early pregnancy \citep{Meyer2007a}.
+	Subsequent \gls{mia} studies using the \gls{polyic} mouse model also support the hypothesis proposed by \citet{Meyer2007a}, where it was observed that \gls{mia} early in gestation event might exert a more extensive impact on the phenotype of offspring \citep{Li2009c,Li2010a}.
+
+	Despite the more severe impact of \gls{mia} during early gestation, most \gls{mia} studies have been focusing on the mid-gestation period and the understanding of the full molecular implication of early \gls{mia} events in adult brain were lacking.
+	As technology advances, we can now employ the RNA Sequencing technique to examine the global mRNA expression changes in the brain of the adult offspring exposed to \gls{mia} during early gestation.
+	
 	\subsection{RNA Sequencing}
-	%\input{lr_ldsc.tex}
-	%\input{lr_antipsychotics.tex}
+	Before the development of the \gls{ngs}, one can only inspect the global expression changes using the microarray using probe hybridization.
+	As \gls{ngs} developed, one can now use poly-T probes to ``extract'' the mRNA fragments and sequence them.
+	The depth of coverage of each gene then provide a general representation of the concentration fo the mRNA in the cell.
+	When compared to microarray, the RNA Sequencing has a number of advantages, most notably, because RNA Sequencing does not rely on specific probe hybridization, it doesn't suffer from bias introduced by probe performances such as signal saturation, cross-hybridization, background noises and non-specific hybridization \citep{Zhao2014}.
+	Moreover, RNA Sequencing has the additional advantage that one can perform not only the differential expression analysis, but also detect alternative splicing events and de novo transcripts.
+	
+	However, the analysis of RNA Sequencing is more complicated when compared to microarray.
+	The first hurdle in the analysis of RNA Sequencing data is the sequence alignment.
+	RNA sequencing will typically generate sequence reads from the mRNA transcripts and only need to align these reads to either the genome or the transcriptome in order to be able to calculate the depth of coverage for each genes, thus allowing the differential expression analysis.
+	The different alignment strategies have their own pros and cons.
+	
+	Alignment to transcriptomes were most straightforward as the reads were originated from the transcripts and should have sequence composition similar to the transcriptome. 
+	The problem of transcriptome alignment is that multiple isoform can share the same exon, leading to read mapping uncertainties \citep{Li2011e}.
+	Without taking into consideration of the uncertainties, the downstream analysis might be biased and inaccurate. 
+	When one is only interested in analyzing the gene level expression difference, this complication might be unnecessary.
+	
+	On the other hand, alignment to the genome should help to reduce the problem of multiple mapping yet it will require a splice aware aligner such as TopHat2 \citep{Kim2013}, STAR \citep{Dobin2013} and MapSplice \citep{Wang2010}.
+	The reason behind was that as the reads were originated from the mRNA where alternative splicing might have occurred, the reads might span multiple exons which were separated by intronic regions. 
+	The splicing algorithm will be able to ``split'' the reads and correctly align them onto the exons. 
+	with the accurate alignment, one can then quantify the ``expression'' of each individual genes.
+	
+	The expression of a gene is usually represented in terms of number of reads aligned to the gene. 
+	Given this information, statistic analysis can then be performed on the count data. 
+	Unlike microarray, where the signal usually follows a normal distribution \citep{Hoyle2002,Giles2003}, the distribution of the RNA Sequencing count data were more complicated.
+	Early RNA Sequencing experiment assumes the gene expression counts follows the Poisson distribution \citep{Marioni2008} where the variance is assumed to be equal to the mean of the expression.
+	However, it was found that the assumption of Poisson distribution is too restrictive where an over-dispersion was typically observed in RNA Sequencing data \citep{Anders2010}.
+	Therefore, to overcome the problem of over-dispersion, modern RNA Sequencing statistical package usually models the RNA Sequencing counts using the negative binomial distribution \citep{Anders2010,Robinson2010} or the beta negative binomial distribution \citep{Trapnell2012} instead of the Poisson distribution.
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{figure/overdispersion.png}
+		\caption[Over-dispersion observed in RNA Sequencing Count Data]{
+			Over-dispersion observed in RNA Sequencing Count Data.
+			If the RNA Sequencing count data follows the Poisson distribution, then the mean and variance of the data should be equal (follow the diagonal). 
+			However, it was observed that as the mean increases, the variance increases even more, suggesting that there is an over-dispersion in the data. 
+		}
+	\end{figure}
+	
+	Nonetheless, as our knowledge with RNA Sequencing advances, we are getting better in utilizing the information provided by RNA Sequencing and it should serves as an important tool for the analysis of gene expression changes induced by \gls{mia} event.
+	
+	
+	
 	\section{Summary}
-	To conclude, \glng{scz} is a complex disorder affecting approximately 1\% of the population worldwide. 
-	It is now known that the disease is affected by a combination of genetic and environmental factors. 
-	Therefore, to fully understand the disease mechanism for the development of proper treatments, it is important not only to examine how certain genetic polymorphisms can predispose individuals to the disease development, but also how environmental factors can act as a trigger for the disorder in apparently healthy individuals.  
+	In this thesis, we would like to first perform a series of empirical simulations to the effect of different genetic architectures and sampling strategies in \gls{GWAS} to the performance of \gls{ldsc}, for example, the effect of extreme phenotype samplings.
+	On the other hand, as suggested by \citet{Bulik-Sullivan2015}, under certain conditions such as when the trait is oligogenic, the performance of \gls{ldsc} might be subpar. 
+	Thus we would also like to develop an alternative algorithm for the estimation of \gls{SNP} heritability that is robust to different genetic architecture.
+	Ultimately, we would like to repeat the analysis by \citet{Bulik-Sullivan2015} to estimate the true contribution of common \glspl{SNP} to the variance in \glng{scz}.
+
+	Currently, there are evidences suggesting that there might be interaction between prenatal infection and genetic variations in the development of \glng{scz} \citep{Tienari2004,Clarke2009}.
+	We therefore hypothesize that the differential gene expression induced by \gls{mia} and genetic mutation might have act upon the same functional pathway.
+	To test this hypothesis, we performed a hypothesis generation RNA Sequencing study to capture gene expression changes induced by early \gls{mia} events (\gls{gd}9) in the cerebellum of mouse using the \gls{polyic} mouse model.
+	Based on the gene expression changes, we hope to identify pathways perturbed by early \gls{mia} events.
+	Most importantly, we would like to test whether if these pathways contribute disproportionately to the heritability of \glng{scz}.
+	As a result of that, we would also perform the partitioning of heritability using \gls{ldsc} on the pathways affected by \gls{mia}.
 	
-	In this thesis, we would like to develop an algorithm for the estimation of \gls{SNP} heritability from \gls{GWAS} summary statistics that is robust to traits with different genetic architectures. 
-	We would also like to investigate the effect of case control sampling and extreme phenotype sampling on the performance of \gls{ldsc}.
-	On the other hand, as prenatal infection is the largest environmental risk for \glng{scz}, we would like to understand how prenatal infection triggers \glng{scz} through studying the change in global gene expressions in mice cerebellum.
+	Moreover, recent study from our lab suggested that n-3 \gls{pufa} rich diet might help to reduce the \glng{scz}-like behaviour in mice exposed to early \gls{mia} insults \citep{Li2015}. 
+	Therefore we would also like to take this opportunity to assess the effect of n-3 \gls{pufa} rich diet on the gene expression pattern in the brain of the adult offspring.
 	
+	This thesis will be divided into three parts.
 	First, in \Cref{heritabilityChapter}, we performed a series of empirical simulations to assess the performance of \gls{ldsc} in the estimation of \gls{SNP} heritability. 
 	We also proposed an alternative approach for the estimation of \gls{SNP}-heritability from \gls{GWAS} summary statistics that is robust to different genetic architectures.
 	
