@@ -136,6 +136,9 @@
 \newacronym{gaba}{GABA}{$\gamma$-aminobutyric acid}
 \newacronym{ecm}{ECM}{extracellular matrix}
 \newacronym{mmp}{MMP}{matrix metalloproteinase}
+\newacronym{qqplot}{QQ-plot}{quantile-quantile Plot}
+\newacronym{cm}{cM}{centiMorgan}
+\newacronym{mrna}{mRNA}{messenger RNA}
 %
 %
 %	FORMATING SECTION
@@ -223,11 +226,11 @@
 	\Gls{scz} is a detrimental disorder affecting approximately 1\% of the population worldwide.
 	To fully understand the disease mechanism for the development of proper treatments, it is important not only to examine how certain genetic polymorphisms can predispose individuals to the disease development, but also how environmental factors triggers the disorder in apparently healthy individuals. 
 	
-	\gls{GWAS} is now a standard approach for investigating associations of common genetic variations (mainly the \glspl{SNP}) with \gls{scz}. 
+	\gls{GWAS} is now a standard approach for investigating associations of common genetic variations (mainly \glspl{SNP}) with \gls{scz}. 
 	A recent meta-analysis of \gls{GWAS} of \gls{scz} has identified 108 loci significantly associated with \gls{scz}. 
 	However, due to the limitation of sample size and the moderate-to-small effect size of an unknown number of causal loci, many \glspl{SNP} associated with \gls{scz} may be left undetected and a much larger sample size of \gls{GWAS} may be required. 
 	However, it is also possible that these 108 loci have already contained all or near most of the \glspl{SNP} associated with the disease. 
-	So estimating the contribution of these common \glspl{SNP} to \gls{scz} (and other complex diseases) has important implications for future research strategy. 
+	So estimating the contribution of these common \glspl{SNP} to \gls{scz} has important implications for future research strategy. 
 	
 	In this thesis, we proposed an alternative approach for estimating the contribution of \glspl{SNP} to \gls{scz} (\gls{SNP}-heritability) from \gls{GWAS} summary statistics, called the \gls{shrek}.
 	Our simulation results suggested that when compared to the existing method (\gls{ldsc}), \gls{shrek} provided a more robust estimate for oligogentic traits and in case-control designs in which no confounding variables was present. 
@@ -236,7 +239,7 @@
 	Also, it suggested that alternative strategies like whole genome sequencing would be more efficient for identifying additional \gls{scz} genes, compared to \gls{GWAS}.
 	
 	On the other hand, prenatal infection has been identified as the single largest environmental risk factor of \gls{scz}. 
-	It was estimated that prenatal infection may account for one-third of the cases of \gls{scz} and a wide variety of infections are associated with the increased \gls{scz} risk in the offspring. 
+	It was observed that a wide variety of infections are associated with the increased \gls{scz} risk in the offspring. 
 	This suggests that \gls{mia} during prenatal development may have a negative impact on fetal brain functions as well as behaviors.
 	So it is important to understand how \gls{mia} triggers the disorder by examining the molecular events that take place in the cerebellum using established animal models, such as those involving the viral RNA mimic \gls{polyic}.
 	
@@ -267,14 +270,19 @@
 	\addcontentsline{toc}{chapter}{Acknowledgments}
 	\chapter*{\centerline{Acknowledgements}}
 	\vspace{1cm}
-	This thesis would not be possible without my supervisors, Professor Pak Sham, Dr Stacey Cherny and Dr Wanling Yeung and I would like to thank them for taking me in and giving my guidance whenever I need during my study.
-	I would like to especially thanks Professor Pak Sham for his trust, guidance and support to me and provide me the valuable opportunity to work on different projects.
+	I would like to express my deepest gratitude to Professor Pak Sham.
+	I am eternally grateful for his trust, supervision, patience and support in the course of my study.
+	I would also like to thanks Dr Stacey Cherny and Dr Wanling Yeung for giving me valuable advice for my projects.
+	My special thanks go to Dr Johnny Kwan.
+	He has provided critical advices on my projects and has taught me a great deal in the field of statistic.
 	
-	I am also blessed to have Dr Johnny Kwan, Dr Timothy Mak and Dr Desmond Campbell to have the patience to teach me all the statistical problems I have encountered during my studies and especially Dr Johnny Kwan for his constant guidances.
-	Without my helpful and lovely colleagues, my life will be much different and I am in debt to them for giving me such a memorable and enjoyable time for the past 4 years. 
-	Thank you Beatrice Wu, Dr Li Qi, Tomy Hui, Vicki Lin, Nick Lin, John Wong, Dr Clara Tang, Dr Amy Butler, Dr Allen Gui, Dr Sylvia Lam, Yung Tse Choi, Oi Chi Chan Pui King Wong and Dr Miaoxin Li for their constant support and advice and for giving such a lovely atmosphere in the department. 
+	The past 4 years has been a blast and I really enjoy my time in this department.
+	This is only possible because of all the great people here.
+	Thank you Beatrice Wu, Dr Li Qi, Tomy Hui, Vicki Lin, Nick Lin, John Wong, Dr Clara Tang, Dr Amy Butler, Dr Emily Wong, Dr Allen Gui, Dr Sylvia Lam, Yung Tse Choi, Oi Chi Chan, Pui King Wong and Dr Miaoxin Li, without you everything will be much different.
+	I will forever cherish the time I spent with you. 
 	
-	Finally, I must thank you Beatrice Wu and my family for without their support and constant encouragement, I won't be able to complete my thesis.
+	Words alone cannot express my gratitude to Beatrice Wu and my family.
+	Their support and encouragement have been my greatest source of energy and have helped me to continue on with my study. 
 	
 	\begin{center}
 	\large THANK YOU!
@@ -306,28 +314,31 @@
 	\chapter{Conclusion}
 	\label{conclusionChapter}
 	\glsresetall
-	In this thesis, we presented \gls{shrek}, an robust algorithm for the estimation of \gls{SNP} heritability using \gls{GWAS} summary statistics, an alternative to \gls{ldsc}.
+	In this thesis, we presented \gls{shrek}, an robust algorithm for the estimation of \gls{SNP} heritability using summary statistics from \gls{GWAS}, an alternative to \gls{ldsc}.
 	Through simulations, it was suggested that when compared to \gls{ldsc}, \gls{shrek} can provide a more robust estimate for oligogentic traits and in case-control designs where no confounding variables was present. 
 	Using the latest \gls{GWAS} summary statistics released by the \gls{pgc}, we estimated that \glng{scz} has a \gls{SNP}-heritability of 0.174 (SD=0.00453), which is similar to the estimate of 0.197 (SD=0.0058) by \gls{ldsc}.
 	
 	When compared to the heritability estimated from twin studies ($81\%$) \citep{Sullivan2003} and large scale population based study (64\%) \citep{Lichtenstein2009}, the \gls{SNP} heritability is much lower, suggesting that factors other than common \glspl{SNP} might have accounted for the remaining heritability.
 	
-	On the other hand, we were interested to see if differential gene expression induced by \gls{mia} and genetic variations observed in \glng{scz} were acting on the same functional pathway in the development of \glng{scz}.
-	By performing RNA Sequencing on the \gls{polyic} \gls{mia} mouse model, we were able to identify a total of 12 pathways that might be perturbed by early \gls{mia} events in the cerebellum of the mouse, including calcium ion signaling and pathways related to neural or synaptic functioning.
+	On the other hand, we also performed an RNA sequencing on the \gls{polyic} \gls{mia} mouse model to investigate if differential gene expression induced by \gls{mia} and genetic variations observed in \glng{scz} were acting on the same functional pathway in the development of \glng{scz}.
+	We were able to identify a total of 12 pathways that might be perturbed by early \gls{mia} events in the cerebellum of the mouse, including calcium ion signaling and pathways related to neural or synaptic functioning.
+	Using \gls{ldsc}, it was found that of the 12 significant pathways, 4 pathways related to the \gls{ecm}, \gls{mapk} signaling, neuronal system and calcium signaling were all contributed disproportionately to the \gls{SNP} heritability of \glng{scz}, suggesting that the differential  expression induced by early \gls{mia} and the genetic variants associated with \glng{scz} might have act upon the same functional pathways in the development of \glng{scz}.
 	
-	Moreover, because recent study suggest a n-3 \gls{pufa} rich diet can help to reduce the \glng{scz}-like behaviour in mouse exposed to early \gls{mia} events \citep{Li2015}, we were also interested to investigate how the n-3 \gls{pufa} rich diet affect the gene expression pattern in the adult cerebellum.
+	Providing that recent study suggest a n-3 \gls{pufa} rich diet can help to reduce the \glng{scz}-like behaviour in mouse exposed to early \gls{mia} events \citep{Li2015}, we also investigated how the n-3 \gls{pufa} rich diet affect the gene expression pattern in the adult cerebellum.
 	\textit{Sgk1}, a gene that regulates the glutamatergic system, were found to be significant in \gls{polyic} exposed mouse given different diet. 
-	Most importantly, we found that pathways related to \gls{ecm} were affected not only by \gls{mia}, but also in \gls{polyic} samples given different diets. 
-	Pathways related to \gls{ecm} were also found to contributes a disproportionate amount of \gls{SNP} heritability to \glng{scz}, suggesting that it is a potential target for future research.
+	Moreover, we found that pathway related to \gls{ecm} were affected not only by \gls{mia}, but also in \gls{polyic} samples given different diets. 
+	It is therefore possible that the \gls{ecm} pathway or genes within the \gls{ecm} pathway might have mediated the effect of n-3 \gls{pufa} diet on \gls{mia} exposed mouse, making them an important target for further research.
 	
 	\section{Challenge in SNP-Heritability Estimation}
 	Although it is now possible to estimates the \gls{SNP} heritability based on the summary statistic from \gls{GWAS}, a lot of questions remain unanswered in the estimation of \gls{SNP} heritability.
 	One major problem of \gls{shrek} and \gls{ldsc} is that they both heavily relies on the \gls{LD} structures from the reference panel.
 	However, \gls{GWAS} samples can come from large variety of ethnic background thus the \gls{LD} pattern estimated from the reference panel might not be representative of the sample \gls{LD}.
-	If the fundamental \gls{LD} structure was not as expected, both \gls{shrek} and \gls{ldsc} will not be able to provide an accurate estimate. 
-	For example, if a \gls{GWAS} was conducted with 50\% European and 50\% African, population stratification may confound the results.
+	If there is a significant difference between the \gls{LD} pattern from the reference panel and the \gls{LD} pattern from the samples, both \gls{shrek} and \gls{ldsc} would fail to provide an accurate estimate. 
+	For example, if a \gls{GWAS} is conducted with 50\% European and 50\% African, population stratification may confound the results.
 	Even if one control for the population stratification using the \gls{pca}, the question remains whether if one should use the African reference panel or the European reference panel in the estimation of \gls{SNP} heritability.
-	Moreover, information regarding the population stratification (e.g. the \gls{pc}) were usually unavailable making the problem more complicated.
+	Moreover, information regarding the population stratification (e.g. the \gls{pc}) were usually unavailable, making the problem more complicated.
+	Although \gls{ldsc} claims that it can delineate the population confounding factors from the \gls{SNP} heritability, it is expected that different reference panel will generate different \gls{LD} score, thus leads to different estimates.
+	In our example of 50\% European and 50\% African, it is unclear which reference panel should be used and one can expect that as the pattern of population mixing becomes more complicated, it will be increasingly difficult to obtain a representative reference panel and thus the estimation of \gls{SNP} heritability can be difficult. 
 	Further researches are therefore required to tackle the problem of population stratification before one can confidently estimate the \gls{SNP} heritability from summary statistics from \gls{GWAS} that might contain samples from large variety of ethnic background.
 	
 	An important observation in our simulation study was that there was a general bias observed in all the \gls{SNP}-heritability estimation algorithm under the case control scenario.
@@ -338,21 +349,21 @@
 	As technology advances, researchers can now use the \gls{ngs} technology to sequence the genome at per base resolution. 
 	This brings great prospect in the genetic studies for now we can directly identify the causal variants and can even detect rare causal variants providing sufficient sample size. 
 	However, both \gls{shrek} and \gls{ldsc} are designed to work on the summary statistics from \gls{GWAS} where common \glspl{SNP} are usually the focus. 
-	Because of the huge sampling error associating with rare variants, the \gls{LD} calculated for rare variants usually has a larger \gls{se}.
+	Because of the huge sampling error associated with rare variants, the \gls{LD} calculated for rare variants usually has a larger \gls{se}.
 	As \gls{shrek} and \gls{ldsc} are both heavily rely on an accurate \gls{LD} estimation, they might be unsuitable for the estimation of the contribution of rare variants to \glng{scz}. 
 	In fact, it was found that when all causal variants are rare (\gls{maf} $<1\%$), \gls{ldsc} will often generate a negative slope, and the intercept will exceed the mean $\chi^2$ statistic \citep{Bulik-Sullivan2015}.
-	As a result of that, a different algorithm must be developed in order to estimates the heritability from rare variants.
+	As a result of that, a different algorithm must be developed in order to estimates the heritability from rare variants using only summary statistics.
 	
 	\section{Schizophrenia: Future Perspectives}
 	With the success of the \gls{pgc} \glng{scz} \gls{GWAS}, research in \glng{scz} genetics has finally entered an era of success.
 	Through international collaboration, the \gls{pgc} has finally identified 108 genetic loci that were associated with \glng{scz} using \gls{GWAS} approach \citep{Ripke2014}.
-	The results from the \gls{GWAS} was based on the statistical association between variants and \glng{scz} yet the functional involvement of these variants in the etiology of \glng{scz} remains unknown.
-	Functional analysis of these variants, and their contribution to the etiology of \glng{scz} will become an important topic for further research in \glng{scz} genetics.
+	However, the actual causal variants have not been identified. 
+	Functional analysis of these associated variants, and their contribution to the etiology of \glng{scz} will become an important topic for further research in \glng{scz} genetics.
 	
 	On the other hand, when estimating the \gls{SNP}-heritability of \glng{scz}, it was found that no more than 20\% of the heritability has been accounted for by the current \gls{GWAS} which is lower than the 81\% estimated based on twin studies \citep{Sullivan2003}. 
-	This suggest that factors other than common \gls{SNP} were contributing to the heritability of \glng{scz}.
+	This suggested that factors other than common \gls{SNP} were contributing to the heritability of \glng{scz}.
 	
-	Clear evidences suggest that \glng{scz} patients has a higher mortality than the general population \citep{Saha2007}.
+	Clear evidences suggested that \glng{scz} patients has a higher mortality than the general population \citep{Saha2007}.
 	Given this strong selective pressure, it is likely that the causal variants of \glng{scz} with large effect size will be selected against in the population. 
 	As a result of that, causal variants with large effect size are likely to be rare (\cref{fig:effectSize}).
 	With the technological advancement in \gls{ngs}, we are now able to investigate the human genome at per base resolution using Exome Sequencing and even Whole Genome Sequencing technology.
@@ -372,10 +383,10 @@
 	
 	Currently, most of the focus in \glng{scz} was directed to genetic variation yet it is possible that the heritability of \glng{scz} is also transmitted in the form of epigenetic changes such as methylation.
 	It was observed that the risk for individual born from a schizophrenic mother is larger than that from a schizophrenic father. 
-	This suggest that maternal specific elements, such as maternal imprinting and mitochondria might account for part of the risk of \glng{scz}. 
-	Epigenetic studies in \glng{scz} \citep{Wockner2014,Nishioka2012} has identified genes with differential DNA methylation patterns associated with \glng{scz}, suggesting the important of epigenetic in the etiology of \glng{scz}.
+	This suggests that maternal specific elements, such as maternal imprinting and mitochondria might account for part of the risk of \glng{scz}. 
+	Epigenetic studies in \glng{scz} \citep{Wockner2014,Nishioka2012} has identified genes with differential DNA methylation patterns associated with \glng{scz}, suggesting the importance of epigenetics in the etiology of \glng{scz}.
 	
-	As a genetic disorder, most of the research of \glng{scz} has been focusing on the genetic factors. 
+	As a highly heritable disorder, most of the research of \glng{scz} has been focusing on the genetic factors. 
 	Although the genetic variation accounted for majority of the variations in \glng{scz}, the environmental factors, especially prenatal infection is also an important factor to consider. 
 	It was estimated that prenatal infection accounts for roughly 33\% of all \glng{scz} cases \citep{Brown2010}.
 	The \gls{mia} rodent model has provide vital information on the possible interaction between the immune and neuronal system in the etiology of \glng{scz} \citep{Meyer2007a}.
@@ -392,15 +403,15 @@
 	However, the Oxford Nanopore is still under development and has a relatively high error rate \citep{Mikheyev2014}. 
 	Only until the error rate is dramatically decreased can the use of Oxford Nanopore system become feasible. 
 	
-	Even if the reads can perfectly aligned to the genome, the functional annotation of variants remains challenging.
+	Even if the reads can be perfectly aligned to the genome, the functional annotation of variants remains challenging.
 	When it comes to complex disease such as \glng{scz}, there can be a lot of causal variants observed throughout the genome yet currently one can only provide estimates of the functional impact of variants on the exomic regions.
 	The development of ENCODE project \citep{ENCODEProjectConsortium2012} and Genotype-Tissue Expression (GTEx) project \citep{Consortium2015} have helped provide reference point for the annotation of genetic variations in the intergenic regions yet there are still many genetic variation in the genome where their function remains unknown. 
 	Only through the tireless effort of the molecular biologist can we gain sufficient information required to make sense of the sequencing data obtained.	
 	
 	% This is only the beginning, not the end
 	In conclusion, we have only catch a glimpse of the etiology of \glng{scz} and there are still a lot of questions left unanswered.
-	It is expected that only by combining the study of epigenetic, genomic variation, gene expressions, and gene environmental interaction can a deeper understanding of the complex disease mechanism of \glng{scz} be obtained.
-	Hopefully, in the near future, enough information can be gathered to start translating the research findings into clinical applications to help improving the quality of life of \glng{scz} patients.
+	It is expected that only by combining the study of epigenetic, genomic variation, gene expressions, and gene environmental interaction can provide a deeper understanding of the complex disease mechanism of \glng{scz} be obtained.
+	
 	
 	
 	\backmatter

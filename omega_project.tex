@@ -3,6 +3,8 @@
 \section{Introduction}
 \glsreset{mia}
 \glsreset{pufa}
+\glsreset{polyic}
+\glsreset{gd}
 In the previous chapter, we have found that the \gls{SNP} heritability of \glng{scz} was much smaller than expected, accounting for only 20\% of the variance in \glng{scz}.
 This suggest that other factors such as rare variants and epigenetic factors might have contributed to the heritability of \glng{scz}.
 Another possibility will be the gene environmental interaction ($G\times E$).
@@ -15,7 +17,7 @@ This allow one to investigate whether if a particular functional pathway perturb
 On the other hand, one of the main goal in \glng{scz} research is to identify effective treatments for \glng{scz} such that the quality of life of schizophrenic patients can be improved. 
 Based on the \gls{mia} model, one possible candidate might be the n-3 \gls{pufa} rich diet. 
 It has been suggested that n-3 \gls{pufa} can inhibits the production of \gls{il6} \citep{Trebble2003}, which is a major mediator in \gls{mia} \citep{Smith2007}.
-Moreover, n-3 \gls{pufa} also plays a critical role in the development of central nervous system \citep{Clandinin1999} and it has robust anti-inflammatory properties \citep{Trebble2003}.
+Moreover, n-3 \gls{pufa} such as docosahexaenoic acid (DHA) plays a critical role in the development of central nervous system \citep{Clandinin1999,Kitajka2002} and it has robust anti-inflammatory properties \citep{Trebble2003}.
 Therefore it is possible that a n-3 \gls{pufa} rich diet can help to alleviate the symptoms of \glng{scz}.
 Indeed, previous study from our lab suggested that an n-3 \gls{pufa} rich diet can help to reduce the schizophrenia-like phenotype in mice exposed to early \gls{mia} insults \citep{Li2015}.
 
@@ -24,7 +26,7 @@ Herein, we introduce a hypothesis generation study aiming to investigate the gen
 We would also like to investigate whether if functional pathways perturbed by \gls{mia} or changed by diet contributes more to the heritability of \glng{scz} using \gls{ldsc}.
 
 In this study we selected the cerebellum as the target tissue for our experiment. 
-Although hippocampus \citep{Velakoulis2006,Nugent2007} and prefrontal cortex \citep{Knable1997,Perlstein2001} were the two most studied region in \glng{scz}, the cerebellum has also been reported to be related to \glng{scz} \citep{Yeganeh-Doost2011,Andreasen2008}.
+Although hippocampus \citep{Velakoulis2006,Nugent2007} and prefrontal cortex \citep{Knable1997,Perlstein2001} are the two most studied region in \glng{scz}, the cerebellum has also been reported to be related to \glng{scz} \citep{Yeganeh-Doost2011,Andreasen2008}.
 Moreover, the cerebellum plays a central role in the cortico-cerebellar-thalamic-cortical neuronal circuit which is important to \glng{scz}.
 \Gls{pet} studies have shown that a dysfunction in this circuit can contribute to ``cognitive dysmetria'', e.g. impaired cognition and other symptoms of \glng{scz} \citep{Yeganeh-Doost2011}.
 Altogether, this makes the cerebellum an interesting target to investigate.
@@ -90,7 +92,7 @@ We distribute the samples such that each lane contain roughly the same amount of
 		Sample information.
 		O3 = n-3 \gls{pufa} diet; O6 = n-6 \gls{pufa} diet; POL = \gls{polyic} exposed; SAL = Saline exposed.
 		We have tried to separate the samples into different lane and batch to control for the lane and batch effect. 
-		Samples from different litters were also used with the exception of 1M\_2 and 1M\_3 which came from the same litter but were given a different diet.
+		Samples from different litters were also used with the exception of F4 and C6 which came from the same litter but were given a different diet.
 		\label{tab:sampleInfo}
 	}
 \end{table}
@@ -109,7 +111,7 @@ And the quantification of the gene expression levels were conducted using featur
 \subsection{Differential Expression Analysis}
 There are many statistical tools available for the differential gene expression analysis.
 Based on the review of \citet{Seyednasrollah2015}, it was suggested that DESeq2 and limma are the most robust statistical packages for analyzing RNA Sequencing data. 
-As the author of DESeq2 were very active in providing supports for the package, we selected DESeq2 (version 2.1.4.5) \citep{Love2014} as the statistic package for the differential gene expression analysis.
+As the authors of DESeq2 are very active in providing supports for the package, we selected DESeq2 (version 2.1.4.5) \citep{Love2014} as the statistic package for the differential gene expression analysis.
 
 Perhaps one of the most controversial study in RNA Sequencing was the mouse ENCODE paper by \citet{Yue2014} where \citet{Gilad2015} demonstrated that most of the findings from \citet{Yue2014} was confounded by lane and batch effect.
 This highlights the importance of lane and batch effect in the design of RNA Sequencing.
@@ -127,7 +129,7 @@ To obtain the desire comparison, and also control for batch effect, we used $\si
 We did not incorporate the \gls{rin} into our statistic model because it was advised against by the author.
 
 We would also like to see if the batch effect can leads to false positive results.
-Therefore we performed the \gls{lrt}.
+Therefore we performed the \gls{lrt} to investigate the effect of batch on our result.
 The \gls{lrt} examines two models for the counts, a full model with a certain number of terms and a reduced model, in which some of the terms of the full model are removed. 
 The test determines if the increased likelihood of the data using the extra terms in the full model is more than expected if those extra terms are truly zero.
 Thus we compared the full model $\sim Batch+Condition+Diet+Condition:Diet$ with $\sim Condition+Diet+Condition:Diet$ to understand the effect of batch on our data.
@@ -146,20 +148,29 @@ Pathways with adjusted p-value $<0.05$ (using Benjamini and Hochberg adjustment)
 
 \subsection{Partitioning of Heritability}
 We then tried to perform partitioning of heritability using the significant pathways as our annotation.
+One problem with the pathways is that they can overlap with each other and can even be a sub-pathway of another pathway.
+We therefore calculated the Jaccard distance between each pathways:
+\begin{equation}
+\text{Jaccard distance} = \frac{Overlapped\ Genes}{Total\ Number\ of\ Unique\ Genes}
+\end{equation}
+For pathways with a Jaccard distance greater than 0.2, we removed the smaller pathway, thus reducing the number of pathways in the analysis.
 Two ``super pathways'' were also generated which included all the genes in the pathways perturbed in \gls{mia} or genes in pathways affected by diet. 
 
-\glspl{SNP} from the 1000 genome was first associated with genes using SnpEFF \citep{Cingolani2012} with the GRCh37.75 annotation, where \glspl{SNP} within $\pm5$\gls{kb} region of a gene is considered to be associated.
+\glspl{SNP} from the 1000 genome was first associated with genes using SnpEFF \citep{Cingolani2012} with the GRCh37.75 annotation, where \glspl{SNP} within $\pm5$\gls{kb} region of a gene was considered to be associated.
 The annotation file required by \gls{ldsc} was then generated by identifying \glspl{SNP} participated in the significant pathways from \cref{sec:function}.
 If a \gls{SNP} was found to be associated with more than 1 genes, then it was considered to be within all pathways where its associated genes were part of. 
 
 Finally, we performed the partitioning of heritability using \gls{ldsc} \citep{Bulik-Sullivan2015} -{}-annot and -{}-overlap-annot options using 1000\gls{kb} window size and the reference panel generated from \cref{sec:realData}.
-Pathways with positive proportion of heritability explained and an enrichment p-value $>0.05$ were considered significant. 
+We removed the \gls{mhc} region from this analysis.
+Pathways with positive proportion of heritability explained and a \gls{fdr} q-value $<0.125$ were considered significant.
+We considered the ``super pathways'' as a super test which included all the pathways tested, therefore we did not perform any multiple testing correction on it.
 
 \subsection{Designing the Replication Study}
 Another important goal of our current study is to provide information for further replication studies. 
 In order to estimate the power and required samples for the replication studies, we performed the power estimation using Scotty \citep{Busby2013}.
 We provided the count data from our pilot samples to Scotty to estimate the minimal required samples for our replication study if we would like to detect at least 90\% of the genes that are differentially expressed by a 2$\times$ fold change at p$<0.01$ and that at least 80\% of genes has at least 80\% of the maximum power.
 
+%TODO until here
 \section{Results} 
 \subsection{Sample Quality}
 On average, 87 million reads were generated for each sample of which more than 90\% of the read bases has quality score $>30$.
@@ -173,7 +184,7 @@ We therefore performed an unsupervised clustering on the sample count data.
 It was observed that none of the samples were clustered by lane or batch, suggesting that there were no serious batch or lane effect presented in our samples.
 However, one sample from the n3-\gls{polyic} group was found to be substantially different from all other samples (\cref{fig:distMatrix}).
 It was unclear whether if the difference was due to sample contaminations (from other source) or was due to sample mis-label.
-To avoid problems in down-stream analysis, we excluded this sample from subsequent analyses
+To avoid problems in down-stream analysis, we excluded this sample from subsequent analyses.
  \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{figure/DistanceMatrix.png}
@@ -206,7 +217,7 @@ To avoid problems in down-stream analysis, we excluded this sample from subseque
 	}
 	\caption[QQ Plot Statistic Results]
 	{QQ Plot of statistic results.
-		From the QQ plot, it was observed that most of the observed p-value was less than what would have been expected. 
+		From the \gls{qqplot}, it was observed that most of the observed p-value was less than what would have been expected. 
 		This is likely due to the small sample size of our study which leads to an under powered association.
 		The only exception was the analysis of batch effect were a large amount of genes were found to be significant. 
 		This demonstrate the importance of adjusting for batch effect} 
@@ -214,26 +225,30 @@ To avoid problems in down-stream analysis, we excluded this sample from subseque
 \end{figure}
 After excluding the problematic samples, we performed the DESeq2 analysis.
 Of the 16,747 genes that passed through quality control, only one gene, \textit{Sgk1} (p-adjusted=0.00186) was found to be significantly differentiated when we examines the effect of n-3 \gls{pufa} rich diet on the gene expression in the cerebellum of \gls{polyic} exposed mice (\cref{fig:omegaPOLWald}).
-No genes were found to be significant for the other two comparisons (\cref{fig:miaO6Wald,fig:omegaSALWald}).
+No gene was found to be significant for the other two comparisons (\cref{fig:miaO6Wald,fig:omegaSALWald}).
 
 We also performed the \gls{lrt} to compare test the effect of batch on our analysis. 
 A total of 178 genes were found to be significant differentiated (\cref{fig:batchLRT}), suggesting that the ``Batch'' is indeed an important factor to consider in our analysis.
 
 \subsection{Functional Annotation}
-It is common practice to try and perform functional annotation to the \glspl{deg}. 
+It is common practice to perform functional annotation to the \glspl{deg}. 
 However, in most of our analysis, there were either no \gls{deg} or only 1 \gls{deg}, making it difficult to perform functional annotation.
-We therefore used the Wilcox rank sum test to analysis whether if a pathway contain genes that are more significant than genes not within the pathway instead of trying to identify pathways that were \emph{enriched} by \glspl{deg}.
+We therefore used the Wilcox rank sum test to analysis whether if a pathway contain genes that are more significant than genes not within the pathway.
 
-None of the pathway were found to be significant when comparing the effect of the n-3 rich diet in Saline exposed mice. 
+None of the pathways were found to be significant when comparing the effect of the n-3 \gls{pufa} rich diet in Saline exposed mice. 
 On the contrary, 17 pathways were found significant when comparing the effect of n-3 \gls{pufa} rich diet in \gls{polyic} exposed samples (\cref{tab:o6polyPath}) where 4 pathways were related to growth factors such as \gls{fgf} or \gls{egf} and 4 others were related to kinases such as \gls{pi3k} or \gls{mapk}.
 
-Finally, 12 pathways were found to significant when comparing Saline and \gls{polyic} exposed mice given the n-6 \gls{pufa} rich diet (\cref{tab:miaPath}) with pathways such as neuroactive ligand-receptor interaction (p-adj = $1.27\times10^{-3}$), calcium signaling pathway (p-adj = $2.79\times10^{-3}$) and genes involved in Neuronal System (p-adj=0.00153) among the significant pathways.
+Finally, 12 pathways were found to be significant when comparing Saline and \gls{polyic} exposed mice given the n-6 \gls{pufa} rich diet (\cref{tab:miaPath}) with pathways such as neuroactive ligand-receptor interaction (p-adj = $1.27\times10^{-3}$), calcium signaling pathway (p-adj = $2.79\times10^{-3}$) and genes involved in Neuronal System (p-adj=0.00153) among the significant pathways.
 
 \subsection{Partitioning of Heritability}
 Given the significant pathways, we performed the partitioning of heritability using \gls{ldsc} \citep{Bulik-Sullivan2015}.
-In total, 29 unique pathways were included in the analysis were 26 of them were found to have non-negative contribution to the heritability of \glng{scz}.
-8 out of the 26 pathways were found to be significant including the \gls{mia} super pathway (\cref{tab:partitioning}).
-Of the 8 significant pathways, only 2 of those (M3008 and M5884) were affected by diet and they were both also perturbed by \gls{mia}.
+In total, 14 unique pathways were included in the analysis were 4 of them were found to have non-negative contribution to the heritability of \glng{scz}, including the pathway related to neuronal system, \gls{ecm} glycoprotein, calcium signaling and \gls{mapk} signaling (\cref{tab:partitioning}).
+All of these pathways were affected by \gls{mia} and only the \gls{ecm} pathways were also found to be affected by n-3 \gls{pufa} rich diet in \gls{polyic} exposed mice.
+Moreover, the ``super pathway'' for \gls{mia} were found to be significant (p-value=0.0402) yet the ``super pathway'' for diet was found to be insignificant (p-value=0.414).
+
+\subsection{Designing the Replication Study}
+Other than generation of hypothesis, we would also like to use the current information to help designing subsequent replication studies.
+Using Scotty \citep{Busby2013}, given that we would like to detect at least 90\% of the genes that are differentially expressed by a 2$\times$ fold change at p$<0.01$ and that at least 80\% of genes has at least 80\% of the maximum power, we will need at least 10 samples per group in the replication study given the current sequencing depth.
 
 \begin{landscape}
 	\begin{table}
@@ -263,8 +278,8 @@ Of the 8 significant pathways, only 2 of those (M3008 and M5884) were affected b
 		\caption[Significant Pathways When Comparing Effect of Diet in PolyI:C Exposed Mouse]{Significant Pathways when comparing effect of diet in \gls{polyic} exposed mice.
 			The pathway IDs are the systematic name from \gls{msigdb}.
 			Most of the significant pathways were related to the kinase such as PI3K and MAPK or growth factors such as \gls{fgf} and \gls{egf}.
-			}
-			\label{tab:o6polyPath}
+		}
+		\label{tab:o6polyPath}
 	\end{table}
 	
 	\begin{table}
@@ -286,7 +301,7 @@ Of the 8 significant pathways, only 2 of those (M3008 and M5884) were affected b
 			M18437&	184&	REACTOME&	Genes involved in G alpha (q) signalling events&	0.0406\\
 			\bottomrule
 		\end{tabular}
-		\caption[Significant Pathways When Comparing Effect PolyI:C in Mouse Given n-6 \gls{pufa} Rich Diet]{Significant Pathways When Comparing Effect PolyI:C in Mouse Given n-6 \gls{pufa} Rich Diet.
+		\caption[Significant Pathways When Comparing Effect of PolyI:C in Mouse Given n-6 \gls{pufa} Rich Diet]{Significant pathways when comparing effect of PolyI:C in mouse given n-6 \gls{pufa} rich diet.
 			The pathway IDs are the systematic name from \gls{msigdb}.
 			Interestingly, we observed a lot of neural related pathways and even got significant signal in the calcium signaling pathway, which was reported to be associated with \glng{scz} \citep{Purcell2014}. 
 		}
@@ -296,35 +311,23 @@ Of the 8 significant pathways, only 2 of those (M3008 and M5884) were affected b
 	\begin{table}
 		\begin{tabular}{rrrp{9cm}p{1.7cm}p{1.5cm}p{1.7cm}}
 			\toprule
-			ID& Size&	Source&	Description&	Proportion of $h^2$&	SE&	Enrichment P-Value\\
+			ID& Size&	Source&	Description&	Proportion of $h^2$&	SE&	Enrichment Q-Value\\
 			\midrule
-			M5884&	275&	NABA&	Ensemble of genes encoding core extracellular matrix including ECM glycoproteins, collagens and proteoglycans&	0.00317&	0.00302&	0.00210\\
-			M735&	279&	REACTOME&	Genes involved in Neuronal System&	0.0290&	0.00627&	0.00775\\
-			M15514&	186&	REACTOME&	Genes involved in Transmission across Chemical Synapses&	0.0212&	0.00523&	0.0197\\
-			M2890&	178&	KEGG&	Calcium signaling pathway&	0.0273&	0.00825&	0.0224\\
-			MIA&	&	Super Pathway&	All genes from pathways pertrubed by MIA&	0.0716&	0.0110&	0.0334\\
-			M10792&	267&	KEGG&	MAPK signaling pathway&	0.0246&	0.00799&	0.0403\\
-			M3008&	196&	NABA&	Genes encoding structural ECM glycoproteins&	0.00374&	0.00252&	0.0429\\
-			M752&	137&	REACTOME&	Genes involved in Neurotransmitter Receptor Binding And Downstream Transmission In The Postsynaptic Cell&	0.0156&	0.00451&	0.0454\\		
+			M735&	279&	REACTOME&	Genes involved in Neuronal System&	0.0287&	0.00627&	0.0456\\
+			M5884&	275&	NABA&	Ensemble of genes encoding core extracellular matrix including ECM glycoproteins, collagens and proteoglycans&	0.00363&	0.00342&	0.0456\\
+			M2890&	178&	KEGG&	Calcium signaling pathway&	0.0260&	0.00856&	0.127\\
+			M10792&	267&	KEGG&	MAPK signaling pathway&	0.0257&	0.008713&	0.127\\	
 			\bottomrule
 		\end{tabular}
 		\caption[Pathways Significantly Contributes to SNP Heritability of Schizophrenia.]{Pathways significantly contributes to \gls{SNP} heritability of \glng{scz}.
-		Only two significant pathways from were affected by the diets and they were also affected by \gls{mia}.
-		This suggest that it is likely for the differential gene expression induced by \gls{mia} and genetic mutation might have act upon the same functional pathway in the development of \glng{scz}.
 		}
 		\label{tab:partitioning}
 	\end{table}
 \end{landscape}
 
-
-
-\subsection{Designing the Replication Study}
-Other than generation of hypothesis, we would also like to use the current information to help designing subsequent replication studies.
-Using Scotty \citep{Busby2013}, given that we would like to detect at least 90\% of the genes that are differentially expressed by a 2$\times$ fold change at p$<0.01$ and that at least 80\% of genes has at least 80\% of the maximum power, we will need at least 10 samples per group in the replication study given the current sequencing depth.
-
-
 \section{Discussion}
-In this hypothesis generation study, we demonstrated that \textit{Sgk1} might be affected by n-3 \gls{pufa} rich diet in the cerebellum of \gls{mia} exposed mice. 
+\subsection{Serine/threonine-protein kinase}
+In this hypothesis generation study, we demonstrated that the Serine/threonine-protein kinase \textit{Sgk1} might be affected by n-3 \gls{pufa} rich diet in the cerebellum of \gls{mia} exposed mice. 
 \textit{Sgk1} is a serine/threonine kinase activated by \gls{pi3k} signals and studies have shown that the expression of \textit{Sgk1} is associated with spatial learning, fear-conditioning learning and recognition learning in rat \citep{Tsai2002,Lee2003}.
 For example, \citet{Tsai2002} observed a 4 fold increase of \textit{Sgk1} in the hippocampus of fast learners when compared to slow learners where transfection of \textit{Sgk1} mutant DNA impairs the water maze performance in rat.
 
@@ -367,10 +370,10 @@ It is therefore vital for subsequent research to study the effect of \textit{Sgk
 		Figure adopted from \citet{Hennessy2005} with permission from journal.
 	}\label{fig:pi3kPathway}
 \end{figure}
+\subsection{Functional Annotations}
 When examine the expression change in mice exposed to \gls{polyic}, none of the genes were significantly differentiated. 
 However, we do observe 12 pathways that contains genes that were more significant than genes not within the pathway (\cref{tab:miaPath}).
 Interestingly, of the 12 significant pathways, 5 pathways were related to neuronal functions such as neuroactive ligand-receptor interaction (padj=$1.27\times 10^{-3}$), genes involved in neuronal system (padj=0.00153) and genes involved in transmission across chemical synapses (padj=0.00401).
-%TODO explain how neuronal system related to schizophrenia
 It has long been developed that the neuronal system and the neurotransmitter regulation plays a critical role in \glng{scz}.
 For example, the disruption of the GABAergic and glutamtergic neuronal system might leads to excitation/inhibition imbalance which might ultimately lead to \glng{scz} \citep{Wassef2003}.
 Moreover, the alteration in balance betweem excitation and inhibition can distort the connectivity patterns between different brain regions, thus leads to developmental and behavioral deficits \citep{Cline2005}.
@@ -381,16 +384,50 @@ Previous exome sequencing study of \glng{scz} by \citet{Purcell2014} has already
 As calcium signaling pathway is the key component of the mechanism responsible for regulating neuronal excitability \citep{Berridge2014}, the disruption of the calcium signaling pathway is likely to have a profound effect on the neural function. 
 Together, our results suggest that \gls{mia} might have disrupted the normal functioning of the neural system in the cerebellum, thus lead to schizophrenia-like behaviours in the adult mice yet follow up studies are required to validate our findings.
 
+%TODO quick travel
+\glsreset{qqplot}
 Moreover, we performed the partitioning of heritability hoping to see whether if the significant pathways have contributes disproportionately to the \gls{SNP} heritability of \glng{scz}.
-Interestingly, of the 12 significant pathways that were likely affected by \gls{mia}, 7 of them were found to be contributing a significantly higher portion to the \gls{SNP} heritability.
-The ``super pathway'' containing all the genes participating in the \gls{mia} related pathways were also found to be significant (\cref{tab:partitioning}).
-Based on our results, it is very likely that the differential gene expression in the cerebellum induced by early \gls{mia} events and the genetic variants to act upon the same pathways in the development of \glng{scz}.
+Interestingly, all 4 significant pathways that were found to be contributing a significantly higher portion to the \gls{SNP} heritability were affected by \gls{mia}.
+To assess whether if the significance of these pathways were driven by a small number of very significant genes, we compared the \gls{qqplot} of \glspl{SNP} within the pathway and all the \glspl{SNP} included in the \gls{pgc} \gls{GWAS} (\cref{fig:qqAll}).
+It is observed that for most of the pathways, there is a general inflation of summary statistics when compared to the full set, suggest that the significance was not driven by a single significant gene.
+However, for the \gls{ecm} related pathway, only a small inflation was observed. 
+This is therefore likely that the significance was driven by a small number of significant genes. 
 
-Specifically, among the 7 pathways found to be significantly contributes to the \gls{SNP} heritability, 2 of those, both related to the extracellular matrix, were also found to be significantly affected by the n-3 \gls{pufa} rich diet in the \gls{polyic} exposed mouse. 
-Intriguingly, those were also the only 2 pathways from the n-3 \gls{pufa} rich diet that were found to be significantly contributing to the \gls{SNP} heritability of \glng{scz} and they were both related to the extracellular matrix. 
-%TODO extracellular matrix
+\begin{figure}
+	\centering
+	\subfloat[\gls{ecm}]{
+		\scalebox{.4}{\includegraphics{figure/omega/NABA_CORE_MATRISOME.png}}
+		\label{fig:ecm}
+	}
+	\subfloat[MAPK Signaling]{
+		\scalebox{.4}{\includegraphics{figure/omega/KEGG_MAPK_SIGNALING_PATHWAY.png}}
+		\label{fig:mapk}
+	}\\
+	\subfloat[Neuronal System]{
+		\scalebox{.4}{\includegraphics{figure/omega/REACTOME_NEURONAL_SYSTEM.png}}
+		\label{fig:neuronal}
+	}
+	\subfloat[Calcium Signaling]{
+		
+		\scalebox{.4}{\includegraphics{figure/omega/KEGG_CALCIUM_SIGNALING_PATHWAY.png}}
+		\label{fig:calcium}
+	}
+	\caption[Comparing the QQ plots with PGC SNPs]
+	{Comparing the \gls{qqplot} with \gls{pgc} \glspl{SNP}.
+		\glspl{SNP} found within the pathways were colored in blue whereas the all the full set of \glspl{SNP} from the \gls{pgc} \gls{GWAS} was coded in red.
+		It is observed that for most of the pathways, there is a general inflation of summary statistics when compared to the full set, suggest that the significance was not driven by a single significant gene.
+		However, for the \gls{ecm} related pathway, only a small inflation was observed. 
+		This is therefore likely that the significance was driven by a small number of significant genes. 
+		} 
+	\label{fig:qqAll}
+\end{figure}
 
-There are emerging evidence suggesting that the \gls{ecm} abnormality might be associated with \glng{scz} \citep{Berretta2012}.
+The ``super pathway'' containing all the genes participating in the \gls{mia} related pathways were also found to be significant (\cref{tab:partitioning}) suggest that the differential gene expression in the cerebellum induced by early \gls{mia} events and the genetic variants might act upon similar pathways in the development of \glng{scz}.
+
+Interestingly, among the 4 pathways found to be significantly contributes to the \gls{SNP} heritability, only the pathway related to the assembly of core \gls{ecm} molecules such as the \gls{ecm} glycoproteins, were also found to be significantly affected by the n-3 \gls{pufa} rich diet in the \gls{polyic} exposed mouse. 
+Although the \gls{qqplot} suggest that a small number of genes might have driven the significance of this pathway, it is nonetheless an interesting candidate.
+
+Emerging evidences suggest that the \gls{ecm} abnormality might be associated with \glng{scz} \citep{Berretta2012}.
 The \gls{ecm} glycoprotein Reelin has been reported to have a decreased expression in the cerebellum of \glng{scz} patients \citep{Maloku2010} and were found to be accompanied by decreased expression of glutamic acid decarboxylase 67 \citep{Costa2001}.
 Studies also suggested that Reelin might have important role in corticogenesis and synaptic maturation and stabilization \citep{Berretta2012}.
 Moreover, another \gls{ecm} molecule, Semaphorin 3A has been reported to be increased in the cerebellum of subjects with \glng{scz} \citep{Eastwood2003}.
@@ -398,13 +435,12 @@ The Semaphroin 3A protein was found to regulates axonal guidance and has a criti
 It was also reported that the elevated Semaphorin 3A is associated with down-regulation of genes involved in synaptic formation and maintenance \citep{Eastwood2003}.
 Together, these evidence suggest that the \gls{ecm} molecules might have critical role in the development of \glng{scz}.
 
-It is therefore fascinating for us to observe a significant in the pathways related to the \gls{ecm} glycoprotein.
-Not only was it significant when investigating the effect of \gls{mia}, it was also significant when we investigate the effect of n-3 \gls{pufa} rich diet in \gls{polyic} exposed samples.
-These pathways were also the only pathways that were affected by \gls{mia}, n-3 \gls{pufa} rich diet and also contribute for a significant disproportionated amount to the \gls{SNP} heritability of \glng{scz}.
 It has been reported that the n-3 \gls{pufa} diet can modulate the \gls{mmp} \citep{Derosa2009,Kavazos2015} which can regulates the \gls{ecm} composition \citep{Stamenkovic2003}.
 Therefore it is possible that the n-3 \gls{pufa} diet has exerted its effect to the \gls{ecm} through \gls{mmp}.
-However, we acknowledge that our study lack power to develop direct evidence for such interaction. 
-Further investigation are therefore vital and not until then can one understand how the n-3 \gls{pufa} direct interacts with the \gls{ecm} and the effect of such interaction in \gls{mia} exposed individuals.
+However, from the \gls{qqplot}, it was noted that only a modest inflation was observed (\cref{fig:ecm}).
+This suggest that the significance of the \gls{ecm} pathway might have been driven by a small number of significant genes.
+Due to difficulties in delineating the individual \glspl{SNP} effect, it is difficult for us to pin-point the ``driver'' genes of this pathway.
+Moreover, none of the \gls{ecm} genes were found to be differentially expressed in either of our condition, therefore we urge that further studies are required to understand how the n-3 \gls{pufa} direct interacts with the \gls{ecm} or the \gls{ecm} related genes and the effect of such interaction in \gls{mia} exposed individuals.
 
 Finally, it is important to note that the current study serves only as a hypothesis generation study and the sample size was modest. 
 We therefore like to use the current results to provide an estimation of sample size required for a replication study.
@@ -412,13 +448,13 @@ By using Scotty \citep{Busby2013}, we have estimated that the replication study 
 We have also demonstrated that the batch effect can have a big impact to the association (\cref{fig:batchLRT}), therefore one should always control for the batch effect whenever possible.
 Given the current resources, one of the preferred design for the follow up study are given in \cref{tab:bestdesign}.
 
-\subsection{Limitation}
+\subsection{Limitations}
 We first acknowledge that the sample size of the current study is small and are underpowered.
-This is reflected in the QQ-plots (\cref{fig:waldQQ}) where the observed p-values were generally smaller than would have expected.
-A better study design will include more samples yet we are limited by our budget.
+This is reflected in the \glspl{qqplot} (\cref{fig:waldQQ}) where the observed p-values were generally smaller than would have expected.
+A better study design will include more samples yet we were limited by our budget.
 However, the importance of a pilot study is to identify potential targets for replications, hypothesis generation or to provide guidance for follow up studies. 
 In this study, we have identified \textit{Sgk1} as an interesting candidate gene that might have an important role in the effect of n-3 \gls{pufa} in \gls{polyic} exposed individuals.
-Our results also suggested that the differential expression induced by early \gls{mia} might act on the same functional pathways as genetic variations observed in \gls{scz}.
+Our results provide support for a possible converging functional effect of differential expression induced by early \gls{mia} and genetic variations observed in \glng{scz}.
 These provide interesting candidates for follow studies and we were able to estimate and design a better replication study based on the current data. 
 Therefore we argue that as a hypothesis generation study, our study is successful.
 
@@ -426,15 +462,15 @@ Second, we examined only the male brains in the current study.
 The decision to direct experimental resources to males was made because there is evidence that the male fetus is more vulnerable to environmental exposures such as inflammation in prenatal life \citep{Bergeron2013,Lein2007}. 
 We acknowledge that an interesting follow up study would be to investigate the gender difference in response to \gls{mia} and dietary change.
 
-Third, although RNA Sequencing was performed, we have not performed any analysis on possible alternative splicing events or denovo transcript assembly.
+Third, although RNA Sequencing was performed, we did not performed any analysis on possible alternative splicing events or denovo transcript assembly.
 The reason behind such decision is that our sample size is simply too small.
 Without sufficient information, denovo transcript assembly can return noisy results.
 On the other hand, in order to investigate possible alternative splicing events, we would need to perform the analysis on transcript level instead of gene level. 
 This increase the possible candidates from 47,400 genes to 114,083 transcripts.
-Combined with the difficulties of the quantification of different isoforms, a much larger power is required for the alternative splicing analysis. 
+Combining with the difficulties of the quantification of different isoforms, a much larger power is required for the alternative splicing analysis. 
 On top of that, the functional annotation of transcripts is another difficult aspect to tackle.
-While there are a lot of information for the annotation of genes, information on functional difference between isoforms of the same gene were generally lacking. 
-The lack of annotation simply leads to difficulties in making sense of the data. 
+While there are a lot of information for the annotation of genes, information on functional difference between isoforms of the same gene are generally lacking. 
+The lack of annotation leads to difficulties in making sense of the data. 
 Thus although we acknowledge the possible importance of alternative splicing and denovo transcripts, we did not perform any alternative splicing analysis or denovo transcripts assembly.
 Nonetheless, the use of RNA Sequencing allow us to easily perform these experiments once sufficient samples are obtained.
 
@@ -447,9 +483,9 @@ Finally, at the time of this thesis, we have yet completed any \gls{rtpcr} or an
 One of the most vital steps after any RNA Sequencing results is to validate the differential expression findings using the \gls{rtpcr}.
 Ideally, not only should one perform the \gls{rtpcr} on the sequenced samples, one should also perform the \gls{rtpcr} on an independent set of samples. 
 Moreover, the RNA Sequencing only helps to identify possible candidates that were ``associated'' with a particular trait.
-It does not however provide any causal linkage between the phenotype and the differential expression.
-If one would like to establish a direct linkage between the phenotype and the gene, one will need to carry out functional studies such as knock-in knock-out mouse design.
-So take for example, in order to understand the functional impact of the differential expression of \textit{Sgk1}, one might try to examine whether if the pure up-regulation of \textit{Sgk1} through transfection can reduce the \glng{scz}-like behavior in \gls{polyic} exposed mice.
+It does not provide any causal linkage between the phenotype and the differential expression.
+If one would like to establish a direct linkage between the phenotype and the expression of a gene, one will need to carry out functional studies such as knock-in knock-out mouse design.
+For example, in order to understand the functional impact of the differential expression of \textit{Sgk1}, one might try to examine whether if the pure up-regulation of \textit{Sgk1} through transfection can reduce the \glng{scz}-like behavior in \gls{polyic} exposed mice.
 
 Currently, we are planning to perform the \gls{rtpcr} on \textit{Sgk1} on all available samples. 
 Shall the results be validated, we can then perform subsequent functional studies. 
@@ -512,7 +548,7 @@ Shall the results be validated, we can then perform subsequent functional studie
 			\bottomrule
 		\caption[Design for Follow Up Study]{
 			Design for follow up study.
-			This will be the idea design for follow up study where litter effect, cage effect, batch effect and lane effects are all balanced out for the conditions.
+			This design will allow one to balanced out litter effect, cage effect, batch effect and lane effects such that the confounding effects were minimized.
 			One can also include the \gls{ercc} spike in control to serves as an internal standard for additional level of control \citep{Jiang2011a}.
 			}
 		\label{tab:bestdesign}%
