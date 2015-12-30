@@ -3,22 +3,21 @@
 % Need to stress that we are only calculating the narrow sense heritability
 	\section{Introduction}
 	The development of \gls{ldsc} \citep{Bulik-Sullivan2015} has allow researchers to estimate the true contribution of common \glspl{SNP} to the variance in different diseases.	
-	Its ability in delineating the contributions from confounding factors such as population stratification and common \glspl{SNP} are vital to its success.
-	However, limited simulations were performed by \citet{Bulik-Sullivan2015} and it is unclear how different sampling strategies (e.g. extreme phenotype sampling) or genetic architectures (e.g. different population prevalence) affect the performance of \gls{ldsc}.
+	However, it is unclear how different sampling strategies (e.g. extreme phenotype selection) affects the performance of \gls{ldsc}.
+	Additional simulations might therefore be required to investigate how different samplings affect the performance of \gls{ldsc}.
 	
-	Moreover, as \glng{scz} is usually defined as ``affected'' or ``normal'', the estimation of \gls{SNP} heritability might have to be adjusted for the ascertainment bias introduced by the case control sampling. 
-	The ascertainment bias correction is usually performed based on the liability threshold model.
-	However, this adjustment might not be as straightforward as it seems.
-	For example, it has been suggested that \gls{gcta}, the most popular \gls{SNP} heritability estimation tools for \gls{GWAS}, will provide highly biased estimates for case control studies \citep{Golan2014}.
-	As \citet{Bulik-Sullivan2015} did not perform any empirical simulation of the effect of the case control sampling to their estimates, it is therefore important for us to perform empirical simulations to investigate whether if the case control sampling has any impact to the estimates of \gls{ldsc}.
+	The estimation of heritability in discontinuous trait has always been complicated as correction for ascertainment bias is necessary.
+	Nevertheless, the correction of ascertainment bias are nontrivial and often introduce bias to the estimates. 
+	For example, \citet{Golan2014} observed that \gls{gcta} underestimates the heritability explained by common variants for discontinuous traits.
+	The magnitude of this bias is affected by the population prevalence of the trait, the observed prevalence, the true underlying heritability and the number of genotyped \glspl{SNP} \citep{Golan2014}.
+	Because for discontinuous traits, \citet{Bulik-Sullivan2015} only investigated the performance of \gls{ldsc} for traits with heritability of 0.8 and a population prevalence of either 0.1 or 0.01, more simulates are required investigate whether if \gls{ldsc} suffers from the same bias as \gls{gcta}.
 	
-	Finally, as noted by \citet{Bulik-Sullivan2015}, the performance of \gls{ldsc} can be subpar under certain condition, for example when the trait is oligogenic.
-	We are therefore interested to see if there is a robust algorithm for the estimation of \gls{SNP} heritability without being affected by the genetic architecture of the trait.
+	Finally, as noted by \citet{Bulik-Sullivan2015}, when there were few causal variants, the standard errors of the \gls{ldsc} estimates will become very large, meaning that \gls{ldsc} is best suited to polygenic traits.
+	An alternative algorithm is therefore required for the estimation of \gls{SNP} heritability for oligogenic traits.
 	
-	In this chapter, we first introduce \gls{shrek}, an alternative algorithm to \gls{ldsc} for the robust estimation of \gls{SNP} heritability based on \gls{GWAS} summary statistics.
-	We then perform a series of empirical simulation to test the performance of \gls{ldsc} and \gls{shrek} when the trait has different genetic architectures. 
-	Most importantly, we would like to repeat the analysis of \citet{Bulik-Sullivan2015} to estimate the true contribution of \gls{SNP} to \glng{scz} using the \gls{pgc} \glng{scz} \gls{GWAS} summary statistics.
-	This would provide us insights into possible direction of future researches in \glng{scz}.
+	Herein, \gls{shrek}, an alternative algorithm to \gls{ldsc} for the estimation of \gls{SNP} heritability based on \gls{GWAS} summary statistics were introduced.
+	To examine the effect of different sampling strategies and genetic architectures on the performance of \gls{ldsc} and \gls{shrek}, we performed a series of extensive simulation analyses.
+	To demonstrate that \gls{shrek} also works outside of simulated data, we also estimated the \gls{SNP} heritability of \glng{scz} and other psychiatric disorders using \gls{shrek}.
 	
 	The work in this chapter were done in collaboration with my colleagues who have kindly provided their support and knowledges to make this piece of work possible.
 	Dr Johnny Kwan, Dr Miaxin Li and Professor Sham have helped to lay the foundation of this study. 
@@ -26,34 +25,34 @@
 	Miss Yiming Li, Dr Johnny Kwan, Dr Miaxin Li, Dr Desmond Campbell, Dr Timothy Mak and Professor Sham have helped with the derivation of the standard error of the heritability estimation. 
 	Dr Henry Leung has provided critical suggestions on the implementation of the algorithm.
 	
-	\section{Methodology}	
-		It was noted that in \gls{GWAS}, the summary statistic of a particular \gls{SNP} should increases with its own effect size and the effect size from all the other \glspl{SNP} in \gls{LD} with it.
-		Based on this property, we may use the information from the \gls{LD} matrix and the summary statistic of the \gls{GWAS} \gls{SNP} to estimate the \gls{SNP} heritability.
-		
+	\section{Methodology}			
 		\subsection{Heritability Estimation}
-			Remember that the \gls{SNP} heritability is defined as 
+			Remember that the heritability ($h^2$)is defined as the proportion of total variance of the phenotype ($\boldsymbol{y}$) in a population explained by the variation of genetic factors ($\boldsymbol{x}$):
 			$$
 				h^2 = \frac{\mathrm{Var}(\boldsymbol{y})}{\mathrm{Var}(\boldsymbol{x})}
 			$$
-			where $\mathrm{Var}(\boldsymbol{x})$ is the variance of the genotype and $\mathrm{Var}(\boldsymbol{y})$ is the variance of the phenotype.
-			In a \gls{GWAS}, regression were performed between the \glspl{SNP} and the phenotypes, giving
+			
+			In \gls{GWAS}, regression are performed between the \glspl{SNP} and the phenotypes:
 			\begin{equation}
 				\boldsymbol{y}=\boldsymbol{\beta x}+\boldsymbol{\epsilon}
 				\label{eq:standardRegress}
 			\end{equation}
-			where $\boldsymbol{y}$ and $\boldsymbol{x}$ are the standardized phenotype and genotype respectively. 
-			$\boldsymbol{\epsilon}$ is then the error term, accounting for the non-genetic elements contributing to the phenotype (e.g. environment factors).
-			Based on \cref{eq:standardRegress}, and by assuming that $\beta \boldsymbol{x}$ to be independent of $\boldsymbol{\epsilon}$, one can then have
+			where $\boldsymbol{y}$ and $\boldsymbol{x}$ are both standardized.
+			$\boldsymbol{\epsilon}$ is defined as the error term, accounting for the non-genetic elements contributing to the phenotype (e.g. environment factors).
+			By assuming $\beta \boldsymbol{x}$ to be independent of $\boldsymbol{\epsilon}$, one can transform \cref{eq:standardRegress} into:
 			\begin{align}
 				\mathrm{Var}(\boldsymbol{y}) = \mathrm{Var}(\beta \boldsymbol{x})+ \mathrm{Var}(\epsilon) \nonumber\\
 				\mathrm{Var}(\boldsymbol{y}) = \beta^2\mathrm{Var}(\boldsymbol{x}) \nonumber\\
 				\beta^2= \frac{\mathrm{Var}(\boldsymbol{y})}{\mathrm{Var}(\boldsymbol{x})}
 				\label{eq:betaHeri}
 			\end{align}
-			$\beta^2$ is then considered as the portion of phenotype variance explained by the variance of genotype, which can also be considered as the \gls{SNP} heritability of the phenotype.
+			As a result, $\beta^2$ represents the portion of phenotype variance explained by the variance of genotype.
 					
-			A challenge in calculating the heritability from \gls{GWAS} data is that usually only the summary statistic or p-value are provided and one will not be able to directly calculate the heritability based on \cref{eq:betaHeri}. 
-			In order to estimate the heritability of a trait from the \gls{GWAS} summary statistic, we exploit the fact that when both $\boldsymbol{x}$ and $\boldsymbol{y}$ are standardized, $\beta^2$ will be equal to the coefficient of determination ($r^2$). 
+			A challenge in calculating the heritability from \gls{GWAS} data is that usually only the summary statistic or p-value are provided.
+			Without the raw genotypes, it is impossible to calculate $\mathrm{Var}(\boldsymbol{x})$, thus \cref{eq:betaHeri} cannot be used. 
+			
+			In order to estimate the \gls{SNP} heritability using the summary statistics of a \gls{GWAS}, we first need to estimate the relative effect size of each individual \glspl{SNP}. 
+			It was observed that when $\boldsymbol{x}$ and $\boldsymbol{y}$ are standardized, $\beta^2$ equals to the coefficient of determination ($r^2$). 
 			Thus, based on properties of the Pearson product-moment correlation coefficient:
 			\begin{equation}
 				r = \frac{t}{\sqrt{n-2+t^2}}
@@ -78,18 +77,18 @@
 			\label{eq:observedEffect}
 			\end{equation}
 			
-			When there are \gls{LD} between each individual \glspl{SNP}, the situation will become more complicated as each \glspl{SNP}' observed effect will be influenced by other \glspl{SNP} in \gls{LD} with it:
+			When there are \gls{LD} between each individual \glspl{SNP}, the situation becomes more complicated as each \glspl{SNP}' observed effect will be influenced by other \glspl{SNP} in \gls{LD} with it:
 			\begin{equation}
 			f_{observed} = f_{true}+f_{LD}
 			\label{eq:conceptF}
 			\end{equation}
 			
-			To account for the \gls{LD} structure, we first assume our phenotype $\boldsymbol{y}$ and genotype $\boldsymbol{x}=(x_1,x_2,\dots,x_m)^t$ are standardized and that
+			To account for the \gls{LD} structure, we first assume our phenotype $\boldsymbol{y}$ and genotype $\boldsymbol{x}=(x_1,x_2,\dots,x_m)^t$ are standardized such that
 			\begin{align*}
 				\boldsymbol{y}\sim f(0,1) \\
 				\boldsymbol{x}\sim f(0,\boldsymbol{R})
 			\end{align*}
-			Where $f(m, \boldsymbol{V})$ denote a general distribution with mean $m$ and variance $\boldsymbol{V}$ and $\boldsymbol{R}$ is the \gls{LD} matrix between \glspl{SNP}.
+			Where $f(m, \boldsymbol{V})$ denotes a general distribution with mean $m$ and variance $\boldsymbol{V}$ with $\boldsymbol{R}$ being the \gls{LD} matrix.
 			
 			We can then express \cref{eq:standardRegress} in matrix form:
 			\begin{align}
@@ -108,7 +107,7 @@
 				\boldsymbol{h}&=(h_1^2,h_2^2,\dots,h_m^2)^t
 			\end{align*}
 			where $\boldsymbol{H}$ is the variance of the ``true'' effect. 
-			It is shown that heritability can be expressed as %The later part was gone because that will contains E(\beta) which = 0
+			Heritability can then be expressed as %The later part was gone because that will contains E(\beta) which = 0
 			\begin{align}
 			\mathrm{Var}(\boldsymbol{\beta}^t\boldsymbol{x}) &= \mathrm{E}_x\mathrm{Var}_{\beta|x}(\boldsymbol{\beta}^t\boldsymbol{x})+\mathrm{Var}_x\mathrm{E}_{(\beta|x)}(\boldsymbol{\beta}^t\boldsymbol{x}) \nonumber\\
 			&=\mathrm{E}_x(\boldsymbol{x}^t\boldsymbol{\beta\beta}^t\boldsymbol{x}) \nonumber\\ 
@@ -127,12 +126,12 @@
 			 \label{eq:covPhenoTrue}
 			\end{align}
 			
-			As both $\boldsymbol{x}$ and $\boldsymbol{y}$ are standardized, the covariance will equal to the correlation and we can define the correlation between \gls{SNP}$_i$ and $Y$ as
+			As both $\boldsymbol{x}$ and $\boldsymbol{y}$ are standardized, the covariance equals to the correlation and we can define the correlation between \gls{SNP}$_i$ and $Y$ as
 			\begin{equation}
 				\rho_i = \sum_j{R_{ij}\boldsymbol{\beta}_j}
 				\label{eq:corPhenoTrue}
 			\end{equation}
-			In reality, the \emph{observed} correlation usually contains error. 
+			In reality, the \emph{observed} correlation contains errors. 
 			Therefore we define the \emph{observed} correlation between \gls{SNP}$_i$ and the phenotype to be:
 			\begin{equation}
 			\hat{\rho_i} = \rho_i+\frac{\epsilon_i}{\sqrt{n}}
@@ -173,7 +172,7 @@
 			f_i= \frac{\chi_i^2-1}{n}
 			\label{eq:defineF}
 			\end{equation}
-			we got
+			we get
 			\begin{align}
 			\sum_i(\chi_i^2-\mathrm{E}(\chi_i^2))^2&=\sum_i(f_i-\sum_j{R^2_{ij}\hat{h}_i^2})^2 \nonumber\\
 			&=\boldsymbol{f^tf}-2\boldsymbol{f}^t\boldsymbol{R_{sq}\hat{h}}+\boldsymbol{\hat{h}}^t\boldsymbol{R_{sq}}^t\boldsymbol{R_{sq}\hat{h}}
@@ -186,7 +185,7 @@
 				\boldsymbol{R_{sq}}\boldsymbol{\hat{h^2}} &=\boldsymbol{f}
 				\label{eq:shrekEq}
 			\end{align}
-			the heritability is then defined as 
+			the \gls{SNP} heritability is then defined as 
 			\begin{equation}
 			\hat{Heritability} = \boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}
 			\label{eq:fullShrek}
@@ -200,9 +199,9 @@
 				&=\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\mathrm{Var}(\boldsymbol{f})\boldsymbol{R_{sq}}^{-1}\boldsymbol{1}
 				\label{eq:varHvarf}
 			\end{align}
-			Therefore, to obtain the variance of $\hat{Heritability}$, we first need to calculate the variance covariance matrix of $\boldsymbol{f}$.
+			Therefore, to obtain the variance of $\hat{Heritability}$, the variance covariance matrix of $\boldsymbol{f}$ is necessary.
 			
-			If we consider the standardized genotype $x_i$ with a standard normal mean $z_i$ and non-centrality parameter $\mu_i$, we have
+			If we consider the standardized genotype $x_i$ has a standard normal mean $z_i$ and non-centrality parameter $\mu_i$, we have
 			\begin{align*}
 				\mathrm{E}[x_i]&=\mathrm{E}[z_i+\mu_i]\\
 				&=0\\
@@ -224,7 +223,7 @@
 				\mathrm{Cov}(\chi_i^2,\chi_j^2)=&\mathrm{E}[(z_i+\mu_i)^2(z_j+\mu_j)^2]-\mathrm{E}[z_i+\mu_i]\mathrm{E}[z_j+\mu_j]\\
 				=&\mathrm{E}[z_i^2z_j^2]+4\mu_i\mu_j\mathrm{E}[z_iz_j]-1
 			\end{align*}
-			Remember that $\mathrm{E}[z_iz_j] = R_{ij}$, we then have
+			As $\mathrm{E}[z_iz_j] = R_{ij}$,
 			$$
 				\mathrm{Cov}(\chi_i^2, \chi_j^2)=\mathrm{E}[z_i^2z_j^2]+4\mu_i\mu_jR_{ij}-1
 			$$
@@ -242,7 +241,7 @@
 				&=1+\mu_i^2\mathrm{Var}(z_j)+R_{ij}^2\mathrm{Var}(z_j^2)-\mu_j^2R_{ij}^2\mathrm{Var}(z_j)\\
 				&=1+2R_{ij}^2
 			\end{align*}
-			As a result, the variance covariance matrix of the $\chi^2$ variances represented as
+			As a result, the variance covariance matrix of the $\chi^2$ variances is represented as
 			\begin{equation}
 				\mathrm{Cov}(\chi_i^2,\chi_j^2) = 2R_{ij}^2+4R_{ij}\mu_i\mu_j
 				\label{eq:finalChi}
@@ -252,11 +251,11 @@
 				\mathrm{Var}(H) &=\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\frac{2\boldsymbol{R_{sq}}+4\boldsymbol{R}\circ \boldsymbol{zz}^t}{n^2}\boldsymbol{R_{sq}}^{-1}\boldsymbol{1}
 				\label{eq:covH}
 			\end{align}
-			where $\boldsymbol{z} = \sqrt{\boldsymbol{\chi^2}}$ from \cref{eq:defineF}, with the direction of effect as its sign and $\circ$ is the element-wise product (Hadamard product).
+			where $\boldsymbol{z} = \sqrt{\boldsymbol{\chi^2}}$ from \cref{eq:defineF}, with the direction of effect as its sign.
 			 
 			The problem with \cref{eq:covH} is that it requires the direction of effect. 
 			Without the direction of effect, the estimation of \gls{se} will be inaccurate. 
-			If we consider that $n\times \boldsymbol{f}+1$ is approximately $\chi^2$ distributed, we might view \cref{eq:shrekEq} as a decomposition of a vector of $\chi^2$ distributions with degree of freedom of 1. 
+			As $n\times \boldsymbol{f}+1$ is approximately $\chi^2$ distributed, we might view \cref{eq:shrekEq} as a decomposition of a vector of $\chi^2$ distributions with degree of freedom of 1. 
 			Replacing the vector $\boldsymbol{f}$ with a vector of 1, we will be able to calculate the ``effective number''($e$) of the association \citep{Li2011}. 
 			%The problem of this effective number is that they uses the eigenvalue instead of this multiplication.
 			%So either we have to explain why we don't follow it (therefore explaining the slidding windows) or we should just avoid mentioning the effective number
@@ -265,30 +264,31 @@
 			\mathrm{Var}(H) = \frac{2(e+2H)}{n^2}
 			\label{eq:effectiveChi}
 			\end{equation}
-			\cref{eq:effectiveChi} should in theory gives us an heuristic estimation of the \gls{se}. 
-			Moreover, the direction of effect was not required for \cref{eq:effectiveChi}, reducing the number of input required from the user.
+			Theoretically, \cref{eq:effectiveChi} should provide a heuristic estimation of the \gls{se} without requiring the direction of effect.
+			This reduces the number of input required from users.
 			
-		\subsection{Case Control Studies}	 
+		\subsection{Case Control Studies}	
+		%TODO have not figure out the logic behind those equation 
 		%Discuss on the liability threshold model. Then the apply orange paper. Then explain how to get the results. 
-			When dealing with case control data, we cannot directly use \cref{eq:fullShrek} to estimate the heritability.
-			Instead, we will need to employ the concept of liability threshold model from \cref{sec:liability}. 
+			The estimation of heritability in case control studies requires the correction of ascertainment bias.
+			Therefore, estimates from \cref{eq:fullShrek} must be adjusted in order to obtain an accurate estimation of \gls{SNP} heritability for case control studies.
 			
-			Based on the derivation of \citet{Yang2010}, the approximate ratio between the \gls{ncp} obtained from case control studies ($NPC_{CC}$) and quantitative trait studies($NCP_{QT}$) are
+			Based on the derivation of \citet{Yang2010}, the approximate ratio between the summary statistic obtained from case control studies ($\chi^2_{CC}$) and quantitative trait studies($\chi^2_{QT}$) is
 		
 			\begin{equation}
-			\frac{NCP_{CC}}{NCP_{QT}} = \frac{i^2v(1-v)N_{CC}}{(1-K)^2N_{QT}}
+			\frac{\chi^2_{CC}}{\chi^2_{QT}} = \frac{i^2v(1-v)}{(1-K)^2}
 			\label{eq:originNCPTransform}
 			\end{equation}
 			where
 			\begin{align*}
 			 K &= \text{Population Prevalence} \\
 			 v &= \text{Proportion of Cases}\\
-			 N &= \text{Total Number of Samples}\\
 			 i &= \frac{z}{K}\\
 			 z &= \text{height of standard normal curve at truncation pretained to K}
 			\end{align*}
 			
-			Using this approximation, we can directly transform the \gls{ncp} between the case control studies and quantitative trait studies.
+			Therefore we can transform the summary statistic from a case control study 
+			Using this approximation, we can directly transform the summary statistic between the case control studies and quantitative trait studies.
 			As we are not interested in transforming the \gls{ncp} between two different studies, the sample size of the case control study ($N_{CC}$) and sample size of the quantitative trait study ($N_{QT}$) will be the same in \cref{eq:originNCPTransform}, therefore \cref{eq:originNCPTransform} becomes
 			\begin{equation}
 			NCP_{QT} = \frac{NCP_{CC}(1-K)^2}{i^2v(1-v)}
@@ -309,74 +309,80 @@
 			
 		\subsection{Extreme Phenotype Sampling}
 			%Explain why we perform extreme phenotype selections. Explain how that affect the variance of the estimation. Finally, explain how to perform heritability estimation on extreme phenotype. 
-			The development of \gls{GWAS} now provide unprecedented power to perform hypothesis free association throughout the whole genome.
-			However, a challenge for the studies of complex traits is to obtain sufficient sample size with a limited budgets.
-			It is therefore important to design the experiment in a way where sample size can be reduced without affecting the power of the study.
-			A common technique is to perform extreme phenotype sampling in the detection stage of the study.
-			The extreme phenotype sampling will inflate the frequency distortion between samples from the two extreme end of phenotype, thus increase the statistical power \citep{Guey2011}.
-			It was estimated that for a 0.5\% variant with a fivefold effect in the general population, a discovery studies using extreme phenotype sampling requires four times less samples in the replication to achieve 80\% power when compared to studies using random samples \citep{Guey2011}.
-			This allows studies to be conducted using a smaller amount of samples with the same degree of power, therefore reducing the cost of the study.
+			\gls{GWAS} provides unprecedented power to perform hypothesis free association throughout the whole genome.
+			However, with a limited budgets, studies often struggle to obtain sufficient sample size.
+			To increase the detection power of the study, sampling strategies such as extreme phenotype selection can be applied.
+			By performing extreme phenotype sampling, the frequency distortion between samples from the two extreme end of phenotype will be inflated, thus increases the statistical power \citep{Guey2011}.
+			So for example, by including only the samples from the top 5\% and bottom 5\% of the phenotype distribution, the power of the detection is the same as a study with random sampling design that has 4 times the sample size \citep{Sham2014}. 
+			This allows studies to be conducted using a smaller sample size with the same degree of power, therefore reducing the cost.
 			
-			A problem of extreme phenotype sampling was that the variance of the selected phenotype will not be representative of that in the population.
-			The effect size are generally overestimated \citep{Guey2011}. 
-			Thus, to adjust for this bias, one can multiple the effect size by the ratio between the variance before $V_P$ and after $V_{P}'$ the selection process \citep{Sham2014}, which is equivalent to the multiplication of $\frac{V_{P}'}{V_P}$ to $f$ in \cref{eq:defineF}.
+			The extreme selection design increases the summary statistic by a factor of $\frac{V_{P'}}{V_P}$ where $V_{P'}$ is the trait variance of the selected sample and $V_P$ is the trait variance of the general population \citep{Sham2014}.
+			Thus, to adjust for the inflation, $\frac{V_P}{V_{P'}}$ is multiplied to \cref{eq:defineF}
 			
 			\begin{equation}
-			\hat{Heritability} = \frac{V_{P'}}{V_P}\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}
+			\hat{Heritability} = \frac{V_P}{V_{P'}}\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}
 			\label{eq:extremeShrek}
 			\end{equation}
 			
 		\subsection{Inverse of the \glsentrylong {LD} matrix}
-			In order to obtain the heritability estimation, we will require to solve \cref{eq:fullShrek}. 
-			If $\boldsymbol{R_{sq}}$ is of full rank and positive definite, it will be straight-forward to solve the matrix equation.
-			However, more often than not, the \gls{LD} matrix are rank-deficient and suffer from multicollinearity, making it ill-conditioned, therefore highly sensitive to changes or errors in the input.
-			To be exact, we can view \cref{eq:fullShrek} as calculating the sum of $\boldsymbol{\hat{h^2}}$ from \cref{eq:shrekEq}.
-			This will involve solving for
-			\begin{equation}
-			\boldsymbol{\hat{h^2}} = \boldsymbol{R_{sq}}^{-1}\boldsymbol{f}
-			\label{eq:shrekInverse}
-			\end{equation}
-			which requires the inverse of $\boldsymbol{R_{sq}}$. 
+			The \gls{SNP} heritability can be estimated from \cref{eq:fullShrek} which calculates the sum of $\boldsymbol{\hat{h^2}}$ from \cref{eq:shrekEq}.
+			When $\boldsymbol{R_{sq}}$ is full rank and positive definite, \cref{eq:shrekEq} can be solved using the QR decomposition or LU decomposition without explicitly calculating the inverse of $\boldsymbol{R_{sq}}$.
 			
-			In normal circumstances (e.g. when $\boldsymbol{R_{sq}}$ is full rank and positive semi-definite), one can easily solve \cref{eq:shrekInverse} using the QR decomposition or LU decomposition.
-			However, when $\boldsymbol{R_{sq}}$ is ill-conditioned, the traditional decomposition method will fail.
-			Even if the decomposition can be performed, the result tends to be a meaningless approximation to the true $\boldsymbol{\hat{h^2}}$. 
+			However, \gls{LD} matrices are usually ill-conditioned.
+			Therefore the solution of \cref{eq:shrekEq} is prone to large numerical errors \citep{Neumaier1998}.
+			Therefore, in order to solve for \cref{eq:shrekEq}, regularization techniques such as Tikhonov Regularization (also known as Ridge Regression) and \gls{tSVD} has to be performed \citep{Neumaier1998}. 
+			Herein, we focus on the use of \gls{tSVD} in the regularization of the \gls{LD} matrix.
 			
-			Therefore, to obtain an unique solution, regularization techniques such as the Tikhonov Regularization (also known as Ridge Regression) and \gls{tSVD} has to be performed \citep{Neumaier1998}. 
-			There are a large variety of regularization techniques, yet the discussion of which is beyond the scope of this study. 
-			In this study, we will focus on the use of \gls{tSVD} in the regularization of the \gls{LD} matrix.
-			This is because the \gls{SVD} routine has been implemented in the EIGEN C++ library \citep{eigenweb}, allowing us to implement the \gls{tSVD} method without much concern with regard to the detail of the algorithm. 
-			
-			To understand the problem of the ill-conditioned matrix and regularization method, we consider the matrix equation $\boldsymbol{Ax}=\boldsymbol{B}$ where $\boldsymbol{A}$ is ill-conditioned or singular with $n\times n$ dimension.
-			The \gls{SVD} of $\boldsymbol{A}$ can be expressed as 
+			Given the matrix equation $\boldsymbol{Ax}=\boldsymbol{B}$ where $\boldsymbol{A}$ is ill-conditioned or singular with $n\times n$ dimension.
+			The \gls{SVD} of $\boldsymbol{A}$ can be expressed as 				
 			\begin{align}
 				\boldsymbol{A} = \boldsymbol{U\Sigma V}^t
 				\label{eq:svd}
 			\end{align}
 			where $\boldsymbol{U}$ and $\boldsymbol{V}$ are both orthogonal matrix and $\boldsymbol{\Sigma}=\mathrm{diag}(\sigma_1,\sigma_2,\dots,\sigma_n)$ is the diagonal matrix of the \emph{singular values} ($\sigma_i$) of matrix $\boldsymbol{A}$.
-			Based on \cref{eq:svd}, we can get the inverse of $\boldsymbol{A}$ as 
+			Based on \cref{eq:svd}, the inverse of $\boldsymbol{A}$ can be expressed as
 			\begin{align}
 				\boldsymbol{A}^{-1}= \boldsymbol{V\Sigma}^{-1}\boldsymbol{U}^t
 				\label{eq:svdInverse}
 			\end{align}
 			Where $
 			\boldsymbol{\Sigma}^{-1} = \mathrm{diag}(\frac{1}{\sigma_1},\frac{1}{\sigma_2},\dots,\frac{1}{\sigma_n})$.
-			we can then represent $\boldsymbol{Ax}=\boldsymbol{B}$ as
+			
+			Now consider the vector $\boldsymbol{B}$ is collected with some error $\boldsymbol{\epsilon}$ attached to it. 
+			The solution to $\boldsymbol{Ax}=\boldsymbol{B}$ becomes:
 			\begin{align}
-				\boldsymbol{Ax}&=\boldsymbol{B} \nonumber\\
-				\boldsymbol{U\Sigma V}^t\boldsymbol{x}&=\boldsymbol{B} \nonumber\\
-				\boldsymbol{x}&=\boldsymbol{V\Sigma}^{-1}\boldsymbol{U}^t\boldsymbol{B}
-				\label{eq:solveBwithError}
+				\boldsymbol{x}&=\boldsymbol{A}^{-1}(\boldsymbol{B+\epsilon}) \\\notag
+				&= \boldsymbol{A}^{-1}\boldsymbol{B}+\boldsymbol{A}^{-1}\boldsymbol{\epsilon}\\\notag
+				&= \boldsymbol{x}^*+\boldsymbol{A}^{-1}\boldsymbol{\epsilon}
 			\end{align}
-			The condition number ($\kappa(\boldsymbol{A})$) of a matrix $\boldsymbol{A}$ can be calculated as $\kappa(\boldsymbol{A})=\frac{\sigma_1}{\sigma_n}$.
-			When the condition number is large, $\boldsymbol{A}$ is considered to be ill-conditioned;
-			when the condition number is infinite, $\boldsymbol{A}$ is considered to be singular.
-			Therefore it can be observed that when $\sigma_n$ is tiny, $\boldsymbol{A}$ is likely to be ill-conditioned and when $\sigma_n=0$, $\boldsymbol{A}$ will be singular. 
-			
-			One can also observe from \cref{eq:solveBwithError} that when the singular value $\sigma_i$ is small, the error $\epsilon_i$ in $\boldsymbol{B}_i$ will be drastically magnified by a factor of $\frac{1}{\sigma_i}$. 
-			Making the system of equation highly sensitive to errors in the input.
-			
-			To obtain a meaningful solution from this ill-conditioned/singular matrix $\boldsymbol{A}$, we may perform the \gls{tSVD} method to obtain a pseudo inverse of $\boldsymbol{A}$.
+			where $\boldsymbol{x}^*$ is the true solution.
+			The error of the solution $\delta \boldsymbol{x}$ caused by the error in the data is therefore:
+			\begin{align}
+			\delta \boldsymbol{x}&=\boldsymbol{x}-\boldsymbol{x}^*\\ \notag
+			&=\boldsymbol{A}^{-1}\boldsymbol{\epsilon}
+			\end{align}
+			The ratio of relative error in the solution to the relative error in the data is then defined as:
+			\begin{align}
+			\frac{||\delta \boldsymbol{x}||}{||\boldsymbol{x}||}\ \frac{||\boldsymbol{\epsilon}|| }{||\boldsymbol{B}||}
+			&=\frac{||\delta \boldsymbol{x}||}{||\boldsymbol{\epsilon}|| } \frac{||\boldsymbol{B}|| }{||\boldsymbol{x}||} \notag\\ 
+			&= \frac{||\boldsymbol{A}^{-1}\boldsymbol{\epsilon}||}{||\boldsymbol{\epsilon}|| } \frac{||\boldsymbol{Ax}|| }{||\boldsymbol{x}||} \notag\\
+			&= ||\boldsymbol{A}^{-1}||\ ||\boldsymbol{A}||
+			\end{align}
+			where $||.||$ is the matrix norm.
+			When $l_2$-norm is used, the condition number of matrix $\boldsymbol{A}$  ($\kappa(\boldsymbol{A})$) can then be defined as
+			$$
+			\kappa(\boldsymbol{A}) = \frac{\sigma_{max}(\boldsymbol{A})}{\sigma_{min}(\boldsymbol{A})}
+			$$
+			Thus, a large $\kappa(\boldsymbol{A})$ means that\ small errors in the data will lead to large derivation in the solution.
+%			By substitute \cref{eq:svd} into $\boldsymbol{Ax}=\boldsymbol{B}$, we get
+%			\begin{align}
+%				\boldsymbol{Ax}&=\boldsymbol{B} \nonumber\\
+%				\boldsymbol{U\Sigma V}^t\boldsymbol{x}&=\boldsymbol{B} \nonumber\\
+%				\boldsymbol{x}&=\boldsymbol{V\Sigma}^{-1}\boldsymbol{U}^t\boldsymbol{B}
+%				\label{eq:solveBwithError}
+%			\end{align}
+				
+			To obtain a meaningful solution from this ill-conditioned/singular matrix $\boldsymbol{A}$, the \gls{tSVD} method can be performed to obtain a pseudo inverse of $\boldsymbol{A}$.
 			Similar to \cref{eq:svd}, the \gls{tSVD} of $\boldsymbol{A}$ can be represented as 
 			\begin{alignat}{2}
 				&\boldsymbol{A}^+ = \boldsymbol{U\Sigma}_k\boldsymbol{V}^t  &\qquad\text{and}\qquad  &\boldsymbol{\Sigma}_k=\mathrm{diag}(\sigma_1,\dots,\sigma_k,0,\dots,0)
@@ -393,23 +399,18 @@
 			where $t$ is the tolerance threshold. 
 			Any singular value $\sigma_i$ less than the threshold will be replaced by 0 during the inversion.
 			
-			By selecting an appropriate $t$, \gls{tSVD} can effectively regularize the ill-conditioned matrix and help to find a reasonable approximation to $x$. 
+			By selecting an appropriate $t$, \gls{tSVD} can effectively regularize the ill-conditioned matrix and help to find a reasonable approximation to $\boldsymbol{x}$. 
 			A problem with \gls{tSVD} however is that it only work when matrix $\boldsymbol{A}$ has a well determined numeric rank \citep{Hansen1987}.
 			That is, \gls{tSVD} work best when there is a large gap between $\sigma_k$ and $\sigma_{k+1}$.
 			If a matrix has ill-conditioned rank, then $\sigma_k-\sigma_{k+1}$ will be small.
 			For any threshold $t$, a small error can change whether if $\sigma_{k+1}$ and subsequent singular values should be truncated, leading to unstable results. 
-			
-			According to \citet{Hansen1987}, matrix where its rank has meaning will have well defined rank. 
-			The \gls{LD} matrix is the correlation matrix between each individual \glspl{SNP}, thus the rank of the \gls{LD} matrix is the maximum number of linear independent \glspl{SNP} in the region.
-			Because the rank has a meaning, the \gls{LD} matrix is likely to have well-defined rank.
-			% This was supported by our simulation
 			 
-			The easiest way to test whether if the threshold $t$ and if the matrix $\boldsymbol{A}$ has well-defined rank is to calculate the ``gap'' in the singular value:
+			The easiest way to test if the matrix $\boldsymbol{A}$ has well-defined rank by calculating the ``gap'' in the singular values:
 			\begin{equation}
 			gap = \sigma_k/\sigma_{k+1}
 			\label{eq:gapSingular}
 			\end{equation}
-			a large gap usually indicate a well-defined gap. 
+			a large gap indicates that the matrix has a well-defined rank.
 			%\begin{wrapfigure}{L}{3in}
 			\begin{figure}
 				\caption[Cumulative Distribution of ``gap'' of the LD matrix]{Cumulative Distribution of ``gap'' of the LD matrix, the vertical line indicate the full rank. It can be observed that there is a huge increase in ``gap'' before full rank is achieved. 
@@ -420,80 +421,88 @@
 				\vspace{-20pt}
 			\end{figure}
 			%\end{wrapfigure}
-			In this study, we adopt the threshold as defined in MATLAB, NumPy and GNU Octave: $t=\epsilon\times\mathrm{max}(m,n)\times\mathrm{max}(\boldsymbol{\Sigma})$ where $\epsilon$ is the machine epsilon (the smallest number a machine can define as non-zero). 
-			And we performed a simulation study to investigate the performance of \gls{tSVD} under the selected threshold.
-			Ideally, if the ``gap'' is large under the selected threshold, then \gls{tSVD} will provide a good regularization to the equation. 
 			
+			
+			Simulation was carried out to investigate whether if \gls{LD} matrix has a well defined rank.
 			1,000 samples were randomly simulated from the HapMap \citep{Altshuler2010} \gls{CEU} population with 1,000 \glspl{SNP} randomly select from chromosome 22 using HAPGEN2 \citep{Su2011}.
-			HAPGEN2 allow us to simulate samples with \gls{LD} structure similar to that observed in the reference panel.
-			The \gls{LD} matrix and its corresponding singular value were calculated. 
+			HAPGEN2 allow for the simulation of samples with \gls{LD} structure similar to that observed in the reference panel.
+			The \gls{LD} matrix and its corresponding singular values were computed. 
 			The whole process were repeated 50 times and the cumulative distribution of the ``gap'' of singular values were plotted (\cref{fig:singularValueDist}). 
-			It is clearly show that the \gls{LD} matrix has a well-defined rank with a mean maximum ``gap'' of 466,198,939,298.
+			It is clearly shown that the \gls{LD} matrix has a well-defined rank with a mean maximum ``gap'' of 466,198,939,298.
 			Therefore the choice of \gls{tSVD} for the regularization is appropriate.
 			
-			By employing the \gls{tSVD} as a method for regularization, we are able to solve the ill-posed \cref{eq:shrekEq}, and obtain the estimated heritability.
-		\subsection{Implementation}
-			Our algorithm was implemented using C++ programming languages (version C++11) and the matrix algebra was performed using the EIGEN C++ header library \citep{eigenweb}.
-			In spite of the fact that the Armadillo library \citep{Sanderson2010} is much faster in the calculation of \gls{SVD} when compared to EIGEN \citep{Ho2011}, the speed can obly be achieved when addition libraries such as OpenBLAS were installed. 
-			The use of EIGEN therefore simplify the programme installation, making it more user friendly. 
+			In view of this, \gls{tSVD} was selected as the method for regularization for solving \cref{eq:shrekEq}.
+			MATLAB, NumPy and GNU Octave defined the threshold for \gls{tSVD} as $t=\epsilon\times \mathrm{max}(m,n)\times \mathrm{max}(\sigma)$ where $\epsilon$ is the machine epsilon (the smallest number a machine define as non-zero), , $n$ is the number of rows and $m$ is the number of columns. 
+			Here, the same threshold definition was used in our algorithm.
 			
-			Although \gls{tSVD} allow one to approximate the ill-posed \cref{eq:shrekEq}, it is an $\mathrm{O}(n^3)$ algorithm, making the computation run time prohibitive when the number of \glspl{SNP} is large.
-			Unfortunately, the number of \glspl{SNP} in a \gls{GWAS} is generally large, making it impossible for one to calculate the \gls{tSVD} of the whole genome at once. 
-			
-			If we consider \cref{eq:svd}, the matrix $\boldsymbol{U}$ and $\boldsymbol{V}$ are the eigenvectors of $\boldsymbol{AA}^t$ and $\boldsymbol{A}^t\boldsymbol{A}$ respectively. 
-			So for any symmetric matrix such as that of the \gls{LD} matrix, $\boldsymbol{U}$ and $\boldsymbol{V}$ should be the same. 
-			Thus \cref{eq:svd} reduce into the problem of eigenvalue decomposition where the singular values are the magnitude of the eigenvalues. 
-			Although the eigenvalue decomposition is still an $\mathrm{O}(n^3)$ algorithm, it has a smaller constant, therefore has a faster run time when compared to the computation of \gls{SVD}. 
-			
-			However, even with the use of eigenvalue decomposition in place of \gls{SVD}, the size of the \gls{LD} matrix is still too big for a feasible computation. 
-			Given that it is unlikely for inter chromosomal \gls{LD} to exists or for \glspl{SNP} 1\gls{mb} apart to be in \gls{LD} with each other, one can safely assume \glspl{SNP} more than 1\gls{mb} apart or \glspl{SNP} on different chromosomes are independent of each other. 
-			We therefore separate \glspl{SNP} into 1\gls{mb} bins where start of each bin are at least 1 \gls{mb} away from each other. 
-			Three bins are then combined to form one window, and we perform the decomposition on each windows using \cref{eq:shrekEq} and only update the $\boldsymbol{\hat{h^2}}$ for the bin forming the center of the window.
-			We then transverse the genome with step size of 1 bin until $\boldsymbol{\hat{h^2}}$ for all bins were computed. 
-			By breaking down the genome into windows, we were able to reduce the matrix dimension which makes the analysis feasible.
-			Users can also choose distance other than 1\gls{mb} as the distance between bins, allowing for a more flexible usage of the algorithm.
-			
-		\subsection{Comparing with \glsentrylong{ldsc}}
-			% main difference 
-			Conceptually, the fundamental hypothesis of \gls{ldsc} and our algorithm were quite different.
-			\gls{ldsc} were based on the ``global'' inflation of test statistic and its relationship to the \gls{LD} pattern.
-			\gls{ldsc} hypothesize that the larger the \gls{LD} score, the more likely will the \gls{SNP} be able to ``tag'' the causal \gls{SNP} and the heritability can then be estimated through the regression between the \gls{LD} score and the summary statistic.
-			
-			On the other hand, our algorithm focuses more on the per-\gls{SNP} level.
-			Our main idea was that the individual test statistic of each \glspl{SNP} is a combination of its own effect and effect from \glspl{SNP} in \gls{LD} with it. 
-			Thus, based on this concept, our algorithm aimed to ``remove'' the inflation of test statistic introduced through the \gls{LD} between \glspl{SNP} and the heritability can be calculated by adding the test statistic of all \glspl{SNP} after ``removing'' the inflation. 
-			
-			Mathematically, the calculation of \gls{ldsc} and our algorithm were also very different. 
-			\gls{ldsc} take the sum of all $R^2$ within a 1cM region as the LD score and regress it against the test statistic to obtain the slope and intercept which represent the heritability and amount of confounding factors respectively. 
-			In their model, \gls{ldsc} assume that each \glspl{SNP} will explain the same portion of heritability
-			\begin{align}
-			 \mathrm{Var}(\beta)&=\frac{h^2}{M}\boldsymbol{I}\\
-			 M &= \text{number of SNPs}\notag\\
-			 \beta &= \text{vector containing per normalized genotype effect sizes}\notag\\
-			 I &= \text{identity matrix}\notag\\
-			 h^2 &= \text{heritability}\notag
-			\end{align}
-			
-			As for our algorithm, the whole \gls{LD} matrix were used and inverted to decompose the \gls{LD} from the test statistic. 
-			There were no assumption of the amount of heritability explained by each \glspl{SNP}. 
-			However, our algorithm does assumed that the mean of the $\chi^2$ test statistic to be one (e.g. no inflation in the summary statistics), thus our estimation might inflates shall there be any confounding factors in the \gls{GWAS} summary statistics.
-			
+%		\subsection{Implementation}
+%			Our algorithm was implemented using C++ programming languages (version C++11) and the matrix algebra was performed using the EIGEN C++ header library \citep{eigenweb}.
+%			Although the Armadillo library \citep{Sanderson2010} is faster than EIGEN \citep{Ho2011}, the speed can only be achieved when addition libraries such as OpenBLAS were installed. 
+%			The use of EIGEN therefore simplify the programme installation, making it more user friendly. 
+%			
+%			Although \gls{tSVD} can provide an approximation to  the ill-posed \cref{eq:shrekEq}, it is an $\mathrm{O}(n^3)$ algorithm, making the computation run time prohibitive when the number of \glspl{SNP} is large.
+%			Unfortunately, the number of \glspl{SNP} in a \gls{GWAS} is generally large, making it impossible to calculate the \gls{tSVD} of the whole genome. 
+%			
+%			From \cref{eq:svd}, it is noted that the matrix $\boldsymbol{U}$ and $\boldsymbol{V}$ are the eigenvectors of $\boldsymbol{AA}^t$ and $\boldsymbol{A}^t\boldsymbol{A}$ respectively, for any symmetric matrix such as the \gls{LD} matrix, $\boldsymbol{U}$ and $\boldsymbol{V}$ are identical. 
+%			Therefore, \gls{tSVD} can be performed using eigenvalue decomposition, which is more efficient than \gls{SVD}.
+%			
+%			However, despite eigenvalue decomposition is more efficient than \gls{SVD}, the size of the \gls{LD} matrix is infeasible for the decomposition to be calculated. 
+%			Given it is unlikely for \glspl{SNP} more than 1 \gls{mb} apart to be in \gls{LD} with each other, they are assumed to be independent of each other. 
+%			\glspl{SNP} where therefore separated into 1 \gls{mb} bins where start of each bin are at least 1 \gls{mb} apart from each other. 
+%			Three bins are combined to form one window, where decomposition is performed on each windows using \cref{eq:shrekEq}.
+%			Only the $\boldsymbol{\hat{h^2}}$ for the bin forming the center of the window are updated.
+%			We then transverse the genome with step size of 1 bin until $\boldsymbol{\hat{h^2}}$ for all bins were computed. 
+%			By breaking down the genome into windows, we are able to reduce the matrix dimension,  which makes the analysis feasible.
+%			Users can also choose distance other than 1 \gls{mb} as the distance between bins, allowing for a more flexible usage of the algorithm.
+%			
+%		\subsection{Comparing with \glsentrylong{ldsc}}
+%			% main difference 
+%			Conceptually, the fundamental hypothesis of \gls{ldsc} and our algorithm were quite different.
+%			\gls{ldsc} were based on the ``global'' inflation of test statistic and its relationship to the \gls{LD} pattern.
+%			\gls{ldsc} hypothesize that the larger the \gls{LD} score, the more likely for the \gls{SNP} to ``tag'' the causal \gls{SNP}.
+%			The \gls{SNP} heritability can then be estimated through the regression between the \gls{LD} score and the summary statistic.
+%			
+%			On the other hand, our algorithm focuses more on the per-\gls{SNP} level.
+%			Our main idea was that the individual test statistic of each \glspl{SNP} is a combination of its own effect and effect from \glspl{SNP} in \gls{LD} with it. 
+%			Thus, based on this concept, our algorithm aimed to ``remove'' the inflation of test statistic introduced through the \gls{LD} between \glspl{SNP} and the heritability can be calculated by adding the test statistic of all \glspl{SNP} after ``removing'' the inflation. 
+%			
+%			Mathematically, the calculation of \gls{ldsc} and our algorithm were also very different. 
+%			\gls{ldsc} take the sum of all $R^2$ within a 1cM region as the LD score and regress it against the test statistic to obtain the slope and intercept which represent the heritability and amount of confounding factors respectively. 
+%			In their model, \gls{ldsc} assume that each \glspl{SNP} will explain the same portion of heritability
+%			\begin{align}
+%			 \mathrm{Var}(\beta)&=\frac{h^2}{M}\boldsymbol{I}\\
+%			 M &= \text{number of SNPs}\notag\\
+%			 \beta &= \text{vector containing per normalized genotype effect sizes}\notag\\
+%			 I &= \text{identity matrix}\notag\\
+%			 h^2 &= \text{heritability}\notag
+%			\end{align}
+%			
+%			As for our algorithm, the whole \gls{LD} matrix were used and inverted to decompose the \gls{LD} from the test statistic. 
+%			There were no assumption of the amount of heritability explained by each \glspl{SNP}. 
+%			However, our algorithm does assumed that the mean of the $\chi^2$ test statistic to be one (e.g. no inflation in the summary statistics), thus our estimation might inflates shall there be any confounding factors in the \gls{GWAS} summary statistics.
+%			
 	\subsection{Comparing Different LD correction Algorithms}
 		\label{sec:ldSim}
 		% Might want to remove this section as we no longer use this correction
-		Another important consideration in our algorithm is the bias in \gls{LD}.
-		In reality, one does not have the population \gls{LD} matrix, instead we have to estimate the \gls{LD} based on various reference panels such as those from the 1000 genome project \citep{Project2012} or the HapMap project \citep{Altshuler2010}.
-		These reference panels were a subsamples from the whole population and therefore \gls{LD} estimated from the reference panels usually contains sampling bias.
-		Under normal circumstances, because the symmetric nature of sampling error, one would expect there to be little to no bias in the estimated \gls{LD}.
-		However, in our algorithm, the $R^2$ is required for the estimation of heritability (\cref{eq:fullShrek}).
-		Because we were using the squared \gls{LD}, the sampling error will also be squared, generating a positive bias. 
+		An important consideration in our algorithm is the sampling error in \gls{LD}.
+		In reality, the population \gls{LD} matrix is not available.
+		Therefore , the \gls{LD} matrix must be estimated from various reference panels such as the 1000 genome project \citep{Project2012} or the HapMap project \citep{Altshuler2010}.
+		Given these reference panels are subsets of the whole population, this results in sampling errors in the estimated sample \gls{LD}.
+		The sample \gls{LD} can then be represented as:
+		$$
+		\hat{R} = R+\epsilon
+		$$
+		where $R$ is the population \gls{LD} and $\epsilon$ is the sampling error which is unbiased.
+		However, in \cref{eq:fullShrek}, squared \gls{LD} are required.
+		The expected value of the \gls{LD} squared ($R^2$) is then calculated as
+		\begin{align}
+		\mathrm{\hat{R^2}} &= \mathrm{E}[(R+\epsilon)^2] \notag\\
+		&=\mathrm{E}(R^2+2R\epsilon+\epsilon^2) \notag\\
+		&=\mathrm{E}(R^2)+\mathrm{E}(\epsilon^2)
+		\end{align}
+		A positive bias is observed in the sample $R^2$.
 		
-		On average, there were around 500 samples for each super population from the 1000 genome project reference panel.
-		Given the relatively small sample size, the sampling bias might be large, therefore lead to systematic bias in the heritability estimation in our algorithm.
-		
-		To correct for the bias, we would like to apply a \gls{LD} correction algorithm to correct for the bias in the sample \gls{LD}.
-		Different authors \citep{Weir1980,Wang2007} have proposed methods for the correction of sample $R^2$ and can be applied for the correction of sample bias in \gls{LD}.
-		Therefore we considered the following $R^2$ correction algorithms:
+		\citet{Weir1980,Wang2007} proposed methods for the correction of sample $R^2$:
 		\begin{align}
 		\text{Ezekiel}: \tilde{R^2}&= 1-\frac{n-1}{n-2}(1-\hat{R^2})\label{eq:ezekiel} \\
 		\text{Olkin-Pratt}: \tilde{R^2}&=1-\frac{(n-3)(1-\hat{R^2})}{n-2}(1+\frac{2(1-\hat{R^2})}{n})\label{eq:okin} \\
@@ -501,16 +510,15 @@
 		\text{Smith}: \tilde{R^2}&=1-\frac{n}{n-1}(1-\hat{R^2}) \label{eq:smith}\\
 		\text{Weir}: \tilde{R^2}&=\hat{R^2}-\frac{1}{2n} \label{eq:weir}
 		\end{align}
-		where $n$ is the number of samples used to calculate the $R^2$, $\hat{R^2}$ is the sample $R^2$ and $\tilde{R^2}$ is the corrected $R^2$.
+		where $n$ is the number of samples used to calculate the $R^2$ and $\tilde{R^2}$ is the corrected $R^2$.
 		
-		In order to assess the performance of each individual correction methods, we perform simulations to compare the performance of our algorithm using different \gls{LD} bias correction algorithms.
-		Most importantly, we would like to assess the performance of different algorithms not only under one specific \gls{LD} range, but also under the complex \gls{LD} structure observed in real life scenarios.
-		First, 5,000 \glspl{SNP} with \gls{maf} $\ge0.1$ were randomly selected from chromosome 22 from the 1000 genome \gls{CEU} haplotypes and were used as an input to HAPGEN2 \citep{Su2011} to simulate 1,000 individuals.
+		In order to assess the performance of each individual correction methods, simulations were performed.
+		Firstly, 5,000 \glspl{SNP} with \gls{maf} $\ge0.1$ were randomly selected from chromosome 22 from the 1000 genome \gls{CEU} haplotypes and were used as an input to HAPGEN2 \citep{Su2011} to simulate 1,000 individuals.
 		HAPGEN2 is a simulation tools which simulates new haplotypes as an imperfect mosaic of haplotpyes from a reference panel and the haplotypes that have already been simulated using the \textit{Li and Stephens} (LS) model of \gls{LD} \citep{Li2003}.
-		This allow us to simulate genotypes with \gls{LD} structures comparable to those observed in \gls{CEU} population. 
+		This allows for the simulation of genotypes with \gls{LD} structures comparable to those observed in \gls{CEU} population. 
 		Of those 5,000 \glspl{SNP}, 100 of them were randomly selected as the causal variant. 
-		\citet{Orr1998} suggested that the exponential distribution can be used to approximate the genetic architecture of adaptation. 
-		As a result of that, we used the exponential distribution with $\lambda=1$ as an approximation to the effect size distribution:
+		\citet{Orr1998} suggested that the exponential distribution could be used to approximate the genetic architecture of adaptation. 
+		As a result, effect sizes were simulated with an exponential distribution with $\lambda=1$:
 		\begin{align}
 		\theta&=\mathrm{exp}(\lambda=1)\notag\\
 		\beta&=\pm\sqrt{\frac{\theta \times h^2}{\sum \theta}}
@@ -519,7 +527,7 @@
 		with a random direction of effect.
 		The simulated effects were then randomly distributed to each causal \glspl{SNP}.
 			
-		Using the normalized genotype matrix of the causal \glspl{SNP} of all individuals ($\boldsymbol{X}$) and the vector of effect size ($\boldsymbol{\beta}$), we can simulate a phenotype with target heritability of $h^2$ as
+		Using the normalized genotype matrix of the causal \glspl{SNP} of all individuals ($\boldsymbol{X}$) and the vector of effect sizes ($\boldsymbol{\beta}$), the phenotype were simulated with heritability of $h^2$ using
 		\begin{align}
 		\epsilon_i&\sim N(0,\mathrm{Var}(\boldsymbol{X\beta})\frac{1-h^2}{h^2} )\notag\\
 		\boldsymbol{\epsilon} &= (\epsilon_1,\epsilon_2,...,\epsilon_n)^t\notag\\
@@ -527,94 +535,84 @@
 		\label{eq:simulationOfPhenotype}
 		\end{align}
 		
-		To simulate the whole spectrum of heritability, we varies the target $h^2$ from 0 to 0.9 with increment of 0.1.
+		To simulate the whole spectrum of heritability, the $h^2$ were varied from 0 to 0.9 with increment of 0.1.
 		
-		The summary statistics of association between the genotype and phenotype were then calculated using PLINK \citep{Purcell2007}.
-		Resulting summary statistic were then input to our algorithm to estimate the heritability, using different \gls{LD} correction algorithms.
-		An independent 500 samples, a size roughly correspond to the average sample size of each super population form the 1,000 genome project,  were simulated as a reference panel for the calculation of \gls{LD} matrix.
-		This is because in reality, one usually does not have assess to the sample genotype and has to rely on an independent reference panel for the calculation of \gls{LD} matrix. 
-		Thus this simulation procedure should provide a realistic representation of how the algorithm will be commonly used in real life scenario.
+		The association between the genotype and phenotype were then calculated using PLINK \citep{Purcell2007}.
+		Heritability estimation were then performed based on the resulting summary statistics using different \gls{LD} correction algorithms.
+		An independent 500 samples, which corresponds to the average sample size of each super population form the 1,000 genome project, were simulated as a reference panel for the calculation of \gls{LD} matrix.
+		This is because in reality, the raw sample genotypes were unavailable and has to rely on an independent reference panel for the calculation of \gls{LD} matrix. 
+		Thus, this simulation procedure should provide a realistic representation of the common usage of the algorithm.
 		
-		The whole process were repeated 50 times such that a distribution of the estimate can be obtained. 
-		In summary, we simulate a large population of samples (e.g. $50\times1,000+500 = 50,500$) where 500 samples were randomly selected as a reference panel. 
-		In the subsequent iteration of simulation, 1,000 samples were randomly selected from the population \textit{without replacement} and estimation were performed.
+		The whole process were repeated 50 times such that a distribution of the estimates can be obtained. 
+		In summary, the following simulation procedure was performed:
 		\begin{enumerate}
 			\item Randomly select 5,000 \glspl{SNP} with \gls{maf}$>0.1$ from chromosome 22
-			\item Simulate 500 samples using HAPGEN2 and used as a reference panel
-			\item Randomly generate 100 effect size with following \cref{eq:randomEffect}
-			\item Randomly assign the effect size to 100 \glspl{SNP} with heritability from 0 to 0.9 (increment of 0.1)
+			\item Simulate 500 samples using HAPGEN2 and used as the reference panel
+			\item Randomly generate 100 effect sizes with \cref{eq:randomEffect}
+			\item Randomly assign the effect sizes to 100 \glspl{SNP} with heritability from 0 to 0.9 (increment of 0.1)
 			\item Simulate 1,000 samples using HAPGEN2 and calculate their phenotype according to \cref{eq:simulationOfPhenotype} 
-			\item Perform heritability estimation using our algorithm with different ways of \gls{LD} correction
+			\item Perform heritability estimation using our algorithm with different \gls{LD} correction algorithm
 			\item Repeat step 5-6 50 times
 		\end{enumerate}
 		
 		\subsection{Comparison with Other Algorithms}
-		After identifying the optimal \gls{LD} correction algorithm, we would like to compare our algorithm to existing methods for the performance in estimating the \gls{SNP}-heritability.
-		It is important for us to consider most if not all conditions in our simulation. 
-		Therefore, we would like to simulate quantitative traits and case control studies with different number of causal \glspl{SNP}; quantitative traits with extreme effect sizes; and last but not least, quantitative traits with extreme phenotype sampling.
+		After identifying the optimal \gls{LD} correction algorithm, it is important to compare the performance of our algorithm to the existing methods.
+		Therefore, simulations were performed where quantitative and binary traits were simulated with different genetic architectures. 
+		The effect of different sampling strategies, such as random sampling and extreme phenotype selection, on the heritability estimation were also investigated.
 		
-		Currently, the only other algorithm that is capable to estimate the \gls{SNP}-heritability using only summary statistic from \gls{GWAS} is the \gls{ldsc} \citep{Bulik-Sullivan2015} whereas \gls{gcta} \citep{Yang2011} is the most commonly used programme for the estimation of \gls{SNP}-heritability from \gls{GWAS} data. 
-		Therefore, we choose to compare the performance of our algorithm to that of \gls{ldsc} and \gls{gcta}.
-		It is important to note that we did not simulate any confounding factors.
-		However, for \gls{ldsc}, the default intercept estimation function allows it to estimate and correct for confounding factors with an increase in \gls{se}. 
-		The simulation will therefore be unfair to \gls{ldsc} with intercept estimation, as the \gls{se} is increased yet there are little confounding factors for it to correct.
-		Thus, we also compared results from \gls{ldsc} with a fixed intercept (-{}-no-intercept) parameters to avoid bias against \gls{ldsc}.	
+		Currently, the only other algorithm that is capable to estimate the \gls{SNP}-heritability using summary statistics from \gls{GWAS} is the \gls{ldsc} \citep{Bulik-Sullivan2015}.
+		Whereas \gls{gcta} \citep{Yang2011} is the most commonly used programme for the estimation of \gls{SNP}-heritability from \gls{GWAS} data when the raw genotypes are available. 
+		Therefore, the performance of our algorithm was compared to \gls{ldsc} and \gls{gcta}.
+		As no confounding factors were simulated, the intercept estimation function in \gls{ldsc} will be penalized with a larger \gls{se}. 
+		Thus, performance of \gls{ldsc} with fixed intercept (-{}-no-intercept) were also inspected to avoid bias against \gls{ldsc}.
 		
 		\subsubsection{Sample Size}
-			One important consideration in our simulation was the sample size of the simulated \gls{GWAS} study. 
-			The sample size is the most important parameter in determining the standard error of the estimate. 
-			As sample size increases, study will be more representative of the true population. 
-			The increased number of information also means a better estimation of parameters, therefore a smaller \acrfull{se}.
+			The sample size is the most important parameter in determining the \gls{se} of the estimates. 
+			As sample size increases, the samples will be more representative of the true population and will provide a more accurate estimation of the parameters, therefore results in a smaller \gls{se}.
 			% awk -F "\t" '{print $2"\t"$9}' full | uniq | sed -e 's/[^0-9[:space:]]//g' | awk '{for(i=2;i<=NF;++i)j+=$i; print $1" "j; j=0}' | sort | uniq  %script for text mining
-			Based on the information from \gls{GWAS} catalog \citep{Welter2014}, we calculate the sample size distribution using simple text mining and exclude studies with conflicting sample size information in multiple entries. 
-			The average sample size for all \gls{GWAS} recorded on the \gls{GWAS} catalog was 7,874, with a median count of 2,506 and a lower quartile at 940 (\cref{fig:gwasCata}). 
-			We argue that if the algorithm works for studies with a small sample size (e.g lower quartile sample size), then it should perform even better when the sample size is larger. 
-			Thus, we only simulate 1,000 samples in our simulation, which roughly represent the lower quartile sample size range.
+			Using simple text mining, the sample size distribution of \gls{GWAS} was obtained from the \gls{GWAS} catalog \citep{Welter2014}.
+			The average sample size was 7,874, with a median count of 2,506 and a lower quartile at 940. 
+			We argued that if the algorithms performed well with a small sample size (e.g. 1,000 samples), their performance should improve as sample size increases.
+			Thus, to reduce the computation time required for the simulation, only 1,000 samples were simulated in each simulations unless otherwise stated.
 				
-			\begin{wrapfigure}{R}{8cm}
-				\centering
-				\includegraphics[width=0.5\textwidth]{figure/gwasSampleSize.png}
-				\caption[GWAS Sample Size distribution]{
-					\gls{GWAS} sample size distribution.
-				}
-				\label{fig:gwasCata}
-			\end{wrapfigure}
-			
+%			\begin{wrapfigure}{R}{8cm}
+%				\centering
+%				\includegraphics[width=0.5\textwidth]{figure/gwasSampleSize.png}
+%				\caption[GWAS Sample Size distribution]{
+%					\gls{GWAS} sample size distribution.
+%				}
+%				\label{fig:gwasCata}
+%			\end{wrapfigure}
+%			
 		\subsubsection{Number of SNPs in Simulation}
-			Another consideration in the simulation was the number of \glspl{SNP} included.
-			In a typical \gls{GWAS} study, there are usually a larger number of \glspl{SNP} when compared to the sample size. 
-			For example, in the \gls{pgc} \glng{scz} \gls{GWAS}, more than 9 million \glspl{SNP} were included, with around 700,000 \glspl{SNP} on chromosome 1.
-			In reality, the estimation of \gls{SNP} heritability based on 700,000 \glspl{SNP} can be done quickly.
-			However, in our simulation, we will repeat the calculation $50(\text{iteration})\times10(\text{number of heritability})=500$ times for \emph{each} condition tested. 
-			The time required to finish all the simulation becomes infeasible given the large amount of \glspl{SNP}.
-			To compromise, we simulate a total of 50,000 \glspl{SNP} from chromosome 1 as a balance between run time of simulation and the total \glspl{SNP} simulated.
-			With 50,000 \glspl{SNP}, there are roughly 200 \glspl{SNP} within a 1 \gls{mb} region.
+			Although the \gls{SNP} heritability can be estimated in a short amount of time, the total time required to complete the whole simulation quickly become infeasible as the number of iterations and conditions increases.
+			As a result, to reduce the simulation time, only 50,000 \glspl{SNP} from chromosome 1 were used for simulation, which correspond to 200 \glspl{SNP} within a 1 \gls{mb} region.
 			
 		\subsubsection{Genetic Architecture}
-			Of all simulation parameter, the genetic architecture was the most complicated and important parameter. 
 			The \gls{LD} pattern, the number of causal \glspl{SNP}, the effect size of the causal \glspl{SNP} and the heritability of the trait are all important factors contributing to the genetic architecture of a trait. 
 		
-			First and foremost, because the aim of the algorithm is to estimating the heritability of the trait, it is important that the algorithm works for traits from different heritability spectrum.
-			We therefore simulated traits with heritability ranging from 0 to 0.9, with increment of 0.1.
+			First and foremost, in order to investigate the performance of the \gls{SNP} heritability estimation algorithms, traits with different heritability have to be considered.
+			Therefore, traits with heritability ranging from 0 to 0.9 with increment of 0.1 were simulated. 
 		
-			Secondly, in real life scenario, the ``causal'' variant might not be readily included on the \gls{GWAS} chip and are only ``tagged'' by \glspl{SNP} included on the \gls{GWAS} chip.
-			However, to simplify our simulation, all ``causal'' variants were included in our simulation (e.g. perfectly ``tagged'').
-		
-			Thirdly, to obtain a realistic \gls{LD} pattern, we simulate the genotypes using the HAPGEN2 programme \citep{Su2011}, giving the 1000 genome \gls{CEU} haplotypes as an input.
-			In a typical \gls{GWAS} , one usually only have power in detecting ``common variants'', defined as variants with \gls{maf} $\ge 0.05$.
-			We therefore only consider scenario with ``common'' variants and only use \glspl{SNP} with \gls{maf} $\ge0.05$ in the \gls{CEU} haplotypes as an input to HAPGEN2 to simulate 1,000 samples.
+%			Secondly, in real life scenario, the ``causal'' variant might not be readily included on the \gls{GWAS} chip and are only ``tagged'' by \glspl{SNP} included on the \gls{GWAS} chip.
+%			However, to simplify our simulation, all ``causal'' variants were included in our simulation (e.g. perfectly ``tagged'').
+
+			Secondly, to obtain a realistic \gls{LD} pattern, genotypes were simulated using the HAPGEN2 programme \citep{Su2011}, using the 1000 genome \gls{CEU} haplotypes as an input.
+			As \gls{GWAS} usually lack power in detecting rare variants (e.g. \gls{maf} $<$ 0.05), \glspl{SNP} with \gls{maf} $<0.05$ were excluded.
 			
-			Finally, we would like to simulate traits with different inheritance model such as oligogenic traits and polygenic traits.
-			We therefore varied the number of causal \glspl{SNP} ($k$) with $k\in\{5, 10, 50, 100, 500\}$.
-			The effect size were then simulated using \cref{eq:randomEffect} and the phenotype were simulated using \cref{eq:simulationOfPhenotype}.
+			Thirdly, to investigate the performance of the algorithms with a different number of causal \glspl{SNP} ($k$), the number of causal \glspl{SNP} were varied with $k\in\{5, 10, 50, 100, 500\}$.
+			The effect sizes were then simulated using \cref{eq:randomEffect} and the phenotype were simulated using \cref{eq:simulationOfPhenotype}.
 			
-			For \gls{gcta}, the sample genotypes were provided to calculate the genetic relationship matrix and the sample phenotypes were used in combination with the genetic relationship matrix to estimate the heritability.
+			For \gls{gcta}, the sample genotypes were provided to calculate the genetic relationship matrix. 
+			Sample phenotypes were also provided for \gls{gcta} to estimate the \gls{SNP} heritability.
 			
-			On the other hand, for \gls{ldsc} and our algorithm, an independent 500 samples were simulated as the reference panel for the calculation of \gls{LD} scores and \gls{LD} matrix, mimicking real life scenario where an independent reference panel were used. 
-			The genotype association test statistics calculated from PLINK and the \gls{LD} score / \gls{LD} matrix were then used for the estimation of \gls{SNP} heritability for \gls{ldsc} and our algorithm respectively. 
+			On the other hand, for \gls{ldsc} and our algorithm, an independent 500 samples were simulated as the reference panel for the calculation of \gls{LD} scores and \gls{LD} matrix. 
+			The association between the genotype and phenotype were calculated using PLINK \citep{Purcell2007}.
+			The summary statistics and the reference panel were then provided for \gls{ldsc} and our algorithm to estimate the \gls{SNP} heritability.
+			This simulation procedure should provide a realistic representation of the common usage of the algorithms.
 			
-			The whole process were be repeated 50 times such that a distribution of the estimate can be obtained.
-			10 independent population were simulated and the whole processed were repeated.
+			For each population, the whole process were repeated 50 times such that a distribution of the estimate can be obtained. 
+			In total, 10 independent populations were simulated.
 			In summary, the simulation follows the following procedures:
 			\begin{enumerate}
 				\item Randomly select 50,000 \glspl{SNP} with \gls{maf}$>0.05$ from chromosome 1
@@ -628,23 +626,23 @@
 			\end{enumerate}
 		
 		\subsubsection{Extreme Effect Size}
-		On top of the original quantitative trait simulation, another condition we were interested in was the performance of the algorithms when there is a small amount of \glspl{SNP} with a much larger effect size.
-		This can be observed in disease such as Hirschsprung's disease.
-		The Hirschsprung's disease is a congenital disorder where deleterious mutations on \textit{RET} account for $\approx50\%$ of the familial cases yet there is still missing heritability, suggesting that there might be more variants with small effects that have not been identified \citep{Gui2013}.
+		It is possible for a trait to have \glspl{SNP} that account for a larger portion of the heritability.
+		For example, the deleterious mutations on \textit{RET} account for $\approx50\%$ of the familial cases of the Hirschsprung's disease yet some of the heritability was still missing.
+		\citet{Gui2013} therefore suggested that there might be more variants with small effects that have not been identified.
 		
-		To simulate extreme effect size, we considered scenarios where $m$ \glspl{SNP} accounts 50\% of all the effect size with $m\in\{1,5,10\}$.
-		The effect size was then calculated as
+		To simulate extreme effect size, 100 causal \glspl{SNP} were simulated where $m$ of those account for 50\% of all the effect sizes with $m\in\{1,5,10\}$.
+		The effect sizes were then calculated as
 		\begin{align}
 		\beta_{eL} &= \pm\sqrt{\frac{0.5h^2}{m}} \notag\\
 		\beta_{eS} &= \pm\sqrt{\frac{0.5h^2}{100-m}} \notag\\
 		\beta &= \{\beta_{eL}, \beta_{eS}\}
 		\label{eq:extremEffect}
 		\end{align}
-		The effect size were then randomly assigned to 100 causal \glspl{SNP} and phenotype will be calculated as in \cref{eq:simulationOfPhenotype}.
-		The simulation procedure then becomes
+		The effect sizes were then randomly assigned to 100 causal \glspl{SNP} and phenotype were calculated using \cref{eq:simulationOfPhenotype}.
+		The following simulation procedure were then performed:
 		\begin{enumerate}
 			\item Randomly select 50,000 \glspl{SNP} with \gls{maf} $>0.05$ from chromosome 1
-			\item Simulate 500 samples using HAPGEN2 and used as a reference panel
+			\item Simulate 500 samples using HAPGEN2 and used as the reference panel
 			\item Randomly generate 100 effect size where $m$ has extreme effect, following \cref{eq:extremEffect}, with $m\in\{1,5,10\}$
 			\item Randomly assign the effect size to 100 \glspl{SNP}
 			\item Simulate 1,000 samples using HAPGEN2 and calculate their phenotype according to \cref{eq:simulationOfPhenotype}
@@ -654,11 +652,10 @@
 		\end{enumerate}
 		
 		\subsubsection{Case Control Studies}
-		The simulation of case control studies was similar to the simulation of quantitative trait. 
+		%TODO need to rewrite here
 		However, there were two additional parameters to consider: the population prevalence and the observed prevalence.
-		These parameters were required to simulate the samples under a liability model for case control studies.
-
-		Although there were only two additional parameter, it is significantly more challenging for to simulate when compared to the simulation of quantitative traits.
+		To acquire sufficient samples for the simulation under the liability model
+		Although there were only two additional parameter, it is significantly more challenging to simulate a binary trait.
 		It is mainly because of the number of samples required to simulate under the liability threshold model.
 		Take for example, if one would like to simulate a trait with population prevalence of $p$ and observed prevalence of $q$ and would like to have $n$ cases in total, one will have to simulate $\min(\frac{n}{p}, \frac{n}{q})$ samples.
 		Considering the scenario where the observed prevalence is $50\%$, the population prevalence is $1\%$, if we want to simulate 1,000 cases, a minimum of 100,000 samples will be required.
@@ -690,30 +687,33 @@
 		
 		\subsubsection{Extreme Phenotype Sampling}
 		With a limited budget, it is usually difficult to obtain adequate sample size for a \gls{GWAS}, leading to studies with insufficient power.
-		A possible approach was to perform the extreme phenotype sampling that only select samples with phenotypes on the extreme end of the distribution.
-		The extreme phenotype sampling may allow one to obtain the same degree of power using a smaller sample size.
-		It is therefore interesting to see how the selection of extreme phenotype will affect the performance of the \gls{SNP} heritability estimation.
+		One possible approach is to perform the extreme phenotype sampling that only select samples with phenotypes on the extreme end of the distribution.
+		By performing extreme phenotype sampling, a smaller sample size is required to achieve the same detection power \citep{Sham2014}, therefore reducing the cost of the study.
+		The extreme phenotype sampling can lead to inflation in the summary statistics \citep{Guey2011} and might therefore affect the heritability estimation of \gls{ldsc} and our algorithm.
 		
-		Herein, we performed simulations on extreme phenotype sampling.
-		50,000 \glspl{SNP} with \gls{maf} $>0.05$ were selected from chromosome 1 and were used as an input for HAPGEN2 similar to that in the quantitative trait simulation.
-		500 samples were first simulated to serves as the reference panel. 
+		Herein, simulation was performed to investigate the effect of extreme phenotype sampling on the performance of the algorithms.
+		50,000 \glspl{SNP} with \gls{maf} $>0.05$ were selected from chromosome 1 and were used as an input for HAPGEN2.
+		Again, 500 samples were first simulated to serve as the reference panel for \gls{ldsc} and our algorithm.
 		
-		From the 50,000 \glspl{SNP} we randomly select 100 as the causal \glspl{SNP} and their effect was simulated based on \cref{eq:randomEffect}.
-		We then simulated $\frac{1000}{K\times2}$ samples where $K$ is the portion of extreme samples selected (e.g. 0.1 or 0.2).
-		Phenotype of the individuals were then simulated using \cref{eq:simulationOfPhenotype} and were standardized.
-		500 samples were selected at both end of the phenotype distribution (500 top and 500 bottom, total of 1,000) and were used for the statistical analysis. 
-		To compare the performance of extreme phenotype sampling and the general random sampling strategies, we also drawn 1,000 samples from the $\frac{1000}{K\times2}$ samples at random and perform statistic analysis on them.
-		At the end, we compared the heritability estimated from samples using the two different strategies and the whole procedure was repeated 50 times. 
+		From the 50,000 \glspl{SNP}, 100 \glspl{SNP} were randomly selected as the causal \glspl{SNP} and their effect sizes were simulated using \cref{eq:randomEffect}.
+		$\frac{1000}{K\times2}$ samples were then simulated where $K$ is the portion of samples selected from the most extreme end of the distribution (e.g. 0.1 or 0.2).
+		Phenotype of the individuals were then simulated using \cref{eq:simulationOfPhenotype} and were standardized. %TODO unresolved, K need better explaination
+		500 samples were selected at both end of the phenotype distribution.
+		To compare the effect of extreme phenotype sampling and random sampling strategies on the performance of the algorithms, 1,000 samples were randomly drawn from the $\frac{1000}{K\times2}$ samples.
+		Sample genotypes and phenotypes were provided to \gls{gcta} for the estimation of the \gls{SNP} heritability, whereas for \gls{ldsc} and our algorithm, the summery statistic generated calculated by PLINK \citep{Purcell2003} and the reference panel were provided.
 		
 		It was noted that the extreme phenotype sampling were not supported by the \gls{ldsc} and \gls{gcta}.
-		To allow comparison in such scenario, we applied the extreme phenotype adjustment from \citet{Sham2014} to the estimates obtained from \gls{ldsc} and \gls{gcta}.
+		To allow for a fair comparison, extreme phenotype adjustment from \citet{Sham2014} were applied to the estimates from \gls{ldsc} and \gls{gcta}.
+		Finally, the heritability estimated based on different sampling strategies were compared.
+		For each population, the whole process were repeated 50 times. 
+		In total, 10 independent populations were simulated. 
 		In summary, the following simulation procedures were used:
 		\begin{enumerate}
 			\item Randomly select 50,000 \glspl{SNP} with \gls{maf}$>0.05$ from chromosome 1
-			\item Simulate 500 samples using HAPGEN2 and used as a reference panel
+			\item Simulate 500 samples using HAPGEN2 and used as the reference panel
 			\item Randomly generate 100 effect size following \cref{eq:randomEffect}, with heritability ranging from 0 to 0.9 (increment of 0.1)
-			\item Randomly assign the effect size to 100 \glspl{SNP}
-			\item Simulate $\frac{1,000}{K\times2}$ samples using HAPGEN2 where $K$ is the portion of extreme samples selected and $K\in\{0.1,0.2\}$
+			\item Randomly assign the effect sizes to 100 \glspl{SNP}
+			\item Simulate $\frac{1,000}{K\times2}$ samples using HAPGEN2 where $K$ is the portion of samples selected from the extreme end of the distribution with $K\in\{0.1,0.2\}$
 			\item Phenotype of the samples were calculated according to \cref{eq:simulationOfPhenotype} and were standardized
 			\item Top 500 and bottom 500 samples (ranked by phenotype) were selected, representing the extreme phenotype sample selection strategy
 			\item 1,000 samples were also randomly selected to represent the general random sampling strategy
@@ -751,31 +751,32 @@
 	
 	\subsection{Application to Real Data}
 	\label{sec:realData}
-	To test the performance of our algorithm under real life scenario, we applied our algorithm to the \gls{pgc} data, including Bipolar \citep{PsychiatricGWASConsortiumBipolarDisorderWorkingGroup2011}, Major depression disorder \citep{Ripke2013b}, and \glng{scz} \citep{Ripke2014}.
-	We also performed \gls{ldsc} alongside our algorithm to compare the results from the two algorithm.
-	Unfortunately, as the sample genotypes were not provided, we cannot perform \gls{gcta} analysis.
-	For the bipolar and major depression data, we performed liftover \citep{Hinrichs2006} to convert the genomic coordinates to genome version hg19 such that it is compatible with the data from 1000 genome.
+	To demonstrate our algorithm also works outside of simulated data, we also estimated the heritability of \glng{scz} and other psychiatric disorders using the \gls{pgc} datasets \citep{Ripke2014,PsychiatricGWASConsortiumBipolarDisorderWorkingGroup2011,Ripke2013b}.
+	\gls{ldsc} were also used alongside our algorithm to serves as a baseline comparison.
 	
-	The reference genome were downloaded from 1000 genome \citep{Project2012} and were converted to plink binaries using plink -{}-vcf function. 
-	We used the European super population as the reference panel which contains a total of 503 samples.
-	Singleton and non-biallelic \glspl{SNP} were filtered out from the reference panel.
-	To filter related samples, genotypes were first pruned before the \gls{ibd} were calculated.
-	Sample pairs with pi hat larger than 0.125 were considered related, which roughly correspond to third degree relativeness. 
-	Samples were removed on a stepwise fashion where samples related to most samples were removed first, until none of the samples were related. 
-	In total, 57 samples were removed, leaving us with 446 reference samples. 
-	For \gls{ldsc}, we calculated the \gls{LD} score based on the 446 samples using a 1\gls{mb} window size and filtered out \glspl{SNP} with \gls{maf} $<0.1$.
-	To allow for the adjustment of confounding factors, we performed the intercept estimation with \gls{ldsc}.
+	The reference genome were downloaded from 1000 genome (hg19) \citep{Project2012} and were converted to PLINK binaries using the PLINK -{}-vcf function. 
+	The European super population was extracted which contains a total of 503 samples.
+	Singleton and multi-allelic \glspl{SNP} were filtered out from the reference panel.	
+	Cryptic relatedness between samples can inflate the \gls{LD} due to increased allele sharing amongst relatives. 
+	It is therefore important to filter out related samples.
+	Genotypes were first pruned, then the \gls{ibd} between samples were calculate using the PLINK option -{}-genome.
+	Sample pairs with relatedness $\ge 0.125$ ($\approx$ third degree relatedness) were removed.
+	In total, 446 samples remained after quality control.
+	The \gls{LD} score was calculated based on the 446 samples using a 1 \gls{mb} window size.
+	\glspl{SNP} with \gls{maf} $<0.1$ were filtered out by default.
 	
-	As only summary statistics were available, there is no way for us to determine the male to female ratio in the samples. 
-	This makes the analysis on the sex chromosome problematic, thus we only performed the \gls{SNP} heritability estimation on the autosomal chromosomes.
+	The summary statistics were obtained from the \gls{pgc} website. 
+	As \glspl{SNP} in the bipolar and major depression data follows the old genomic annotations (hg18), liftover \citep{Hinrichs2006} were performed to convert the genomic coordinates to genome version hg19.
+	Due to difference in composition of the sex chromosome in male and female (e.g. XY in male, XX in female) and the lack of information on the male to female ratio, it is difficult to estimate the \glspl{SNP} heritability on the sex chromosomes.
+	Therefore, the \gls{SNP} heritability were only estimated using the autosomal \glspl{SNP}.
 	
-	All the studies were case control \gls{GWAS}, thus the population prevalence of the trait has to be provided in order to adjust for the attenuation bias. 
-	Therefore we used prevalence of 0.15 for major depression disorder and 0.01 for \glng{scz} and bipolar disorder following \citet{Bulik-Sullivan2015}.
-
-	Unfortunately, the density of the \glspl{SNP} in the \gls{pgc} \glng{scz} samples were too high, making it impossible for algorithm to finish the analysis with the current available computation resources using the default window size, even if we separate the analysis to individual chromosome.
-	To facilitates the analysis, we reduced the distance between each bin to 50,000 bp instead of the original 1\gls{mb} distance. 
-	This might leads to inflation in the estimates and therefore the heritability estimates from our algorithm should only be considered as an upper bound of the true \gls{SNP} heritability.
+	As the datasets contain binary traits, the population prevalence of the trait has to be provided in order for the adjustment of the ascertainment bias. 
+	Based on \citet{Bulik-Sullivan2015} a population prevalence of 0.15 were selected for major depression disorder and 0.01 were selected for \glng{scz} and bipolar disorder.
 	
+	Unfortunately, because of the high \gls{SNP} density of the \gls{pgc} \glng{scz} \gls{GWAS}, the computational resources required to complete the \gls{SNP} heritability estimation exceeds the current available resources.
+	To facilitate the analysis, the distance between each bin was reduced to 50,000 \gls{bp} for our algorithm.
+	This will results in an inflation in the final estimates.
+	Therefore estimates from our algorithm can only serve as an upper bound of the true \gls{SNP} heritability of \glng{scz}.
 	
 	\section{Result}
 		The heritability estimation were implemented in \gls{shrek} and is available on \url{https://github.com/choishingwan/shrek}.  

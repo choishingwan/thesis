@@ -6,8 +6,8 @@
 \glsreset{polyic}
 \glsreset{gd}
 In the previous chapter, we have found that the \gls{SNP} heritability of \glng{scz} was much smaller than expected, accounting for only 20\% of the variance in \glng{scz}.
-This suggest that other factors such as rare variants and epigenetic factors might have contributed to the heritability of \glng{scz}.
-Another possibility will be the gene environmental interaction ($G\times E$).
+Alternative genetic variants such as rare variants and epigenetic factors might contribute to the heritability of \glng{scz}.
+It is also possible for gene-environmental interaction ($G\times E$) to contribute to the heritability of \glng{scz}.
 
 Previous studies have suggested there might be interaction between prenatal infection and genetic variations in the development of \glng{scz} \citep{Tienari2004,Clarke2009}.
 Evidences now suggest that the effect of prenatal infection was mainly mediated by maternal immune response instead of the specific infection \citep{Brown2010} therefore it is likely that the perturbation induced by \gls{mia} are interacting with genetic variations in the development of \glng{scz}.
@@ -170,7 +170,6 @@ Another important goal of our current study is to provide information for furthe
 In order to estimate the power and required samples for the replication studies, we performed the power estimation using Scotty \citep{Busby2013}.
 We provided the count data from our pilot samples to Scotty to estimate the minimal required samples for our replication study if we would like to detect at least 90\% of the genes that are differentially expressed by a 2$\times$ fold change at p$<0.01$ and that at least 80\% of genes has at least 80\% of the maximum power.
 
-%TODO until here
 \section{Results} 
 \subsection{Sample Quality}
 On average, 87 million reads were generated for each sample of which more than 90\% of the read bases has quality score $>30$.
@@ -181,7 +180,7 @@ To obtained the expression count, we used the featureCounts (version 1.5.0) \cit
 
 Next, we were interested in whether if there are any contamination of samples or series confounding effect of bath or lane.
 We therefore performed an unsupervised clustering on the sample count data.
-It was observed that none of the samples were clustered by lane or batch, suggesting that there were no serious batch or lane effect presented in our samples.
+It was observed that none of the samples were clustered by lane or batch, suggesting that there were no serious batch or lane effect presented in our samples (\cref{fig:distMatrix}).
 However, one sample from the n3-\gls{polyic} group was found to be substantially different from all other samples (\cref{fig:distMatrix}).
 It was unclear whether if the difference was due to sample contaminations (from other source) or was due to sample mis-label.
 To avoid problems in down-stream analysis, we excluded this sample from subsequent analyses.
@@ -189,10 +188,11 @@ To avoid problems in down-stream analysis, we excluded this sample from subseque
 	\centering
 	\includegraphics[width=0.7\textwidth]{figure/DistanceMatrix.png}
 	\caption[Sample Clustering]{Sample Clustering results.
-		It was observed that there was no clear clustering for lane or batch effects.
-		However, one sample from the n3-\gls{pufa}-\gls{polyic} group was found to be substantially different from all other samples.
+		Samples were labeled as $<$Diet$>$-$<$Condition$>$-$<$Lane$>$-$<$Batch$>$ where O3 = n-3 \gls{pufa} rich diet; O6 = n-6 \gls{pufa} rich diet; POL =  \gls{polyic}; SAL = Saline.
 		
-		It was unclear whether if the difference was due to sample contaminations or was due to sample mis-label.
+		No clear clustering for lane or batch effects are observed.
+		However, one sample from the n3-\gls{pufa}-\gls{polyic} group is found to be substantially different from all other samples.
+		It is unclear whether if the difference is due to sample contaminations or sample mis-label.
 		To avoid problems in down-stream analysis, we excluded this sample from subsequent analyses }
 	\label{fig:distMatrix}
  \end{figure}
