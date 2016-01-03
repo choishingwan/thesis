@@ -2,22 +2,22 @@
 \label{heritabilityChapter}
 % Need to stress that we are only calculating the narrow sense heritability
 	\section{Introduction}
-	The development of \gls{ldsc} \citep{Bulik-Sullivan2015} has allow researchers to estimate the true contribution of common \glspl{SNP} to the variance in different diseases.	
+	The development of \gls{ldsc} \citep{Bulik-Sullivan2015} has allowed researchers to estimate the true contribution of common \glspl{SNP} to the variance in different diseases.	
 	However, it is unclear how different sampling strategies (e.g. extreme phenotype selection) affects the performance of \gls{ldsc}.
 	Additional simulations might therefore be required to investigate how different samplings affect the performance of \gls{ldsc}.
 	
-	The estimation of heritability in discontinuous trait has always been complicated as correction for ascertainment bias is necessary.
-	Nevertheless, the correction of ascertainment bias are nontrivial and often introduce bias to the estimates. 
-	For example, \citet{Golan2014} observed that \gls{gcta} underestimates the heritability explained by common variants for discontinuous traits.
-	The magnitude of this bias is affected by the population prevalence of the trait, the observed prevalence, the true underlying heritability and the number of genotyped \glspl{SNP} \citep{Golan2014}.
-	Because for discontinuous traits, \citet{Bulik-Sullivan2015} only investigated the performance of \gls{ldsc} for traits with heritability of 0.8 and a population prevalence of either 0.1 or 0.01, more simulates are required investigate whether if \gls{ldsc} suffers from the same bias as \gls{gcta}.
+	The estimation of heritability on binary trait has always been complicated, as ascertainment bias correction is required when transforming the estimate on the binary scale to that on the liability scale.
+	Nevertheless, the correction of ascertainment bias are nontrivial and can introduce bias to the estimates. 
+	For example, \citet{Golan2014} observed that \gls{gcta} underestimates the heritability explained by common variants for case control studies.
+	The magnitude of this bias is affected by a number of factors, including the population prevalence of the trait, the observed prevalence, the true underlying heritability and the number of genotyped \glspl{SNP} \citep{Golan2014}.
+	As for case control samples, \citet{Bulik-Sullivan2015} only investigated the performance of \gls{ldsc} for traits with heritability of 0.8 and a population prevalence of either 0.1 or 0.01, more simulates are required in order to investigate whether if \gls{ldsc} suffers from the same bias as \gls{gcta}.
 	
-	Finally, as noted by \citet{Bulik-Sullivan2015}, when there were few causal variants, the standard errors of the \gls{ldsc} estimates will become very large, meaning that \gls{ldsc} is best suited to polygenic traits.
-	An alternative algorithm is therefore required for the estimation of \gls{SNP} heritability for oligogenic traits.
+	Finally, as noted by \citet{Bulik-Sullivan2015}, when the number of causal variants is low, the standard error of the \gls{ldsc} estimate become very large, indicating that \gls{ldsc} is best suited to polygenic traits.
+	This led to the need of developing an alternative algorithm that can be applied for various genetic architecture models.
 	
-	Herein, \gls{shrek}, an alternative algorithm to \gls{ldsc} for the estimation of \gls{SNP} heritability based on \gls{GWAS} summary statistics were introduced.
-	To examine the effect of different sampling strategies and genetic architectures on the performance of \gls{ldsc} and \gls{shrek}, we performed a series of extensive simulation analyses.
-	To demonstrate that \gls{shrek} also works outside of simulated data, we also estimated the \gls{SNP} heritability of \glng{scz} and other psychiatric disorders using \gls{shrek}.
+	Herein, \gls{shrek}, an alternative algorithm to \gls{ldsc} for the estimation of \gls{SNP} heritability using \gls{GWAS} summary statistics was introduced.
+	To examine the effect of different sampling strategies and genetic architectures on the performance of \gls{ldsc} and \gls{shrek}, extensive simulation were performed. 
+	Moreover, to demonstrate that \gls{shrek} also works outside of simulated data, we also estimated the \gls{SNP} heritability of \glng{scz} and other psychiatric disorders using \gls{shrek}.
 	
 	The work in this chapter were done in collaboration with my colleagues who have kindly provided their support and knowledges to make this piece of work possible.
 	Dr Johnny Kwan, Dr Miaxin Li and Professor Sham have helped to lay the foundation of this study. 
@@ -27,12 +27,12 @@
 	
 	\section{Methodology}			
 		\subsection{Heritability Estimation}
-			Remember that the heritability ($h^2$)is defined as the proportion of total variance of the phenotype ($\boldsymbol{y}$) in a population explained by the variation of genetic factors ($\boldsymbol{x}$):
+			Given that the heritability ($h^2$) is defined as the proportion of total variance of the phenotype ($\boldsymbol{y}$) in a population explained by the variation of genetic factors ($\boldsymbol{x}$):
 			$$
 				h^2 = \frac{\mathrm{Var}(\boldsymbol{y})}{\mathrm{Var}(\boldsymbol{x})}
 			$$
 			
-			In \gls{GWAS}, regression are performed between the \glspl{SNP} and the phenotypes:
+			In a typical \gls{GWAS}, regression is performed to test for an association between each \gls{SNP} and the phenotype of interest:
 			\begin{equation}
 				\boldsymbol{y}=\boldsymbol{\beta x}+\boldsymbol{\epsilon}
 				\label{eq:standardRegress}
@@ -48,24 +48,25 @@
 			\end{align}
 			As a result, $\beta^2$ represents the portion of phenotype variance explained by the variance of genotype.
 					
-			A challenge in calculating the heritability from \gls{GWAS} data is that usually only the summary statistic or p-value are provided.
-			Without the raw genotypes, it is impossible to calculate $\mathrm{Var}(\boldsymbol{x})$, thus \cref{eq:betaHeri} cannot be used. 
+			A challenge arises when calculating the heritability from \gls{GWAS} which only the summary statistic or p-value are available.
+			When the genotype data is not accessible, estimation of $\mathrm{Var}(\boldsymbol{x})$ becomes infeasible, thus \cref{eq:betaHeri} cannot be used. 
 			
-			In order to estimate the \gls{SNP} heritability using the summary statistics of a \gls{GWAS}, we first need to estimate the relative effect size of each individual \glspl{SNP}. 
+			In order to estimate the \gls{SNP} heritability using \gls{GWAS} summary statistics, the estimation of the relative effect size of each individual \glspl{SNP} is necessary. 
 			It was observed that when $\boldsymbol{x}$ and $\boldsymbol{y}$ are standardized, $\beta^2$ equals to the coefficient of determination ($r^2$). 
 			Thus, based on properties of the Pearson product-moment correlation coefficient:
 			\begin{equation}
 				r = \frac{t}{\sqrt{n-2+t^2}}
 				\label{eq:pearsonProduct}
 			\end{equation}
-			where $t$ follows the student-t distribution under the null and $n$ is the number of samples, one can then obtain the $r^2$ by taking the square of \cref{eq:pearsonProduct}
+			where $t$ follows the student-t distribution under the null and $n$ is the number of samples.
+			The $r^2$ can then be obtained by taking the square of \cref{eq:pearsonProduct}
 			\begin{equation}
 				r^2 = \frac{t^2}{n-2+t^2}
 				\label{eq:oriRSquared}
 			\end{equation}
 			Although $t^2$ follows the F-distribution under the null, it will converge into $\chi^2$ distribution when $n$ is large.
 			
-			Furthermore, when the effect size is small and $n$ is large, $n\times r^2$ will be approximately $\chi^2$ distributed with mean $\sim 1$. 
+			Furthermore, when the effect size is small and $n$ is large, $n\times r^2$ becomes approximately $\chi^2$ distributed with mean $\sim 1$. 
 			We can then approximate \cref{eq:oriRSquared} as
 			\begin{equation}
 				r^2= \frac{\chi^2}{n}
@@ -77,7 +78,7 @@
 			\label{eq:observedEffect}
 			\end{equation}
 			
-			When there are \gls{LD} between each individual \glspl{SNP}, the situation becomes more complicated as each \glspl{SNP}' observed effect will be influenced by other \glspl{SNP} in \gls{LD} with it:
+			However, when there are \gls{LD} between \glspl{SNP}, the situation will become more complicated as the observed effect of each \gls{SNP} is influenced by the neighboring \glspl{SNP} in \gls{LD} with it:
 			\begin{equation}
 			f_{observed} = f_{true}+f_{LD}
 			\label{eq:conceptF}
@@ -95,12 +96,12 @@
 				\boldsymbol{y}=\boldsymbol{\beta}^t\boldsymbol{x}+\epsilon
 				\label{eq:matrixRegress}
 			\end{align}
-			Because the phenotype is standardized with variance of 1, the \gls{SNP} heritability can then be expressed as
+			Since the phenotype is standardized with variance of 1, the \gls{SNP} heritability can then be expressed as
 			\begin{align}
 				Heritability& = \frac{\mathrm{Var}(\boldsymbol{\beta}^t\boldsymbol{x})}{\mathrm{Var}(\boldsymbol{y})} \nonumber\\
 				&=\mathrm{Var}(\boldsymbol{\beta}^t\boldsymbol{x})
 			\end{align}
-			If we then assume that $\boldsymbol{\beta} = (\beta_1, \beta_2,\dots,\beta_m)^t$ has distribution
+			If we then assume that $\boldsymbol{\beta} = (\beta_1, \beta_2,\dots,\beta_m)^t$ follows the distribution:
 			\begin{align*}
 				\boldsymbol{\beta}&\sim f(0,\boldmath{H})\\
 				\boldsymbol{H}&=diag(\boldsymbol{h})\\
@@ -131,7 +132,7 @@
 				\rho_i = \sum_j{R_{ij}\boldsymbol{\beta}_j}
 				\label{eq:corPhenoTrue}
 			\end{equation}
-			In reality, the \emph{observed} correlation contains errors. 
+			In reality, the \emph{observed} correlation is usually errors-prone. 
 			Therefore we define the \emph{observed} correlation between \gls{SNP}$_i$ and the phenotype to be:
 			\begin{equation}
 			\hat{\rho_i} = \rho_i+\frac{\epsilon_i}{\sqrt{n}}
@@ -201,7 +202,7 @@
 			\end{align}
 			Therefore, to obtain the variance of $\hat{Heritability}$, the variance covariance matrix of $\boldsymbol{f}$ is necessary.
 			
-			If we consider the standardized genotype $x_i$ has a standard normal mean $z_i$ and non-centrality parameter $\mu_i$, we have
+			If we consider the standardized genotype $x_i$ to have standard normal mean $z_i$ and non-centrality parameter $\mu_i$, we have
 			\begin{align*}
 				\mathrm{E}[x_i]&=\mathrm{E}[z_i+\mu_i]\\
 				&=0\\
@@ -253,8 +254,8 @@
 			\end{align}
 			where $\boldsymbol{z} = \sqrt{\boldsymbol{\chi^2}}$ from \cref{eq:defineF}, with the direction of effect as its sign.
 			 
-			The problem with \cref{eq:covH} is that it requires the direction of effect. 
-			Without the direction of effect, the estimation of \gls{se} will be inaccurate. 
+			The problem with \cref{eq:covH} is that the direction of effect is required. 
+			Without the direction of effect, the estimation of \gls{se} becomes inaccurate. 
 			As $n\times \boldsymbol{f}+1$ is approximately $\chi^2$ distributed, we might view \cref{eq:shrekEq} as a decomposition of a vector of $\chi^2$ distributions with degree of freedom of 1. 
 			Replacing the vector $\boldsymbol{f}$ with a vector of 1, we will be able to calculate the ``effective number''($e$) of the association \citep{Li2011}. 
 			%The problem of this effective number is that they uses the eigenvalue instead of this multiplication.
@@ -265,58 +266,43 @@
 			\label{eq:effectiveChi}
 			\end{equation}
 			Theoretically, \cref{eq:effectiveChi} should provide a heuristic estimation of the \gls{se} without requiring the direction of effect.
-			This reduces the number of input required from users.
+			This can reduce the number of input required from users.
 			
 		\subsection{Case Control Studies}	
-		%TODO have not figure out the logic behind those equation 
 		%Discuss on the liability threshold model. Then the apply orange paper. Then explain how to get the results. 
 			The estimation of heritability in case control studies requires the correction of ascertainment bias.
-			Therefore, estimates from \cref{eq:fullShrek} must be adjusted in order to obtain an accurate estimation of \gls{SNP} heritability for case control studies.
-			
-			Based on the derivation of \citet{Yang2010}, the approximate ratio between the summary statistic obtained from case control studies ($\chi^2_{CC}$) and quantitative trait studies($\chi^2_{QT}$) is
-		
+			Therefore, the adjustment of estimates from \cref{eq:fullShrek} is necessary to obtain an accurate estimation of \gls{SNP} heritability.
+			Under the liability threshold model, the disease status is determined by whether a standard normal liability is above the threshold (affected) or below threshold (unaffected).
+			The mean values of disease liability in affected and unaffected individuals are given as $\frac{z}{K}$ and $-\frac{z}{1-K}$, respectively, where $z$ and $K$ are the height of the standard normal curve at the threshold liability and the population risk, respectively.
+			Let $v$ be the proportion of affected individuals in a sample, then the expected mean of liability in the sample is:
+			\begin{align}
+			\mathrm{E}(L)&=v\frac{z}{K}+(1-v)(-\frac{z}{1-K}) \notag\\
+			&=\frac{z(v-K)}{K(1-K)}
+			\end{align}
+			and the square of mean liability is:
 			\begin{equation}
-			\frac{\chi^2_{CC}}{\chi^2_{QT}} = \frac{i^2v(1-v)}{(1-K)^2}
-			\label{eq:originNCPTransform}
+			\mathrm{E}(L^2)=\frac{z^2(K^2-2vK-v)}{K^2(1-K)^2}
 			\end{equation}
-			where
-			\begin{align*}
-			 K &= \text{Population Prevalence} \\
-			 v &= \text{Proportion of Cases}\\
-			 i &= \frac{z}{K}\\
-			 z &= \text{height of standard normal curve at truncation pretained to K}
-			\end{align*}
+			Then we get
+			\begin{align}
+			\mathrm{Var}(L)&=\mathrm{E}(L^2)-(\mathrm{E}(L))^2 \notag\\
+			&= \frac{z^2(v(1-v))}{K^2(1-K)^2}
+			\end{align}
 			
-			Therefore we can transform the summary statistic from a case control study 
-			Using this approximation, we can directly transform the summary statistic between the case control studies and quantitative trait studies.
-			As we are not interested in transforming the \gls{ncp} between two different studies, the sample size of the case control study ($N_{CC}$) and sample size of the quantitative trait study ($N_{QT}$) will be the same in \cref{eq:originNCPTransform}, therefore \cref{eq:originNCPTransform} becomes
+			Therefore, in case-control sample, the summary statistic is attenuated from the standard scenario by a factor of $\mathrm{Var}(L)$.
+			To correct for this bias, the following can be performed
 			\begin{equation}
-			NCP_{QT} = \frac{NCP_{CC}(1-K)^2}{i^2v(1-v)}
-			\label{eq:transform}
-			\end{equation}
-			
-			By combining \cref{eq:transform} and \cref{eq:defineF}, we can then have
-			\begin{equation}
-			f = \frac{(\chi^2_{CC}-1)}{n}\frac{(1-K)^2}{i^2v(1-v)}
-			\label{eq:ccConvert}
-			\end{equation}
-			where $\chi^2_{CC}$ is the test statistic from the case control association test.
-			As \cref{eq:ccConvert} is only \cref{eq:defineF} multiply with the constant $\frac{(1-K)^2}{i^2v(1-v)}$, the heritability estimation of case control studies can be simplified to 
-			\begin{equation}
-			\hat{Heritability} =\frac{(1-K)^2}{i^2v(1-v)} \boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}
+			\hat{Heritability} =\frac{K^2(1-K)^2}{z^2v(1-v)} \boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\boldsymbol{f}
 			\label{eq:caseControlHerit}
 			\end{equation}
 			
 		\subsection{Extreme Phenotype Sampling}
 			%Explain why we perform extreme phenotype selections. Explain how that affect the variance of the estimation. Finally, explain how to perform heritability estimation on extreme phenotype. 
-			\gls{GWAS} provides unprecedented power to perform hypothesis free association throughout the whole genome.
-			However, with a limited budgets, studies often struggle to obtain sufficient sample size.
-			To increase the detection power of the study, sampling strategies such as extreme phenotype selection can be applied.
-			By performing extreme phenotype sampling, the frequency distortion between samples from the two extreme end of phenotype will be inflated, thus increases the statistical power \citep{Guey2011}.
-			So for example, by including only the samples from the top 5\% and bottom 5\% of the phenotype distribution, the power of the detection is the same as a study with random sampling design that has 4 times the sample size \citep{Sham2014}. 
-			This allows studies to be conducted using a smaller sample size with the same degree of power, therefore reducing the cost.
+			\gls{GWAS} provides unprecedented power to perform hypothesis-free genetic association throughout the whole genome.
+			However, due to budget constraint selecting individuals with extreme phenotypes for \gls{GWAS} is often one way to maximize the genetic signal by enriching the protective/risk common allele at both ends of the distribution, thus increases the statistical power \citep{Guey2011}.
+			For example, by including only the samples from the top 5\% and bottom 5\% of the phenotype distribution, the power of the detection is the same as a study with random sampling design that has 4 times the sample size \citep{Sham2014}. 
 			
-			The extreme selection design increases the summary statistic by a factor of $\frac{V_{P'}}{V_P}$ where $V_{P'}$ is the trait variance of the selected sample and $V_P$ is the trait variance of the general population \citep{Sham2014}.
+			The extreme phenotype selection design increases the summary statistics by a factor of $\frac{V_{P'}}{V_P}$ where $V_{P'}$ is the trait variance of the selected sample and $V_P$ is the trait variance of the general population \citep{Sham2014}.
 			Thus, to adjust for the inflation, $\frac{V_P}{V_{P'}}$ is multiplied to \cref{eq:defineF}
 			
 			\begin{equation}
@@ -400,17 +386,17 @@
 			Any singular value $\sigma_i$ less than the threshold will be replaced by 0 during the inversion.
 			
 			By selecting an appropriate $t$, \gls{tSVD} can effectively regularize the ill-conditioned matrix and help to find a reasonable approximation to $\boldsymbol{x}$. 
-			A problem with \gls{tSVD} however is that it only work when matrix $\boldsymbol{A}$ has a well determined numeric rank \citep{Hansen1987}.
-			That is, \gls{tSVD} work best when there is a large gap between $\sigma_k$ and $\sigma_{k+1}$.
-			If a matrix has ill-conditioned rank, then $\sigma_k-\sigma_{k+1}$ will be small.
-			For any threshold $t$, a small error can change whether if $\sigma_{k+1}$ and subsequent singular values should be truncated, leading to unstable results. 
+			A problem with \gls{tSVD} however is that it only works when matrix $\boldsymbol{A}$ has a well determined numeric rank \citep{Hansen1987}.
+			That is, the performance of \gls{tSVD} is optimal when there is a large gap between $\sigma_k$ and $\sigma_{k+1}$.
+			On the other hand, if a matrix has ill-conditioned rank, then $\sigma_k-\sigma_{k+1}$ will be small.
+			Small numerical error might change the threshold, thus leads to unstable results.
 			 
 			The easiest way to test if the matrix $\boldsymbol{A}$ has well-defined rank by calculating the ``gap'' in the singular values:
 			\begin{equation}
 			gap = \sigma_k/\sigma_{k+1}
 			\label{eq:gapSingular}
 			\end{equation}
-			a large gap indicates that the matrix has a well-defined rank.
+			a large value (e.g ``gap'') usually indicates that the matrix has a well-defined rank.
 			%\begin{wrapfigure}{L}{3in}
 			\begin{figure}
 				\caption[Cumulative Distribution of ``gap'' of the LD matrix]{Cumulative Distribution of ``gap'' of the LD matrix, the vertical line indicate the full rank. It can be observed that there is a huge increase in ``gap'' before full rank is achieved. 
@@ -422,8 +408,7 @@
 			\end{figure}
 			%\end{wrapfigure}
 			
-			
-			Simulation was carried out to investigate whether if \gls{LD} matrix has a well defined rank.
+			Hence, simulation was carried out to investigate whether if \gls{LD} matrix has a well-defined rank.
 			1,000 samples were randomly simulated from the HapMap \citep{Altshuler2010} \gls{CEU} population with 1,000 \glspl{SNP} randomly select from chromosome 22 using HAPGEN2 \citep{Su2011}.
 			HAPGEN2 allow for the simulation of samples with \gls{LD} structure similar to that observed in the reference panel.
 			The \gls{LD} matrix and its corresponding singular values were computed. 
@@ -512,11 +497,11 @@
 		\end{align}
 		where $n$ is the number of samples used to calculate the $R^2$ and $\tilde{R^2}$ is the corrected $R^2$.
 		
-		In order to assess the performance of each individual correction methods, simulations were performed.
+		Again, simulations were performed to assess the performance of each individual correction methods.
 		Firstly, 5,000 \glspl{SNP} with \gls{maf} $\ge0.1$ were randomly selected from chromosome 22 from the 1000 genome \gls{CEU} haplotypes and were used as an input to HAPGEN2 \citep{Su2011} to simulate 1,000 individuals.
 		HAPGEN2 is a simulation tools which simulates new haplotypes as an imperfect mosaic of haplotpyes from a reference panel and the haplotypes that have already been simulated using the \textit{Li and Stephens} (LS) model of \gls{LD} \citep{Li2003}.
 		This allows for the simulation of genotypes with \gls{LD} structures comparable to those observed in \gls{CEU} population. 
-		Of those 5,000 \glspl{SNP}, 100 of them were randomly selected as the causal variant. 
+		Of those 5,000 \glspl{SNP}, 100 of them were randomly selected as the causal variants. 
 		\citet{Orr1998} suggested that the exponential distribution could be used to approximate the genetic architecture of adaptation. 
 		As a result, effect sizes were simulated with an exponential distribution with $\lambda=1$:
 		\begin{align}
@@ -543,7 +528,7 @@
 		This is because in reality, the raw sample genotypes were unavailable and has to rely on an independent reference panel for the calculation of \gls{LD} matrix. 
 		Thus, this simulation procedure should provide a realistic representation of the common usage of the algorithm.
 		
-		The whole process were repeated 50 times such that a distribution of the estimates can be obtained. 
+		The whole process was repeated 50 times such that a distribution of the estimates can be obtained. 
 		In summary, the following simulation procedure was performed:
 		\begin{enumerate}
 			\item Randomly select 5,000 \glspl{SNP} with \gls{maf}$>0.1$ from chromosome 22
@@ -556,11 +541,11 @@
 		\end{enumerate}
 		
 		\subsection{Comparison with Other Algorithms}
-		After identifying the optimal \gls{LD} correction algorithm, it is important to compare the performance of our algorithm to the existing methods.
-		Therefore, simulations were performed where quantitative and binary traits were simulated with different genetic architectures. 
-		The effect of different sampling strategies, such as random sampling and extreme phenotype selection, on the heritability estimation were also investigated.
+		After identifying the optimal \gls{LD} correction algorithm, it is important to compare the performance of our algorithm to the other existing methods.
+		Therefore, simulations were performed where quantitative and binary traits were simulated under different genetic architectures. 
+		The effect of sampling strategies, such as random sampling and extreme phenotype selection, on the heritability estimation were also investigated.
 		
-		Currently, the only other algorithm that is capable to estimate the \gls{SNP}-heritability using summary statistics from \gls{GWAS} is the \gls{ldsc} \citep{Bulik-Sullivan2015}.
+		Currently, the only other algorithm that utilizes the \gls{GWAS} summary statistics to \gls{SNP}-heritability is the \gls{ldsc} \citep{Bulik-Sullivan2015}.
 		Whereas \gls{gcta} \citep{Yang2011} is the most commonly used programme for the estimation of \gls{SNP}-heritability from \gls{GWAS} data when the raw genotypes are available. 
 		Therefore, the performance of our algorithm was compared to \gls{ldsc} and \gls{gcta}.
 		As no confounding factors were simulated, the intercept estimation function in \gls{ldsc} will be penalized with a larger \gls{se}. 
@@ -568,7 +553,7 @@
 		
 		\subsubsection{Sample Size}
 			The sample size is the most important parameter in determining the \gls{se} of the estimates. 
-			As sample size increases, the samples will be more representative of the true population and will provide a more accurate estimation of the parameters, therefore results in a smaller \gls{se}.
+			As sample size increases, the samples will be more representative of the true population and will provide a more accurate estimation of the parameters, therefore resulting in a smaller \gls{se}.
 			% awk -F "\t" '{print $2"\t"$9}' full | uniq | sed -e 's/[^0-9[:space:]]//g' | awk '{for(i=2;i<=NF;++i)j+=$i; print $1" "j; j=0}' | sort | uniq  %script for text mining
 			Using simple text mining, the sample size distribution of \gls{GWAS} was obtained from the \gls{GWAS} catalog \citep{Welter2014}.
 			The average sample size was 7,874, with a median count of 2,506 and a lower quartile at 940. 
@@ -585,11 +570,10 @@
 %			\end{wrapfigure}
 %			
 		\subsubsection{Number of SNPs in Simulation}
-			Although the \gls{SNP} heritability can be estimated in a short amount of time, the total time required to complete the whole simulation quickly become infeasible as the number of iterations and conditions increases.
-			As a result, to reduce the simulation time, only 50,000 \glspl{SNP} from chromosome 1 were used for simulation, which correspond to 200 \glspl{SNP} within a 1 \gls{mb} region.
+			To reduce the computational cost for simulation, only 50,000 \glspl{SNP} from chromosome 1 were used for simulation, which correspond to 200 \glspl{SNP} within a 1 \gls{mb} region.
 			
 		\subsubsection{Genetic Architecture}
-			The \gls{LD} pattern, the number of causal \glspl{SNP}, the effect size of the causal \glspl{SNP} and the heritability of the trait are all important factors contributing to the genetic architecture of a trait. 
+			The number of causal \glspl{SNP}, the effect size of the causal \glspl{SNP} and the heritability of the trait are all important factors contributing to the genetic architecture of a trait. 
 		
 			First and foremost, in order to investigate the performance of the \gls{SNP} heritability estimation algorithms, traits with different heritability have to be considered.
 			Therefore, traits with heritability ranging from 0 to 0.9 with increment of 0.1 were simulated. 
@@ -611,7 +595,7 @@
 			The summary statistics and the reference panel were then provided for \gls{ldsc} and our algorithm to estimate the \gls{SNP} heritability.
 			This simulation procedure should provide a realistic representation of the common usage of the algorithms.
 			
-			For each population, the whole process were repeated 50 times such that a distribution of the estimate can be obtained. 
+			For each population, the whole process was repeated 50 times such that a distribution of the estimate can be obtained. 
 			In total, 10 independent populations were simulated.
 			In summary, the simulation follows the following procedures:
 			\begin{enumerate}
@@ -626,6 +610,7 @@
 			\end{enumerate}
 		
 		\subsubsection{Extreme Effect Size}
+		\label{sec:extremeEffectSim}
 		It is possible for a trait to have \glspl{SNP} that account for a larger portion of the heritability.
 		For example, the deleterious mutations on \textit{RET} account for $\approx50\%$ of the familial cases of the Hirschsprung's disease yet some of the heritability was still missing.
 		\citet{Gui2013} therefore suggested that there might be more variants with small effects that have not been identified.
@@ -638,7 +623,7 @@
 		\beta &= \{\beta_{eL}, \beta_{eS}\}
 		\label{eq:extremEffect}
 		\end{align}
-		The effect sizes were then randomly assigned to 100 causal \glspl{SNP} and phenotype were calculated using \cref{eq:simulationOfPhenotype}.
+		The effect sizes were then randomly assigned to 100 causal \glspl{SNP} and phenotypes were calculated using \cref{eq:simulationOfPhenotype}.
 		The following simulation procedure were then performed:
 		\begin{enumerate}
 			\item Randomly select 50,000 \glspl{SNP} with \gls{maf} $>0.05$ from chromosome 1
@@ -652,27 +637,25 @@
 		\end{enumerate}
 		
 		\subsubsection{Case Control Studies}
-		%TODO need to rewrite here
-		However, there were two additional parameters to consider: the population prevalence and the observed prevalence.
-		To acquire sufficient samples for the simulation under the liability model
-		Although there were only two additional parameter, it is significantly more challenging to simulate a binary trait.
-		It is mainly because of the number of samples required to simulate under the liability threshold model.
-		Take for example, if one would like to simulate a trait with population prevalence of $p$ and observed prevalence of $q$ and would like to have $n$ cases in total, one will have to simulate $\min(\frac{n}{p}, \frac{n}{q})$ samples.
-		Considering the scenario where the observed prevalence is $50\%$, the population prevalence is $1\%$, if we want to simulate 1,000 cases, a minimum of 100,000 samples will be required.
+		In the simulation of case control samples, two additional parameters, the population prevalence ($p$) and observer prevalence ($q$), have to be taken into consideration. 
+		The liability threshold model were used to model the samples.
+		In order to simulate a trait with population prevalence of $p$ and observed prevalence of $q$ with $n$ cases, $\min(\frac{n}{p}, \frac{n}{q})$ samples were required to be simulated. 
+		For example, if the observed prevalence is $50\%$ with the population prevalence of $1\%$, a minimum of 100,000 needs to be simulated in order to obtain 1,000 cases.
 		
-		Given limited computer resources, it will be infeasible for us to simulate 1,000 cases with 50,000 \glspl{SNP} when the population prevalence is small (e.g. 1\%).
-		To simplify the simulation and reduce the burden of computation, we limited the observed prevalence to 50\% and varies the population prevalence $p$ such that $p\in\{0.5, 0.1, 0.05, 0.01\}$.
-		Most importantly, we reduce the number of \glspl{SNP} simulated to 5,000 on chromosome 22 instead of 50,000 \glspl{SNP} on chromosome 1. 
-		The change from chromosome 1 to chromosome 22 allow us to reduce the number of \glspl{SNP} without significantly changing the \gls{SNP} density. 
-		We acknowledge that the current simulation was relatively brief, however, it should serves as a proof of concept simulation to study the performance of the algorithms under the case control scenario.
+		Therefore when the population prevalence is small, a tremendous amount of computational resources are required in order to perform the simulation.
+		To reduce the burden of computation, the observed prevalence was limited to 50\% and only 5,000 \glspl{SNP} were simulated from chromosome 22.
+		By changing from chromosome 1 to chromosome 22, the number of \glspl{SNP} simulated can be reduced without significantly reducing the \gls{SNP} density.
 		
-		In the case control simulation, we randomly selected 5,000 \glspl{SNP} from chromosome 22 with \gls{maf} $\ge0.05$ in the \gls{CEU} haplotypes as an input to HAPGEN2. 
-		We then randomly selected $k$ \glspl{SNP} where $k\in\{10,50,100,500\}$, each with effect size simulated based on \cref{eq:randomEffect}.
-		In order to simulate a case control samples with 1,000 cases, we then simulated $\frac{1,000}{p}$ samples and calculate their phenotype using \cref{eq:simulationOfPhenotype}.
-		The phenotype was then standardized and cases were defined as sample with phenotype passing the liability threshold with respect to $p$.
-		An equal amount of samples were then randomly selected from samples with phenotype lower than the liability threshold and defined as controls.
+		To investigate the effect of population prevalence and the heritability of the traits to the performance of the algorithms, different population prevalence ($p$) were simulated with $p\in\{0.5, 0.1, 0.05, 0.01\}$.
+		The heritability of the trait were also varied from 0 to 0.9 with increment of 0.1.
+
+		In brief, 5,000 \glspl{SNP} with \gls{maf} $>0.05$ were randomly selected from chromosome 22 as an input to HAPGEN2. 
+		$k$ causal \glspl{SNP} with $k\in\{10,50,100,500\}$ were randomly selected, each with effect sizes simulated based on \cref{eq:randomEffect}.
+		$\frac{1,000}{p}$ samples were then simulated and their phenotype were calculated using \cref{eq:simulationOfPhenotype}.
+		The phenotypes were then standardized and cases were defined as sample with phenotype passing the liability threshold with respect to $p$.
+		An equal amount of controls were then randomly selected from samples with phenotype below the liability threshold.
 			
-		Finally, the case control simulation were performed as:
+		In summary, the case control simulation follows:
 		\begin{enumerate}
 			\item Randomly select 5,000 \glspl{SNP} with \gls{maf}$>0.05$ from chromosome 22
 			\item Simulate 500 samples using HAPGEN2 and used as a reference panel
@@ -686,23 +669,17 @@
 		\end{enumerate}
 		
 		\subsubsection{Extreme Phenotype Sampling}
-		With a limited budget, it is usually difficult to obtain adequate sample size for a \gls{GWAS}, leading to studies with insufficient power.
-		One possible approach is to perform the extreme phenotype sampling that only select samples with phenotypes on the extreme end of the distribution.
-		By performing extreme phenotype sampling, a smaller sample size is required to achieve the same detection power \citep{Sham2014}, therefore reducing the cost of the study.
-		The extreme phenotype sampling can lead to inflation in the summary statistics \citep{Guey2011} and might therefore affect the heritability estimation of \gls{ldsc} and our algorithm.
-		
-		Herein, simulation was performed to investigate the effect of extreme phenotype sampling on the performance of the algorithms.
+		Simulation was performed to investigate the effect of extreme phenotype sampling on the performance of the algorithms.
 		50,000 \glspl{SNP} with \gls{maf} $>0.05$ were selected from chromosome 1 and were used as an input for HAPGEN2.
 		Again, 500 samples were first simulated to serve as the reference panel for \gls{ldsc} and our algorithm.
 		
 		From the 50,000 \glspl{SNP}, 100 \glspl{SNP} were randomly selected as the causal \glspl{SNP} and their effect sizes were simulated using \cref{eq:randomEffect}.
-		$\frac{1000}{K\times2}$ samples were then simulated where $K$ is the portion of samples selected from the most extreme end of the distribution (e.g. 0.1 or 0.2).
-		Phenotype of the individuals were then simulated using \cref{eq:simulationOfPhenotype} and were standardized. %TODO unresolved, K need better explaination
-		500 samples were selected at both end of the phenotype distribution.
-		To compare the effect of extreme phenotype sampling and random sampling strategies on the performance of the algorithms, 1,000 samples were randomly drawn from the $\frac{1000}{K\times2}$ samples.
-		Sample genotypes and phenotypes were provided to \gls{gcta} for the estimation of the \gls{SNP} heritability, whereas for \gls{ldsc} and our algorithm, the summery statistic generated calculated by PLINK \citep{Purcell2003} and the reference panel were provided.
+		Two settings are considered: sampling 10\% high and 10\% low extreme phenotypes ($K=0.1$); sampling 20\% high and 20\% low extreme phenotypes ($K=0.2$).
+		A total of $\frac{500}{K}$ samples were simulated where the sample phenotypes were calculated using \cref{eq:simulationOfPhenotype}.
+		Phenotypes were then standardized and 500 samples from each extreme ends of the phenotype distribution such that a total of 1,000 samples were obtained. 
+		To compare the effect of extreme phenotype sampling and random sampling strategies on the performance of the algorithms, 1,000 samples were randomly drawn from all samples.
 		
-		It was noted that the extreme phenotype sampling were not supported by the \gls{ldsc} and \gls{gcta}.
+		As the extreme phenotype sampling were not natively supported by the \gls{ldsc} and \gls{gcta}.
 		To allow for a fair comparison, extreme phenotype adjustment from \citet{Sham2014} were applied to the estimates from \gls{ldsc} and \gls{gcta}.
 		Finally, the heritability estimated based on different sampling strategies were compared.
 		For each population, the whole process were repeated 50 times. 
@@ -713,7 +690,7 @@
 			\item Simulate 500 samples using HAPGEN2 and used as the reference panel
 			\item Randomly generate 100 effect size following \cref{eq:randomEffect}, with heritability ranging from 0 to 0.9 (increment of 0.1)
 			\item Randomly assign the effect sizes to 100 \glspl{SNP}
-			\item Simulate $\frac{1,000}{K\times2}$ samples using HAPGEN2 where $K$ is the portion of samples selected from the extreme end of the distribution with $K\in\{0.1,0.2\}$
+			\item Simulate $\frac{500}{K}$ samples using HAPGEN2 where $K$ is the portion of samples selected from the extreme end of the distribution with $K\in\{0.1,0.2\}$
 			\item Phenotype of the samples were calculated according to \cref{eq:simulationOfPhenotype} and were standardized
 			\item Top 500 and bottom 500 samples (ranked by phenotype) were selected, representing the extreme phenotype sample selection strategy
 			\item 1,000 samples were also randomly selected to represent the general random sampling strategy
@@ -752,7 +729,7 @@
 	\subsection{Application to Real Data}
 	\label{sec:realData}
 	To demonstrate our algorithm also works outside of simulated data, we also estimated the heritability of \glng{scz} and other psychiatric disorders using the \gls{pgc} datasets \citep{Ripke2014,PsychiatricGWASConsortiumBipolarDisorderWorkingGroup2011,Ripke2013b}.
-	\gls{ldsc} were also used alongside our algorithm to serves as a baseline comparison.
+	\gls{ldsc} were used alongside our algorithm to serves as a baseline comparison.
 	
 	The reference genome were downloaded from 1000 genome (hg19) \citep{Project2012} and were converted to PLINK binaries using the PLINK -{}-vcf function. 
 	The European super population was extracted which contains a total of 503 samples.
@@ -764,11 +741,15 @@
 	In total, 446 samples remained after quality control.
 	The \gls{LD} score was calculated based on the 446 samples using a 1 \gls{mb} window size.
 	\glspl{SNP} with \gls{maf} $<0.1$ were filtered out by default.
+	\gls{ldsc} analysis were then performed with and without the intercept estimation (-{}-no-intercept) to serve as a baseline comparison.
 	
 	The summary statistics were obtained from the \gls{pgc} website. 
 	As \glspl{SNP} in the bipolar and major depression data follows the old genomic annotations (hg18), liftover \citep{Hinrichs2006} were performed to convert the genomic coordinates to genome version hg19.
 	Due to difference in composition of the sex chromosome in male and female (e.g. XY in male, XX in female) and the lack of information on the male to female ratio, it is difficult to estimate the \glspl{SNP} heritability on the sex chromosomes.
+	Special care are required for the estimation of \gls{SNP} heritability on the sex chromosome and this function has not been implemented in either \gls{shrek} or \gls{ldsc}.
 	Therefore, the \gls{SNP} heritability were only estimated using the autosomal \glspl{SNP}.
+	Furthermore, the \gls{mhc} region (chr6:25,000,000-35,000,000) was removed from the analysis due to its unusual \gls{LD} and genetic architecture \citep{Bulik-Sullivan2015}.
+	
 	
 	As the datasets contain binary traits, the population prevalence of the trait has to be provided in order for the adjustment of the ascertainment bias. 
 	Based on \citet{Bulik-Sullivan2015} a population prevalence of 0.15 were selected for major depression disorder and 0.01 were selected for \glng{scz} and bipolar disorder.
@@ -776,17 +757,11 @@
 	Unfortunately, because of the high \gls{SNP} density of the \gls{pgc} \glng{scz} \gls{GWAS}, the computational resources required to complete the \gls{SNP} heritability estimation exceeds the current available resources.
 	To facilitate the analysis, the distance between each bin was reduced to 50,000 \gls{bp} for our algorithm.
 	This will results in an inflation in the final estimates.
-	Therefore estimates from our algorithm can only serve as an upper bound of the true \gls{SNP} heritability of \glng{scz}.
+	Therefore estimates from our algorithm can only serve as an upper bound of the true \gls{SNP} heritability.
 	
-	\section{Result}
+	\section{Results}
 		The heritability estimation were implemented in \gls{shrek} and is available on \url{https://github.com/choishingwan/shrek}.  
 		\subsection{LD Correction}
-		First, we would like to assess the effect of \gls{LD} correction on the heritability estimation and the impact of different bias correction algorithms. 
-		By performing the simulation using HAPGEN2, we were able to simulate samples with \gls{LD} structure comparable to the \gls{LD} of the 1000 genome \gls{CEU} samples.
-		
-		Different bias correction algorithms were applied and their performance was compared (\cref{fig:meanLDCor}).
-		From the graph, it was observed that when no bias correction was applied, the mean estimation were in general downwardly biased.
-		This was consistent with our expectation of a general upward bias in sample $R^2$ which will downwardly penalize the resulting heritability estimation.
 		\begin{figure}
 			\centering
 			\subfloat[Mean Estimation]{
@@ -799,39 +774,122 @@
 			}
 			\caption[Effect of LD correction to Heritability Estimation]
 			{Effect of LD correction to Heritability Estimation.
-				We compared the performance of our algorithm when different $R^2$ bias correction algorithm was used.
+				We compared the performance of \gls{shrek} when different $R^2$ bias correction algorithm was used.
 				When no bias correction was carried out, a downward bias was observed. 
 				After the application of the bias correction algorithms, the mean estimations of all except in the case of Weir \cref{eq:weir} algorithms leads to an overestimation of heritability.
-				On the other hand, the corrections all lead to increase in variance of the estimation.
 			} 
 			\label{fig:ldCorCom}
 		\end{figure}
-		On the other hand, the bias correction algorithms all worked as expected where they increases the mean estimation of heritability because removal of the upward bias in the sample $R^2$ should increase the heritability estimation.
-		However for most algorithms except for Weir's formula (\cref{eq:weir}) an over adjustment were observed, leading to a general upward bias in the estimation.
-		Taking into account of the variance of estimation (\cref{fig:varLDCor}), Weir's formula was the most suitable for \gls{shrek} where not only it reduces the bias in the final heritability estimation, it introduced the smallest amount of additional variance to the estimates.
-		As a result of that, we selected the Weir's formula as our default \gls{LD} correction algorithm.
+		As \gls{shrek} relies on the \gls{LD} structure to estimate the \gls{SNP} heritability, it is important to correct for bias in the \gls{LD} estimates. 
+		The performance of the correct algorithms were tested through the HAPGEN2 simulation (\cref{fig:meanLDCor}).
+		It is observed that when no bias correction was applied, the mean estimates biased downward, as expected.
+		
+		On the other hand, all the correction methods, with the exception of the formula proposed by \citet{Weir1980} (\cref{eq:weir}), result in upwardly biased estimates.
+		This suggests that most of the bias correction algorithms have ``over-adjusted'' the sampling error, therefore leads to an inflation in the estimates.
+		Based on the simulation results, it is concluded that the formula proposed by \citet{Weir1980} works best and are therefore selected as the default \gls{LD} correction algorithm for \gls{shrek}.
 		
 		\subsection{Comparing with Other Algorithms}
-		Having selected the optimal \gls{LD} correction algorithm, we then compared the performance of \gls{shrek} with existing algorithms to understand the relative performance of these algorithms under different conditions.
-		First, we examined the performance of the algorithms under the quantitative trait scenario where the trait heritability and the number of causal \glspl{SNP} were varied.
+		After the selection of \gls{LD} correction algorithm, it is important to compare the performance of \gls{shrek} with the existing algorithms.
+		Another aim of the current study is to investigate how different sampling strategies and genetic architectures influence the performance of \gls{ldsc}.
+		Therefore a series of extensive simulation analyses were performed. 
 		
 		\subsubsection{Quantitative Trait Simulation}
-		\input{he_qt_rand.tex} 
-		In the simulation of quantitative trait scenario, the effect size were randomly drawn from the exponential distribution with $\lambda=1$ and traits with different number of causal \glspl{SNP} and different heritability were simulated.
-		The main aim of this simulation was to assess the effect of number of causal \glspl{SNP} and trait heritability on the power of estimation of different algorithms.
+			%Mean
+			\begin{figure}
+				\centering
+				\subfloat[SHREK]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/random/shrek_Qt_Rand_mean.png}}
+					\label{fig:shrekQtRandMean}
+				}
+				\subfloat[GCTA]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/random/gcta_Qt_Rand_mean.png}}
+					\label{fig:gctaQtRandMean}
+				}\\
+				\subfloat[LDSC with fix intercept]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/random/ldsc_Qt_Rand_mean.png}}
+					\label{fig:ldscQtRandMean}
+				}
+				\subfloat[LDSC with intercept estimation]{
+					
+					\scalebox{.4}{\includegraphics{figure/he_summary/random/ldscIn_Qt_Rand_mean.png}}
+					\label{fig:ldscInQtRandMean}
+				}
+				\caption[Mean of Quantitative Trait Simulation Results]
+				{Mean of results from quantitative trait simulation with random effect size simulation.
+					Estimations form \gls{shrek} were slightly biased upwards whereas \gls{gcta} and \gls{ldsc} with intercept estimations both biased downwards.
+					On the other hand, \gls{ldsc} with fixed intercept provides least biased estimates under polygenic conditions. 
+					However, when the number of causal \glspl{SNP} is small (e.g. 5 or 10), an upward bias was observed.} 
+				\label{fig:QtRandMean}
+			\end{figure}
+			%Variance
+			\begin{figure}
+				\centering
+				\subfloat[SHREK]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/random/shrek_Qt_Rand_sd.png}}
+					\label{fig:shrekQtRandVar}
+				}
+				\subfloat[GCTA]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/random/gcta_Qt_Rand_sd.png}}
+					\label{fig:gctaQtRandVar}
+				}\\
+				\subfloat[LDSC with fix intercept]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/random/ldsc_Qt_Rand_sd.png}}
+					\label{fig:ldscQtRandVar}
+				}
+				\subfloat[LDSC with intercept estimation]{
+					
+					\scalebox{.4}{\includegraphics{figure/he_summary/random/ldscIn_Qt_Rand_sd.png}}
+					\label{fig:ldscInQtRandVar}
+				}
+				\caption[Variance of Quantitative Trait Simulation Results]
+				{Variance of results from quantitative trait simulation with random effect size simulation.
+					Under the polygenic conditions, \gls{gcta} has the smallest variance, follow by \gls{ldsc}. 
+					However, it was observed when the number of causal \glspl{SNP} decreases, the variance of the estimation increases for all algorithm, with variance of the \gls{shrek} estimate being the least affected.
+					In fact, under oligogenic conditions, \gls{shrek} has a lower empirical variance when compared to \gls{ldsc}.
+				} 
+				\label{fig:QtRandVar}
+			\end{figure}
+			%Variance estimate
+			\begin{figure}
+				\centering
+				\subfloat[SHREK]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/random/shrek_Qt_Rand_sdCom.png}}
+					\label{fig:shrekQtRandVarCom}
+				}
+				\subfloat[GCTA]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/random/gcta_Qt_Rand_sdCom.png}}
+					\label{fig:gctaQtRandVarCom}
+				}\\
+				\subfloat[LDSC with fix intercept]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/random/ldsc_Qt_Rand_sdCom.png}}
+					\label{fig:ldscQtRandVarCom}
+				}
+				\subfloat[LDSC with intercept estimation]{
+					
+					\scalebox{.4}{\includegraphics{figure/he_summary/random/ldscIn_Qt_Rand_sdCom.png}}
+					\label{fig:ldscInQtRandVarCom}
+				}
+				\caption[Estimation of Variance in Quantitative Trait Simulation]
+				{Estimated variance of results from quantitative trait simulation with random effect size simulation when compared to the empirical variance.
+					\gls{gcta} has the best estimate of its empirical variance under the polygenic conditions whereas \gls{shrek} tends to under-estimate its empirical variance.
+					On the other hand, \gls{ldsc} tends to over-estimate the variance especially when the number of causal \glspl{SNP} is small.
+				} 
+				\label{fig:QtRandVarCom}
+			\end{figure}
+			
+		By varying the number of causal \glspl{SNP} and the heritability of the trait, the performance of \gls{ldsc}, \gls{shrek} and \gls{gcta} in the \gls{SNP} heritability estimation of quantitative traits were investigated.
 		
-		First, the mean heritability estimation were compared to the simulated heritability in order to identify the bias in estimation for each algorithms.
-		From the graph (\cref{fig:QtRandMean}), it was observed that the mean estimations of \gls{shrek} has a small upward bias (\cref{fig:shrekQtRandMean}).
-		However, the bias was insensitive to the change in number of causal \glspl{SNP} suggesting that \gls{shrek} is relatively robust to trait complexity.
-		On the other hand, estimations form \gls{gcta} were moderately biased downward (\cref{fig:gctaQtRandMean}), similar to the estimations from \gls{ldsc} with intercept estimation (\cref{fig:ldscInQtRandMean}), but with a smaller variability.
-		Finally, when the intercept is fixed, \gls{ldsc} has the smallest bias when the trait is polygenic but an upward bias is also observed when the number of causal \glspl{SNP} is small.
+		First, when comparing the mean estimates to the simulated heritability, a small upward bias is observed in the estimates from \gls{shrek} (\cref{fig:shrekQtRandMean}).
+		On the other hand, estimates from \gls{gcta} are moderately biased downward (\cref{fig:gctaQtRandMean}), similar to the estimates from \gls{ldsc} with intercept estimation (\cref{fig:ldscInQtRandMean}), but with a smaller variability.
+		When the intercept was fixed, \gls{ldsc} can accurately estimate the \gls{SNP} heritability.
+		And an upward bias can only be observed when the number of \glspl{SNP} is small.
 		
-		Furthermore, while comparing the empirical variance of the estimates (\cref{fig:QtRandVar}), variance of the estimates from \gls{ldsc} are sensitive to the number of causal \glspl{SNP}.
-		As the number of causal \glspl{SNP} decreases (\cref{fig:ldscQtRandVar,fig:ldscInQtRandVar}), the variance of \gls{ldsc} estimates increases, similar to what was reported by \citet{Bulik-Sullivan2015}.
-		The variance are also higher when intercept estimation was performed. 
-		On the other hand, although the variance of \gls{shrek} is relatively higher when compared to \gls{ldsc} when the intercept was fixed, the variation of its estimates is insensitive to the number of causal \glspl{SNP}.
-		When the number of causal \glspl{SNP} was small, the variance of estimates from \gls{shrek} can even be lower than \gls{ldsc} (\cref{fig:shrekQtRandVar}).
-		Finally, of all the algorithms, the estimates from \gls{gcta} has the lowest variation when compared to other algorithm (\cref{fig:gctaQtRandVar}), except when only 5 causal \glspl{SNP} were simulated where it has a slightly higher variance in comparison to \gls{shrek} when the simulated heritability was high (e.g. $\ge 0.8$).
+		Secondly, the empirical variance of the estimates were also an important indicator of the performance of the algorithms.
+		It is clear that empirical variance of the estimates from \gls{ldsc} are sensitive to the number of  causal \glspl{SNP} (\cref{fig:ldscQtRandVar,fig:ldscInQtRandVar}).
+		When the number of causal \glspl{SNP} decreases, the variance of the estimates increases, as reported by \citet{Bulik-Sullivan2015}.
+		Moreover, consistent with the results from \citet{Bulik-Sullivan2015}, the intercept estimation increases the variance of the estimates from \gls{ldsc}.
+		Similarly, although \gls{gcta} has the lowest variance in its estimates, the variance increases when the number of causal \glspl{SNP} decreases  (\cref{fig:gctaQtRandVar}). 
+		On the other hand, estimates from \gls{shrek} are relatively insensitive to the number of causal \glspl{SNP}.
 		
 	\begin{table}
 		\centering
@@ -855,43 +913,122 @@
 		}
 		\label{tab:mseQtRandom}
 	\end{table}
-		Another important factor to consider was the estimation of the \gls{se}. 
-		Of all the algorithms, \gls{gcta} (\cref{fig:gctaQtRandVarCom}) has the best estimate, follow by \gls{shrek} (\cref{fig:shrekQtRandVarCom}).
-		However, it was noted that a consistent underestimation of variance is observed with \gls{shrek} whereas \gls{gcta} only underestimate the variance when the number of causal \glspl{SNP} is small.
-		On the other hand, when the intercept was fixed (\cref{fig:ldscQtRandVarCom}), \gls{ldsc} cannot accurately estimate its variance and tends to overestimate, especially when the number of causal \glspl{SNP} simulated were small. 
-		When intercept estimations was performed (\cref{fig:ldscInQtRandVarCom}), the estimation of variance is relatively better yet the overestimation are still observed when the number of causal \glspl{SNP} is small. 
+		Finally, it is equally important for the algorithms to be able to estimate the variance of its estimates.
+		It is observed that when the number of causal \glspl{SNP} is large, \gls{gcta} can accurately estimates its variance (\cref{fig:gctaQtRandVarCom}).
+		However, when the number of causal \glspl{SNP} decreases, \gls{gcta} underestimates the variance of its estimates. 
+		On the other hand, \gls{shrek} consistently underestimate the variance of its estimates (\cref{fig:shrekQtRandVarCom}).
+		But when compared to \gls{ldsc}, the magnitude of bias of the variance estimated from \gls{shrek} is much smaller.
+		\gls{ldsc} tends to overestimate its variance (\cref{fig:ldscQtRandVarCom,fig:ldscInQtRandVarCom}), and only when the intercept estimation was performed can \gls{ldsc} has a better estimates of the variance when the number of causal \glspl{SNP} is large. 
 		
-		By taking into consideration of both the bias and variance of the estimates, \gls{gcta} has the best overall performance. 
-		Under the oligogenic condition (e.g. number of causal \glspl{SNP} $\le10$), \gls{shrek} has relatively better performance when compared to \gls{ldsc}.
-		Whereas under the polygenic condition, \gls{ldsc} has better performance. 
-		%An interesting feature of \gls{shrek} is its relatively robustness towards different genetic structure where the change in number of causal \glspl{SNP} has minimum impact to its performance. 
-		%If one is uncertain whether if their trait is polygenic, \gls{shrek} might serves as an alternative to \gls{ldsc}.
-		
-		
-		% Extreme with 100 causal
+		Taking into account of the bias and variance of the estimates, \gls{gcta} has the best overall performance.
+		On the other hand, when the number of causal \glspl{SNP} is small, \gls{shrek} has a better performance when compared to \gls{ldsc}, whereas \gls{ldsc} performs better under polygenic condition.
+		It is also observed that estimates from \gls{shrek} is the least sensitive to changes in the genetic architecture among the algorithms tested (\cref{tab:mseQtRandom}).  
 		
 		\subsubsection{Quantitative Trait Simulation with Extreme Effect Size}
-		\input{he_qt_ex100.tex}
-		For some diseases such as Hirschsprung's disease, a small number of \glspl{SNP} can account for majority of the effect with a large number of \glspl{SNP} with small effect size. 
-		Therefore we were interested to test the performance of \gls{SNP} heritability estimation in such scenario.
-		We performaned the quantitative trait simulation with 100 causal \glspl{SNP} where 1,5 or 10 of those \gls{SNP}(s) has a large effect.
+		%Mean
+		\begin{figure}
+			\centering
+			\subfloat[SHREK]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/extreme_100c/shrek_QtE_Rand_mean.png}}
+				\label{fig:shrekQtEx100cMean}
+			}
+			\subfloat[GCTA]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/extreme_100c/gcta_QtE_Rand_mean.png}}
+				\label{fig:gctaQtEx100cMean}
+			}\\
+			\subfloat[LDSC with fix intercept]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/extreme_100c/ldsc_QtE_Rand_mean.png}}
+				\label{fig:ldscQtEx100cMean}
+			}
+			\subfloat[LDSC with intercept estimation]{
+				
+				\scalebox{.4}{\includegraphics{figure/he_summary/extreme_100c/ldscIn_QtE_Rand_mean.png}}
+				\label{fig:ldscInQtEx100cMean}
+			}
+			\caption[Mean of Extreme Effect Size Simulation Result]
+			{Mean of results from quantitative trait simulation with extreme effect size simulation.
+				It is observed that the mean estimation of heritability of \gls{shrek} is not affected by the number of \gls{SNP}(s) with large effect but with slight upward bias.
+				On the other hand, the mean estimation of \gls{ldsc} and \gls{gcta} seems to fluctuate with respect to the simulated heritability.
+			} 
+			\label{fig:QtEx100cMean}
+		\end{figure}
+		%Empirical Variance
+		\begin{figure}
+			\centering
+			\subfloat[SHREK]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/extreme_100c/shrek_QtE_Rand_sd.png}}
+				\label{fig:shrekQtEx100cVar}
+			}
+			\subfloat[GCTA]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/extreme_100c/gcta_QtE_Rand_sd.png}}
+				\label{fig:gctaQtEx100cVar}
+			}\\
+			\subfloat[LDSC with fix intercept]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/extreme_100c/ldsc_QtE_Rand_sd.png}}
+				\label{fig:ldscQtEx100cVar}
+			}
+			\subfloat[LDSC with intercept estimation]{
+				
+				\scalebox{.4}{\includegraphics{figure/he_summary/extreme_100c/ldscIn_QtE_Rand_sd.png}}
+				\label{fig:ldscInQtEx100cVar}
+			}
+			\caption[Variance of Extreme Effect Size Simulation Result]
+			{Variance of results from quantitative trait simulation with extreme effect size simulation.
+				100 causal \glspl{SNP} were simulated.
+				When only 1 \gls{SNP} with extreme effect was simulated, the empirical variance of \gls{gcta} and \gls{ldsc} increases and a large fluctuation was observed.
+				Whereas the empirical variance of \gls{shrek} only increases slightly when the simulated heritability is large and with only 1 \gls{SNP} with extreme effect.
+				This suggests that \gls{shrek} is more robust to the change in number of extreme \gls{SNP}(s).
+			} 
+			\label{fig:QtEx100cVar}
+		\end{figure}
+		%Variance estimation
+		\begin{figure}
+			\centering
+			\subfloat[SHREK]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/extreme_100c/shrek_QtE_Rand_sdCom.png}}
+				\label{fig:shrekQtEx100cVarCom}
+			}
+			\subfloat[GCTA]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/extreme_100c/gcta_QtE_Rand_sdCom.png}}
+				\label{fig:gctaQtEx100cVarCom}
+			}\\
+			\subfloat[LDSC with fix intercept]{
+				\scalebox{.4}{\includegraphics{figure/he_summary/extreme_100c/ldsc_QtE_Rand_sdCom.png}}
+				\label{fig:ldscQtEx100cVarCom}
+			}
+			\subfloat[LDSC with intercept estimation]{
+				
+				\scalebox{.4}{\includegraphics{figure/he_summary/extreme_100c/ldscIn_QtE_Rand_sdCom.png}}
+				\label{fig:ldscInQtEx100cVarCom}
+			}
+			\caption[Estimation of Variance in Extreme Effect Size Simulation]
+			{Estimated variance of results from quantitative trait simulation with extreme effect size simulation when compared to the empirical variance.
+				100 causal \glspl{SNP} were simulated.
+				\gls{shrek} and \gls{gcta} generally under-estimate the variance with the magnitude of bias being the highest when there is only 1 \gls{SNP} with extreme effect.
+				On the other hand, \gls{ldsc} tends to over-estimate the variance and it can overestimate the variance by more than 3 folds when there is only 1 \gls{SNP} with extreme effect.
+			} 
+			\label{fig:QtEx100cVarCom}
+		\end{figure}
+
+		It is possible for a polygenic trait to have some portion of causal variants with much larger effect size when compared to other causal variants.
+		In order to investigate how extreme effect size in a small number of causal \glspl{SNP} affect the \gls{SNP} heritability estimation, simulations were performed with trait that has 100 causal \glspl{SNP} where 1,5 or 10 of those \gls{SNP}(s) has a large effect.
 		
-		When assessing the mean estimation of heritability (\cref{fig:QtEx100cMean}), the performance of the algorithms are similar to that in the quantitative trait simulation.
-		The only exception is when 1 \gls{SNP} with large effect was simulated, the mean estimation of \gls{ldsc} and \gls{gcta} fluctuates (\cref{fig:gctaQtEx100cMean,fig:ldscQtEx100cMean,fig:ldscInQtEx100cMean}).
+		The overall performance of the algorithms are similar to the results observed in the quantitative trait simulation (\cref{fig:QtEx100cMean}).
+		However, when 1 of the causal \glspl{SNP} was simulated with large effect, the mean estimates from \gls{ldsc} and \gls{gcta} fluctuate (\cref{fig:gctaQtEx100cMean,fig:ldscQtEx100cMean,fig:ldscInQtEx100cMean}).
 		The same fluctuation is not observed in \gls{shrek} (\cref{fig:shrekQtEx100cMean}). 
-		Similarly, the empirical variance of the estimation (\cref{fig:QtEx100cVar}) from \gls{gcta} and \gls{ldsc} increases and fluctuates when only 1 \gls{SNP} with large effect was simulated.
-		It is most obvious in the case of \gls{ldsc} where the variance increased drastically as the heritability is high (\cref{fig:ldscQtEx100cVar}).
-		However, \gls{shrek} does not seems to be affected and are robust to the number of \glspl{SNP} with large effect. 
+		Similarly, the empirical variance of the estimates (\cref{fig:QtEx100cVar}) from \gls{gcta} and \gls{ldsc} increase and fluctuate when only 1 of the causal \glspl{SNP} was simulated with large effect.
+		Again, the estimates from \gls{shrek} are robust to change in number of \gls{SNP} with large effect size.
 		
-		The estimated variance are also affected by the number of \glspl{SNP} with large effect where the larges discrepancy between the estimated and empirical variance is observed when only 1 \gls{SNP} with large effect was simulated. 
-		It is observed that both \gls{shrek} and \gls{gcta} tends to underestimates their empirical variance whereas \gls{ldsc} tends to overestimates the empirical variance. 
-		The difference between the estimated and empirical variance for \gls{ldsc} with fixed effect can be as much as 3 fold. 
+		When inspecting the variance estimation, it is observed that both \gls{shrek} and \gls{gcta} underestimate their empirical variance. 
+		As the number of \gls{SNP}(s) with large effect size decreases, the magnitude of bias increases.
+		On the other hand, it is observed that \gls{ldsc} tends to overestimate its empirical variance. 
+		When the intercept is fixed, the estimated variance from \gls{ldsc} can be as much as 3 fold larger than the empirical variance when only 1 of the causal \gls{SNP} with large effect size was simulated. 
 		
-		To conclude, the performance of \gls{gcta} is superior to other algorithm(\cref{tab:mseEx100c}).
-		However, if we only consider the algorithms using summary statistic for heritability estimation, the performance of \gls{ldsc} is better than \gls{shrek} when there are more than 1 \gls{SNP} with large effect. 
-		Again, as no confounding factors were simulated, \gls{ldsc} with fixed intercept outperforms \gls{ldsc} with intercept estimation.
-		It is interesting to note that the \gls{mse} of \gls{shrek} was least affected by the number of \gls{SNP}(s) with large effect.
-		   
+		To conclude, \gls{gcta} has the best performance among the algorithms tested (\cref{tab:mseEx100c}).
+		However, for studies which only summary statistics are available, \gls{gcta} analysis cannot be performed. 
+		In such scenario, \gls{shrek} has a better performance when compared to \gls{ldsc} when only 1 of the causal \glspl{SNP} carries a large effect size.
+		Moreover, it is also observed that \gls{shrek} is more robust to change in number of \glspl {SNP} with large effect size. 
+		
 		\begin{table}
 			\centering
 			\begin{tabular}{rrrrr}
@@ -905,42 +1042,123 @@
 			\end{tabular}
 			\caption[MSE of Quantitative Trait Simulation with Extreme Effect Size]{
 				\gls{mse} of quantitative trait simulation with extreme effect size.
-				Of all the algorithms, \gls{gcta} has the lowest \gls{mse} in all situations.
-				When comparing the performance of \gls{shrek} and \gls{ldsc}, \gls{shrek} only has a better performance when there is one \gls{SNP} with large effect. 
-				For other scenarios, \gls{ldsc} with fixed intercept has better performance.
-				However, we can observe that the performance of \gls{shrek} is very consistent and robust to the change in number of \glspl{SNP} with extreme effect size.
+				Of all the algorithms, \gls{gcta} has the lowest \gls{mse}.
+				When comparing the performance of \gls{shrek} and \gls{ldsc}, it is observed that \gls{ldsc} performs better unless only 1 of the causal \gls{SNP} has a large effect size.
+				However, it is also observed that the performance of \gls{shrek} is robust to the change in number of \glspl{SNP} with extreme effect size.
 				}
 			\label{tab:mseEx100c}
 		\end{table}
 		
 		% CC Rand Effect
 		\subsubsection{Case Control Simulation}
-		\input{he_cc_10.tex}
-		Nowadays, most of the \gls{GWAS} are Case Control studies, thus it is important to test the performance of the algorithms when dealing with case control samples. 
-		In the case control simulation, we varied the population prevalence and the trait heritability. 
-		We also varied the number of causal \glspl{SNP} to assess the combine effect of these parameters to the performance of the algorithms.
+			%Mean
+			\begin{figure}
+				\centering
+				\subfloat[SHREK]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/cc_10c/shrek_CC_Rand_mean.png}}
+					\label{fig:shrekCC10RandMean}
+				}
+				\subfloat[GCTA]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/cc_10c/gcta_CC_Rand_mean.png}}
+					\label{fig:gctaCC10RandMean}
+				}\\
+				\subfloat[LDSC with fix intercept]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/cc_10c/ldsc_CC_Rand_mean.png}}
+					\label{fig:ldscCC10RandMean}
+				}
+				\subfloat[LDSC with intercept estimation]{
+					
+					\scalebox{.4}{\includegraphics{figure/he_summary/cc_10c/ldscIn_CC_Rand_mean.png}}
+					\label{fig:ldscInCC10RandMean}
+				}
+				\caption[Mean of Case Control Simulation Results (10 Causal)]
+				{Mean of results from case control simulation with random effect size simulation with 10 causal \glspl{SNP}.
+					The performance of \gls{gcta} was as suggested by \citet{Golan2014} where there was an underestimation as prevalence decreases.
+					On the other hand, the upward bias of both \gls{ldsc} with fixed intercept and \gls{shrek} increases as the prevalence decreases whereas \gls{ldsc} with intercept estimation seems relatively robust to the change in prevalence.
+				} 
+				\label{fig:CC10RandMean}
+			\end{figure}
+			%Empirical Variance
+			\begin{figure}
+				\centering
+				\subfloat[SHREK]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/cc_10c/shrek_CC_Rand_sd.png}}
+					\label{fig:shrekCC10RandVar}
+				}
+				\subfloat[GCTA]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/cc_10c/gcta_CC_Rand_sd.png}}
+					\label{fig:gctaCC10RandVar}
+				}\\
+				\subfloat[LDSC with fix intercept]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/cc_10c/ldsc_CC_Rand_sd.png}}
+					\label{fig:ldscCC10RandVar}
+				}
+				\subfloat[LDSC with intercept estimation]{
+					
+					\scalebox{.4}{\includegraphics{figure/he_summary/cc_10c/ldscIn_CC_Rand_sd.png}}
+					\label{fig:ldscInCC10RandVar}
+				}
+				\caption[Variance of Case Control Simulation Results (10 Causal)]
+				{Variance of results from case control simulation with random effect size simulation with 10 causal \glspl{SNP}.
+					There were no clear pattern as to how the prevalence affect the empirical variance of estimates from \gls{shrek} and \gls{ldsc}. 
+					For \gls{gcta}, it seems like a larger prevalence tends to result in a larger empirical variance. 
+					Again, \gls{gcta} has the lowest variance, follow by \gls{shrek} and \gls{ldsc} with fixed intercept.
+					Nonetheless, it was important to remember that in case control simulation, a much smaller amount of \glspl{SNP} was used, thus the results was not directly comparable to results from the quantitative simulation.
+				} 
+				\label{fig:CC10RandVar}
+			\end{figure}
+			%Variance estimation			
+			\begin{figure}
+				\centering
+				\subfloat[SHREK]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/cc_10c/shrek_CC_Rand_sdCom.png}}
+					\label{fig:shrekCC10RandVarCom}
+				}
+				\subfloat[GCTA]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/cc_10c/gcta_CC_Rand_sdCom.png}}
+					\label{fig:gctaCC10RandVarCom}
+				}\\
+				\subfloat[LDSC with fix intercept]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/cc_10c/ldsc_CC_Rand_sdCom.png}}
+					\label{fig:ldscCC10RandVarCom}
+				}
+				\subfloat[LDSC with intercept estimation]{
+					
+					\scalebox{.4}{\includegraphics{figure/he_summary/cc_10c/ldscIn_CC_Rand_sdCom.png}}
+					\label{fig:ldscInCC10RandVarCom}
+				}
+				\caption[Estimation of Variance in Case Control Simulation (10 Causal)]
+				{Estimated variance of results from case control simulation with random effect size simulation when compared to empirical variance when 10 causal \glspl{SNP} was simulated.
+					A general underestimation was observed for \gls{shrek} and \gls{gcta} whereas a larger upward bias was observed for \gls{ldsc}.} 
+				\label{fig:CC10RandVarCom}
+			\end{figure}
+			
+		In order to estimate the heritability from case control studies, it is important to model the disease status under a liability threshold model, which require knowledge of the population prevalence of the disease.
+		Given that both the population prevalence and trait heritability can have a large influence to the performance of \gls{SNP} heritability estimation, simulations were performed where the population prevalence, the trait heritability and the number of causal \glspl{SNP} were varied. 
 		
-		First, we simulated traits with 10 causal \glspl{SNP}.
-		From the graph, it is clear that the population prevalence has a significant impact to the performance of the algorithms (\cref{fig:CC10RandMean}). 
-		The performance of \gls{gcta} is as suggested by \citet{Golan2014} where the degree of underestimation increases as the prevalence decreases.
-		On the other hand, the opposite effect is observed for \gls{shrek} and \gls{ldsc} with fixed intercept.
-		Interestingly, when allow the estimate the intercept, the heritability estimated from \gls{ldsc} becomes underestimated. 
-		The magnitude of the bias also decreases, suggesting that the intercept estimation might have corrected for part of the bias of \gls{ldsc}.
-		The same pattern are also observed when the number of causal \glspl{SNP} increases (\cref{fig:CC50RandMean,fig:CCRandMean,fig:CC500RandMean}), suggesting that the effect of number of causal \glspl{SNP} are not the main contributor to the difference in bias. 
+		When only 10 causal \glspl{SNP} were simulated, it is clear that the population prevalence has a significant impact to the performance of the algorithms (\cref{fig:CC10RandMean}). 
+		Of all the algorithms tested, \gls{gcta} is the most affected by the population prevalence (\cref{fig:gctaCC10RandMean}), where the estimates from \gls{gcta} are generally underestimated.
+		As the population prevalence decreases, the magnitude of bias increases, as reported by \citet{Golan2014}.
+		On the other hand, the estimates generated by \gls{ldsc} with fixed intercept and \gls{shrek} are upwardly biased.
+		The magnitude of bias also increases as the population prevalence decreases.
+		Surprisingly, when intercept estimation was performed, a downward bias is observed in the estimates from \gls{ldsc}.
+		The magnitude of bias is also relatively smaller when compared to \gls{ldsc} with fixed intercept.
+		The same pattern are observed when different number of causal \glspl{SNP} were simulated (\cref{fig:CC50RandMean,fig:CCRandMean,fig:CC500RandMean}).
 		
-		As one inspect the empirical variance of the algorithms, \gls{gcta} clearly has the smallest average empirical variance among the algorithms (\cref{fig:gctaCC10RandVar}) where \gls{ldsc} with intercept estimation has the largest empirical variance (\cref{fig:ldscInCC10RandVar}). 
-		Unlike the quantitative trait simulation, the empirical variance of the estimates from \gls{shrek} (\cref{fig:shrekCC10RandVar}) are very close to that of \gls{ldsc} with fixed intercept (\cref{fig:ldscCC10RandVar}).
-		When the heritability of the trait is high, the empirical variance of \gls{shrek} is even lower than that of \gls{ldsc} with fixed intercept. 
-		As one increases the number of causal \glspl{SNP}, the empirical variance of all algorithms decreases (\cref{fig:CC50RandVar,fig:CCRandVar,fig:CC500RandVar}) agreeing with the results from the quantitative trait simulation.
+		Of all the algorithms, \gls{gcta} has the smallest average empirical variance (\cref{fig:gctaCC10RandVar}) where \gls{ldsc} with intercept estimation has the largest empirical variance.
+		On the other hand, it is observed that the estimates from \gls{shrek} (\cref{fig:shrekCC10RandVar}) and \gls{ldsc} (\cref{fig:ldscCC10RandVar}) with fixed intercept have similar empirical variance.
+		As the number of causal \glspl{SNP} increases, the empirical variance of all algorithms  decreases (\cref{fig:CC50RandVar,fig:CCRandVar,fig:CC500RandVar}) similar to the results from the quantitative trait simulation.
 		
-		On the other hand, both \gls{shrek} (\cref{fig:shrekCC10RandVarCom}) and \gls{gcta} (\cref{fig:gctaCC10RandVarCom}) underestimates their empirical variance whereas \gls{ldsc} overestimates its empirical variance no matter if the intercept estimation was performed  (\cref{fig:CC10RandVarCom}).
-		As the number of causal \glspl{SNP} increases (\cref{fig:CC50RandVarCom,fig:CCRandVarCom,fig:CC500RandVarCom}), the bias of variance estimation remain unchanged for \gls{shrek}. 
-		However, for \gls{ldsc}, the magnitude of bias of variance estimation reduces as the number of causal \glspl{SNP} increases and are able to provide a relatively accurate estimation of its empirical variance when 500 causal \glspl{SNP} were simulated (\cref{fig:ldscCC500RandVarCom}).
+		It is observed that \gls{shrek} consistently underestimate its empirical variance where the magnitude of bias increases as population prevalence decreases  (\cref{fig:shrekCC10RandVarCom}).
+		On the other hand, \gls{gcta} can provide a more accurate estimation for its empirical variance, only moderately underestimated the variance  (\cref{fig:gctaCC10RandVarCom}).
+		Again, it is observed that \gls{ldsc} consistently overestimate its empirical variance (\cref{fig:CC10RandVarCom}). 
+		However, as the number of causal \glspl{SNP} increases, the magnitude of bias observed in the estimation of variance decreases for \gls{ldsc} (\cref{fig:CC50RandVarCom,fig:CCRandVarCom,fig:CC500RandVarCom}). 
+		When 500 causal \glspl{SNP} were simulated, \gls{ldsc} can provide a relatively accurate estimates of its empirical variance (\cref{fig:ldscCC500RandVarCom}).
 		
+		Overall, \gls{shrek} has the best average performance of all the algorithm tested (\cref{tab:mseCC}).
+		Interestingly, although no confounding factors were simulated, it is observed that \gls{ldsc} with intercept estimation has a better performance than \gls{ldsc} with fixed intercept when the prevalence is small.
+		Therefore, it is possible for the intercept estimation to help correcting for some of bias introduced by case control sampling.
 		
-		Taking into account of the bias and variance of the estimations (\cref{tab:mseCC}), \gls{shrek} has the best average performance of all the algorithm tested.
-		Interestingly, the performance of \gls{ldsc} with intercept estimation were better than \gls{ldsc} with fixed intercept when the prevalence is small even-though we did not simulate any confounding factors.
-		In such scenario, one would expect the intercept estimation to be unnecessary and will only increase the \gls{se} of the heritability estimation without improving the estimates yet from the simulation results, it was suggested that the intercept estimation might helps correct for some of the bias in the estimates when the prevalence is small.
 \begin{table}
 	\centering
 	\begin{tabular}{p{2cm}p{2.4cm}rrrr}
@@ -967,42 +1185,114 @@
 	\end{tabular}
 	\caption[MSE of Case Control Simulation]{
 		\Gls{mse} of Case Control simulation.
-		Algorithm with the best performance under each condition were bold-ed.
-		When the population prevalence is 0.5, \gls{gcta} has the best performance, followed by \gls{shrek}.
-		For most other conditions, \gls{shrek} has the best performance. 
-		Of all the algorithms, \gls{shrek} has the lowest average \gls{mse}.
-		Also, as the number of causal \glspl{SNP} increases, the \gls{mse} tends to decrease for all algorithms, similar to what was observed in the quantitative simulation. 
+		Algorithm with the best performance under each condition were \textbf{bold-ed}.
+		Of all the algorithms, \gls{shrek} has the best average performance.
+		It is observed that as the number of causal \glspl{SNP} increases, the \gls{mse} tends to decrease for all algorithms, similar to the results from quantitative trait simulation.
 	}
 	\label{tab:mseCC}
 \end{table}
 
-		In general, the effects of the number of causal \glspl{SNP} in the case control simulation agrees with what was observed in the quantitative trait simulations.
-		As the number of causal \glspl{SNP} increases the \gls{mse} tends to decrease for all algorithms, with \gls{shrek} least sensitive.
-		Finally, it is important to note that for the case control simulations, a smaller amount of \glspl{SNP} was simulated when compared to the quantitative trait simulations. 
-		The total sample number involved was also larger (2,000 samples with 1,000 cases and 1,000 controls).
+		Finally, when compared to the quantitative trait simulation, a smaller number of \glspl{SNP} and larger sample size (2,000 samples with 1,000 cases and 1,000 controls) were simulated. 
 		Thus, the results from case control simulations are not directly comparable to the results from the quantitative trait simulations.
 		
 		\subsubsection{Extreme Phenotype Simulation}
-		\input{he_ex.tex}
-		Sometimes, when budget is limited, it is not possible to include all samples in the final \gls{GWAS}. 
+			%Mean
+			\begin{figure}
+				\centering
+				\subfloat[SHREK]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/pheno_extreme/shrek_extremeSelect_mean.png}}
+					\label{fig:shrekExMean}
+				}
+				\subfloat[GCTA]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/pheno_extreme/gcta_extremeSelect_mean.png}}
+					\label{fig:gctaExMean}
+				}\\
+				\subfloat[LDSC with fix intercept]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/pheno_extreme/ldsc_extremeSelect_mean.png}}
+					\label{fig:ldscExMean}
+				}
+				\subfloat[LDSC with intercept estimation]{
+					
+					\scalebox{.4}{\includegraphics{figure/he_summary/pheno_extreme/ldscIn_extremeSelect_mean.png}}
+					\label{fig:ldscInExMean}
+				}
+				\caption[Mean of Extreme Phenotype Selection Simulation Results]
+				{Mean of results from extreme phenotype simulation.
+					The performance of the algorithms when random sampling was performed were similar to what was observed in the quantitative trait simulation.
+					However, when extreme phenotype was performed, a larger under estimation was observed for \gls{gcta} and it gets worst when the portion of sample selected decreases.
+					On the other hand, the performance of \gls{shrek} and \gls{ldsc} under the extreme phenotype selection was similar to that from the random samplings.
+				} 
+				\label{fig:ExMean}
+			\end{figure}
+			%Empirical Variance
+			\begin{figure}
+				\centering
+				\subfloat[SHREK]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/pheno_extreme/shrek_extremeSelect_var.png}}
+					\label{fig:shrekExVar}
+				}
+				\subfloat[GCTA]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/pheno_extreme/gcta_extremeSelect_var.png}}
+					\label{fig:gctaExVar}
+				}\\
+				\subfloat[LDSC with fix intercept]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/pheno_extreme/ldsc_extremeSelect_var.png}}
+					\label{fig:ldscEx}
+				}
+				\subfloat[LDSC with intercept estimation]{
+					
+					\scalebox{.4}{\includegraphics{figure/he_summary/pheno_extreme/ldscIn_extremeSelect_var.png}}
+					\label{fig:ldscInExVar}
+				}
+				\caption[Variance of Extreme Phenotype Selection Simulation Results]
+				{Variance of results from extreme phenotype simulation.
+					It is obvious that when the extreme phenotype selection was performed, the empirical variance of all the algorithm decreases and is much smaller than the empirical variance of the estimation when random sampling was performed.
+					We also compared the empirical variance of random sampling with those from quantitative trait simulation with 100 causal \glspl{SNP} and they are highly similar. 
+				} 
+				\label{fig:ExVar}
+			\end{figure}
+			%Variance Estimation
+			\begin{figure}
+				\centering
+				\subfloat[SHREK]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/pheno_extreme/shrek_extremeSelect_varCom.png}}
+					\label{fig:shrekExVarCom}
+				}
+				\subfloat[GCTA]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/pheno_extreme/gcta_extremeSelect_varCom.png}}
+					\label{fig:gctaExVarCom}
+				}\\
+				\subfloat[LDSC with fix intercept]{
+					\scalebox{.4}{\includegraphics{figure/he_summary/pheno_extreme/ldsc_extremeSelect_varCom.png}}
+					\label{fig:ldscExVarCom}
+				}
+				\subfloat[LDSC with intercept estimation]{
+					
+					\scalebox{.4}{\includegraphics{figure/he_summary/pheno_extreme/ldscIn_extremeSelect_varCom.png}}
+					\label{fig:ldscInExVarCom}
+				}
+				\caption[Estimation of Variance in Extreme Phenotype Selection]
+				{Estimated variance of results from extreme phenotype selection when compared to empirical variance.
+					Surprisingly, except for \gls{shrek}, the estimated variance from \gls{ldsc} and \gls{gcta} under the random sampling condition was much higher than the empirical variance. 
+					It is much different from the estimated variance from the quantitative trait simulation and further investigations are required to understand this discrepancy.
+				} 
+				\label{fig:ExVarCom}
+			\end{figure}
+			
 		By using appropriate sampling strategy, such as that of extreme phenotype sampling \citep{Peloso2015}, one can increase the power of the association study.
-		Here we perform simulations using extreme phenotype sampling and study the effect of this selection on the performance of heritability estimations.
-		The random sampling procedure were also performed in our simulations such that a clear comparison can be made between the power of extreme phenotype sampling and the traditional random sampling.
+		However, it is unclear how the extreme phenotype sampling will affect the performance of the \gls{SNP} heritability estimation.
+		Therefore, simulations were performed to investigate the effect of extreme phenotype sampling on \gls{SNP} heritability estimation compared to random sampling approach. 
 		
-		From the graph (\cref{fig:ExMean}), it is observed that performance of \gls{shrek} and \gls{ldsc} are similar to what was observed in the quantitative trait simulation.
-		Moreover, when the random sampling strategy were used, a larger upward bias are usually observed. 
-		Interestingly, \gls{gcta} performs poorly when extreme phenotype sampling was performed.
-		As the portion of sample sampled decreases, the bias of the estimates from \gls{gcta} increases (\cref{fig:gctaExMean}).
+		It is observed that when the extreme phenotype sampling was performed, the estimates from \gls{gcta} biased downward in pattern similar to what has been observed in the case control simulation (\cref{fig:gctaExMean}).
+		On the other hand, estimates from \gls{shrek} and \gls{ldsc} with fixed intercepts are slightly inflated whereas \gls{ldsc} with intercept estimation slightly underestimated the \gls{SNP} heritability (\cref{fig:ExMean}).
 		
-		When comparing the empirical variance, the random sampling strategy consistently results in larger variance when compared to extreme phenotype sampling strategy (\cref{tab:ratioEx}).
-		The \gls{mse} from extreme phenotype sampling can be as much as 4 fold smaller for \gls{shrek} and \gls{ldsc} when compared to random sampling.
+		When comparing the empirical variance, the random sampling consistently results in a larger empirical variance in the estimates of the algorithms (\cref{tab:ratioEx}).	
+		It is observed that when random sampling were performed, the resulting empirical variance from the algorithms are similar to the results in the quantitative trait simulation. 
+		However, there is a large discrepancy in the estimated variance of \gls{ldsc} and \gls{gcta}, where there can be as much as a tenfold difference (\cref{fig:ExVarCom}). 
+		On the other hand, the estimated variance of \gls{shrek} is unaffected.
+		It is unclear what induces the inflation and further investigations are therefore required.
 		
-		Peculiarly, although the empirical variance under the random sampling strategy is the same as what was observed in the quantitative trait simulation, there is a large discrepancy in the estimated variance where a tenfold overestimation is observed for \gls{ldsc} and \gls{gcta} (\cref{fig:ExVarCom}). 
-		More surprisingly, \gls{shrek} is unaffected. 
-		We are uncertain of the origin of such problem and further investigations are required.
-		
-		
-		\begin{table}
+		\begin{table}[H]
 			\centering
 			\begin{tabular}{rrrrrrrrr}
 				\toprule
@@ -1014,9 +1304,8 @@
 				\bottomrule
 			\end{tabular}
 			\caption[Comparing the MSE of Extreme Phenotype Sampling and Random Sampling]{
-				Here, we compared the \gls{mse} of random sampling (Rand) against the \gls{mse} of Extreme phenotype sampling (Extreme). 
-				With the exception of \gls{gcta}, the extreme phenotype selection generally produce a smaller \gls{mse} when compared to random sampling. 
-				However, for \gls{gcta}, because of the large bias introduced by extreme phenotype sampling (\cref{fig:gctaExMean}), the \gls{mse} is much higher when extreme phenotype sampling was performed.
+				Comparing the \gls{mse} of extreme phenotype sampling (Extreme) and random sampling (Rand).
+				With the exception of \gls{gcta}, the extreme phenotype sampling will results in a smaller \gls{mse} given the same amount of samples.
 			}
 			\label{tab:ratioEx}
 		\end{table}
@@ -1026,73 +1315,76 @@
 		% Main problem is the reference panel
 		
 		\subsection{Application to Real Data}
-		We applied our method and \gls{ldsc} to the \gls{pgc} \gls{scz}, major depression disorder and bipolar data sets.
-		To adjust for the confounding factors, intercept estimation were performed for \gls{ldsc}. 
-		
-		It is estimated that the heritability for major depression disorder is around 0.256 by \gls{shrek} and 0.161 by \gls{ldsc} whereas the heritability of bipolar is estimated to be around 0.312 by \gls{shrek} and 0.185 by \gls{ldsc} (\cref{tab:realData}).
-		As for \glng{scz}, the heritability is estimated to be around 0.133 by \gls{ldsc} and 0.174 by \gls{shrek}.
-		The estimated intercept from \gls{ldsc} for bipolar and major depression is 1.06 and 1.026 respectively suggesting there is little confounding factors. 
-		On the other hand, the estimated intercept is around 1.21 for \glng{scz}, suggesting there might be small amount of confounding effect in the estimation.
-		Indeed, in \gls{pgc} \glng{scz} study \citep{Ripke2014}, a small amount of Asian samples were included.
-		As \gls{shrek} does not adjust for the population stratification, caution must be paid when interpreting the results.
-		
-		\begin{table}
+		It is estimated that the heritability for major depression disorder is around 0.252 by \gls{shrek} and 0.154 by \gls{ldsc} with intercept estimation (\gls{ldsc}-In) whereas the heritability of bipolar is estimated to be around 0.308 by \gls{shrek} and 0.181 by \gls{ldsc}-In (\cref{tab:realData}).
+		For \glng{scz}, the heritability is estimated to be around 0.185 by \gls{shrek} and 0.135 by \gls{ldsc}-In.
+		It is observed that the estimates from \gls{ldsc} with fixed intercept and \gls{shrek} are generally larger than the estimates from \gls{ldsc} with intercept estimation (\gls{ldsc}-In) (\cref{tab:realData}).
+		Moreover, the \gls{SNP} heritability estimated for \glng{scz} is much smaller than previously reported by \citet{Bulik-Sullivan2015}.
+		Our results indicated that the common \glspl{SNP} have relatively less contribution to the genetic predisposition of individuals to \glng{scz} as measured by the heritability estimated. 
+		It is possible for genetic variations such as epigenetics and rare variants to account for the remaining heritability of \glng{scz}.
+		\begin{table}[H]
 			\centering
 			\begin{tabular}{rrrr}
 				\toprule
 				 \\
 				& Major Depression Disorder & Bipolar & \Glng{scz}\\
 				\midrule
-				\gls{shrek}   & 0.256 (0.0273)  & 0.312 (0.0168)  & 0.174 (0.00453) \\
-				\gls{ldsc}   & 0.161 (0.0317) & 0.185 (0.0211) & 0.133 (0.0071)\\
+				%\gls{shrek}   & 0.256 (0.0273)  & 0.312 (0.0168)  & 0.174 (0.00453) \\
+				%\gls{ldsc}   & 0.235 (0.0241) & 0.267 (0.0147) & 0.197 (0.0058)\\
+				%\gls{ldsc}-In   & 0.161 (0.0317) & 0.185 (0.0211) & 0.133 (0.0071)\\			
+				\gls{shrek} & 0.252 (0.0273)& 0.308 (0.0167) & 0.185 (0.00450) \\ 
+				\gls{ldsc} & 0.232 (0.0217) & 0.265 (0.0152) & 0.198 (0.0057) \\				\gls{ldsc}-In & 0.154 (0.033) & 0.181 (0.0203) & 0.135 (0.0072) \\
 				\bottomrule
 			\end{tabular}
 			\caption[Heritability Estimated for PGC Data Sets]{
 				Heritability estimated for \gls{pgc} data sets.
-				The heritability estimation form \gls{shrek} tends to be higher than that from \gls{ldsc}.
-				One major difference between \gls{ldsc} and \gls{shrek} is that \gls{ldsc} can remove confounding factors such as population stratifications from their estimation using the intercept estimation function. 
-				If there is any confounding factors, they can possibly inflate the estimates from \gls{shrek}
+				The heritability estimated from \gls{ldsc} when intercept estimation was performed (\gls{ldsc}-In) are lower than the estimates from \gls{shrek} and \gls{ldsc} with fixed intercept.
+				As the intercept estimation was used for the correction of confounding effects such as population stratifications or cryptic relatedness, the larger estimates from \gls{shrek} and \gls{ldsc} might be a result of the confounding effects.
 			}
 			\label{tab:realData}
 		\end{table}
 		
 	\section{Discussion}
-	In order to study complex disorders such as \glng{scz}, large amount of samples are required and often it is not possible for one single group of researchers to collect sufficient samples.
-	Therefore, collaboration and large scale consortium becomes vital and allow for sufficient sample size to be collected.
-	However, due to privacy concerns, the raw genotypes of the participants were usually not shared amount groups or that the genotype is only provided through a tedious and lengthy application process (e.g. dbGaP).
-	Thus these large scale studies relies on the meta analysis and only the summary statistics of the final analysis were provided to the public.
+	The development of \gls{GWAS} allow the systematic association of common genetic variants, such as \glspl{SNP}, to traits on a genome-wide scale.
+	In a recent \gls{GWAS} conducted by the \gls{pgc}, 108 genetic loci were found to be associated with \glng{scz} \citep{Ripke2014}.
+	Despite the success of the \gls{pgc} \glng{scz} \gls{GWAS}, it is uncertain whether if common genetic variants such as \glspl{SNP} are the main contribution to individual differences in the liability to \glng{scz}.
+	Therefore, estimating the contribution of the common \glspl{SNP} included in the \gls{GWAS}, to \glng{scz} has important implications for future research strategy. 
 	
-	Traditional \gls{SNP} heritability estimation algorithms for \gls{GWAS} such as \gls{gcta} and \gls{pcgc} relies on the genetic relationship matrix which can only be calculated based on the genotypes of the subjects.
-	Not until the development of \gls{ldsc} and \gls{shrek} is there a way to estimates the \gls{SNP} heritability without the raw genotypes.
-	By being able to estimate the \gls{SNP} heritability from only the summary statistic from a \gls{GWAS}, one can now compare the difference between the heritability estimated from twin studies and the \gls{SNP} heritability estimated from \gls{GWAS} to estimate the relative contribution of \glspl{SNP} to the disease variance without requiring the raw data.
-	The relative contribution of \glspl{SNP} will allow researchers to plan subsequent studies accordingly.
-	For example, if the \gls{SNP} heritability is much smaller than the heritability of the disease, alternative strategies like whole genome sequencing would be more efficient for identifying additional genes associated with the disease, compared to \gls{GWAS}.
+	The contribution of common \glspl{SNP} to the heritability of a disease (\gls{SNP} heritability) were usually performed using \gls{gcta}, which relies on the genetic relationship matrix.
+	However, the calculation of genetic relationship matrix requires the sample genotypes.
+	The sample genotypes are usually unavailable due to privacy concerns.
+	Instead, summary statistics from the association analysis are usually available.
+
+	To our knowledge, \gls{ldsc} and \gls{shrek} are the first algorithms that allows the estimation of \gls{SNP} heritability using only the summary statistics from a \gls{GWAS}.
+	With \gls{ldsc} and \gls{shrek}, it is now possible to estimates the \gls{SNP} heritability from the \gls{pgc} \glng{scz} \gls{GWAS}, which only the summary statistics of the association is available.
+	The \gls{SNP} heritability of \glng{scz} should provide vital information to the future research direction of \glng{scz}.
 	
-	Despite the promise of \gls{ldsc} and \gls{shrek}, their developments were far from completion.
-	For example, a big issue observed in our simulation was the influence of the sampling bias of the \gls{LD} which is one of the key element required for \gls{ldsc} and \gls{shrek}.
+	
+	In this chapter, a series of extensive simulation analyses were performed to examine the effect of different sampling strategies and genetic architectures on the performance of \gls{ldsc} and \gls{shrek}.
+	The \gls{SNP} heritability of \glng{scz} were also estimated using the \gls{pgc} \glng{scz} \gls{GWAS} summary statistics.
 	
 	\subsection{LD Correction}
-	It was known that the \gls{LD} contains sampling bias and the sample $R^2$ is usually bigger than the true $R^2$.
-	Therefore it is important for one to adjust for the sampling bias before applying them in the estimation of heritability.
+	First, because \gls{shrek} heavily relies on the \gls{LD} information for the estimation of \gls{SNP} heritability, it is important to obtain an accurate estimation of \gls{LD}.
+	However, because the reference panels are a subsets of the population, sampling error exists in the estimated \gls{LD}.
+	When taking the square of \gls{LD}, a positive bias is observed, which can affect the estimation of \gls{SNP} heritability.
 	
-	When comparing impact of different bias correction algorithm on the performance of \gls{shrek}, it is observed that majority of the algorithms, except that of \cref{eq:weir}, inflates the heritability estimated, suggesting that there is an overestimation, whereas when the sampling bias left uncorrected, the estimates are biased downward, as one would expect.
-	The superior performance of \cref{eq:weir} lead us to use it as our default \gls{LD} sampling bias correction algorithm.
+	It is observed that of all the bias correction algorithms from \cref{sec:ldSim}, the  equation from \citet{Weir1980} \cref{eq:weir} has the best performance. 
+	Therefore, it was selected as the default bias correction algorithm.
 	
-	What was surprising is that in the quantitative trait simulation, an overestimation of heritability is observed despite using \cref{eq:weir} for \gls{LD} correction.
-	This overestimation is similar to what was observed in the previous \gls{LD} correction simulations where 5,000 \glspl{SNP} on chromosome 22 were simulated.
-	It is possible that despite the superior performance of \cref{eq:weir}, small imprecisions were introduced to the \gls{LD} matrix during the bias correction.
-	When the number of \glspl{SNP} increases, these imprecisions cumulates, thus leads to bias in the final heritability estimates.
+	By applying the bias correction algorithm, a more accurate estimates were expected to be obtained.
+	However, in the quantitative trait simulation, an upward bias is consistently observed in the estimates from \gls{shrek}.
+	From the \gls{LD} correction simulation, it is observed that the \gls{LD} correction algorithms may cause an inflation in the estimates.
+	As the number of simulated \glspl{SNP} is much smaller in the \gls{LD} correction simulation when compared to the quantitative trait simulation, it is possible for the increased number of \glspl{SNP} to increase the magnitude of bias.
 	
-	Intriguingly the same overestimation is not observed in \gls{ldsc}.
-	When inspecting the algorithm of \gls{ldsc}, it is observed that \gls{ldsc} also correct for the sampling bias in $R^2$ using:
+	Moreover, although \gls{ldsc} also relies on the \gls{LD} information, the same overestimation is not observed.
+	Upon detail inspection of \gls{ldsc}, it is observed that \gls{ldsc} employed a different \gls{LD} correction algorithm:
 	\begin{equation}
 	\text{LDSC}: \tilde{R^2}= \hat{R^2}-\frac{1-\hat{R^2}}{n-2}\label{eq:ldscR2} 
 	\end{equation}
-	which was not tested in our previous \gls{LD} correction simulation.
 	
-	An interesting analysis will be to test the performance of the \gls{LD} correction algorithm when the number of \glspl{SNP} is higher (e.g 50,000 \glspl{SNP} on chromosome 1) and whether if \cref{eq:ldscR2} produce a better results.
-	We therefore repeated the \gls{LD} correction simulation by increasing the number of simulated \glspl{SNP} to 50,000 on chromosome 1.
-	To reduce the run time of the simulation, we only compared the performance of \gls{shrek} when \cref{eq:ldscR2}, \cref{eq:weir} and \cref{eq:pratt} were used for the \gls{LD} correction.
+	Given these information, it is important to investigate the performance of the \gls{LD} correction algorithms when a larger number of \glspl{SNP} are simulated (e.g. 50,000 \glspl{SNP} on chromosome 1).
+	The \gls{LD} correction simulation was therefore repeated.
+	Instead of simulating 5,000 \glspl{SNP} from chromosome 22, 50,000 \glspl{SNP} were simulated from chromosome 1. 
+	As most \gls{LD} correction from \cref{sec:ldSim} produced similar results in previous simulation, only \cref{eq:ldscR2}, \cref{eq:weir} and \cref{eq:pratt} were included in this scaled up simulation.
 	\begin{figure}[t]
 		\centering
 		\subfloat[Mean Estimation]{
@@ -1105,108 +1397,97 @@
 		}
 		\caption[Effect of LD correction to Heritability Estimation with 50,000 SNPs]
 		{Effect of LD correction to Heritability Estimation when 50,000 \glspl{SNP} were simulated.
-			As an overestimation is observed in the quantitative trait simulation, we performed a short simulation to assess the impact of \gls{LD} correction to the heritability of \gls{shrek} when the there is a larger number of \glspl{SNP}.
-			From the graph, it is observed that all \gls{LD} correction algorithms inflate the heritability estimation when large number of \glspl{SNP} were simulated.
-			In fact, the bias is the smallest when no \gls{LD} correction was performed. 
+			It is observed that all \gls{LD} correction algorithms inflate the estimates when large number of \glspl{SNP} were simulated.
+			Interestingly, least amount of bias is observed when no \gls{LD} correction was performed.
 		} 
 		\label{fig:ldCorBigCom}
 	\end{figure}
 	
-	From the results (\cref{fig:ldCorBigCom}), it is clear that all \gls{LD} correction algorithms inflates the heritability estimation from \gls{shrek} in oppose to the underestimation observed when no \gls{LD} correction was performed.
-	The underestimation is as expected because the positive sampling bias in $R^2$ will lead to an ``over correction'' of the collinearity, thus results in lower estimates.
-	As mentioned, it is possible that \cref{eq:weir} does introduce small imprecision (e.g. overcorrection) to the \gls{LD} matrix which accumulates as the number of \glspl{SNP} increases, leading to overestimation of the heritability.
-	Our simulation results do support that as one of the possible explanation. 
-	What is interesting though is that the \gls{mse} is the lowest when no \gls{LD} correction was performed, suggesting that when the number of \glspl{SNP} increases, these \gls{LD} correction algorithms actually has a negative impact to the performance of \gls{shrek}.
+	It is clear from \cref{fig:ldCorBigCom} that all \gls{LD} correction algorithms inflate the estimates from \gls{shrek}, whereas a small downward bias is observed in the estimates when no \gls{LD} correction was performed.
+	Interestingly, when inspecting the \gls{mse} of the estimates, \gls{shrek} produced the best estimates when no \gls{LD} correction was performed.
+	This results suggest that as the number of \glspl{SNP} increases, the \gls{LD} correction algorithms might have a negative impact to the performance of \gls{shrek}.
+	One possible explanation is that small imprecisions might be introduced to the \gls{LD} when the sampling error is being adjusted.
+	As the number of \glspl{SNP} increases, the imprecisions accumulates, therefore leading to bias in the estimates of \gls{shrek}.
 	
-	It is noted that most \gls{LD} correction algorithm assumes the correlation was calculated on normally distributed data. 
-	However, genomic data follows a binomial distribution, which might violates the assumption,  leading to a biased correction.
-	This will be an important area for further research.
-	Without a good bias correction algorithm, the estimates from \gls{shrek} will most likely be biased downward, especially when the reference panel is small.
-	Meanwhile, we allow users the freedom to disable the \gls{LD} correction in \gls{shrek}.
-	
-	Another important observation is the overestimation observed when we use the \gls{LD} correction algorithm from \gls{ldsc} on \gls{shrek}. 
-	Using the same algorithm, the estimates from \gls{shrek} are biased upward whereas the same bias was not observed in \gls{ldsc}.
-	This observation suggests that \gls{shrek} might be more sensitive to the errors in the \gls{LD} matrix when compared to \gls{ldsc}.
-	Indeed, \gls{shrek} requires the inverse of the \gls{LD} matrix and considering the large condition number of the \gls{LD} matrix, any errors can be multiplied during the inversion.
-	On the other hand, \gls{ldsc} does not compute the inverse of \gls{LD} matrix.
-	Instead, they only require the \emph{sum} of $R^2$ for the regression model.
-	By avoiding the inverse of the matrix, the algorithm will then be less sensitive to the imprecision in the \gls{LD}, thus result in a better estimates.
-	However, it will still be interesting to see whether if the application of a better \gls{LD} correction algorithm can help to improve the estimates from \gls{ldsc}.
+	Another interesting observation is that when the \gls{LD} correction algorithm from \gls{ldsc} was applied to \gls{shrek}, the estimates were upwardly biased.
+	As the same inflation was not observed in the estimates from \gls{ldsc}, this suggest that \gls{shrek} maybe more sensitive to errors within the \gls{LD} matrix when compared to \gls{ldsc}.
+	It is noted that the algorithm of \gls{shrek} requires the inverse of the \gls{LD} matrix. 
+	Because the \gls{LD} matrix is ill-conditioned, \gls{shrek} is prone to large numerical errors.
+	On the other hand, \gls{ldsc} does not require to invert the \gls{LD} matrix, therefore it is more numerically stable.
+	Therefore, because of the fundamental difference in the two numerical methods, \gls{shrek} is more sensitive to errors when compared to \gls{ldsc}.
 	
 
 	\subsection{Simulation Results}
-	To understand how the performance of the heritability estimation algorithm was influenced by different genetic architectures, we performed a series of simulations.
+	The main goal of the current study is to understand the impact of different sampling strategies and different genetic architectures on the performance of the \gls{SNP} heritability estimation algorithms.
+	A series of extensive simulations were therefore performed.
 	
 	\subsubsection{Quantitative Trait Simulation}
-	In the quantitative trait simulation, it is clear that for most situation, \gls{gcta} has the best performance.
-	By using the genetic relationship matrix, the estimation from \gls{gcta} are more accurate when compared to \gls{ldsc} and \gls{shrek}.
-	However, when the sample genotypes are unavailable, it is not possible to calculate the genetic relationship matrix required by \gls{gcta}. 
-	Thus one can only rely on \gls{ldsc} and \gls{shrek}.
+	From the quantitative trait simulation, it is observed that \gls{gcta} has the best overall performance. 
+	However, the main problem of \gls{gcta} is that it requires the sample genotypes for the calculation of the genetic relationship matrix.
+	When the sample genotypes are unavailable, \gls{gcta} cannot be performed. 
+	On the other hand, \gls{ldsc} and \gls{shrek} can still estimate the \gls{SNP} heritability given only the summary statistics from a \gls{GWAS} and a reference panel for the estimation of \gls{LD}.
 	
-	When the trait is polygenic, it is observed that the estimates of \gls{ldsc} with fixed intercept are more accurate than the estimates from \gls{shrek}. 
-	However, under the oligogenic condition (e.g with only 5 or 10 causal \glspl{SNP}), the variance of \gls{ldsc} increases, thus increasing the \gls{mse}.
-	On the other hand, the estimates of \gls{shrek} are relatively insensitive to the number of causal \glspl{SNP}.
-	As a result of that, under the oligogenic condition, \gls{shrek} has a better performance when compared to \gls{ldsc}.
+	Similar to the results from \citet{Bulik-Sullivan2015}, we observed that the variance of \gls{ldsc} increases as the number of causal \glspl{SNP} decrease. 
+	It is also observed that when the intercept estimation was performed, the variance of \gls{ldsc} increases.
+	On the other hand, although the variance of estimates from \gls{shrek} also increases as number of causal \glspl{SNP} decrease, the magnitude of increase is much smaller, suggesting that \gls{shrek} is robust against change in number of causal \glspl{SNP}.
+	As a result, when the number of causal \glspl{SNP} are small, \gls{shrek} will provide a more stable result.
 	
-	An important factor to remember is that in our simulation, we did not simulate any confounding factors, therefore the intercept estimation in \gls{ldsc} was expected to only increase the variance without any gain in estimation power. 
-	The results from the simulation agrees with the hypothesis and demonstrated that the intercept estimation does increase the variance of the estimates, leading to a higher \gls{mse}. 
+	Sometimes, it is possible for a small number of causal \gls{SNP}(s) to have a larger effect size when compared to other causal \glspl{SNP}.
+	It is observed that only in the extreme scenario where 1 of the causal \gls{SNP} was simulated with a larger effect size will the performance of \gls{ldsc} be affected.
+	However, upon re-examination of \cref{eq:extremEffect} which was used for the simulation of \glspl{SNP} with extreme effect size, it is noted that an unnecessary upper bound of ($h^2$) was imposed to the effect sizes.
+	A better alternative maybe to first simulate the effect sizes using \cref{eq:randomEffect}.
+	Then, for the $m$ ``extreme'' \gls{SNP}(s), their effect sizes should be multiplied with a large constant (e.g 10).
+	When compared to \cref{eq:extremEffect}, this should ensure the effect size(s) of the ``extreme'' \gls{SNP}(s) to be larger than other causal \glspl{SNP}.
+	As a result, we are currently repeating the simulation from \cref{sec:extremeEffectSim} to investigate the effect of the presence of a small number of causal \glspl{SNP} with large effect size to the performance of the algorithms.
 	
-	It will be interesting to assess the performance of these algorithms when there is confounding effects such that one can test the importance of the intercept estimation function in the correction of confounding effects.
-	However, the simulation of population and, especially cryptic relationship, is nontrivial.
-	For example, although one can provide haplotype from different population to HAPGEN2, there is a lot of uncertainties in the simulation of the individual phenotypes: 
-	Should one standardize the genotype of the two population independently in the calculation of phenotype? 
-	Should the two population have the same causal \glspl{SNP}?
-	If not, should we limit the causal \glspl{SNP} within the same biological pathway / function?
+	Although the effect of number of causal \glspl{SNP}, trait heritability and the impact of having small number of causal \gls{SNP}(s) with large effect size were considered, the effect of confounding factors on the performance of the algorithms was not examined.
+	Therefore, it is uncertain how the performance of \gls{shrek} and \gls{ldsc} will be affected by the presence of confounding factors.
+	Specifically, the core concept of the intercept estimation in \gls{ldsc} is to delineate the contribution from confounding factors and common genetic variants.
+	It is therefore expected that when confounding factors are presented, \gls{ldsc} with the intercept estimation might outperform \gls{shrek} and \gls{ldsc} with fixed intercept.
 	
-	Moreover, heritability is dependent on the environment and genotype frequency. 
-	Theoretically, it is possible for different population to have a different heritability for a particular trait.
-	The possible combinations and the complexity of the problem is beyond the scope of this thesis but we do acknowledge that it is an important subject and further research is required.
-	
-	Overall, when compared to \gls{ldsc}, the only advantage of \gls{shrek} is its relative robustness to change in genetic architecture of the trait.
-	Under extreme scenarios such the oligogenic condition, or when there is one \gls{SNP} with extreme effect size, the performance of \gls{shrek} remains relatively unaffected when compared to \gls{ldsc} which usually result in a larger variance under the extremes. 
-	Whereas under polygenic condition \gls{ldsc} outperforms \gls{shrek}.
-	It is important to note that the bias of \gls{shrek} is mainly due to the \gls{LD} correction algorithm, if \gls{LD} correction was not performed, the \gls{mse} of the estimates form \gls{shrek} will be reduced (e.g. from 0.0217 to 0.0166 in the \gls{LD} correction simulation), reducing the difference in performance between \gls{ldsc}.
+	However, it is difficult to simulate confounding factors such as population stratification and cryptic relatedness.
+	To our knowledge, there are no readily available softwares for the simulation of cryptically related samples.
+	On the other hand, although it is possible to simulate stratified samples, a multitude of factors can confound the simulation with population stratification.
+	The selection of reference panel is by far the most important factor to consider. 
+	For example, if half of the samples were simulated based on European samples and the remaining half of the samples were simulated based on African samples, then it is unclear whether if the European samples or the African samples should be used as the reference panel.
+	Moreover, common practice in \gls{GWAS} analysis is to adjust for the population stratification either using \gls{pca} or EIGENSTRAT \citep{Price2006}.
+	With the additional adjustment, the properties of the summary statistics will differ, and might therefore affect the \gls{SNP} heritability estimation.
+	As a result, to investigate the effect of population stratification, more factors have to be considered, e.g. different reference panel, different proportion of population included, different adjustment methods (e.g. \gls{pca} or EIGENSTRAT) e.t.c.
+	Due to the complexity and scope of the problem, it is still a work in progress for us to investigate how the confounding factors affect the performance of \gls{ldsc} and \gls{shrek}.
+		
+	Overall, our results suggest that \gls{shrek} only outperform \gls{ldsc} in extreme scenarios such as when the trait is oligogenic or when only 1 of the causal \gls{SNP} has large effect size.
+	In more general scenarios, the estimates of \gls{ldsc} have a smaller variance and bias when compared to estimates from \gls{shrek}.
+	However, it is noted that when no \gls{LD} correction were performed, the bias observed in \gls{shrek} reduced (e.g. from 0.0217 to 0.0166 in the \gls{LD} correction simulation with 50,000 \glspl{SNP} simulated).
+	Therefore, when large amount of \glspl{SNP} were simulated, the performance of \gls{shrek} can be improved by not performing the \gls{LD} correction.
+	Without the \gls{LD} correction, performance of \gls{shrek} may be comparable to \gls{ldsc} under the polygenic scenario.
 	Nonetheless, the sensitive to errors in the \gls{LD} matrix remains to be one of the biggest weakness of \gls{shrek}.
 	
 	\subsubsection{Case Control Simulation}
-	More often than not, researchers are interested in case control studies where ``affected'' and ``normal'' samples were compared. 
-	This is particular useful for the studies of disease traits such as \glng{scz}.
-	However, the heritability estimation is not as straight forward and requires the adaptation of the liability threshold model.
-	It was known that \gls{gcta}, the most widely adopted algorithm for heritability estimation in \gls{GWAS} is unable to provide accurate estimates in case control scenarios and its estimates are affected by the population prevalence and sample size of the studies \citep{Golan2014}.
-	Our simulation results agree with the observation of \citet{Golan2014}, suggesting that as the population prevalence decreases, the magnitude of bias in the estimates of \gls{gcta} increases.
-	
-	According to \citet{Golan2014}, in case control studies there is an oversampling of the cases relative to their prevalence in the population.
+	In order to estimate heritability from case control samples, it is important to correct for the ascertainment bias.
+	Nevertheless, the correction of ascertainment bias are nontrivial and often introduce bias to the estimates. 
+	For example, \citet{Golan2014} observed that \gls{gcta} underestimates the heritability explained by common variants for discontinuous traits.
+	The magnitude of this bias is affected by the population prevalence of the trait, the observed prevalence, the true underlying heritability and the number of genotyped \glspl{SNP} \citep{Golan2014}.	
+	According to \citet{Golan2014}, there is an oversampling of the cases relative to their prevalence in the population in case control studies.
 	The case control sampling induced a positive correlation between the genetic and environmental effects for the samples in the study even when there is no true genetic and environmental interaction in the population \citep{Golan2014}.
-	This leads to heritability estimates from \gls{gcta} to be strongly downward biased where the magnitude of bias increases as the population prevalence decreases, heritability increases and when the proportion of cases is closer to half.
+	This leads to the estimates from \gls{gcta} to be strongly downward biased where the magnitude of bias increases as the population prevalence decreases, heritability increases and when the proportion of cases is closer to half.
 
-	The question then is whether if this artificial correlation will affect the performance of \gls{shrek} and \gls{ldsc}.
-	First, it is observed that as the population prevalence decreases, the magnitude of bias for both \gls{ldsc} with fixed intercept and \gls{shrek} increases suggesting that the population prevalence and the sampling bias might indeed be influential to the estimates of \gls{ldsc} and \gls{gcta}.
-	However, the direction of bias is opposed to what was observed in \gls{gcta} where a smaller population prevalence leads to a larger \emph{overestimation} in the heritability.
-	Considering that for \gls{shrek}, we adjusted the estimates by multiplying \cref{eq:transform} to the estimates, an overestimation might suggest that we have an under correction of the bias. 
-	Of course the bias introduced by the \gls{LD} correction is another factor to be considered, but considering that only 5,000 \glspl{SNP} were simulated, the bias introduced by \gls{LD} sampling bias should be relatively small as suggested by our \gls{LD} correction simulation.
-	To understand the effect of \gls{LD} correction in case control scenario, we will need to increase the number of \glspl{SNP} simulated yet that is only possible when additional computation resources are made available.
+	It is therefore important to investigate whether if \gls{shrek} and \gls{ldsc} are affected in a similar way.
+	In our simulation, the same bias is observed for \gls{gcta}, whereas for \gls{shrek} and \gls{ldsc}, an inflation is observed in the estimates when the population prevalence is small.
+	As the population prevalence decreases, the magnitude of bias increases, suggesting that the population prevalence has a major influence to the estimates of \gls{ldsc} and \gls{shrek}.
 	
-	What is most surprising in the case control simulation is the performance of \gls{ldsc} with intercept estimation.
-	As we did not simulate any confounding factors, we expect the performance of \gls{ldsc} with intercept estimation would be worst compared to \gls{ldsc} with fixed intercept because of the unnecessary additional degree of freedom in the estimation. 
-	However, it is observed that unlike \gls{shrek} and \gls{ldsc} with fixed intercept, the bias of \gls{ldsc} with intercept estimation is robust to the change in population prevalence (\cref{fig:CC10RandMean,fig:CC50RandMean,fig:CCRandMean,fig:CC500RandMean}), thus when the population prevalence is small, the bias of \gls{ldsc} with intercept estimation is relatively smaller when compared to \gls{ldsc} with fixed intercept.
-
-	Taking into consideration of the empirical variance and the bias of the estimates, \gls{shrek} has better average performance when compared to \gls{ldsc}. 
-	It is important to remember that the case control simulation is not comparable to the results from the quantitative trait simulation, not only because the addition of the liability model, but also that in the case control simulation, we only simulated 5,000 \glspl{SNP} on chromosome 22.
-	Based on the \gls{LD} correction simulation, it is observed that bias from the \gls{LD} correction algorithms is smaller when less \glspl{SNP} were simulated. 
-	On top of that, the total amount of samples included in the simulation was doubled that from the quantitative trait simulation, with 1,000 cases and 1,000 controls whereas we only simulated 1,000 total samples in the quantitative trait scenario. 
-	Nonetheless, our case control simulation does highlights the effect of population prevalence on the performance of the heritability estimation algorithms.
-	It will be an important topic to develop better algorithm for adjusting the attenuation bias introduced by case control sampling when the population prevalence of the disease is small.
-
-	Finally, it is noted that in order to provide an accurate estimation of the heritability, one needs to know the population prevalence of the disease beforehand. 
-	Without the information of the population prevalence, it will be difficult for one to estimates the heritability from \gls{GWAS} with case control design. 
-	Therefore once should always be cautious with the heritability estimations from a case control designs when the population prevalence is unknown.
+	Surprisingly, by applying the intercept estimation, the estimates of \gls{ldsc} becomes more robust to the change in population prevalence (\cref{fig:ldscInCC10RandMean,fig:ldscInCC50RandMean,fig:ldscInCCRandMean,fig:ldscInCC500RandMean}).
+	It was expected that as no confounding factors were simulated, the intercept estimation function will be redundant.
+	However, results suggest that in the estimation fo \gls{SNP} heritability from case control samples, the intercept estimation might be beneficial even when no confounding factors were presented.
+	When population prevalence is small (e.g $<0.05$), the performance of \gls{ldsc} is better when the intercept estimation was performed even without the presence of any confounding factors \cref{tab:mseCC}.
+	Further investigation are required to understand how the intercept estimation can improve the performance under the case control scenario.
+	This might provide insight for the development of a better algorithm in the estimation of \gls{SNP} heritability from case control samples for \gls{ldsc} and \gls{shrek}.
 	
 	\subsubsection{Extreme Phenotype Sampling}
-	Other than the case control study design, extreme phenotype sampling is another common experimental design for it can helps to increase the power of an association studies given the same amount samples.
-	Compared with the same number of randomly selected individuals, the extreme selection design can increase the power by a factor of $\frac{V'}{V}$ where $V'$ is variance of the trait of the selected sample and $V$ is the trait variance of the general population.
+	When budgets are limited, extreme phenotype sampling might help to increase the power of the association study given the same amount of samples. 
+	Compared with the same number of randomly selected individuals, the extreme selection design can increase the power by a factor of $\frac{V_{P'}}{V_P}$ where $V_{P'}$ is variance of the trait of the selected sample and $V_P$ is the trait variance of the general population.
 	So for example, if one only include the samples from the top 5\% and bottom 5\% of the phenotype distribution, one can achieve the same power as a study with random sampling design that has 4 times the sample size \citep{Sham2014}. 
 	
-	\begin{figure}
+	\begin{figure}[t]
 		\centering
 		\subfloat[No Extreme sampling]{
 			\scalebox{.4}{\includegraphics{figure/noSelection.png}}
@@ -1218,126 +1499,97 @@
 		}
 		\caption[Effect of Extreme Sampling Design]
 		{Effect of extreme sampling design.
-			Here we simulated the genetic and environmental effect independently.
-			When no extreme sampling was performed, there is no correlation between the environmental effect and genetic effect as expected.
-			However, when extreme sampling was performed, an artificial correlation is observed.
-			This might be the main reason why the estimates from \gls{gcta} are downward biased.
+			Although the genetic and environmental effect were simulated independently, an artificial correlation is observed when extreme phenotype sampling was performed. 
+			This lead to a downward bias in the estimates from \gls{gcta} \citep{Golan2014}.
 		} 
 		\label{fig:extremeSampling}
 	\end{figure}
 	
-	Herein, we simulated the situation where an extreme selection design was performed to assess the performance of the heritability estimation algorithms.
-	We were also interested in comparing the performance between extreme phenotype sampling and random sampling strategy.
-	First, it is observed that when extreme phenotype sampling was performed, the estimates from \gls{gcta} are biased downward. 
-	This observation is similar to what was observed in the case control simulation.
-	It is noted that although we were simulating independent environmental and genetic effects, the extreme phenotype sampling strategy does introduced an artificial correlation between the two effects, similar to what was observed in case control scenario (\cref{fig:extremeSampling}).
-	This might therefore affect the performance of \gls{gcta} where as the portion of sample selected decreases, the magnitude of bias increases, similar to the change of population prevalence in case control studies. 
+	Interestingly, it is observed that when extreme phenotype sampling was performed, the estimates from \gls{gcta} are biased downward, similar to the bias observed in the case control simulation.
+	The bias observed in \gls{gcta} might be a result of artificial correlation between genetic and environmental effects introduced by extreme phenotype sampling (\cref{fig:extremeSampling}), which is similar to the case control scenario.
+	Therefore, as a smaller portion of samples were selected from the extreme ends of a population, the magnitude of bias observed in estimates of \gls{gcta} might increase.
 	
-	On the other hand, an upward bias is observed in the estimates from \gls{shrek} and \gls{ldsc}.
-	Although the same bias can be observed in the random sampling scenario, the bias is slightly high when a smaller portion of samples were selected.
-	This level of bias concurs with the biased observed when a trait has a smaller population prevalence suggesting that the sampling method might introduce bias in the \gls{SNP} heritability estimate.
-	Studies are therefore required to identify a better algorithm for the correction of the attenuation bias. 
-	Overall, the performance of \gls{shrek} and \gls{ldsc} are more than 3 fold better when extreme selection was performed, suggesting that the extreme selection does help to improve the power in estimation even though the same amount of samples were used.
+	On the other hand, an upward bias is observed in the estimates from \gls{shrek} and \gls{ldsc} when extreme phenotype sampling was performed. 
+	The bias is slightly higher when a smaller portion of samples were selected from the extreme end.
+	The pattern of the bias observed in the extreme phenotype sampling concurs with the bias observed in the case control scenario.
+	This suggests that the ascertainment bias introduced by non-random sampling might affect the performance of the algorithms.
+	Further investigation are therefore required to identify a better adjustment for the ascertainment bias in order to improve the performance of \gls{ldsc} and \gls{shrek} when extreme phenotype sampling was performed.
 	
-	However, although the empirical variance observed in the random sampling for all the algorithm are the same as what was observed in the quantitative trait simulation with 100 causal \glspl{SNP}, the estimated variance for \gls{gcta} and \gls{ldsc} are much worst.
-	A larger upward bias is observed in the estimates from \gls{ldsc} with fixed intercept, suggesting there might be some difference between the simulation of random sampling and the simulation of quantitative trait, even though most of the parameter for simulation are the same.
-	The only difference in the two simulation was the standardization of genotype when calculating the phenotype.
-	For the quantitative trait simulation, the genotype was standardized based on the genotype of 1,000 samples of which all were included in the analysis. 
-	However, in the simulation of the random sampling design, 5,000 samples were used to standardize the genotype, of which only 1,000 out of 5,000 were included in the final analysis.
-	It is uncertain how this affects the performance of the algorithm and further analysis might be required.
+	Overall, given the same number of samples, performance of \gls{ldsc} and \gls{shrek} are more than 3 fold better when extreme phenotype sampling was performed, suggesting that extreme phenotype sampling improves not only the power of association studies but also the performance for the estimation of \gls{SNP} heritability.
 	
-	Nonetheless, in this simulation, we first simulated the individuals and their phenotype \emph{then} we perform the sampling.
-	The only difference between the two sets of data is the sampling performed.
-	Thus it is safe to conclude that the extreme phenotype sample does provide more power than the random sampling in heritability estimation.
-		
-	Finally, we only tested the performance of the algorithms when the trait is polygenic (e.g. 100 causal \glspl{SNP}).
-	Further simulation should be performed to test the effect of extreme phenotype selection on traits with different genetic architecture. 
+	Peculiarly, in the simulation of random sampling, although the empirical variance is the same as what was observed in the quantitative trait simulation, \gls{gcta} and \gls{ldsc} were unable to estimate their empirical variance. 
+	The estimated variance from \gls{gcta} and \gls{ldsc} can be more than 10 fold larger than the empirical variance yet the same bias was not observed in the quantitative trait simulation.
+	However, in the simulation of random sampling, all parameters are the same as those in the quantitative trait simulation. 
+	It is therefore unclear why a different estimated variance are obtained. 
+	Nevertheless, as the sampling were only performed \emph{after} the simulation of phenotypes, any difference in performance should be a result of different sampling strategies. 
+	Thus it is safe to conclude that extreme phenotype sampling can provide more power for not only the association studies, but also the for \gls{SNP} heritability estimation given the same amount of samples.
+	
+	Finally, our simulation only considered limited dimension of parameters. 
+	For example, only traits with 100 causal \glspl{SNP} were simulated. 
+	More simulations should therefore be performed in order to understand the effect of extreme phenotype sampling on the performance of the algorithms. 
 	
 	\subsection{Application to Real Data}
-	Our main question of interest is to understand what is the true contribution of common genetic variants, such as \gls{SNP}, to the variance of \glng{scz}.
-	Although \citet{Bulik-Sullivan2015c} estimated that the \gls{SNP} heritability of \glng{scz} is around 0.555, it is still interesting to see if the same results can be calculated when different method was used. 
-	In order to make sure our analysis is correct and that the concordance between estimates from different tools were not merely by chance, we also estimated the heritability for bipolar disorder and major depression disorder as a reference point.
+	When applying \gls{shrek} and \gls{ldsc} to estimate the \gls{SNP} heritability in real data, it is observed that the estimates from \gls{ldsc} is much smaller than the estimates from the supplementary materials of \citet{Bulik-Sullivan2015} (e.g. for \glng{scz}, 0.555 compared to 0.135).
+	After communicated with the corresponding author \citep{Bulik-Sullivan2015c}, it was confirmed that an older implementation of \gls{ldsc} was used to generate the estimates in the supplementary table.
+	Specifically, in the formula of \gls{ldsc}:
+	\begin{align}
+		\mathrm{E}[\chi^2|l_j] &= Nl_j\frac{h^2}{M}+Na+1 \\
+		l_j &= \text{LD score of variant}\ j \notag\\
+		N &= \text{Sample Size}\notag\\
+		a &= \text{Contribution of confounding biases}\notag\\
+		h^2 &= \text{heritability}\notag 
+	\end{align}
+	$M$ was originally defined as the total number of \glspl{SNP} in the reference panel used to estimated \gls{LD} score.	
+	However, in the current version of \gls{ldsc}, $M$ was defined as the number of \glspl{SNP} with \gls{maf}$ >5\%$ in the reference panel used to estimate \gls{LD} score which \citet{Bulik-Sullivan2015} deem more appropriate based on new data they observed after their original paper was published.
+	From the caption of the supplementary table, it was stated that ``\dots if the average rare \gls{SNP} explains less phenotypic variance than the average common \gls{SNP}, then a smaller value of $M$ would be more appropriate, and the estimates in the supplementary table will be biased upwards.'' \citep{Bulik-Sullivan2015}.
+	This explained the discrepancy between our estimates and the estimates observed in the supplementary table from \citet{Bulik-Sullivan2015}.
 	
-	What is most surprisingly os that the \gls{ldsc} estimated heritability is much smaller than the estimates from the supplementary materials of \citet{Bulik-Sullivan2015} (e.g. for \glng{scz}, 0.555 compared to 0.133).
-	From \citet{Bulik-Sullivan2015}, the formula of \gls{ldsc} is
-	\begin{equation}
-		\mathrm{E}[\chi^2|l_j] = Nl_j\frac{h^2}{M}+Na+1
-	\end{equation}
-	where $l_j$ is the \gls{LD} score of variant $j$, $N$ is the sample size, $a$ is the contribution of confounding biases, $h^2$ is the heritability and $M$ is the number of \glspl{SNP}.
-	When contact the author about the discrepancy of the estimation between our run of \gls{ldsc} and the estimates shown in the supplementary table, \citet{Bulik-Sullivan2015c} replied that the estimated from the supplementary table define $M$ as the total number of \glspl{SNP} in the reference panel used to estimated \gls{LD} score whereas the current version of \gls{ldsc} defines $M$ as the number of \glspl{SNP} with \gls{maf}$ >5\%$ in the reference panel used to estimate \gls{LD} score which they deem more appropriate based on new data they observed after their original paper was published.
-	Based on the caption of their supplementary, they stated that ``\dots if the average rare \gls{SNP} explains less phenotypic variance than the average common \gls{SNP}, then a smaller value of $M$ would be more appropriate, and the estimates in the supplementary table will be biased upwards.'' \citep{Bulik-Sullivan2015}.
-	This explain the smaller estimates from our run. 
+	It is observed that the estimates from \gls{ldsc} with intercept estimation (\gls{ldsc}-In) is smaller than the estimates from \gls{shrek} and \gls{ldsc} with fixed intercept (\cref{tab:realData}).
+	From the case control simulation, it is observed that when the population prevalence is less than 0.5, \gls{ldsc}-In underestimates the \gls{SNP} heritability, whereas \gls{shrek} and \gls{ldsc} with fixed intercept overestimates the \gls{SNP} heritability.
+	Therefore it is likely for the estimates from \gls{ldsc}-In and \gls{shrek} to be the lower and upper bound of the true \gls{SNP} heritability respectively. 
+
+	However, in our simulation, confounding effects were not simulated, therefore it is unclear how the algorithms will perform in the presence of confounding effects.
+	In the presence of population stratification or cryptic relatedness, spurious associations might be observed, leading to an inflated summary statistics \citep{Zheng2006}.
+	It is therefore likely for \gls{shrek} and \gls{ldsc} with fixed intercept to overestimate the true \gls{SNP} heritability in the presence of population stratification or cryptic relatedness.
 	
-	Another interesting observation from the estimates in real data is that \gls{shrek} consistently return a higher estimates when compared to \gls{ldsc}.
-	Considering the fact that \gls{shrek} cannot account for confounding effects such as cryptic relationship and population stratification, it is likely that the estimates are inflated by these confounding factors.
-	A straight forward test is to perform \gls{ldsc} without the intercept estimation and compare the estimates with that from \gls{shrek} such that it is clear whether if the difference of the estimates was due to the ability of estimating the intercept by \gls{ldsc}.
-	Indeed, when the intercept estimation was not performed, the estimates from the two algorithms converges (\cref{tab:realDataNoIn}).
-	Therefore, it is likely that the difference in \cref{tab:realData} is a direct result of the estimation of the intercept.
-	 \begin{table}
-	 	\centering
-	 	\begin{tabular}{rrrr}
-	 		\toprule
-	 		\\
-	 		& Major Depression Disorder & Bipolar & \Glng{scz}\\
-	 		\midrule
-	 		\gls{shrek}   & 0.256 (0.0273)  & 0.312 (0.0168)  & 0.174 (0.00453) \\
-	 		\gls{ldsc}   & 0.235 (0.0241) & 0.267 (0.0147) & 0.197 (0.0058)\\
-	 		\bottomrule
-	 	\end{tabular}
-	 	\caption[Heritability Estimated for PGC Data Sets without Intercept Estimation]{			
-	 		Heritability estimated for \gls{pgc} data sets without Intercept Estimation.
-	 		Indeed, when the intercept estimation was not performed, the estimates from \gls{ldsc} was very close to that of \gls{shrek}. 
-	 	}
-	 	\label{tab:realDataNoIn}
-	 \end{table}
-	 
-	However, it is very important for one to remember that it is difficult to tell which estimates is the ``correct'' estimate.
-	For example, in the case control simulation, it was observed that \gls{shrek} and \gls{ldsc} with fixed intercept will \emph{overestimates} the heritability when the prevalence is less than 0.5 whereas within the same range of population prevalence, \gls{ldsc} with intercept estimation will \emph{underestimate} the heritability.
-	The problem of our simulation is that no confounding factors were simulated, thus it is uncertain whether if the same pattern can be observed when there is confounding factors.
-	Nonetheless, as the confounding effects most likely will inflate the summary statistic of the association, the estimates of the heritability will likely to be biased upward.
-	Moreover applying \gls{shrek} to the real data, we performed the \gls{LD} correction.
-	As there is a large amount of \glspl{SNP} in the real data, the \gls{LD} correction will inflate the estimates thus ensuring all biases were in the same direction (e.g. inflates our estimates).
-	Because of the uni-directional bias, we can safely hypothesize that the estimates from \gls{shrek} in \cref{tab:realData,tab:realDataNoIn} are the upper-bound for the true \gls{SNP} heritability in the current \gls{GWAS} studies.
+	Moreover, from the \gls{LD} correction simulations, it is noted that estimated from \gls{shrek} biased upward when \gls{LD} correction was performed, especially when large number of \glspl{SNP} were included in the study.
+	As \gls{LD} correction was performed when we apply \gls{shrek} to real data, it is likely for \gls{shrek} to provide an upward biased estimate.
+	Together, it is very likely for \gls{shrek} to overestimate the true \gls{SNP} heritability, therefore, its estimates should be treated as the upper bound of the true \gls{SNP} heritability. 
+	Further development of \gls{shrek} are required to reduce the bias and improve its performance. 
 	
-	Based on our estimation, the \gls{pgc} \glng{scz} \gls{GWAS} can at most account for $\sim20\%$ of the heritability of \gls{scz} despite the amount of samples included.
+	Based on our estimation, the \gls{pgc} \glng{scz} \gls{GWAS} can at most account for $\sim20\%$ of the heritability of \gls{scz}.
 	When compared to the heritability estimated from twin studies, there are around $40\%\sim60\%$ of missing heritability unaccounted for. 
-	This suggested that rare variants or other factors (e.g. \gls{cnv}) other than common \glspl{SNP} can account for the remaining heritability of \glng{scz}.
+	As the \gls{SNP} heritability were only estimated based on the autosomal \glspl{SNP}, it is possible for the sex chromosome to account for some of the ``missing heritability''.
+	Different methods exists for the association analysis on the X chromosome where a different summary statistics can be obtained \citep{Wong2014} (Supplementary materials).
+	It is therefore difficult to perform the estimation of \gls{SNP} heritability on the X chromosome with only the summary statistics. 
+	Further investigation are required before \gls{ldsc} and \gls{shrek} can be applied to estimation the contribution of \glspl{SNP} resides on the sex chromosomes.
 	
-	If one would like to estimates the contribution of rare variants to \gls{scz}, new algorithms might be required. 
-	This is mainly because the \gls{LD} estimates form the rare variants usually have a large variability and might not be reliable, thus leading to unreliable estimates from \gls{shrek} and \gls{ldsc}.
-	Therefore special cares are required if one would like to include the rare variants in the estimation process.
-	Also, it is noted that we only performed the estimation on the autosomal chromosomes.
-	The main reason behind was that there are large difference between male and female on the sex chromosomes (e.g. 2 X for female and XY for male).
-	The proportion of male and female are usually not provided. 
-	This leads to difficulties in \cref{eq:defineF} where the sample size is an important factor.
-	Special consideration might therefore be required if one would like to estimates the contribution of variants on the sex chromosome to \glng{scz}.
+	On the other hand, as the common \glspl{SNP} do not account for all the heritability of \glng{scz}, other genetic variants such as the rare variants and epigenetic changes might be another possible source of heritability of \glng{scz}.
 	
-	Moreover, considering that the risk of having \glng{scz} of individual with a schizophrenic mother or schizophrenic father differs, it is possible that epigenetic or the mitochondrion which were mainly contributed by the mother also have their role in the heritability of \glng{scz}. 
+	As \gls{LD} calculated from rare variants usually have a large \gls{se}, \gls{shrek} and \gls{ldsc} cannot accurately estimate the contribution of rare variants to the heritability of a disease. 
+	\citet{Bulik-Sullivan2015} reported that when all causal variants of a trait are rare (\gls{maf} $<1\%$), \gls{ldsc} will often generate a negative slope, with the intercept exceeding the mean $\chi^2$ statistic.
+	Therefore, further developments are required in order to be able to estimate the true contribution of rare variants to the heritability of \glng{scz}.
+	
+	On the other hand, it was observed that individuals born to schizophrenic mother has a higher risk of \glng{scz} when compared to individuals born to a schizophrenic father \citep{Riley2006}. 
+	It is therefore possible for variations in methylation pattern or genetic mutation in the mitochondria, which are mainly transmitted from the mother \citep{Sutovsky1999}, to contribute to the heritability of \glng{scz}.
 	Therefore epigenetic might also have an important role in the etiology of \glng{scz}.
 
-	Overall, the development of \gls{shrek} and \gls{ldsc} marks a new era in \gls{SNP} heritability estimation and hopefully, with the continuous advancement of the methodology, problems in \gls{LD} correction and the liability adjustment can all be solved in the near future.
-	
+	To conclude, the main advantage of \gls{shrek} is its robustness against different genetic architectures, however, further optimizations are required and will be done soon. 
+	Nonetheless, the development of \gls{ldsc} and \gls{shrek} allows the estimation of \gls{SNP} heritability using only summary statistics from \gls{GWAS}.
+	By understanding the relative contribution of common variants such as \gls{SNP} to the heritability of a disease, a better research strategy can be developed, thus allow for a better use of research resources.
 	
 	\subsection{Limitations and Improvements}
-	One of the biggest disadvantage of \gls{shrek} is its speed when compared to \gls{ldsc}. 
-	To estimate the heritability, \gls{shrek} requires the calculation of the inverse of the \gls{LD} matrix, which is an $\mathrm{O}(n^3)$ operation. 
-	Although the use of sliding window has significantly reduce the time requirement, the run time will still increase substantially as the density of the \glspl{SNP} increases. 
-	For example, it can take more than 2 days to process one chromosome of the \gls{pgc} \glng{scz} data set, where there can be more than 5,000 \glspl{SNP} per window.
-	When applying \gls{shrek} to the real data, the computation resources required to estimates heritability of the \gls{pgc} \gls{scz} \gls{GWAS} were too high, forcing us to reduce the window size for the analysis. 
-	To make the use of \gls{shrek} feasible, further development are required to improve the speed of \gls{shrek}.
-	An obvious choice might be to use the Armadillo library \citep{Sanderson2010} together with the OpenBLAS library which can be more than 3 times faster when compared to the EIGEN C++ library \citep{Ho2011}.
+	When compared to \gls{ldsc}, \gls{shrek} is significantly slower because the inverse of the \gls{LD} matrix are required.
+	When the \gls{SNP} density is high (e.g $>2,000$ \glspl{SNP} in a 1 \gls{mb} region), \gls{shrek} requires a significant amount of time to estimate the \gls{SNP} heritability and in the case of \gls{pgc} \glng{scz} \gls{GWAS} dataset, the \gls{SNP} density was too high, forcing us to use a smaller window size for the estimation.
+	A possible improvement to \gls{shrek} will be to use a faster library such as the Armadillo library \citep{Sanderson2010}.
+	Armadillo library can be 3 times faster than EIGEN C++ library, which is currently used for the implementation of \gls{shrek}, by utilizing the multi-threading high performance OpenBLAS library for the computation of \gls{SVD}.
+	Therefore, by using Armadillo and OpenBLAS in the implementation of \gls{shrek}, the speed of the analysis can be increased.
+	However, because of the fundamental nature of the algorithm (requiring the inverse of \gls{LD}), it is expected that \gls{shrek} will be slower in comparison to \gls{ldsc}.
 	
-	On the other hand, the inverse of the \gls{LD} matrix proves to be one of the biggest challenge for \gls{shrek} not only because of the time required to invert the matrix, but also the accuracy of the inverse.
-	Due to the inherently high collinearity of the \gls{LD} matrix, the condition number of the matrix is very high, meaning that small imprecisions in the matrix can be amplified during the analysis. 
-	This makes \gls{shrek} very sensitive to errors in the \gls{LD} matrix. 
-	The use of \gls{tSVD} does help to alleviate some of this problem yet it is still possible for it to break.
-	A possible method to reduce the problem of the \gls{LD} matrix is to remove any \glspl{SNP} in perfect \gls{LD} with each other and we are going to implement this feature in \gls{shrek} in future release and hopefully an improve in performance can be obtained.  
-	
-	Finally, we do acknowledge that we have not exhaust all possible combinations of genetic architectures in our simulation.
-	For example, one can also test the performance of the algorithms when the observed prevalence was different (e.g. not 50\%).
-	It is also possible for one to investigate the effect of number of causal \glspl{SNP} on the performance of the algorithms when extreme phenotype sampling was performed.
-	However, we do argue that we have performed a substantial amount of simulations and should be able to provide a general concept as to how the performance of \gls{shrek}, \gls{ldsc} and \gls{gcta} are affected in the general scenarios.
-	
+	Finally, we acknowledge that more simulations can be performed. 
+	For example, the effect of the observed prevalence in case control simulations were not investigated. 
+	Also, in the extreme phenotype sampling simulation, traits with different number of causal \glspl{SNP} can also be simulated.
+	However, the current simulations have provided a general concept to the effect of different sampling strategies and genetic architecture on the performance of \gls{ldsc} and \gls{shrek}.
 %	\newpage
 	
 \begin{singlespace}

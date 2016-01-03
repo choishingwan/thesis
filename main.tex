@@ -28,10 +28,11 @@
 \usepackage{graphicx}
 \usepackage[section]{placeins}
 \usepackage{eufrak}
+\usepackage[table]{xcolor} 
+\usepackage{cmap}
 \usepackage{cleveref} %This need to be the last package for it to work properly 
 \usepackage[hyperref=true,maxcitenames=3,maxbibnames=3,url=false,doi=false,isbn=false,backref=true,natbib=true,backend=biber,sorting=nyvt,defernumbers=false, style=authoryear]{biblatex}
-
-
+\setcounter{secnumdepth}{3}
 %
 %
 %	TITLE PAGE DEFINITION
@@ -139,6 +140,10 @@
 \newacronym{qqplot}{QQ-plot}{quantile-quantile Plot}
 \newacronym{cm}{cM}{centiMorgan}
 \newacronym{mrna}{mRNA}{messenger RNA}
+\newacronym{psd}{PSD}{postsynaptic density}
+\newacronym{kegg}{KEGG}{Kyoto Encyclopedia of Genes and Genomes}
+\newacronym{arc}{ARC}{neuronal activity-regulated cytoskeleton-associated protein}
+\newacronym{cb1}{CB1}{cannabinoid receptor type 1}
 %
 %
 %	FORMATING SECTION
@@ -165,9 +170,10 @@
 %\onehalfspacing
 \doublespacing
 %TODO this is the include space
-\includeonly{heritability_estimation}
+%\includeonly{heritability_estimation}
 %\includeonly{omega_project}
-%\includeonly{literature_review}
+%\includeonly{heritability_estimation,omega_project}
+%\includeonly{literature_review}Z
 
 
 %\extrafloats{100}
@@ -298,6 +304,8 @@
 	\cleardoublepage
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Contents}
+	
+		\setcounter{tocdepth}{3}
 		\tableofcontents
 		\listoffigures
 		\listoftables
@@ -314,46 +322,93 @@
 	\chapter{Conclusion}
 	\label{conclusionChapter}
 	\glsresetall
+	% Long way for the study of Schizophrenia
+	% identify heritability 
+	% Genetic studyes
+	% PGC
+	
+	% Need to identify the relative contribution to know what to do next
+	
+	% Understand the performance of SNP heritability estimation using summary statistics
+	% SHREK is introduced
+	% Better in extreme scenarios (robust)
+	
+	% Heritability estimation of Schizophrenia -> only ~20%
+	% Some missing heriability
+	% Gene sets associated with schizophrenia -> also perturbed in MIA 
+	% Evidence converge, may act on same pathway (PSD+Calcium)
+	% Continue research is needed
+	
+	% Treatment is important
+	% Diet good 
+	% Identify Sgk1 and PSD associated with diet
+	% n-3 PUFA -> ??? -> Sgk1 -> Better phenotype outcome
+	% Investigation is required
+	
+	% Finally, contribution of the gene sets -> little
+	% Likely for some gene sets of other function to be associated 
+	% Worthwile to repeat Corsortium 2015a with LDSC
+	% Problem with partitioning
+	% Can easily be driven by small number of SNPs with large effect
+	% Further developments might be required
+	
+	% Challenges
+	% Rare variants -> Rare
+	% Need large sample size to obtain sufficient power
+	% Annotation of nonexonic regions
+	% Variation in non-complex region (alignment problem)
+	
+	% GxE 
+	% Prenatal infection -> only rodant information
+	% Need planning (birth cohort)
+	
+	% Future prospective
+	% More functional studies
+	% Increase sample size
+	% Epigenetic studies
+	
+	
+	With the rapid advancement of technologies, it is now possible to perform association studies on genome-wide scale using \gls{GWAS}.
+	After years of failure in research of \glng{scz} genetics, the \Glng{scz} Working group of \gls{pgc} has finally identified 108 genetic loci associated with \glng{scz} \citep{Ripke2014}.
+	
+	
 	In this thesis, we presented \gls{shrek}, an robust algorithm for the estimation of \gls{SNP} heritability using summary statistics from \gls{GWAS}, an alternative to \gls{ldsc}.
 	Through simulations, it was suggested that when compared to \gls{ldsc}, \gls{shrek} can provide a more robust estimate for oligogentic traits and in case-control designs where no confounding variables was present. 
-	Using the latest \gls{GWAS} summary statistics released by the \gls{pgc}, we estimated that \glng{scz} has a \gls{SNP}-heritability of 0.174 (SD=0.00453), which is similar to the estimate of 0.197 (SD=0.0058) by \gls{ldsc}.
+	Using the latest \gls{GWAS} summary statistics released by the \gls{pgc}, we estimated that \glng{scz} has a \gls{SNP}-heritability of 0.185 (SD=0.00450), which is similar to the estimate of 0.198 (SD=0.0057) by \gls{ldsc}.
 	
 	When compared to the heritability estimated from twin studies ($81\%$) \citep{Sullivan2003} and large scale population based study (64\%) \citep{Lichtenstein2009}, the \gls{SNP} heritability is much lower, suggesting that factors other than common \glspl{SNP} might have accounted for the remaining heritability.
 	
-	On the other hand, we also performed an RNA sequencing on the \gls{polyic} \gls{mia} mouse model to investigate if differential gene expression induced by \gls{mia} and genetic variations observed in \glng{scz} were acting on the same functional pathway in the development of \glng{scz}.
-	We were able to identify a total of 12 pathways that might be perturbed by early \gls{mia} events in the cerebellum of the mouse, including calcium ion signaling and pathways related to neural or synaptic functioning.
-	Using \gls{ldsc}, it was found that of the 12 significant pathways, 4 pathways related to the \gls{ecm}, \gls{mapk} signaling, neuronal system and calcium signaling were all contributed disproportionately to the \gls{SNP} heritability of \glng{scz}, suggesting that the differential  expression induced by early \gls{mia} and the genetic variants associated with \glng{scz} might have act upon the same functional pathways in the development of \glng{scz}.
-	
+	On the other hand, we also performed an RNA sequencing on the \gls{polyic} \gls{mia} mouse model to investigate if differential gene expression induced by \gls{mia} and genetic variations observed in \glng{scz} were acting on the same functional pathways / gene sets in the development of \glng{scz}.
 	Providing that recent study suggest a n-3 \gls{pufa} rich diet can help to reduce the \glng{scz}-like behaviour in mouse exposed to early \gls{mia} events \citep{Li2015}, we also investigated how the n-3 \gls{pufa} rich diet affect the gene expression pattern in the adult cerebellum.
 	\textit{Sgk1}, a gene that regulates the glutamatergic system, were found to be significant in \gls{polyic} exposed mouse given different diet. 
 	Moreover, we found that pathway related to \gls{ecm} were affected not only by \gls{mia}, but also in \gls{polyic} samples given different diets. 
 	It is therefore possible that the \gls{ecm} pathway or genes within the \gls{ecm} pathway might have mediated the effect of n-3 \gls{pufa} diet on \gls{mia} exposed mouse, making them an important target for further research.
 	
-	\section{Challenge in SNP-Heritability Estimation}
-	Although it is now possible to estimates the \gls{SNP} heritability based on the summary statistic from \gls{GWAS}, a lot of questions remain unanswered in the estimation of \gls{SNP} heritability.
-	One major problem of \gls{shrek} and \gls{ldsc} is that they both heavily relies on the \gls{LD} structures from the reference panel.
-	However, \gls{GWAS} samples can come from large variety of ethnic background thus the \gls{LD} pattern estimated from the reference panel might not be representative of the sample \gls{LD}.
-	If there is a significant difference between the \gls{LD} pattern from the reference panel and the \gls{LD} pattern from the samples, both \gls{shrek} and \gls{ldsc} would fail to provide an accurate estimate. 
-	For example, if a \gls{GWAS} is conducted with 50\% European and 50\% African, population stratification may confound the results.
-	Even if one control for the population stratification using the \gls{pca}, the question remains whether if one should use the African reference panel or the European reference panel in the estimation of \gls{SNP} heritability.
-	Moreover, information regarding the population stratification (e.g. the \gls{pc}) were usually unavailable, making the problem more complicated.
-	Although \gls{ldsc} claims that it can delineate the population confounding factors from the \gls{SNP} heritability, it is expected that different reference panel will generate different \gls{LD} score, thus leads to different estimates.
-	In our example of 50\% European and 50\% African, it is unclear which reference panel should be used and one can expect that as the pattern of population mixing becomes more complicated, it will be increasingly difficult to obtain a representative reference panel and thus the estimation of \gls{SNP} heritability can be difficult. 
-	Further researches are therefore required to tackle the problem of population stratification before one can confidently estimate the \gls{SNP} heritability from summary statistics from \gls{GWAS} that might contain samples from large variety of ethnic background.
-	
-	An important observation in our simulation study was that there was a general bias observed in all the \gls{SNP}-heritability estimation algorithm under the case control scenario.
-	This is likely due to the ascertainment bias introduced through case control sampling.
-	Although the liability adjustment was performed, bias was still observed. 
-	This suggested that we will need a better liability adjustment algorithm if we would like to accurately estimate the \gls{SNP}-heritability from case control studies.
-	
-	As technology advances, researchers can now use the \gls{ngs} technology to sequence the genome at per base resolution. 
-	This brings great prospect in the genetic studies for now we can directly identify the causal variants and can even detect rare causal variants providing sufficient sample size. 
-	However, both \gls{shrek} and \gls{ldsc} are designed to work on the summary statistics from \gls{GWAS} where common \glspl{SNP} are usually the focus. 
-	Because of the huge sampling error associated with rare variants, the \gls{LD} calculated for rare variants usually has a larger \gls{se}.
-	As \gls{shrek} and \gls{ldsc} are both heavily rely on an accurate \gls{LD} estimation, they might be unsuitable for the estimation of the contribution of rare variants to \glng{scz}. 
-	In fact, it was found that when all causal variants are rare (\gls{maf} $<1\%$), \gls{ldsc} will often generate a negative slope, and the intercept will exceed the mean $\chi^2$ statistic \citep{Bulik-Sullivan2015}.
-	As a result of that, a different algorithm must be developed in order to estimates the heritability from rare variants using only summary statistics.
-	
+%	\section{Challenge in SNP-Heritability Estimation}
+%	Although it is now possible to estimates the \gls{SNP} heritability based on the summary statistic from \gls{GWAS}, a lot of questions remain unanswered in the estimation of \gls{SNP} heritability.
+%	One major problem of \gls{shrek} and \gls{ldsc} is that they both heavily relies on the \gls{LD} structures from the reference panel.
+%	However, \gls{GWAS} samples can come from large variety of ethnic background thus the \gls{LD} pattern estimated from the reference panel might not be representative of the sample \gls{LD}.
+%	If there is a significant difference between the \gls{LD} pattern from the reference panel and the \gls{LD} pattern from the samples, both \gls{shrek} and \gls{ldsc} would fail to provide an accurate estimate. 
+%	For example, if a \gls{GWAS} is conducted with 50\% European and 50\% African, population stratification may confound the results.
+%	Even if one control for the population stratification using the \gls{pca}, the question remains whether if one should use the African reference panel or the European reference panel in the estimation of \gls{SNP} heritability.
+%	Moreover, information regarding the population stratification (e.g. the \gls{pc}) were usually unavailable, making the problem more complicated.
+%	Although \gls{ldsc} claims that it can delineate the population confounding factors from the \gls{SNP} heritability, it is expected that different reference panel will generate different \gls{LD} score, thus leads to different estimates.
+%	In our example of 50\% European and 50\% African, it is unclear which reference panel should be used and one can expect that as the pattern of population mixing becomes more complicated, it will be increasingly difficult to obtain a representative reference panel and thus the estimation of \gls{SNP} heritability can be difficult. 
+%	Further researches are therefore required to tackle the problem of population stratification before one can confidently estimate the \gls{SNP} heritability from summary statistics from \gls{GWAS} that might contain samples from large variety of ethnic background.
+%	
+%	An important observation in our simulation study was that there was a general bias observed in all the \gls{SNP}-heritability estimation algorithm under the case control scenario.
+%	This is likely due to the ascertainment bias introduced through case control sampling.
+%	Although the liability adjustment was performed, bias was still observed. 
+%	This suggested that we will need a better liability adjustment algorithm if we would like to accurately estimate the \gls{SNP}-heritability from case control studies.
+%	
+%	As technology advances, researchers can now use the \gls{ngs} technology to sequence the genome at per base resolution. 
+%	This brings great prospect in the genetic studies for now we can directly identify the causal variants and can even detect rare causal variants providing sufficient sample size. 
+%	However, both \gls{shrek} and \gls{ldsc} are designed to work on the summary statistics from \gls{GWAS} where common \glspl{SNP} are usually the focus. 
+%	Because of the huge sampling error associated with rare variants, the \gls{LD} calculated for rare variants usually has a larger \gls{se}.
+%	As \gls{shrek} and \gls{ldsc} are both heavily rely on an accurate \gls{LD} estimation, they might be unsuitable for the estimation of the contribution of rare variants to \glng{scz}. 
+%	In fact, it was found that when all causal variants are rare (\gls{maf} $<1\%$), \gls{ldsc} will often generate a negative slope, and the intercept will exceed the mean $\chi^2$ statistic \citep{Bulik-Sullivan2015}.
+%	As a result of that, a different algorithm must be developed in order to estimates the heritability from rare variants using only summary statistics.
+%	
 	\section{Schizophrenia: Future Perspectives}
 	With the success of the \gls{pgc} \glng{scz} \gls{GWAS}, research in \glng{scz} genetics has finally entered an era of success.
 	Through international collaboration, the \gls{pgc} has finally identified 108 genetic loci that were associated with \glng{scz} using \gls{GWAS} approach \citep{Ripke2014}.
