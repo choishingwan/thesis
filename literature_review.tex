@@ -13,9 +13,8 @@
 	Signs of disturbance need to persist for at least 6-month before the patient can be diagnosed with \glng{scz}.
 	Current medical treatment of \glng{scz}, based on dopamine D2 receptor blockage, is effective only for the amelioration of positive symptoms in approximately 2/3 of patients.
 	
-	Because of its disabling symptoms and the lack of entirely effective treatments, \glng{scz} imposes a serious and long lasting health, social and financial burden to patients and their families \citep{Knapp2004}. 
-	\Glng{scz} patients also have an increased tendency to commit suicide \citep{Saha2007}.
-	Based on an \gls{who} report, \glng{scz} was one of the top 20 leading cause of \gls{yld} in 2012, ranking 16 among all possible causes (\cref{tab:whoYLD}).
+	Because of its disabling symptoms and the lack of entirely effective treatments, \glng{scz} imposes a serious and long lasting health, social and financial burden to patients and their families \citep{Knapp2004}, where an increased tendency to commit suicide was often observed in \glng{scz} patients \citep{Saha2007}.
+	Based on the \gls{who} report, \glng{scz} was one of the top 20 leading cause of \gls{yld} in 2012, ranking 16 among all possible causes (\cref{tab:whoYLD}).
 	\begin{table}[ht]
 		\centering
 		\caption[Top 20 leading causes of \glng{yld}]{Top 20 leading causes of \gls{yld} calculated by \gls{who} in year 2012.
@@ -52,8 +51,8 @@
 	In view of its severity, \glng{scz} has drawn much attention from the research community to delineate disease etiology and mechanisms, and identify risk factors associated with \glng{scz}.
 	Ultimately, the goal of \glng{scz} research is to identify effective treatment(s) to improve the quality of life of patients.
 	
-	\section{Understanding Disease Etiology}
-	An important first step in \glng{scz} research is to understand whether if genetic or environmental variation contribute more to the disease etiology.
+	\section{Understanding Disease Mechanism}
+	An important first step in \glng{scz} research is to understand whether genetic or environmental variation contribute more to the disease etiology.
 	A measure of the relative contribution of genetic and environmental influences to individual differences in the liability to a disorder is \emph{heritability}.
 	There are two definitions of heritability: the broad sense heritability and the narrow sense heritability.
 	Broad sense heritability is defined as the \emph{proportion} of total variance of a trait in a population explained by the \emph{total} variation of genetic factors in the population, whereas the narrow sense heritability only takes into account of the variation of \emph{additive} genetic factors in the population instead of the total variation of genetic factors.
@@ -67,7 +66,7 @@
 	$$
 	\sigma_P^2=\sigma_G^2+\sigma_E^2
 	$$
-	The ratio between the variance of the observed phenotype and the variance of the genetic effects is then defined as the broad sense heritability:
+	The ratio between the variance of the observed phenotype and the variance of the genetic effects is then defined as the broad sense heritability ($H^2$):
 	$$
 	H^2=\frac{\sigma_G^2}{\sigma_P^2}
 	$$
@@ -88,7 +87,7 @@
 	$$
 	
 	As individuals only transmit one copy of each gene at a single genetic locus to their offspring, relatives other than full siblings and identical twins will only share a maximum of one gene for each locus.
-	Considering that dominance and epistatic genetic effects are interactive effect, which usually involve more than one gene, these effects are unlikely to contribute substantially to the resemblance between relatives other than monozygotic twins and full siblings \citep{Visscher2008}.
+	As dominance and epistatic genetic effects are interactive effect, which  involve more than one gene, these effects are unlikely to contribute substantially to the resemblance between relatives other than monozygotic twins and full siblings \citep{Visscher2008}.
 	On the other hand, the additive genetic effects are usually transmitted from parent to offspring, thus it is more useful to consider the narrow sense heritability ($h^2$) which only includes the additive genetic effects, when predicting parent-offspring resemblance:
 	\begin{align}
 	h^2&=\frac{\sigma_A^2}{\sigma_P^2} \notag\\
@@ -97,8 +96,8 @@
 	\end{align}
 	
 	To obtain the additive genetic effect, we can first consider the genetic effect of a parent to be $G_p=A+D$. 
-	As only half of the additive effect were transmitted to their offspring, the child will have a genetic effect of $G_c=\frac{1}{2}A+\frac{1}{2}A'+D'$ where $A'$ is the additive genetic effect obtained from another parent by random and $D'$ is the non-additive genetic effect in the offspring.
-	If we then consider the parent offspring covariance, we will get
+	As only half of the additive effect are transmitted to their offspring, the child will have a genetic effect of $G_c=\frac{1}{2}A+\frac{1}{2}A'+D'$ where $A'$ is the additive genetic effect obtained from another parent by random and $D'$ is the non-additive genetic effect in the offspring.
+	If we then consider the parent offspring covariance $\mathrm{Cov_{OP}}$, we will get
 	\begin{align}
 	\mathrm{Cov_{OP}}&= \sum(\frac{1}{2}A+\frac{1}{2}A'+D')(A+D)\notag\\
 	&=\frac{1}{2}\sum A^2+\frac{1}{2}\sum AD + \frac{1}{2}\sum A'(A+D) +D'(A+D) \notag\\ 
@@ -121,7 +120,7 @@
 
 	In the simple linear regression equation $Y=X\beta+\epsilon$, the regression slope can be calculated as 
 	\begin{equation}
-	\beta_{XY} = \frac{\mathrm{Cov}_{XY}}{\sigma_{X}{Y}}
+	\beta_{XY} = \frac{\mathrm{Cov}_{XY}}{\sigma_{X}^2}
 	\end{equation}
 	which resemble \cref{eq:narrowHerit}. 
 	Therefore,  we can calculate the narrow sense heritability as
@@ -135,27 +134,26 @@
 	h^2=\frac{\beta_{XY}}{r}
 	\label{eq:finalNarrow}
 	\end{equation}
-	where $r$ is the relativeness of $X$ and $Y$.
+	where $r$ is the proportion of genome shared by descent by relatives $X$ and $Y$.
 	
 	A key assumption in this calculation is that only additive genetic factors are shared among relatives.
-	However, this is very unlikely to be entirely true as relatives do tends to be in the same cultural group and might have similar socio-economic status.
+	However, this is very unlikely to be entirely true as relatives tend to be in the same cultural group and might have similar socio-economic status.
 	These might all contribute to the variance of the trait, thus lead to bias in \cref{eq:finalNarrow} and we shall discuss the partitioning of variance in the later sections.
 	
-	Nonetheless, \cref{eq:finalNarrow} provide a simple example to the calculation of the narrow sense heritability.
+	Nonetheless, \cref{eq:finalNarrow} provides a simple example for the calculation of the narrow sense heritability.
 	However, in the case of discontinuous trait (e.g. disease status) the calculation becomes more complicated because the variance of the phenotype was dependent on the population prevalence.
 	As \cref{eq:finalNarrow} does not account for the trait prevalence, it cannot be directly applied to discontinuous traits.
 	In order to perform heritability estimation on discontinuous trait, the concept of liability threshold model proposed by \cite{Falconer1965} is necessary with the calculation.
 	
 	\subsection{Liability Threshold}
 	\label{sec:liability}
-	According to the central limit theorem, if a phenotype is determined by a multitude of genetics and environmental factors with relatively small effect, then its distribution will likely follow a normal distribution as is the case of many quantitative traits \citep{Visscher2008}. % No, what if there is interaction between variables? Then it will break the CLT
-	The variance of phenotype can therefore be calculated as the variance under the normal distribution.
-	However, such is not the case for disease like \glng{scz} where only a dichotomous disease status (``affected'' and ``normal'') are obtained.
-	The variance of these phenotypes are therefore more difficult to obtain.
+	According to the central limit theorem, if a phenotype is determined by a multitude of genetics and environmental factors with relatively small effect, then its distribution will likely follow a normal distribution \citep{Visscher2008}.
+	Indeed, many human traits (e.g. height and weight) do have a normal distribution in the population, or can be mathematically transformed to have a normal distribution. % No, what if there is interaction between variables? Then it will break the CLT
+	However, it is not possible for diseases like \glng{scz}, where only a dichotomous disease status (``affected'' and ``normal'') is observed. 
 	
-	\citet{Falconer1965} proposed the liability threshold model, which suggests that these discontinuous traits also follow a continuous distribution with an additional parameter called the ``liability threshold''.
-	Under the liability threshold model, the discontinuous traits are assumed to be affected by combination of multitude of genetics and environmental factors, each with small effects.
-	The main difference is that the phenotype of an individual is determined by whether if the combined effects of these factors (``liability'') are above a particular threshold (``liability threshold'') (\cref{fig:liability}), e.g. only when an individual has a liability above the liability threshold will he/she be affected.
+	To address this issue, \citet{Falconer1965} proposed the liability-threshold model, which suggests that these discontinuous traits are determined by an underlying ``liability'' that follows a continuous distribution.
+	Under the liability-threshold model, a discontinuous traits is assumed to be affected by a combination of numerous genetic and environmental factors, each with small effect.
+	The dichotomous phenotype of an individual is determined by whether the combined effect of these factors (``liability'') is above a particular threshold (``liability threshold'') (\cref{fig:liability}), i.e. only when an individual has a liability above the liability threshold will he/she be affected.
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.5\textwidth]{figure/liability.png}
@@ -165,7 +163,7 @@
 			}
 			\label{fig:liability}
 	\end{figure}
-	One can then estimate the heritability of the discontinuous trait by comparing the mean liability of the general population when compared to the relatives of the affected individuals.	
+	One can then estimate the heritability of the discontinuous trait by comparing the mean liability of the general population to that of the relatives of the affected individuals.	
 	For example, if we consider a single threshold model of a dichotomous trait, where 
 	\begin{align}
 	T_G &= \text{Liability threshold of the general population}\notag\\
@@ -174,8 +172,8 @@
 	q_R &= \text{Prevalence in relatives of the index case}\notag\\
 	L_a &= \text{Mean Liability of the index case} \notag
 	\end{align}
-	by assuming both the liability distribution of the general population and the relative of the index case both follows the standard normal distribution, we can align the two distributions with respect to $T_G$ and $T_R$. 
-	We can then calculate the mean liability of the index case $L_a$ as $L_a=\frac{z_G}{q_G}$ where $z_G$ is the density of the normal distribution at the liability threshold $T_G$.
+	by assuming both the liability distribution of the general population and the relative of the index case follow the standard normal distribution, we can align the two distributions with respect to $T_G$ and $T_R$. 
+	We can then calculate the mean liability of the index case $L_a$ as $L_a=\frac{z_G}{q_G}$ where $z_G$ is the value of the density function of the standard normal distribution at the liability threshold $T_G$.
 	Then we can express the regression of relatives' liability on the liability of the index case as
 	\begin{align}
 	\beta &= \frac{T_G-T_R}{L_a}
@@ -190,17 +188,16 @@
 	\subsection{Adoption Study}
 	% Need to go deeper into twin studies
 	One key limitation of \cref{eq:finalNarrow} is its inability to discriminate the genetic factors from the shared environmental factors.
-	Relatives can share not only their additive genetic effect of alleles, they also share some of the environmental factors such as diet and socio-economic status. 
+	Relatives can share more than additive genetic effect of alleles, but also some of the environmental factors such as diet and socio-economic status. 
 	
 	In order to discriminate the genetic factors from the shared environmental factors, adoption study can be carried out. 
-	An advantage of adoption studies is that if the child was separated from their family early after birth, then the shared environmental factors should be minimized.
-	Any resemblance between the parent and child should be driven mainly by the shared genetic factors.
-	
+	An advantage of adoption studies is that if the child was separated from their family soon after birth, then the shared environmental factors are minimized.
+	Any resemblance between the parent and child should be driven primarily by the shared genetic factors.
 	
 	In the classical adoption study carried out by \citet{HESTON1966} in 1966, 47 individuals who were born to schizophrenic mothers during the period from 1915 to 1947 were collected. 
 	The child were separated from their mother within three days of birth and sent to a foster family. 
 	50 matched controls were also recruited in this study.
-	It was observed that there was an increased risk of \glng{scz} in individuals born to schizophrenic mothers when compared to the control groups even-though they were brought up in a different environment as that of their mother.
+	It was observed that there was an increased risk of \glng{scz} in individuals born to schizophrenic mothers when compared to the control groups, even-though they were brought up in a different environment when compare to their mother.
 	This provide strong support for \glng{scz} as a genetic disorder. 
 %	This result suggested that \glng{scz} is likely driven by the shared genetic factors instead of the shared environmental factors.
 	
@@ -211,8 +208,8 @@
 	
 	\gls{mz} twins share all their genetic components (both additive ($A$) and non-additive ($D$) genetic factors) and common environmental factors ($C$).
 	The only difference between the \gls{mz} twins is the non-shared environmental factors ($E$).
-	For \gls{dz} twins, they share the same common environmental factors.
-	However, only $\frac{1}{2}$ of their additive genetic factors and $\frac{1}{4}$ of their non-additive genetic factors are shared, whereas none of the non-shared environmental factors are shared among the twins \citep{Rijsdijk2002}.
+	For \gls{dz} twins, they also share the same common environmental factors.
+	However, only $\frac{1}{2}$ of their additive genetic factors and $\frac{1}{4}$ of their non-additive genetic factors are shared \citep{Rijsdijk2002}.
 	
 	In view of this, \cite{Falconer1996} derived the heritability as
 	\begin{equation}
@@ -224,8 +221,8 @@
 	This provides strong evidence that the genetic variation contributes more to the variance of \glng{scz}.
 	
 	The result was further supported by one of the landmark meta-analysis study conducted by \citet{Sullivan2003}.
-	Based on data obtained from 12 published \glng{scz} twin studies, \citet{Sullivan2003} found a much contribution from genetics on the liability of \glng{scz} ($81\%$, \gls{ci}=$73\%-90\%$).
-	Furthermore, in the large scale population based studies peroformed by \citet{Lichtenstein2009}, the genetic contribution to \glng{scz} was found to be $64\%$.
+	Based on data obtained from 12 published \glng{scz} twin studies, \citet{Sullivan2003} found much contribution from genetics on the liability of \glng{scz} ($81\%$, \gls{ci}=$73\%-90\%$).
+	Furthermore, in the large scale population based studies performed by \citet{Lichtenstein2009}, the genetic contribution to \glng{scz} was found to be $64\%$.
 	Together, these results provide strong support for \glng{scz} as a genetic disorder. 
 	
 	\section{Schizophrenia Genetics}
@@ -236,13 +233,13 @@
 		\centering
 		\includegraphics[width=0.6\textwidth]{figure/lifeTimeMorbidRisk.png}
 		\caption[Lifetime morbid risks of \glng{scz} in various classes of relatives of a proband]{Lifetime morbid risks of \glng{scz} in various classes of relatives of a proband.
-			It was noted that the morbid risk of \gls{mz} twins were only $48\%$, much lower than one would expect if \glng{scz} follows a Mendelian pattern.
+			It was noted that the morbid risk of \gls{mz} twins was only $48\%$, much lower than one would expect if \glng{scz} follows a Mendelian pattern.
 			Reproduced with permission from journal \citep{Riley2006}. \label{fig:lifeMRscz}}
 	\end{figure}
 	
-	In view of this, \citet{Gottesman1967} proposed that \glng{scz} follows a polygenic model, where the disease phenotype were determined by the additive effects from multiple genes.
+	In view of this, \citet{Gottesman1967} proposed that \glng{scz} might follow a polygenic model, where the disease phenotype were determined by the additive effects from multiple genes.
 	
-	By comparing the observed lifetime morbid risk and the expected risk from different models, \citet{Risch1990} proposed that the cause variants of \glng{scz} are more likely to have a risk less than 2 with no loci with risk larger than 3, suggesting a relatively small effect size.
+	By comparing the observed lifetime morbid risk and the expected risk from different models, \citet{Risch1990} proposed that the causal variants of \glng{scz} are more likely to have a risk less than 2 with no loci with risk larger than 3, suggesting a relatively small effect size.
 	Large sample size are therefore required to detect these susceptibility loci through linkage studies \citep{Risch1990}.
 	
 	This might explain the early inconsistent findings of linkage studies in \glng{scz} \citep{Harrison2005}.
@@ -285,7 +282,7 @@
 	The main reason for the failure of the early \gls{GWAS} is the relatively small sample size.
 	
 	To overcome the problem of sample size, large consortium were formed such that genetic data from different research groups were combined and analyzed.
-	Finally, in 2014, the \Glng{scz} Working group of the \gls{pgc} has conducted a multi-stage \glng{scz} \gls{GWAS} of up to 36,989 \glng{scz} samples and 113,075 controls \citep{Ripke2014}.
+	Finally, in 2014, the \Glng{scz} Working group of the \gls{pgc} has conducted a multi-stage \glng{scz} Genome Wide Meta Analysis of up to 36,989 \glng{scz} samples and 113,075 controls \citep{Ripke2014}.
 	A total of 128 linkage-disequilibrium-independent \glspl{SNP} were found to exceeded the genome-wide significance (p-value $\le 5\times10^{-8}$), corresponding to 108 independent genetic loci.
 	75\% of these loci contain protein coding genes and a further 8\% of these loci were within 20 \gls{kb} of a gene. 
 	It was found that genes involved in glutamatergic neurotransmission (e.g. \textit{GRM3}, \textit{GRIN2A} and \textit{GRIA1}), synaptic plasticity and genes encoding the voltage-gated calcium channel subunits (e.g. \textit{CACNA1C}, \textit{CACNB2} and \textit{CACNA1I}) were among the genes associated within these loci.
@@ -301,7 +298,7 @@
 	\end{figure}
 	
 	The enrichment of immune related enhancers remains significant even after the removal of \gls{mhc} region from the analysis, suggesting that the significance association of the immune system with \glng{scz} is not driven only by the \gls{mhc} region.
-	Considering the role of immune system in neural development \citep{Zhao1998,Deverman2009}, perturbation in the immune system is likely to disrupts the brain development.
+	Considering the role of immune system in neural development \citep{Zhao1998,Deverman2009}, perturbation in the immune system is likely to disrupt the brain development.
 	Therefore, the immune system might have an important role in the etiology of \glng{scz}.
 	%Indeed, studies on \gls{mia} has demonstrated that cytokine imbalance might predispose individual to \glng{scz} \citep{Meyer2009}. 
 %	
@@ -309,9 +306,8 @@
 %	This result converges with existing knowledge of \textit{DRD2} being involved in the pathology of \glng{scz}, supported by multiple lines of research \citep{Talkowski2007}.
 	
 	
-	Despite the success of \gls{pgc} \glng{scz} \gls{GWAS}, it is uncertain whether if all common variants associated with \glng{scz} has been captured. 
-	With the unknown number of causal loci with moderate-to-small effect size, many \glspl{SNP} associated with \glng{scz} may be left undetected with the current sample size. 
-	However, it is also possible that the \gls{pgc} \glng{scz} \gls{GWAS} has already captured all or near most of the \glspl{SNP} associated with the disease. 
+	Despite the success of \gls{pgc} \glng{scz} \gls{GWAS}, it is unclear whether continue resources should be invested into collecting more \gls{GWAS} samples or other genetic analysis should be performed instead. 
+	For example, it is also possible for rare genetic variations to contribute to the genetic predisposition of \glng{scz}.
 	Therefore, estimating the contribution of these common \glspl{SNP} to \glng{scz} has important implications for future research strategy.
 	
 	\subsection{Contribution of Common SNPs}
@@ -321,8 +317,8 @@
 	
 	\subsubsection{Genome-wide Complex Trait Analysis}
 	Currently, the most popular algorithm for the estimation of \gls{SNP}-heritability is \gls{gcta}, which utilize information from the \gls{grm} \citep{Yang2011}.
-	The \gls{grm} represents the ``genetic distance'' between all individuals within the \gls{GWAS}.
-	Genetic relationship between individual $j$ and $k$ is estimated as 
+	The \gls{grm} represents the ``genetic distances'' or the genetic relationship between all individuals within the \gls{GWAS}.
+	The genetic relationship between individual $j$ and $k$ is estimated as 
 	\begin{equation}
 	A_{jk} = \frac{1}{N}\sum^N_{i=1}\frac{(x_{ij}-2p_i)(x_{ik}-2p_i)}{2p_i(1-p_i)}
 	\end{equation}
@@ -330,23 +326,25 @@
 	Because genotypes are usually code as 0, 1 or 2 (homozygous reference, heterozygous and homozygous alternative respectively), they follow the binomial distribution.
 	Therefore, the expected mean and variance of genotype $i$ is $2p_i$ and $2p_i(1-p_i)$ respectively, and the \gls{grm} can be represented as $A_{jk} = \frac{1}{N}\sum^N_{i=1}z_{ij}z_{ik}$, where $z_{ij}$ is the standardized genotype for the $i^{th}$ \gls{SNP} of the $j^{th}$ individual.
 	
-	Using the information from the \gls{grm}, \citet{Yang2011} fitted the effects of all the \glspl{SNP} as random effects by a \gls{mlm}
+	Using the information from the \gls{grm}, \citet{Yang2011} fitted the effects of all the \glspl{SNP} as random effects in a \gls{mlm}
 	\begin{align}
 	\boldsymbol{y} &= \boldsymbol{X\beta}+\boldsymbol{g}+\epsilon\\
 	\mathrm{Var}(\boldsymbol{y}) &= \boldsymbol{A}\sigma_g^2+\boldsymbol{I}\sigma_\epsilon^2
 	\end{align}
 	where $\boldsymbol{y}$ is an $n\times 1$ vector of phenotypes with $n$ samples, $\boldsymbol{\beta}$ is a vector of fixed effects such as sex and age, $\boldsymbol{g}$ is an $n\times 1$ vector of the total genetic effects of the individuals, $\sigma_g^2$ is the variance explained by all the \glspl{SNP} and finally, $\sigma_\epsilon^2$ is the variance explained by residual effects.
 
-	The main concept of \gls{gcta} is that instead of testing the associations for individual \glspl{SNP}, effects of \emph{all} \glspl{SNP} are fit as random effects in a \gls{mlm}, such that a single parameter can be estimated, i.e. the variance explained by all \glspl{SNP} or \gls{SNP}-heritability.
-	Given the information of the \gls{grm}, \citet{Yang2011} implemented the \gls{reml} using the average information algorithm to estimate the $\sigma_g^2$ and $\sigma_\epsilon^2$, where the \gls{reml} is a form of maximum likelihood estimation that allows unbiased estimates of variance and covariance parameters.
+	The main concept of \gls{gcta} is that by fitting the effects of \emph{all} \glspl{SNP} as random effects in a \gls{mlm}, a single parameter can be estimated, i.e. the variance explained by all \glspl{SNP} or \gls{SNP}-heritability.
+	Given the information of the \gls{grm}, \citet{Yang2011} implemented the \gls{reml} using the average information algorithm to estimate the $\sigma_g^2$ and $\sigma_\epsilon^2$, where the \gls{reml} is a modification of maximum likelihood estimation that allows unbiased estimates of variance and covariance parameters.
 	The \gls{SNP}-heritability of the trait is then defined as $\frac{\sigma_g^2}{\sigma_g^2+\sigma_e^2}$.
 
 	\citet{Yang2010a} were able to estimate the variance in height explained by \glspl{SNP} from the height \gls{GWAS} to be around 45\%, much larger than previously reported 5\%.
-	Although the estimates was still less than 80\%, which is the expected heritability of height, \citet{Yang2010a} was able to demonstrated that one possible source of ``missing heritability'' might were due to incomplete \gls{LD}.
-	By considering incomplete \gls{LD}, \citet{Yang2010a} estimated that the proportion of variance explained by causal variants can be as high as 0.84 with \gls{se} of 0.16, which is closer to the heritability of height.
+	However, the estimate was still less than 80\%, which is the expected heritability of height.
+	\citet{Yang2010a} hypothesized that one possible source of ``missing heritability'' might be to incomplete \gls{LD}.
+	Taken into consideration of incomplete \gls{LD}, \citet{Yang2010a} estimated that the proportion of variance explained by causal variants can be as high as 0.84 with \gls{se} of 0.16, which is closer to the heritability of height.
 	
-	An limitation of \gls{gcta} is that genotype data are required to calculate the \gls{grm}.
+	The biggest limitation of \gls{gcta} is the requirement of individual genotype data to calculate the \gls{grm}.
 	For studies which only summary statistics are available, for example, the meta-analysis of \glng{scz}, \gls{gcta} analysis cannot be performed.
+	Therefore, other methods are required in order to estimate the \gls{SNP} heritability when the individual genotypes are unavailable. 
 	
 	\subsubsection{\glng{ldsc}}
 	In large scale \gls{GWAS} studies, a general inflation of summary statistics can sometimes be observed.
@@ -364,10 +362,8 @@
 %	Therefore, in order to estimate the \gls{SNP}-heritability, one must delineate the confounding factors from the polygenicity of the trait.
 	
 	Based on the work of \citet{Yang2011b}, \citet{Bulik-Sullivan2015} hypothesized that the probability of a \gls{SNP} to be a neighbor of the causal variant is higher if the \gls{SNP} is in \gls{LD} with a larger number of \glspl{SNP}.
-	However, this probability should be independent of the confounding factors such as population stratification and cryptic relatedness.
-	%TODO here
-	Therefore, \citet{Bulik-Sullivan2015} developed the \gls{LD} score.
-	The \gls{LD} score of a \gls{SNP} $j$ is defined as the sum of $r^2$ of $k$ neighboring \glspl{SNP} within a 1 \gls{cm} window:
+	However, this probability are independent of the confounding factors such as population stratification and cryptic relatedness.
+	Therefore, \citet{Bulik-Sullivan2015} developed the \gls{LD} score, where the \gls{LD} score of a \gls{SNP} $j$ is defined as the sum of $r^2$ of $k$ neighboring \glspl{SNP} within a 1 \gls{cm} window:
 	\begin{equation}
 	l_j = \sum_kr^2_{jk}
 	\label{eq:ldScore}
@@ -387,9 +383,9 @@
 	where $a$ is the contribution of confounding bias.
 	
 	By considering \cref{eq:fullLDSC} as a regression model, \citet{Bulik-Sullivan2015} observed that the contribution of common variants (the \gls{SNP} heritability $h^2$) will be the slope of the regression, whereas the intercept minus one will represent the mean contribution of the confounding bias, such as population stratification. 
-	The \gls{ldsc} was then implemented using \cref{eq:fullLDSC} to delineate the contribution from confounding factors and common genetic variants \citet{Bulik-Sullivan2015}.
+	Using \cref{eq:fullLDSC}, \citet{Bulik-Sullivan2015} implemented the \gls{ldsc} to delineate the contribution from confounding factors and common genetic variants.
 	
-	To test whether \gls{ldsc} can truly delineate the contribution from confounding factors and common genetic variants, \citet{Bulik-Sullivan2015} performed a series of simulation.
+	Simulations were performed to test whether \gls{ldsc} can truly delineate the contribution from confounding factors and common genetic variants \citep{Bulik-Sullivan2015}.
 	When the simulated traits are polygenic and no confounding factors are presented, the average \gls{ldsc} intercept was close to one and the estimates were unbiased in all situation.
 	Only when the number of causal variants was small will the standard error of the estimates become very large.
 	On the other hand, when the \gls{GWAS} was simulated with only the confounding factors such as population stratification, the intercept estimated was approximately equal to the \gls{gc} inflation factor, with only a small positive bias in the regression slope.
@@ -397,9 +393,10 @@
 	Furthermore, when polygenic traits were simulated with confounding factors, the intercept of \gls{ldsc} was approximately equal to the mean $\chi^2$ statistic among the null \glspl{SNP}, providing strong evidence that \gls{ldsc} can partition the inflation in test statistic, even in the presence of both bias and polygenicity.
 	
 	\citet{Bulik-Sullivan2015} then estimated the \gls{SNP} heritability of \glng{scz}, using the summary statistics from the \gls{pgc} \glng{scz} \gls{GWAS} \citep{Ripke2014}.
-	It is estimated that the \gls{SNP} heritability of \glng{scz} is 0.555 with \gls{se} of 0.008 after adjusting for ascertainment bias.
+	It was estimated that the \gls{SNP} heritability of \glng{scz} is 0.555 with \gls{se} of 0.008 after adjusting for ascertainment bias.
 	The estimated \gls{SNP} heritability was lower than the heritability estimated from population based study (64\% \citep{Lichtenstein2009}) and twin studies (81\% \citep{Sullivan2003}).
 	Therefore, it is possible for variants other than common \glspl{SNP} to account for the heritability of \glng{scz}.
+	%TODO should we say how LDSC doesn't do the full simulation to test the performance?
 	
 	\subsubsection{Partitioning of Heritability}
 	Another implication of \gls{ldsc} is that it allows the partitioning of heritability, which helps to identify pathways that are associated with a trait.
@@ -538,7 +535,7 @@
 	Moreover, using the national registers in Finland, \citet{Clarke2009} found that the effect of prenatal infection was five times greater in those who had a family history of psychosis when compared to those who did not. 
 	Together, these findings support a mechanism of gene-environment interaction in the causation of \glng{scz}.
 	
-	Many environmental factors have been associated with \glng{scz}, including prenatal infection \citep{Brown2010}, winter birth \citep{OCallaghan1991}, tobacco consumption \citep{Kelly1999} and socio economic status \citep{McGrath2008a}.
+	Many environmental factors have been associated with \glng{scz}, including prenatal infection \citep{Brown2010}, winter birth \citep{o1991season}, tobacco consumption \citep{Kelly1999} and socio economic status \citep{McGrath2008a}.
 	These environmental factors are therefore potential targets for the study of $G\times E$ interaction.
 	However, by and large, the prenatal infection is the largest environmental risk factor of \glng{scz}.
 	Furthermore, existing evidence indicated that there are an interaction between prenatal infection and genetic variations \citep{Clarke2009}.
@@ -558,7 +555,7 @@
 	It was also observed that there was an increased risk of \glng{scz} in individuals who were fetuses during the 1957 influenza epidemic \citep{Mednick1958}.
 	As the chance of getting infectious diseases varies by season, and infectious diseases spread faster in urban regions due to higher population density, these evidences suggested that prenatal infection might be associated with \glng{scz}.
 	
-	Early studies of prenatal infection in \glng{scz} mainly relies on ecological data such as influenza epidemics in the population to define the exposure status \citep{Brown2010}.
+	Early studies of prenatal infection in \glng{scz} mainly relied on ecological data such as influenza epidemics in the population to define the exposure status \citep{Brown2010}.
 	The problem of these studies was that the exposure status was based solely on whether an individual was in gestation at the time of the epidemic without any confirmation of maternal infection during pregnancy.
 	Therefore, the exposure status might be inaccurate and unreliable, leading to difficulties in replication of the findings from these epidemiological studies \citep{Brown2010}.  
 	Subsequently, birth cohorts, where infection was documented using different biomarkers during pregnancies, were conducted in order to obtain a better labeling of the exposure status \citep{Brown2010}.
@@ -679,7 +676,7 @@
 	Thus we developed an alternative algorithm for the estimation of \gls{SNP} heritability using summary statistics from \gls{GWAS}.
 	Ultimately, we would like to re-estimate the \gls{SNP} heritability of \glng{scz}.
 
-	Currently, evidences suggest there might be an interaction between prenatal infection and genetic variations in the development of \glng{scz} \citep{Tienari2004,Clarke2009}.
+	Currently, evidence suggests there might be an interaction between prenatal infection and genetic variations in the development of \glng{scz} \citep{Tienari2004,Clarke2009}.
 	Therefore, we hypothesize that the differential gene expression induced by \gls{mia} and genetic mutation might be acting upon the same functional pathways/gene sets.
 	To test our hypothesis, a RNA Sequencing study was performed to capture gene expression changes induced by early \gls{mia} events (\gls{gd}9) in the mouse cerebellum using the \gls{polyic} mouse model.
 	Enrichment analysis was then performed to investigate whether the differential expressed genes were enriched in gene sets associated with \glng{scz}.
@@ -693,7 +690,7 @@
 	At the same time, \gls{shrek}, an alternative algorithm for the estimation of \gls{SNP} heritability is also introduced. 
 	We also re-examined the \gls{SNP} heritability of \glng{scz} and other psychiatric disorders.
 	
-	\Cref{omegaProject} describes our the RNA sequencing study on the effect of \gls{mia} and n-3 \gls{pufa} diet on gene expression of the mouse cerebellum. 
+	\Cref{omegaProject} describes the RNA sequencing study on the effect of \gls{mia} and n-3 \gls{pufa} diet on gene expression of the mouse cerebellum. 
 
 	
 	Lastly, we summarize and conclude all findings in \Cref{conclusionChapter} and give future perspectives on genetic studies of \glng{scz}.

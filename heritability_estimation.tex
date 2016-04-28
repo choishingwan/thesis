@@ -29,7 +29,7 @@
 		\subsection{Heritability Estimation}
 			Given that the heritability ($h^2$) is defined as the proportion of total variance of the phenotype ($\boldsymbol{y}$) in a population explained by the variation of genetic factors ($\boldsymbol{x}$):
 			$$
-				h^2 = \frac{\mathrm{Var}(\boldsymbol{y})}{\mathrm{Var}(\boldsymbol{x})}
+				h^2 = \frac{\mathrm{Var}(\boldsymbol{x})}{\mathrm{Var}(\boldsymbol{y})}
 			$$
 			
 			In a typical \gls{GWAS}, regression is performed to test for an association between each \gls{SNP} and the phenotype of interest:
@@ -299,7 +299,7 @@
 		\subsection{Extreme Phenotype Sampling}
 			%Explain why we perform extreme phenotype selections. Explain how that affect the variance of the estimation. Finally, explain how to perform heritability estimation on extreme phenotype. 
 			\gls{GWAS} provides unprecedented power to perform hypothesis-free genetic association throughout the whole genome.
-			However, due to budget constraint selecting individuals with extreme phenotypes for \gls{GWAS} is often one way to maximize the genetic signal by enriching the protective/risk common allele at both ends of the distribution, thus increases the statistical power \citep{Guey2011}.
+			However, due to budget constraint selecting individuals with extreme phenotypes for \gls{GWAS} is often one way to maximize the genetic signal by enriching the protective/risk common allele at both ends of the distribution, thus increasing the statistical power \citep{Guey2011}.
 			For example, by including only the samples from the top 5\% and bottom 5\% of the phenotype distribution, the power of the detection is the same as a study with random sampling design that has 4 times the sample size \citep{Sham2014}. 
 			
 			The extreme phenotype selection design increases the summary statistics by a factor of $\frac{V_{P'}}{V_P}$ where $V_{P'}$ is the trait variance of the selected sample and $V_P$ is the trait variance of the general population \citep{Sham2014}.
@@ -359,7 +359,7 @@
 			$$
 			\kappa(\boldsymbol{A}) = \frac{\sigma_{max}(\boldsymbol{A})}{\sigma_{min}(\boldsymbol{A})}
 			$$
-			Thus, a large $\kappa(\boldsymbol{A})$ means that\ small errors in the data will lead to large derivation in the solution.
+			Thus, a large $\kappa(\boldsymbol{A})$ means that small errors in the data will lead to large derivation in the solution.
 %			By substitute \cref{eq:svd} into $\boldsymbol{Ax}=\boldsymbol{B}$, we get
 %			\begin{align}
 %				\boldsymbol{Ax}&=\boldsymbol{B} \nonumber\\
@@ -398,22 +398,25 @@
 			\end{equation}
 			a large value (e.g ``gap'') usually indicates that the matrix has a well-defined rank.
 			%\begin{wrapfigure}{L}{3in}
-			\begin{figure}
-				\caption[Cumulative Distribution of ``gap'' of the LD matrix]{Cumulative Distribution of ``gap'' of the LD matrix, the vertical line indicate the full rank. It can be observed that there is a huge increase in ``gap'' before full rank is achieved. 
-				The results suggest that the rank of the LD matrix is well defined}
-				\centering
-				\includegraphics[width=0.5\textwidth]{figure/singular_value_distribution.png}
-				\label{fig:singularValueDist}
-				\vspace{-20pt}
-			\end{figure}
+%			\begin{figure}
+%				\caption[Cumulative Distribution of ``gap'' of the LD matrix]{Cumulative Distribution of ``gap'' of the LD matrix.
+%				The vertical line indicate the full rank. 
+%				If 
+%				It can be observed that there is a huge increase in ``gap'' before full rank is achieved. 
+%				The results suggest that the rank of the LD matrix is well defined}
+%				\centering
+%				\includegraphics[width=0.5\textwidth]{figure/singular_value_distribution.png}
+%				\label{fig:singularValueDist}
+%				\vspace{-20pt}
+%			\end{figure}
 			%\end{wrapfigure}
 			
 			Hence, simulation was carried out to investigate whether if \gls{LD} matrix has a well-defined rank.
 			1,000 samples were randomly simulated from the HapMap \citep{Altshuler2010} \gls{CEU} population with 1,000 \glspl{SNP} randomly select from chromosome 22 using HAPGEN2 \citep{Su2011}.
 			HAPGEN2 allow for the simulation of samples with \gls{LD} structure similar to that observed in the reference panel.
 			The \gls{LD} matrix and its corresponding singular values were computed. 
-			The whole process were repeated 50 times and the cumulative distribution of the ``gap'' of singular values were plotted (\cref{fig:singularValueDist}). 
-			It is clearly shown that the \gls{LD} matrix has a well-defined rank with a mean maximum ``gap'' of 466,198,939,298.
+			The whole process were repeated 50 times. 
+			It is observed that the \gls{LD} matrix has a well-defined rank with a mean maximum ``gap'' of 466,198,939,298.
 			Therefore the choice of \gls{tSVD} for the regularization is appropriate.
 			
 			In view of this, \gls{tSVD} was selected as the method for regularization for solving \cref{eq:shrekEq}.
@@ -472,20 +475,7 @@
 		An important consideration in our algorithm is the sampling error in \gls{LD}.
 		In reality, the population \gls{LD} matrix is not available.
 		Therefore , the \gls{LD} matrix must be estimated from various reference panels such as the 1000 genome project \citep{Project2012} or the HapMap project \citep{Altshuler2010}.
-		Given these reference panels are subsets of the whole population, this results in sampling errors in the estimated sample \gls{LD}.
-		The sample \gls{LD} can then be represented as:
-		$$
-		\hat{R} = R+\epsilon
-		$$
-		where $R$ is the population \gls{LD} and $\epsilon$ is the sampling error which is unbiased.
-		However, in \cref{eq:fullShrek}, squared \gls{LD} are required.
-		The expected value of the \gls{LD} squared ($R^2$) is then calculated as
-		\begin{align}
-		\mathrm{\hat{R^2}} &= \mathrm{E}[(R+\epsilon)^2] \notag\\
-		&=\mathrm{E}(R^2+2R\epsilon+\epsilon^2) \notag\\
-		&=\mathrm{E}(R^2)+\mathrm{E}(\epsilon^2)
-		\end{align}
-		A positive bias is observed in the sample $R^2$.
+		Given these reference panels are subsets of the whole population, this results in sampling errors in the estimated sample \gls{LD} and squared \gls{LD}.
 		
 		\citet{Weir1980,Wang2007} proposed methods for the correction of sample $R^2$:
 		\begin{align}
@@ -1344,7 +1334,7 @@
 		\end{table}
 		
 	\section{Discussion}
-	The development of \gls{GWAS} allow the systematic association of common genetic variants, such as \glspl{SNP}, to traits on a genome-wide scale.
+	The development of \gls{GWAS} allows the systematic association of common genetic variants, such as \glspl{SNP}, to traits on a genome-wide scale.
 	In a recent \gls{GWAS} conducted by the \gls{pgc}, 108 genetic loci were found to be associated with \glng{scz} \citep{Ripke2014}.
 	Despite the success of the \gls{pgc} \glng{scz} \gls{GWAS}, it is uncertain whether if common genetic variants such as \glspl{SNP} are the main contribution to individual differences in the liability to \glng{scz}.
 	Therefore, estimating the contribution of the common \glspl{SNP} included in the \gls{GWAS}, to \glng{scz} has important implications for future research strategy. 
@@ -1446,7 +1436,7 @@
 	It is therefore expected that when confounding factors are presented, \gls{ldsc} with the intercept estimation might outperform \gls{shrek} and \gls{ldsc} with fixed intercept.
 	
 	However, it is difficult to simulate confounding factors such as population stratification and cryptic relatedness.
-	To our knowledge, there are no readily available softwares for the simulation of cryptically related samples.
+	To our knowledge, there are no readily available software for the simulation of cryptically related samples.
 	On the other hand, although it is possible to simulate stratified samples, a multitude of factors can confound the simulation with population stratification.
 	The selection of reference panel is by far the most important factor to consider. 
 	For example, if half of the samples were simulated based on European samples and the remaining half of the samples were simulated based on African samples, then it is unclear whether if the European samples or the African samples should be used as the reference panel.
@@ -1539,7 +1529,7 @@
 		a &= \text{Contribution of confounding biases}\notag\\
 		h^2 &= \text{heritability}\notag 
 	\end{align}
-	$M$ was originally defined as the total number of \glspl{SNP} in the reference panel used to estimated \gls{LD} score.	
+	$M$ was originally defined as the total number of \glspl{SNP} in the reference panel used to estimate \gls{LD} score.	
 	However, in the current version of \gls{ldsc}, $M$ was defined as the number of \glspl{SNP} with \gls{maf}$ >5\%$ in the reference panel used to estimate \gls{LD} score which \citet{Bulik-Sullivan2015} deem more appropriate based on new data they observed after their original paper was published.
 	From the caption of the supplementary table, it was stated that ``\dots if the average rare \gls{SNP} explains less phenotypic variance than the average common \gls{SNP}, then a smaller value of $M$ would be more appropriate, and the estimates in the supplementary table will be biased upwards.'' \citep{Bulik-Sullivan2015}.
 	This explained the discrepancy between our estimates and the estimates observed in the supplementary table from \citet{Bulik-Sullivan2015}.

@@ -10,7 +10,7 @@ This suggests that other factors such as rare variants such, epigenetic factors 
 
 Previous studies have reported the possibility of interaction between prenatal infection and genetic variation in risk of developing \glng{scz} \citep{Tienari2004,Clarke2009}.
 It has been suggested that the effect of prenatal infection was mainly mediated by maternal immune response, instead of the specific type of infection \citep{Brown2010}.
-Therefore it is likely that the perturbation induced by \gls{mia} interacts with genetic variations in the development of \glng{scz}.
+Therefore it is likely for the perturbation induced by \gls{mia} to interact with genetic variations in the development of \glng{scz}.
 
 Slowly but steadily, progress has been made in the research of \glng{scz}.
 Converging evidence from \gls{GWAS}, \gls{cnv} and sequencing studies suggest that rare and common variants in genes related to \gls{psd} \citep{Purcell2014,Consortium2015a} and calcium ion channels \citep{Purcell2014,Ripke2014,Szatkiewicz2014} contribute to the etiology of \glng{scz}.
@@ -134,11 +134,11 @@ The following statistical comparisons were performed:
 \end{enumerate}
 We used $\sim Batch+Condition+Diet+Condition:Diet$ as our model of statistical analysis where Condition is the \gls{mia} exposure status.
 \Gls{rin} was not included in the statistical model as suggested by the author.
-
-To further investigate whether batch effect may can lead to false positives, we performed the \gls{lrt} to investigate the effect of batch on our result.
-The \gls{lrt} examines two models for the counts, a full model with a certain number of terms and a reduced model, in which some of the terms of the full model are removed. 
-The test determines if the increased likelihood of the data using the extra terms in the full model is more than expected if those extra terms are truly zero.
-Thus we compared the full model $\sim Batch+Condition+Diet+Condition:Diet$ with $\sim Condition+Diet+Condition:Diet$ to understand the effect of batch on our data.
+%
+%To further investigate whether batch effect may can lead to false positives, we performed the \gls{lrt} to investigate the effect of batch on our result.
+%The \gls{lrt} examines two models for the counts, a full model with a certain number of terms and a reduced model, in which some of the terms of the full model are removed. 
+%The test determines if the increased likelihood of the data using the extra terms in the full model is more than expected if those extra terms are truly zero.
+%Thus we compared the full model $\sim Batch+Condition+Diet+Condition:Diet$ with $\sim Condition+Diet+Condition:Diet$ to understand the effect of batch on our data.
 
 In our analysis, genes with base mean count $<$ 10 were removed to reduce noise associated with low expression and the Benjamini and Hochberg method was then used to correct for multiple testing.
 
@@ -147,8 +147,10 @@ In our analysis, genes with base mean count $<$ 10 were removed to reduce noise 
 The main goal of the current study is to investigate whether the effect of MIA or diet act upon the same functional gene sets as the genetic variants associated with schizophrenia in the development of the disease. 
 Specifically, as genes related to \gls{psd} \citep{Purcell2014,Consortium2015a} and calcium ion channel \citep{Purcell2014,Ripke2014,Szatkiewicz2014} has been implicated to be involved in the etiology of \glng{scz}, it is interesting to investigate whether these gene sets were also enriched by genes perturbed by \gls{mia} or diet.
 
-To compile a list of relevant gene-sets, significant gene sets from \citet{Purcell2014,Consortium2015a} were retrieved.
+To compile a list of relevant gene-sets, significant gene sets from \citet{Purcell2014,Consortium2015a} were retrieved, which include gene set related to calcium ion channel and \gls{psd}.
 Gene sets and pathway related to \gls{psd} and calcium ion channel were also retrieved from \gls{kegg} \citep{Kanehisa2000} and \gls{go} \citep{Consortium2015b}, both have been widely used for systematic genetic analysis.
+In addition, the \glng{scz} \gls{GWAS} gene set, constructed based on associated \gls{GWAS} \gls{LD}-intervals from \citet{Ripke2013} by \citet{Purcell2014} was also included.
+
 
 The Wilcoxon Rank Sum test was performed to assess whether the gene sets were enriched by genes affected by either \gls{mia} or diet.
 Pathways with adjusted p-value $<0.05$ (using Benjamini and Hochberg adjustment) were considered as significant.
@@ -192,7 +194,7 @@ The sample was therefore excluded from subsequent analyses.
 		To avoid problems in down-stream analysis, we excluded this sample from subsequent analyses }
 	\label{fig:distMatrix}
  \end{figure}
- 
+
 \subsection{Differential Expression Analysis}
 \begin{figure}
 	\centering
@@ -208,26 +210,27 @@ The sample was therefore excluded from subsequent analyses.
 		\scalebox{.4}{\includegraphics{figure/omega/omegaPOL_wald_qq.png}}
 		\label{fig:omegaPOLWald}
 	}
-	\subfloat[Batch Effect]{
-		\scalebox{.35}{\includegraphics{figure/omega/nobatch_lrt.png}}
-		\label{fig:batchLRT}
-	}
+%	\subfloat[Batch Effect]{
+%		\scalebox{.35}{\includegraphics{figure/omega/nobatch_lrt.png}}
+%		\label{fig:batchLRT}
+%	}
 	\caption[QQ Plot Statistic Results]
 	{QQ Plot of statistic results.
 		From the \gls{qqplot}, it is observed that most of the observed p-values are less than expected. 
 		Because the sample size is relatively small, it is likely for the current study to lack detection power, therefore leads to an deflation in p-values.
 	
-		Meanwhile, the results from \gls{lrt} suggested that the full model, which adjusted for batch effect, might provide a better fit to our data. 
-		Therefore it is important to adjust for the batch effect. } 
+%		Meanwhile, the results from \gls{lrt} suggested that the full model, which adjusted for batch effect, might provide a better fit to our data. 
+%		Therefore it is important to adjust for the batch effect. 
+		} 
 	\label{fig:waldQQ}
 \end{figure}
 DESeq2 analysis was performed after excluding the problematic sample.
 Of the 16,747 genes that passed through quality control, only \textit{Sgk1} (p-adjusted=0.00186) was found to be significantly differentially when comparing the effect of n-3 \gls{pufa} rich diet in \gls{polyic} exposed mice (\cref{fig:omegaPOLWald}).
 On the other hand, no significant differentiation is observed in all other comparisons (\cref{fig:miaO6Wald,fig:omegaSALWald}).
-
-\gls{lrt} was performed to test the goodness of fit of model with and without the batch effect include. 
-It is observed that when ``Batch'' was not included in the model, 178 genes are found to be significant (\cref{fig:batchLRT}).
-This indicates that by including ``Batch'' in the statistic model, a significant better fit can be obtained. 
+%
+%\gls{lrt} was performed to test the goodness of fit of model with and without the batch effect include. 
+%It is observed that when ``Batch'' was not included in the model, 178 genes are found to be significant (\cref{fig:batchLRT}).
+%This indicates that by including ``Batch'' in the statistic model, a significant better fit can be obtained. 
 
 \subsection{Gene Set Analysis}
 In total, 7 gene sets were included for the gene set analysis (\cref{tab:genesetRes}).
@@ -254,26 +257,30 @@ Upon further investigation, the \gls{psd} gene set from \citet{Purcell2014} is f
 		%\rowcolors{2}{gray!25}{white}
 		\begin{tabular}{lllllllll}
 			\toprule
-			Gene Set & Source & ID    & Category & \begin{tabular}[t]{@{}c@{}}Diet in \\PolyIC \\Mice\end{tabular}  & MIA Effect   & \begin{tabular}[t]{@{}c@{}}Diet in \\Saline \\Mice\end{tabular} & \begin{tabular}[t]{@{}c@{}}Proportion \\of $h^2$ \\explained\end{tabular} & \begin{tabular}[t]{@{}c@{}}Enrichment \\P-value \end{tabular} \\
+			Gene Set & Source & Size    & Category & \begin{tabular}[t]{@{}c@{}}Diet in \\PolyIC \\Mice\end{tabular}  & MIA Effect   & \begin{tabular}[t]{@{}c@{}}Diet in \\Saline \\Mice\end{tabular} & \begin{tabular}[t]{@{}c@{}}Proportion \\of $h^2$ \\explained\end{tabular} \\%& \begin{tabular}[t]{@{}c@{}}Enrichment \\P-value \end{tabular} \\
 			\midrule
-			Calcium Ion \\Signaling Pathway & KEGG  & hsa04020 & Calcium Ion & 0.0402 & $4.40\times10^{-7}$ & 0.231 & 0.0135 & 0.421 \\
+			\begin{tabular}[t]{@{}l@{}}Calcium Ion \\Signaling Pathway\end{tabular} & \begin{tabular}[t]{@{}l@{}}KEGG\\(hsa04020)\end{tabular} & 180 & Calcium Ion & 0.0402 & $4.40\times10^{-7}$ & 0.231 & 0.0135 \\%& 0.421 \\
 			\rowcolor{gray!25}
-			Glutamatergic synapse & KEGG  & hsa04724 & PSD   & 0.118 & 0.00490 & 0.123 & 0.0134 & 0.382 \\
+			Glutamatergic synapse & \begin{tabular}[t]{@{}l@{}}KEGG\\(hsa04724)\end{tabular} & 114 & PSD   & 0.118 & 0.00490 & 0.123 & 0.0134 \\%& 0.382 \\
 			\rowcolor{white}
-			Voltage-Gated Calcium \\Channel Activity & GO    & GO:05245 & Calcium Ion & 0.0262 & $3.45\times10^{-6}$ & 0.137 & 0.00771 & 0.313 \\
+			\begin{tabular}[t]{@{}l@{}}Voltage-Gated Calcium \\Channel Activity\end{tabular} & \begin{tabular}[t]{@{}l@{}}GO\\(GO:05245)\end{tabular}    & 44 & Calcium Ion & 0.0262 & $3.45\times10^{-6}$ & 0.137 & 0.00771 \\%& 0.313 \\
 			\rowcolor{gray!25}
-			Calcium Channel Activity & GO    & GO:05262 & Calcium Ion & 0.0942 & 0.00209 & 0.0880 & 0.0119 & 0.593 \\
+			Calcium Channel Activity & \begin{tabular}[t]{@{}l@{}}GO\\(GO:05262)\end{tabular}   & 111 & Calcium Ion & 0.0942 & 0.00209 & 0.0880 & 0.0119 \\%& 0.593 \\
 			\rowcolor{white}
-			PSD   & GO    & GO:14069 & PSD   & $4.86\times10^{-3}$ & $6.31\times10^{-9}$ & 0.0383 & 0.0352 & 0.00624 \\
+			PSD   & \begin{tabular}[t]{@{}l@{}}GO\\(GO:14069)\end{tabular}   & 194 & PSD   & $4.86\times10^{-3}$ & $6.31\times10^{-9}$ & 0.0383 & 0.0352 \\%& 0.00624 \\
 			\rowcolor{gray!25}
-			PSD   & Purcell &       & PSD   & 0.113 & 0.328 & 0.977 & 0.0486 & 0.131 \\
+			PSD   & Purcell &   685    & PSD   & 0.113 & 0.328 & 0.977 & 0.0486 \\%& 0.131 \\
 			\rowcolor{white}
-			GWAS  & Purcell &       & GWAS  & 0.3048 & $6.91\times10^{-3}$ & 0.551 & 0.0998 & $7.42\times10^{-8}$ \\
+			\Glng{scz} GWAS  & Purcell &  479     & GWAS  & 0.3048 & $6.91\times10^{-3}$ & 0.551 & 0.0998 \\%& $7.42\times10^{-8}$ \\
 			\bottomrule
 		\end{tabular}%
 	\end{table}%
 \end{landscape}
 
+\subsection{Partitioning of Heritability}
+It is observed that all calcium ion channel gene sets accounts for around 0.77-1.35\% of the \gls{SNP} heritability of \glng{scz}, whereas the \gls{psd} gene sets contribute 1.34\% to 4.86\%.
+
+Finally, the \glng{scz} \gls{GWAS} gene set contribute most to the \gls{SNP} heritability of \glng{scz}, contributing 9.9\% of the \gls{SNP} heritability.
 %
 %\subsection{Functional Annotation}
 %It is common practice to perform functional annotation to the \glspl{deg}. 
@@ -373,7 +380,7 @@ Using Scotty \citep{Busby2013}, it is estimated that a minimal of 10 samples per
 \section{Discussion}
 \subsection{Serine/threonine-protein kinase}
 Our results demonstrated that the expression of Serine/threonine-protein kinase \textit{Sgk1} in the cerebellum of \gls{polyic} exposed mice might have been affected by n-3 \gls{pufa} rich diet.
-\textit{Sgk1} is a serine/threonine kinase activated by \gls{pi3k}/Akt signaling,.
+\textit{Sgk1} is a serine/threonine kinase activated by \gls{pi3k}/Akt signaling.
 Studies have reported that the expression of \textit{Sgk1} is associated with spatial learning, fear-conditioning learning and recognition learning in rat \citep{Tsai2002,Lee2003}.
 For example, \citet{Tsai2002} observed a 4 fold increase of \textit{Sgk1} in the hippocampus of fast learners when compared to slow learners.
 Furthermore, the transfection of \textit{Sgk1} mutant DNA impairs the water maze performance in rat \citep{Tsai2002}.
@@ -410,31 +417,25 @@ However, previous studies have been focusing on the effect of \textit{Sgk1} in t
 It is uncertain whether \textit{Sgk1} has the same function in the cerebellum.
 Therefore, further researches are required to investigate the role of \textit{Sgk1} in the regulation of development of cerebellum.
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.6\textwidth]{figure/omega/pi3ksignaling.jpg}
-%	\caption[Schematic of signalling through the PI3K/AKT pathway]{
-%		Schematic of signalling through the \gls{pi3k}/AKT pathway.
-%		It was observed that the growth factors were upstream of the \gls{pi3k}/AKT pathway of which \textit{Sgk1} is one of the member of the pathway.
-%		Figure adopted from \citet{Hennessy2005} with permission from journal.
-%	}\label{fig:pi3kPathway}
-%\end{figure}
+
+
+
 \subsection{Gene Set Analysis}
 In total, 7 gene sets were included in the analysis (\cref{tab:genesetRes}). 
 All gene sets related to calcium ion channel are found to be significant when comparing the gene expression in \gls{mia} samples. 
 Previous studies in \glng{scz} have reported the association of genes participating in the calcium ion channel signaling with \glng{scz} \citep{Lidow2003,Purcell2014,Ripke2014}.
 For example, in exome sequencing study of \glng{scz} conducted by \citet{Purcell2014}, an enrichment of non-synonymous variants within the voltage gate calcium ion channel genes was observed in the \glng{scz} cases.
-Similar findings were also obtained in the \gls{pgc} \glng{scz} \gls{GWAS} \citep{Ripke2014}.
+Similar findings were also obtained in the \gls{pgc} \scz\ \gls{GWAS} \citep{Ripke2014}.
 
 Calcium ion channel signaling is a key component for normal neural functioning.
 For example, calcium ion signaling can regulates neuronal gene transcription, neuronal excitability, synaptic plasticity responsible for learning and memory, as well as the release of neurotransmitters from presynaptic endings \citep{Berridge2014}.
-Although it is unclear the exact role of the calcium signaling pathway in the etiology of \glng{szc}, it is likely for the disruption of expression or structures of proteins related to the calcium signaling pathway can affect the normal functioning of the neuronal system.
+Although it is unclear the exact role of the calcium signaling pathway in the etiology of \glng{scz}, it is likely for the disruption of expression or structures of proteins related to the calcium signaling pathway can affect the normal functioning of the neuronal system.
 
-On the other hand, gene sets related to \gls{psd} are also found ot be significant when comparing the gene expression in \gls{mia} samples. 
+On the other hand, gene sets related to \gls{psd} are also found to be significant when comparing the gene expression in \gls{mia} samples. 
 \gls{psd} genes are highly conserved and have critical roles in excitatory neural signalling components, as well as dendrite and spine plasticity.
 \gls{psd} abnormalities are therefore thought to alter the balance of excitation and inhibition, and variations in this balance might change, not only local circuit function, but also connectivity patterns between brain regions, leading to developmental and behavioral deficits \citep{Cline2005}.
 
-Most importantly, it is observed that the gene set containing genes within the associated \gls{GWAS} LD-intervals from \citet{Purcell2014} is also found to be significant in \gls{mia}.
+Most importantly, it is observed that the \glng{scz} \gls{GWAS} gene set, constructed based on associated \gls{GWAS} \gls{LD}-intervals from \citet{Ripke2013} by \citet{Purcell2014}, is also found to be significant in \gls{mia}.
 This indicates that the genes contain genetic variants associated with \glng{scz} are also likely to be affected by early \gls{mia} events in the cerebellum, where their expression might change. 
 Thus, genetic variants associated with \glng{szc} and differential expression induced by early \gls{mia} might be affecting similar genes.
 The converging evidences suggested these genes might serve as an important candidates for future functional study in order to understand the etiology of \glng{scz}.
@@ -451,16 +452,17 @@ However, it is likely that the \gls{psd} and the \textit{Sgk1} gene will play an
 
 \subsection{Partitioning of Heritability}
 To estimate the relative contribution of common variants in the gene sets to the heritability of \glng{scz}, partitioning of heritability was performed using \gls{ldsc} \citet{Bulik-Sullivan2015}.
-It is observed that only the \gls{psd} gene set from \gls{go} and the gene set containing genes within the associated \gls{GWAS} LD-intervals from \citet{Purcell2014} are found to have a significant disproportionate contribution to the heritability of \glng{scz}.
-Our results are consistent with previous findings in \citet{Consortium2015a}, where only the \gls{go} \gls{psd} gene set is found to be significantly enriched by \emph{common} variants. 
 
-Not surprisingly, the \gls{GWAS} gene set is significantly enriched by common variants included in the \gls{pgc} \glng{scz} \gls{GWAS} and is accounting for around 10\% of the \gls{SNP} heritability.
-On the other hand, as all included gene sets have been reported to enriched by genetic variation observed in \glng{scz}, the insignificant enrichment only suggest that they are not enriched by \emph{common} genetic variants. 
-Instead, it is likely that these other gene sets are more affected by the rare genetic variants such as \gls{cnv}.
-Therefore, further genetic studies on the involvement of these gene sets in the etiology of \glng{scz} might want to focus on identify rare variants instead of common variants. 
+Not surprisingly, the \glng{scz} \gls{GWAS} gene set contributes most to the \gls{SNP} heritability of \glng{scz}, accounting for 9.98\% of the \gls{SNP} heritability.
 
-To conclude, our results suggest that the differential expression induced by early \gls{mia} events in the mouse cerebellum might be affecting the same functional gene sets as genetic variants associated with \glng{scz} in the etiology of \glng{scz}.
-Considering the converging evidence of the involvement of the calcium ion channel signalling and \gls{psd}, disruption of the calcium ion channel signalling or the \gls{psd} complex may therefore have an important role in the disease etiology of \glng{scz}.
+On the other hand, the relative contribution of the calcium ion channel to the \gls{SNP} heritability is much smaller, contributing only 0.77\% to 1.35\% of the heritability.
+Similarly, the \gls{psd} gene sets also only contribute to 5\% of the \gls{SNP} heritability.
+The relatively smaller contribution only suggest that the contribution of \emph{common} variants in these gene sets contribute for a small portion to the heritability of \glng{scz}.
+Considering these gene sets were also found to be differentially expressed in \gls{mia}, it is plausible for $G\times E$ interaction to act upon these gene sets.
+If $G\times E$ interaction exists between the \gls{mia} and common variants observed in these gene sets, the total contribution of these common variants to the heritability of \glng{scz} may be higher.
+
+Nonetheless, our results suggest that the differential expression induced by early \gls{mia} events in the mouse cerebellum might be affecting the same functional gene sets as genetic variants associated with \glng{scz} in the etiology of \glng{scz}.
+Consider the converging evidence of the involvement of the calcium ion channel signalling and \gls{psd}, disruption of the calcium ion channel signalling or the \gls{psd} complex may therefore have an important role in the disease etiology of \glng{scz}.
 Therefore, calcium ion channel signalling and the \gls{psd} should be served as the focus of further research in \glng{scz}.
 
 %\subsection{Functional Annotations}
@@ -569,7 +571,7 @@ Post transcriptional, translational and degradation regulation can all affect th
 The RNA Sequencing thus only provide an approximation to the concentration of a particular protein in the samples.
 Results from the RNA Sequencing study should serve as a candidates for further functional analysis protein assays in order to obtain a better understanding of the condition.
 
-Finally, at the time of this thesis,\gls{rtpcr} and functional studies have not been performed to  validate our findings.
+Finally, at the time of this thesis, \gls{rtpcr} and functional studies have not been performed to  validate our findings.
 As RNA Sequencing does not provide any causal linkage between the phenotype and the differential expression functional studies must be carried out in order to validate the functional impact of the differential expression. 
 Moreover, it is also important to validate the expression counts from RNA Sequencing using \gls{rtpcr}.
 Currently, the \gls{rtpcr} on \textit{Sgk1} are in progress. 
