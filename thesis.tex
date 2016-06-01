@@ -289,7 +289,7 @@ Their support and encouragement have been my greatest source of energy and have 
 \setlength{\parskip}{0.75em}
 \chapter{Introduction}
 \section{\Scz}
-\Scz is a devastating psychiatric disorder affecting approximately 0.3--0.7\% of the population worldwide \citep{AmericanPsychiatricAssociation2013}.
+\Scz is a devastating psychiatric disorder affecting approximately 0.3--0.7\% of the population worldwide \citep{dsm2013diagnostic}.
 According to the \gls{dsm}-\rom{5}, one of the standard diagnostic tools in psychiatry, a diagnosis of \scz\ (F20.9) can only be reached if the patient has suffered from 2 or more of the following symptoms for a significant portion of time during a 1-month period: 
 \begin{enumerate*}[label=\arabic*\upshape)]
 	\item delusion; \label{ls:delusion}
@@ -301,7 +301,7 @@ According to the \gls{dsm}-\rom{5}, one of the standard diagnostic tools in psyc
 Signs of disturbance need to persist for at least 6-month before the patient can be diagnosed with \scz.
 Current medical treatment of \scz, based on dopamine D2 receptor blockage, is effective only for the amelioration of positive symptoms in approximately 2/3 of patients.
 
-Because of its disabling symptoms and the lack of entirely effective treatments, \scz\ imposes a serious and long lasting health, social and financial burden to patients and their families \citep{Knapp2004}, where an increased tendency to commit suicide is often observe in \scz\ patients \citep{Saha2007}.
+Because of its disabling symptoms and the lack of entirely effective treatments, \scz\ imposes a serious and long lasting health, social and financial burden to patients and their families \citep{knapp2004global}, where an increased tendency to commit suicide is often observe in \scz\ patients \citep{saha2007systematic}.
 Based on the \gls{who} report, \scz\ was one of the top 20 leading cause of \gls{yld} in 2012, ranking 16 among all possible causes (\cref{tab:whoYLD}).
 \begin{table}[ht]
 	\centering
@@ -346,7 +346,7 @@ Heritability is divided into the broad sense heritability and the narrow sense h
 Broad sense heritability is defined as the \emph{proportion} of total variance of a trait in a population explained by the \emph{total} variation of genetic factors in the population, whereas the narrow sense heritability only takes into account of the variation of \emph{additive} genetic factors in the population instead of the total variation of genetic factors.
 
 \subsection{Broad Sense Heritability}
-For any phenotype, one can partition it into a combination of genetic and environmental components \citep{Falconer1996}
+For any phenotype, one can partition it into a combination of genetic and environmental components \citep{falconer1996introduction}
 $$
 \text{Phenotype (P)}=\text{Genotype (G)}+\text{Environment (E)}
 $$
@@ -388,13 +388,13 @@ To obtain the additive genetic effect, the genetic effect of a parent is first d
 As only half of the additive effect are transmitted to their offspring, the child will have a genetic effect of $G_c=\frac{1}{2}A+\frac{1}{2}A'+D'$ where $A'$ is the additive genetic effect obtained from another parent at random and $D'$ is the non-additive genetic effect in the offspring.
 The parent offspring covariance $\mathrm{Cov}(O,P)$ can therefore be defined as
 \begin{align}
-\mathrm{Cov}(O,P)&= \mathrm{Cov}(\frac{1}{2}A+\frac{1}{2}A'+D', A+D)  \notag\\
-&= \mathrm{Cov}(\frac{1}{2}A, A)+\mathrm{Cov}(\frac{1}{2}A, D)+\mathrm{Cov}(\frac{1}{2}A', A)+\mathrm{Cov}(\frac{1}{2}A', D)+\mathrm{Cov}(D', A)+\mathrm{Cov}(D', D)\notag\\
+&\mathrm{Cov}(O,P)\\
+&= \mathrm{Cov}(\frac{1}{2}A+\frac{1}{2}A'+D', A+D)  \notag\\
 &=\frac{1}{2}\mathrm{Cov}(A, A)+\frac{1}{2}\mathrm{Cov}(A, D)+\frac{1}{2}\mathrm{Cov}(A', A)+\frac{1}{2}\mathrm{Cov}(A', D)+\mathrm{Cov}(D', A)+\mathrm{Cov}(D', D)\notag\\
 &=\frac{1}{2}\sigma_A^2+\frac{1}{2}\mathrm{Cov}(A, D)+\frac{1}{2}\mathrm{Cov}(A', A)+\frac{1}{2}\mathrm{Cov}(A', D)+\mathrm{Cov}(D', A)+\mathrm{Cov}(D', D) 
 \label{eq:halfCompletedCovOP}
 \end{align} 
-Under the assumption of random mating,  $A'$ should be independent from $A$ and $D$ and $D'$ should be independent from $A$ and $D$, with the covariance between the additive genetics and non-additive genetics being zero \citep{Falconer1996}.
+Under the assumption of random mating,  $A'$ should be independent from $A$ and $D$ and $D'$ should be independent from $A$ and $D$, with the covariance between the additive genetics and non-additive genetics being zero \citep{falconer1996introduction}.
 Therefore
 \begin{align}
 \mathrm{Cov}(O,P) &= \frac{1}{2}\sigma_A^2
@@ -486,10 +486,10 @@ This provide strong support for \scz\ as a genetic disorder.
 
 \subsection{Twin Studies}
 Despite the usefulness of adoption studies, collection of adoption data are extremely difficult. 
-Moreover, adoption studies cannot control the prenatal environment such as alcohol abuse and malnutrition during pregnancy.
+Moreover, adoption studies cannot control the prenatal environment such as alcohol abuse and malnutrition during pregnancy, which remain confounded with genetic effects.
 For example, a high comorbidity of alcohol use disorders and \scz\ was observed \citep{boyd1984,drake1990}. 
 High consumption level of alcohol during pregnancy may bring about long-term alterations in nervous system functioning of the offspring \citep{garrett2014brain}.
-This increased risk of \scz\ in the offspring might therefore be an artifact of the alcohol abuse of the mother. 
+If the prenatal environmental effect increase the risk of \scz, the effects of these environmental effect might be mis-interpreted as genetic effect.
 
 Alternatively, twin studies, which utilize the genetic relationship between \gls{mz} and \gls{dz} twins, can be performed to estimate the heritability of the target trait.
 
@@ -502,14 +502,14 @@ In view of this, \citet{falconer1996introduction} derived the heritability as
 h^2 = 2(\rho_{MZ}-\rho_{DZ})
 \end{equation}
 where $\rho_{MZ}$ and $\rho_{DZ}$ are the phenotype correlation between the \gls{mz} twins and \gls{dz} twins respectively.
-However, if assortative mating occurs in the population, the additive genetic factors shared between the \gls{dz} twins might be higher than $\frac{1}{2}$, thus leading to a underestimation of the heritability.
+However, if assortative mating occurs in the population, the additive genetic factors shared between the \gls{dz} twins might be higher than $\frac{1}{2}$, thus leading to an underestimation of the heritability.
 Nonetheless, twin studies can be served as the first step in the study of genetic architecture and provide vital understanding of the trait.
 
 By combining Falconer's formula and the concept of liability threshold model, \citet{Gottesman1967} estimated that the heritability of \scz\ to be $>60\%$ based on previously collected twin data.
 This provides strong evidence that the genetic variation contributes more to the variance of \scz.
 
-The result was further supported by one of the landmark meta-analysis study conducted by \citet{Sullivan2003}.
-Based on data obtained from 12 published \scz\ twin studies, \citet{Sullivan2003} found much contribution from genetics on the liability of \scz\ ($81\%$, \gls{ci}=$73\%-90\%$).
+The result was further supported by one of the landmark meta-analysis study conducted by \citet{sullivan2003schizophrenia}.
+Based on data obtained from 12 published \scz\ twin studies, \citet{sullivan2003schizophrenia} found much contribution from genetics on the liability of \scz\ ($81\%$, \gls{ci}=$73\%-90\%$).
 Furthermore, in the large scale population based studies performed by \citet{Lichtenstein2009}, the genetic contribution to \scz\ was found to be $64\%$.
 Together, these results provide strong support for \scz\ as a genetic disorder. 
 
@@ -554,12 +554,12 @@ For quantitative traits, the association between the trait and frequency of the 
 On the other hand, for dichotomous traits such as \scz, the frequency of the variants are compared between the case and control samples using chi-square test or logistic regression.
 
 However, when a large number of \glspl{SNP} were tested, the frequency of type I error increases \citep{Peters2010}.
-Most importantly, even in the scenario where only one \gls{SNP} was tested, the number of potential comparison can still be high \citep{gelman2016statistical}.
-Again, this may result in large type I error.   
-Thus, multiple testing correction is vital in the analysis of \gls{SNP} association.
-
 The simplest method for the correction of \gls{GWAS} is to use the genome wide threshold (p-value $\le5\times10^{-8}$), where only \glspl{SNP} with p-value less then the genome wide threshold are considered to be significant in \gls{GWAS}.
 Another possible method to decide the significant threshold is to consider the ``effective number'' of tests \citep{Li2011}, which reduced the genome-wide threshold according to the \gls{LD} structure.
+Most importantly, the same genome-wide significance threshold should be used even for low density \gls{SNP} arrays in which the \glspl{SNP} are \emph{randomly} selected.
+This is because the interpretation of the result of a random \gls{SNP} should not depend on whether another \gls{SNP} is tested or not \citep{gelman2016statistical,Sham2014}.
+Thus, multiple testing correction is vital in the analysis of \gls{SNP} association.
+
 
 Finally, when designing a \gls{GWAS}, the magnitude of effect, sample size, and required level of statistical significance (the false-positive, or type I, error rate) are all important factors determining the detection power of the \gls{GWAS} \citep{Purcell2003}.
 Similar to linkage studies, a larger sample size are required to identify susceptible loci with a smaller effect. 
@@ -672,7 +672,7 @@ This provide strong evidence that the \gls{LD} score regression can partition th
 
 Following the success of their simulation, \citet{Bulik-Sullivan2015} utilized \gls{ldsc} to estimate the \gls{SNP} heritability of \scz\ using the summary statistics from the \gls{pgc} \scz\ \gls{GWAS} \citep{Ripke2014}.
 The estimated \gls{SNP} heritability of \scz\ is around 0.555 with standard error of 0.008 after adjusting for ascertainment bias. 
-Comparing the \gls{SNP} heritability estimated with the heritability estimated from the population study (64\% \citep{Lichtenstein2009}) and the twin studies (81\% \citep{Sullivan2003}), it seems as if the common variants have accounted for most if not all of the heritability of \scz.
+Comparing the \gls{SNP} heritability estimated with the heritability estimated from the population study (64\% \citep{Lichtenstein2009}) and the twin studies (81\% \citep{sullivan2003schizophrenia}), it seems as if the common variants have accounted for most if not all of the heritability of \scz.
 
 \subsubsection{Partitioning of Heritability}
 Other than the estimation of \gls{SNP} heritability, \gls{ldsc} also allows for the partitioning of heritability into different pathways, which can be used for functional enrichment analysis. 
@@ -794,7 +794,7 @@ In addition to \gls{cnv}, there are also evidence of an increased burden of rare
 By sequencing the exome of 2,536 \scz\ cases and 2,543 normal controls,  \citet{purcell2014polygenic} identified a common missense allele on \textit{CCHCR1} in the \gls{mhc} region to be associated with \scz.
 Although none of the genes showed a significant burden of rare mutation in \scz\ cases, a significant increased burden of rare nonsense and disruptive variants was observed in gene sets such as voltage-gated calcium ion channel, genes affected by \textit{de novo} mutations in \scz\ \citep{Fromer2014} and the postsynaptic density, all of which have been reported to be associated with \scz\ in previous genetic studies \citep{Ripke2014}.
 
-Despite the complexity of \scz, evidence of gene sets enriched by common variants, structural variations, \gls{cnv} and rare variants all converge to the same set of functional pathways, suggesting a common functional pathway is disrupted in \scz\ patients. 
+As might be expected, evidence of gene sets enriched by common variants, structural variations, \gls{cnv} and rare variants all converge to the same set of functional pathways, suggesting a common functional pathway is disrupted in \scz\ patients.
 Together, the evidences support for the involvements of genetic variations other than common \glspl{SNP} in the risk of \scz.
 
 \section{Environmental Risk Factors}
@@ -806,17 +806,19 @@ In 2004, \citet{Tienari2004} conducted an adoption study where they found that i
 Moreover, using the national registers in Finland, \citet{Clarke2009} found that the effect of prenatal infection was five times greater in those who had a family history of psychosis when compared to those who did not. 
 These evidences provide support of the presence of gene-environment interaction in \scz, which might suggest the total heritability of \scz\ was overestimated \citep{zuk2012mystery}.
 
+Additionally, the gene(G)-environment(E) interaction loads on G in twin studies, but do not contribute to heritability estimate in \gls{GWAS}, therefore gene-shared environment interaction is presented, it is expected to observe a discrepancy between the heritability estimated from twin-studies and estimated from \gls{GWAS}.
+
 With the possible overestimation of heritability for \scz, the environmental contribution to the disease etiology might be higher than expected. 
 It might then be important to also study the environmental effect in \scz.
 
-Environmental factors such as prenatal infection \citep{Brown2010}, winter birth \citep{o1991season}, tobacco consumption \citep{Kelly1999} and socio economic status \citep{McGrath2008a} have been found to be associated with \scz.
+Environmental factors such as prenatal infection \citep{Brown2010}, winter birth \citep{o1991season}, tobacco consumption \citep{Kelly1999} and socio economic status \citep{mcgrath2008schizophrenia} have been found to be associated with \scz.
 
 \subsection{Prenatal Infection}
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{figure/risk_factors_of_schizophrenia.png}
 	\caption[Risk factors of \scz]{Risk factors of \scz.
-		Of all risk factors, family history of \scz\ was the largest, where risk of \scz\ can be more than 9 times higher than the general population for individual with a family history of \scz}
+		Of all risk factors, family history of \scz\ was the largest, where risk of \scz\ can be more than 9 times higher than the general population for individual with a family history of \scz\ \citep{Sullivan2005}}
 	\label{fig:riskfactors}
 \end{figure}
 
@@ -833,9 +835,10 @@ From these cohorts, it was found that as long as an individual's mother was infe
 This leads to the hypothesis that \gls{mia} \citep{Brown2010} rather than a particular infectious agent, is the main risk factor. 
 \citet{Garbett2012a} suggested that one possible mechanism is that the maternal immune response to infection might have disrupted the brain development in the fetus, therefore predispose the fetus to \scz.
 
-However, it is challenging to study the mechanism of \gls{mia}, because it is not possible to carry out controlled experiment on human samples due to ethical concerns.
+\subsection{Maternal Immune Activation Model}
+It is challenging to study the mechanism of \gls{mia}, because it is not possible to carry out controlled experiment on human samples due to ethical concerns.
 Therefore rodent models is used as an alternative.
-However, unlike physiological traits, psychiatric disorder such as \scz\ are characterized by symptoms related to higher level functioning such as hallucinations, delusion, disorganized speech etc. \citep{AmericanPsychiatricAssociation2013}, which are not readily detectable in rodents.
+However, unlike physiological traits, psychiatric disorder such as \scz\ are characterized by symptoms related to higher level functioning such as hallucinations, delusion, disorganized speech etc. \citep{dsm2013diagnostic}, which are not readily detectable in rodents.
 Therefore, as a compromise, rodent expressing ``\scz-like'' behaviours such as impaired prepulse inhibition, impaired working memory and reduced social interaction are considered as ``cases'' \citep{Meyer2007a}.
 
 However, it is crucial to note that the behavioral abnormality is not unique to \scz, but can also be observed in autistic samples.
@@ -888,6 +891,7 @@ Subsequent \gls{mia} studies using the \gls{polyic} mouse model also support the
 Despite the more severe impact of \gls{mia} during early gestation, most \gls{mia} studies have been focusing on the mid-gestation period.
 Therefore, there is a lack of understanding of the full molecular implication of early \gls{mia} events in adult brain.
 
+\subsection{Dietary Effects}
 The main goal of \scz\ research is to identify a effective treatment for \scz. 
 One potential target is the n-3 \gls{pufa} \citep{Li2015,Trebble2003}.
 In mouse, it was found that n-3 \gls{pufa} can inhibits the production of \gls{il6} \citep{Trebble2003} - a major mediator in \gls{mia} model \citep{Smith2007}.
@@ -923,7 +927,7 @@ However, unlike microarray, where the signal usually follows a normal distributi
 
 Early RNA Sequencing experiment assumes the gene expression counts to follows the Poisson distribution \citep{Marioni2008}, where the variance of the expression is expected to be equal to the mean of the expression.
 However, it was found that the assumption of Poisson distribution is too restrictive, as an over-dispersion was typically observed in RNA Sequencing data \citep{Anders2010}.
-Therefore, to overcome the problem of over-dispersion, differential expression analysis of RNA Sequencing data are required to model the expression using the negative binomial distribution \citep{Anders2010,Robinson2010} or the beta negative binomial distribution \citep{Trapnell2012}, instead of the Poisson distribution.
+Therefore, to overcome the problem of over-dispersion, differential expression analysis of RNA Sequencing data are required to model the expression using the negative binomial distribution \citep{Anders2010,Robinson2010} or the beta negative binomial distribution \citep{trapnell2012differential}, instead of the Poisson distribution.
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.5\textwidth]{figure/overdispersion.png}
@@ -1135,7 +1139,7 @@ Remember from \cref{eq:sumH} that \gls{SNP}-heritability can be represent as $\s
 \label{eq:finalShrek}
 \end{align}
 
-\subsection{Calculation Standard Error}
+\subsection{Calculation of Standard Error}
 It is also essential to estimate the standard error of the estimate.
 Based on \cref{eq:finalShrek}, the variance of the \gls{SNP}-heritability can be defined as
 \begin{equation}
@@ -1202,7 +1206,7 @@ Additionally, it was observed that
 &=\mu_i\mu_j+R_{ij}
 \label{eq:zzuu}
 \end{align}
-where $\hat{z_i}$ is the \emph{observed} $z$-statistic ($\boldsymbol{\hat{z}} = \sqrt{\boldsymbol{\chi^2}}$ from \cref{eq:defineF}, with the direction of effect as its sign).
+where $\hat{z_i}$ is the \emph{observed} $z$-statistic ($\boldsymbol{\hat{z}} = \sqrt{\boldsymbol{\chi^2}}$), with the direction of effect as its sign).
 Substituting \cref{eq:zzuu} and \cref{eq:varF} into \cref{eq:varHvarf} in matrix form, the variance of the estimate can be expressed as
 \begin{align}
 \mathrm{Var}(\hat{\text{SNP-heritability}}) &=\boldsymbol{1}^t\boldsymbol{R_{sq}}^{-1}\frac{2\boldsymbol{R_{sq}}+4\boldsymbol{R}\circ \boldsymbol{\hat{z}\hat{z}}^t}{n^2}\boldsymbol{R_{sq}}^{-1}\boldsymbol{1}
@@ -1587,7 +1591,7 @@ In summary, the following simulation procedures were used:
 \label{sec:realData}
 The main goal of the current study is to investigate whether if the \gls{SNP}-heritability of \scz\ estimated by \gls{ldsc} is correct.
 Therefore, we estimate the \gls{SNP}-heritability of \scz\ with \gls{shrek} alongside \gls{ldsc}, using the summary statistics from the \gls{pgc} \scz\ \gls{GWAS} \citep{Ripke2014} as an input. 
-As a control, we also estimated the \gls{SNP}-heritability for bipolar and major depression disorder \citep{PsychiatricGWASConsortiumBipolarDisorderWorkingGroup2011,Ripke2013b} as a control.
+As a control, we also estimated the \gls{SNP}-heritability for bipolar and major depression disorder \citep{sklar2011large,Ripke2013b} as a control.
 
 The reference genome were downloaded from 1000 genome (hg19) \citep{Project2012} and were converted to PLINK binaries using the PLINK -{}-vcf function. 
 The European super population was extracted, which contains a total of 503 samples.
@@ -2469,7 +2473,7 @@ Only then can we gain better understanding of how genetics contribute to the ris
 \glsreset{gd}
 Because \scz\ is a genetic disorder with heritability of $\sim80\%$, much of the research efforts have been spend on the genetic studies of \scz.
 However, environmental factors also have some influence to \scz.
-From the meta-analysis of the twin studies, \citet{Sullivan2003} estimated that the shared or common environmental influences on liability to \scz\ is around 11\% with a confidence interval ranging from 3\%-19\%.
+From the meta-analysis of the twin studies, \citet{sullivan2003schizophrenia} estimated that the shared or common environmental influences on liability to \scz\ is around 11\% with a confidence interval ranging from 3\%-19\%.
 In addition, it was observed that there are some genetic-environmental interaction influencing \scz\ \citep{Tienari2004,Clarke2009},  which may lead to overestimation of the heritability \citet{zuk2012mystery}. 
 Therefore, environmental factors might also be an important target for the study of \scz.
 
@@ -2952,7 +2956,7 @@ Shall the results be validated, subsequent functional studies can be performed.
 \glsresetall
 \Scz\ has long been recognized as a genetic disorder. 
 With the recent advancement in technology, 108 independent genetic loci associated with \scz\ has finally been identified by the \Scz\ Working group of \gls{pgc} \citep{Ripke2014}.
-Based on these results, \citet{Bulik-Sullivan2015} estimated that the common \glspl{SNP} account for 55.5\% of the risk of \scz, which is closed to the estimate from twins and family studies ($\sim64-81\%$) \citep{Sullivan2003,Lichtenstein2009}.
+Based on these results, \citet{Bulik-Sullivan2015} estimated that the common \glspl{SNP} account for 55.5\% of the risk of \scz, which is closed to the estimate from twins and family studies ($\sim64-81\%$) \citep{sullivan2003schizophrenia,Lichtenstein2009}.
 However, in the presence of genetic-environment interaction, the heritability of \scz\ might be overestimated \citep{zuk2012mystery}, which might suggest that the \gls{SNP}-heritability estimated by \citet{Bulik-Sullivan2015} might be too high. 
 Additionally, as rare mutations \citep{purcell2014polygenic}, \gls{cnv} \citep{Szatkiewicz2014} and structural variants \citep{Walsh2008} all seems to contribute to risk of \scz,  it is more likely that \citet{Bulik-Sullivan2015} has overestimated the \gls{SNP}-heritability of \scz.
 
@@ -2974,7 +2978,7 @@ Meanwhile, if the confounding effect are adjusted, then \gls{shrek} might be sup
 Finally, the new estimates from \gls{ldsc} and \gls{shrek} indicate that the common \glspl{SNP} included in the \gls{pgc} \gls{GWAS} can account for no more than 20\% of the liability risk of \scz.
 Hence, to fully understand the genetic influence in the etiology of \scz, the field should invest more in sequencing and epigenetic studies for the identification of rare mutations and epigenetic changes associated with \scz\ instead of increasing the sample size of \scz\ \gls{GWAS} studies. 
 
-Although \scz\ is a genetic disorder, it was estimated that the shared or common environmental influences on liability to \scz\ is around 11\% with a confidence interval ranging from 3\%-19\%  \citep{Sullivan2003}, suggesting that they also have an important role in the etiology of \scz.
+Although \scz\ is a genetic disorder, it was estimated that the shared or common environmental influences on liability to \scz\ is around 11\% with a confidence interval ranging from 3\%-19\%  \citep{sullivan2003schizophrenia}, suggesting that they also have an important role in the etiology of \scz.
 In view of this, we performed a RNA Sequencing analysis to study the effect of \gls{mia}, an environmental influence that is associated with \scz, and the effect of n-3 \gls{pufa} rich diet in the gene expression pattern of mouse cerebellum.
 
 Although no significant gene is detected when comparing the effect of \gls{mia} in mouse receiving the control diet, it is observed that \gls{mia} can also affect candidate gene sets that were reported to be associated with \scz.
